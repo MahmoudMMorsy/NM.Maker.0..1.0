@@ -1,0 +1,8 @@
+{
+  "name": "Remix: NOR Maker 4 AI.0.1.2026.7.14",
+  "description": "A clean React starter template running on Vite with Tailwind CSS.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

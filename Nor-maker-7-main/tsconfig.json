@@ -1,0 +1,37 @@
+{
+  "include": [
+    "App.tsx",
+    "index.tsx",
+    "types.ts",
+    "electron.d.ts",
+    "components/**/*",
+    "utils/**/*",
+    "services/**/*",
+    "lib/**/*",
+    "src/**/*"
+  ],
+  "exclude": ["node_modules", "dist", "build"],
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "moduleResolution": "bundler",
+    "allowJs": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false,
+    "skipLibCheck": true,
+    "types": ["node", "vite/client"],
+    "paths": {
+      "@/*": ["./*"]
+    }
+  }
+}

@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <script>
+      // Ignore "Cannot set property fetch" errors caused by external extensions/sandbox
+      window.addEventListener('error', function(e) {
+        if (e.message && e.message.includes('Cannot set property fetch')) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+        }
+      });
+      // Also catch unhandled rejections just in case
+      window.addEventListener('unhandledrejection', function(e) {
+        if (e.reason && e.reason.message && e.reason.message.includes('Cannot set property fetch')) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+        }
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>NOR Maker 8.2 - صانع الألعاب</title>
+    <link href="/fonts/press-start-2p.css" rel="stylesheet">
+    <style>
+      :root {
+        --win-face: #ece9d8;
+        --win-highlight: #ffffff;
+        --win-shadow: #aca899;
+        --win-darkshadow: #716f64;
+        --win-text: #000000;
+        --win-blue: #315db9;
+        --win-blueGrad: #214698;
+        --win-inactive: #7a96df;
+        --win-inactiveGrad: #6375d6;
+        --win-select: #316ac5;
+        --win-workspace: #5d7ea3;
+      }
+
+      body {
+        background-color: var(--win-workspace);
+        color: var(--win-text);
+        font-family: 'Press Start 2P', sans-serif;
+        overflow: hidden;
+        font-size: 9px;
+        user-select: none;
+        transition: background-color 0.2s ease, color 0.2s ease;
+        line-height: 1.6;
+      }
+
+      * { -webkit-tap-highlight-color: transparent; }
+      .pixelated { image-rendering: pixelated; }
+
+      ::-webkit-scrollbar { width: 16px; height: 16px; background: var(--win-face); }
+      ::-webkit-scrollbar-track {
+        background: var(--win-highlight);
+        border-left: 1px solid #e0e0e0;
+        background-image: linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%, #f0f0f0), linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%, #f0f0f0);
+        background-size: 4px 4px;
+        background-position: 0 0, 2px 2px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--win-face);
+        border: 1px solid var(--win-face);
+        box-shadow: inset 1px 1px var(--win-highlight), inset -1px -1px var(--win-darkshadow);
+      }
+      ::-webkit-scrollbar-thumb:active {
+         background: #d4d0c8;
+         box-shadow: inset 1px 1px var(--win-darkshadow), inset -1px -1px var(--win-highlight);
+      }
+      ::-webkit-scrollbar-button {
+        background: var(--win-face);
+        display: block;
+        width: 16px;
+        height: 16px;
+        box-shadow: inset 1px 1px var(--win-highlight), inset -1px -1px var(--win-darkshadow);
+      }
+
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+      .tree-node { position: relative; }
+      .tree-connector-v { position: absolute; left: 0; top: 0; bottom: 0; width: 1px; border-left: 1px dotted #808080; }
+      .tree-connector-h { position: absolute; left: 0; top: 9px; width: 10px; height: 1px; border-top: 1px dotted #808080; }
+      .tree-node.last-item > .tree-connector-v { bottom: 50%; }
+
+      .crt-overlay {
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+        background-size: 100% 2px, 3px 100%;
+        pointer-events: none;
+      }
+
+      /* Mobile touch improvements */
+      @media (max-width: 768px) {
+        body { font-size: 8px; }
+        button, [role="button"] { min-height: 32px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
