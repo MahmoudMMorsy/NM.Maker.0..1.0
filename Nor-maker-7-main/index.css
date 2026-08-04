@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-pixel: "Press Start 2P", cursive;
+  --font-ui: "Press Start 2P", sans-serif;
+  --font-arabic: "Press Start 2P", sans-serif;
+  --font-sans: "Press Start 2P", sans-serif;
+
+  --color-win-face: var(--win-face);
+  --color-win-highlight: var(--win-highlight);
+  --color-win-shadow: var(--win-shadow);
+  --color-win-darkshadow: var(--win-darkshadow);
+  --color-win-text: var(--win-text);
+  --color-win-blue: var(--win-blue);
+  --color-win-blueGrad: var(--win-blueGrad);
+  --color-win-inactiveGrad: var(--win-inactiveGrad);
+  --color-win-inactive: var(--win-inactive);
+  --color-win-select: var(--win-select);
+  --color-win-workspace: var(--win-workspace);
+  --color-nes-red: #E60012;
+
+  --shadow-win-out: inset 1px 1px var(--win-highlight), inset -1px -1px var(--win-darkshadow), 1px 1px #000;
+  --shadow-win-in: inset 1px 1px var(--win-darkshadow), inset -1px -1px var(--win-highlight);
+  --shadow-win-flat: inset 1px 1px var(--win-highlight), inset -1px -1px var(--win-shadow);
+  --shadow-win-window: inset -1px -1px #000, inset 1px 1px var(--win-highlight), inset -2px -2px var(--win-shadow), inset 2px 2px #e0e0e0;
+}
+
+:root {
+  --win-face: #ece9d8;
+  --win-highlight: #ffffff;
+  --win-shadow: #aca899;
+  --win-darkshadow: #716f64;
+  --win-text: #000000;
+  --win-blue: #315db9;
+  --win-blueGrad: #214698;
+  --win-inactive: #7a96df;
+  --win-inactiveGrad: #6375d6;
+  --win-select: #316ac5;
+  --win-workspace: #5d7ea3;
+}
+
+body {
+  background-color: var(--win-workspace);
+  color: var(--win-text);
+  font-family: 'Press Start 2P', sans-serif;
+  overflow: hidden;
+  font-size: 9px;
+  user-select: none;
+  transition: background-color 0.2s ease;
+  line-height: 1.6;
+}
+
+.crt-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.8;
+}
+
+.crt-overlay::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18, 16, 16, 0.1);
+  opacity: 0;
+  z-index: 10000;
+  pointer-events: none;
+  animation: flicker 0.15s infinite;
+}
+
+@keyframes flicker {
+  0% { opacity: 0.27861; }
+  5% { opacity: 0.34769; }
+  10% { opacity: 0.23604; }
+  15% { opacity: 0.90626; }
+  20% { opacity: 0.18128; }
+  25% { opacity: 0.83891; }
+  30% { opacity: 0.65583; }
+  35% { opacity: 0.57807; }
+  40% { opacity: 0.26559; }
+  45% { opacity: 0.84693; }
+  50% { opacity: 0.96019; }
+  55% { opacity: 0.08594; }
+  60% { opacity: 0.20313; }
+  65% { opacity: 0.71988; }
+  70% { opacity: 0.53455; }
+  75% { opacity: 0.37288; }
+  80% { opacity: 0.71428; }
+  85% { opacity: 0.70419; }
+  90% { opacity: 0.7003; }
+  95% { opacity: 0.36108; }
+  100% { opacity: 0.24387; }
+}
+
+.image-render-pixel {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.image-pixelated {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s infinite;
+}
+
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(-2%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+/* Mobile touch enhancements */
+@media (max-width: 768px) {
+  body { font-size: 8px; }
+  button, [role="button"] { min-height: 28px; }
+  .font-pixel { font-size: 7px !important; }
+}
+
+/* Ghibli / Forest theme special styles */
+.theme-ghibli .bg-win-workspace {
+  background-image: radial-gradient(ellipse at top, #a8d8a8 0%, #7aab6a 100%);
+}
+
+/* Smooth theme transitions */
+*, *::before, *::after {
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+button, input, textarea, select {
+  transition: none;
+}
+
+/* Retro pixel scanline (light) */
+.scanlines {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.03) 2px,
+    rgba(0,0,0,0.03) 4px
+  );
+  pointer-events: none;
+}
+
+/* No-select for drag handles */
+.drag-handle { cursor: move; user-select: none; }
+
+/* Arabic RTL fixes */
+[dir="rtl"] .ml-2 { margin-left: 0; margin-right: 0.5rem; }
+[dir="rtl"] .mr-2 { margin-right: 0; margin-left: 0.5rem; }
