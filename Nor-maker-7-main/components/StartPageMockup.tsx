@@ -63,6 +63,21 @@ const StartPageMockup = ({ prompt, setPrompt, selectedImage, setSelectedImage, w
                                 <h2 className="text-xl font-bold mb-4">Recent Projects</h2>
                                 {/* List items here */}
                                 <p className="text-gray-500">No recent projects.</p>
+
+                                <div className="mt-8 border-t pt-4">
+                                    <h3 className="text-md font-bold mb-2 text-blue-800 flex items-center gap-1">🛠 Quick Launch Classic Suite</h3>
+                                    <p className="text-[11px] text-gray-600 mb-3">Launch the native portable GameMaker 8.2 workspace directly from here:</p>
+                                    <RetroButton onClick={async () => {
+                                        if ((window as any).electronAPI) {
+                                            const res = await (window as any).electronAPI.launchGameMaker();
+                                            if (!res.success) window.alert(res.error);
+                                        } else {
+                                            window.alert("الرجاء تشغيل التطبيق كنسخة ديسكتوب لتتمكن من تشغيل غيم ميكر الكلاسيكي.");
+                                        }
+                                    }} className="!bg-blue-600 !text-white h-10 px-6">
+                                        🚀 Launch GameMaker 8.2 Portable
+                                    </RetroButton>
+                                </div>
                             </div>
                         )}
                     </div>

@@ -7,6 +7,7 @@ const { app, BrowserWindow, Menu, dialog, ipcMain, shell, nativeTheme } = requir
 const path = require('path');
 const fs   = require('fs');
 const os   = require('os');
+const { execFile } = require('child_process');
 
 const isDev = process.env.NODE_ENV === 'development';
 const DEV_URL = 'http://localhost:5000';
@@ -202,6 +203,35 @@ ipcMain.handle('fs:readFile', async (_event, filePath) => {
 
 ipcMain.handle('app:version', () => app.getVersion());
 ipcMain.handle('app:platform', () => process.platform);
+
+ipcMain.handle('app:launchGameMaker', async () => {
+  const possiblePaths = [
+    path.join(__dirname, '..', '..', 'game maker', 'portable', 'GameMaker.exe'),
+    path.join(process.cwd(), 'game maker', 'portable', 'GameMaker.exe'),
+    path.join(app.getAppPath(), '..', 'game maker', 'portable', 'GameMaker.exe'),
+    path.join(app.getAppPath(), 'game maker', 'portable', 'GameMaker.exe'),
+  ];
+
+  let targetPath = null;
+  for (const p of possiblePaths) {
+    if (fs.existsSync(p)) {
+      targetPath = p;
+      break;
+    }
+  }
+
+  if (!targetPath) {
+    return { success: false, error: 'لم يتم العثور على ملف GameMaker.exe الكلاسيكي في المجلدات المحددة. تأكد من وجود المجلد الكلاسيكي.' };
+  }
+
+  try {
+    const child = execFile(targetPath, [], { cwd: path.dirname(targetPath) });
+    child.unref();
+    return { success: true };
+  } catch (err) {
+    return { success: false, error: err.message };
+  }
+});
 
 ipcMain.handle('dialog:open', async (_event, opts) => {
   const { canceled, filePaths } = await dialog.showOpenDialog(mainWindow, {

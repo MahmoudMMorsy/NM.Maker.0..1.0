@@ -15,6 +15,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
   /* ── App Info ── */
   getVersion: () => ipcRenderer.invoke('app:version'),
   platform:   () => ipcRenderer.invoke('app:platform'),
+  launchGameMaker: () => ipcRenderer.invoke('app:launchGameMaker'),
 
   /* ── Menu Events (main → renderer) ── */
   onMenuEvent: (handler) => {
