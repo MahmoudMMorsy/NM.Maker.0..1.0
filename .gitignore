@@ -1,9 +1,6 @@
+# nor game maker ignores
 node_modules/
-build/
 dist/
-coverage/
+build/
 .DS_Store
 *.log
-.env*
-!.env.example
-Nor-maker-7-main/

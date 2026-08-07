@@ -14,7 +14,7 @@ const StartPageMockup = ({ prompt, setPrompt, selectedImage, setSelectedImage, w
             <div className="w-full max-w-4xl bg-win-face border border-black shadow-[4px_4px_0_rgba(0,0,0,0.5)]">
                 {/* Header */}
                 <div className="h-8 bg-win-blue text-white flex items-center px-4 font-bold text-sm justify-between">
-                    <span>NOR MAKER 8.2 — Start Page</span>
+                    <span>nor game maker game maker — Start Page</span>
                     <div className="flex gap-1">
                         <button className="w-5 h-5 bg-gray-200 text-black flex items-center justify-center font-bold pb-1 shadow-win-out">_</button>
                         <button className="w-5 h-5 bg-gray-200 text-black flex items-center justify-center font-bold shadow-win-out">X</button>
@@ -55,7 +55,7 @@ const StartPageMockup = ({ prompt, setPrompt, selectedImage, setSelectedImage, w
                                 <RetroButton onClick={() => htmlInputRef.current?.click()} className="h-20 flex-col"> <Globe/> HTML</RetroButton>
                                 <RetroButton onClick={() => gmxFolderInputRef.current?.click()} className="h-20 flex-col"> <Package/> .gmx</RetroButton>
                                 <RetroButton onClick={() => nesInputRef.current?.click()} className="h-20 flex-col"> <Gamepad2/> NES ROM</RetroButton>
-                                <RetroButton onClick={() => {}} className="h-20 flex-col !bg-orange-100 !border-orange-400 !text-orange-900"> <Folder/> NOR Project</RetroButton>
+                                <RetroButton onClick={() => {}} className="h-20 flex-col !bg-orange-100 !border-orange-400 !text-orange-900"> <Folder/> nor game maker game maker Project</RetroButton>
                             </div>
                         )}
                         {wizardTab === 'recent' && (
@@ -63,21 +63,6 @@ const StartPageMockup = ({ prompt, setPrompt, selectedImage, setSelectedImage, w
                                 <h2 className="text-xl font-bold mb-4">Recent Projects</h2>
                                 {/* List items here */}
                                 <p className="text-gray-500">No recent projects.</p>
-
-                                <div className="mt-8 border-t pt-4">
-                                    <h3 className="text-md font-bold mb-2 text-blue-800 flex items-center gap-1">🛠 Quick Launch Classic Suite</h3>
-                                    <p className="text-[11px] text-gray-600 mb-3">Launch the native portable GameMaker 8.2 workspace directly from here:</p>
-                                    <RetroButton onClick={async () => {
-                                        if ((window as any).electronAPI) {
-                                            const res = await (window as any).electronAPI.launchGameMaker();
-                                            if (!res.success) window.alert(res.error);
-                                        } else {
-                                            window.alert("الرجاء تشغيل التطبيق كنسخة ديسكتوب لتتمكن من تشغيل غيم ميكر الكلاسيكي.");
-                                        }
-                                    }} className="!bg-blue-600 !text-white h-10 px-6">
-                                        🚀 Launch GameMaker 8.2 Portable
-                                    </RetroButton>
-                                </div>
                             </div>
                         )}
                     </div>

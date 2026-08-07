@@ -1,5 +1,5 @@
 /**
- * NOR Maker AI — Electron Main Process
+ * nor game maker game maker — Electron Main Process
  * Wraps the Vite/React app in a native desktop window.
  */
 
@@ -7,7 +7,6 @@ const { app, BrowserWindow, Menu, dialog, ipcMain, shell, nativeTheme } = requir
 const path = require('path');
 const fs   = require('fs');
 const os   = require('os');
-const { execFile } = require('child_process');
 
 const isDev = process.env.NODE_ENV === 'development';
 const DEV_URL = 'http://localhost:5000';
@@ -21,7 +20,7 @@ function createWindow() {
     height:       900,
     minWidth:     1100,
     minHeight:    700,
-    title:        'NOR Maker AI',
+    title:        'nor game maker game maker',
     icon:         path.join(__dirname, '..', 'public', 'favicon.svg'),
     backgroundColor: '#c0c0c0',
     show: false,
@@ -130,17 +129,17 @@ function buildMenu() {
       label: 'Help',
       submenu: [
         {
-          label: 'NOR Maker Documentation',
+          label: 'nor game maker game maker Documentation',
           click: () => shell.openExternal('https://normaker.dev/docs'),
         },
         { type: 'separator' },
         {
-          label: 'About NOR Maker AI',
+          label: 'About nor game maker game maker',
           click: () => {
             dialog.showMessageBox(mainWindow, {
               type:    'info',
-              title:   'About NOR Maker AI',
-              message: 'NOR Maker AI',
+              title:   'About nor game maker game maker',
+              message: 'nor game maker game maker',
               detail:  `Version: ${app.getVersion()}\nElectron: ${process.versions.electron}\nChromium: ${process.versions.chrome}\nNode: ${process.versions.node}\nPlatform: ${os.platform()} ${os.arch()}`,
               buttons: ['OK'],
             });
@@ -159,7 +158,7 @@ function buildMenu() {
 async function openNorFile() {
   const { canceled, filePaths } = await dialog.showOpenDialog(mainWindow, {
     title:   'Open .nor Game File',
-    filters: [{ name: 'NOR Game', extensions: ['nor'] }],
+    filters: [{ name: 'nor game maker game maker Game', extensions: ['nor'] }],
     properties: ['openFile'],
   });
   if (canceled || !filePaths.length) return;
@@ -169,9 +168,9 @@ async function openNorFile() {
 
 async function openPnorFile() {
   const { canceled, filePaths } = await dialog.showOpenDialog(mainWindow, {
-    title:   'Open NOR Maker Project',
+    title:   'Open nor game maker game maker Project',
     filters: [
-      { name: 'NOR Project', extensions: ['pnor', 'nor'] },
+      { name: 'nor game maker game maker Project', extensions: ['pnor', 'nor'] },
       { name: 'All Files', extensions: ['*'] },
     ],
     properties: ['openFile'],
@@ -203,35 +202,6 @@ ipcMain.handle('fs:readFile', async (_event, filePath) => {
 
 ipcMain.handle('app:version', () => app.getVersion());
 ipcMain.handle('app:platform', () => process.platform);
-
-ipcMain.handle('app:launchGameMaker', async () => {
-  const possiblePaths = [
-    path.join(__dirname, '..', '..', 'game maker', 'portable', 'GameMaker.exe'),
-    path.join(process.cwd(), 'game maker', 'portable', 'GameMaker.exe'),
-    path.join(app.getAppPath(), '..', 'game maker', 'portable', 'GameMaker.exe'),
-    path.join(app.getAppPath(), 'game maker', 'portable', 'GameMaker.exe'),
-  ];
-
-  let targetPath = null;
-  for (const p of possiblePaths) {
-    if (fs.existsSync(p)) {
-      targetPath = p;
-      break;
-    }
-  }
-
-  if (!targetPath) {
-    return { success: false, error: 'لم يتم العثور على ملف GameMaker.exe الكلاسيكي في المجلدات المحددة. تأكد من وجود المجلد الكلاسيكي.' };
-  }
-
-  try {
-    const child = execFile(targetPath, [], { cwd: path.dirname(targetPath) });
-    child.unref();
-    return { success: true };
-  } catch (err) {
-    return { success: false, error: err.message };
-  }
-});
 
 ipcMain.handle('dialog:open', async (_event, opts) => {
   const { canceled, filePaths } = await dialog.showOpenDialog(mainWindow, {
