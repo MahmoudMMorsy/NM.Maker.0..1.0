@@ -45,19 +45,50 @@ const fileToDataUrl = (f: File): Promise<string> =>
 const parseXml = (s: string): Document =>
   new DOMParser().parseFromString(s, 'text/xml');
 
+const fileCacheMap = new WeakMap<File[], {
+  suffixMap: Map<string, File>;
+  nameMap: Map<string, File>;
+}>();
+
+function getFileCache(files: File[]) {
+  let cache = fileCacheMap.get(files);
+  if (!cache) {
+    const suffixMap = new Map<string, File>();
+    const nameMap = new Map<string, File>();
+    for (let i = 0; i < files.length; i++) {
+      const fi = files[i];
+      const nameLower = fi.name.toLowerCase();
+      if (!nameMap.has(nameLower)) {
+        nameMap.set(nameLower, fi);
+      }
+      const fp = ((fi as any).webkitRelativePath || fi.name).toLowerCase().replace(/\\/g, '/');
+      const parts = fp.split('/');
+      let currentSuffix = '';
+      for (let j = parts.length - 1; j >= 0; j--) {
+        currentSuffix = currentSuffix ? parts[j] + '/' + currentSuffix : parts[j];
+        if (!suffixMap.has(currentSuffix)) {
+          suffixMap.set(currentSuffix, fi);
+        }
+      }
+    }
+    cache = { suffixMap, nameMap };
+    fileCacheMap.set(files, cache);
+  }
+  return cache;
+}
+
 /** Case-insensitive partial-path match */
 function findFile(files: File[], partial: string): File | undefined {
   if (!partial) return undefined;
   const norm = partial.toLowerCase().replace(/\\/g,'/');
-  // exact suffix match first
-  let f = files.find(fi => {
-    const fp = ((fi as any).webkitRelativePath || fi.name).toLowerCase().replace(/\\/g,'/');
-    return fp.endsWith(norm);
-  });
+
+  // Use cached Map-based lookup for O(1) performance instead of scanning files array repeatedly.
+  const cache = getFileCache(files);
+  const f = cache.suffixMap.get(norm);
   if (f) return f;
-  // filename-only fallback
+
   const fname = norm.split('/').pop() || '';
-  return files.find(fi => fi.name.toLowerCase() === fname);
+  return cache.nameMap.get(fname);
 }
 
 /** Infer sprite role from name */

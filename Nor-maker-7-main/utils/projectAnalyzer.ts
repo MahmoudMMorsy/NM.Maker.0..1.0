@@ -116,10 +116,19 @@ function checkObjects(objects: GameObject[], sprites: SpriteAsset[]): ProjectIss
   const objectIds = new Set(objects.map(o => o.id));
   const parentsSeen: Record<string, string> = {};
 
+  // Optimize: Precompute a spriteByName map to replace the O(N) find inside the loop with an O(1) lookup.
+  const spriteByName = new Map<string, SpriteAsset>();
+  for (let i = 0; i < sprites.length; i++) {
+    const s = sprites[i];
+    if (s.name) {
+      spriteByName.set(s.name, s);
+    }
+  }
+
   objects.forEach(obj => {
     // تحقق من الـ spriteId
     if (obj.spriteId && !spriteIds.has(obj.spriteId)) {
-      const nameMatch = sprites.find(s => s.name === obj.spriteId);
+      const nameMatch = spriteByName.get(obj.spriteId);
       issues.push({
         id: makeId('ISS'), severity: 'warning', category: 'object',
         errorCode: 'MISSING_SPRITE_REF',
@@ -426,6 +435,8 @@ const KEY_EVENT_NAMES = [
   'keydown', 'keyup', 'keypress'
 ];
 
+const actionsCache = new WeakMap<GameObject, any[]>();
+
 function getActionsInEvent(obj: GameObject, eventKey: string): any[] {
   if (!obj.events || !obj.events[eventKey as any]) return [];
   const ev = obj.events[eventKey as any];
@@ -434,7 +445,12 @@ function getActionsInEvent(obj: GameObject, eventKey: string): any[] {
 
 function getAllActionsOfObj(obj: GameObject): any[] {
   if (!obj.events) return [];
-  return Object.values(obj.events).flat().filter(Boolean) as any[];
+  let cached = actionsCache.get(obj);
+  if (!cached) {
+    cached = Object.values(obj.events).flat().filter(Boolean) as any[];
+    actionsCache.set(obj, cached);
+  }
+  return cached;
 }
 
 function hasCodeContaining(obj: GameObject, keywords: string[]): boolean {
@@ -453,11 +469,28 @@ function checkGameplay(project: ProjectSnapshot): ProjectIssue[] {
 
   if (gameObjects.length === 0 || rooms.length === 0) return [];
 
+  // Optimize: Precompute a spriteById Map for O(1) player role lookups
+  const spriteById = new Map<string, SpriteAsset>();
+  for (let i = 0; i < sprites.length; i++) {
+    spriteById.set(sprites[i].id, sprites[i]);
+  }
+
+  // Optimize: Precompute all object indices placed in any room to avoid scanning room maps multiple times
+  const placedIndices = new Set<number>();
+  for (let r = 0; r < rooms.length; r++) {
+    const rm = rooms[r];
+    if (Array.isArray(rm.map)) {
+      for (let m = 0; m < rm.map.length; m++) {
+        placedIndices.add(rm.map[m]);
+      }
+    }
+  }
+
   // ── ❶ اكتشاف الكائن "Player" ─────────────────────────────────────────────
   const playerObjects = gameObjects.filter(o => {
     const nameLower = o.name.toLowerCase();
     const hasPlayerName = nameLower.includes('player') || nameLower.startsWith('pl_') || nameLower === 'obj_pl';
-    const hasPlayerSprite = sprites.find(s => s.id === o.spriteId)?.role === 'player';
+    const hasPlayerSprite = o.spriteId ? spriteById.get(o.spriteId)?.role === 'player' : false;
     return hasPlayerName || hasPlayerSprite;
   });
 
@@ -540,9 +573,7 @@ function checkGameplay(project: ProjectSnapshot): ProjectIssue[] {
 
     // ── ❺ هل الكائن موضوع فعلاً داخل غرفة؟ ─────────────────────────────────
     const objIndex = gameObjects.indexOf(obj) + 2; // 0=empty, 1=ground, 2+=objects
-    const isPlacedInAnyRoom = rooms.some(room =>
-      Array.isArray(room.map) && room.map.includes(objIndex)
-    );
+    const isPlacedInAnyRoom = placedIndices.has(objIndex);
 
     if (!isPlacedInAnyRoom) {
       issues.push({
