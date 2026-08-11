@@ -854,12 +854,15 @@ export const convertGmxFolderToNor = async (fileList: FileList): Promise<GmxConv
   }
 
   // ─── 8. PARENTING (inheritance) ──────────────────────────────────────────
+  // Pre-build a map of gameObjects by name for O(1) parent resolution.
+  const gameObjectMap = new Map<string, GameObject>(result.gameObjects.map(o => [o.name, o]));
+
   for (const obj of result.gameObjects) {
     let cur = parentMap[obj.name];
     const visited = new Set<string>();
     while (cur && !visited.has(cur)) {
       visited.add(cur);
-      const parent = result.gameObjects.find(o => o.name === cur);
+      const parent = gameObjectMap.get(cur);
       if (!parent) break;
       for (const [evType, actions] of Object.entries(parent.events)) {
         if (!obj.events[evType as EventType]) {
