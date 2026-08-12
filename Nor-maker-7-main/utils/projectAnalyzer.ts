@@ -116,10 +116,16 @@ function checkObjects(objects: GameObject[], sprites: SpriteAsset[]): ProjectIss
   const objectIds = new Set(objects.map(o => o.id));
   const parentsSeen: Record<string, string> = {};
 
+  // Precompute sprite lookups by name
+  const spriteByName = new Map<string, SpriteAsset>();
+  sprites.forEach(s => {
+    if (s.name) spriteByName.set(s.name, s);
+  });
+
   objects.forEach(obj => {
     // تحقق من الـ spriteId
     if (obj.spriteId && !spriteIds.has(obj.spriteId)) {
-      const nameMatch = sprites.find(s => s.name === obj.spriteId);
+      const nameMatch = spriteByName.get(obj.spriteId);
       issues.push({
         id: makeId('ISS'), severity: 'warning', category: 'object',
         errorCode: 'MISSING_SPRITE_REF',
@@ -385,8 +391,14 @@ function checkProject(project: ProjectSnapshot): ProjectIssue[] {
     });
   }
 
+  // Precompute sprite lookup by ID
+  const spriteById = new Map<string, SpriteAsset>();
+  project.sprites.forEach(s => {
+    spriteById.set(s.id, s);
+  });
+
   const hasPlayer = project.gameObjects.some(o =>
-    o.name.toLowerCase().includes('player') || project.sprites.find(s => s.id === o.spriteId)?.role === 'player'
+    o.name.toLowerCase().includes('player') || (o.spriteId ? spriteById.get(o.spriteId)?.role === 'player' : false)
   );
 
   if (project.gameObjects.length > 0 && !hasPlayer) {
@@ -426,6 +438,9 @@ const KEY_EVENT_NAMES = [
   'keydown', 'keyup', 'keypress'
 ];
 
+// Cache for flattened object actions to avoid repetitive traversal/flat operations
+const actionsCache = new WeakMap<GameObject, any[]>();
+
 function getActionsInEvent(obj: GameObject, eventKey: string): any[] {
   if (!obj.events || !obj.events[eventKey as any]) return [];
   const ev = obj.events[eventKey as any];
@@ -434,7 +449,12 @@ function getActionsInEvent(obj: GameObject, eventKey: string): any[] {
 
 function getAllActionsOfObj(obj: GameObject): any[] {
   if (!obj.events) return [];
-  return Object.values(obj.events).flat().filter(Boolean) as any[];
+  let cached = actionsCache.get(obj);
+  if (!cached) {
+    cached = Object.values(obj.events).flat().filter(Boolean) as any[];
+    actionsCache.set(obj, cached);
+  }
+  return cached;
 }
 
 function hasCodeContaining(obj: GameObject, keywords: string[]): boolean {
@@ -453,15 +473,33 @@ function checkGameplay(project: ProjectSnapshot): ProjectIssue[] {
 
   if (gameObjects.length === 0 || rooms.length === 0) return [];
 
+  // Precompute sprite lookup by ID
+  const spriteById = new Map<string, SpriteAsset>();
+  sprites.forEach(s => {
+    spriteById.set(s.id, s);
+  });
+
   // ── ❶ اكتشاف الكائن "Player" ─────────────────────────────────────────────
   const playerObjects = gameObjects.filter(o => {
     const nameLower = o.name.toLowerCase();
     const hasPlayerName = nameLower.includes('player') || nameLower.startsWith('pl_') || nameLower === 'obj_pl';
-    const hasPlayerSprite = sprites.find(s => s.id === o.spriteId)?.role === 'player';
+    const hasPlayerSprite = o.spriteId ? spriteById.get(o.spriteId)?.role === 'player' : false;
     return hasPlayerName || hasPlayerSprite;
   });
 
   const controllableObjects = playerObjects.length > 0 ? playerObjects : gameObjects;
+
+  // Precompute a set of all indices placed in any room to speed up isPlacedInAnyRoom checks from O(N * R * M) to O(R * M) + O(1)
+  const placedIndices = new Set<number>();
+  rooms.forEach(room => {
+    if (Array.isArray(room.map)) {
+      room.map.forEach(val => {
+        if (val > 1) {
+          placedIndices.add(val);
+        }
+      });
+    }
+  });
 
   controllableObjects.forEach(obj => {
     const allActions = getAllActionsOfObj(obj);
@@ -540,9 +578,7 @@ function checkGameplay(project: ProjectSnapshot): ProjectIssue[] {
 
     // ── ❺ هل الكائن موضوع فعلاً داخل غرفة؟ ─────────────────────────────────
     const objIndex = gameObjects.indexOf(obj) + 2; // 0=empty, 1=ground, 2+=objects
-    const isPlacedInAnyRoom = rooms.some(room =>
-      Array.isArray(room.map) && room.map.includes(objIndex)
-    );
+    const isPlacedInAnyRoom = placedIndices.has(objIndex);
 
     if (!isPlacedInAnyRoom) {
       issues.push({
