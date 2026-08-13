@@ -385,8 +385,11 @@ function checkProject(project: ProjectSnapshot): ProjectIssue[] {
     });
   }
 
+  // Pre-build Map for O(1) sprite lookup instead of linear searching in loop.
+  const spriteMap = new Map<string, SpriteAsset>(project.sprites.map(s => [s.id, s]));
+
   const hasPlayer = project.gameObjects.some(o =>
-    o.name.toLowerCase().includes('player') || project.sprites.find(s => s.id === o.spriteId)?.role === 'player'
+    o.name.toLowerCase().includes('player') || (o.spriteId ? spriteMap.get(o.spriteId)?.role === 'player' : false)
   );
 
   if (project.gameObjects.length > 0 && !hasPlayer) {
@@ -454,10 +457,13 @@ function checkGameplay(project: ProjectSnapshot): ProjectIssue[] {
   if (gameObjects.length === 0 || rooms.length === 0) return [];
 
   // ── ❶ اكتشاف الكائن "Player" ─────────────────────────────────────────────
+  // Pre-build Map for O(1) sprite lookup instead of linear searching in loop.
+  const spriteMap = new Map<string, SpriteAsset>(sprites.map(s => [s.id, s]));
+
   const playerObjects = gameObjects.filter(o => {
     const nameLower = o.name.toLowerCase();
     const hasPlayerName = nameLower.includes('player') || nameLower.startsWith('pl_') || nameLower === 'obj_pl';
-    const hasPlayerSprite = sprites.find(s => s.id === o.spriteId)?.role === 'player';
+    const hasPlayerSprite = o.spriteId ? spriteMap.get(o.spriteId)?.role === 'player' : false;
     return hasPlayerName || hasPlayerSprite;
   });
 
@@ -602,6 +608,13 @@ function checkGameplay(project: ProjectSnapshot): ProjectIssue[] {
     }
   });
 
+  // Pre-calculate whether any object in the project has a platformer keyboard movement action
+  // to avoid redundant O(Objects) scan inside the O(Rooms) loop.
+  const projectHasPlatformerMover = gameObjects.some(o => {
+    const acts = getAllActionsOfObj(o);
+    return acts.some((a: any) => a?.libId === 'move_keyboard');
+  });
+
   // ── ❽ هل الغرفة فارغة تماماً (كل الخلايا صفر)؟ ──────────────────────────
   rooms.forEach(room => {
     if (!Array.isArray(room.map)) return;
@@ -623,10 +636,7 @@ function checkGameplay(project: ProjectSnapshot): ProjectIssue[] {
       });
     }
 
-    if (!hasGround && gameObjects.some(o => {
-      const acts = getAllActionsOfObj(o);
-      return acts.some((a: any) => a?.libId === 'move_keyboard'); // platformer needs ground
-    })) {
+    if (!hasGround && projectHasPlatformerMover) {
       issues.push({
         id: makeId('GP'),
         severity: 'info',

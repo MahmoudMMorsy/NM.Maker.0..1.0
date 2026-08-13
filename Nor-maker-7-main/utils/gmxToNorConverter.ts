@@ -46,18 +46,48 @@ const parseXml = (s: string): Document =>
   new DOMParser().parseFromString(s, 'text/xml');
 
 /** Case-insensitive partial-path match */
+// WeakMap to cache O(1) file index mapping per files array snapshot
+const suffixCache = new WeakMap<File[], Map<string, File>>();
+const filenameCache = new WeakMap<File[], Map<string, File>>();
+
 function findFile(files: File[], partial: string): File | undefined {
   if (!partial) return undefined;
   const norm = partial.toLowerCase().replace(/\\/g,'/');
-  // exact suffix match first
-  let f = files.find(fi => {
+
+  let sMap = suffixCache.get(files);
+  let fMap = filenameCache.get(files);
+  if (!sMap || !fMap) {
+    sMap = new Map<string, File>();
+    fMap = new Map<string, File>();
+    for (const fi of files) {
+      const fp = ((fi as any).webkitRelativePath || fi.name).toLowerCase().replace(/\\/g,'/');
+      // Store full path
+      sMap.set(fp, fi);
+      // Store path without top-level directory (e.g., MyProject/sprites/spr_player.png -> sprites/spr_player.png)
+      const slashIndex = fp.indexOf('/');
+      if (slashIndex !== -1) {
+        sMap.set(fp.slice(slashIndex + 1), fi);
+      }
+      fMap.set(fi.name.toLowerCase(), fi);
+    }
+    suffixCache.set(files, sMap);
+    filenameCache.set(files, fMap);
+  }
+
+  // O(1) Suffix lookup
+  let f = sMap.get(norm);
+  if (f) return f;
+
+  // O(1) Filename-only fallback
+  const fname = norm.split('/').pop() || '';
+  f = fMap.get(fname);
+  if (f) return f;
+
+  // Extremely rare fallback scan
+  return files.find(fi => {
     const fp = ((fi as any).webkitRelativePath || fi.name).toLowerCase().replace(/\\/g,'/');
     return fp.endsWith(norm);
   });
-  if (f) return f;
-  // filename-only fallback
-  const fname = norm.split('/').pop() || '';
-  return files.find(fi => fi.name.toLowerCase() === fname);
 }
 
 /** Infer sprite role from name */
@@ -824,12 +854,15 @@ export const convertGmxFolderToNor = async (fileList: FileList): Promise<GmxConv
   }
 
   // ─── 8. PARENTING (inheritance) ──────────────────────────────────────────
+  // Pre-build a map of gameObjects by name for O(1) parent resolution.
+  const gameObjectMap = new Map<string, GameObject>(result.gameObjects.map(o => [o.name, o]));
+
   for (const obj of result.gameObjects) {
     let cur = parentMap[obj.name];
     const visited = new Set<string>();
     while (cur && !visited.has(cur)) {
       visited.add(cur);
-      const parent = result.gameObjects.find(o => o.name === cur);
+      const parent = gameObjectMap.get(cur);
       if (!parent) break;
       for (const [evType, actions] of Object.entries(parent.events)) {
         if (!obj.events[evType as EventType]) {
