@@ -309,12 +309,14 @@ const ProjectAnalyzerPanel: React.FC<ProjectAnalyzerPanelProps> = ({
     loadKnowledge();
   };
 
-  // Group issues by category
-  const grouped = (report?.issues || []).reduce<Record<string, ProjectIssue[]>>((acc, issue) => {
-    if (!acc[issue.category]) acc[issue.category] = [];
-    acc[issue.category].push(issue);
-    return acc;
-  }, {});
+  // Group issues by category (memoized to prevent re-grouping on every render)
+  const grouped = React.useMemo(() => {
+    return (report?.issues || []).reduce<Record<string, ProjectIssue[]>>((acc, issue) => {
+      if (!acc[issue.category]) acc[issue.category] = [];
+      acc[issue.category].push(issue);
+      return acc;
+    }, {});
+  }, [report?.issues]);
 
   const filteredIssues = (issues: ProjectIssue[]) =>
     filterSeverity === 'all' ? issues : issues.filter(i => i.severity === filterSeverity);
@@ -333,11 +335,14 @@ const ProjectAnalyzerPanel: React.FC<ProjectAnalyzerPanelProps> = ({
     gameplay: <span>🎮</span>,
   };
 
-  const filteredKnowledge = knowledgeEntries.filter(e =>
-    !dbSearch || e.errorCode.includes(dbSearch) ||
-    e.errorMessage.toLowerCase().includes(dbSearch.toLowerCase()) ||
-    e.fixDescription.toLowerCase().includes(dbSearch.toLowerCase())
-  );
+  // Memoize filteredKnowledge list to optimize search filtering in the knowledge base tab
+  const filteredKnowledge = React.useMemo(() => {
+    return knowledgeEntries.filter(e =>
+      !dbSearch || e.errorCode.includes(dbSearch) ||
+      e.errorMessage.toLowerCase().includes(dbSearch.toLowerCase()) ||
+      e.fixDescription.toLowerCase().includes(dbSearch.toLowerCase())
+    );
+  }, [knowledgeEntries, dbSearch]);
 
   return (
     <div className="h-full flex flex-col bg-win-face font-ui text-win-text overflow-hidden">

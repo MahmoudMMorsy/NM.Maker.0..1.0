@@ -7,3 +7,7 @@
 ## 2025-08-10 - O(Assets * Files) GMX Project Import Optimization
 **Learning:** Importing third-party or legacy projects (like GMX folder conversion) usually involves resolving physical files (images, sounds, scripts) via linear scanning. Since this happens for every single asset, lookups inside file lists lead to severe $O(\text{Assets} \times \text{Files})$ bottleneck on large projects.
 **Action:** Pre-index dropped file lists into lookup Maps by full path and suffix names on the first search. Scoping the cache to the files array using `WeakMap` ensures memory is automatically reclaimed while lookups run in instant $O(1)$ time.
+
+## 2026-08-13 - Diagnostic Engine and React Render Memoization Optimization
+**Learning:** Checking whether game objects are placed in any room inside of `checkGameplay` originally resulted in $O(\text{Objects} \times \text{Rooms} \times \text{MapSize})$ nested loops. Moving room map indexing outside the objects loop by precomputing a Set of placed indices reduces the complexity of finding placed objects to a fast $O(1)$ lookup per object. Similarly, memoizing rendering calculations like `grouped` issues and `filteredKnowledge` list search in React panel components prevents heavy CPU/memory thrashing on every component render.
+**Action:** Lift room map searches out of game object loops and precompute Set indices. Memoize grouped list aggregations and filtering operations in components.

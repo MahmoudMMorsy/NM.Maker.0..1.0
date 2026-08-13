@@ -116,10 +116,13 @@ function checkObjects(objects: GameObject[], sprites: SpriteAsset[]): ProjectIss
   const objectIds = new Set(objects.map(o => o.id));
   const parentsSeen: Record<string, string> = {};
 
+  // Precompute sprite map by name for O(1) matching instead of O(N) .find inside the loop
+  const spriteByName = new Map<string, SpriteAsset>(sprites.map(s => [s.name, s]));
+
   objects.forEach(obj => {
     // تحقق من الـ spriteId
     if (obj.spriteId && !spriteIds.has(obj.spriteId)) {
-      const nameMatch = sprites.find(s => s.name === obj.spriteId);
+      const nameMatch = spriteByName.get(obj.spriteId);
       issues.push({
         id: makeId('ISS'), severity: 'warning', category: 'object',
         errorCode: 'MISSING_SPRITE_REF',
@@ -435,9 +438,17 @@ function getActionsInEvent(obj: GameObject, eventKey: string): any[] {
   return Array.isArray(ev) ? ev : [];
 }
 
+// Module-level cache to hold the flattened list of GameObject actions
+const actionsCache = new WeakMap<GameObject, any[]>();
+
 function getAllActionsOfObj(obj: GameObject): any[] {
   if (!obj.events) return [];
-  return Object.values(obj.events).flat().filter(Boolean) as any[];
+  let cached = actionsCache.get(obj);
+  if (!cached) {
+    cached = Object.values(obj.events).flat().filter(Boolean) as any[];
+    actionsCache.set(obj, cached);
+  }
+  return cached;
 }
 
 function hasCodeContaining(obj: GameObject, keywords: string[]): boolean {
@@ -468,6 +479,18 @@ function checkGameplay(project: ProjectSnapshot): ProjectIssue[] {
   });
 
   const controllableObjects = playerObjects.length > 0 ? playerObjects : gameObjects;
+
+  // Precompute Set of placed indices across all rooms to reduce O(Rooms * MapSize) lookup per object to O(1)
+  const placedIndices = new Set<number>();
+  rooms.forEach(room => {
+    if (Array.isArray(room.map)) {
+      room.map.forEach(val => {
+        if (val > 1) {
+          placedIndices.add(val);
+        }
+      });
+    }
+  });
 
   controllableObjects.forEach(obj => {
     const allActions = getAllActionsOfObj(obj);
@@ -546,9 +569,7 @@ function checkGameplay(project: ProjectSnapshot): ProjectIssue[] {
 
     // ── ❺ هل الكائن موضوع فعلاً داخل غرفة؟ ─────────────────────────────────
     const objIndex = gameObjects.indexOf(obj) + 2; // 0=empty, 1=ground, 2+=objects
-    const isPlacedInAnyRoom = rooms.some(room =>
-      Array.isArray(room.map) && room.map.includes(objIndex)
-    );
+    const isPlacedInAnyRoom = placedIndices.has(objIndex);
 
     if (!isPlacedInAnyRoom) {
       issues.push({
