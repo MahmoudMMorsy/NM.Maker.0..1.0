@@ -26,18 +26,13 @@ export interface ActionDefinition {
 }
 
 export const getActionDefinition = (libId: string): ActionDefinition | undefined => {
-  const native = ACTION_LIBRARY.find(a => a.id === libId);
-  if (native) return native;
-
-  // Try to find in EXTERNAL_ACTIONS (imported dynamically to avoid circular/bloat if needed,
-  // but for now we assume it's available or we provide a fallback)
-  // Since we can't easily import EXTERNAL_ACTIONS here without circular deps if it was there,
-  // we'll expect the caller to pass the library or we use a global registry.
-  return undefined;
+  // Fast O(1) Map lookup instead of O(N) linear array scan
+  return ACTION_MAP.get(libId);
 };
 
 export const generateActionCode = (action: { libId: string, params: any }, externalLibrary?: ActionDefinition[]): string => {
-  const def = ACTION_LIBRARY.find(a => a.id === action.libId) || externalLibrary?.find(a => a.id === action.libId);
+  // Fast O(1) Map lookup in ACTION_MAP, falling back to externalLibrary if provided
+  const def = ACTION_MAP.get(action.libId) || externalLibrary?.find(a => a.id === action.libId);
   if (!def) return `// Action ${action.libId} not found\n`;
 
   if (def.generateCode) {
@@ -1102,3 +1097,11 @@ export const ACTION_LIBRARY: ActionDefinition[] = [
     `
   }
 ];
+
+/**
+ * Pre-built O(1) Map index for native action definitions.
+ * Reduces lookup complexity from O(N) to O(1) when generating code or resolving actions.
+ */
+export const ACTION_MAP = new Map<string, ActionDefinition>(
+  ACTION_LIBRARY.map(action => [action.id, action])
+);
