@@ -16,6 +16,8 @@ import * as geminiService from '../services/geminiService';
 import AnimStateMachineEditor from './AnimStateMachineEditor';
 
 const ALL_ACTIONS: ActionDefinition[] = [...ACTION_LIBRARY, ...EXTERNAL_ACTIONS];
+// O(1) Map index for action definition lookups to avoid O(N) array scans during rendering
+const ACTION_MAP: Map<string, ActionDefinition> = new Map(ALL_ACTIONS.map(a => [a.id, a]));
 import RetroButton from './RetroButton';
 
 interface LibraryEditorProps {
@@ -640,7 +642,8 @@ Objects: ${gameObjects.map(o => o.id + ' (' + o.name + ')').join(', ')}
          )}
 
          {(objectData.events[selectedEvent] || []).map((action, idx) => {
-             const def = ALL_ACTIONS.find(d => d.id === action.libId);
+             // O(1) lookup using pre-built Map index instead of O(N) ALL_ACTIONS.find
+             const def = ACTION_MAP.get(action.libId);
              if(!def) return null;
              return (
                  <div key={action.id} className="bg-[#D4D0C8] border-2 border-t-white border-l-white border-r-[#404040] border-b-[#404040] p-1 flex items-center gap-2 text-xs flex-wrap">
