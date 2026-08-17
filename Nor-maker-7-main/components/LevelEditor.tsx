@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useState, useRef, useEffect } from 'react';
 import { Eraser, Grid, Check, ZoomIn, ZoomOut, CheckSquare, Square as SquareIcon, Box as BoxIcon, Clock, Undo2, Redo2, Layout, Layers, Box, Camera, X, Sun, Move } from 'lucide-react';
 import { LevelData, RoomSettings, BackgroundDef, ViewDef, SpriteAsset, BackgroundAsset, GameObject, UIMenu, Scene3DObject } from '../types';
-import { TRANSITION_CATALOG } from './TransitionEffect';
+import { TRANSITION_CATALOG, TRANSITION_MAP } from './TransitionEffect';
 import RoomLightingPhysicsPanel from './RoomLightingPhysicsPanel';
 import { Room3DOrbitViewer } from './Room3DOrbitViewer';
 
@@ -1243,7 +1243,7 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
                               <div className="flex items-center gap-1">
                                 <label className="text-[10px] text-gray-500">Current:</label>
                                 <span className="text-[10px] font-bold text-win-blue px-1 py-0.5 bg-blue-50 border border-blue-200 rounded">
-                                  {TRANSITION_CATALOG.find(t=>t.id===current)?.label || current}
+                                  {TRANSITION_MAP.get(current)?.label || current}
                                 </span>
                               </div>
                               <div className="flex items-center gap-1 ml-auto">
