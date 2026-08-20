@@ -187,6 +187,7 @@ export const TRANSITION_CATALOG: TransitionDef[] = [
 ];
 
 export const TRANSITION_TYPES = TRANSITION_CATALOG.map(t => t.id);
+export const TRANSITION_MAP = new Map<string, TransitionDef>(TRANSITION_CATALOG.map(t => [t.id, t]));
 
 // ─── Canvas Engine ────────────────────────────────────────────────────────────
 const CanvasTransition: React.FC<{type:string;duration:number;color:string;onDone:()=>void}> = ({type,duration,color,onDone}) => {
@@ -734,7 +735,7 @@ const CSSTransition: React.FC<{type:string;duration:number;color:string;easing:s
 export const TransitionEffect: React.FC<TransitionEffectProps> = ({settings,isActive,onComplete}) => {
   if(!isActive) return null;
   const {type,duration,color,easing} = settings;
-  const def = TRANSITION_CATALOG.find(t=>t.id===type);
+  const def = TRANSITION_MAP.get(type);
   if(def?.engine==='canvas')
     return <CanvasTransition type={type} duration={duration} color={color} onDone={()=>onComplete?.()}/>;
   return <CSSTransition type={type} duration={duration} color={color} easing={easing} isActive={isActive} onComplete={onComplete}/>;
