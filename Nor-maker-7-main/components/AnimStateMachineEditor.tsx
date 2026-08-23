@@ -129,9 +129,29 @@ const AnimStateMachineEditor: React.FC<Props> = ({ fsm: fsmProp, sprites, onUpda
     return () => { window.removeEventListener('mousemove', onMove); window.removeEventListener('mouseup', onUp); };
   }, [draggingState]);
 
-  // Preview animation playback
-  const selectedSeq = useMemo(() => fsm.sequences.find(s => s.id === selectedSequenceId) || null, [fsm.sequences, selectedSequenceId]);
-  const selectedSeqSprite = useMemo(() => selectedSeq ? sprites.find(s => s.id === selectedSeq.spriteId) : null, [selectedSeq, sprites]);
+  // Performance optimization: Pre-build O(1) Map indices for states, sequences, and sprites
+  // to avoid O(N) linear array searches (.find) during high-frequency graph renders (e.g. state dragging at 60fps)
+  const stateMap = useMemo(() => {
+    const map = new Map<string, AnimState>();
+    for (const s of fsm.states) map.set(s.id, s);
+    return map;
+  }, [fsm.states]);
+
+  const sequenceMap = useMemo(() => {
+    const map = new Map<string, AnimSequence>();
+    for (const seq of fsm.sequences) map.set(seq.id, seq);
+    return map;
+  }, [fsm.sequences]);
+
+  const spriteMap = useMemo(() => {
+    const map = new Map<string, SpriteAsset>();
+    for (const sp of sprites) map.set(sp.id, sp);
+    return map;
+  }, [sprites]);
+
+  // Preview animation playback with O(1) lookups
+  const selectedSeq = useMemo(() => selectedSequenceId ? sequenceMap.get(selectedSequenceId) || null : null, [sequenceMap, selectedSequenceId]);
+  const selectedSeqSprite = useMemo(() => selectedSeq?.spriteId ? spriteMap.get(selectedSeq.spriteId) || null : null, [selectedSeq, spriteMap]);
 
   useEffect(() => {
     if (!previewPlaying || !selectedSeq || !selectedSeqSprite || !(selectedSeqSprite.frames?.length)) return;
@@ -145,15 +165,15 @@ const AnimStateMachineEditor: React.FC<Props> = ({ fsm: fsmProp, sprites, onUpda
     return () => clearInterval(interval);
   }, [previewPlaying, selectedSeq, selectedSeqSprite]);
 
-  const selectedState = fsm.states.find(s => s.id === selectedStateId) || null;
+  const selectedState = selectedStateId ? stateMap.get(selectedStateId) || null : null;
   const selectedTransition = fsm.transitions.find(t => t.id === selectedTransitionId) || null;
 
   // ---------- render helpers ----------
   const STATE_W = 110, STATE_H = 44;
 
   const renderTransitionPath = (t: AnimTransition) => {
-    const a = fsm.states.find(s => s.id === t.from);
-    const b = fsm.states.find(s => s.id === t.to);
+    const a = stateMap.get(t.from);
+    const b = stateMap.get(t.to);
     if (!a || !b) return null;
     const ax = a.x + STATE_W / 2, ay = a.y + STATE_H / 2;
     const bx = b.x + STATE_W / 2, by = b.y + STATE_H / 2;
@@ -235,7 +255,7 @@ const AnimStateMachineEditor: React.FC<Props> = ({ fsm: fsmProp, sprites, onUpda
             {fsm.states.map(s => {
               const isSel = selectedStateId === s.id;
               const isInitial = s.id === fsm.initialStateId;
-              const seq = fsm.sequences.find(sq => sq.id === s.sequenceId);
+              const seq = s.sequenceId ? sequenceMap.get(s.sequenceId) : undefined;
               return (
                 <div key={s.id}
                   onMouseDown={(e) => onMouseDownState(e, s)}
@@ -286,7 +306,7 @@ const AnimStateMachineEditor: React.FC<Props> = ({ fsm: fsmProp, sprites, onUpda
                 <div className="border-t border-gray-400 mt-3 pt-2">
                   <div className="font-bold text-[10px] mb-1 text-blue-900">Outgoing Transitions</div>
                   {fsm.transitions.filter(t => t.from === selectedState.id).map(t => {
-                    const dst = fsm.states.find(s => s.id === t.to);
+                    const dst = stateMap.get(t.to);
                     return (
                       <div key={t.id} onClick={() => setSelectedTransitionId(t.id)}
                         className={`text-[10px] px-1 py-0.5 cursor-pointer rounded mb-0.5 ${selectedTransitionId === t.id ? 'bg-red-200' : 'hover:bg-blue-100'}`}>
@@ -305,9 +325,9 @@ const AnimStateMachineEditor: React.FC<Props> = ({ fsm: fsmProp, sprites, onUpda
                   <ArrowRight size={11} /> Transition
                 </div>
                 <div className="text-[10px] mb-2">
-                  <b>{fsm.states.find(s => s.id === selectedTransition.from)?.name}</b>
+                  <b>{stateMap.get(selectedTransition.from)?.name}</b>
                   <span className="mx-1">→</span>
-                  <b>{fsm.states.find(s => s.id === selectedTransition.to)?.name}</b>
+                  <b>{stateMap.get(selectedTransition.to)?.name}</b>
                 </div>
                 <label className="block text-[10px] mb-1">Condition (JS expr; empty = always)</label>
                 <input value={selectedTransition.condition} onChange={e => updateTransition(selectedTransition.id, { condition: e.target.value })}
