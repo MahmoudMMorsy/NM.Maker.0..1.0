@@ -25,25 +25,7 @@ export interface ActionDefinition {
   generateCode?: (params: Record<string, any>) => string;
 }
 
-let actionMapCache: Map<string, ActionDefinition> | null = null;
-
-// Lazy Map index for O(1) action lookups in ACTION_LIBRARY
-const getActionMap = (): Map<string, ActionDefinition> => {
-  if (!actionMapCache) {
-    actionMapCache = new Map(ACTION_LIBRARY.map(a => [a.id, a]));
-  }
-  return actionMapCache;
-};
-
-export const getActionDefinition = (libId: string): ActionDefinition | undefined => {
-  return getActionMap().get(libId);
-};
-
-export const generateActionCode = (action: { libId: string, params: any }, externalLibrary?: ActionDefinition[]): string => {
-  let def = getActionMap().get(action.libId);
-  if (!def && externalLibrary) {
-    def = externalLibrary.find(a => a.id === action.libId);
-  }
+<<<main
   if (!def) return `// Action ${action.libId} not found\n`;
 
   if (def.generateCode) {
@@ -1108,3 +1090,11 @@ export const ACTION_LIBRARY: ActionDefinition[] = [
     `
   }
 ];
+
+/**
+ * Pre-built O(1) Map index for native action definitions.
+ * Reduces lookup complexity from O(N) to O(1) when generating code or resolving actions.
+ */
+export const ACTION_MAP = new Map<string, ActionDefinition>(
+  ACTION_LIBRARY.map(action => [action.id, action])
+);

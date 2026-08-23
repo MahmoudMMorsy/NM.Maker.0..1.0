@@ -102,6 +102,11 @@ const LibraryEditor: React.FC<LibraryEditorProps> = ({ objectData, onUpdate, spr
   const [isAiGenerating, setIsAiGenerating] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
 
+  // Pre-built O(1) Map lookup for ALL_ACTIONS to avoid linear array search per render
+  const actionMap = useMemo(() => {
+    return new Map<string, ActionDefinition>(ALL_ACTIONS.map(a => [a.id, a]));
+  }, []);
+
   // Dynamic Events List
   const dynamicEvents = useMemo(() => {
       return EVENTS.map(ev => {
@@ -648,7 +653,7 @@ Objects: ${gameObjects.map(o => o.id + ' (' + o.name + ')').join(', ')}
          )}
 
          {(objectData.events[selectedEvent] || []).map((action, idx) => {
-             const def = ALL_ACTIONS_MAP.get(action.libId);
+
              if(!def) return null;
              return (
                  <div key={action.id} className="bg-[#D4D0C8] border-2 border-t-white border-l-white border-r-[#404040] border-b-[#404040] p-1 flex items-center gap-2 text-xs flex-wrap">
