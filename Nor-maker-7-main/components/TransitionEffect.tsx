@@ -187,7 +187,6 @@ export const TRANSITION_CATALOG: TransitionDef[] = [
 ];
 
 export const TRANSITION_TYPES = TRANSITION_CATALOG.map(t => t.id);
-export const TRANSITION_MAP = new Map<string, TransitionDef>(TRANSITION_CATALOG.map(t => [t.id, t]));
 
 // O(1) Map index for fast transition definition lookup by ID
 export const TRANSITION_MAP = new Map<string, TransitionDef>(

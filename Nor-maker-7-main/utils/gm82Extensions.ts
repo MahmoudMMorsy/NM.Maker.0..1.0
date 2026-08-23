@@ -24,6 +24,14 @@ const GM82Core = {
     choose: (...args) => args[Math.floor(Math.random() * args.length)],
     random_range: (min, max) => Math.random() * (max - min) + min,
     irandom_range: (min, max) => Math.floor(Math.random() * (max - min + 1)) + min,
+    clamp: (val, min, max) => Math.min(Math.max(val, min), max),
+    lerp: (a, b, amt) => a + (b - a) * amt,
+    dcos: (deg) => Math.cos(deg * Math.PI / 180),
+    dsin: (deg) => Math.sin(deg * Math.PI / 180),
+    degtorad: (deg) => deg * Math.PI / 180,
+    radtodeg: (rad) => rad * 180 / Math.PI,
+    sign: (val) => Math.sign(val),
+    sqr: (val) => val * val,
     // Basic Box Collision
     place_meeting: (x, y, obj, otherArr) => {
         // Simplified AABB for the web engine context
