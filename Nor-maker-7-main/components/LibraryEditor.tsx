@@ -16,7 +16,7 @@ import * as geminiService from '../services/geminiService';
 import AnimStateMachineEditor from './AnimStateMachineEditor';
 
 const ALL_ACTIONS: ActionDefinition[] = [...ACTION_LIBRARY, ...EXTERNAL_ACTIONS];
-const ALL_ACTIONS_MAP = new Map<string, ActionDefinition>(ALL_ACTIONS.map(a => [a.id, a]));
+
 import RetroButton from './RetroButton';
 
 interface LibraryEditorProps {
