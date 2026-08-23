@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { UIMenu, UIElement, SpriteAsset } from '../types';
 import { Plus, Trash2, Move, Type, Image as ImageIcon, AlignLeft, Square, ArrowUp, ArrowDown } from 'lucide-react';
 
@@ -10,6 +10,15 @@ interface UIEditorProps {
 }
 
 export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
+    // ⚡ Bolt: Pre-build an O(1) Map lookup index for sprites to avoid linear array searches (O(N)) on every element during canvas renders.
+    const spriteMap = useMemo(() => {
+        const map = new Map<string, SpriteAsset>();
+        for (let i = 0; i < sprites.length; i++) {
+            map.set(sprites[i].id, sprites[i]);
+        }
+        return map;
+    }, [sprites]);
+
     const [selectedIds, setSelectedIds] = useState<string[]>([]);
     const [draggingId, setDraggingId] = useState<string | null>(null);
     const [dragOffset, setDragOffset] = useState({ startMouseX: 0, startMouseY: 0, initialPositions: {} as { [key: string]: { x: number, y: number } } });
@@ -277,7 +286,7 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
                                 {el.type === 'button' && <span>{el.text}</span>}
                                 {el.type === 'image' && (
                                     el.spriteId ?
-                                    <img src={sprites.find(s => s.id === el.spriteId)?.src || undefined} alt={el.name} style={{width:'100%', height:'100%', objectFit:'contain'}} />
+                                    <img src={spriteMap.get(el.spriteId)?.src || undefined} alt={el.name} style={{width:'100%', height:'100%', objectFit:'contain'}} />
                                     : <div className="w-full h-full bg-pink-500 opacity-50 flex items-center justify-center text-[8px]">IMG</div>
                                 )}
                                 {el.type === 'bar' && (
