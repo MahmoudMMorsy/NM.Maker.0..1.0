@@ -2,7 +2,7 @@
  * Model3DEditor — محرر الأصول ثلاثية الأبعاد
  * Standalone window for managing, previewing, and exporting 3D models.
  */
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useMemo } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import {
@@ -271,11 +271,24 @@ const Model3DEditor: React.FC<Model3DEditorProps> = ({ assets, onAssetsChange })
     const [isDragging, setIsDragging] = useState(false);
     const [importStatus, setImportStatus] = useState('');
 
-    const selected = assets.find(a => a.id === selectedId) || null;
-    const filtered = assets.filter(a =>
-        a.name.toLowerCase().includes(search.toLowerCase()) ||
-        a.format.toLowerCase().includes(search.toLowerCase())
-    );
+    // PERFORMANCE OPTIMIZATION (Bolt ⚡):
+    // Pre-build O(1) Map index for assets to prevent O(N) linear scan on every component re-render pass or asset selection lookup.
+    const assetMap = useMemo(() => new Map(assets.map(a => [a.id, a])), [assets]);
+
+    // PERFORMANCE OPTIMIZATION (Bolt ⚡):
+    // Memoize selected asset O(1) Map lookup to avoid redundant array iterations on non-selection re-renders.
+    const selected = useMemo(() => (selectedId ? assetMap.get(selectedId) || null : null), [assetMap, selectedId]);
+
+    // PERFORMANCE OPTIMIZATION (Bolt ⚡):
+    // Memoize search-filtered asset list calculation to avoid O(N) array filtering and string lowercase conversions on un-related renders.
+    const filtered = useMemo(() => {
+        const query = search.toLowerCase();
+        if (!query) return assets;
+        return assets.filter(a =>
+            a.name.toLowerCase().includes(query) ||
+            a.format.toLowerCase().includes(query)
+        );
+    }, [assets, search]);
 
     const importFiles = async (files: FileList | File[]) => {
         const fileArr = Array.from(files);
@@ -320,7 +333,7 @@ const Model3DEditor: React.FC<Model3DEditorProps> = ({ assets, onAssetsChange })
     };
 
     const deleteAsset = (id: string) => {
-        const asset = assets.find(a => a.id === id);
+        const asset = assetMap.get(id);
         if (asset?.src.startsWith('blob:')) URL.revokeObjectURL(asset.src);
         const updated = assets.filter(a => a.id !== id);
         onAssetsChange(updated);
