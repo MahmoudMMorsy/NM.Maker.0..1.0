@@ -25,14 +25,7 @@ export interface ActionDefinition {
   generateCode?: (params: Record<string, any>) => string;
 }
 
-export const getActionDefinition = (libId: string): ActionDefinition | undefined => {
-  // Fast O(1) Map lookup instead of O(N) linear array scan
-  return ACTION_MAP.get(libId);
-};
-
-export const generateActionCode = (action: { libId: string, params: any }, externalLibrary?: ActionDefinition[]): string => {
-  // Fast O(1) Map lookup in ACTION_MAP, falling back to externalLibrary if provided
-  const def = ACTION_MAP.get(action.libId) || externalLibrary?.find(a => a.id === action.libId);
+<<<main
   if (!def) return `// Action ${action.libId} not found\n`;
 
   if (def.generateCode) {

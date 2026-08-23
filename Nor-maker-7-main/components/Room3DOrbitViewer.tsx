@@ -131,6 +131,9 @@ export const Room3DOrbitViewer: React.FC<Room3DOrbitViewerProps> = ({
         const texLoader = new THREE.TextureLoader();
         const texCache  = new Map<string, THREE.Texture>();
 
+        // Pre-build O(1) Map index for sprite lookups to avoid O(N * S) linear array scanning over level tiles
+        const spriteMap = new Map<string, any>(sprites.map(s => [s.id, s]));
+
         levelData.forEach((tileId, idx) => {
             if (tileId === 0) return;
             const col = idx % width;
@@ -161,7 +164,8 @@ export const Room3DOrbitViewer: React.FC<Room3DOrbitViewerProps> = ({
             /* Game object — 2D sprite billboard */
             const objIdx = tileId - 2;
             const obj    = gameObjects[objIdx];
-            const spr    = obj ? sprites.find((s: any) => s.id === obj.spriteId) : null;
+            // Fast O(1) lookup using spriteMap index instead of linear find
+            const spr    = obj ? spriteMap.get(obj.spriteId) : null;
 
             if (spr?.src) {
                 if (!texCache.has(spr.id)) {
