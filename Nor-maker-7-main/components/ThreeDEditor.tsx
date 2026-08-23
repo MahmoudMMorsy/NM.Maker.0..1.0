@@ -561,6 +561,10 @@ export const ThreeDEditor: React.FC<ThreeDEditorProps> = ({
         const {map, width, height} = room;
         const G = 16;
 
+        // Bolt Optimization: Pre-build an O(1) Map lookup index for sprites
+        // instead of calling O(N) Array.prototype.find inside the room tile map iteration loop (N tiles * S sprites -> O(1)).
+        const spriteMap = new Map(sprites.map(s => [s.id, s]));
+
         for (let i = 0; i < map.length; i++) {
             const val = map[i]; if (val === 0) continue;
             const col = i % width, row = Math.floor(i / width);
@@ -577,7 +581,7 @@ export const ThreeDEditor: React.FC<ThreeDEditorProps> = ({
             } else {
                 const obj = gameObjects[val - 2];
                 if (obj?.spriteId) {
-                    const sp = sprites.find(s => s.id === obj.spriteId);
+                    const sp = spriteMap.get(obj.spriteId);
                     if (sp?.src) {
                         const tex = new THREE.TextureLoader().load(sp.src);
                         tex.magFilter = THREE.NearestFilter; tex.minFilter = THREE.NearestFilter;

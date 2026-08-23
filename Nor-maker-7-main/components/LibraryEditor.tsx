@@ -16,8 +16,7 @@ import * as geminiService from '../services/geminiService';
 import AnimStateMachineEditor from './AnimStateMachineEditor';
 
 const ALL_ACTIONS: ActionDefinition[] = [...ACTION_LIBRARY, ...EXTERNAL_ACTIONS];
-// O(1) Map index for action definition lookups to avoid O(N) array scans during rendering
-const ACTION_MAP: Map<string, ActionDefinition> = new Map(ALL_ACTIONS.map(a => [a.id, a]));
+
 import RetroButton from './RetroButton';
 
 interface LibraryEditorProps {
@@ -103,6 +102,11 @@ const LibraryEditor: React.FC<LibraryEditorProps> = ({ objectData, onUpdate, spr
   const [isAiGenerating, setIsAiGenerating] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
 
+  // Pre-built O(1) Map lookup for ALL_ACTIONS to avoid linear array search per render
+  const actionMap = useMemo(() => {
+    return new Map<string, ActionDefinition>(ALL_ACTIONS.map(a => [a.id, a]));
+  }, []);
+
   // Dynamic Events List
   const dynamicEvents = useMemo(() => {
       return EVENTS.map(ev => {
@@ -115,6 +119,20 @@ const LibraryEditor: React.FC<LibraryEditorProps> = ({ objectData, onUpdate, spr
           return ev;
       });
   }, [gameObjects]);
+
+  // Index dynamic events for O(1) label and icon lookups
+  const eventMap = useMemo(() => {
+      const map = new Map<string, { label: string; icon: React.ReactNode }>();
+      dynamicEvents.forEach(ev => {
+          map.set(ev.id, { label: ev.label, icon: ev.icon });
+          if (ev.subEvents) {
+              ev.subEvents.forEach(sub => {
+                  map.set(sub.id, { label: sub.label, icon: ev.icon });
+              });
+          }
+      });
+      return map;
+  }, [dynamicEvents]);
 
   const addAction = (libDef: ActionDefinition) => {
     const newAction: GameAction = {
@@ -431,16 +449,9 @@ const LibraryEditor: React.FC<LibraryEditorProps> = ({ objectData, onUpdate, spr
         <div className="p-1 pb-0 text-[10px] text-black">Events:</div>
         <div className="flex-1 bg-white border border-[#404040] shadow-win-in mx-1 mb-1 overflow-y-auto">
           {Object.keys(objectData.events).map(eventId => {
-            const ev = dynamicEvents.find(e => e.id === eventId) ||
-                       dynamicEvents.find(e => e.subEvents?.some(s => s.id === eventId));
-
-            let label = ev?.label || eventId;
-            let icon = ev?.icon;
-
-            if (ev?.subEvents) {
-              const sub = ev.subEvents.find(s => s.id === eventId);
-              if (sub) label = sub.label;
-            }
+            const evInfo = eventMap.get(eventId);
+            const label = evInfo?.label || eventId;
+            const icon = evInfo?.icon;
 
             return (
               <div
@@ -642,8 +653,7 @@ Objects: ${gameObjects.map(o => o.id + ' (' + o.name + ')').join(', ')}
          )}
 
          {(objectData.events[selectedEvent] || []).map((action, idx) => {
-             // O(1) lookup using pre-built Map index instead of O(N) ALL_ACTIONS.find
-             const def = ACTION_MAP.get(action.libId);
+
              if(!def) return null;
              return (
                  <div key={action.id} className="bg-[#D4D0C8] border-2 border-t-white border-l-white border-r-[#404040] border-b-[#404040] p-1 flex items-center gap-2 text-xs flex-wrap">

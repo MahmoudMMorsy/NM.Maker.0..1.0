@@ -1,9 +1,9 @@
 
 import * as React from 'react';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import { Eraser, Grid, Check, ZoomIn, ZoomOut, CheckSquare, Square as SquareIcon, Box as BoxIcon, Clock, Undo2, Redo2, Layout, Layers, Box, Camera, X, Sun, Move } from 'lucide-react';
 import { LevelData, RoomSettings, BackgroundDef, ViewDef, SpriteAsset, BackgroundAsset, GameObject, UIMenu, Scene3DObject } from '../types';
-import { TRANSITION_CATALOG } from './TransitionEffect';
+import { TRANSITION_CATALOG, TRANSITION_MAP } from './TransitionEffect';
 import RoomLightingPhysicsPanel from './RoomLightingPhysicsPanel';
 import { Room3DOrbitViewer } from './Room3DOrbitViewer';
 
@@ -89,6 +89,10 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
   const [currentViewIndex, setCurrentViewIndex] = useState(0);
   const [currentLayerIndex, setCurrentLayerIndex] = useState(0);
+
+  // Index lookup maps for O(1) asset access during render operations
+  const spriteMap = useMemo(() => new Map<string, SpriteAsset>(sprites.map(s => [s.id, s])), [sprites]);
+  const bgAssetMap = useMemo(() => new Map<string, BackgroundAsset>(backgroundAssets.map(b => [b.id, b])), [backgroundAssets]);
 
   // selectedTool corresponds to the MAP ID.
   // 0=Eraser, 1=Solid Wall, 2+=Objects (gameObjects index + 2)
@@ -427,7 +431,7 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
                     ctx.fillStyle = el.barColor || 'green';
                     ctx.fillRect(el.x, el.y, el.w, el.h);
                 } else if (el.type === 'image') {
-                    const sprite = sprites.find(s => s.id === el.spriteId);
+                    const sprite = el.spriteId ? spriteMap.get(el.spriteId) : undefined;
                     if (sprite && sprite.src && spriteImagesRef.current[sprite.id]) {
                         ctx.drawImage(spriteImagesRef.current[sprite.id], el.x, el.y, el.w, el.h);
                     }
@@ -895,7 +899,7 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
                                     {/* Dynamic Objects - ID 2+ */}
                                     {gameObjects.map((obj, idx) => {
                                         const toolId = idx + 2;
-                                        const sprite = sprites.find(s => s.id === obj.spriteId);
+                                        const sprite = obj.spriteId ? spriteMap.get(obj.spriteId) : undefined;
                                         return (
                                             <button
                                                 key={`${obj.id}_${idx}`}
@@ -1243,7 +1247,7 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
                               <div className="flex items-center gap-1">
                                 <label className="text-[10px] text-gray-500">Current:</label>
                                 <span className="text-[10px] font-bold text-win-blue px-1 py-0.5 bg-blue-50 border border-blue-200 rounded">
-                                  {TRANSITION_CATALOG.find(t=>t.id===current)?.label || current}
+                                  {TRANSITION_MAP.get(current)?.label || current}
                                 </span>
                               </div>
                               <div className="flex items-center gap-1 ml-auto">
@@ -1348,7 +1352,7 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
                                  <div className="flex gap-2 flex-1 min-h-0">
                                      <div className="w-28 border border-win-shadow shadow-win-in bg-white overflow-y-auto shrink-0">
                                          {backgrounds.map((bg, i) => {
-                                             const asset = backgroundAssets.find(a => a.id === bg.source);
+                                             const asset = bg.source ? bgAssetMap.get(bg.source) : undefined;
                                              return (
                                                  <div key={i} onClick={() => setCurrentBgIndex(i)} className={`px-2 py-1 cursor-pointer flex flex-col border-b border-gray-100 ${currentBgIndex === i ? 'bg-win-select text-white' : 'hover:bg-gray-100'}`}>
                                                      <div className="flex items-center gap-1">
