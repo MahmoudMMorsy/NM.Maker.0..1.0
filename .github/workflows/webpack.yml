@@ -10,6 +10,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: Nor-maker-7-main
+
     strategy:
       matrix:
         node-version: [18.x, 20.x, 22.x]
@@ -25,4 +29,4 @@ jobs:
     - name: Build
       run: |
         npm install
-        npx webpack
+        npm run build
