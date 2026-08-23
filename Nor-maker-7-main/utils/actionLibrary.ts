@@ -25,7 +25,8 @@ export interface ActionDefinition {
   generateCode?: (params: Record<string, any>) => string;
 }
 
-<<<main
+export const generateActionCode = (action: { libId: string; params: Record<string, any> }): string => {
+  const def = ACTION_MAP.get(action.libId);
   if (!def) return `// Action ${action.libId} not found\n`;
 
   if (def.generateCode) {

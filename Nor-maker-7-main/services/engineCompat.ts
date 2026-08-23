@@ -45,6 +45,25 @@ export const GML_COMPAT_SCRIPT = `
     window.point_distance = (x1, y1, x2, y2) => Math.hypot(x2-x1, y2-y1);
     window.irandom = (n) => Math.floor(Math.random() * (n + 1));
     window.choose = (...args) => args[Math.floor(Math.random() * args.length)];
+    window.clamp = (val, min, max) => Math.min(Math.max(val, min), max);
+    window.lerp = (a, b, amt) => a + (b - a) * amt;
+    window.dcos = (deg) => Math.cos(deg * Math.PI / 180);
+    window.dsin = (deg) => Math.sin(deg * Math.PI / 180);
+    window.degtorad = (deg) => deg * Math.PI / 180;
+    window.radtodeg = (rad) => rad * 180 / Math.PI;
+    window.sign = (val) => Math.sign(val);
+    window.sqr = (val) => val * val;
+
+    // --- GML String Functions ---
+    window.string_length = (str) => String(str || '').length;
+    window.string_copy = (str, index, count) => String(str || '').substring(Math.max(0, index - 1), Math.max(0, index - 1) + count);
+    window.string_pos = (sub, str) => { const idx = String(str || '').indexOf(sub); return idx === -1 ? 0 : idx + 1; };
+
+    // --- GML Drawing & State Helpers ---
+    window._draw_color = 0xFFFFFF;
+    window._draw_alpha = 1.0;
+    window.draw_set_color = (c) => { window._draw_color = c; };
+    window.draw_set_alpha = (a) => { window._draw_alpha = a; };
 
     // --- AUDIO API ---
     window.audio_play_sound = (s, p, l) => { if(l) GM82Audio.play_music(s); else GM82Audio.play_sfx(s); };
