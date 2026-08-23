@@ -25,19 +25,25 @@ export interface ActionDefinition {
   generateCode?: (params: Record<string, any>) => string;
 }
 
-export const getActionDefinition = (libId: string): ActionDefinition | undefined => {
-  const native = ACTION_LIBRARY.find(a => a.id === libId);
-  if (native) return native;
+let actionMapCache: Map<string, ActionDefinition> | null = null;
 
-  // Try to find in EXTERNAL_ACTIONS (imported dynamically to avoid circular/bloat if needed,
-  // but for now we assume it's available or we provide a fallback)
-  // Since we can't easily import EXTERNAL_ACTIONS here without circular deps if it was there,
-  // we'll expect the caller to pass the library or we use a global registry.
-  return undefined;
+// Lazy Map index for O(1) action lookups in ACTION_LIBRARY
+const getActionMap = (): Map<string, ActionDefinition> => {
+  if (!actionMapCache) {
+    actionMapCache = new Map(ACTION_LIBRARY.map(a => [a.id, a]));
+  }
+  return actionMapCache;
+};
+
+export const getActionDefinition = (libId: string): ActionDefinition | undefined => {
+  return getActionMap().get(libId);
 };
 
 export const generateActionCode = (action: { libId: string, params: any }, externalLibrary?: ActionDefinition[]): string => {
-  const def = ACTION_LIBRARY.find(a => a.id === action.libId) || externalLibrary?.find(a => a.id === action.libId);
+  let def = getActionMap().get(action.libId);
+  if (!def && externalLibrary) {
+    def = externalLibrary.find(a => a.id === action.libId);
+  }
   if (!def) return `// Action ${action.libId} not found\n`;
 
   if (def.generateCode) {
