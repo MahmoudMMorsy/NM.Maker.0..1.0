@@ -6,6 +6,7 @@ import {
   Clock, ToggleLeft, HelpCircle, Layers, Layout, Plus, Trash2,
   Zap, AlertTriangle, MessageSquare, MousePointer
 } from 'lucide-react';
+import { EXTERNAL_ACTIONS } from './externalActions';
 
 export interface ActionDefinition {
   id: string;
@@ -27,8 +28,12 @@ export interface ActionDefinition {
 
 export const generateActionCode = (action: { libId: string; params: Record<string, any> }, externalActions?: ActionDefinition[]): string => {
   let def = ACTION_MAP.get(action.libId);
-  if (!def && externalActions) {
-    def = externalActions.find(a => a.id === action.libId);
+  if (!def) {
+    if (externalActions) {
+      def = externalActions.find(a => a.id === action.libId);
+    } else {
+      def = EXTERNAL_ACTION_MAP.get(action.libId);
+    }
   }
   if (!def) return `// Action ${action.libId} not found\n`;
 
@@ -1101,4 +1106,12 @@ export const ACTION_LIBRARY: ActionDefinition[] = [
  */
 export const ACTION_MAP = new Map<string, ActionDefinition>(
   ACTION_LIBRARY.map(action => [action.id, action])
+);
+
+/**
+ * Pre-built O(1) Map index for external action definitions.
+ * Reduces lookup complexity from O(N) to O(1) when generating code for legacy GameMaker DnD actions.
+ */
+export const EXTERNAL_ACTION_MAP = new Map<string, ActionDefinition>(
+  EXTERNAL_ACTIONS.map(action => [action.id, action])
 );
