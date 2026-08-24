@@ -107,6 +107,25 @@ const LibraryEditor: React.FC<LibraryEditorProps> = ({ objectData, onUpdate, spr
     return new Map<string, ActionDefinition>(ALL_ACTIONS.map(a => [a.id, a]));
   }, []);
 
+  // Group ALL_ACTIONS by category once to perform O(1) tab list lookups during render
+  const actionsByCategory = useMemo(() => {
+    const map = new Map<string, ActionDefinition[]>();
+    for (const action of ALL_ACTIONS) {
+      const list = map.get(action.category);
+      if (list) {
+        list.push(action);
+      } else {
+        map.set(action.category, [action]);
+      }
+    }
+    return map;
+  }, []);
+
+  // Memoize parent object options to avoid array allocations on every render pass
+  const parentGameObjects = useMemo(() => {
+    return gameObjects.filter(o => o.id !== objectData.id);
+  }, [gameObjects, objectData.id]);
+
   // Dynamic Events List
   const dynamicEvents = useMemo(() => {
       return EVENTS.map(ev => {
@@ -234,7 +253,8 @@ const LibraryEditor: React.FC<LibraryEditorProps> = ({ objectData, onUpdate, spr
   };
 
   const renderLibraryList = () => {
-    return ALL_ACTIONS.filter(def => def.category === selectedTab).map(def => (
+    const actions = actionsByCategory.get(selectedTab) || [];
+    return actions.map(def => (
       <div
         key={def.id}
         className="group flex flex-col items-center justify-center p-1 bg-[#D4D0C8] border-2 border-t-white border-l-white border-r-[#404040] border-b-[#404040] cursor-grab hover:bg-[#C0C0C0] active:border-t-[#404040] active:border-l-[#404040] active:border-r-white active:border-b-white"
@@ -416,7 +436,7 @@ const LibraryEditor: React.FC<LibraryEditorProps> = ({ objectData, onUpdate, spr
             className="flex-1 border-2 border-t-[#808080] border-l-[#808080] border-r-white border-b-white bg-white p-0.5 text-[10px]"
           >
             <option value="">&lt;no parent&gt;</option>
-            {gameObjects.filter(o => o.id !== objectData.id).map(o => (
+            {parentGameObjects.map(o => (
               <option key={o.id} value={o.id}>{o.name}</option>
             ))}
           </select>
