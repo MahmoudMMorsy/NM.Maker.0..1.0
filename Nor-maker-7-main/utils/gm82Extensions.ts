@@ -137,6 +137,42 @@ const GM82Buffer = {
     deserialize_map: (jsonStr) => JSON.parse(jsonStr)
 };
 window.GM82Buffer = GM82Buffer;
+
+// --- GM82 Data Structures Polyfill ---
+const GM82DataStructures = {
+    ds_list_create: () => (window as any).ds_list_create(),
+    ds_list_destroy: (id: number) => (window as any).ds_list_destroy(id),
+    ds_list_add: (id: number, ...vals: any[]) => (window as any).ds_list_add(id, ...vals),
+    ds_list_find_value: (id: number, pos: number) => (window as any).ds_list_find_value(id, pos),
+    ds_map_create: () => (window as any).ds_map_create(),
+    ds_map_destroy: (id: number) => (window as any).ds_map_destroy(id),
+    ds_map_add: (id: number, k: string, v: any) => (window as any).ds_map_add(id, k, v),
+    ds_map_find_value: (id: number, k: string) => (window as any).ds_map_find_value(id, k),
+};
+(window as any).GM82DataStructures = GM82DataStructures;
+
+// --- GM82 Particle System Polyfill ---
+const GM82ParticleSystem = {
+    part_system_create: () => (window as any).part_system_create(),
+    part_system_destroy: (id: number) => (window as any).part_system_destroy(id),
+    part_type_create: () => (window as any).part_type_create(),
+    part_type_destroy: (id: number) => (window as any).part_type_destroy(id),
+    part_type_color1: (id: number, col: string) => (window as any).part_type_color1(id, col),
+    part_particles_create: (psId: number, x: number, y: number, ptId: number, count: number) =>
+        (window as any).part_particles_create(psId, x, y, ptId, count)
+};
+(window as any).GM82ParticleSystem = GM82ParticleSystem;
+
+// --- GM82 Surfaces Polyfill ---
+const GM82Surfaces = {
+    surface_create: (w: number, h: number) => (window as any).surface_create(w, h),
+    surface_destroy: (id: number) => (window as any).surface_destroy(id),
+    surface_exists: (id: number) => (window as any).surface_exists(id),
+    surface_set_target: (id: number) => (window as any).surface_set_target(id),
+    surface_reset_target: () => (window as any).surface_reset_target(),
+    draw_surface: (id: number, x: number, y: number) => (window as any).draw_surface(id, x, y),
+};
+(window as any).GM82Surfaces = GM82Surfaces;
 `
     },
     {

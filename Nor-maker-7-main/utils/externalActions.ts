@@ -19,8 +19,15 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "move",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABCElEQVR4nO2WUQqDMAyGewi9mhfw2TPo0XqQMfB5g73svSODQJfGpLYpZaDlB9E0+axJWuecCy0VnDzgCvu+m2vbtnMA3ntVt2H4Kse2COA+jj+iwV/rGh7znEBw84oBnsuSBKcBQBxEPLdqBd7TlEDge3h39NxkBahDDYDaVgFIjjkAabVMqoD7OgSQglcBcMkV/1+854LHc4sAwIGUfDlJihCnAbDOMQAVlwucDfgAX0UA0GS4mqeNSbLBRvV/vyAnCTWI6iTUypArSfMylJrMUTKaNSLt66T2bNKKtSTTNqlm2zEeRKgohNl23O1AoqnZkQyMWygboOuxXDNoPS6AC+AC6A7wAYtdGofgS7UzAAAAAElFTkSuQmCC",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Move Fixed (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      const spd = p.spd ?? 2;
+      const dir = p.dir ?? 'right';
+      if (dir === 'stop') return `this.dx = 0; this.dy = 0;`;
+      if (dir === 'left') return `this.dx = -${spd}; this.dy = 0; this.facing = -1;`;
+      if (dir === 'right') return `this.dx = ${spd}; this.dy = 0; this.facing = 1;`;
+      if (dir === 'up') return `this.dy = -${spd}; this.dx = 0;`;
+      if (dir === 'down') return `this.dy = ${spd}; this.dx = 0;`;
+      return `this.dx = ${spd}; this.dy = 0;`;
     }
   },
   {
@@ -30,8 +37,14 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "move",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA70lEQVR4nO2W3wkDIQzGs0qH6BZdqG+u0S06glP03ZeuYfEgIJJ8sRo5WjwJ3J9ofnpfokREeaVlwq1cOaXkbiGE7wBijKbR9XlYj+8QAAeQApXn2+OdL/eX+K3tNwzQE0ADrPtOrYAEUQfR3rusgLUSLUDrOwWABpYA0Gq5ZIE0OwZAwacAkLjqe+0XuaShJTIk0mENcJ5zgNYkLUg+PMYQQD1LlPfIh8f4vV/QI0ILYlqEVhpKKemehqjIaGJ0K0TW7FB5dinFlsisTep/tmMtwPIDiWVanZjOguK8wroBTj2WWw6r2wbYABvgdIAPmtb8EGMCeWYAAAAASUVORK5CYII=",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Move Free (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      const dir = p.dir ?? 0;
+      const spd = p.spd ?? 2;
+      return `
+        var rad = (${dir}) * Math.PI / 180;
+        this.dx = Math.cos(rad) * (${spd});
+        this.dy = -Math.sin(rad) * (${spd});
+      `;
     }
   },
   {
@@ -41,8 +54,20 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "move",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzElEQVR4nGNgYGD4T0v8nwE/BIH/Dx8+pDpuaGggzQEHDhygKh5ZDmAwmAPGA+IAmOXojhg5DqBLFJzcvPn/PVFRrJiuifBSTjbY0vdAwz+0tNDfAWebmyAOqKn5/yY3l74OgFn+JSyM/lGAbvm58rL/l7Kz6eMAbJbD5G4pKoLpY8ePgTHVHYDPcljuoFkIoFt+tqGepLKBIgdQajlFDqCG5RQ5gBqWU+wASi2nejkw/B0AUkwLTLQDBrRZTkgBreGoA0YdMOqAAXcAACN+pC1lwPzyAAAAAElFTkSuQmCC",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Move Towards (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      const tx = p.tx ?? p.x ?? 0;
+      const ty = p.ty ?? p.y ?? 0;
+      const spd = p.spd ?? 2;
+      return `
+        var dist = Math.hypot(${tx} - this.x, ${ty} - this.y);
+        if (dist > ${spd}) {
+          var angle = Math.atan2(${ty} - this.y, ${tx} - this.x);
+          this.dx = Math.cos(angle) * ${spd};
+          this.dy = Math.sin(angle) * ${spd};
+        } else {
+          this.x = ${tx}; this.y = ${ty}; this.dx = 0; this.dy = 0;
+        }
+      `;
     }
   },
   {
@@ -52,8 +77,9 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "move",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA+ElEQVR4nGNgYGD4T0v8nwE/BIH/Dx8+pDpuaGggzQEHDhygKh51wPB2wD1R0YF3ACFH0N4BEhJ4HUF1ByD7GkR/aG7+/0hDA6cjqOIAZEvfZWcjHAD0/ce2NjB+YmSE1RFkOwDZ0tfh4XD2m6QkjBAAOeDTxIn/nzs5YTiCIgc8MTEBs1/6+uJ0wPvKSrAjQA4A4WfW1iiOoEoIvHB1xemAt3l5cEdQNQRwpYHXEREIB4iL/3+TkgJ2BNXTALG54FVU1P8HCgq0zQV4HQMMBbqWA4OuJCSkZnjXhsPPASDFtMBEO2BAm+WEFNAajjpg1AGjDhhwBwAA3lKgPSAVyWAAAAAASUVORK5CYII=",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Speed Horizontal (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      const spd = p.spd ?? p.hspeed ?? 0;
+      return `this.dx = ${spd};`;
     }
   },
   {
@@ -63,8 +89,9 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "move",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA70lEQVR4nGNgYGD4T0v8nwE/BIH/Dx8+pDpuaGggzQEHDhygKh5+DrgnKgrHA+aAJyYmA+eAAY0CkK9fuLr+f+nr+/91eDhRoUB1B6DjkRMFIN++joj4/yYpCY7fZWcTDAWqOgAXHr5RgOFbcXFUvoQEwdCgOARgFr+Kivr/JiXl/9u8vP/vKyv/f2hu/v+xrQ1MwxxCsygAGf5AQQHDchB+pKGBNx1QNRE+MTICW/5p4kQwBvHpmghBlj13cgJbDqIHpCACWfrM2npgKyNiLR/65QDdHQBSTAtMtAMGtFlOSAGt4agDRh0w6oABdwAAN/KgPeomWOAAAAAASUVORK5CYII=",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Speed Vertical (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      const spd = p.spd ?? p.vspeed ?? 0;
+      return `this.dy = ${spd};`;
     }
   },
   {
@@ -74,8 +101,9 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "move",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA7klEQVR4nGNgYGD4T0v8nwE/BIH/Dx8+pDpuaGggzQEHDhygKqa6AxgM5sDxgDkgeumbgXWAz8xn9HcActCb9T8gOiqoGgIgy3hTTv5Xqb/5X6v+OlGhQJMoEMw4PXBpAOaIAcuGpGKqpwF0THcHeE17/j9o3vP/UcveD4wDLPvuwR0xIA4wBDoA5gi6OAA9zjXb7kEcAXKABeH0QJUQABnO5Lnlv0Thtf+KlddQHMETuB1vSFC1KEZ3BFcAfstpkgaYvbeBHcHuu23gimKQI0aLYpo4AKSYFphoBwxos5yQAlrDUQeMOmDUAQPuAADLw44BMTuyywAAAABJRU5ErkJggg==",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Set Gravity (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      const amt = p.amt ?? p.gravity ?? 0.5;
+      return `this.gravity = ${amt};`;
     }
   },
   {
@@ -85,8 +113,8 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "move",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABDUlEQVR4nGNgYGD4T0v8nwE/BIH/Dx8+pDpuaGggzQEHDhygKh5eDrgjIjJwDgBZfk9UdGAcALL8fX39wDgAZjnMAdfU1THwY2mZ/+cjI6nvAJDlr5OT/39oafn/sbPz/7uSkv9fwsKw4rfMzP8vJCbRJgRAjgBhUAjc5OLGwFeEhMCOeAw044ayCm3SAMwBuOL6REY62BHoOYWquQBfNjy2fBltHUCoHDg+aybtHYAPH9mxY2AdALIY5IAzHh7UzYbEYpjvT7W2UNcBuPI9OgapPVta8v/kyhX0DYEbQH2gYD9TWfn/xMYN1C+IKMWjDhhaDgAppgUm2gED2iwnpIDWcNQBow4YdcCAOwAAdTCKBngvsTEAAAAASUVORK5CYII=",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Reverse Horizontal (not implemented)\n`;
+    generateCode: () => {
+      return `this.dx = -this.dx;`;
     }
   },
   {
@@ -96,8 +124,8 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "move",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABDklEQVR4nGNgYGD4T0v8nwE/BIH/Dx8+pDpuaGggzQEHDhygKh51AFUdcENZ5f8dEREUfMbD4/+p1pb/J1euoK0DLiQm/X8MVPMlLAwDgxxytrTk/4mNG2jjgPORkf/fMjODLTuRkf7/2PJl/4/Pmvn/yI4dYMthjjhTWUkbBzyWlvn/JTn5/xUhIazyMEeAooMmDrimrg624CYXN14H3ACaMaAOANGjDhg+DgAZdk9UFI7flZTA2bBCiOYhADLwfX09GH/s7Pz/GpgVQRjdIppGAcwRH1pasFpOlzQAMhiX5XRxAMwSfHLo6YLqDiAXjzqAJAeAFNMCE+2AAW2WE1JAazjqgFEHjDpgwB0AAE4NiiCi+d1MAAAAAElFTkSuQmCC",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Reverse Vertical (not implemented)\n`;
+    generateCode: () => {
+      return `this.dy = -this.dy;`;
     }
   },
   {
@@ -107,8 +135,9 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "move",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA2klEQVR4nO3WMQqDMBQG4FzCC3kINxdxEFFxcHETBMHRG+UkBacuWrVkf2pKi4o0NSZNKTH8ZHhv+PLQIEIIgcwAer/mB+q6Fp4sy44BMMZCowH/AbgYhnoAL0IY4GqaTMRenQvwPPEyQ1EwEXuT4gZ0cfxIktD0eb6L2EK7IFjVuQGN40DreTS3MIQuTSniXlUrxLwTywLiukCm3qEsoff9V/0UYJk2iiiCOQHbFjOBbZrphF97B5R/BT95Dyi9Cc9EAzTgEGBulpGPAUp/y1kNspcGaIAGKAeMssKhDtHUy2gAAAAASUVORK5CYII=",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Set Friction (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      const amt = p.amt ?? p.friction ?? 0.1;
+      return `this.friction = ${amt};`;
     }
   },
   {
@@ -140,8 +169,10 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "move",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABZUlEQVR4nGNgYGD4T0v8nwE/BIH/Dx8+pDpuaGggzQEHDhygKqa6A06uWf3/KTf3/zusrGD8nIvr/w1lFdo7AGTxfaCaL2FhGPgxUPxCYhLtHACy/AHU8nPCwv+P7Njx//ismf+PLV/2/0RGOlj8LTPz//ORkdR3ALLPQZZjc+AVIaH/X5KT/z+WlqG+A24QsByEb3Jxg9VcU1enrgNOTJ4INvi+mxuGwXdERMD4nqgoGL8rKYGzQRgkR7EDLgsI4vU9yJLXwKAH4Y+dnf/f19eDMcxyihxwJj8fnsovpKTgDH6YIz60tGBYTpEDrpibgy0/Ly5OsGyAOQLdcooccNnIiGDiQ3cEVcuBK5ycRDmAwWAOXj7ZDgBZDMOEfA+zFN1yqpWExGBslpPtAELBSpcQwGcoXdIAMZYTg2keAjRxAKlpgCYhQC1MkgNAimmBiXbAgDbLCSmgNRx1wKgDRh0w4A4AABtIhPu73Fe3AAAAAElFTkSuQmCC",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Jump to Position (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      const x = p.x ?? 0;
+      const y = p.y ?? 0;
+      return `this.x = ${x}; this.y = ${y};`;
     }
   },
   {
@@ -151,8 +182,8 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "move",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABwElEQVR4nGNgYGD4T0v8nwE/BIH/Dx8+pDpuaGggzQEHDhygKqa6A06uWf3/KTf3/zusrGD8nIvr/w1lFdo7AGTxfaCaL2FhGPgxUPxCYhLtHACy/AHU8nPCwv+P7Njx//ismf+PLV/2/0RGOlj8LTPz//ORkdR3ALLPQZZjc+AVIaH/X5KT/z+WlqG+A24QsByEb3Jxg9VcU1enrgNOTJ4INvi+mxuGwXdERMD4nqgoGL8rKYGzQRgkR7EDLgsI4vU9yJLXwKAH4Y+dnf/f19eDMcxyihxwJj8fnsovpKTgDH6YIz60tGBYTpEDrpibgy0/Ly7+/9jxYyiGovNhjkC3nCIHXDYyIpj40B1B1XLgCicnSQ44NksCjKnmAJDFMEyM5f9vlvz//6AKwxE0r4zAll/PA1v+/03r//8vG1EcQZYDGAzmoFiCzsdwwO3S//+f1/////MoEB+k3AHIluKzHOyAPbMhjnjd8v//n2WQtAAUo0oUELIchndu6IEnQmTL6RICILxy9er/OZPn//fz86NOLiAlDYDwtu3bwJZTzQHUxCQ5AKSYFphoBwxos5yQAlrDUQeMOmDUAQPuAAAt84VzCZetmAAAAABJRU5ErkJggg==",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Jump to Start (not implemented)\n`;
+    generateCode: () => {
+      return `this.x = this.startX || 0; this.y = this.startY || 0;`;
     }
   },
   {
@@ -173,8 +204,13 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "move",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAZElEQVR4nO3W0QnAMAgE0BupIzpIhnEVJzG4QNqUk9BykfsISHiIHwGA7ExiXXUyIugxsz2Au1MjAAWAa2zdBaAA6tG3+ccEBNAOCKAdEICVbwGquSOPAUe/5XcN3SWAAAIcB0xhhXWvLuaPxQAAAABJRU5ErkJggg==",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Align to Grid (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      const hs = p.hs ?? p.hsnap ?? 16;
+      const vs = p.vs ?? p.vsnap ?? 16;
+      return `
+        this.x = Math.round(this.x / ${hs}) * ${hs};
+        this.y = Math.round(this.y / ${vs}) * ${vs};
+      `;
     }
   },
   {
@@ -184,8 +220,14 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "move",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABEUlEQVR4nO2Wyw2CQBCGtxu40QChABsgHOBEBzRAG3TDxZN341ESNb56GP1NxuhmwQX2kRjY/Cdmdr7MC4QQgmyKxPDBQ13XGVdd1+MA2rY1KuMA2yDwB4Dgp9WKNlXlHgDBz2lK1zyn+xPimCS0bhr3GdiH4SswAHZZ5q8HUAadLFibAqcACKISA7CMA+BS1BmBdARbGWQWAF+MdKskv2N7IwC4EOPWl1pVD7DP556YBMALBzOPsVNtPxkANl0U0a0s6RDHb5/JGeDF07d6VRmA7aUovnxm9cDQ3u8bQ9nnvxYR15mDO13FXF80mdePETrcy+dYpzGdAIzVKAAY25A2gNff8l8Gts8CsAAsAN4BHmv9mPRj3hGqAAAAAElFTkSuQmCC",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Wrap Screen (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      const mar = p.mar ?? p.margin ?? 0;
+      return `
+        if (this.x < -${mar}) this.x = (currentRoom.width*16) + ${mar};
+        if (this.x > (currentRoom.width*16) + ${mar}) this.x = -${mar};
+        if (this.y < -${mar}) this.y = (currentRoom.height*16) + ${mar};
+        if (this.y > (currentRoom.height*16) + ${mar}) this.y = -${mar};
+      `;
     }
   },
   {
@@ -195,8 +237,20 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "move",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAr0lEQVR4nGNgYGD4T0v8nwE/BIH/Dx8+pDpuaGggzQEHDhygKh6eDrimrg7HA+aAL2Fh/68ICQ2sA25ycY86YNQB9HPAHRGR//dEReH4XUkJnA2SA2GahwDIkvf19WD8sbPz/+vkZDDGZTlNogDmiA8tLQQtp1kaAFlKjOU0cwDMEcSoo8gBDAZzyMajDhgeDqAGHloOACmmBSbaAQPaLCekgNZw1AGjDhh1wIA7AACllmgBGX7HTgAAAABJRU5ErkJggg==",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Move to Contact (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      const dir = p.dir ?? 0;
+      const maxDist = p.maxdist ?? 128;
+      return `
+        var rad = (${dir}) * Math.PI / 180;
+        var stepX = Math.cos(rad);
+        var stepY = -Math.sin(rad);
+        for (var i = 0; i < ${maxDist}; i++) {
+          this.x += stepX; this.y += stepY;
+          if (this.checkCol(currentRoom.map, currentRoom.width)) {
+            this.x -= stepX; this.y -= stepY; break;
+          }
+        }
+      `;
     }
   },
   {
@@ -206,8 +260,16 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "move",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA6klEQVR4nGNgYGD4T0v8nwE/BIH/Dx8+pDpuaGggzQEHDhygKh6eDji5efP/e6KiWDFVHcBgMAcFoxt+KScbbOl7oCUfWlro74CzzU0QB9TU/H+Tm0tfB8As/xIWRv8oQLf8XHnZ/0vZ2fRxADbLYepvKSrS1gH4LIflDpo6AJ/lNCkH0B3wJTKSJMtpGgKg6KC7A8421JPsCOrnAhIdQZtygARH0K4kRHPEucYG+joAxRHQ3HF6yWL6OgDZEVeXLqF+CBCLT82aSZs0QA1MkgNAimmBiXbAgDbLCSmgNRx1wKgDRh0w4A4AAFTrUZOq0pxyAAAAAElFTkSuQmCC",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Bounce (not implemented)\n`;
+    generateCode: () => {
+      return `
+        var oldX = this.x; var oldY = this.y;
+        this.x += this.dx;
+        if (this.checkCol(currentRoom.map, currentRoom.width)) this.dx = -this.dx;
+        this.x = oldX;
+        this.y += this.dy;
+        if (this.checkCol(currentRoom.map, currentRoom.width)) this.dy = -this.dy;
+        this.y = oldY;
+      `;
     }
   },
   {
@@ -338,8 +400,19 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "main1",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACiElEQVR4nO2WX0hTYRjGd9NN0F03BUEUZFdGd91Kt93UXUQsgjJhRa6l6xS1zbXaCpw2sjwja3M1Fs7NJTvb3P/chgS2yrRCbahYlFFZlAnnyfesA2phjc6ZNzuH52Lwsef3fO/7vd9RKBQKyCkoVn7pQaFQkFw6na40gEQiIakkBRgatGN8SI+pkcN4nd+PJ/1q5FIsUumUvAADA1FMF1ox/1kP/gsD/tMe8DMbMTe+FpO5Kjzk1OiLhuQDmC5cA757gB8R4Fs7+FkV+A/V4N+twdcX6zCZ3oxglwbhSFh6gOf5DszPNhXN6Zl7sASAdmHm0Xo87d0Jd2cLorGotABTLxuFbafkZL58B0SAV9w2dNyoR7evWzqAXC6O96P7ijUnU1Efdws9sBhglNsCN6uEs9MpIUA2hrfPaopmlFjUL3OxB970b1gA2ApHmxIsyy4pw38BZLIZjGQOCilFw8US00/EN+GxtxrNFhVYO4tYPCYdQCbZjolslZCUDEXRbzKn9MM925G4VwO9XgvXXReSqaR0TUh/lg6qhaNGhqLImJKTedazC5aLdTCbzQgEAtLPARoydM7pqFGtqeFIee8OITmZGwwGIX0iKdMopiFz230HxjMH0Nx6CpevHgfTcAQMUw/TJZNgvnwGSH4X2J0eGK/bER0eg9Hbi7rTDAxNBnjue35LLhOAC8ZbLnQNjuHsAsixkw1C3YNcsDy34U2HA4c053HCdAV7j9ZCWauC2WIGF+LKAxAKh2CxtYE5dwGaRi20Wi1sNhsifZHyAJB8fh+sVqvQeNYWK/w9/hXXy/JFRCeC6v6n67csAKWoJABaLIf+GWBVP8v/tkDutwJQAagArDrATwiutCUxjH/oAAAAAElFTkSuQmCC",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Create Instance (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      const obj = p.obj ?? p.object ?? 'obj_name';
+      const x = p.x ?? 0;
+      const y = p.y ?? 0;
+      const rel = p.rel ?? true;
+      return `
+        var def = GAME_DATA.objects.find(o => o.name === '${obj}' || o.id === '${obj}');
+        if (def) {
+          var nx = ${rel ? 'this.x + ' : ''}${x};
+          var ny = ${rel ? 'this.y + ' : ''}${y};
+          window.instances.push(new GMObject(nx, ny, def));
+        }
+      `;
     }
   },
   {
@@ -371,8 +444,17 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "main1",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB1UlEQVR4nO2Wy0oCURzGz0aEpKjEpUVSdCOIbFHPYI+gjyBEtejmONmVKBoQF5HYziRTuw6hlFIpRUEtlCBqIe1aVVDt+pozQy3KssvMhOA5fKtzON/vf4NDCCFQUiBfb7qQzWZlF8uyPwNIJBKyqvABAoET9PZcwMGkEVlNqQvgdFzAZr1DRwdgMDzDaExjaHjn7Zy0et8kO0A4fCyY32JhAbBYgMpK4Q2SQW2dH9HYwQejzyB+DcA6M+jslMxpBl4BtNp5uFx8TrNcEL8GsNvPoddLxpL5jaA4NJoJOJmo8gAroZRYcxq1pLggD8xtPuzsJj8Yv5csTUgbzmRaEtOu002j3bwIjot/Gn2uhvzzGG7x+3C7Y/B684+crCX4rs6W/cj2d+OUGUVydU1dgOvZETyMD+DRasVdTROOjI3YHmbVATiNBPEw1g+6nhyDuK+qxyEpw2JdC/ZjUeUBrkaH8GiziuY0A68AnLYCG65x5QHO7H24r24QjakuSTk2SSkYTRmCzJzyAMlQWKw5jZqKms+QEky2danXhLThfKZmMe0unR5T5i6scz51x3CP57Ht9oD3+nOeF/6HRFUAelkJfRvgX7/l+S4ovYsARYAiwL8DvACQN4JAcCi8zgAAAABJRU5ErkJggg==",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Change Instance (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      const obj = p.obj ?? p.object ?? 'obj_name';
+      const ev = p.ev ?? true;
+      return `
+        var def = GAME_DATA.objects.find(o => o.name === '${obj}' || o.id === '${obj}');
+        if (def) {
+          this.def = def;
+          this.resolveSize();
+          if (${ev}) this.triggerEvent('create');
+        }
+      `;
     }
   },
   {
@@ -382,8 +464,10 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "main1",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACo0lEQVR4nO2W204TQRiA+yg8Cm8AN1LBCy5IjMFEGklQkcpiDAchKZRwQQJJLVgwFqjpIdBu6ZGGM0EMFlRORRA8oCBCgfZzdw1IY6IQd8MNO/kuZnd255t//tkZnU6nQ0vQ/b3IF8vLy6ojCML5BILBoKpcCmgqEIoN0x5O0BT9QctomrahL/T29RIIBrQVcIfHMYuLCOI3HoX2qYskMcUOcSykKb9frkioItA/vUrPHCe0RpcxODe45d7itucr97w7GMVdGoeTBDZSLAAF1wro6OxQR2BiG+Wjp5k7hMjnI5wrSTyrB4xtp1g89Vyv12O1WrUTOGY+uYV7LUDk0xTZzmxWpXv+eFzdCPgTSUa2+IPo5iJZtix0rToFWWB2B7qjExQVFdHV3aWOgH0sgVOK72n80lBzB3IxjgsIEscCsXVoeOqm+GYxdrtdHYFnoVmsM2QwLnVUMSawtJ/GEDMoncv4EosYmy2UlpbS5+hTR8AZGKZ5JJVB/9v0SafyNExvLdDw0oRldpIbZZUYHxhxe9wq5cCgn7rgNg8De7ROJRHXj5j8jtK5HHp5Kj5IySjXh6RlWHL3DrV1tXh9XvV+RI89czilZJzZA9cSdLz6LSAjRyEsrQR5ZeTk5mBuNjMYGFRPQBydYP4IxPfgeCdl+utfAiu7KGxKz96koMpkorCwEGuHNeP9/xbwh0PE9/aVf0Lko7QK1iC8iVKPH8Azqc31khLy9HlUV1dnzL8qAiFJoLPLRrv9OS02G2ZphDJlVQJXrurJz8/HYDDQ2NSI44VDm91QTirLEws1tTVKllcYK6gUKqlvqKetvY2e3h5Ev6j9djzgHcDlduF0OZVQ+0TfxZ4HzsK5BOTGWnBmgQs9lv+rgdblUuBS4FLgwgV+AuH5z1kgeOKGAAAAAElFTkSuQmCC",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Destroy Instance (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      const target = p.target ?? 'self';
+      if (target === 'other') return `if(typeof other !== 'undefined' && other) other.dead = true;`;
+      return `this.dead = true;`;
     }
   },
   {
@@ -426,8 +510,16 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "main1",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAw0lEQVR4nO2WwQ2EIBBFpxYroTS62BMF2AVteOS6TcxmiGQNAmKYCUqAvIOG+N+ggAAAKAlCuVND5xw7Wut7AtZaVqYAq4AxBpVSJ+i+qMAxePMP+0PXJZFmgRAeB+O6om+RSCzRLJAMJ3x2ejaOEk0CofpTeIJt57MsfALZ6hOhAdZXkKs+DqWQ3EoQEbgKHWsGun4Dd1fBl3sV1MyC6D5Q3Akrwsc4Cx5xGrbwLgEaLEG1QNff8qsB0n0KTIEp0F3gB/KnE+6OU99gAAAAAElFTkSuQmCC",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Change Sprite (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      const spr = p.spr ?? p.sprite ?? '';
+      const idx = p.idx ?? p.index ?? 0;
+      const spd = p.spd ?? p.speed ?? 0.2;
+      return `
+        this.def = { ...this.def, spriteId: '${spr}' };
+        this.frame = ${idx};
+        this.animSpeed = ${spd};
+        if (this.resolveSize) this.resolveSize();
+      `;
     }
   },
   {
@@ -492,8 +584,10 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "main1",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACGklEQVR4nO2WPWvCUBiF85ccXR0DdQhOQdQ0bkGXgEswKgjtkDFjwEEUEbK0hNoWNVNGx+xO/QmObz2vvZKCH/24touGgxfuJed5z/2KoigKXVKknH7wo/V6LV3dbvd7AHEcS5V0gNnzjB4eH2gymbDQ/hMAGIdhSLZtUz6fp0KhQKqqUrFYpGazeRRECoAwL5VKn8w1TSNd11kAwRipAGEYURRFNJ1O98ZZc9M0WZZlkeM4VKlUGFYKgGl6lKYprVYrMm4NyuVybJ5NQJhjWgCAJAaDwe8BbNunJElps9kwgDBFGpDneWyKFGDs+z71+33uq9VqvwfQNLwspbe3Db9cRA+Y+Xy+B0AKaAdBwEIfEslOw48AVNXZVhRtzZN99agQi2w0GnHVMNI0kwFQOfoAKAUAsiyfpwIAqFRELaoXAABKkoQhpAJANzfmfsHp+m7BWZbNYI6zSwLmkADBWGkAd/deZr9bH8bBViFLmGLuxfQYhiEPAKpWqxw5pOuY+4DTwKJD5BDMAQLQ4XAo9yRsu202xyKEEDsqhqHYFaJdLpflH8Xj8Zh6vR6bI2JhKGJHG/84hA7dB1LuglarxeaIHTsBbWEOHTOXBrCMl9TpdNg8mwCOYlxQp65kadcxIFzXpUajwQuzXq8fvP0u+kGyWC7oafbEenl9OWsuHeAn+hYABl9CXwb418/ycwMu/VwBrgBXgH8HeAdnmmICGulK6AAAAABJRU5ErkJggg==",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Play Sound (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      const snd = p.snd ?? p.sound ?? '';
+      const loop = p.loop ?? false;
+      return `if (window.GM82Audio) GM82Audio.play_sfx('${snd}', ${loop});`;
     }
   },
   {
@@ -569,8 +663,8 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "main1",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA6UlEQVR4nGNgYGD4T0v8nwE/BIH/Dx8+pDpuaGggzQEHDhygKh51wNB3AEPyOZLw8HQALvAdip8DiWvv/9PXAeiWH3tORwcgW053B4AsZkhj+K9SZA63HITXXqODA2CWW6+S/S+zgh/sCJDPt96jgwNgltsvVfofcFDjv9kWabgjQJbT1AEwy10W6/4vvG73P/WMMcIRSxCOoJkDQBbAMMghxTcdwBhZHCxHCwdgOAjogOaXAWAMspTudQHIAZN/JoDxgDkAhgfEAaTiUQeQ5ACQYlpgoh0woM1yQgpoDUcdMOqAUQcMuAMAWT2oNMqggFkAAAAASUVORK5CYII=",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Restart Room (not implemented)\n`;
+    generateCode: () => {
+      return `if (window.restartRoom) window.restartRoom();`;
     }
   },
   {
@@ -580,8 +674,9 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "main1",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA9klEQVR4nGNgYGD4T0v8nwE/BIH/Dx8+pDpuaGggzQEHDhygKh51wNB3AEPyOZLw8HQALvAdip8DiWvv/9PXAeiWH3tORwcgW053B3xHomGWg/Daa3RwAMhShjQGOFYpMgf7fOs9OjjgO5IDJv9MAGOQA0AWwzDNHIAc5yAHNL8MAGO6OQBkEQyDHFB80wGMkcXBcrRwANwhQItdFuv+L7xu9z/1jPH/gIMa/822SP+XWcIPtpwudQHIEfZLlRCWr8BvOU0qI5AjrFfJEmU5TRwAcwQxltPMAaTgoeUAkGJaYKIdMKDNckIKaA1HHTDqgFEHDLgDAAXHrHPeY7sTAAAAAElFTkSuQmCC",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Different Room (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      const rm = p.rm ?? p.room ?? 'rm_1';
+      return `if (window.loadRoom) loadRoom('${rm}');`;
     }
   },
   {
@@ -1174,8 +1269,8 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "control",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABvklEQVR4nO2WSy8DURzF5/P5KhKbxkJqITEJiyY2tbOSWIhEYjFCKFUy3oNUX9NWKVVa1YdWmTt3jv/VEInxaPQSSefm7G7m/M45sxhFURTIFJTPj3hgmmbHpapqewDBYLCj+v8AI9MpV43OnEALROFVA/IBxMMc4IEBDctB9cHB7b0Dw8jD69ehThhyARgHmmRefyTzpoNSw0HxjsOItgA8OuDxu0N0BKBpAf4p/Z1EAx5fAB6tjJ6pMnpVXQ5ATVROqW/qHFc1jlyFI3vLEc03n0F8fg2qj6RqcgBKDe7agFmwEbuyEb60cXhhywMo0N6XVY7zMkemxJEq2khciwY4wjkbB2S+eyYRIFdxXBt40Q6Zb2aYHIDhyQhOae/0DUfyTeVHlHo/y8icQSfz9bRkALfkvwIwNHGANG1uFsTmrfRi872sje1TMj9hCKUYVpOWHIDB8S3EqfaP9l9LWVhJMCzFJQEMjIVwnG9tbpzbrx/cBqUOJhmWTQuLMYb5iKQJ+keX3lW+Lio3yZySL0QtaBELc2FJDfR5Z59f/F11HOCn6gK0BSAuy9C3Af70t/yrC7JPF6AL0AX4c4AnGNj3c/GyMxMAAAAASUVORK5CYII=",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Execute Code (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      return `${p.code || p.script || ''}\n`;
     }
   },
   {
@@ -1229,8 +1324,12 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "control",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAeklEQVR4nO3WYQqAIAwF4Hd0f3SwXWUnMeyXSFaDzRU95YHKoA9GIgDUyFRczzaqqrqnlGIDiIhrCCDgmwBgOzKu+/3srD9fDjirdwVY18sB4S0YPzSrcfkLLL12b8ErAP++iAggIA3QiiPyGJD6LL8riJ4EEEBAOmAHGc9go5/87NcAAAAASUVORK5CYII=",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Set Variable (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      const name = p.name ?? p.var ?? 'myVar';
+      const val = p.val ?? p.value ?? 0;
+      const rel = p.rel ?? false;
+      const valSafe = isNaN(Number(val)) ? `'${val}'` : val;
+      return `this['${name}'] = ${rel ? `(this['${name}']||0) + ` : ''}${valSafe};`;
     }
   },
   {
@@ -1240,8 +1339,11 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "control",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAApklEQVR4nO2WSwrAIAxEc+Kue4AeyXXv4rqHsB+6CGJoE6dGqIYBFXEeBjWUqBxHSxpJ+zyFaB5jeq15Ws0QonkIm0pWCIh5DQTM3AoBNbdAwM21EH0BEC2X8j4fS3N8vjlAaT0UQNtvDvB5CnIjaQ3kFmhyDU9BFwD/fohcAG4Kv8+IHYXfd4yCqCpIaiEgJRmHODfUCFaUcgi3srxlDIABMADcAXbIOk3/mucLIQAAAABJRU5ErkJggg==",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Test Variable (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      const name = p.name ?? p.var ?? 'myVar';
+      const op = p.op ?? '==';
+      const val = p.val ?? p.value ?? 0;
+      return `if (!( (this['${name}']||0) ${op} ${val} )) return;`;
     }
   },
   {
@@ -1273,8 +1375,10 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "score",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABc0lEQVR4nGNgYGD4T0v8nwE/BIH/Dx8+pDpuaGggzQEHDhygKqbIAZs3e/zfvEnm/8rVkv9XrYmirwMO7nf8f/tG4v/Hj7z+X7ki8X/zVk6gQ9zo44DNmz3/372V+B8EPr7P/P/shdj/y9eY/0+dzvl/3foCDEvwhRRZDti0WfH/82deYMvfvvECO+DRM+b/c+ex/Z82XRnFAkIhRZYDVq2R+n/rtvj/9Ru4wHjdeqb/D58w/29tZ/0/ZboWks8JhxRZDti4Oen/jl28/2/fYwb7HITnL2T6X1TE9X/jxha4A4gJKbIT4YqVDv+nzeD8v2Ah8/+OLub/2Tkc/xcuikEJfmJCiqJsuHJ16v8Jk7X+T5ykBzS8FiPxERNSNC+ICIUU1RyAL6vhCymqOICSQoliB5BaKFHdAaQUSjRxALGFEs0cQGyhRDMHEFso0dQBxBRKNHcAuXhoOQCkmBaYaAcMaLOckAJaw1EHjDpg1AED7gAAoIaLVGnySc8AAAAASUVORK5CYII=",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Set Score (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      const amt = p.amt ?? p.value ?? 10;
+      const rel = p.rel ?? true;
+      return `window.score = ${rel ? 'window.score + ' : ''}${amt};`;
     }
   },
   {
@@ -1284,8 +1388,10 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "score",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABmUlEQVR4nO3WQS/DYBwG8GUVkk7iRhxwcnHk4iPIJI64chOy4MLBVSwOIrIRiaGh20qozSQiwYewkHQh6UhJEPEJHmuDrLq2b/u2dmnf/K99fn2y/tcQQrVP5YKTMbuP3TENl2UQz3zsyjXCNLxQeHU0bhGehNMgaoaL4gjyuU5khQ7w6ZivCEP49eUApLsxPJajKBbbcXrGVhDDviH+PPko7qVxqNfnxwSUl1bc3DJIrEeQycYNQVZNkSJ0gFy+G8/KoBb+/hbVAGWFQWq7CYlkjy7ArilXAOGgC1KpDeIJq82xGIb8xGBxqRFrib6qJ7dvyhXg8GgO5xctKD0w2pOrs8OFMTPbDEHgfgEkTbkCqLPPDyG5EcEuxyC+3IDJKRZbqWld/SRNuQaos8cvYGW1tzL9SGc2DT8+kqaoACRj15RnAKtXzaopTwA0S4ka4HQpeQ5wspR8AZAuJWrAt8KAIF1K1H9GVVUYECRLiSZcBzBD2C0lmnADwAzh5WtnC/hBqDd0Mp59lFYj6vZZ/p8nAASAAFB3wBe89nSeK3xtPQAAAABJRU5ErkJggg==",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Test Score (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      const op = p.op ?? '>=';
+      const val = p.val ?? p.value ?? 100;
+      return `if (!( window.score ${op} ${val} )) return;`;
     }
   },
   {
@@ -1350,8 +1456,10 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "score",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACMUlEQVR4nO2WX0hTURzHr0JpUIgQERJRD66cRYM7dVPnTOc0p+UyDW0up1k2dZFUD0W1IqIMDF+CkiYsWSTEohlBke2tegh6iIgIYi/10h/21sPg0z134FN/2b2OYPfw5ZzLOfD93Pv7nfM7kiRJ6Cmk3zfxkEgkNFcwGPw3gHg8rqlyABkDPI/d48XMDVVi/Ku5Z08eaw/w5uQIH8e9JIea+eZz8M7TtAghevGelAtJWov41LOdyNkzRO9GWXi6kDmAMEheCMDtKTjdB4cd0G/hq7NMnRM9luVQtQz2KONeEx86rExOXCUWm88c4O3lUxCdhkd34NwAjDhhoAZ6tqXNHWugegXIeeBcC0N2vlcU4PUcIhKZ0wjgfgjmwxDsh0CraoJHBrcBmkvAtgrM+WAtAF81KTkfh8vDzZlbmQO8vD5F6uIwPFAAJsbgiAuGG8BbCV1GcK2H+uJ0CIT2buFzRTENrb1Mh8LaJKFIstTcNQhfgWNu8DcpX2pVzLZC+0ZoXK2EoVD5C3kqRMBoonO3T9tt+NrfBQ9n4ZIfxlpgsFZNODpK07G3rVQBjm8qo6bOrc9B9GpcyYHZSTi6Ew7WQ58ZOjfDjnVgL8JvKMdi26XvSahCnB9U8qAR9ldBdzm0beCEUTGv/bm55kfxl9F2GG1Z3I4hkwGztW1pa4EKcaCO9/ZSKmVHdoqRMN8n25amGGWqHMD/BSAW66G/BsjqtfxPC/RuOYAcQA4g6wA/AItdixU8J7/PAAAAAElFTkSuQmCC",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Set Lives (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      const amt = p.amt ?? p.value ?? 3;
+      const rel = p.rel ?? false;
+      return `window.lives = ${rel ? 'window.lives + ' : ''}${amt};`;
     }
   },
   {
@@ -1416,8 +1524,10 @@ export const EXTERNAL_ACTIONS: ActionDefinition[] = [
     category: "score",
     iconUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA6ElEQVR4nGNgYGD4T0v8nwE/BIH/Dx8+pDpuaGggzQEHDhygKh51wKgDRh1AlgNUisxJxosEBFAwRQ5gSGP43/I86n/9w4j/1XfC/pff9P1ffMXnf/55bzBOO+HwP+Wow//4fQ7/Y3Y7gB3wvqAAjkEOaGlpocwBnW9jEI645wd3BAhnn3cAOyLpkOP/uL0QB7xJSoJjqjig73McwhGP/eGOAOH8Kw7/M89AHJF4cAAdAMKgqKCJA0jF6ImQIgeAMMgASvHQLQdGHTDqgAFzAEgxLTDRDhjQZjkhBbSGow4YdcCoAwbcAQAzbW6J5y3LsQAAAABJRU5ErkJggg==",
     params: [],
-    generateCode: (params: Record<string, any>) => {
-      return `// External Action: Set Health (not implemented)\n`;
+    generateCode: (p: Record<string, any>) => {
+      const amt = p.amt ?? p.value ?? 100;
+      const rel = p.rel ?? false;
+      return `this.health = ${rel ? '(this.health || 0) + ' : ''}${amt};`;
     }
   },
   {
