@@ -58,12 +58,95 @@ export const GML_COMPAT_SCRIPT = `
     window.string_length = (str) => String(str || '').length;
     window.string_copy = (str, index, count) => String(str || '').substring(Math.max(0, index - 1), Math.max(0, index - 1) + count);
     window.string_pos = (sub, str) => { const idx = String(str || '').indexOf(sub); return idx === -1 ? 0 : idx + 1; };
+    window.string_count = (sub, str) => { const s = String(str || ''); return s.split(sub).length - 1; };
+    window.string_delete = (str, index, count) => { const s = String(str || ''); return s.slice(0, Math.max(0, index - 1)) + s.slice(Math.max(0, index - 1) + count); };
+    window.string_digits = (str) => String(str || '').replace(/[^0-9]/g, '');
+    window.string_letters = (str) => String(str || '').replace(/[^a-zA-Z]/g, '');
+    window.string_lower = (str) => String(str || '').toLowerCase();
+    window.string_upper = (str) => String(str || '').toUpperCase();
+    window.string_replace = (str, sub, newstr) => String(str || '').replace(sub, newstr);
+    window.string_replace_all = (str, sub, newstr) => String(str || '').split(sub).join(newstr);
+    window.string_char_at = (str, index) => String(str || '').charAt(index - 1);
+    window.string_byte_at = (str, index) => String(str || '').charCodeAt(index - 1) || 0;
 
     // --- GML Drawing & State Helpers ---
     window._draw_color = 0xFFFFFF;
     window._draw_alpha = 1.0;
     window.draw_set_color = (c) => { window._draw_color = c; };
     window.draw_set_alpha = (a) => { window._draw_alpha = a; };
+    window.draw_rectangle = (x1, y1, x2, y2, outline) => {
+        if(!window.ctx) return;
+        const ctx = window.ctx;
+        ctx.save();
+        ctx.fillStyle = '#' + (window._draw_color & 0xFFFFFF).toString(16).padStart(6, '0');
+        ctx.strokeStyle = ctx.fillStyle;
+        ctx.globalAlpha = window._draw_alpha;
+        if (outline) ctx.strokeRect(x1, y1, x2 - x1, y2 - y1);
+        else ctx.fillRect(x1, y1, x2 - x1, y2 - y1);
+        ctx.restore();
+    };
+    window.draw_circle = (x, y, r, outline) => {
+        if(!window.ctx) return;
+        const ctx = window.ctx;
+        ctx.save();
+        ctx.fillStyle = '#' + (window._draw_color & 0xFFFFFF).toString(16).padStart(6, '0');
+        ctx.strokeStyle = ctx.fillStyle;
+        ctx.globalAlpha = window._draw_alpha;
+        ctx.beginPath();
+        ctx.arc(x, y, r, 0, 2 * Math.PI);
+        if (outline) ctx.stroke();
+        else ctx.fill();
+        ctx.restore();
+    };
+    window.draw_line = (x1, y1, x2, y2) => {
+        if(!window.ctx) return;
+        const ctx = window.ctx;
+        ctx.save();
+        ctx.strokeStyle = '#' + (window._draw_color & 0xFFFFFF).toString(16).padStart(6, '0');
+        ctx.globalAlpha = window._draw_alpha;
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+        ctx.restore();
+    };
+    window.draw_point = (x, y) => {
+        if(!window.ctx) return;
+        window.draw_rectangle(x, y, x + 1, y + 1, false);
+    };
+    window.draw_text = (x, y, str) => {
+        if(!window.ctx) return;
+        const ctx = window.ctx;
+        ctx.save();
+        ctx.fillStyle = '#' + (window._draw_color & 0xFFFFFF).toString(16).padStart(6, '0');
+        ctx.globalAlpha = window._draw_alpha;
+        ctx.fillText(String(str || ''), x, y);
+        ctx.restore();
+    };
+
+    // --- GML Room & Game Control Helpers ---
+    window.room_goto = (roomId) => {
+        if (window.GM82Room && typeof window.GM82Room.goto === 'function') {
+            window.GM82Room.goto(roomId);
+        }
+    };
+    window.room_restart = () => {
+        if (window.GM82Room && typeof window.GM82Room.restart === 'function') {
+            window.GM82Room.restart();
+        }
+    };
+    window.room_goto_next = () => {
+        if (window.GM82Room && typeof window.GM82Room.next === 'function') {
+            window.GM82Room.next();
+        }
+    };
+    window.room_goto_previous = () => {
+        if (window.GM82Room && typeof window.GM82Room.previous === 'function') {
+            window.GM82Room.previous();
+        }
+    };
+    window.game_end = () => { console.log("GML game_end called"); };
+    window.game_restart = () => { window.location.reload(); };
 
     // --- AUDIO API ---
     window.audio_play_sound = (s, p, l) => { if(l) GM82Audio.play_music(s); else GM82Audio.play_sfx(s); };

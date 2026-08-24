@@ -144,10 +144,12 @@ const GM82DataStructures = {
     ds_list_destroy: (id: number) => (window as any).ds_list_destroy(id),
     ds_list_add: (id: number, ...vals: any[]) => (window as any).ds_list_add(id, ...vals),
     ds_list_find_value: (id: number, pos: number) => (window as any).ds_list_find_value(id, pos),
+    ds_list_find_index: (id: number, val: any) => (window as any).ds_list_find_index(id, val),
     ds_map_create: () => (window as any).ds_map_create(),
     ds_map_destroy: (id: number) => (window as any).ds_map_destroy(id),
     ds_map_add: (id: number, k: string, v: any) => (window as any).ds_map_add(id, k, v),
     ds_map_find_value: (id: number, k: string) => (window as any).ds_map_find_value(id, k),
+    ds_map_exists: (id: number, k: string) => (window as any).ds_map_exists(id, k),
 };
 (window as any).GM82DataStructures = GM82DataStructures;
 
