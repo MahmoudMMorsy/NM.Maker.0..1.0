@@ -1,0 +1,25 @@
+
+NOR ENGINE: OFFLINE ANDROID BUILDER
+====================================
+
+You have exported a complete Android Studio project for "New Project".
+
+TO BUILD WITHOUT INTERNET:
+1. This project is pre-configured for Gradle.
+2. If you have the 'gradle' command line tool installed:
+   - Open terminal in this folder.
+   - Run: ./gradlew assembleDebug
+3. If you have any Android IDE (like AIDE on Android itself or Android Studio):
+   - Import this folder.
+   - Click "Build APK".
+
+WHY IS THIS A PROJECT AND NOT AN APK?
+-------------------------------------
+Building a final .apk requires "Signing" and "DEXing" which are heavy
+binary processes. By providing the full project, we ensure that:
+1. You own the full source code of your app.
+2. You can customize the Android manifest (permissions, icons, splash).
+3. The app is native and high-performance.
+
+If you are on an Android device, you can use the app "AIDE" to open
+this project and build it directly on your phone!

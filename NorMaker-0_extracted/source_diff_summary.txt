@@ -1,0 +1,16 @@
+== NorMaker-0.1-android-current-merged ==
+DIFF app/src/main/cpp/gm82_android_core.c old=97765 current=106957
+DIFF app/src/main/cpp/gm82_gmk_reader.c old=20912 current=22843
+DIFF app/src/main/cpp/gm82_gmk_reader.h old=172 current=273
+DIFF app/src/main/cpp/nor_format_native.c old=21145 current=26074
+== NorMaker-0.1-gmk-phases1-2-project ==
+DIFF app/src/main/cpp/gm82_android_core.c old=97575 current=106957
+DIFF app/src/main/cpp/gm82_gmk_reader.c old=22446 current=22843
+== NorMaker-0.1-merged-android-project ==
+DIFF app/src/main/cpp/gm82_android_core.c old=97765 current=106957
+DIFF app/src/main/cpp/gm82_gmk_reader.c old=20912 current=22843
+DIFF app/src/main/cpp/gm82_gmk_reader.h old=172 current=273
+DIFF app/src/main/cpp/nor_format_native.c old=21145 current=26074
+== nor_maker_0_1_core_increment ==
+DIFF app/src/main/cpp/gm82_gmk_reader.c old=20912 current=22843
+DIFF app/src/main/cpp/gm82_gmk_reader.h old=172 current=273

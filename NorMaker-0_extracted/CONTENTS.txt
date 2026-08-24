@@ -1,0 +1,4 @@
+NOR Maker 0.1 latest comprehensive engine bundle
+Source: android_project_base
+APK: NorMaker-0.1-comprehensive-debug.apk
+Build artifacts and SDK excluded; rebuild using android_project_base/HOW_TO_BUILD_OFFLINE.txt
