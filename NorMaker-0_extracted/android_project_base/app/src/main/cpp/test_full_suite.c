@@ -42,6 +42,37 @@ void test_gml_vm_suite(void) {
     assert(vm.return_value.real == 20.0);
 
     gml_ast_free(ast);
+
+    /* Test ds_list, ds_map, and INI built-ins */
+    const char *code_ds =
+        "l = ds_list_create();\n"
+        "ds_list_add(l, 100, 200);\n"
+        "sz = ds_list_size(l);\n"
+        "val = ds_list_find_value(l, 1);\n"
+        "ds_list_destroy(l);\n"
+        "m = ds_map_create();\n"
+        "ds_map_add(m, \"score\", 999);\n"
+        "mval = ds_map_find_value(m, \"score\");\n"
+        "ds_map_destroy(m);\n"
+        "ini_open(\"save.ini\");\n"
+        "ini_write_real(\"player\", \"hp\", 50);\n"
+        "hp = ini_read_real(\"player\", \"hp\", 0);\n"
+        "ini_close();\n"
+        "return sz + val + mval + hp;\n";
+
+    ast = NULL;
+    parse_ok = gml_parse_program(code_ds, &ast, err, sizeof(err));
+    assert(parse_ok);
+
+    gml_vm_init(&vm);
+    exec_ok = gml_vm_execute(&vm, ast);
+    assert(exec_ok);
+    assert(vm.returned);
+    /* sz(2) + val(200) + mval(999) + hp(50) = 1251 */
+    assert(vm.return_value.real == 1251.0);
+
+    gml_ast_free(ast);
+
     printf("[PASS] GML VM Suite\n");
 }
 
