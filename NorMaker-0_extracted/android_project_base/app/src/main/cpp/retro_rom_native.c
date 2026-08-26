@@ -2,6 +2,28 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+
+#if defined(_WIN32)
+#include <direct.h>
+#endif
+
+static void ensure_parent_dir_exists(const char *path) {
+    if (!path) return;
+    char tmp[1024];
+    snprintf(tmp, sizeof(tmp), "%s", path);
+    char *p = strrchr(tmp, '/');
+    if (!p) p = strrchr(tmp, '\\');
+    if (p && p != tmp) {
+        *p = '\0';
+        #if defined(_WIN32)
+        _mkdir(tmp);
+        #else
+        mkdir(tmp, 0755);
+        #endif
+    }
+}
 
 /*
  * Enhanced retro ROM exporters emitting authentic valid header structures:
@@ -21,6 +43,7 @@ static uint8_t gb_header_checksum(const uint8_t *rom) {
 double nor_export_nes_native(const char *project, const char *output) {
     (void)project;
     if (!output || !*output) return 0.0;
+    ensure_parent_dir_exists(output);
     FILE *f = fopen(output, "wb");
     if (!f) return 0.0;
 
@@ -52,6 +75,7 @@ double nor_export_nes_native(const char *project, const char *output) {
 double nor_export_gbc_native(const char *project, const char *output) {
     (void)project;
     if (!output || !*output) return 0.0;
+    ensure_parent_dir_exists(output);
     FILE *f = fopen(output, "wb");
     if (!f) return 0.0;
 
@@ -92,6 +116,7 @@ double nor_export_gbc_native(const char *project, const char *output) {
 double nor_export_gba_native(const char *project, const char *output) {
     (void)project;
     if (!output || !*output) return 0.0;
+    ensure_parent_dir_exists(output);
     FILE *f = fopen(output, "wb");
     if (!f) return 0.0;
 
