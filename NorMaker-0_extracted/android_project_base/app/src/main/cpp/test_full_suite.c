@@ -45,6 +45,50 @@ void test_gml_vm_suite(void) {
     printf("[PASS] GML VM Suite\n");
 }
 
+extern int gm82_native_call(void *userdata, const char *name, const gml_value *args, size_t count, gml_value *out);
+
+void test_gml_builtins_suite(void) {
+    gml_value args[4];
+    gml_value out;
+
+    // Test point_distance(0, 0, 3, 4) == 5.0
+    args[0] = gml_value_real(0.0);
+    args[1] = gml_value_real(0.0);
+    args[2] = gml_value_real(3.0);
+    args[3] = gml_value_real(4.0);
+    assert(gm82_native_call(NULL, "point_distance", args, 4, &out) == 1);
+    assert(out.kind == GML_V_REAL && out.real == 5.0);
+
+    // Test point_direction(0, 0, 0, -10) == 90.0
+    args[0] = gml_value_real(0.0);
+    args[1] = gml_value_real(0.0);
+    args[2] = gml_value_real(0.0);
+    args[3] = gml_value_real(-10.0);
+    assert(gm82_native_call(NULL, "point_direction", args, 4, &out) == 1);
+    assert(out.kind == GML_V_REAL && out.real == 90.0);
+
+    // Test string_length("Hello") == 5
+    args[0] = gml_value_string("Hello");
+    assert(gm82_native_call(NULL, "string_length", args, 1, &out) == 1);
+    assert(out.kind == GML_V_REAL && out.real == 5.0);
+
+    // Test string_copy("NorMaker", 1, 3) == "Nor"
+    args[0] = gml_value_string("NorMaker");
+    args[1] = gml_value_real(1.0);
+    args[2] = gml_value_real(3.0);
+    assert(gm82_native_call(NULL, "string_copy", args, 3, &out) == 1);
+    assert(out.kind == GML_V_STRING && strcmp(out.string, "Nor") == 0);
+    gml_value_free(&out);
+
+    // Test string_pos("Maker", "NorMaker") == 4
+    args[0] = gml_value_string("Maker");
+    args[1] = gml_value_string("NorMaker");
+    assert(gm82_native_call(NULL, "string_pos", args, 2, &out) == 1);
+    assert(out.kind == GML_V_REAL && out.real == 4.0);
+
+    printf("[PASS] GML Built-ins Suite\n");
+}
+
 void test_retro_rom_suite(void) {
     const char *nes_path = "/tmp/nor_core_tests/test.nes";
     const char *gbc_path = "/tmp/nor_core_tests/test.gbc";
@@ -63,6 +107,7 @@ int main(void) {
     printf("--- Running Native Host Comprehensive Test Suite ---\n");
     test_gmk_probe_suite();
     test_gml_vm_suite();
+    test_gml_builtins_suite();
     test_retro_rom_suite();
     printf("--- All Native Host Tests Passed! ---\n");
     return 0;
