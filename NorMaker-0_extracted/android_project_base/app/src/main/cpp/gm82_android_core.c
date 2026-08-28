@@ -1,6 +1,29 @@
 #include <jni.h>
-#include <android/bitmap.h>
 #include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <math.h>
+#include <sys/stat.h>
+#include <errno.h>
+
+#ifndef HOST_TEST_BUILD
+#include <android/bitmap.h>
+#else
+typedef struct {
+    uint32_t width;
+    uint32_t height;
+    uint32_t stride;
+    int32_t format;
+    uint32_t flags;
+} AndroidBitmapInfo;
+#define ANDROID_BITMAP_RESULT_SUCCESS 0
+#define ANDROID_BITMAP_FORMAT_RGBA_8888 1
+static inline int AndroidBitmap_getInfo(JNIEnv *env, jobject jbmp, AndroidBitmapInfo *info) { (void)env; (void)jbmp; (void)info; return -1; }
+static inline int AndroidBitmap_lockPixels(JNIEnv *env, jobject jbmp, void **pixels) { (void)env; (void)jbmp; (void)pixels; return -1; }
+static inline int AndroidBitmap_unlockPixels(JNIEnv *env, jobject jbmp) { (void)env; (void)jbmp; return -1; }
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -699,7 +722,7 @@ static int gm82_execute_statement(Gm82Instance *it, char *statement) {
 
 static int gm82_member_get(void *userdata, const char *member, gml_value *out);
 static int gm82_member_set(void *userdata, const char *member, const gml_value *value);
-static int gm82_native_call(void *userdata, const char *name, const gml_value *args, size_t count, gml_value *out);
+int gm82_native_call(void *userdata, const char *name, const gml_value *args, size_t count, gml_value *out);
 static int gm82_with_call(void *userdata, gml_vm *vm, const gml_value *target, const gml_ast *body);
 static int gm82_script_call(void *userdata, const char *name, const gml_value *args, size_t count, gml_value *out);
 
@@ -802,7 +825,7 @@ static int gm82_instance_mask_overlaps_circle(const Gm82Instance *other, float c
     }
     return 0;
 }
-static int gm82_native_call(void *userdata, const char *name, const gml_value *args, size_t count, gml_value *out) {
+int gm82_native_call(void *userdata, const char *name, const gml_value *args, size_t count, gml_value *out) {
     Gm82Instance *self = (Gm82Instance *)userdata;
     if (!name || !out) return 0;
     if (!strcmp(name, "__gm82core_dllcheck") && count == 0) { *out = gml_value_real(gm82_portable_dllcheck()); return 1; }
@@ -1125,6 +1148,113 @@ static int gm82_native_call(void *userdata, const char *name, const gml_value *a
         *out = gml_value_bool(1); return 1;
     }
     if (!strcmp(name, "room_goto") && count == 1) { g_runtime.room_id = (int)(args[0].kind == GML_V_REAL ? args[0].real : g_runtime.room_id); g_runtime.room_started = 0; *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "point_distance") && count == 4) {
+        double x1 = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double y1 = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double x2 = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double y2 = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        double dx = x2 - x1, dy = y2 - y1;
+        *out = gml_value_real(sqrt(dx * dx + dy * dy));
+        return 1;
+    }
+    if (!strcmp(name, "point_direction") && count == 4) {
+        double x1 = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double y1 = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double x2 = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double y2 = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        double dx = x2 - x1, dy = y2 - y1;
+        double dir = atan2(-dy, dx) * 180.0 / 3.14159265358979323846;
+        if (dir < 0.0) dir += 360.0;
+        *out = gml_value_real(dir);
+        return 1;
+    }
+    if (!strcmp(name, "lengthdir_x") && count == 2) {
+        double len = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double dir = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        *out = gml_value_real(cos(dir * 3.14159265358979323846 / 180.0) * len);
+        return 1;
+    }
+    if (!strcmp(name, "lengthdir_y") && count == 2) {
+        double len = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double dir = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        *out = gml_value_real(-sin(dir * 3.14159265358979323846 / 180.0) * len);
+        return 1;
+    }
+    if (!strcmp(name, "string_length") && count == 1) {
+        const char *s = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        *out = gml_value_real((double)strlen(s));
+        return 1;
+    }
+    if (!strcmp(name, "string_copy") && count == 3) {
+        const char *s = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        int index = (int)(args[1].kind == GML_V_REAL ? args[1].real : 1);
+        int count_val = (int)(args[2].kind == GML_V_REAL ? args[2].real : 0);
+        int len = (int)strlen(s);
+        if (index < 1) index = 1;
+        int start = index - 1;
+        if (start >= len || count_val <= 0) {
+            *out = gml_value_string("");
+        } else {
+            if (start + count_val > len) count_val = len - start;
+            char *buf = (char*)malloc((size_t)count_val + 1);
+            if (buf) {
+                memcpy(buf, s + start, (size_t)count_val);
+                buf[count_val] = '\0';
+                *out = gml_value_string(buf);
+                free(buf);
+            } else {
+                *out = gml_value_string("");
+            }
+        }
+        return 1;
+    }
+    if (!strcmp(name, "string_pos") && count == 2) {
+        const char *sub = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        const char *s = args[1].kind == GML_V_STRING && args[1].string ? args[1].string : "";
+        char *p = strstr(s, sub);
+        if (p && sub[0] != '\0') {
+            *out = gml_value_real((double)(p - s + 1));
+        } else {
+            *out = gml_value_real(0.0);
+        }
+        return 1;
+    }
+    if (!strcmp(name, "instance_exists") && count == 1) {
+        int needle = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
+        int found = 0;
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            Gm82Instance *candidate = &g_runtime.instances[i];
+            if (gm82_instance_matches(candidate, self, needle)) { found = 1; break; }
+        }
+        *out = gml_value_bool(found);
+        return 1;
+    }
+    if (!strcmp(name, "instance_number") && count == 1) {
+        int needle = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
+        int total = 0;
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            Gm82Instance *candidate = &g_runtime.instances[i];
+            if (gm82_instance_matches(candidate, self, needle)) total++;
+        }
+        *out = gml_value_real((double)total);
+        return 1;
+    }
+    if ((!strcmp(name, "place_meeting") || !strcmp(name, "position_meeting")) && count == 3) {
+        float x = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0.0);
+        float y = (float)(args[1].kind == GML_V_REAL ? args[1].real : 0.0);
+        int target_obj = (int)(args[2].kind == GML_V_REAL ? args[2].real : -1);
+        int met = 0;
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            Gm82Instance *other = &g_runtime.instances[i];
+            if (!gm82_instance_matches(other, self, target_obj)) continue;
+            if (self && other->id == self->id) continue;
+            float dx = fabsf(x - other->x);
+            float dy = fabsf(y - other->y);
+            if (dx <= 16.0f && dy <= 16.0f) { met = 1; break; }
+        }
+        *out = gml_value_bool(met);
+        return 1;
+    }
     return 0;
 }
 
