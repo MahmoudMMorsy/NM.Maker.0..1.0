@@ -93,6 +93,8 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
   // Index lookup maps for O(1) asset access during render operations
   const spriteMap = useMemo(() => new Map<string, SpriteAsset>(sprites.map(s => [s.id, s])), [sprites]);
   const bgAssetMap = useMemo(() => new Map<string, BackgroundAsset>(backgroundAssets.map(b => [b.id, b])), [backgroundAssets]);
+  const stampMap = useMemo(() => new Map(stamps.map(s => [s.id, s])), [stamps]);
+  const model3DMap = useMemo(() => new Map((model3DAssets || []).map(a => [a.id, a])), [model3DAssets]);
 
   // selectedTool corresponds to the MAP ID.
   // 0=Eraser, 1=Solid Wall, 2+=Objects (gameObjects index + 2)
@@ -212,15 +214,17 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selection, layers, currentLayerIndex, levelData, width, height, onUpdate, onUpdateLayers]);
 
+  // ⚡ Bolt: Pre-resolve wall tile definition (ID=1) before looping through grid tiles to avoid linear array search `tileDefs?.find()` inside high-frequency canvas render loops.
+  const wallTileDef = useMemo(() => tileDefs?.find(t => t.id === 1), [tileDefs]);
+
   const drawTileAt = (ctx: CanvasRenderingContext2D, tileId: number, x: number, y: number) => {
     if (tileId === 1) {
-        const tileDef = tileDefs?.find(t => t.id === 1);
-        if (tileDef?.src) {
+        if (wallTileDef?.src) {
             const tileImg = new Image();
-            tileImg.src = tileDef.src;
+            tileImg.src = wallTileDef.src;
             ctx.drawImage(tileImg, x, y, snapX, snapY);
         } else {
-            const wallColor = tileDef?.color || '#8b4513';
+            const wallColor = wallTileDef?.color || '#8b4513';
             ctx.fillStyle = wallColor;
             ctx.fillRect(x, y, snapX, snapY);
             ctx.strokeStyle = wallColor.replace(/^#/, '') ? `${wallColor}99` : '#5c2e0e';
@@ -524,7 +528,8 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
   };
 
   const applyStamp = (x: number, y: number) => {
-    const stamp = stamps.find(s => s.id === activeStampId);
+    // ⚡ Bolt: O(1) Map lookup for stamp instead of O(N) array find
+    const stamp = activeStampId ? stampMap.get(activeStampId) : undefined;
     if (!stamp) return;
     const newData = layers.length > 0 ? [...layers[currentLayerIndex].data] : [...levelData];
     for(let sy=0; sy<stamp.height; sy++) {
@@ -617,7 +622,8 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
 
   const place3DObjectAt = (gx: number, gy: number) => {
       if (!selected3DModelId) { window.alert('اختر نموذج 3D من القائمة العائمة أولاً\nSelect a 3D model from the floating panel first'); return; }
-      const asset = (model3DAssets || []).find(a => a.id === selected3DModelId);
+      // ⚡ Bolt: O(1) Map lookup for 3D model asset instead of linear array find
+      const asset = model3DMap.get(selected3DModelId);
       if (!asset) return;
       const G = 16;
       const px = (gx - width/2) * G + G/2;
