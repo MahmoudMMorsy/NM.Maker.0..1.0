@@ -86,6 +86,21 @@ void test_gml_builtins_suite(void) {
     assert(gm82_native_call(NULL, "string_pos", args, 2, &out) == 1);
     assert(out.kind == GML_V_REAL && out.real == 4.0);
 
+    // Test clamp(15, 0, 10) == 10
+    args[0] = gml_value_real(15.0);
+    args[1] = gml_value_real(0.0);
+    args[2] = gml_value_real(10.0);
+    assert(gm82_native_call(NULL, "clamp", args, 3, &out) == 1);
+    assert(out.kind == GML_V_REAL && out.real == 10.0);
+
+    // Test string_replace_all("foo bar foo", "foo", "baz") == "baz bar baz"
+    args[0] = gml_value_string("foo bar foo");
+    args[1] = gml_value_string("foo");
+    args[2] = gml_value_string("baz");
+    assert(gm82_native_call(NULL, "string_replace_all", args, 3, &out) == 1);
+    assert(out.kind == GML_V_STRING && strcmp(out.string, "baz bar baz") == 0);
+    gml_value_free(&out);
+
     printf("[PASS] GML Built-ins Suite\n");
 }
 

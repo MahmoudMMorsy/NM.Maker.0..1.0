@@ -1208,6 +1208,30 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
         }
         return 1;
     }
+    if (!strcmp(name, "string_replace_all") && count == 3) {
+        const char *src = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        const char *find = args[1].kind == GML_V_STRING && args[1].string ? args[1].string : "";
+        const char *rep = args[2].kind == GML_V_STRING && args[2].string ? args[2].string : "";
+        size_t nf = strlen(find), nr = strlen(rep), ns = strlen(src);
+        if (nf == 0) { *out = gml_value_string(src); return 1; }
+        size_t occurrences = 0;
+        for (const char *p = src; (p = strstr(p, find)); p += nf) occurrences++;
+        size_t outlen = ns;
+        if (nr >= nf) outlen += occurrences * (nr - nf);
+        else outlen -= occurrences * (nf - nr);
+        char *buf = malloc(outlen + 1);
+        if (buf) {
+            const char *p = src; char *w = buf;
+            while (*p) {
+                const char *q = strstr(p, find);
+                if (!q) { strcpy(w, p); break; }
+                size_t n = (size_t)(q - p); memcpy(w, p, n); w += n;
+                memcpy(w, rep, nr); w += nr; p = q + nf;
+            }
+            buf[outlen] = 0; *out = gml_value_string(buf); free(buf);
+        } else { *out = gml_value_string(""); }
+        return 1;
+    }
     if (!strcmp(name, "string_pos") && count == 2) {
         const char *sub = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
         const char *s = args[1].kind == GML_V_STRING && args[1].string ? args[1].string : "";
