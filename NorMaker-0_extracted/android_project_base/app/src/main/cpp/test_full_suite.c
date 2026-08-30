@@ -86,6 +86,92 @@ void test_gml_builtins_suite(void) {
     assert(gm82_native_call(NULL, "string_pos", args, 2, &out) == 1);
     assert(out.kind == GML_V_REAL && out.real == 4.0);
 
+    // Test string_upper, string_lower, string_count, is_string, is_real
+    args[0] = gml_value_string("NorMaker");
+    assert(gm82_native_call(NULL, "string_upper", args, 1, &out) == 1);
+    assert(out.kind == GML_V_STRING && strcmp(out.string, "NORMAKER") == 0);
+    gml_value_free(&out);
+
+    args[0] = gml_value_string("NorMaker");
+    assert(gm82_native_call(NULL, "string_lower", args, 1, &out) == 1);
+    assert(out.kind == GML_V_STRING && strcmp(out.string, "normaker") == 0);
+    gml_value_free(&out);
+
+    args[0] = gml_value_string("a");
+    args[1] = gml_value_string("banana");
+    assert(gm82_native_call(NULL, "string_count", args, 2, &out) == 1);
+    assert(out.kind == GML_V_REAL && out.real == 3.0);
+
+    args[0] = gml_value_string("text");
+    assert(gm82_native_call(NULL, "is_string", args, 1, &out) == 1);
+    assert(out.kind == GML_V_BOOL && out.boolean == 1);
+
+    args[0] = gml_value_real(123.45);
+    assert(gm82_native_call(NULL, "is_real", args, 1, &out) == 1);
+    assert(out.kind == GML_V_BOOL && out.boolean == 1);
+
+    // Test ds_list functions
+    assert(gm82_native_call(NULL, "ds_list_create", NULL, 0, &out) == 1);
+    double list_id = out.real;
+    assert(list_id > 0);
+
+    args[0] = gml_value_real(list_id);
+    args[1] = gml_value_string("Item1");
+    assert(gm82_native_call(NULL, "ds_list_add", args, 2, &out) == 1);
+
+    args[0] = gml_value_real(list_id);
+    assert(gm82_native_call(NULL, "ds_list_size", args, 1, &out) == 1);
+    assert(out.kind == GML_V_REAL && out.real == 1.0);
+
+    args[0] = gml_value_real(list_id);
+    args[1] = gml_value_real(0.0);
+    assert(gm82_native_call(NULL, "ds_list_find_value", args, 2, &out) == 1);
+    assert(out.kind == GML_V_STRING && strcmp(out.string, "Item1") == 0);
+    gml_value_free(&out);
+
+    args[0] = gml_value_real(list_id);
+    assert(gm82_native_call(NULL, "ds_list_destroy", args, 1, &out) == 1);
+
+    // Test ds_map functions
+    assert(gm82_native_call(NULL, "ds_map_create", NULL, 0, &out) == 1);
+    double map_id = out.real;
+    assert(map_id > 0);
+
+    args[0] = gml_value_real(map_id);
+    args[1] = gml_value_string("score");
+    args[2] = gml_value_real(100.0);
+    assert(gm82_native_call(NULL, "ds_map_add", args, 3, &out) == 1);
+
+    args[0] = gml_value_real(map_id);
+    args[1] = gml_value_string("score");
+    assert(gm82_native_call(NULL, "ds_map_find_value", args, 2, &out) == 1);
+    assert(out.kind == GML_V_REAL && out.real == 100.0);
+
+    args[0] = gml_value_real(map_id);
+    assert(gm82_native_call(NULL, "ds_map_destroy", args, 1, &out) == 1);
+
+    // Test ds_grid functions
+    args[0] = gml_value_real(10.0);
+    args[1] = gml_value_real(10.0);
+    assert(gm82_native_call(NULL, "ds_grid_create", args, 2, &out) == 1);
+    double grid_id = out.real;
+    assert(grid_id > 0);
+
+    args[0] = gml_value_real(grid_id);
+    args[1] = gml_value_real(2.0);
+    args[2] = gml_value_real(3.0);
+    args[3] = gml_value_real(42.0);
+    assert(gm82_native_call(NULL, "ds_grid_set", args, 4, &out) == 1);
+
+    args[0] = gml_value_real(grid_id);
+    args[1] = gml_value_real(2.0);
+    args[2] = gml_value_real(3.0);
+    assert(gm82_native_call(NULL, "ds_grid_get", args, 3, &out) == 1);
+    assert(out.kind == GML_V_REAL && out.real == 42.0);
+
+    args[0] = gml_value_real(grid_id);
+    assert(gm82_native_call(NULL, "ds_grid_destroy", args, 1, &out) == 1);
+
     printf("[PASS] GML Built-ins Suite\n");
 }
 
