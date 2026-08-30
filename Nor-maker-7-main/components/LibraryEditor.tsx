@@ -102,6 +102,15 @@ const LibraryEditor: React.FC<LibraryEditorProps> = ({ objectData, onUpdate, spr
   const [isAiGenerating, setIsAiGenerating] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
 
+  // ⚡ Bolt: Pre-build an O(1) Map index for sprite lookups to avoid O(N) linear array scans (.find) on every renderpass
+  const spriteMap = useMemo(() => {
+    const map = new Map<string, SpriteAsset>();
+    for (let i = 0; i < sprites.length; i++) {
+      map.set(sprites[i].id, sprites[i]);
+    }
+    return map;
+  }, [sprites]);
+
   // Pre-built O(1) Map lookup for ALL_ACTIONS to avoid linear array search per render
   const actionMap = useMemo(() => {
     return new Map<string, ActionDefinition>(ALL_ACTIONS.map(a => [a.id, a]));
@@ -363,7 +372,7 @@ const LibraryEditor: React.FC<LibraryEditorProps> = ({ objectData, onUpdate, spr
           <div className="flex flex-col gap-1 items-center -mt-1">
              <div className="w-20 h-20 bg-white border-2 border-t-[#808080] border-l-[#808080] border-r-white border-b-white flex flex-col items-center justify-center p-1 relative shadow-win-in">
                 {objectData.spriteId ? (
-                   <img src={sprites.find(s=>s.id===objectData.spriteId)?.src || undefined} className="max-w-full max-h-full image-render-pixel" />
+                   <img src={spriteMap.get(objectData.spriteId)?.src || undefined} className="max-w-full max-h-full image-render-pixel" />
                 ) : (
                    <span className="text-[9px] text-gray-500">&lt;no sprite&gt;</span>
                 )}
