@@ -3,7 +3,7 @@
 // بسيط ومتكامل: color picker + pixel painter 16x16 + preview
 
 import * as React from 'react';
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import { RefreshCw, Download, Upload } from 'lucide-react';
 
 export interface TileDefinition {
@@ -34,14 +34,16 @@ const DEFAULT_TILES: TileDefinition[] = [
 ];
 
 const TilesetEditor: React.FC<TilesetEditorProps> = ({ tiles, onUpdateTiles }) => {
-  const effectiveTiles = tiles.length > 0 ? tiles : DEFAULT_TILES;
+  const effectiveTiles = useMemo(() => tiles.length > 0 ? tiles : DEFAULT_TILES, [tiles]);
   const [selectedId, setSelectedId]   = useState<number>(1);
   const [drawColor, setDrawColor]     = useState('#8b4513');
   const [isErasing, setIsErasing]     = useState(false);
   const [isPainting, setIsPainting]   = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const selectedTile = effectiveTiles.find(t => t.id === selectedId) || effectiveTiles[0];
+  // Pre-build O(1) Map index to eliminate linear array searches (.find) during high-frequency component renders
+  const tileMap = useMemo(() => new Map<number, TileDefinition>(effectiveTiles.map(t => [t.id, t])), [effectiveTiles]);
+  const selectedTile = useMemo(() => tileMap.get(selectedId) || effectiveTiles[0], [tileMap, selectedId, effectiveTiles]);
 
   // رسم الـ canvas عند تغيير الـ tile المحدد
   useEffect(() => {
