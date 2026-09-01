@@ -86,6 +86,74 @@ void test_gml_builtins_suite(void) {
     assert(gm82_native_call(NULL, "string_pos", args, 2, &out) == 1);
     assert(out.kind == GML_V_REAL && out.real == 4.0);
 
+    // Test string_upper("nor") == "NOR"
+    args[0] = gml_value_string("nor");
+    assert(gm82_native_call(NULL, "string_upper", args, 1, &out) == 1);
+    assert(out.kind == GML_V_STRING && strcmp(out.string, "NOR") == 0);
+    gml_value_free(&out);
+
+    // Test string_lower("NOR") == "nor"
+    args[0] = gml_value_string("NOR");
+    assert(gm82_native_call(NULL, "string_lower", args, 1, &out) == 1);
+    assert(out.kind == GML_V_STRING && strcmp(out.string, "nor") == 0);
+    gml_value_free(&out);
+
+    // Test string_char_at("Nor", 2) == "o"
+    args[0] = gml_value_string("Nor");
+    args[1] = gml_value_real(2.0);
+    assert(gm82_native_call(NULL, "string_char_at", args, 2, &out) == 1);
+    assert(out.kind == GML_V_STRING && strcmp(out.string, "o") == 0);
+    gml_value_free(&out);
+
+    // Test string_digits("A1B2C3") == "123"
+    args[0] = gml_value_string("A1B2C3");
+    assert(gm82_native_call(NULL, "string_digits", args, 1, &out) == 1);
+    assert(out.kind == GML_V_STRING && strcmp(out.string, "123") == 0);
+    gml_value_free(&out);
+
+    // Test mean(10, 20, 30) == 20.0
+    args[0] = gml_value_real(10.0);
+    args[1] = gml_value_real(20.0);
+    args[2] = gml_value_real(30.0);
+    assert(gm82_native_call(NULL, "mean", args, 3, &out) == 1);
+    assert(out.kind == GML_V_REAL && out.real == 20.0);
+
+    // Test median(5, 1, 9) == 5.0
+    args[0] = gml_value_real(5.0);
+    args[1] = gml_value_real(1.0);
+    args[2] = gml_value_real(9.0);
+    assert(gm82_native_call(NULL, "median", args, 3, &out) == 1);
+    assert(out.kind == GML_V_REAL && out.real == 5.0);
+
+    // Test degtorad(180) == pi (~3.14159)
+    args[0] = gml_value_real(180.0);
+    assert(gm82_native_call(NULL, "degtorad", args, 1, &out) == 1);
+    assert(out.kind == GML_V_REAL && out.real > 3.1415 && out.real < 3.1416);
+
+    // Test frac(12.34) == 0.34
+    args[0] = gml_value_real(12.34);
+    assert(gm82_native_call(NULL, "frac", args, 1, &out) == 1);
+    assert(out.kind == GML_V_REAL && out.real > 0.339 && out.real < 0.341);
+
+    // Test ds_list create, add, delete, clear, destroy
+    assert(gm82_native_call(NULL, "ds_list_create", NULL, 0, &out) == 1);
+    double lst = out.real;
+    args[0] = gml_value_real(lst);
+    args[1] = gml_value_real(100.0);
+    assert(gm82_native_call(NULL, "ds_list_add", args, 2, &out) == 1);
+    args[1] = gml_value_real(200.0);
+    assert(gm82_native_call(NULL, "ds_list_add", args, 2, &out) == 1);
+    assert(gm82_native_call(NULL, "ds_list_size", args, 1, &out) == 1 && out.real == 2.0);
+
+    args[1] = gml_value_real(0.0);
+    assert(gm82_native_call(NULL, "ds_list_delete", args, 2, &out) == 1);
+    assert(gm82_native_call(NULL, "ds_list_size", args, 1, &out) == 1 && out.real == 1.0);
+
+    assert(gm82_native_call(NULL, "ds_list_clear", args, 1, &out) == 1);
+    assert(gm82_native_call(NULL, "ds_list_size", args, 1, &out) == 1 && out.real == 0.0);
+
+    assert(gm82_native_call(NULL, "ds_list_destroy", args, 1, &out) == 1);
+
     printf("[PASS] GML Built-ins Suite\n");
 }
 
