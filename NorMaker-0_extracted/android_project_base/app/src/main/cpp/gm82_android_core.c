@@ -7,6 +7,7 @@
 #include <math.h>
 #include <sys/stat.h>
 #include <errno.h>
+#include <time.h>
 
 #ifndef HOST_TEST_BUILD
 #include <android/bitmap.h>
@@ -1278,6 +1279,131 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
         for (int i = 0; i < count; ++i) sum += args[i].kind == GML_V_REAL ? args[i].real : 0.0;
         *out = gml_value_real(sum / (double)count); return 1;
     }
+    if (!strcmp(name, "random") && count == 1) {
+        double mx = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        *out = gml_value_real(((double)rand() / (double)RAND_MAX) * mx); return 1;
+    }
+    if (!strcmp(name, "random_range") && count == 2) {
+        double mn = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double mx = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        *out = gml_value_real(mn + ((double)rand() / (double)RAND_MAX) * (mx - mn)); return 1;
+    }
+    if (!strcmp(name, "irandom") && count == 1) {
+        double mx = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        int max_val = (int)floor(mx);
+        *out = gml_value_real(max_val > 0 ? (double)(rand() % (max_val + 1)) : 0.0); return 1;
+    }
+    if (!strcmp(name, "irandom_range") && count == 2) {
+        double mn = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double mx = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        int min_val = (int)floor(mn), max_val = (int)floor(mx);
+        int range = max_val - min_val;
+        *out = gml_value_real(range > 0 ? (double)(min_val + (rand() % (range + 1))) : (double)min_val); return 1;
+    }
+    if (!strcmp(name, "choose") && count >= 1) {
+        int idx = rand() % (int)count;
+        *out = gm82_clone_value(&args[idx]); return 1;
+    }
+    if (!strcmp(name, "randomize") && count == 0) {
+        srand((unsigned int)time(NULL)); *out = gml_value_real(0); return 1;
+    }
+    if (!strcmp(name, "random_set_seed") && count == 1) {
+        unsigned int seed = (unsigned int)(args[0].kind == GML_V_REAL ? args[0].real : 0);
+        srand(seed); *out = gml_value_real((double)seed); return 1;
+    }
+    if (!strcmp(name, "string_count") && count == 2) {
+        const char *sub = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        const char *str = args[1].kind == GML_V_STRING && args[1].string ? args[1].string : "";
+        int total = 0; size_t sublen = strlen(sub);
+        if (sublen > 0) { for (const char *p = str; (p = strstr(p, sub)); p += sublen) total++; }
+        *out = gml_value_real((double)total); return 1;
+    }
+    if (!strcmp(name, "string_replace") && count == 3) {
+        const char *str = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        const char *sub = args[1].kind == GML_V_STRING && args[1].string ? args[1].string : "";
+        const char *newsub = args[2].kind == GML_V_STRING && args[2].string ? args[2].string : "";
+        char *p = strstr(str, sub);
+        if (p && sub[0] != '\0') {
+            size_t prefix_len = (size_t)(p - str), sub_len = strlen(sub), new_len = strlen(newsub), rest_len = strlen(p + sub_len);
+            char *buf = (char *)malloc(prefix_len + new_len + rest_len + 1);
+            if (buf) {
+                memcpy(buf, str, prefix_len);
+                memcpy(buf + prefix_len, newsub, new_len);
+                memcpy(buf + prefix_len + new_len, p + sub_len, rest_len + 1);
+                *out = gml_value_string(buf); free(buf);
+            } else *out = gml_value_string(str);
+        } else *out = gml_value_string(str);
+        return 1;
+    }
+    if (!strcmp(name, "real") && count == 1) {
+        if (args[0].kind == GML_V_REAL) *out = gml_value_real(args[0].real);
+        else if (args[0].kind == GML_V_BOOL) *out = gml_value_real(args[0].boolean ? 1.0 : 0.0);
+        else if (args[0].kind == GML_V_STRING && args[0].string) *out = gml_value_real(atof(args[0].string));
+        else *out = gml_value_real(0.0);
+        return 1;
+    }
+    if (!strcmp(name, "array_length_1d") && count == 1) {
+        *out = gml_value_real(args[0].kind == GML_V_ARRAY && args[0].array ? (double)args[0].array->count : 0.0);
+        return 1;
+    }
+    if (!strcmp(name, "array_length") && count == 1) {
+        *out = gml_value_real(args[0].kind == GML_V_ARRAY && args[0].array ? (double)args[0].array->count : 0.0);
+        return 1;
+    }
+    if (!strcmp(name, "sound_is_playing") && count == 1) {
+        *out = gml_value_bool(0); return 1;
+    }
+    if (!strcmp(name, "audio_play_sound") && count >= 3) {
+        int sid = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
+        int loop = args[2].kind == GML_V_BOOL ? args[2].boolean : (args[2].kind == GML_V_REAL && args[2].real != 0.0);
+        gm82_sound_push(1, sid, loop, g_sound_volume);
+        *out = gml_value_real(1.0); return 1;
+    }
+    if (!strcmp(name, "position_empty") && count == 2) {
+        float x = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0.0);
+        float y = (float)(args[1].kind == GML_V_REAL ? args[1].real : 0.0);
+        int empty = 1;
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            Gm82Instance *other = &g_runtime.instances[i];
+            if (!other->active) continue;
+            if (gm82_instance_overlaps_rect(other, x - 0.5f, y - 0.5f, x + 0.5f, y + 0.5f)) { empty = 0; break; }
+        }
+        *out = gml_value_bool(empty); return 1;
+    }
+    if (!strcmp(name, "place_empty") && count == 2) {
+        float x = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0.0);
+        float y = (float)(args[1].kind == GML_V_REAL ? args[1].real : 0.0);
+        int empty = 1;
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            Gm82Instance *other = &g_runtime.instances[i];
+            if (!other->active || (self && other->id == self->id)) continue;
+            if (gm82_instance_overlaps_rect(other, x - 16.0f, y - 16.0f, x + 16.0f, y + 16.0f)) { empty = 0; break; }
+        }
+        *out = gml_value_bool(empty); return 1;
+    }
+    if (!strcmp(name, "place_free") && count == 2) {
+        float x = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0.0);
+        float y = (float)(args[1].kind == GML_V_REAL ? args[1].real : 0.0);
+        int free_place = 1;
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            Gm82Instance *other = &g_runtime.instances[i];
+            if (!other->active || (self && other->id == self->id)) continue;
+            if (gm82_instance_overlaps_rect(other, x - 16.0f, y - 16.0f, x + 16.0f, y + 16.0f)) { free_place = 0; break; }
+        }
+        *out = gml_value_bool(free_place); return 1;
+    }
+    if (!strcmp(name, "instance_furthest") && count == 3) {
+        float x = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0.0), y = (float)(args[1].kind == GML_V_REAL ? args[1].real : 0.0);
+        int object_id = (int)(args[2].kind == GML_V_REAL ? args[2].real : -1), result = -1;
+        float worst = -1.0f;
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            Gm82Instance *other = &g_runtime.instances[i];
+            if (!gm82_instance_matches(other, self, object_id)) continue;
+            float dx = other->x - x, dy = other->y - y, distance = dx * dx + dy * dy;
+            if (distance > worst) { worst = distance; result = other->id; }
+        }
+        *out = gml_value_real((double)result); return 1;
+    }
     if (!strcmp(name, "is_string") && count == 1) { *out = gml_value_bool(args[0].kind == GML_V_STRING); return 1; }
     if (!strcmp(name, "is_real") && count == 1) { *out = gml_value_bool(args[0].kind == GML_V_REAL); return 1; }
     if (!strcmp(name, "is_bool") && count == 1) { *out = gml_value_bool(args[0].kind == GML_V_BOOL); return 1; }
@@ -1506,6 +1632,96 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
             }
         }
         *out = gml_value_bool(found); return 1;
+    }
+#define GM82_MAX_TEXT_FILES 16
+static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
+    if (!strcmp(name, "file_text_open_read") && count == 1) {
+        const char *fname = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        int slot = -1;
+        for (int i = 0; i < GM82_MAX_TEXT_FILES; ++i) if (!g_text_file_handles[i]) { slot = i; break; }
+        if (slot >= 0 && fname[0]) {
+            FILE *f = fopen(fname, "r");
+            if (f) { g_text_file_handles[slot] = f; *out = gml_value_real((double)(slot + 1)); return 1; }
+        }
+        *out = gml_value_real(-1.0); return 1;
+    }
+    if (!strcmp(name, "file_text_open_write") && count == 1) {
+        const char *fname = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        int slot = -1;
+        for (int i = 0; i < GM82_MAX_TEXT_FILES; ++i) if (!g_text_file_handles[i]) { slot = i; break; }
+        if (slot >= 0 && fname[0]) {
+            FILE *f = fopen(fname, "w");
+            if (f) { g_text_file_handles[slot] = f; *out = gml_value_real((double)(slot + 1)); return 1; }
+        }
+        *out = gml_value_real(-1.0); return 1;
+    }
+    if (!strcmp(name, "file_text_open_append") && count == 1) {
+        const char *fname = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        int slot = -1;
+        for (int i = 0; i < GM82_MAX_TEXT_FILES; ++i) if (!g_text_file_handles[i]) { slot = i; break; }
+        if (slot >= 0 && fname[0]) {
+            FILE *f = fopen(fname, "a");
+            if (f) { g_text_file_handles[slot] = f; *out = gml_value_real((double)(slot + 1)); return 1; }
+        }
+        *out = gml_value_real(-1.0); return 1;
+    }
+    if (!strcmp(name, "file_text_close") && count == 1) {
+        int handle = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0) - 1;
+        if (handle >= 0 && handle < GM82_MAX_TEXT_FILES && g_text_file_handles[handle]) {
+            fclose(g_text_file_handles[handle]);
+            g_text_file_handles[handle] = NULL;
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "file_text_write_string") && count == 2) {
+        int handle = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0) - 1;
+        const char *s = args[1].kind == GML_V_STRING && args[1].string ? args[1].string : "";
+        if (handle >= 0 && handle < GM82_MAX_TEXT_FILES && g_text_file_handles[handle]) {
+            fputs(s, g_text_file_handles[handle]);
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "file_text_write_real") && count == 2) {
+        int handle = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0) - 1;
+        double val = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        if (handle >= 0 && handle < GM82_MAX_TEXT_FILES && g_text_file_handles[handle]) {
+            fprintf(g_text_file_handles[handle], "%g", val);
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "file_text_writeln") && count == 1) {
+        int handle = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0) - 1;
+        if (handle >= 0 && handle < GM82_MAX_TEXT_FILES && g_text_file_handles[handle]) {
+            fputs("\n", g_text_file_handles[handle]);
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "file_text_read_string") && count == 1) {
+        int handle = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0) - 1;
+        char buf[1024] = {0};
+        if (handle >= 0 && handle < GM82_MAX_TEXT_FILES && g_text_file_handles[handle]) {
+            if (fgets(buf, sizeof(buf), g_text_file_handles[handle])) {
+                size_t len = strlen(buf);
+                while (len > 0 && (buf[len - 1] == '\r' || buf[len - 1] == '\n')) buf[--len] = '\0';
+            }
+        }
+        *out = gml_value_string(buf); return 1;
+    }
+    if (!strcmp(name, "file_text_read_real") && count == 1) {
+        int handle = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0) - 1;
+        double val = 0.0;
+        if (handle >= 0 && handle < GM82_MAX_TEXT_FILES && g_text_file_handles[handle]) {
+            if (fscanf(g_text_file_handles[handle], "%lf", &val) != 1) val = 0.0;
+        }
+        *out = gml_value_real(val); return 1;
+    }
+    if (!strcmp(name, "file_text_eof") && count == 1) {
+        int handle = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0) - 1;
+        int is_eof = 1;
+        if (handle >= 0 && handle < GM82_MAX_TEXT_FILES && g_text_file_handles[handle]) {
+            is_eof = feof(g_text_file_handles[handle]) ? 1 : 0;
+        }
+        *out = gml_value_bool(is_eof); return 1;
     }
     if (!strcmp(name, "ini_section_exists") && count == 1) {
         const char *sec = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";

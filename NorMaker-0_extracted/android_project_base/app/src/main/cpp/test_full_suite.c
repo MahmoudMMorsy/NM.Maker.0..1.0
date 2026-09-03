@@ -152,11 +152,26 @@ void test_math_string_suite(void) {
     args[0] = gml_value_real(3.14);
     assert(gm82_native_call(NULL, "frac", args, 1, &out) == 1 && fabs(out.real - 0.14) < 0.0001);
 
-    // Type checks
+    // Random functions
+    args[0] = gml_value_real(12345.0);
+    assert(gm82_native_call(NULL, "random_set_seed", args, 1, &out) == 1 && out.real == 12345.0);
+    args[0] = gml_value_real(10.0);
+    assert(gm82_native_call(NULL, "random", args, 1, &out) == 1 && out.real >= 0.0 && out.real <= 10.0);
+    args[0] = gml_value_real(5.0); args[1] = gml_value_real(15.0);
+    assert(gm82_native_call(NULL, "irandom_range", args, 2, &out) == 1 && out.real >= 5.0 && out.real <= 15.0);
+
+    // Type checks & Array length
     args[0] = gml_value_string("test");
     assert(gm82_native_call(NULL, "is_string", args, 1, &out) == 1 && out.boolean == 1);
     args[0] = gml_value_real(123.0);
     assert(gm82_native_call(NULL, "is_real", args, 1, &out) == 1 && out.boolean == 1);
+    args[0] = gml_value_string("42.5");
+    assert(gm82_native_call(NULL, "real", args, 1, &out) == 1 && out.real == 42.5);
+
+    gml_value arr = gml_value_array(4);
+    args[0] = arr;
+    assert(gm82_native_call(NULL, "array_length_1d", args, 1, &out) == 1 && out.real == 4.0);
+    gml_value_free(&arr);
 
     // String manipulations
     args[0] = gml_value_string("hello");
@@ -165,6 +180,16 @@ void test_math_string_suite(void) {
 
     args[0] = gml_value_string("X"); args[1] = gml_value_real(3.0);
     assert(gm82_native_call(NULL, "string_repeat", args, 2, &out) == 1 && strcmp(out.string, "XXX") == 0);
+    gml_value_free(&out);
+
+    gml_value str1 = gml_value_string("an");
+    gml_value str2 = gml_value_string("banana");
+    args[0] = str1; args[1] = str2;
+    assert(gm82_native_call(NULL, "string_count", args, 2, &out) == 1 && out.real == 2.0);
+    gml_value_free(&str1); gml_value_free(&str2);
+
+    args[0] = gml_value_string("foo bar foo"); args[1] = gml_value_string("foo"); args[2] = gml_value_string("baz");
+    assert(gm82_native_call(NULL, "string_replace", args, 3, &out) == 1 && strcmp(out.string, "baz bar foo") == 0);
     gml_value_free(&out);
 
     args[0] = gml_value_string("a1b2c3");
@@ -181,6 +206,7 @@ void test_ini_file_suite(void) {
     gml_value out;
     system("mkdir -p /tmp/nor_core_tests");
     const char *ini_path = "/tmp/nor_core_tests/test.ini";
+    const char *txt_path = "/tmp/nor_core_tests/test.txt";
 
     // Write INI
     args[0] = gml_value_string(ini_path);
@@ -212,6 +238,32 @@ void test_ini_file_suite(void) {
     gml_value_free(&out);
 
     args[0] = gml_value_string(ini_path);
+    assert(gm82_native_call(NULL, "file_delete", args, 1, &out) == 1 && out.boolean == 1);
+
+    // File Text I/O Test
+    args[0] = gml_value_string(txt_path);
+    assert(gm82_native_call(NULL, "file_text_open_write", args, 1, &out) == 1 && out.real > 0.0);
+    gml_value handle = out;
+
+    args[0] = handle; args[1] = gml_value_string("NorMaker Native Core");
+    assert(gm82_native_call(NULL, "file_text_write_string", args, 2, &out) == 1);
+    assert(gm82_native_call(NULL, "file_text_writeln", &handle, 1, &out) == 1);
+
+    args[0] = handle; args[1] = gml_value_real(82.0);
+    assert(gm82_native_call(NULL, "file_text_write_real", args, 2, &out) == 1);
+
+    assert(gm82_native_call(NULL, "file_text_close", &handle, 1, &out) == 1);
+
+    args[0] = gml_value_string(txt_path);
+    assert(gm82_native_call(NULL, "file_text_open_read", args, 1, &out) == 1 && out.real > 0.0);
+    handle = out;
+
+    assert(gm82_native_call(NULL, "file_text_read_string", &handle, 1, &out) == 1 && strcmp(out.string, "NorMaker Native Core") == 0);
+    gml_value_free(&out);
+
+    assert(gm82_native_call(NULL, "file_text_close", &handle, 1, &out) == 1);
+
+    args[0] = gml_value_string(txt_path);
     assert(gm82_native_call(NULL, "file_delete", args, 1, &out) == 1 && out.boolean == 1);
 
     printf("[PASS] INI & File Suite\n");
