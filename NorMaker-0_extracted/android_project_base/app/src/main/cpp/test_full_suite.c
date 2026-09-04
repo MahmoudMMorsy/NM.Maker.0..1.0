@@ -90,7 +90,7 @@ void test_gml_builtins_suite(void) {
 }
 
 void test_ds_suite(void) {
-    gml_value args[4];
+    gml_value args[6];
     gml_value out;
 
     // Test ds_stack
@@ -131,6 +131,19 @@ void test_ds_suite(void) {
     assert(gm82_native_call(NULL, "ds_list_size", &l_id, 1, &out) == 1 && out.real == 3.0);
     assert(gm82_native_call(NULL, "ds_list_destroy", &l_id, 1, &out) == 1);
 
+    // Test ds_grid
+    args[0] = gml_value_real(4.0); args[1] = gml_value_real(4.0);
+    assert(gm82_native_call(NULL, "ds_grid_create", args, 2, &out) == 1);
+    gml_value grid_id = out;
+    args[0] = grid_id; args[1] = gml_value_real(0.0); args[2] = gml_value_real(0.0); args[3] = gml_value_real(2.0); args[4] = gml_value_real(2.0); args[5] = gml_value_real(77.0);
+    assert(gm82_native_call(NULL, "ds_grid_set_region", args, 6, &out) == 1);
+    args[0] = grid_id; args[1] = gml_value_real(1.0); args[2] = gml_value_real(1.0);
+    assert(gm82_native_call(NULL, "ds_grid_get", args, 3, &out) == 1 && out.real == 77.0);
+    args[0] = grid_id; args[1] = gml_value_real(8.0); args[2] = gml_value_real(8.0);
+    assert(gm82_native_call(NULL, "ds_grid_resize", args, 3, &out) == 1);
+    assert(gm82_native_call(NULL, "ds_grid_width", &grid_id, 1, &out) == 1 && out.real == 8.0);
+    assert(gm82_native_call(NULL, "ds_grid_destroy", &grid_id, 1, &out) == 1);
+
     printf("[PASS] Data Structures Suite\n");
 }
 
@@ -152,6 +165,24 @@ void test_math_string_suite(void) {
     args[0] = gml_value_real(3.14);
     assert(gm82_native_call(NULL, "frac", args, 1, &out) == 1 && fabs(out.real - 0.14) < 0.0001);
 
+    // Test clamp, lerp, sign, round, floor, ceil, abs, sqr, sqrt, power
+    args[0] = gml_value_real(15.0); args[1] = gml_value_real(0.0); args[2] = gml_value_real(10.0);
+    assert(gm82_native_call(NULL, "clamp", args, 3, &out) == 1 && out.real == 10.0);
+    args[0] = gml_value_real(0.0); args[1] = gml_value_real(100.0); args[2] = gml_value_real(0.25);
+    assert(gm82_native_call(NULL, "lerp", args, 3, &out) == 1 && out.real == 25.0);
+    args[0] = gml_value_real(-42.0);
+    assert(gm82_native_call(NULL, "sign", args, 1, &out) == 1 && out.real == -1.0);
+    assert(gm82_native_call(NULL, "abs", args, 1, &out) == 1 && out.real == 42.0);
+    args[0] = gml_value_real(4.7);
+    assert(gm82_native_call(NULL, "floor", args, 1, &out) == 1 && out.real == 4.0);
+    assert(gm82_native_call(NULL, "ceil", args, 1, &out) == 1 && out.real == 5.0);
+    assert(gm82_native_call(NULL, "round", args, 1, &out) == 1 && out.real == 5.0);
+    args[0] = gml_value_real(9.0);
+    assert(gm82_native_call(NULL, "sqr", args, 1, &out) == 1 && out.real == 81.0);
+    assert(gm82_native_call(NULL, "sqrt", args, 1, &out) == 1 && out.real == 3.0);
+    args[0] = gml_value_real(2.0); args[1] = gml_value_real(10.0);
+    assert(gm82_native_call(NULL, "power", args, 2, &out) == 1 && out.real == 1024.0);
+
     // Type checks
     args[0] = gml_value_string("test");
     assert(gm82_native_call(NULL, "is_string", args, 1, &out) == 1 && out.boolean == 1);
@@ -172,6 +203,22 @@ void test_math_string_suite(void) {
     gml_value_free(&out);
     assert(gm82_native_call(NULL, "string_digits", args, 1, &out) == 1 && strcmp(out.string, "123") == 0);
     gml_value_free(&out);
+
+    // Extended String Functions
+    args[0] = gml_value_string("GameMaker"); args[1] = gml_value_real(5.0);
+    assert(gm82_native_call(NULL, "string_char_at", args, 2, &out) == 1 && strcmp(out.string, "M") == 0);
+    gml_value_free(&out);
+
+    args[0] = gml_value_string("NorMaker"); args[1] = gml_value_string("Maker"); args[2] = gml_value_string("Engine");
+    assert(gm82_native_call(NULL, "string_replace", args, 3, &out) == 1 && strcmp(out.string, "NorEngine") == 0);
+    gml_value_free(&out);
+
+    args[0] = gml_value_string("foo bar foo"); args[1] = gml_value_string("foo"); args[2] = gml_value_string("baz");
+    assert(gm82_native_call(NULL, "string_replace_all", args, 3, &out) == 1 && strcmp(out.string, "baz bar baz") == 0);
+    gml_value_free(&out);
+
+    args[0] = gml_value_string("na"); args[1] = gml_value_string("banana");
+    assert(gm82_native_call(NULL, "string_count", args, 2, &out) == 1 && out.real == 2.0);
 
     printf("[PASS] Math & String & Type-check Suite\n");
 }
