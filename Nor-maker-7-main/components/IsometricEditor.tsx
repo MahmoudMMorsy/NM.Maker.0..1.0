@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useMemo } from 'react';
 import { RoomData, SpriteAsset, IsoCell } from '../types';
 
 interface IsometricEditorProps {
@@ -39,6 +39,16 @@ export const IsometricEditor: React.FC<IsometricEditorProps> = ({
     useEffect(() => {
         setLocalMap(room.isoMap || []);
     }, [room.isoMap]);
+
+    // Bolt Optimization: Memoize the sorted iso cells list by depth (Z, Y, X).
+    // This avoids re-sorting localMap and allocating new arrays on high-frequency render triggers (e.g. canvas panning via offset state updates).
+    const sortedMap = useMemo(() => {
+        return [...localMap].sort((a, b) => {
+            if (a.z !== b.z) return a.z - b.z;
+            if (a.y !== b.y) return a.y - b.y;
+            return a.x - b.x;
+        });
+    }, [localMap]);
 
     // --- Coord Conversion ---
     const worldToScreen = (wx: number, wy: number, wz: number) => {
@@ -91,12 +101,6 @@ export const IsometricEditor: React.FC<IsometricEditorProps> = ({
         }
 
         // Draw ISO Cells (Sorted by Z, then Y, then X for proper depth)
-        const sortedMap = [...localMap].sort((a, b) => {
-            if (a.z !== b.z) return a.z - b.z;
-            if (a.y !== b.y) return a.y - b.y;
-            return a.x - b.x;
-        });
-
         sortedMap.forEach(cell => {
             drawVoxel(ctx, cell.x, cell.y, cell.z, cell.tileId);
         });
@@ -149,7 +153,7 @@ export const IsometricEditor: React.FC<IsometricEditorProps> = ({
 
     useEffect(() => {
         render();
-    }, [room.width, room.height, offset, localMap]);
+    }, [room.width, room.height, offset, sortedMap]);
 
     // --- Paint Logic ---
     const paintAt = (clientX: number, clientY: number) => {
