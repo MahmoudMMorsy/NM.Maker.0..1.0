@@ -1,4 +1,5 @@
 #include <jni.h>
+main
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -999,6 +1000,85 @@ static int gm82_instance_mask_overlaps_circle(const Gm82Instance *other, float c
 int gm82_native_call(void *userdata, const char *name, const gml_value *args, size_t count, gml_value *out) {
     Gm82Instance *self = (Gm82Instance *)userdata;
     if (!name || !out) return 0;
+    if (!strcmp(name, "string_length") && count == 1) {
+        const char *str = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        *out = gml_value_real((double)strlen(str)); return 1;
+    }
+    if (!strcmp(name, "string_copy") && count == 3) {
+        const char *str = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        int index = args[1].kind == GML_V_REAL ? (int)args[1].real : 1;
+        int count_len = args[2].kind == GML_V_REAL ? (int)args[2].real : 0;
+        int len = (int)strlen(str);
+        if (index < 1) index = 1;
+        if (count_len < 0) count_len = 0;
+        int start = index - 1;
+        if (start >= len) { *out = gml_value_string(""); return 1; }
+        if (start + count_len > len) count_len = len - start;
+        char *sub = (char *)malloc((size_t)count_len + 1);
+        if (sub) {
+            memcpy(sub, str + start, (size_t)count_len);
+            sub[count_len] = '\0';
+            *out = gml_value_string(sub);
+            free(sub);
+        } else { *out = gml_value_string(""); }
+        return 1;
+    }
+    if (!strcmp(name, "string_pos") && count == 2) {
+        const char *sub = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        const char *str = args[1].kind == GML_V_STRING && args[1].string ? args[1].string : "";
+        if (!*sub) { *out = gml_value_real(0); return 1; }
+        const char *pos = strstr(str, sub);
+        *out = gml_value_real(pos ? (double)(pos - str + 1) : 0.0);
+        return 1;
+    }
+    if (!strcmp(name, "string_lower") && count == 1) {
+        const char *str = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        size_t len = strlen(str);
+        char *buf = (char *)malloc(len + 1);
+        if (buf) {
+            for (size_t i = 0; i < len; ++i) buf[i] = (char)tolower((unsigned char)str[i]);
+            buf[len] = '\0';
+            *out = gml_value_string(buf);
+            free(buf);
+        } else { *out = gml_value_string(""); }
+        return 1;
+    }
+    if (!strcmp(name, "string_upper") && count == 1) {
+        const char *str = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        size_t len = strlen(str);
+        char *buf = (char *)malloc(len + 1);
+        if (buf) {
+            for (size_t i = 0; i < len; ++i) buf[i] = (char)toupper((unsigned char)str[i]);
+            buf[len] = '\0';
+            *out = gml_value_string(buf);
+            free(buf);
+        } else { *out = gml_value_string(""); }
+        return 1;
+    }
+    if (!strcmp(name, "is_real") && count == 1) {
+        *out = gml_value_bool(args[0].kind == GML_V_REAL); return 1;
+    }
+    if (!strcmp(name, "is_string") && count == 1) {
+        *out = gml_value_bool(args[0].kind == GML_V_STRING); return 1;
+    }
+    if (!strcmp(name, "random") && count == 1) {
+        double max_val = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double r = (double)rand() / (double)RAND_MAX;
+        *out = gml_value_real(r * max_val); return 1;
+    }
+    if (!strcmp(name, "irandom") && count == 1) {
+        int max_val = args[0].kind == GML_V_REAL ? (int)args[0].real : 0;
+        if (max_val <= 0) { *out = gml_value_real(0); return 1; }
+        *out = gml_value_real((double)(rand() % (max_val + 1))); return 1;
+    }
+    if (!strcmp(name, "choose") && count >= 1) {
+        size_t idx = (size_t)rand() % count;
+        const gml_value *chosen = &args[idx];
+        if (chosen->kind == GML_V_STRING) *out = gml_value_string(chosen->string ? chosen->string : "");
+        else if (chosen->kind == GML_V_BOOL) *out = gml_value_bool(chosen->boolean);
+        else *out = gml_value_real(chosen->real);
+        return 1;
+    }
     if (!strcmp(name, "__gm82core_dllcheck") && count == 0) { *out = gml_value_real(gm82_portable_dllcheck()); return 1; }
     if (!strcmp(name, "color_reverse") && count == 1) { double value = args[0].kind == GML_V_REAL ? args[0].real : 0.0; *out = gml_value_real(gm82_portable_color_reverse(value)); return 1; }
     if (!strcmp(name, "color_inverse") && count == 1) { double value = args[0].kind == GML_V_REAL ? args[0].real : 0.0; *out = gml_value_real(gm82_portable_color_inverse(value)); return 1; }
@@ -2697,6 +2777,9 @@ JNIEXPORT jstring JNICALL Java_com_normaker_nativefull_MainActivity_nativeRuntim
 
 JNIEXPORT jboolean JNICALL Java_com_normaker_nativefull_MainActivity_nativeRuntimeRenderBitmap(JNIEnv *env, jobject self, jobject target) {
     (void)self;
+#ifdef HOST_TEST_BUILD
+    (void)env; (void)target; return JNI_TRUE;
+#else
     if (!g_runtime.initialized || !target) return JNI_FALSE;
     AndroidBitmapInfo info;
     if (AndroidBitmap_getInfo(env, target, &info) != ANDROID_BITMAP_RESULT_SUCCESS) return JNI_FALSE;
@@ -2745,6 +2828,7 @@ JNIEXPORT jboolean JNICALL Java_com_normaker_nativefull_MainActivity_nativeRunti
     gm82_draw_clear();
     AndroidBitmap_unlockPixels(env, target);
     return JNI_TRUE;
+#endif
 }
 
 static void gm82_runtime_clear_room_transient(void) {
