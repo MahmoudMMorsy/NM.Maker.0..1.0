@@ -2004,6 +2004,61 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
         *out = gml_value_real((double)strlen(s));
         return 1;
     }
+    if (!strcmp(name, "string_upper") && count == 1) {
+        const char *s = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        size_t len = strlen(s);
+        char *buf = (char*)malloc(len + 1);
+        if (buf) {
+            for (size_t i = 0; i < len; ++i) {
+                buf[i] = (char)toupper((unsigned char)s[i]);
+            }
+            buf[len] = '\0';
+            *out = gml_value_string(buf);
+            free(buf);
+        } else {
+            *out = gml_value_string("");
+        }
+        return 1;
+    }
+    if (!strcmp(name, "string_lower") && count == 1) {
+        const char *s = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        size_t len = strlen(s);
+        char *buf = (char*)malloc(len + 1);
+        if (buf) {
+            for (size_t i = 0; i < len; ++i) {
+                buf[i] = (char)tolower((unsigned char)s[i]);
+            }
+            buf[len] = '\0';
+            *out = gml_value_string(buf);
+            free(buf);
+        } else {
+            *out = gml_value_string("");
+        }
+        return 1;
+    }
+    if (!strcmp(name, "string_count") && count == 2) {
+        const char *sub = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        const char *s = args[1].kind == GML_V_STRING && args[1].string ? args[1].string : "";
+        size_t sublen = strlen(sub);
+        int total = 0;
+        if (sublen > 0) {
+            const char *p = s;
+            while ((p = strstr(p, sub)) != NULL) {
+                total++;
+                p += sublen;
+            }
+        }
+        *out = gml_value_real((double)total);
+        return 1;
+    }
+    if (!strcmp(name, "is_string") && count == 1) {
+        *out = gml_value_bool(args[0].kind == GML_V_STRING);
+        return 1;
+    }
+    if (!strcmp(name, "is_real") && count == 1) {
+        *out = gml_value_bool(args[0].kind == GML_V_REAL);
+        return 1;
+    }
     if (!strcmp(name, "string_copy") && count == 3) {
         const char *s = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
         int index = (int)(args[1].kind == GML_V_REAL ? args[1].real : 1);
