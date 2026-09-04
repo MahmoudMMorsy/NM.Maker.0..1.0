@@ -95,7 +95,7 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
   const bgAssetMap = useMemo(() => new Map<string, BackgroundAsset>(backgroundAssets.map(b => [b.id, b])), [backgroundAssets]);
   const stampMap = useMemo(() => new Map(stamps.map(s => [s.id, s])), [stamps]);
   const model3DMap = useMemo(() => new Map((model3DAssets || []).map(a => [a.id, a])), [model3DAssets]);
-  const wallTileDef = useMemo(() => tileDefs?.find(t => t.id === 1), [tileDefs]);
+ main
 
   // selectedTool corresponds to the MAP ID.
   // 0=Eraser, 1=Solid Wall, 2+=Objects (gameObjects index + 2)
@@ -228,10 +228,12 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selection, layers, currentLayerIndex, levelData, width, height, onUpdate, onUpdateLayers]);
 
+  // ⚡ Bolt: Pre-resolve wall tile definition (ID=1) before looping through grid tiles to avoid linear array search `tileDefs?.find()` inside high-frequency canvas render loops.
+  const wallTileDef = useMemo(() => tileDefs?.find(t => t.id === 1), [tileDefs]);
+
   const drawTileAt = (ctx: CanvasRenderingContext2D, tileId: number, x: number, y: number) => {
     if (tileId === 1) {
-        if (wallTileDef?.src && tileImagesRef.current[1]) {
-            ctx.drawImage(tileImagesRef.current[1], x, y, snapX, snapY);
+ main
         } else {
             const wallColor = wallTileDef?.color || '#8b4513';
             ctx.fillStyle = wallColor;
@@ -537,7 +539,7 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
   };
 
   const applyStamp = (x: number, y: number) => {
-    const stamp = stampMap.get(activeStampId || '');
+ main
     if (!stamp) return;
     const newData = layers.length > 0 ? [...layers[currentLayerIndex].data] : [...levelData];
     for(let sy=0; sy<stamp.height; sy++) {
@@ -630,6 +632,7 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
 
   const place3DObjectAt = (gx: number, gy: number) => {
       if (!selected3DModelId) { window.alert('اختر نموذج 3D من القائمة العائمة أولاً\nSelect a 3D model from the floating panel first'); return; }
+main
       const asset = model3DMap.get(selected3DModelId);
       if (!asset) return;
       const G = 16;
