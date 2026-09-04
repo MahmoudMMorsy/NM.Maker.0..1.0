@@ -4,6 +4,68 @@
 #include <stdio.h>
 #include <math.h>
 #include <ctype.h>
+
+typedef struct {
+    int id;
+    gml_value *items;
+    size_t count;
+    size_t capacity;
+} gml_ds_list;
+
+typedef struct {
+    char key[64];
+    gml_value val;
+} gml_ds_map_entry;
+
+typedef struct {
+    int id;
+    gml_ds_map_entry *entries;
+    size_t count;
+    size_t capacity;
+} gml_ds_map;
+
+static gml_ds_list g_ds_lists[64];
+static size_t g_ds_list_count = 0;
+static int g_next_list_id = 1;
+
+static gml_ds_map g_ds_maps[64];
+static size_t g_ds_map_count = 0;
+static int g_next_map_id = 1;
+
+static gml_ds_list* find_ds_list(int id) {
+    for (size_t i = 0; i < g_ds_list_count; i++) {
+        if (g_ds_lists[i].id == id) return &g_ds_lists[i];
+    }
+    return NULL;
+}
+
+static gml_ds_map* find_ds_map(int id) {
+    for (size_t i = 0; i < g_ds_map_count; i++) {
+        if (g_ds_maps[i].id == id) return &g_ds_maps[i];
+    }
+    return NULL;
+}
+
+void gml_vm_reset_ds_structures(void) {
+    for (size_t i = 0; i < g_ds_list_count; i++) {
+        for (size_t j = 0; j < g_ds_lists[i].count; j++) {
+            gml_value_free(&g_ds_lists[i].items[j]);
+        }
+        free(g_ds_lists[i].items);
+    }
+    g_ds_list_count = 0;
+    g_next_list_id = 1;
+
+    for (size_t i = 0; i < g_ds_map_count; i++) {
+        for (size_t j = 0; j < g_ds_maps[i].count; j++) {
+            gml_value_free(&g_ds_maps[i].entries[j].val);
+        }
+        free(g_ds_maps[i].entries);
+    }
+    g_ds_map_count = 0;
+    g_next_map_id = 1;
+}
+
 static gml_value undef(void){gml_value v={0};return v;}
 gml_value gml_value_real(double n){gml_value v=undef();v.kind=GML_V_REAL;v.real=n;return v;}
 gml_value gml_value_bool(int b){gml_value v=undef();v.kind=GML_V_BOOL;v.boolean=!!b;v.real=!!b;return v;}
@@ -14,78 +76,7 @@ int gml_vm_set(gml_vm*vm,const char*n,gml_value v){if(!vm||!n)return 0;size_t ma
 gml_value gml_vm_get(gml_vm*vm,const char*n){if(vm&&n)for(size_t i=vm->count;i>0;i--)if(!strcmp(vm->vars[i-1].name,n))return copyv(&vm->vars[i-1].value);return undef();}
 static double num(gml_value v){if(v.kind==GML_V_BOOL)return v.boolean;if(v.kind==GML_V_REAL)return v.real;return 0;}
 static int truth(gml_value v){if(v.kind==GML_V_STRING)return v.string&&v.string[0];return num(v)!=0;} static const char* text_of(gml_value v){return v.kind==GML_V_STRING&&v.string?v.string:"";} static gml_value number_text(double value){char buffer[64];snprintf(buffer,sizeof buffer,"%.15g",value);return gml_value_string(buffer);} static gml_value eval(gml_vm*vm,const gml_ast*n); static gml_value* named_slot(gml_vm*vm,const char*n){if(!vm||!n)return 0;for(size_t i=vm->count;i>0;i--)if(!strcmp(vm->vars[i-1].name,n))return &vm->vars[i-1].value;return 0;} static gml_value eval_member(gml_vm*vm,const gml_ast*n){if(!n||!n->left||!n->text)return undef();gml_value base=eval(vm,n->left);gml_value r=undef();if(!strcmp(n->text,"length")){if(base.kind==GML_V_ARRAY&&base.array)r=gml_value_real((double)base.array->count);else if(base.kind==GML_V_STRING&&base.string)r=gml_value_real((double)strlen(base.string));}else if(vm->member_get && n->left->kind==GML_AST_NAME && !strcmp(n->left->text,"self")){vm->member_get(vm->member_userdata,n->text,&r);}gml_value_free(&base);return r;} static gml_value eval_index(gml_vm*vm,const gml_ast*n){if(!n||!n->left||!n->right)return undef();gml_value*base=(n->left->kind==GML_AST_NAME)?named_slot(vm,n->left->text):0;gml_value temp=undef();if(!base){temp=eval(vm,n->left);base=&temp;}gml_value idx=eval(vm,n->right);size_t i=num(idx)<0?0:(size_t)num(idx);gml_value r=undef();if(base->kind==GML_V_ARRAY&&base->array&&i<base->array->count)r=copyv(&base->array->items[i]);gml_value_free(&idx);if(base==&temp)gml_value_free(&temp);return r;} static gml_value eval(gml_vm*vm,const gml_ast*n);
-
-#define MAX_DS_LISTS 64
-#define MAX_DS_LIST_ITEMS 256
-typedef struct { int active; gml_value items[MAX_DS_LIST_ITEMS]; size_t count; } ds_list_store;
-static ds_list_store g_ds_lists[MAX_DS_LISTS];
-
-#define MAX_DS_MAPS 64
-#define MAX_DS_MAP_ENTRIES 128
-typedef struct { char key[64]; gml_value val; } ds_map_entry;
-typedef struct { int active; ds_map_entry entries[MAX_DS_MAP_ENTRIES]; size_t count; } ds_map_store;
-static ds_map_store g_ds_maps[MAX_DS_MAPS];
-
-#define MAX_INI_ENTRIES 128
-typedef struct { char section[64]; char key[64]; char value[128]; } ini_entry;
-typedef struct { int active; char filename[256]; ini_entry entries[MAX_INI_ENTRIES]; size_t count; } ini_store;
-static ini_store g_ini;
-
-static gml_value call(gml_vm*vm,const gml_ast*n){if(!n->text)return undef();gml_value a[32];size_t c=n->count<32?n->count:32;for(size_t i=0;i<c;i++)a[i]=eval(vm,n->items[i]);gml_value r=undef();
-if(!strcmp(n->text,"array_create")&&c==1){double raw=num(a[0]);size_t count=raw>0?(size_t)raw:0;if(count>4096)count=4096;r=gml_value_array(count);}
-else if(!strcmp(n->text,"sqrt")&&c==1)r=gml_value_real(sqrt(num(a[0])));
-else if(!strcmp(n->text,"sin")&&c==1)r=gml_value_real(sin(num(a[0])));
-else if(!strcmp(n->text,"cos")&&c==1)r=gml_value_real(cos(num(a[0])));
-else if(!strcmp(n->text,"dsin")&&c==1)r=gml_value_real(sin(num(a[0])*3.14159265358979323846/180.0));
-else if(!strcmp(n->text,"dcos")&&c==1)r=gml_value_real(cos(num(a[0])*3.14159265358979323846/180.0));
-else if(!strcmp(n->text,"abs")&&c==1)r=gml_value_real(fabs(num(a[0])));
-else if(!strcmp(n->text,"floor")&&c==1)r=gml_value_real(floor(num(a[0])));
-else if(!strcmp(n->text,"ceil")&&c==1)r=gml_value_real(ceil(num(a[0])));
-else if(!strcmp(n->text,"round")&&c==1)r=gml_value_real(round(num(a[0])));
-else if(!strcmp(n->text,"sign")&&c==1)r=gml_value_real(num(a[0])>0?1:(num(a[0])<0?-1:0));
-else if(!strcmp(n->text,"random")&&c==1)r=gml_value_real(((double)rand()/(double)RAND_MAX)*num(a[0]));
-else if(!strcmp(n->text,"random_range")&&c==2)r=gml_value_real(num(a[0])+((double)rand()/(double)RAND_MAX)*(num(a[1])-num(a[0])));
-else if(!strcmp(n->text,"irandom")&&c==1){int m=(int)num(a[0]);r=gml_value_real(m>0?rand()%(m+1):0);}
-else if(!strcmp(n->text,"irandom_range")&&c==2){int lo=(int)num(a[0]),hi=(int)num(a[1]);r=gml_value_real(hi>=lo?lo+(rand()%(hi-lo+1)):lo);}
-else if(!strcmp(n->text,"choose")&&c>=1){size_t idx=(size_t)rand()%c;r=copyv(&a[idx]);}
-else if(!strcmp(n->text,"min")&&c>=1){double v=num(a[0]);for(size_t i=1;i<c;i++)if(num(a[i])<v)v=num(a[i]);r=gml_value_real(v);}
-else if(!strcmp(n->text,"max")&&c>=1){double v=num(a[0]);for(size_t i=1;i<c;i++)if(num(a[i])>v)v=num(a[i]);r=gml_value_real(v);}
-else if(!strcmp(n->text,"clamp")&&c==3){double x=num(a[0]),lo=num(a[1]),hi=num(a[2]);r=gml_value_real(x<lo?lo:(x>hi?hi:x));}
-else if(!strcmp(n->text,"tan")&&c==1)r=gml_value_real(tan(num(a[0])));
-else if(!strcmp(n->text,"power")&&c==2)r=gml_value_real(pow(num(a[0]),num(a[1])));
-else if(!strcmp(n->text,"degtorad")&&c==1)r=gml_value_real(num(a[0])*3.14159265358979323846/180.0);
-else if(!strcmp(n->text,"radtodeg")&&c==1)r=gml_value_real(num(a[0])*180.0/3.14159265358979323846);
-else if(!strcmp(n->text,"lerp")&&c==3)r=gml_value_real(num(a[0])+(num(a[1])-num(a[0]))*num(a[2]));
-else if(!strcmp(n->text,"point_distance")&&c==4){double dx=num(a[2])-num(a[0]),dy=num(a[3])-num(a[1]);r=gml_value_real(sqrt(dx*dx+dy*dy));}
-else if(!strcmp(n->text,"point_direction")&&c==4){double dx=num(a[2])-num(a[0]),dy=num(a[1])-num(a[3]);double angle=atan2(dy,dx)*180.0/3.14159265358979323846;if(angle<0)angle+=360.0;r=gml_value_real(angle);}
-else if(!strcmp(n->text,"ds_list_create")){int id=-1;for(int i=0;i<MAX_DS_LISTS;i++){if(!g_ds_lists[i].active){g_ds_lists[i].active=1;g_ds_lists[i].count=0;id=i;break;}}r=gml_value_real((double)id);}
-else if(!strcmp(n->text,"ds_list_destroy")&&c==1){int id=(int)num(a[0]);if(id>=0&&id<MAX_DS_LISTS&&g_ds_lists[id].active){for(size_t i=0;i<g_ds_lists[id].count;i++)gml_value_free(&g_ds_lists[id].items[i]);g_ds_lists[id].active=0;g_ds_lists[id].count=0;}r=gml_value_real(1.0);}
-else if(!strcmp(n->text,"ds_list_add")&&c>=2){int id=(int)num(a[0]);if(id>=0&&id<MAX_DS_LISTS&&g_ds_lists[id].active){for(size_t i=1;i<c;i++){if(g_ds_lists[id].count<MAX_DS_LIST_ITEMS)g_ds_lists[id].items[g_ds_lists[id].count++]=copyv(&a[i]);}}r=gml_value_real(1.0);}
-else if(!strcmp(n->text,"ds_list_size")&&c==1){int id=(int)num(a[0]);size_t sz=(id>=0&&id<MAX_DS_LISTS&&g_ds_lists[id].active)?g_ds_lists[id].count:0;r=gml_value_real((double)sz);}
-else if(!strcmp(n->text,"ds_list_find_value")&&c==2){int id=(int)num(a[0]);int idx=(int)num(a[1]);if(id>=0&&id<MAX_DS_LISTS&&g_ds_lists[id].active&&idx>=0&&(size_t)idx<g_ds_lists[id].count)r=copyv(&g_ds_lists[id].items[idx]);}
-else if(!strcmp(n->text,"ds_list_clear")&&c==1){int id=(int)num(a[0]);if(id>=0&&id<MAX_DS_LISTS&&g_ds_lists[id].active){for(size_t i=0;i<g_ds_lists[id].count;i++)gml_value_free(&g_ds_lists[id].items[i]);g_ds_lists[id].count=0;}r=gml_value_real(1.0);}
-else if(!strcmp(n->text,"ds_list_delete")&&c==2){int id=(int)num(a[0]);int idx=(int)num(a[1]);if(id>=0&&id<MAX_DS_LISTS&&g_ds_lists[id].active&&idx>=0&&(size_t)idx<g_ds_lists[id].count){gml_value_free(&g_ds_lists[id].items[idx]);for(size_t i=(size_t)idx;i+1<g_ds_lists[id].count;i++)g_ds_lists[id].items[i]=g_ds_lists[id].items[i+1];g_ds_lists[id].count--;}r=gml_value_real(1.0);}
-else if(!strcmp(n->text,"ds_map_create")){int id=-1;for(int i=0;i<MAX_DS_MAPS;i++){if(!g_ds_maps[i].active){g_ds_maps[i].active=1;g_ds_maps[i].count=0;id=i;break;}}r=gml_value_real((double)id);}
-else if(!strcmp(n->text,"ds_map_destroy")&&c==1){int id=(int)num(a[0]);if(id>=0&&id<MAX_DS_MAPS&&g_ds_maps[id].active){for(size_t i=0;i<g_ds_maps[id].count;i++)gml_value_free(&g_ds_maps[id].entries[i].val);g_ds_maps[id].active=0;g_ds_maps[id].count=0;}r=gml_value_real(1.0);}
-else if(!strcmp(n->text,"ds_map_add")&&c==3){int id=(int)num(a[0]);const char*k=text_of(a[1]);if(id>=0&&id<MAX_DS_MAPS&&g_ds_maps[id].active&&k){int found=0;for(size_t i=0;i<g_ds_maps[id].count;i++){if(!strcmp(g_ds_maps[id].entries[i].key,k)){gml_value_free(&g_ds_maps[id].entries[i].val);g_ds_maps[id].entries[i].val=copyv(&a[2]);found=1;break;}}if(!found&&g_ds_maps[id].count<MAX_DS_MAP_ENTRIES){strncpy(g_ds_maps[id].entries[g_ds_maps[id].count].key,k,63);g_ds_maps[id].entries[g_ds_maps[id].count].key[63]=0;g_ds_maps[id].entries[g_ds_maps[id].count].val=copyv(&a[2]);g_ds_maps[id].count++;}}r=gml_value_real(1.0);}
-else if(!strcmp(n->text,"ds_map_find_value")&&c==2){int id=(int)num(a[0]);const char*k=text_of(a[1]);if(id>=0&&id<MAX_DS_MAPS&&g_ds_maps[id].active&&k){for(size_t i=0;i<g_ds_maps[id].count;i++){if(!strcmp(g_ds_maps[id].entries[i].key,k)){r=copyv(&g_ds_maps[id].entries[i].val);break;}}}}
-else if(!strcmp(n->text,"ds_map_exists")&&c==2){int id=(int)num(a[0]);const char*k=text_of(a[1]);int ex=0;if(id>=0&&id<MAX_DS_MAPS&&g_ds_maps[id].active&&k){for(size_t i=0;i<g_ds_maps[id].count;i++){if(!strcmp(g_ds_maps[id].entries[i].key,k)){ex=1;break;}}}r=gml_value_bool(ex);}
-else if(!strcmp(n->text,"ds_map_clear")&&c==1){int id=(int)num(a[0]);if(id>=0&&id<MAX_DS_MAPS&&g_ds_maps[id].active){for(size_t i=0;i<g_ds_maps[id].count;i++)gml_value_free(&g_ds_maps[id].entries[i].val);g_ds_maps[id].count=0;}r=gml_value_real(1.0);}
-else if(!strcmp(n->text,"ds_map_delete")&&c==2){int id=(int)num(a[0]);const char*k=text_of(a[1]);if(id>=0&&id<MAX_DS_MAPS&&g_ds_maps[id].active&&k){for(size_t i=0;i<g_ds_maps[id].count;i++){if(!strcmp(g_ds_maps[id].entries[i].key,k)){gml_value_free(&g_ds_maps[id].entries[i].val);for(size_t j=i;j+1<g_ds_maps[id].count;j++)g_ds_maps[id].entries[j]=g_ds_maps[id].entries[j+1];g_ds_maps[id].count--;break;}}}r=gml_value_real(1.0);}
-else if(!strcmp(n->text,"ini_open")&&c==1){g_ini.active=1;strncpy(g_ini.filename,text_of(a[0]),255);g_ini.filename[255]=0;r=gml_value_real(1.0);}
-else if(!strcmp(n->text,"ini_close")){g_ini.active=0;r=gml_value_real(1.0);}
-else if(!strcmp(n->text,"ini_read_real")&&c==3){const char*s=text_of(a[0]),*k=text_of(a[1]);double def=num(a[2]);r=gml_value_real(def);if(g_ini.active){for(size_t i=0;i<g_ini.count;i++){if(!strcmp(g_ini.entries[i].section,s)&&!strcmp(g_ini.entries[i].key,k)){r=gml_value_real(atof(g_ini.entries[i].value));break;}}}}
-else if(!strcmp(n->text,"ini_read_string")&&c==3){const char*s=text_of(a[0]),*k=text_of(a[1]),*def=text_of(a[2]);r=gml_value_string(def);if(g_ini.active){for(size_t i=0;i<g_ini.count;i++){if(!strcmp(g_ini.entries[i].section,s)&&!strcmp(g_ini.entries[i].key,k)){r=gml_value_string(g_ini.entries[i].value);break;}}}}
-else if(!strcmp(n->text,"ini_write_real")&&c==3){const char*s=text_of(a[0]),*k=text_of(a[1]);double v=num(a[2]);if(g_ini.active){int found=0;for(size_t i=0;i<g_ini.count;i++){if(!strcmp(g_ini.entries[i].section,s)&&!strcmp(g_ini.entries[i].key,k)){snprintf(g_ini.entries[i].value,128,"%.15g",v);found=1;break;}}if(!found&&g_ini.count<MAX_INI_ENTRIES){strncpy(g_ini.entries[g_ini.count].section,s,63);strncpy(g_ini.entries[g_ini.count].key,k,63);snprintf(g_ini.entries[g_ini.count].value,128,"%.15g",v);g_ini.count++;}}r=gml_value_real(1.0);}
-else if(!strcmp(n->text,"ini_write_string")&&c==3){const char*s=text_of(a[0]),*k=text_of(a[1]),*v=text_of(a[2]);if(g_ini.active){int found=0;for(size_t i=0;i<g_ini.count;i++){if(!strcmp(g_ini.entries[i].section,s)&&!strcmp(g_ini.entries[i].key,k)){strncpy(g_ini.entries[i].value,v,127);g_ini.entries[i].value[127]=0;found=1;break;}}if(!found&&g_ini.count<MAX_INI_ENTRIES){strncpy(g_ini.entries[g_ini.count].section,s,63);strncpy(g_ini.entries[g_ini.count].key,k,63);strncpy(g_ini.entries[g_ini.count].value,v,127);g_ini.entries[g_ini.count].value[127]=0;g_ini.count++;}}r=gml_value_real(1.0);}
-else if(!strcmp(n->text,"instance_exists")&&c==1)r=gml_value_bool(1);
-else if(!strcmp(n->text,"instance_number")&&c==1)r=gml_value_real(1.0);
-else if(!strcmp(n->text,"instance_find")&&c==2)r=gml_value_real(100001.0);
-else if(!strcmp(n->text,"instance_create")&&c>=3)r=gml_value_real(100002.0);
-else if(!strcmp(n->text,"instance_destroy"))r=gml_value_real(1.0);
-else if(!strcmp(n->text,"place_meeting")&&c==3)r=gml_value_bool(0);
-else if(!strcmp(n->text,"instance_position")&&c==3)r=gml_value_real(-1.0);
-else if(!strcmp(n->text,"string")&&c==1){if(a[0].kind==GML_V_STRING)r=gml_value_string(text_of(a[0]));else if(a[0].kind==GML_V_BOOL)r=gml_value_string(a[0].boolean?"1":"0");else r=number_text(num(a[0]));}else if(!strcmp(n->text,"string_length")&&c==1){r=gml_value_real((double)strlen(text_of(a[0])));}else if(!strcmp(n->text,"string_char_at")&&c==2){const char*s=text_of(a[0]);int pos=(int)num(a[1]);if(pos>=1&&(size_t)pos<=strlen(s)){char ch[2]={s[pos-1],0};r=gml_value_string(ch);}else r=gml_value_string("");}else if(!strcmp(n->text,"string_copy")&&c==3){const char*s=text_of(a[0]);int start=(int)num(a[1]),len=(int)num(a[2]);size_t nstr=strlen(s);if(start<1)start=1;if(len<0)len=0;size_t begin=(size_t)(start-1);if(begin>nstr)begin=nstr;if((size_t)len>nstr-begin)len=(int)(nstr-begin);char*part=malloc((size_t)len+1);if(part){memcpy(part,s+begin,(size_t)len);part[len]=0;r=gml_value_string(part);free(part);}}else if(!strcmp(n->text,"string_pos")&&c==2){const char*needle=text_of(a[0]);const char*haystack=text_of(a[1]);const char*found=(needle[0]?strstr(haystack,needle):haystack);r=gml_value_real(found?(double)(found-haystack+1):0);}else if(!strcmp(n->text,"lengthdir_x")&&c==2)r=gml_value_real(num(a[0])*cos(num(a[1])*3.14159265358979323846/180.0));else if(!strcmp(n->text,"lengthdir_y")&&c==2)r=gml_value_real(-num(a[0])*sin(num(a[1])*3.14159265358979323846/180.0));else if(!strcmp(n->text,"string_lower")&&c==1){const char*s=text_of(a[0]);size_t len=strlen(s);char*buf=malloc(len+1);if(buf){for(size_t i=0;i<len;i++)buf[i]=(char)tolower((unsigned char)s[i]);buf[len]=0;r=gml_value_string(buf);free(buf);}}else if(!strcmp(n->text,"string_upper")&&c==1){const char*s=text_of(a[0]);size_t len=strlen(s);char*buf=malloc(len+1);if(buf){for(size_t i=0;i<len;i++)buf[i]=(char)toupper((unsigned char)s[i]);buf[len]=0;r=gml_value_string(buf);free(buf);}}else if(!strcmp(n->text,"string_delete")&&c==3){const char*s=text_of(a[0]);int start=(int)num(a[1]),del=(int)num(a[2]);size_t len=strlen(s);if(start<1)start=1;if(del<0)del=0;size_t begin=(size_t)(start-1);if(begin>len)begin=len;if((size_t)del>len-begin)del=(int)(len-begin);char*buf=malloc(len-(size_t)del+1);if(buf){memcpy(buf,s,begin);memcpy(buf+begin,s+begin+del,len-begin-(size_t)del);buf[len-(size_t)del]=0;r=gml_value_string(buf);free(buf);}}else if(!strcmp(n->text,"string_insert")&&c==3){const char*ins=text_of(a[0]);const char*s=text_of(a[1]);int pos=(int)num(a[2]);size_t ni=strlen(ins),ns=strlen(s);if(pos<1)pos=1;size_t at=(size_t)(pos-1);if(at>ns)at=ns;char*buf=malloc(ni+ns+1);if(buf){memcpy(buf,s,at);memcpy(buf+at,ins,ni);memcpy(buf+at+ni,s+at,ns-at+1);r=gml_value_string(buf);free(buf);}}else if(!strcmp(n->text,"string_replace_all")&&c==3){const char*src=text_of(a[0]);const char*find=text_of(a[1]);const char*rep=text_of(a[2]);size_t nf=strlen(find),nr=strlen(rep),ns=strlen(src);if(nf==0)r=gml_value_string(src);else{size_t occurrences=0;for(const char*p=src;(p=strstr(p,find));p+=nf)occurrences++;size_t outlen=ns;if(nr>=nf)outlen += occurrences*(nr-nf);else outlen -= occurrences*(nf-nr);char*buf=malloc(outlen+1);if(buf){const char*p=src;char*w=buf;while(*p){const char*q=strstr(p,find);if(!q){strcpy(w,p);break;}size_t n=(size_t)(q-p);memcpy(w,p,n);w+=n;memcpy(w,rep,nr);w+=nr;p=q+nf;}buf[outlen]=0;r=gml_value_string(buf);free(buf);}}}else if(vm->native_call && vm->native_call(vm->native_userdata,n->text,a,c,&r)){}else if(vm->script_call && vm->script_call(vm->script_userdata,n->text,a,c,&r)){}else snprintf(vm->error,sizeof vm->error,"unknown function: %s",n->text);for(size_t i=0;i<c;i++)gml_value_free(&a[i]);return r;}
+main
 static gml_value eval(gml_vm*vm,const gml_ast*n){if(!n)return undef();switch(n->kind){case GML_AST_NUMBER:return gml_value_real(n->number);case GML_AST_STRING:return gml_value_string(n->text);case GML_AST_NAME:{gml_value named=gml_vm_get(vm,n->text);if(named.kind==GML_V_UNDEFINED&&vm->name_resolve){gml_value resolved=undef();if(vm->name_resolve(vm->name_userdata,n->text,&resolved)){gml_value_free(&named);return resolved;}gml_value_free(&resolved);}return named;}case GML_AST_INDEX:return eval_index(vm,n);case GML_AST_MEMBER:return eval_member(vm,n);case GML_AST_CALL:return call(vm,n);case GML_AST_TERNARY:{gml_value condition=eval(vm,n->left);int choose_yes=truth(condition);gml_value_free(&condition);return eval(vm,choose_yes?n->right:n->items[0]);}case GML_AST_UNARY:{gml_value a=eval(vm,n->left);double x=num(a);gml_value r=(n->op==GML_T_NOT)?gml_value_bool(!truth(a)):gml_value_real(n->op==GML_T_MINUS?-x:x);gml_value_free(&a);return r;}case GML_AST_ASSIGN:{gml_value r=eval(vm,n->right);if(n->left&&n->left->kind==GML_AST_NAME)gml_vm_set(vm,n->left->text,r);else if(n->left&&n->left->kind==GML_AST_MEMBER&&n->left->left&&n->left->left->kind==GML_AST_NAME&&!strcmp(n->left->left->text,"self")){if(vm->member_set)vm->member_set(vm->member_userdata,n->left->text,&r);}else if(n->left&&n->left->kind==GML_AST_INDEX&&n->left->left&&n->left->left->kind==GML_AST_NAME){gml_value*base=named_slot(vm,n->left->left->text);gml_value idx=eval(vm,n->left->right);size_t i=num(idx)<0?0:(size_t)num(idx);if(base&&base->kind==GML_V_ARRAY&&base->array&&i<base->array->count){gml_value_free(&base->array->items[i]);base->array->items[i]=copyv(&r);}gml_value_free(&idx);}return r;}case GML_AST_BINARY:{
  gml_value a=eval(vm,n->left);
  if(n->op==GML_T_AND){
