@@ -102,13 +102,7 @@ const LibraryEditor: React.FC<LibraryEditorProps> = ({ objectData, onUpdate, spr
   const [isAiGenerating, setIsAiGenerating] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
 
-  // ⚡ Bolt: Pre-build an O(1) Map index for sprite lookups to avoid O(N) linear array scans (.find) on every renderpass
-  const spriteMap = useMemo(() => {
-    const map = new Map<string, SpriteAsset>();
-    for (let i = 0; i < sprites.length; i++) {
-      map.set(sprites[i].id, sprites[i]);
-    }
-    return map;
+ main
   }, [sprites]);
 
   // Pre-built O(1) Map lookup for ALL_ACTIONS to avoid linear array search per render
@@ -134,6 +128,9 @@ const LibraryEditor: React.FC<LibraryEditorProps> = ({ objectData, onUpdate, spr
   const parentGameObjects = useMemo(() => {
     return gameObjects.filter(o => o.id !== objectData.id);
   }, [gameObjects, objectData.id]);
+
+  // Pre-build O(1) Map index for sprite assets to replace linear Array.prototype.find on render
+  const spriteMap = useMemo(() => new Map(sprites.map(s => [s.id, s])), [sprites]);
 
   // Dynamic Events List
   const dynamicEvents = useMemo(() => {

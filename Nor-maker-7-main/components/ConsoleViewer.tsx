@@ -25,10 +25,15 @@ const ConsoleViewer: React.FC<ConsoleViewerProps> = ({ mode, content, title }) =
   useEffect(() => {
     if (mode !== 'game') return;
     const interval = setInterval(() => {
-      const win = iframeRef.current?.contentWindow;
+      const win = iframeRef.current?.contentWindow as any;
       if (win) {
         try {
-          const activeInstances = win.instances ? win.instances.filter((i: any) => !i.destroyed).length : 0;
+          let activeInstances = 0;
+          if (Array.isArray(win.instances)) {
+            for (let i = 0; i < win.instances.length; i++) {
+              if (!win.instances[i]?.destroyed) activeInstances++;
+            }
+          }
           setDebugInfo({
             instances: activeInstances,
             score: win.score || 0,

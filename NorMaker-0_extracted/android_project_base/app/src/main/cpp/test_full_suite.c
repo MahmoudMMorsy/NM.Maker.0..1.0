@@ -5,12 +5,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
+#include <math.h>
 
 extern double nor_import_format_native(const char *path);
 extern double nor_validate_rom_native(const char *path, double kind);
 extern double nor_export_nes_native(const char *project, const char *output);
 extern double nor_export_gbc_native(const char *project, const char *output);
 extern double nor_export_gba_native(const char *project, const char *output);
+extern int gm82_native_call(void *userdata, const char *name, const gml_value *args, size_t count, gml_value *out);
 
 void test_gmk_probe_suite(void) {
     uint8_t dummy[12] = {0x91, 0xd5, 0x12, 0x00, 0x20, 0x03, 0x00, 0x00, 0x7b, 0x00, 0x00, 0x00};
@@ -44,8 +46,6 @@ void test_gml_vm_suite(void) {
     gml_ast_free(ast);
     printf("[PASS] GML VM Suite\n");
 }
-
-extern int gm82_native_call(void *userdata, const char *name, const gml_value *args, size_t count, gml_value *out);
 
 void test_gml_builtins_suite(void) {
     gml_value args[4];
@@ -89,6 +89,207 @@ void test_gml_builtins_suite(void) {
     printf("[PASS] GML Built-ins Suite\n");
 }
 
+void test_ds_suite(void) {
+    gml_value args[6];
+    gml_value out;
+
+    // Test ds_stack
+    assert(gm82_native_call(NULL, "ds_stack_create", NULL, 0, &out) == 1);
+    gml_value st_id = out;
+    args[0] = st_id; args[1] = gml_value_real(42.0);
+    assert(gm82_native_call(NULL, "ds_stack_push", args, 2, &out) == 1);
+    args[1] = gml_value_real(99.0);
+    assert(gm82_native_call(NULL, "ds_stack_push", args, 2, &out) == 1);
+    assert(gm82_native_call(NULL, "ds_stack_top", &st_id, 1, &out) == 1 && out.real == 99.0);
+    assert(gm82_native_call(NULL, "ds_stack_pop", &st_id, 1, &out) == 1 && out.real == 99.0);
+    assert(gm82_native_call(NULL, "ds_stack_size", &st_id, 1, &out) == 1 && out.real == 1.0);
+    assert(gm82_native_call(NULL, "ds_stack_destroy", &st_id, 1, &out) == 1);
+
+    // Test ds_queue
+    assert(gm82_native_call(NULL, "ds_queue_create", NULL, 0, &out) == 1);
+    gml_value q_id = out;
+    args[0] = q_id; args[1] = gml_value_string("first");
+    assert(gm82_native_call(NULL, "ds_queue_enqueue", args, 2, &out) == 1);
+    args[1] = gml_value_string("second");
+    assert(gm82_native_call(NULL, "ds_queue_enqueue", args, 2, &out) == 1);
+    assert(gm82_native_call(NULL, "ds_queue_head", &q_id, 1, &out) == 1 && strcmp(out.string, "first") == 0);
+    gml_value_free(&out);
+    assert(gm82_native_call(NULL, "ds_queue_dequeue", &q_id, 1, &out) == 1 && strcmp(out.string, "first") == 0);
+    gml_value_free(&out);
+    assert(gm82_native_call(NULL, "ds_queue_size", &q_id, 1, &out) == 1 && out.real == 1.0);
+    assert(gm82_native_call(NULL, "ds_queue_destroy", &q_id, 1, &out) == 1);
+
+    // Test ds_list
+    assert(gm82_native_call(NULL, "ds_list_create", NULL, 0, &out) == 1);
+    gml_value l_id = out;
+    args[0] = l_id; args[1] = gml_value_real(10.0);
+    assert(gm82_native_call(NULL, "ds_list_add", args, 2, &out) == 1);
+    args[1] = gml_value_real(20.0);
+    assert(gm82_native_call(NULL, "ds_list_add", args, 2, &out) == 1);
+    args[1] = gml_value_real(0.0); args[2] = gml_value_real(5.0);
+    assert(gm82_native_call(NULL, "ds_list_insert", args, 3, &out) == 1);
+    assert(gm82_native_call(NULL, "ds_list_size", &l_id, 1, &out) == 1 && out.real == 3.0);
+    assert(gm82_native_call(NULL, "ds_list_destroy", &l_id, 1, &out) == 1);
+
+    // Test ds_grid
+    args[0] = gml_value_real(4.0); args[1] = gml_value_real(4.0);
+    assert(gm82_native_call(NULL, "ds_grid_create", args, 2, &out) == 1);
+    gml_value grid_id = out;
+    args[0] = grid_id; args[1] = gml_value_real(0.0); args[2] = gml_value_real(0.0); args[3] = gml_value_real(2.0); args[4] = gml_value_real(2.0); args[5] = gml_value_real(77.0);
+    assert(gm82_native_call(NULL, "ds_grid_set_region", args, 6, &out) == 1);
+    args[0] = grid_id; args[1] = gml_value_real(1.0); args[2] = gml_value_real(1.0);
+    assert(gm82_native_call(NULL, "ds_grid_get", args, 3, &out) == 1 && out.real == 77.0);
+    args[0] = grid_id; args[1] = gml_value_real(8.0); args[2] = gml_value_real(8.0);
+    assert(gm82_native_call(NULL, "ds_grid_resize", args, 3, &out) == 1);
+    assert(gm82_native_call(NULL, "ds_grid_width", &grid_id, 1, &out) == 1 && out.real == 8.0);
+    assert(gm82_native_call(NULL, "ds_grid_destroy", &grid_id, 1, &out) == 1);
+
+    printf("[PASS] Data Structures Suite\n");
+}
+
+void test_math_string_suite(void) {
+    gml_value args[4];
+    gml_value out;
+
+    // Degree trig
+    args[0] = gml_value_real(90.0);
+    assert(gm82_native_call(NULL, "dsin", args, 1, &out) == 1 && fabs(out.real - 1.0) < 0.0001);
+    args[0] = gml_value_real(0.0);
+    assert(gm82_native_call(NULL, "dcos", args, 1, &out) == 1 && fabs(out.real - 1.0) < 0.0001);
+
+    // Math functions
+    args[0] = gml_value_real(1.0); args[1] = gml_value_real(5.0); args[2] = gml_value_real(3.0);
+    assert(gm82_native_call(NULL, "median", args, 3, &out) == 1 && out.real == 3.0);
+    assert(gm82_native_call(NULL, "mean", args, 3, &out) == 1 && fabs(out.real - 3.0) < 0.0001);
+
+    args[0] = gml_value_real(3.14);
+    assert(gm82_native_call(NULL, "frac", args, 1, &out) == 1 && fabs(out.real - 0.14) < 0.0001);
+
+ main
+    args[0] = gml_value_string("test");
+    assert(gm82_native_call(NULL, "is_string", args, 1, &out) == 1 && out.boolean == 1);
+    args[0] = gml_value_real(123.0);
+    assert(gm82_native_call(NULL, "is_real", args, 1, &out) == 1 && out.boolean == 1);
+    args[0] = gml_value_string("42.5");
+    assert(gm82_native_call(NULL, "real", args, 1, &out) == 1 && out.real == 42.5);
+
+    gml_value arr = gml_value_array(4);
+    args[0] = arr;
+    assert(gm82_native_call(NULL, "array_length_1d", args, 1, &out) == 1 && out.real == 4.0);
+    gml_value_free(&arr);
+
+    // String manipulations
+    args[0] = gml_value_string("hello");
+    assert(gm82_native_call(NULL, "string_upper", args, 1, &out) == 1 && strcmp(out.string, "HELLO") == 0);
+    gml_value_free(&out);
+
+    args[0] = gml_value_string("X"); args[1] = gml_value_real(3.0);
+    assert(gm82_native_call(NULL, "string_repeat", args, 2, &out) == 1 && strcmp(out.string, "XXX") == 0);
+    gml_value_free(&out);
+
+    gml_value str1 = gml_value_string("an");
+    gml_value str2 = gml_value_string("banana");
+    args[0] = str1; args[1] = str2;
+    assert(gm82_native_call(NULL, "string_count", args, 2, &out) == 1 && out.real == 2.0);
+    gml_value_free(&str1); gml_value_free(&str2);
+
+    args[0] = gml_value_string("foo bar foo"); args[1] = gml_value_string("foo"); args[2] = gml_value_string("baz");
+    assert(gm82_native_call(NULL, "string_replace", args, 3, &out) == 1 && strcmp(out.string, "baz bar foo") == 0);
+    gml_value_free(&out);
+
+    args[0] = gml_value_string("a1b2c3");
+    assert(gm82_native_call(NULL, "string_letters", args, 1, &out) == 1 && strcmp(out.string, "abc") == 0);
+    gml_value_free(&out);
+    assert(gm82_native_call(NULL, "string_digits", args, 1, &out) == 1 && strcmp(out.string, "123") == 0);
+    gml_value_free(&out);
+
+    // Extended String Functions
+    args[0] = gml_value_string("GameMaker"); args[1] = gml_value_real(5.0);
+    assert(gm82_native_call(NULL, "string_char_at", args, 2, &out) == 1 && strcmp(out.string, "M") == 0);
+    gml_value_free(&out);
+
+    args[0] = gml_value_string("NorMaker"); args[1] = gml_value_string("Maker"); args[2] = gml_value_string("Engine");
+    assert(gm82_native_call(NULL, "string_replace", args, 3, &out) == 1 && strcmp(out.string, "NorEngine") == 0);
+    gml_value_free(&out);
+
+    args[0] = gml_value_string("foo bar foo"); args[1] = gml_value_string("foo"); args[2] = gml_value_string("baz");
+    assert(gm82_native_call(NULL, "string_replace_all", args, 3, &out) == 1 && strcmp(out.string, "baz bar baz") == 0);
+    gml_value_free(&out);
+
+    args[0] = gml_value_string("na"); args[1] = gml_value_string("banana");
+    assert(gm82_native_call(NULL, "string_count", args, 2, &out) == 1 && out.real == 2.0);
+
+    printf("[PASS] Math & String & Type-check Suite\n");
+}
+
+void test_ini_file_suite(void) {
+    gml_value args[4];
+    gml_value out;
+    system("mkdir -p /tmp/nor_core_tests");
+    const char *ini_path = "/tmp/nor_core_tests/test.ini";
+    const char *txt_path = "/tmp/nor_core_tests/test.txt";
+
+    // Write INI
+    args[0] = gml_value_string(ini_path);
+    assert(gm82_native_call(NULL, "ini_open", args, 1, &out) == 1);
+
+    args[0] = gml_value_string("player"); args[1] = gml_value_string("name"); args[2] = gml_value_string("Hero");
+    assert(gm82_native_call(NULL, "ini_write_string", args, 3, &out) == 1);
+
+    args[0] = gml_value_string("player"); args[1] = gml_value_string("score"); args[2] = gml_value_real(100.0);
+    assert(gm82_native_call(NULL, "ini_write_real", args, 3, &out) == 1);
+
+    assert(gm82_native_call(NULL, "ini_close", NULL, 0, &out) == 1);
+    gml_value_free(&out);
+
+    // Check File & Read INI
+    args[0] = gml_value_string(ini_path);
+    assert(gm82_native_call(NULL, "file_exists", args, 1, &out) == 1 && out.boolean == 1);
+
+    assert(gm82_native_call(NULL, "ini_open", args, 1, &out) == 1);
+
+    args[0] = gml_value_string("player"); args[1] = gml_value_string("name"); args[2] = gml_value_string("def");
+    assert(gm82_native_call(NULL, "ini_read_string", args, 3, &out) == 1 && strcmp(out.string, "Hero") == 0);
+    gml_value_free(&out);
+
+    args[0] = gml_value_string("player"); args[1] = gml_value_string("score"); args[2] = gml_value_real(0.0);
+    assert(gm82_native_call(NULL, "ini_read_real", args, 3, &out) == 1 && out.real == 100.0);
+
+    assert(gm82_native_call(NULL, "ini_close", NULL, 0, &out) == 1);
+    gml_value_free(&out);
+
+    args[0] = gml_value_string(ini_path);
+    assert(gm82_native_call(NULL, "file_delete", args, 1, &out) == 1 && out.boolean == 1);
+
+    // File Text I/O Test
+    args[0] = gml_value_string(txt_path);
+    assert(gm82_native_call(NULL, "file_text_open_write", args, 1, &out) == 1 && out.real > 0.0);
+    gml_value handle = out;
+
+    args[0] = handle; args[1] = gml_value_string("NorMaker Native Core");
+    assert(gm82_native_call(NULL, "file_text_write_string", args, 2, &out) == 1);
+    assert(gm82_native_call(NULL, "file_text_writeln", &handle, 1, &out) == 1);
+
+    args[0] = handle; args[1] = gml_value_real(82.0);
+    assert(gm82_native_call(NULL, "file_text_write_real", args, 2, &out) == 1);
+
+    assert(gm82_native_call(NULL, "file_text_close", &handle, 1, &out) == 1);
+
+    args[0] = gml_value_string(txt_path);
+    assert(gm82_native_call(NULL, "file_text_open_read", args, 1, &out) == 1 && out.real > 0.0);
+    handle = out;
+
+    assert(gm82_native_call(NULL, "file_text_read_string", &handle, 1, &out) == 1 && strcmp(out.string, "NorMaker Native Core") == 0);
+    gml_value_free(&out);
+
+    assert(gm82_native_call(NULL, "file_text_close", &handle, 1, &out) == 1);
+
+    args[0] = gml_value_string(txt_path);
+    assert(gm82_native_call(NULL, "file_delete", args, 1, &out) == 1 && out.boolean == 1);
+
+    printf("[PASS] INI & File Suite\n");
+}
+
 void test_retro_rom_suite(void) {
     const char *nes_path = "/tmp/nor_core_tests/test.nes";
     const char *gbc_path = "/tmp/nor_core_tests/test.gbc";
@@ -108,6 +309,9 @@ int main(void) {
     test_gmk_probe_suite();
     test_gml_vm_suite();
     test_gml_builtins_suite();
+    test_ds_suite();
+    test_math_string_suite();
+    test_ini_file_suite();
     test_retro_rom_suite();
     printf("--- All Native Host Tests Passed! ---\n");
     return 0;
