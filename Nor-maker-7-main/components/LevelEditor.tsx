@@ -95,6 +95,7 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
   const bgAssetMap = useMemo(() => new Map<string, BackgroundAsset>(backgroundAssets.map(b => [b.id, b])), [backgroundAssets]);
   const stampMap = useMemo(() => new Map(stamps.map(s => [s.id, s])), [stamps]);
   const model3DMap = useMemo(() => new Map((model3DAssets || []).map(a => [a.id, a])), [model3DAssets]);
+ main
 
   // selectedTool corresponds to the MAP ID.
   // 0=Eraser, 1=Solid Wall, 2+=Objects (gameObjects index + 2)
@@ -146,6 +147,7 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const spriteImagesRef = useRef<{[key: string]: HTMLImageElement}>({});
   const bgImagesRef = useRef<{[key: string]: HTMLImageElement}>({});
+  const tileImagesRef = useRef<{[key: number]: HTMLImageElement}>({});
 
   useEffect(() => {
     setSnapX(roomSettings.snapX || 16);
@@ -174,6 +176,18 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
         }
     });
   }, [backgroundAssets]);
+
+  useEffect(() => {
+    if (tileDefs) {
+      tileDefs.forEach((t) => {
+        if (t.src) {
+          const img = new Image();
+          img.src = t.src;
+          img.onload = () => { tileImagesRef.current[t.id] = img; drawCanvas(); };
+        }
+      });
+    }
+  }, [tileDefs]);
 
   useEffect(() => { drawCanvas(); }, [levelData, layers, currentLayerIndex, selection, isDraggingSelection, zoom, hoverPos, dragStart, showGrid, showUI, roomSettings.bgColor, roomSettings.drawBgColor, gameObjects]);
 
@@ -219,10 +233,7 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
 
   const drawTileAt = (ctx: CanvasRenderingContext2D, tileId: number, x: number, y: number) => {
     if (tileId === 1) {
-        if (wallTileDef?.src) {
-            const tileImg = new Image();
-            tileImg.src = wallTileDef.src;
-            ctx.drawImage(tileImg, x, y, snapX, snapY);
+ main
         } else {
             const wallColor = wallTileDef?.color || '#8b4513';
             ctx.fillStyle = wallColor;
@@ -528,8 +539,7 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
   };
 
   const applyStamp = (x: number, y: number) => {
-    // ⚡ Bolt: O(1) Map lookup for stamp instead of O(N) array find
-    const stamp = activeStampId ? stampMap.get(activeStampId) : undefined;
+ main
     if (!stamp) return;
     const newData = layers.length > 0 ? [...layers[currentLayerIndex].data] : [...levelData];
     for(let sy=0; sy<stamp.height; sy++) {
@@ -622,7 +632,7 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
 
   const place3DObjectAt = (gx: number, gy: number) => {
       if (!selected3DModelId) { window.alert('اختر نموذج 3D من القائمة العائمة أولاً\nSelect a 3D model from the floating panel first'); return; }
-      // ⚡ Bolt: O(1) Map lookup for 3D model asset instead of linear array find
+main
       const asset = model3DMap.get(selected3DModelId);
       if (!asset) return;
       const G = 16;
