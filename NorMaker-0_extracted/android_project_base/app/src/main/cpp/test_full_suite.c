@@ -41,6 +41,16 @@ void test_gml_vm_suite(void) {
     assert(vm.returned);
     assert(vm.return_value.real == 20.0);
 
+    const char *motion_code = "motion_set(90, 5); return vspeed;";
+    gml_ast *m_ast = NULL;
+    assert(gml_parse_program(motion_code, &m_ast, err, sizeof(err)));
+    gml_vm m_vm;
+    gml_vm_init(&m_vm);
+    assert(gml_vm_execute(&m_vm, m_ast));
+    assert(m_vm.returned);
+    assert(m_vm.return_value.real == -5.0);
+    gml_ast_free(m_ast);
+
     gml_ast_free(ast);
     printf("[PASS] GML VM Suite\n");
 }
@@ -85,6 +95,17 @@ void test_gml_builtins_suite(void) {
     args[1] = gml_value_string("NorMaker");
     assert(gm82_native_call(NULL, "string_pos", args, 2, &out) == 1);
     assert(out.kind == GML_V_REAL && out.real == 4.0);
+
+    const char *ds_code = "lst = ds_list_create(); ds_list_add(lst, 42); val = ds_list_find_value(lst, 0); ds_list_destroy(lst); return val;";
+    gml_ast *ds_ast = NULL;
+    char ds_err[160] = {0};
+    assert(gml_parse_program(ds_code, &ds_ast, ds_err, sizeof(ds_err)));
+    gml_vm ds_vm;
+    gml_vm_init(&ds_vm);
+    assert(gml_vm_execute(&ds_vm, ds_ast));
+    assert(ds_vm.returned);
+    assert(ds_vm.return_value.real == 42.0);
+    gml_ast_free(ds_ast);
 
     printf("[PASS] GML Built-ins Suite\n");
 }
