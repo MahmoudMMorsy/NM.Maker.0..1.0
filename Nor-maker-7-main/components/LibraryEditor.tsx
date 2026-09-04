@@ -102,9 +102,7 @@ const LibraryEditor: React.FC<LibraryEditorProps> = ({ objectData, onUpdate, spr
   const [isAiGenerating, setIsAiGenerating] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
 
-  // Pre-built O(1) Map lookup for sprites to avoid linear array search per render
-  const spriteMap = useMemo(() => {
-    return new Map<string, SpriteAsset>(sprites.map(s => [s.id, s]));
+ main
   }, [sprites]);
 
   // Pre-built O(1) Map lookup for ALL_ACTIONS to avoid linear array search per render
