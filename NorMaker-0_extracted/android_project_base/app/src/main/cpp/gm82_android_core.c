@@ -1,5 +1,4 @@
 #include <jni.h>
-main
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>

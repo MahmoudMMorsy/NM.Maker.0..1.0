@@ -21,6 +21,13 @@ void test_gmk_probe_suite(void) {
     assert(res.format_kind == GM82_GMK_FORMAT_GM7_GM8);
     assert(res.magic == 1234321);
     assert(res.version == 800);
+
+    char *manifest = gm82_gmk_resource_manifest_json(dummy, sizeof(dummy));
+    assert(manifest != NULL);
+    assert(strstr(manifest, "\"ok\":true") != NULL);
+    assert(strstr(manifest, "\"format\":\"GMK\"") != NULL);
+    free(manifest);
+
     printf("[PASS] GMK Probe Suite\n");
 }
 
@@ -67,6 +74,7 @@ void test_gml_vm_suite(void) {
     assert(parse_ok);
 
     gml_vm_init(&vm);
+    gml_vm_set_native_call(&vm, gm82_native_call, NULL);
     exec_ok = gml_vm_execute(&vm, ast);
     assert(exec_ok);
     assert(vm.returned);
@@ -75,10 +83,31 @@ void test_gml_vm_suite(void) {
 
     gml_ast_free(ast);
 
+    /* Test math & kinematics functions */
+    const char *code_math =
+        "d = point_distance(0, 0, 3, 4);\n"
+        "dir = point_direction(0, 0, 10, 0);\n"
+        "lx = lengthdir_x(10, 0);\n"
+        "cl = clamp(15, 0, 10);\n"
+        "lr = lerp(0, 100, 0.5);\n"
+        "return d + dir + lx + cl + lr;\n";
+
+    ast = NULL;
+    parse_ok = gml_parse_program(code_math, &ast, err, sizeof(err));
+    assert(parse_ok);
+
+    gml_vm_init(&vm);
+    gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+    exec_ok = gml_vm_execute(&vm, ast);
+    assert(exec_ok);
+    assert(vm.returned);
+    /* d(5) + dir(0) + lx(10) + cl(10) + lr(50) = 75 */
+    assert(vm.return_value.real == 75.0);
+
+    gml_ast_free(ast);
+
     printf("[PASS] GML VM Suite\n");
 }
-
-main
 
 void test_retro_rom_suite(void) {
     const char *nes_path = "/tmp/nor_core_tests/test.nes";
@@ -98,7 +127,6 @@ int main(void) {
     printf("--- Running Native Host Comprehensive Test Suite ---\n");
     test_gmk_probe_suite();
     test_gml_vm_suite();
- main
     test_retro_rom_suite();
     printf("--- All Native Host Tests Passed! ---\n");
     return 0;
