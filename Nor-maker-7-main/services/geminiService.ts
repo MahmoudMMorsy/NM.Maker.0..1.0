@@ -1331,9 +1331,10 @@ export const createEngineHTML = (
     projectData.assets.sounds.forEach(s => assetMap[s.id] = s.src);
 
     // Construct Object Definitions for Runtime
-    // We map the GameObject[] to a cleaner runtime structure
+    // Preserve the complete object contract for the generated runtime.
     const objectDefinitions = projectData.gameObjects.map(obj => {
         return {
+            ...obj,
             id: obj.id,
             name: obj.name,
             spriteId: obj.spriteId,
@@ -1347,6 +1348,77 @@ export const createEngineHTML = (
     }];
 
     const startRoomId = projectData.rooms.length > 0 ? projectData.rooms[0].id : 'rm_default';
+
+    const runtimeEventDiagnostics: any[] = [];
+    const normalizeRuntimeEventKey = (key: any) => {
+        if (key === undefined || key === null) return "";
+        const raw = String(key).trim();
+        const compact = raw.toLowerCase().replace(/[-. ]+/g, "_");
+        const aliases: Record<string, string> = {
+            create: "create", creation: "create", stepbegin: "step_begin", step_begin: "step_begin",
+            step: "step", stepend: "step_end", step_end: "step_end", draw: "draw",
+            destroy: "destroy", cleanup: "cleanup", alarm: "alarm", keyboard: "keyboard",
+            keypress: "keypress", keyrelease: "keyrelease", mouse: "mouse"
+        };
+        if (aliases[compact]) return aliases[compact];
+        const compound = raw.match(/^(collision|keyboard|keypress|keyrelease|alarm)[_. -]+(.+)$/i);
+        if (compound) return compound[1].toLowerCase() + "_" + compound[2];
+        return raw;
+    };
+
+    const compileRuntimeEventValue = (objId: string, eventKey: string, value: any): string => {
+        if (typeof value === "string") return value;
+        if (value && typeof value === "object" && !Array.isArray(value)) {
+            if (typeof value.code === "string") return value.code;
+            if (typeof value.js === "string") return value.js;
+            if (typeof value.gml === "string") {
+                runtimeEventDiagnostics.push({ objectId: objId, event: eventKey, status: "PARTIAL", reason: "raw_gml_source_not_compiled", length: value.gml.length });
+                return "";
+            }
+            if (Array.isArray(value.actions)) value = value.actions;
+        }
+        if (Array.isArray(value)) {
+            if (value.length === 0) return "";
+            const snippets = value.map(item => item && (typeof item === "string" ? item : (item.code || item.js))).filter(code => typeof code === "string");
+            if (snippets.length === value.length) return snippets.join("\n");
+            runtimeEventDiagnostics.push({ objectId: objId, event: eventKey, status: "PARTIAL", reason: "unsupported_event_value" });
+            return "";
+        }
+        if (value !== undefined && value !== null) runtimeEventDiagnostics.push({ objectId: objId, event: eventKey, status: "PARTIAL", reason: "unsupported_event_value" });
+        return "";
+    };
+
+    const normalizeRuntimeEvents = () => {
+        const out: Record<string, Record<string, string>> = {};
+        const sourceMap = projectData.objectEvents || {};
+        projectData.gameObjects.forEach(obj => {
+            const objId = obj.id;
+            const mapped = sourceMap[objId];
+            const source = mapped && (Array.isArray(mapped) || Object.keys(mapped).length > 0) ? mapped : ((obj as any).events || mapped || {});
+            const target: Record<string, string> = out[objId] = {};
+            if (Array.isArray(source)) {
+                source.forEach((entry: any) => {
+                    const eventKey = normalizeRuntimeEventKey(entry && (entry.eventKey || entry.key || entry.name));
+                    if (!eventKey) {
+                        runtimeEventDiagnostics.push({ objectId: objId, status: "PARTIAL", reason: "event_key_missing" });
+                        return;
+                    }
+                    const entryValue = entry.actions ?? entry.code ?? entry.js ?? (entry.gml !== undefined ? { gml: entry.gml } : entry.value);
+                    const code = compileRuntimeEventValue(objId, eventKey, entryValue);
+                    if (code) target[eventKey] = target[eventKey] ? target[eventKey] + "\n" + code : code;
+                });
+            } else if (source && typeof source === "object") {
+                Object.entries(source).forEach(([key, value]) => {
+                    const eventKey = normalizeRuntimeEventKey(key);
+                    const code = compileRuntimeEventValue(objId, eventKey, value);
+                    if (code) target[eventKey] = code;
+                });
+            }
+        });
+        return out;
+    };
+
+    const normalizedObjectEvents = normalizeRuntimeEvents();
 
     // Helper to safely stringify and escape JSON for HTML embedding
     const safeJSON = (data: any) => JSON.stringify(data).replace(/</g, '\\u003c').replace(/>/g, '\\u003e');
@@ -1379,7 +1451,8 @@ export const createEngineHTML = (
         scripts: projectData.scripts,
         objects: objectDefinitions,
         uiMenus: processedUIMenus,
-        events: projectData.objectEvents,
+        events: normalizedObjectEvents,
+        runtimeDiagnostics: { events: runtimeEventDiagnostics },
         defaultTransition: (projectData as any).defaultTransition || { type: 'fade', duration: 500, color: '#000000', easing: 'easeInOut' }
     };
 

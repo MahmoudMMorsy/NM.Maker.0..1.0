@@ -102,9 +102,6 @@ const LibraryEditor: React.FC<LibraryEditorProps> = ({ objectData, onUpdate, spr
   const [isAiGenerating, setIsAiGenerating] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
 
- main
-  }, [sprites]);
-
   // Pre-built O(1) Map lookup for ALL_ACTIONS to avoid linear array search per render
   const actionMap = useMemo(() => {
     return new Map<string, ActionDefinition>(ALL_ACTIONS.map(a => [a.id, a]));
