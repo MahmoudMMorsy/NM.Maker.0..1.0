@@ -95,7 +95,6 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
   const bgAssetMap = useMemo(() => new Map<string, BackgroundAsset>(backgroundAssets.map(b => [b.id, b])), [backgroundAssets]);
   const stampMap = useMemo(() => new Map(stamps.map(s => [s.id, s])), [stamps]);
   const model3DMap = useMemo(() => new Map((model3DAssets || []).map(a => [a.id, a])), [model3DAssets]);
- main
 
   // selectedTool corresponds to the MAP ID.
   // 0=Eraser, 1=Solid Wall, 2+=Objects (gameObjects index + 2)
@@ -233,14 +232,11 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
 
   const drawTileAt = (ctx: CanvasRenderingContext2D, tileId: number, x: number, y: number) => {
     if (tileId === 1) {
- main
-        } else {
-            const wallColor = wallTileDef?.color || '#8b4513';
-            ctx.fillStyle = wallColor;
-            ctx.fillRect(x, y, snapX, snapY);
-            ctx.strokeStyle = wallColor.replace(/^#/, '') ? `${wallColor}99` : '#5c2e0e';
-            ctx.strokeRect(x, y, snapX, snapY);
-        }
+        const wallColor = wallTileDef?.color || '#8b4513';
+        ctx.fillStyle = wallColor;
+        ctx.fillRect(x, y, snapX, snapY);
+        ctx.strokeStyle = wallColor.replace(/^#/, '') ? `${wallColor}99` : '#5c2e0e';
+        ctx.strokeRect(x, y, snapX, snapY);
     } else {
         const objIndex = tileId - 2;
         const obj = gameObjects[objIndex];
@@ -538,16 +534,16 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
       }
   };
 
-  const applyStamp = (x: number, y: number) => {
- main
-    if (!stamp) return;
+  const applyStamp = (x: number, y: number, selectedStampObj?: any) => {
+    const s = selectedStampObj;
+    if (!s) return;
     const newData = layers.length > 0 ? [...layers[currentLayerIndex].data] : [...levelData];
-    for(let sy=0; sy<stamp.height; sy++) {
-        for(let sx=0; sx<stamp.width; sx++) {
+    for(let sy=0; sy<s.height; sy++) {
+        for(let sx=0; sx<s.width; sx++) {
             const tx = x + sx;
             const ty = y + sy;
             if (tx >= 0 && tx < width && ty >= 0 && ty < height) {
-                const val = stamp.data[sy * stamp.width + sx];
+                const val = s.data[sy * s.width + sx];
                 if (val !== 0) newData[ty * width + tx] = val;
             }
         }
@@ -632,7 +628,6 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
 
   const place3DObjectAt = (gx: number, gy: number) => {
       if (!selected3DModelId) { window.alert('اختر نموذج 3D من القائمة العائمة أولاً\nSelect a 3D model from the floating panel first'); return; }
-main
       const asset = model3DMap.get(selected3DModelId);
       if (!asset) return;
       const G = 16;
