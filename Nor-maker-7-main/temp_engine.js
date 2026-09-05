@@ -782,8 +782,34 @@
         if (obj === null || obj === undefined) return false;
         return window.instances.some(i => !i.dead && (i.def.name === obj || i.def.id === obj || i === obj));
     };
-    window.instance_number  = (objName) => window.instances.filter(i=>!i.dead&&(i.def.name===objName||i.def.id===objName)).length;
-    window.instance_find    = (objName,n) => window.instances.filter(i=>!i.dead&&(i.def.name===objName||i.def.id===objName))[n||0]||null;
+    // ⚡ Bolt: Single-pass linear counter for instance_number to eliminate per-call .filter() array allocations.
+    window.instance_number = (objName) => {
+        if (!window.instances) return 0;
+        const isAll = objName === 'all';
+        let count = 0;
+        for (let i = 0; i < window.instances.length; i++) {
+            const inst = window.instances[i];
+            if (inst && !inst.dead && (isAll || inst.def?.name === objName || inst.def?.id === objName)) {
+                count++;
+            }
+        }
+        return count;
+    };
+    // ⚡ Bolt: Early-returning single-pass loop for instance_find to eliminate per-call .filter() array allocations.
+    window.instance_find = (objName, n) => {
+        if (!window.instances) return null;
+        const targetIdx = n || 0;
+        const isAll = objName === 'all';
+        let count = 0;
+        for (let i = 0; i < window.instances.length; i++) {
+            const inst = window.instances[i];
+            if (inst && !inst.dead && (isAll || inst.def?.name === objName || inst.def?.id === objName)) {
+                if (count === targetIdx) return inst;
+                count++;
+            }
+        }
+        return null;
+    };
 
     // --- GML Room/Game Functions ---
     window.room_goto = (rid) => loadRoom(rid);
@@ -921,8 +947,44 @@
             if (perfCreate) me.triggerEvent('create');
         }
     };
-    window.instance_nearest = (x,y,objName) => window.instances.filter(i=>!i.dead&&(i.def.name===objName||i.def.id===objName)).sort((a,b)=>((a.x-x)**2+(a.y-y)**2)-((b.x-x)**2+(b.y-y)**2))[0]||null;
-    window.instance_furthest = (x,y,objName) => window.instances.filter(i=>!i.dead&&(i.def.name===objName||i.def.id===objName)).sort((a,b)=>((b.x-x)**2+(b.y-y)**2)-((a.x-x)**2+(a.y-y)**2))[0]||null;
+    // ⚡ Bolt: O(N) single-pass distance evaluation for instance_nearest to eliminate O(N log N) sorting & GC thrashing.
+    window.instance_nearest = (x, y, objName) => {
+        if (!window.instances) return null;
+        let nearest = null;
+        let minDist = Infinity;
+        const isAll = objName === 'all';
+        for (let i = 0; i < window.instances.length; i++) {
+            const inst = window.instances[i];
+            if (!inst || inst.dead) continue;
+            if (isAll || inst.def?.name === objName || inst.def?.id === objName) {
+                const dist = (inst.x - x) ** 2 + (inst.y - y) ** 2;
+                if (dist < minDist) {
+                    minDist = dist;
+                    nearest = inst;
+                }
+            }
+        }
+        return nearest;
+    };
+    // ⚡ Bolt: O(N) single-pass distance evaluation for instance_furthest to eliminate O(N log N) sorting & GC thrashing.
+    window.instance_furthest = (x, y, objName) => {
+        if (!window.instances) return null;
+        let furthest = null;
+        let maxDist = -1;
+        const isAll = objName === 'all';
+        for (let i = 0; i < window.instances.length; i++) {
+            const inst = window.instances[i];
+            if (!inst || inst.dead) continue;
+            if (isAll || inst.def?.name === objName || inst.def?.id === objName) {
+                const dist = (inst.x - x) ** 2 + (inst.y - y) ** 2;
+                if (dist > maxDist) {
+                    maxDist = dist;
+                    furthest = inst;
+                }
+            }
+        }
+        return furthest;
+    };
 
     window.distance_to_point = (x, y) => {
         const me = window._currentInstance;
