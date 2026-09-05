@@ -15,3 +15,7 @@
 ## 2026-08-14 - GC Thrashing Prevention in Polling Loops and O(N*M) Auto-Repair Optimizations
 **Learning:** High-frequency polling loops (like inspecting iframe window state every 500ms) that use `.filter().length` trigger continuous GC allocation churn during live game execution. Replacing `.filter().length` with an in-place counter loop eliminates allocations completely. Furthermore, in project repair routines, inline `.find()` searches on sprite lists inside game object iterators generate $O(\text{Objects} \times \text{Sprites})$ complexity; precomputing a `Set` of sprite IDs reduces lookup to $O(\text{Sprites} + \text{Objects})$.
 **Action:** Prefer imperative loop counting over `.filter().length` in recurring polling intervals. Precompute lookup `Set`s before iterating collections in batch repair or diagnostic functions.
+
+## 2026-09-05 - O(N log N) Runtime Instance Sorting and GC Allocation Elimination
+**Learning:** Hot game loop functions (such as `instance_nearest` and `instance_furthest`) implemented using `.filter().sort()` allocate temporary arrays and perform $O(N \log N)$ sorting operations every frame (e.g. 60 times/sec per instance). Replaces `.filter().sort()` with single-pass $O(N)$ linear loops tracking min/max distance completely eliminates GC array allocation thrashing and reduces time complexity to $O(N)$.
+**Action:** Always replace `.filter().sort()[0]` with a single-pass loop tracking min/max variables when retrieving extrema from dynamic runtime collections.
