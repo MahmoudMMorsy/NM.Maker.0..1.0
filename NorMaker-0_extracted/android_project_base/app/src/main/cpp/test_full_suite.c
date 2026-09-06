@@ -38,6 +38,7 @@ void test_gml_vm_suite(void) {
 
     gml_vm vm;
     gml_vm_init(&vm);
+    gml_vm_set_native_call(&vm, gm82_native_call, NULL);
     int exec_ok = gml_vm_execute(&vm, ast);
     assert(exec_ok);
     assert(vm.returned);
@@ -56,7 +57,7 @@ void test_gml_vm_suite(void) {
         "ds_map_add(m, \"score\", 999);\n"
         "mval = ds_map_find_value(m, \"score\");\n"
         "ds_map_destroy(m);\n"
-        "ini_open(\"save.ini\");\n"
+        "ini_open(\"/tmp/nor_core_tests/save.ini\");\n"
         "ini_write_real(\"player\", \"hp\", 50);\n"
         "hp = ini_read_real(\"player\", \"hp\", 0);\n"
         "ini_close();\n"
@@ -67,6 +68,7 @@ void test_gml_vm_suite(void) {
     assert(parse_ok);
 
     gml_vm_init(&vm);
+    gml_vm_set_native_call(&vm, gm82_native_call, NULL);
     exec_ok = gml_vm_execute(&vm, ast);
     assert(exec_ok);
     assert(vm.returned);
@@ -78,7 +80,6 @@ void test_gml_vm_suite(void) {
     printf("[PASS] GML VM Suite\n");
 }
 
-main
 
 void test_retro_rom_suite(void) {
     const char *nes_path = "/tmp/nor_core_tests/test.nes";
@@ -98,7 +99,6 @@ int main(void) {
     printf("--- Running Native Host Comprehensive Test Suite ---\n");
     test_gmk_probe_suite();
     test_gml_vm_suite();
- main
     test_retro_rom_suite();
     printf("--- All Native Host Tests Passed! ---\n");
     return 0;
