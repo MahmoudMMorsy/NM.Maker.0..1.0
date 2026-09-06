@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { X, RotateCcw, Grid, Layers } from 'lucide-react';
@@ -46,6 +46,15 @@ export const Room3DOrbitViewer: React.FC<Room3DOrbitViewerProps> = ({
     const [activeVP,  setActiveVP]  = useState<VPId>('persp');
     const [showGrid,  setShowGrid]  = useState(true);
     const [showGrid3, _setShowGrid3] = useState(true);
+
+    // ⚡ Bolt: Memoize non-zero object count to avoid allocating arrays with levelData.filter() on viewport hover/render events
+    const placedObjectCount = useMemo(() => {
+        let count = 0;
+        for (let i = 0; i < levelData.length; i++) {
+            if (levelData[i] !== 0) count++;
+        }
+        return count;
+    }, [levelData]);
 
     const toggleGrid = useCallback(() => {
         setShowGrid(v => {
@@ -409,7 +418,7 @@ export const Room3DOrbitViewer: React.FC<Room3DOrbitViewerProps> = ({
             <div className="px-3 py-1 bg-[#111] border-t border-[#333] text-[10px] text-gray-500 flex items-center gap-4 shrink-0 select-none">
                 <span className="text-gray-300">{roomSettings?.name || 'Room'}</span>
                 <span>{width}×{height} tiles · {width * snapX}×{height * snapY} px</span>
-                <span>Objects: {levelData.filter(t => t !== 0).length} / {levelData.length}</span>
+                <span>Objects: {placedObjectCount} / {levelData.length}</span>
                 <span className="ml-auto text-blue-500">Three.js WebGL · 4-Viewport · 2D data preserved</span>
             </div>
         </div>

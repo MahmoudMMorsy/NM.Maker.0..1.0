@@ -15,3 +15,7 @@
 ## 2026-08-14 - GC Thrashing Prevention in Polling Loops and O(N*M) Auto-Repair Optimizations
 **Learning:** High-frequency polling loops (like inspecting iframe window state every 500ms) that use `.filter().length` trigger continuous GC allocation churn during live game execution. Replacing `.filter().length` with an in-place counter loop eliminates allocations completely. Furthermore, in project repair routines, inline `.find()` searches on sprite lists inside game object iterators generate $O(\text{Objects} \times \text{Sprites})$ complexity; precomputing a `Set` of sprite IDs reduces lookup to $O(\text{Sprites} + \text{Objects})$.
 **Action:** Prefer imperative loop counting over `.filter().length` in recurring polling intervals. Precompute lookup `Set`s before iterating collections in batch repair or diagnostic functions.
+
+## 2026-08-15 - Unmemoized Status Bar Aggregations on High-Frequency Interaction Re-renders
+**Learning:** In canvas editors like `LevelEditor.tsx`, high-frequency state updates (such as updating canvas mouse coordinate state `hoverPos` at 60 FPS) trigger React re-renders on every frame. Unmemoized array operations in status bar labels (such as `levelData.filter(t => t !== 0).length` on room tile arrays up to 250,000 items) re-evaluate on every frame and allocate millions of temporary numbers per second.
+**Action:** Always memoize status bar and summary aggregations using `React.useMemo` and imperative loops, decoupling tile array scans from high-frequency interaction state updates like mouse movements and view hovering.
