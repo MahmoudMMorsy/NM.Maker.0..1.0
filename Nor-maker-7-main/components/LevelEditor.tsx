@@ -227,6 +227,15 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selection, layers, currentLayerIndex, levelData, width, height, onUpdate, onUpdateLayers]);
 
+  // ⚡ Bolt: Memoize placed non-zero tile count to avoid allocating arrays with levelData.filter() on 60 FPS mousemove events (hoverPos)
+  const placedTileCount = useMemo(() => {
+    let count = 0;
+    for (let i = 0; i < levelData.length; i++) {
+        if (levelData[i] !== 0) count++;
+    }
+    return count;
+  }, [levelData]);
+
   // ⚡ Bolt: Pre-resolve wall tile definition (ID=1) before looping through grid tiles to avoid linear array search `tileDefs?.find()` inside high-frequency canvas render loops.
   const wallTileDef = useMemo(() => tileDefs?.find(t => t.id === 1), [tileDefs]);
 
@@ -1632,7 +1641,7 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
                 : <span className="text-gray-400 italic">move mouse over room</span>
             }
             <span className="text-gray-400">|</span>
-            <span>Tiles: {levelData.filter(t => t !== 0).length} / {levelData.length}</span>
+            <span>Tiles: {placedTileCount} / {levelData.length}</span>
             <span className="ml-auto text-gray-500 italic">
                 {currentToolType === 'eraser' ? 'Eraser'
                     : currentToolType === 'select' ? 'Select Area'
