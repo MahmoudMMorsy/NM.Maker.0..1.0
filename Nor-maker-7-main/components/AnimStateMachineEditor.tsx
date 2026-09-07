@@ -149,6 +149,24 @@ const AnimStateMachineEditor: React.FC<Props> = ({ fsm: fsmProp, sprites, onUpda
     return map;
   }, [sprites]);
 
+  // ⚡ Bolt: Pre-build O(1) Map indices for transitions and outgoing transitions grouped by `from` state ID
+  // to avoid linear array searches (.find) and repeated array allocations (.filter) during high-frequency renders (e.g. state node dragging)
+  const transitionMap = useMemo(() => {
+    const map = new Map<string, AnimTransition>();
+    for (const t of fsm.transitions) map.set(t.id, t);
+    return map;
+  }, [fsm.transitions]);
+
+  const outgoingTransitionsMap = useMemo(() => {
+    const map = new Map<string, AnimTransition[]>();
+    for (const t of fsm.transitions) {
+      const existing = map.get(t.from);
+      if (existing) existing.push(t);
+      else map.set(t.from, [t]);
+    }
+    return map;
+  }, [fsm.transitions]);
+
   // Preview animation playback with O(1) lookups
   const selectedSeq = useMemo(() => selectedSequenceId ? sequenceMap.get(selectedSequenceId) || null : null, [sequenceMap, selectedSequenceId]);
   const selectedSeqSprite = useMemo(() => selectedSeq?.spriteId ? spriteMap.get(selectedSeq.spriteId) || null : null, [selectedSeq, spriteMap]);
@@ -166,7 +184,11 @@ const AnimStateMachineEditor: React.FC<Props> = ({ fsm: fsmProp, sprites, onUpda
   }, [previewPlaying, selectedSeq, selectedSeqSprite]);
 
   const selectedState = selectedStateId ? stateMap.get(selectedStateId) || null : null;
-  const selectedTransition = fsm.transitions.find(t => t.id === selectedTransitionId) || null;
+  const selectedTransition = selectedTransitionId ? transitionMap.get(selectedTransitionId) || null : null;
+  const selectedStateOutgoingTransitions = useMemo(() => {
+    if (!selectedState) return [];
+    return outgoingTransitionsMap.get(selectedState.id) || [];
+  }, [outgoingTransitionsMap, selectedState]);
 
   // ---------- render helpers ----------
   const STATE_W = 110, STATE_H = 44;
@@ -305,7 +327,7 @@ const AnimStateMachineEditor: React.FC<Props> = ({ fsm: fsmProp, sprites, onUpda
 
                 <div className="border-t border-gray-400 mt-3 pt-2">
                   <div className="font-bold text-[10px] mb-1 text-blue-900">Outgoing Transitions</div>
-                  {fsm.transitions.filter(t => t.from === selectedState.id).map(t => {
+                  {selectedStateOutgoingTransitions.map(t => {
                     const dst = stateMap.get(t.to);
                     return (
                       <div key={t.id} onClick={() => setSelectedTransitionId(t.id)}
@@ -314,7 +336,7 @@ const AnimStateMachineEditor: React.FC<Props> = ({ fsm: fsmProp, sprites, onUpda
                       </div>
                     );
                   })}
-                  {fsm.transitions.filter(t => t.from === selectedState.id).length === 0 && (
+                  {selectedStateOutgoingTransitions.length === 0 && (
                     <div className="text-[10px] text-gray-500 italic">No outgoing transitions</div>
                   )}
                 </div>
