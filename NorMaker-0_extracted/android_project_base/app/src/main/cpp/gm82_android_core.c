@@ -2486,6 +2486,236 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
         *out = gml_value_bool(1);
         return 1;
     }
+    if (!strcmp(name, "angle_difference") && count == 2) {
+        double a1 = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double a2 = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double diff = fmod(a1 - a2 + 180.0, 360.0);
+        if (diff < 0.0) diff += 360.0;
+        *out = gml_value_real(diff - 180.0);
+        return 1;
+    }
+    if (!strcmp(name, "dot_product") && count == 4) {
+        double x1 = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double y1 = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double x2 = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double y2 = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        *out = gml_value_real(x1 * x2 + y1 * y2);
+        return 1;
+    }
+    if (!strcmp(name, "dot_product_3d") && count == 6) {
+        double x1 = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double y1 = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double z1 = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double x2 = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        double y2 = args[4].kind == GML_V_REAL ? args[4].real : 0.0;
+        double z2 = args[5].kind == GML_V_REAL ? args[5].real : 0.0;
+        *out = gml_value_real(x1 * x2 + y1 * y2 + z1 * z2);
+        return 1;
+    }
+    if (!strcmp(name, "point_distance_3d") && count == 6) {
+        double x1 = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double y1 = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double z1 = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double x2 = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        double y2 = args[4].kind == GML_V_REAL ? args[4].real : 0.0;
+        double z2 = args[5].kind == GML_V_REAL ? args[5].real : 0.0;
+        double dx = x2 - x1, dy = y2 - y1, dz = z2 - z1;
+        *out = gml_value_real(sqrt(dx * dx + dy * dy + dz * dz));
+        return 1;
+    }
+    if (!strcmp(name, "string_format") && count == 3) {
+        double val = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        int tot = (int)(args[1].kind == GML_V_REAL ? args[1].real : 0);
+        int dec = (int)(args[2].kind == GML_V_REAL ? args[2].real : 0);
+        char fmt[32], buf[128];
+        snprintf(fmt, sizeof(fmt), "%%%d.%df", tot > 0 ? tot : 0, dec >= 0 ? dec : 0);
+        snprintf(buf, sizeof(buf), fmt, val);
+        *out = gml_value_string(buf);
+        return 1;
+    }
+    if (!strcmp(name, "string_byte_at") && count == 2) {
+        const char *s = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        int pos = (int)(args[1].kind == GML_V_REAL ? args[1].real : 1);
+        if (pos >= 1 && (size_t)pos <= strlen(s)) {
+            *out = gml_value_real((double)(unsigned char)s[pos - 1]);
+        } else *out = gml_value_real(0.0);
+        return 1;
+    }
+    if (!strcmp(name, "string_byte_length") && count == 1) {
+        const char *s = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        *out = gml_value_real((double)strlen(s));
+        return 1;
+    }
+    if (!strcmp(name, "ds_list_sort") && (count == 1 || count == 2)) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        int ascend = count > 1 ? (args[1].kind == GML_V_BOOL ? args[1].boolean : (args[1].kind == GML_V_REAL && args[1].real != 0.0)) : 1;
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_lists[id].active && g_ds_lists[id].count > 1) {
+            for (size_t i = 0; i < g_ds_lists[id].count; ++i) {
+                for (size_t j = i + 1; j < g_ds_lists[id].count; ++j) {
+                    double vi = g_ds_lists[id].items[i].kind == GML_V_REAL ? g_ds_lists[id].items[i].real : 0.0;
+                    double vj = g_ds_lists[id].items[j].kind == GML_V_REAL ? g_ds_lists[id].items[j].real : 0.0;
+                    int swap = ascend ? (vi > vj) : (vi < vj);
+                    if (swap) {
+                        gml_value tmp = g_ds_lists[id].items[i];
+                        g_ds_lists[id].items[i] = g_ds_lists[id].items[j];
+                        g_ds_lists[id].items[j] = tmp;
+                    }
+                }
+            }
+        }
+        *out = gml_value_bool(1);
+        return 1;
+    }
+    if (!strcmp(name, "ds_list_shuffle") && count == 1) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_lists[id].active && g_ds_lists[id].count > 1) {
+            for (size_t i = g_ds_lists[id].count - 1; i > 0; --i) {
+                size_t j = (size_t)rand() % (i + 1);
+                gml_value tmp = g_ds_lists[id].items[i];
+                g_ds_lists[id].items[i] = g_ds_lists[id].items[j];
+                g_ds_lists[id].items[j] = tmp;
+            }
+        }
+        *out = gml_value_bool(1);
+        return 1;
+    }
+    if (!strcmp(name, "ds_map_find_first") && count == 1) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_maps[id].active && g_ds_maps[id].count > 0) {
+            *out = gml_value_string(g_ds_maps[id].keys[0]);
+        } else *out = gml_value_string("");
+        return 1;
+    }
+    if (!strcmp(name, "ds_map_find_next") && count == 2) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        const char *key = gm82_ds_key(&args[1]);
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_maps[id].active) {
+            for (size_t i = 0; i < g_ds_maps[id].count; ++i) {
+                if (!strcmp(g_ds_maps[id].keys[i], key) && i + 1 < g_ds_maps[id].count) {
+                    *out = gml_value_string(g_ds_maps[id].keys[i + 1]);
+                    return 1;
+                }
+            }
+        }
+        *out = gml_value_string("");
+        return 1;
+    }
+    if (!strcmp(name, "ds_grid_get_max") && count == 5) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        int x1 = (int)(args[1].kind == GML_V_REAL ? args[1].real : 0);
+        int y1 = (int)(args[2].kind == GML_V_REAL ? args[2].real : 0);
+        int x2 = (int)(args[3].kind == GML_V_REAL ? args[3].real : 0);
+        int y2 = (int)(args[4].kind == GML_V_REAL ? args[4].real : 0);
+        double max_val = -1e30;
+        if (id >= 0 && id < GM82_GRID_MAX && g_ds_grids[id].active) {
+            int gw = g_ds_grids[id].width, gh = g_ds_grids[id].height;
+            if (x1 < 0) x1 = 0; if (y1 < 0) y1 = 0;
+            if (x2 >= gw) x2 = gw - 1; if (y2 >= gh) y2 = gh - 1;
+            for (int r = y1; r <= y2; ++r) {
+                for (int c = x1; c <= x2; ++c) {
+                    double v = g_ds_grids[id].cells[r * GM82_GRID_DIM + c].kind == GML_V_REAL ? g_ds_grids[id].cells[r * GM82_GRID_DIM + c].real : 0.0;
+                    if (v > max_val) max_val = v;
+                }
+            }
+        }
+        *out = gml_value_real(max_val);
+        return 1;
+    }
+    if (!strcmp(name, "ds_grid_get_min") && count == 5) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        int x1 = (int)(args[1].kind == GML_V_REAL ? args[1].real : 0);
+        int y1 = (int)(args[2].kind == GML_V_REAL ? args[2].real : 0);
+        int x2 = (int)(args[3].kind == GML_V_REAL ? args[3].real : 0);
+        int y2 = (int)(args[4].kind == GML_V_REAL ? args[4].real : 0);
+        double min_val = 1e30;
+        if (id >= 0 && id < GM82_GRID_MAX && g_ds_grids[id].active) {
+            int gw = g_ds_grids[id].width, gh = g_ds_grids[id].height;
+            if (x1 < 0) x1 = 0; if (y1 < 0) y1 = 0;
+            if (x2 >= gw) x2 = gw - 1; if (y2 >= gh) y2 = gh - 1;
+            for (int r = y1; r <= y2; ++r) {
+                for (int c = x1; c <= x2; ++c) {
+                    double v = g_ds_grids[id].cells[r * GM82_GRID_DIM + c].kind == GML_V_REAL ? g_ds_grids[id].cells[r * GM82_GRID_DIM + c].real : 0.0;
+                    if (v < min_val) min_val = v;
+                }
+            }
+        }
+        *out = gml_value_real(min_val);
+        return 1;
+    }
+    if (!strcmp(name, "ds_grid_get_sum") && count == 5) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        int x1 = (int)(args[1].kind == GML_V_REAL ? args[1].real : 0);
+        int y1 = (int)(args[2].kind == GML_V_REAL ? args[2].real : 0);
+        int x2 = (int)(args[3].kind == GML_V_REAL ? args[3].real : 0);
+        int y2 = (int)(args[4].kind == GML_V_REAL ? args[4].real : 0);
+        double sum_val = 0.0;
+        if (id >= 0 && id < GM82_GRID_MAX && g_ds_grids[id].active) {
+            int gw = g_ds_grids[id].width, gh = g_ds_grids[id].height;
+            if (x1 < 0) x1 = 0; if (y1 < 0) y1 = 0;
+            if (x2 >= gw) x2 = gw - 1; if (y2 >= gh) y2 = gh - 1;
+            for (int r = y1; r <= y2; ++r) {
+                for (int c = x1; c <= x2; ++c) {
+                    sum_val += g_ds_grids[id].cells[r * GM82_GRID_DIM + c].kind == GML_V_REAL ? g_ds_grids[id].cells[r * GM82_GRID_DIM + c].real : 0.0;
+                }
+            }
+        }
+        *out = gml_value_real(sum_val);
+        return 1;
+    }
+    if (!strcmp(name, "keyboard_check") && count == 1) {
+        int k = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0);
+        *out = gml_value_bool(k >= 0 && k < 256 && g_runtime.keys[k]);
+        return 1;
+    }
+    if (!strcmp(name, "keyboard_check_pressed") && count == 1) {
+        int k = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0);
+        *out = gml_value_bool(k >= 0 && k < 256 && g_runtime.key_pressed[k]);
+        return 1;
+    }
+    if (!strcmp(name, "keyboard_clear") && count == 1) {
+        int k = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0);
+        if (k >= 0 && k < 256) { g_runtime.keys[k] = 0; g_runtime.key_pressed[k] = 0; }
+        *out = gml_value_bool(1);
+        return 1;
+    }
+    if (!strcmp(name, "room_goto_next") && count == 0) {
+        g_runtime.room_id++; g_runtime.room_started = 0;
+        *out = gml_value_bool(1);
+        return 1;
+    }
+    if (!strcmp(name, "room_goto_previous") && count == 0) {
+        if (g_runtime.room_id > 0) g_runtime.room_id--;
+        g_runtime.room_started = 0;
+        *out = gml_value_bool(1);
+        return 1;
+    }
+    if (!strcmp(name, "game_end") && count == 0) {
+        g_runtime.initialized = 0;
+        *out = gml_value_bool(1);
+        return 1;
+    }
+    if (!strcmp(name, "game_restart") && count == 0) {
+        gm82_runtime_clear_room_transient();
+        g_runtime.room_started = 0;
+        *out = gml_value_bool(1);
+        return 1;
+    }
+    if (!strcmp(name, "instance_change") && count >= 1) {
+        if (self) { self->object_id = (int)(args[0].kind == GML_V_REAL ? args[0].real : self->object_id); }
+        *out = gml_value_bool(self != NULL);
+        return 1;
+    }
+    if (!strcmp(name, "instance_copy") && count >= 1) {
+        if (self) {
+            int new_id = gm82_spawn_instance(self->object_id, self->x, self->y);
+            *out = gml_value_real((double)new_id);
+        } else *out = gml_value_real(-1.0);
+        return 1;
+    }
+    if ((!strcmp(name, "draw_set_color") || !strcmp(name, "draw_set_colour")) && count == 1) {
+        *out = gml_value_bool(1);
+        return 1;
+    }
     return 0;
 }
 

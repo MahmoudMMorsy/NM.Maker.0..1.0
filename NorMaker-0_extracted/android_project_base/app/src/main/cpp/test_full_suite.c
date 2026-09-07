@@ -77,6 +77,44 @@ void test_gml_vm_suite(void) {
 
     gml_ast_free(ast);
 
+    /* Test extended GML core built-ins (math, string, vector, ds, and input) */
+    const char *code_ext =
+        "dp = dot_product(3, 4, 3, 4);\n"
+        "d3 = point_distance_3d(0, 0, 0, 3, 4, 12);\n"
+        "sf = string_format(12.345, 6, 2);\n"
+        "sb = string_byte_at(\"ABC\", 1);\n"
+        "l2 = ds_list_create();\n"
+        "ds_list_add(l2, 50, 10, 30);\n"
+        "ds_list_sort(l2, 1);\n"
+        "s_val = ds_list_find_value(l2, 0);\n"
+        "ds_list_destroy(l2);\n"
+        "m2 = ds_map_create();\n"
+        "ds_map_add(m2, \"k1\", 10);\n"
+        "ds_map_add(m2, \"k2\", 20);\n"
+        "fk = ds_map_find_first(m2);\n"
+        "nk = ds_map_find_next(m2, fk);\n"
+        "ds_map_destroy(m2);\n"
+        "g2 = ds_grid_create(4, 4);\n"
+        "ds_grid_set(g2, 1, 1, 99);\n"
+        "gmax = ds_grid_get_max(g2, 0, 0, 3, 3);\n"
+        "ds_grid_destroy(g2);\n"
+        "kc = keyboard_clear(32);\n"
+        "return dp + d3 + sb + s_val + gmax;\n";
+
+    ast = NULL;
+    parse_ok = gml_parse_program(code_ext, &ast, err, sizeof(err));
+    assert(parse_ok);
+
+    gml_vm_init(&vm);
+    gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+    exec_ok = gml_vm_execute(&vm, ast);
+    assert(exec_ok);
+    assert(vm.returned);
+    /* dp(25) + d3(13) + sb(65) + s_val(10) + gmax(99) = 212 */
+    assert(vm.return_value.real == 212.0);
+
+    gml_ast_free(ast);
+
     printf("[PASS] GML VM Suite\n");
 }
 
