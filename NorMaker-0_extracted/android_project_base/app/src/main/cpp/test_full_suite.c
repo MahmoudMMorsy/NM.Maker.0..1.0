@@ -80,6 +80,80 @@ void test_gml_vm_suite(void) {
     printf("[PASS] GML VM Suite\n");
 }
 
+void test_new_gm_core_functions(void) {
+    gml_vm vm;
+    char err[160] = {0};
+
+    /* Test ds_list_sort */
+    const char *code_sort =
+        "l = ds_list_create();\n"
+        "ds_list_add(l, 50, 10, 30);\n"
+        "ds_list_sort(l, 1);\n"
+        "v1 = ds_list_find_value(l, 0);\n"
+        "v2 = ds_list_find_value(l, 2);\n"
+        "ds_list_sort(l, 0);\n"
+        "v3 = ds_list_find_value(l, 0);\n"
+        "ds_list_destroy(l);\n"
+        "return v1 * 100 + v2 * 10 + v3;\n";
+
+    gml_ast *ast = NULL;
+    int parse_ok = gml_parse_program(code_sort, &ast, err, sizeof(err));
+    assert(parse_ok);
+    gml_vm_init(&vm);
+    gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+    int exec_ok = gml_vm_execute(&vm, ast);
+    assert(exec_ok);
+    assert(vm.returned);
+    /* v1(10)*100 + v2(50)*10 + v3(50) = 1000 + 500 + 50 = 1550 */
+    assert(vm.return_value.real == 1550.0);
+    gml_ast_free(ast);
+
+    /* Test ds_map navigation */
+    const char *code_map =
+        "m = ds_map_create();\n"
+        "ds_map_add(m, \"alpha\", 1);\n"
+        "ds_map_add(m, \"beta\", 2);\n"
+        "k1 = ds_map_find_first(m);\n"
+        "k2 = ds_map_find_next(m, k1);\n"
+        "kl = ds_map_find_last(m);\n"
+        "kp = ds_map_find_previous(m, kl);\n"
+        "ds_map_destroy(m);\n"
+        "return string(k1) + \"-\" + string(k2) + \"-\" + string(kl) + \"-\" + string(kp);\n";
+
+    ast = NULL;
+    parse_ok = gml_parse_program(code_map, &ast, err, sizeof(err));
+    assert(parse_ok);
+    gml_vm_init(&vm);
+    gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+    exec_ok = gml_vm_execute(&vm, ast);
+    assert(exec_ok);
+    assert(vm.returned);
+    assert(vm.return_value.kind == GML_V_STRING);
+    assert(strcmp(vm.return_value.string, "alpha-beta-beta-alpha") == 0);
+    gml_ast_free(ast);
+
+    /* Test room navigation & string_format & game_end */
+    const char *code_room_fmt =
+        "r1 = room_next(0);\n"
+        "r0 = room_previous(1);\n"
+        "fmt = string_format(3.14159, 6, 2);\n"
+        "game_end();\n"
+        "return fmt;\n";
+
+    ast = NULL;
+    parse_ok = gml_parse_program(code_room_fmt, &ast, err, sizeof(err));
+    assert(parse_ok);
+    gml_vm_init(&vm);
+    gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+    exec_ok = gml_vm_execute(&vm, ast);
+    assert(exec_ok);
+    assert(vm.returned);
+    assert(vm.return_value.kind == GML_V_STRING);
+    assert(strstr(vm.return_value.string, "3.14") != NULL);
+    gml_ast_free(ast);
+
+    printf("[PASS] New GM Core Functions Suite\n");
+}
 
 void test_retro_rom_suite(void) {
     const char *nes_path = "/tmp/nor_core_tests/test.nes";
@@ -99,6 +173,7 @@ int main(void) {
     printf("--- Running Native Host Comprehensive Test Suite ---\n");
     test_gmk_probe_suite();
     test_gml_vm_suite();
+    test_new_gm_core_functions();
     test_retro_rom_suite();
     printf("--- All Native Host Tests Passed! ---\n");
     return 0;

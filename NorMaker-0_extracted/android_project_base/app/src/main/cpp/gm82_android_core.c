@@ -996,6 +996,23 @@ static int gm82_instance_mask_overlaps_circle(const Gm82Instance *other, float c
     }
     return 0;
 }
+
+static int gm82_compare_values(const gml_value *a, const gml_value *b) {
+    if (a->kind != b->kind) return (int)a->kind - (int)b->kind;
+    if (a->kind == GML_V_REAL) {
+        if (a->real < b->real) return -1;
+        if (a->real > b->real) return 1;
+        return 0;
+    }
+    if (a->kind == GML_V_BOOL) return (int)a->boolean - (int)b->boolean;
+    if (a->kind == GML_V_STRING) {
+        const char *sa = a->string ? a->string : "";
+        const char *sb = b->string ? b->string : "";
+        return strcmp(sa, sb);
+    }
+    return 0;
+}
+
 int gm82_native_call(void *userdata, const char *name, const gml_value *args, size_t count, gml_value *out) {
     Gm82Instance *self = (Gm82Instance *)userdata;
     if (!name || !out) return 0;
@@ -1139,6 +1156,38 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
     }
     if (!strcmp(name, "ds_list_size") && count == 1) { int id = gm82_ds_handle(&args[0]) - 1; *out = gml_value_real(id >= 0 && id < GM82_DS_MAX && g_ds_lists[id].active ? (double)g_ds_lists[id].count : 0); return 1; }
     if (!strcmp(name, "ds_list_find_value") && count == 2) { int id = gm82_ds_handle(&args[0]) - 1, index = gm82_ds_handle(&args[1]); if (id >= 0 && id < GM82_DS_MAX && g_ds_lists[id].active && index >= 0 && (size_t)index < g_ds_lists[id].count) { *out = gm82_clone_value(&g_ds_lists[id].items[index]); } return 1; }
+
+    if (!strcmp(name, "ds_list_sort") && (count == 1 || count == 2)) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        int ascend = (count == 2) ? (args[1].kind == GML_V_BOOL ? args[1].boolean : (args[1].kind == GML_V_REAL ? args[1].real != 0 : 1)) : 1;
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_lists[id].active && g_ds_lists[id].count > 1) {
+            size_t cnt = g_ds_lists[id].count;
+            for (size_t i = 0; i < cnt - 1; ++i) {
+                for (size_t j = i + 1; j < cnt; ++j) {
+                    int cmp = gm82_compare_values(&g_ds_lists[id].items[i], &g_ds_lists[id].items[j]);
+                    if ((ascend && cmp > 0) || (!ascend && cmp < 0)) {
+                        gml_value tmp = g_ds_lists[id].items[i];
+                        g_ds_lists[id].items[i] = g_ds_lists[id].items[j];
+                        g_ds_lists[id].items[j] = tmp;
+                    }
+                }
+            }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "ds_list_shuffle") && count == 1) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_lists[id].active && g_ds_lists[id].count > 1) {
+            size_t cnt = g_ds_lists[id].count;
+            for (size_t i = cnt - 1; i > 0; --i) {
+                size_t j = (size_t)rand() % (i + 1);
+                gml_value tmp = g_ds_lists[id].items[i];
+                g_ds_lists[id].items[i] = g_ds_lists[id].items[j];
+                g_ds_lists[id].items[j] = tmp;
+            }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
     if (!strcmp(name, "ds_list_find_index") && count == 2) { int id = gm82_ds_handle(&args[0]) - 1, result = -1; if (id >= 0 && id < GM82_DS_MAX && g_ds_lists[id].active) for (size_t i = 0; i < g_ds_lists[id].count; ++i) if (gm82_ds_equal(&g_ds_lists[id].items[i], &args[1])) { result = (int)i; break; } *out = gml_value_real((double)result); return 1; }
     if (!strcmp(name, "ds_grid_create") && count == 2) { int width = gm82_ds_handle(&args[0]), height = gm82_ds_handle(&args[1]); if (width < 0) width = 0; if (height < 0) height = 0; if (width > GM82_GRID_DIM) width = GM82_GRID_DIM; if (height > GM82_GRID_DIM) height = GM82_GRID_DIM; for (int i = 0; i < GM82_GRID_MAX; ++i) if (!g_ds_grids[i].active) { g_ds_grids[i].active = 1; g_ds_grids[i].width = width; g_ds_grids[i].height = height; *out = gml_value_real((double)(i + 1)); return 1; } *out = gml_value_real(-1); return 1; }
     if (!strcmp(name, "ds_grid_destroy") && count == 1) { int id = gm82_ds_handle(&args[0]) - 1; if (id >= 0 && id < GM82_GRID_MAX && g_ds_grids[id].active) { for (int i = 0; i < GM82_GRID_DIM * GM82_GRID_DIM; ++i) gml_value_free(&g_ds_grids[id].cells[i]); memset(&g_ds_grids[id], 0, sizeof(g_ds_grids[id])); } *out = gml_value_bool(1); return 1; }
@@ -1160,7 +1209,7 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
     if (!strcmp(name, "ds_grid_width") && count == 1) { int id = gm82_ds_handle(&args[0]) - 1; *out = gml_value_real(id >= 0 && id < GM82_GRID_MAX && g_ds_grids[id].active ? g_ds_grids[id].width : 0); return 1; }
     if (!strcmp(name, "ds_grid_height") && count == 1) { int id = gm82_ds_handle(&args[0]) - 1; *out = gml_value_real(id >= 0 && id < GM82_GRID_MAX && g_ds_grids[id].active ? g_ds_grids[id].height : 0); return 1; }
     if (!strcmp(name, "ds_map_create") && count == 0) { for (int i = 0; i < GM82_DS_MAX; ++i) if (!g_ds_maps[i].active) { g_ds_maps[i].active = 1; g_ds_maps[i].count = 0; *out = gml_value_real((double)(i + 1)); return 1; } *out = gml_value_real(-1); return 1; }
-    if ((!strcmp(name, "ds_map_add") || !strcmp(name, "ds_map_set") || !strcmp(name, "ds_map_replace")) && count == 3) { int id = gm82_ds_handle(&args[0]) - 1; const char *key = gm82_ds_key(&args[1]); if (id >= 0 && id < GM82_DS_MAX && g_ds_maps[id].active && *key) { size_t slot = g_ds_maps[id].count; for (size_t i = 0; i < g_ds_maps[i].count; ++i) if (!strcmp(g_ds_maps[id].keys[i], key)) { slot = i; break; } if (slot < GM82_DS_CAP) { if (slot == g_ds_maps[id].count) g_ds_maps[id].count++; snprintf(g_ds_maps[id].keys[slot], GM82_DS_KEY_CAP, "%s", key); gml_value_free(&g_ds_maps[id].values[slot]); g_ds_maps[id].values[slot] = gm82_clone_value(&args[2]); } } *out = gml_value_bool(1); return 1; }
+    if ((!strcmp(name, "ds_map_add") || !strcmp(name, "ds_map_set") || !strcmp(name, "ds_map_replace")) && count == 3) { int id = gm82_ds_handle(&args[0]) - 1; const char *key = gm82_ds_key(&args[1]); if (id >= 0 && id < GM82_DS_MAX && g_ds_maps[id].active && *key) { size_t slot = g_ds_maps[id].count; for (size_t i = 0; i < g_ds_maps[id].count; ++i) if (!strcmp(g_ds_maps[id].keys[i], key)) { slot = i; break; } if (slot < GM82_DS_CAP) { if (slot == g_ds_maps[id].count) g_ds_maps[id].count++; snprintf(g_ds_maps[id].keys[slot], GM82_DS_KEY_CAP, "%s", key); gml_value_free(&g_ds_maps[id].values[slot]); g_ds_maps[id].values[slot] = gm82_clone_value(&args[2]); } } *out = gml_value_bool(1); return 1; }
     if (!strcmp(name, "ds_map_destroy") && count == 1) { int id = gm82_ds_handle(&args[0]) - 1; if (id >= 0 && id < GM82_DS_MAX && g_ds_maps[id].active) { for (size_t i = 0; i < g_ds_maps[id].count; ++i) gml_value_free(&g_ds_maps[id].values[i]); memset(&g_ds_maps[id], 0, sizeof(g_ds_maps[id])); } *out = gml_value_bool(1); return 1; }
     if (!strcmp(name, "ds_map_clear") && count == 1) { int id = gm82_ds_handle(&args[0]) - 1; if (id >= 0 && id < GM82_DS_MAX && g_ds_maps[id].active) { for (size_t i = 0; i < g_ds_maps[id].count; ++i) gml_value_free(&g_ds_maps[id].values[i]); g_ds_maps[id].count = 0; } *out = gml_value_bool(1); return 1; }
     if (!strcmp(name, "ds_map_delete") && count == 2) {
@@ -1183,6 +1232,51 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
     if (!strcmp(name, "ds_map_empty") && count == 1) { int id = gm82_ds_handle(&args[0]) - 1; *out = gml_value_bool(id < 0 || id >= GM82_DS_MAX || !g_ds_maps[id].active || g_ds_maps[id].count == 0); return 1; }
     if (!strcmp(name, "ds_map_size") && count == 1) { int id = gm82_ds_handle(&args[0]) - 1; *out = gml_value_real(id >= 0 && id < GM82_DS_MAX && g_ds_maps[id].active ? (double)g_ds_maps[id].count : 0); return 1; }
     if (!strcmp(name, "ds_map_find_value") && count == 2) { int id = gm82_ds_handle(&args[0]) - 1; const char *key = gm82_ds_key(&args[1]); if (id >= 0 && id < GM82_DS_MAX && g_ds_maps[id].active) for (size_t i = 0; i < g_ds_maps[id].count; ++i) if (!strcmp(g_ds_maps[id].keys[i], key)) { *out = gm82_clone_value(&g_ds_maps[id].values[i]); break; } return 1; }
+
+    if (!strcmp(name, "ds_map_find_first") && count == 1) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_maps[id].active && g_ds_maps[id].count > 0) {
+            *out = gml_value_string(g_ds_maps[id].keys[0]);
+        } else { *out = gml_value_string(""); }
+        return 1;
+    }
+    if (!strcmp(name, "ds_map_find_last") && count == 1) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_maps[id].active && g_ds_maps[id].count > 0) {
+            *out = gml_value_string(g_ds_maps[id].keys[g_ds_maps[id].count - 1]);
+        } else { *out = gml_value_string(""); }
+        return 1;
+    }
+    if (!strcmp(name, "ds_map_find_next") && count == 2) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        const char *key = gm82_ds_key(&args[1]);
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_maps[id].active && *key) {
+            for (size_t i = 0; i < g_ds_maps[id].count; ++i) {
+                if (!strcmp(g_ds_maps[id].keys[i], key)) {
+                    if (i + 1 < g_ds_maps[id].count) {
+                        *out = gml_value_string(g_ds_maps[id].keys[i + 1]);
+                    } else { *out = gml_value_string(""); }
+                    return 1;
+                }
+            }
+        }
+        *out = gml_value_string(""); return 1;
+    }
+    if (!strcmp(name, "ds_map_find_previous") && count == 2) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        const char *key = gm82_ds_key(&args[1]);
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_maps[id].active && *key) {
+            for (size_t i = 0; i < g_ds_maps[id].count; ++i) {
+                if (!strcmp(g_ds_maps[id].keys[i], key)) {
+                    if (i > 0) {
+                        *out = gml_value_string(g_ds_maps[id].keys[i - 1]);
+                    } else { *out = gml_value_string(""); }
+                    return 1;
+                }
+            }
+        }
+        *out = gml_value_string(""); return 1;
+    }
     if (!strcmp(name, "ds_map_exists") && count == 2) { int id = gm82_ds_handle(&args[0]) - 1; const char *key = gm82_ds_key(&args[1]); int found = 0; if (id >= 0 && id < GM82_DS_MAX && g_ds_maps[id].active) for (size_t i = 0; i < g_ds_maps[id].count; ++i) if (!strcmp(g_ds_maps[id].keys[i], key)) { found = 1; break; } *out = gml_value_bool(found); return 1; }
     if (!strcmp(name, "ds_stack_create") && count == 0) { for (int i = 0; i < GM82_DS_MAX; ++i) if (!g_ds_stacks[i].active) { g_ds_stacks[i].active = 1; g_ds_stacks[i].count = 0; *out = gml_value_real((double)(i + 1)); return 1; } *out = gml_value_real(-1); return 1; }
     if (!strcmp(name, "ds_stack_destroy") && count == 1) { int id = gm82_ds_handle(&args[0]) - 1; if (id >= 0 && id < GM82_DS_MAX && g_ds_stacks[id].active) { for (size_t i = 0; i < g_ds_stacks[id].count; ++i) gml_value_free(&g_ds_stacks[id].items[i]); memset(&g_ds_stacks[id], 0, sizeof(g_ds_stacks[id])); } *out = gml_value_bool(1); return 1; }
@@ -2044,6 +2138,40 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
             }
         }
         *out = gml_value_bool(1); return 1;
+    }
+
+    if (!strcmp(name, "room_goto_next") && count == 0) {
+        g_runtime.room_id++;
+        g_runtime.room_started = 0;
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "room_goto_previous") && count == 0) {
+        if (g_runtime.room_id > 0) g_runtime.room_id--;
+        g_runtime.room_started = 0;
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "room_next") && count == 1) {
+        int r = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0);
+        *out = gml_value_real((double)(r + 1)); return 1;
+    }
+    if (!strcmp(name, "room_previous") && count == 1) {
+        int r = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0);
+        *out = gml_value_real((double)(r > 0 ? r - 1 : -1)); return 1;
+    }
+    if (!strcmp(name, "game_end") && count == 0) {
+        g_runtime.active = 0;
+        g_runtime.room_started = 0;
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "string_format") && count == 3) {
+        double val = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        int tot = (int)(args[1].kind == GML_V_REAL ? args[1].real : 0);
+        int dec = (int)(args[2].kind == GML_V_REAL ? args[2].real : 0);
+        if (tot < 0) tot = 0;
+        if (dec < 0) dec = 0;
+        char sbuf[128];
+        snprintf(sbuf, sizeof(sbuf), "%*.*f", tot, dec, val);
+        *out = gml_value_string(sbuf); return 1;
     }
     if (!strcmp(name, "room_goto") && count == 1) { g_runtime.room_id = (int)(args[0].kind == GML_V_REAL ? args[0].real : g_runtime.room_id); g_runtime.room_started = 0; *out = gml_value_bool(1); return 1; }
     if (!strcmp(name, "point_distance") && count == 4) {
