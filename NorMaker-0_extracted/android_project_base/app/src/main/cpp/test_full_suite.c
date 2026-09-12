@@ -77,6 +77,46 @@ void test_gml_vm_suite(void) {
 
     gml_ast_free(ast);
 
+    /* Test Extended GML Built-ins: math, string_format, ds_list_sort, ds_map_find_first, ds_grid_add, draw_set_color */
+    const char *code_ext =
+        "s = string_format(3.14159, 6, 2);\n"
+        "b1 = string_byte_at(\"ABC\", 1);\n"
+        "b_len = string_byte_length(\"ABC\");\n"
+        "l2 = ds_list_create();\n"
+        "ds_list_add(l2, 50, 10, 30);\n"
+        "ds_list_sort(l2, true);\n"
+        "first_val = ds_list_find_value(l2, 0);\n"
+        "ds_list_destroy(l2);\n"
+        "m2 = ds_map_create();\n"
+        "ds_map_add(m2, \"alpha\", 1);\n"
+        "ds_map_add(m2, \"beta\", 2);\n"
+        "fk = ds_map_find_first(m2);\n"
+        "nk = ds_map_find_next(m2, \"alpha\");\n"
+        "ds_map_destroy(m2);\n"
+        "g = ds_grid_create(4, 4);\n"
+        "ds_grid_set(g, 1, 1, 10);\n"
+        "ds_grid_add(g, 1, 1, 5);\n"
+        "grid_val = ds_grid_get(g, 1, 1);\n"
+        "grid_exists = ds_grid_value_exists(g, 0, 0, 3, 3, 15);\n"
+        "ds_grid_destroy(g);\n"
+        "draw_set_color(255);\n"
+        "col = draw_get_color();\n"
+        "return b1 + b_len + first_val + grid_val + grid_exists + col;\n";
+
+    ast = NULL;
+    parse_ok = gml_parse_program(code_ext, &ast, err, sizeof(err));
+    assert(parse_ok);
+
+    gml_vm_init(&vm);
+    gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+    exec_ok = gml_vm_execute(&vm, ast);
+    assert(exec_ok);
+    assert(vm.returned);
+    /* b1(65) + b_len(3) + first_val(10) + grid_val(15) + grid_exists(1) + col(255) = 349 */
+    assert(vm.return_value.real == 349.0);
+
+    gml_ast_free(ast);
+
     printf("[PASS] GML VM Suite\n");
 }
 
