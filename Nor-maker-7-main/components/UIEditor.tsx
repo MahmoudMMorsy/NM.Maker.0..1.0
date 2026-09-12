@@ -87,7 +87,26 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [selectedIds, menu, onUpdate]);
 
-    const selectedElement = menu.elements.find(el => selectedIds.includes(el.id));
+    // ⚡ Bolt: Memoize selected element lookup to avoid linear array search (O(N)) on every component render during UI dragging and property updates.
+    const selectedElement = useMemo(() => {
+        if (selectedIds.length === 0) return undefined;
+        const selectedSet = new Set(selectedIds);
+        return menu.elements.find(el => selectedSet.has(el.id));
+    }, [menu.elements, selectedIds]);
+
+    // ⚡ Bolt: Memoize element grouping by groupId to eliminate per-render array and object allocations during high-frequency interaction re-renders.
+    const { groupedElements, ungroupedElements } = useMemo(() => {
+        const grouped: Record<string, UIElement[]> = {};
+        const ungrouped: UIElement[] = [];
+        menu.elements.forEach(el => {
+            if (el.groupId) {
+                (grouped[el.groupId] = grouped[el.groupId] || []).push(el);
+            } else {
+                ungrouped.push(el);
+            }
+        });
+        return { groupedElements: grouped, ungroupedElements: ungrouped };
+    }, [menu.elements]);
 
     const handleMoveOrder = (id: string, dir: -1 | 1) => {
         const idx = menu.elements.findIndex(e => e.id === id);
@@ -190,13 +209,6 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
                         </div>
                     )}
                     {(() => {
-                        const grouped: Record<string, UIElement[]> = {};
-                        const ungrouped: UIElement[] = [];
-                        menu.elements.forEach(el => {
-                            if (el.groupId) (grouped[el.groupId] = grouped[el.groupId] || []).push(el);
-                            else ungrouped.push(el);
-                        });
-
                         const renderElementItem = (el: UIElement) => (
                             <div
                                 key={el.id}
@@ -227,7 +239,7 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
 
                         return (
                             <>
-                                {Object.entries(grouped).map(([gid, elements]) => (
+                                {Object.entries(groupedElements).map(([gid, elements]) => (
                                     <div key={gid} className="mb-2 border border-blue-100 rounded bg-blue-50/30 overflow-hidden">
                                         <div className="bg-blue-100/50 px-2 py-1 text-[10px] font-bold flex justify-between items-center group">
                                             <span className="flex items-center gap-1"><Square size={10} className="fill-blue-400 text-blue-500"/> Group ({elements.length})</span>
@@ -245,7 +257,7 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
                                         </div>
                                     </div>
                                 ))}
-                                {ungrouped.map(renderElementItem)}
+                                {ungroupedElements.map(renderElementItem)}
                             </>
                         );
                     })()}
