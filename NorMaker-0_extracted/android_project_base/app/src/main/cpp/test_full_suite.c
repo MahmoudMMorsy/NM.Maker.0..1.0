@@ -130,6 +130,11 @@ void test_extended_gml_suite(void) {
         "sq_val = sqr(5);\n"
         "col_rgb = make_color_rgb(255, 128, 0);\n"
         "c_red = color_get_red(col_rgb);\n"
+        "c_green = color_get_green(col_rgb);\n"
+        "c_blue = color_get_blue(col_rgb);\n"
+        "c_val = color_get_value(col_rgb);\n"
+        "p_dist3d = point_distance_3d(0, 0, 0, 3, 4, 12);\n"
+        "d_prod = dot_product(2, 3, 4, 5);\n"
         "l = ds_list_create();\n"
         "ds_list_add(l, 30, 10, 20);\n"
         "ds_list_sort(l, 1);\n"
@@ -141,7 +146,7 @@ void test_extended_gml_suite(void) {
         "f_key = ds_map_find_first(m);\n"
         "has_k = (f_key == \"k1\");\n"
         "ds_map_destroy(m);\n"
-        "return c_ord + n_real + sq_val + c_red + s_val + (chk_r ? 1 : 0) + (chk_s ? 1 : 0) + (has_k ? 1 : 0);\n";
+        "return c_ord + n_real + sq_val + c_red + c_green + c_blue + c_val + p_dist3d + d_prod + s_val + (chk_r ? 1 : 0) + (chk_s ? 1 : 0) + (has_k ? 1 : 0);\n";
 
     gml_ast *ast = NULL;
     char err[160] = {0};
@@ -154,8 +159,8 @@ void test_extended_gml_suite(void) {
     int exec_ok = gml_vm_execute(&vm, ast);
     assert(exec_ok);
     assert(vm.returned);
-    /* c_ord(65) + n_real(123.5) + sq_val(25) + c_red(255) + s_val(10) + chk_r(1) + chk_s(1) + has_k(1) = 481.5 */
-    assert(vm.return_value.real == 481.5);
+    /* c_ord(65) + n_real(123.5) + sq_val(25) + c_red(255) + c_green(128) + c_blue(0) + c_val(255) + p_dist3d(13) + d_prod(23) + s_val(10) + chk_r(1) + chk_s(1) + has_k(1) = 900.5 */
+    assert(vm.return_value.real == 900.5);
 
     gml_ast_free(ast);
 
