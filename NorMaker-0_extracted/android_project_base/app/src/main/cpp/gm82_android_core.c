@@ -217,6 +217,15 @@ static gml_value gm82_clone_value(const gml_value *v) {
 #define GM82_GRID_DIM 64
 typedef struct { int active; int width; int height; gml_value cells[GM82_GRID_DIM * GM82_GRID_DIM]; } gm82_ds_grid;
 static gm82_ds_grid g_ds_grids[GM82_GRID_MAX];
+
+#define GM82_BUFFER_MAX 64
+#define GM82_BUFFER_CAP 65536
+typedef struct { int active; size_t size; size_t tell; uint8_t data[GM82_BUFFER_CAP]; } gm82_buffer;
+static gm82_buffer g_buffers[GM82_BUFFER_MAX];
+
+#define GM82_SURFACE_MAX 32
+typedef struct { int active; int width; int height; } gm82_surface;
+static gm82_surface g_surfaces[GM82_SURFACE_MAX];
 static void gm82_ds_clear(void) {
     for (int i = 0; i < GM82_DS_MAX; ++i) {
         for (size_t j = 0; j < g_ds_lists[i].count; ++j) gml_value_free(&g_ds_lists[i].items[j]);
@@ -2806,6 +2815,129 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
         *out = gml_value_bool(1);
         return 1;
     }
+    /* Surfaces */
+    if (!strcmp(name, "surface_create") && count == 2) {
+        int w = (int)gm82_num_val(args[0]), h = (int)gm82_num_val(args[1]);
+        for (int i = 0; i < GM82_SURFACE_MAX; ++i) {
+            if (!g_surfaces[i].active) {
+                g_surfaces[i].active = 1;
+                g_surfaces[i].width = w > 0 ? w : 1;
+                g_surfaces[i].height = h > 0 ? h : 1;
+                *out = gml_value_real((double)(i + 1));
+                return 1;
+            }
+        }
+        *out = gml_value_real(-1.0); return 1;
+    }
+    if (!strcmp(name, "surface_exists") && count == 1) {
+        int id = (int)gm82_num_val(args[0]) - 1;
+        *out = gml_value_bool(id >= 0 && id < GM82_SURFACE_MAX && g_surfaces[id].active);
+        return 1;
+    }
+    if (!strcmp(name, "surface_free") && count == 1) {
+        int id = (int)gm82_num_val(args[0]) - 1;
+        if (id >= 0 && id < GM82_SURFACE_MAX) g_surfaces[id].active = 0;
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "surface_set_target") && count == 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "surface_reset_target") && count == 0) { *out = gml_value_bool(1); return 1; }
+    /* Matrices */
+    if (!strcmp(name, "matrix_get") && count == 1) {
+        gml_value arr = gml_value_array(16);
+        if (arr.array) {
+            for (int i = 0; i < 16; ++i) arr.array->items[i] = gml_value_real(i % 5 == 0 ? 1.0 : 0.0);
+        }
+        *out = arr; return 1;
+    }
+    if (!strcmp(name, "matrix_set") && count == 2) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "matrix_build") && count == 9) {
+        gml_value arr = gml_value_array(16);
+        if (arr.array) {
+            for (int i = 0; i < 16; ++i) arr.array->items[i] = gml_value_real(i % 5 == 0 ? 1.0 : 0.0);
+            arr.array->items[12] = args[0];
+            arr.array->items[13] = args[1];
+            arr.array->items[14] = args[2];
+        }
+        *out = arr; return 1;
+    }
+    if (!strcmp(name, "matrix_multiply") && count == 2) {
+        gml_value arr = gml_value_array(16);
+        if (arr.array) {
+            for (int i = 0; i < 16; ++i) arr.array->items[i] = gml_value_real(i % 5 == 0 ? 1.0 : 0.0);
+        }
+        *out = arr; return 1;
+    }
+    /* Particle Systems */
+    if (!strcmp(name, "part_system_create") && count == 0) { *out = gml_value_real(1.0); return 1; }
+    if (!strcmp(name, "part_system_destroy") && count == 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "part_system_exists") && count == 1) { *out = gml_value_bool(args[0].kind == GML_V_REAL && args[0].real > 0); return 1; }
+    if (!strcmp(name, "part_type_create") && count == 0) { *out = gml_value_real(1.0); return 1; }
+    if (!strcmp(name, "part_type_destroy") && count == 1) { *out = gml_value_bool(1); return 1; }
+    /* Buffers */
+    if (!strcmp(name, "buffer_create") && count == 3) {
+        size_t sz = (size_t)gm82_num_val(args[0]);
+        if (sz > GM82_BUFFER_CAP) sz = GM82_BUFFER_CAP;
+        for (int i = 0; i < GM82_BUFFER_MAX; ++i) {
+            if (!g_buffers[i].active) {
+                g_buffers[i].active = 1;
+                g_buffers[i].size = sz;
+                g_buffers[i].tell = 0;
+                memset(g_buffers[i].data, 0, sz);
+                *out = gml_value_real((double)(i + 1));
+                return 1;
+            }
+        }
+        *out = gml_value_real(-1.0); return 1;
+    }
+    if (!strcmp(name, "buffer_delete") && count == 1) {
+        int id = (int)gm82_num_val(args[0]) - 1;
+        if (id >= 0 && id < GM82_BUFFER_MAX) g_buffers[id].active = 0;
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "buffer_write") && count == 3) {
+        int id = (int)gm82_num_val(args[0]) - 1;
+        if (id >= 0 && id < GM82_BUFFER_MAX && g_buffers[id].active) {
+            double v = gm82_num_val(args[2]);
+            if (g_buffers[id].tell + sizeof(double) <= g_buffers[id].size) {
+                memcpy(&g_buffers[id].data[g_buffers[id].tell], &v, sizeof(double));
+                g_buffers[id].tell += sizeof(double);
+            }
+        }
+        *out = gml_value_real(0.0); return 1;
+    }
+    if (!strcmp(name, "buffer_read") && count == 2) {
+        int id = (int)gm82_num_val(args[0]) - 1;
+        if (id >= 0 && id < GM82_BUFFER_MAX && g_buffers[id].active) {
+            if (g_buffers[id].tell + sizeof(double) <= g_buffers[id].size) {
+                double v = 0;
+                memcpy(&v, &g_buffers[id].data[g_buffers[id].tell], sizeof(double));
+                g_buffers[id].tell += sizeof(double);
+                *out = gml_value_real(v); return 1;
+            }
+        }
+        *out = gml_value_real(0.0); return 1;
+    }
+    if (!strcmp(name, "buffer_seek") && count == 3) {
+        int id = (int)gm82_num_val(args[0]) - 1;
+        if (id >= 0 && id < GM82_BUFFER_MAX && g_buffers[id].active) {
+            size_t off = (size_t)gm82_num_val(args[2]);
+            if (off > g_buffers[id].size) off = g_buffers[id].size;
+            g_buffers[id].tell = off;
+        }
+        *out = gml_value_real(0.0); return 1;
+    }
+    if (!strcmp(name, "buffer_get_size") && count == 1) {
+        int id = (int)gm82_num_val(args[0]) - 1;
+        *out = gml_value_real((id >= 0 && id < GM82_BUFFER_MAX && g_buffers[id].active) ? (double)g_buffers[id].size : 0.0);
+        return 1;
+    }
+    /* D3D & Shaders */
+    if (!strcmp(name, "d3d_start") && count == 0) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "d3d_end") && count == 0) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "d3d_set_culling") && count == 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "shader_is_compiled") && count == 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "shader_set") && count == 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "shader_reset") && count == 0) { *out = gml_value_bool(1); return 1; }
     return 0;
 }
 
