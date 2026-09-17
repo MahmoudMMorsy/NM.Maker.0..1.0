@@ -141,7 +141,20 @@ void test_extended_gml_suite(void) {
         "f_key = ds_map_find_first(m);\n"
         "has_k = (f_key == \"k1\");\n"
         "ds_map_destroy(m);\n"
-        "return c_ord + n_real + sq_val + c_red + s_val + (chk_r ? 1 : 0) + (chk_s ? 1 : 0) + (has_k ? 1 : 0);\n";
+        "s_id = surface_create(100, 100);\n"
+        "s_ex = surface_exists(s_id);\n"
+        "surface_free(s_id);\n"
+        "ps = part_system_create();\n"
+        "ps_ex = part_system_exists(ps);\n"
+        "part_system_destroy(ps);\n"
+        "buf = buffer_create(1024, 0, 1);\n"
+        "buffer_write(buf, 1, 42);\n"
+        "buffer_seek(buf, 0, 0);\n"
+        "b_val = buffer_read(buf, 1);\n"
+        "buffer_delete(buf);\n"
+        "d3d_start();\n"
+        "sh_ok = shader_is_compiled(0);\n"
+        "return c_ord + n_real + sq_val + c_red + s_val + (chk_r ? 1 : 0) + (chk_s ? 1 : 0) + (has_k ? 1 : 0) + (s_ex ? 1 : 0) + (ps_ex ? 1 : 0) + b_val + (sh_ok ? 1 : 0);\n";
 
     gml_ast *ast = NULL;
     char err[160] = {0};
@@ -154,8 +167,8 @@ void test_extended_gml_suite(void) {
     int exec_ok = gml_vm_execute(&vm, ast);
     assert(exec_ok);
     assert(vm.returned);
-    /* c_ord(65) + n_real(123.5) + sq_val(25) + c_red(255) + s_val(10) + chk_r(1) + chk_s(1) + has_k(1) = 481.5 */
-    assert(vm.return_value.real == 481.5);
+    /* 481.5 + s_ex(1) + ps_ex(1) + b_val(42) + sh_ok(1) = 526.5 */
+    assert(vm.return_value.real == 526.5);
 
     gml_ast_free(ast);
 
