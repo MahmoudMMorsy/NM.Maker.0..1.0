@@ -154,7 +154,14 @@ void test_extended_gml_suite(void) {
         "buffer_delete(buf);\n"
         "d3d_start();\n"
         "sh_ok = shader_is_compiled(0);\n"
-        "return c_ord + n_real + sq_val + c_red + s_val + (chk_r ? 1 : 0) + (chk_s ? 1 : 0) + (has_k ? 1 : 0) + (s_ex ? 1 : 0) + (ps_ex ? 1 : 0) + b_val + (sh_ok ? 1 : 0);\n";
+        "dp = dot_product(2, 3, 4, 5);\n"
+        "dp3 = dot_product_3d(1, 2, 3, 4, 5, 6);\n"
+        "pdist3 = point_distance_3d(0, 0, 0, 3, 4, 12);\n"
+        "ang_diff = angle_difference(90, 45);\n"
+        "col_uk = make_colour_rgb(10, 20, 30);\n"
+        "c_grn = colour_get_green(col_uk);\n"
+        "c_blu = colour_get_blue(col_uk);\n"
+        "return c_ord + n_real + sq_val + c_red + s_val + (chk_r ? 1 : 0) + (chk_s ? 1 : 0) + (has_k ? 1 : 0) + (s_ex ? 1 : 0) + (ps_ex ? 1 : 0) + b_val + (sh_ok ? 1 : 0) + dp + dp3 + pdist3 + ang_diff + c_grn + c_blu;\n";
 
     gml_ast *ast = NULL;
     char err[160] = {0};
@@ -167,8 +174,8 @@ void test_extended_gml_suite(void) {
     int exec_ok = gml_vm_execute(&vm, ast);
     assert(exec_ok);
     assert(vm.returned);
-    /* 481.5 + s_ex(1) + ps_ex(1) + b_val(42) + sh_ok(1) = 526.5 */
-    assert(vm.return_value.real == 526.5);
+    /* 526.5 + dp(23) + dp3(32) + pdist3(13) + ang_diff(45) + c_grn(20) + c_blu(30) = 689.5 */
+    assert(vm.return_value.real == 689.5);
 
     gml_ast_free(ast);
 

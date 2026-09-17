@@ -1342,7 +1342,7 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
         }
         *out = gml_value_bool(1); return 1;
     }
-    if (!strcmp(name, "make_color_rgb") && count == 3) {
+    if ((!strcmp(name, "make_color_rgb") || !strcmp(name, "make_colour_rgb")) && count == 3) {
         int r = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0);
         int g = (int)(args[1].kind == GML_V_REAL ? args[1].real : 0);
         int b = (int)(args[2].kind == GML_V_REAL ? args[2].real : 0);
@@ -1352,7 +1352,7 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
         *out = gml_value_real((double)(r | (g << 8) | (b << 16)));
         return 1;
     }
-    if (!strcmp(name, "make_color_hsv") && count == 3) {
+    if ((!strcmp(name, "make_color_hsv") || !strcmp(name, "make_colour_hsv")) && count == 3) {
         int h = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0);
         int s = (int)(args[1].kind == GML_V_REAL ? args[1].real : 0);
         int v = (int)(args[2].kind == GML_V_REAL ? args[2].real : 0);
@@ -1369,9 +1369,62 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
         *out = gml_value_real((double)(r | (g_c << 8) | (b << 16)));
         return 1;
     }
-    if (!strcmp(name, "color_get_red") && count == 1) { int col = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0); *out = gml_value_real((double)(col & 0xFF)); return 1; }
-    if (!strcmp(name, "color_get_green") && count == 1) { int col = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0); *out = gml_value_real((double)((col >> 8) & 0xFF)); return 1; }
-    if (!strcmp(name, "color_get_blue") && count == 1) { int col = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0); *out = gml_value_real((double)((col >> 16) & 0xFF)); return 1; }
+    if ((!strcmp(name, "color_get_red") || !strcmp(name, "colour_get_red")) && count == 1) { int col = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0); *out = gml_value_real((double)(col & 0xFF)); return 1; }
+    if ((!strcmp(name, "color_get_green") || !strcmp(name, "colour_get_green")) && count == 1) { int col = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0); *out = gml_value_real((double)((col >> 8) & 0xFF)); return 1; }
+    if ((!strcmp(name, "color_get_blue") || !strcmp(name, "colour_get_blue")) && count == 1) { int col = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0); *out = gml_value_real((double)((col >> 16) & 0xFF)); return 1; }
+    if (!strcmp(name, "dot_product") && count == 4) {
+        double x1 = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double y1 = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double x2 = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double y2 = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        *out = gml_value_real(x1 * x2 + y1 * y2); return 1;
+    }
+    if (!strcmp(name, "dot_product_3d") && count == 6) {
+        double x1 = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double y1 = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double z1 = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double x2 = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        double y2 = args[4].kind == GML_V_REAL ? args[4].real : 0.0;
+        double z2 = args[5].kind == GML_V_REAL ? args[5].real : 0.0;
+        *out = gml_value_real(x1 * x2 + y1 * y2 + z1 * z2); return 1;
+    }
+    if (!strcmp(name, "dot_product_normal") && count == 4) {
+        double x1 = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double y1 = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double x2 = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double y2 = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        double l1 = sqrt(x1 * x1 + y1 * y1);
+        double l2 = sqrt(x2 * x2 + y2 * y2);
+        *out = gml_value_real((l1 > 0 && l2 > 0) ? (x1 * x2 + y1 * y2) / (l1 * l2) : 0.0); return 1;
+    }
+    if (!strcmp(name, "dot_product_3d_normal") && count == 6) {
+        double x1 = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double y1 = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double z1 = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double x2 = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        double y2 = args[4].kind == GML_V_REAL ? args[4].real : 0.0;
+        double z2 = args[5].kind == GML_V_REAL ? args[5].real : 0.0;
+        double l1 = sqrt(x1 * x1 + y1 * y1 + z1 * z1);
+        double l2 = sqrt(x2 * x2 + y2 * y2 + z2 * z2);
+        *out = gml_value_real((l1 > 0 && l2 > 0) ? (x1 * x2 + y1 * y2 + z1 * z2) / (l1 * l2) : 0.0); return 1;
+    }
+    if (!strcmp(name, "point_distance_3d") && count == 6) {
+        double x1 = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double y1 = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double z1 = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double x2 = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        double y2 = args[4].kind == GML_V_REAL ? args[4].real : 0.0;
+        double z2 = args[5].kind == GML_V_REAL ? args[5].real : 0.0;
+        double dx = x2 - x1, dy = y2 - y1, dz = z2 - z1;
+        *out = gml_value_real(sqrt(dx * dx + dy * dy + dz * dz)); return 1;
+    }
+    if (!strcmp(name, "angle_difference") && count == 2) {
+        double dest = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double src = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double diff = fmod(dest - src + 180.0, 360.0);
+        if (diff < 0) diff += 360.0;
+        *out = gml_value_real(diff - 180.0); return 1;
+    }
     if (!strcmp(name, "show_debug_message") && count == 1) {
         const char *msg = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
         printf("[GML DEBUG] %s\n", msg);
