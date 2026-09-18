@@ -53,6 +53,16 @@ export const GML_COMPAT_SCRIPT = `
     window.radtodeg = (rad) => rad * 180 / Math.PI;
     window.sign = (val) => Math.sign(val);
     window.sqr = (val) => val * val;
+    window.modwrap = (val, min, max) => { const r = max - min; return r !== 0 ? (val - r * Math.floor((val - min) / r)) : min; };
+    window.smoothstep = (min, max, val) => { let t = max !== min ? (val - min)/(max - min) : 0; t = Math.max(0, Math.min(1, t)); return t*t*(3 - 2*t); };
+    window.approach = (val, target, step) => val < target ? Math.min(val + step, target) : Math.max(val - step, target);
+    window.lerproach = (val, target, lerpamt, appamt) => { let v = val + (target - val)*lerpamt; return v < target ? Math.min(v + appamt, target) : Math.max(v - appamt, target); };
+    window.point_in_circle = (px, py, cx, cy, r) => ((px - cx)**2 + (py - cy)**2) <= r**2;
+    window.circle_in_circle = (ax, ay, ar, bx, by, br) => ((ax - bx)**2 + (ay - by)**2) <= (ar + br)**2;
+    window.point_in_rectangle = (px, py, x1, y1, x2, y2) => px >= Math.min(x1,x2) && px <= Math.max(x1,x2) && py >= Math.min(y1,y2) && py <= Math.max(y1,y2);
+    window.rectangle_in_rectangle = (ax1, ay1, ax2, ay2, bx1, by1, bx2, by2) => Math.min(ax1,ax2) <= Math.max(bx1,bx2) && Math.max(ax1,ax2) >= Math.min(bx1,bx2) && Math.min(ay1,ay2) <= Math.max(by1,by2) && Math.max(ay1,ay2) >= Math.min(by1,by2) ? 1 : 0;
+    window.pack_bools = (b7, b6, b5, b4, b3, b2, b1, b0) => ((!!b7<<7)|(!!b6<<6)|(!!b5<<5)|(!!b4<<4)|(!!b3<<3)|(!!b2<<2)|(!!b1<<1)|(!!b0?1:0));
+    window.unpack_bool = (pbool, which) => !!(pbool & (1 << Math.max(0, Math.min(7, which))));
 
     // --- GML String Functions ---
     window.string_length = (str) => String(str || '').length;
