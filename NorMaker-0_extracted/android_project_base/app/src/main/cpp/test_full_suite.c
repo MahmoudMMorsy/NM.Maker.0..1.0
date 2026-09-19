@@ -172,6 +172,20 @@ void test_extended_gml_suite(void) {
 
     gml_ast_free(ast);
 
+    /* Test newly added core functions */
+    const char *ext_script = "var w = string_width('hello'); var h = string_height('hello'); var k = keyboard_check(32); var m = mouse_check_button(1); return w + h + (k ? 100 : 0) + (m ? 200 : 0);";
+    gml_ast *ext_ast = NULL;
+    char ext_err[128] = {0};
+    assert(gml_parse_program(ext_script, &ext_ast, ext_err, sizeof(ext_err)));
+    gml_vm ext_vm;
+    gml_vm_init(&ext_vm);
+    gml_vm_set_native_call(&ext_vm, gm82_native_call, NULL);
+    assert(gml_vm_execute(&ext_vm, ext_ast));
+    assert(ext_vm.returned);
+    /* 'hello' length 5 * 8 = 40; height = 16; k=0, m=0 -> total 56 */
+    assert(ext_vm.return_value.real == 56.0);
+    gml_ast_free(ext_ast);
+
     printf("[PASS] Extended GML Suite\n");
 }
 

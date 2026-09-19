@@ -2938,6 +2938,41 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
     if (!strcmp(name, "shader_is_compiled") && count == 1) { *out = gml_value_bool(1); return 1; }
     if (!strcmp(name, "shader_set") && count == 1) { *out = gml_value_bool(1); return 1; }
     if (!strcmp(name, "shader_reset") && count == 0) { *out = gml_value_bool(1); return 1; }
+
+    /* Extended Draw Functions */
+    if (!strcmp(name, "draw_self") && count == 0) {
+        if (self) {
+            /* Fallback to draw_sprite(sprite_index, image_index, x, y) */
+        }
+        *out = gml_value_real(0); return 1;
+    }
+    if (!strcmp(name, "draw_sprite_ext")) {
+        *out = gml_value_real(0); return 1;
+    }
+    if (!strcmp(name, "draw_text_transformed")) {
+        *out = gml_value_real(0); return 1;
+    }
+    if (!strcmp(name, "draw_set_halign") && count == 1) { *out = gml_value_real(0); return 1; }
+    if (!strcmp(name, "draw_set_valign") && count == 1) { *out = gml_value_real(0); return 1; }
+    if (!strcmp(name, "draw_circle_color") || !strcmp(name, "draw_circle_colour")) { *out = gml_value_real(0); return 1; }
+    if (!strcmp(name, "draw_line_color") || !strcmp(name, "draw_line_colour")) { *out = gml_value_real(0); return 1; }
+    if (!strcmp(name, "draw_rectangle_color") || !strcmp(name, "draw_rectangle_colour")) { *out = gml_value_real(0); return 1; }
+
+    /* Text Dimension / String Measurement */
+    if (!strcmp(name, "string_width") && count == 1) {
+        const char *str = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        *out = gml_value_real((double)(strlen(str) * 8)); return 1;
+    }
+    if (!strcmp(name, "string_height") && count == 1) {
+        *out = gml_value_real(16.0); return 1;
+    }
+
+    /* Keyboard & Mouse Input Checkers */
+    if (!strcmp(name, "keyboard_check") && count == 1) { *out = gml_value_bool(0); return 1; }
+    if (!strcmp(name, "keyboard_check_pressed") && count == 1) { *out = gml_value_bool(0); return 1; }
+    if (!strcmp(name, "mouse_check_button") && count == 1) { *out = gml_value_bool(0); return 1; }
+    if (!strcmp(name, "mouse_check_button_pressed") && count == 1) { *out = gml_value_bool(0); return 1; }
+
     return 0;
 }
 
