@@ -87,14 +87,7 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [selectedIds, menu, onUpdate]);
 
-    // ⚡ Bolt: Memoize selected IDs set and selectedElement lookup to avoid linear array search on every component render.
-    const selectedIdsSet = useMemo(() => new Set(selectedIds), [selectedIds]);
-    const selectedElement = useMemo(
-        () => (selectedIds.length === 0 ? undefined : menu.elements.find(el => selectedIdsSet.has(el.id))),
-        [menu.elements, selectedIdsSet]
-    );
-
-    // ⚡ Bolt: Memoize group aggregations to avoid allocating temporary objects and arrays on every component render / drag frame.
+ main
     const { groupedElements, ungroupedElements } = useMemo(() => {
         const grouped: Record<string, UIElement[]> = {};
         const ungrouped: UIElement[] = [];
@@ -221,7 +214,7 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
                                     }
                                 }}
                                 onDoubleClick={() => handleRenameElement(el)}
-                                className={`flex items-center justify-between p-1 cursor-pointer border ${selectedIds.includes(el.id) ? 'bg-win-select text-white border-dotted border-gray-400' : 'border-transparent hover:bg-gray-100'}`}
+                                className={`flex items-center justify-between p-1 cursor-pointer border ${selectedSet.has(el.id) ? 'bg-win-select text-white border-dotted border-gray-400' : 'border-transparent hover:bg-gray-100'}`}
                             >
                                 <span className="truncate flex-1 min-w-0 pointer-events-none" title="Double click to rename">{el.name} ({el.type})</span>
                                 <div className="flex gap-1 ml-1">
@@ -271,7 +264,7 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
                 <div className="bg-black relative shadow-lg" style={{ width: 320, height: 240, overflow: 'hidden' }}>
                     {/* Mock Canvas Area (320x240 typical retro resolution) */}
                     {menu.elements.map(el => {
-                        const isSelected = selectedIds.includes(el.id);
+                        const isSelected = selectedSet.has(el.id);
                         return (
                             <div
                                 key={el.id}
