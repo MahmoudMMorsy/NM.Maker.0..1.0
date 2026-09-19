@@ -87,7 +87,28 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [selectedIds, menu, onUpdate]);
 
-    const selectedElement = menu.elements.find(el => selectedIds.includes(el.id));
+    // ⚡ Bolt: Memoize O(1) selected set index and selected element lookup to prevent O(N*K) array scans on every render frame
+    const selectedSet = useMemo(() => new Set(selectedIds), [selectedIds]);
+
+    const selectedElement = useMemo(
+        () => menu.elements.find(el => selectedSet.has(el.id)),
+        [menu.elements, selectedSet]
+    );
+
+    // ⚡ Bolt: Memoize grouped & ungrouped elements to eliminate redundant object/array allocations during high-frequency dragging and property updates
+    const { groupedElements, ungroupedElements } = useMemo(() => {
+        const grouped: Record<string, UIElement[]> = {};
+        const ungrouped: UIElement[] = [];
+        for (let i = 0; i < menu.elements.length; i++) {
+            const el = menu.elements[i];
+            if (el.groupId) {
+                (grouped[el.groupId] = grouped[el.groupId] || []).push(el);
+            } else {
+                ungrouped.push(el);
+            }
+        }
+        return { groupedElements: grouped, ungroupedElements: ungrouped };
+    }, [menu.elements]);
 
     const handleMoveOrder = (id: string, dir: -1 | 1) => {
         const idx = menu.elements.findIndex(e => e.id === id);
@@ -190,13 +211,6 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
                         </div>
                     )}
                     {(() => {
-                        const grouped: Record<string, UIElement[]> = {};
-                        const ungrouped: UIElement[] = [];
-                        menu.elements.forEach(el => {
-                            if (el.groupId) (grouped[el.groupId] = grouped[el.groupId] || []).push(el);
-                            else ungrouped.push(el);
-                        });
-
                         const renderElementItem = (el: UIElement) => (
                             <div
                                 key={el.id}
@@ -208,7 +222,7 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
                                     }
                                 }}
                                 onDoubleClick={() => handleRenameElement(el)}
-                                className={`flex items-center justify-between p-1 cursor-pointer border ${selectedIds.includes(el.id) ? 'bg-win-select text-white border-dotted border-gray-400' : 'border-transparent hover:bg-gray-100'}`}
+                                className={`flex items-center justify-between p-1 cursor-pointer border ${selectedSet.has(el.id) ? 'bg-win-select text-white border-dotted border-gray-400' : 'border-transparent hover:bg-gray-100'}`}
                             >
                                 <span className="truncate flex-1 min-w-0 pointer-events-none" title="Double click to rename">{el.name} ({el.type})</span>
                                 <div className="flex gap-1 ml-1">
@@ -227,7 +241,7 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
 
                         return (
                             <>
-                                {Object.entries(grouped).map(([gid, elements]) => (
+                                {Object.entries(groupedElements).map(([gid, elements]) => (
                                     <div key={gid} className="mb-2 border border-blue-100 rounded bg-blue-50/30 overflow-hidden">
                                         <div className="bg-blue-100/50 px-2 py-1 text-[10px] font-bold flex justify-between items-center group">
                                             <span className="flex items-center gap-1"><Square size={10} className="fill-blue-400 text-blue-500"/> Group ({elements.length})</span>
@@ -245,7 +259,7 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
                                         </div>
                                     </div>
                                 ))}
-                                {ungrouped.map(renderElementItem)}
+                                {ungroupedElements.map(renderElementItem)}
                             </>
                         );
                     })()}
@@ -258,7 +272,7 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
                 <div className="bg-black relative shadow-lg" style={{ width: 320, height: 240, overflow: 'hidden' }}>
                     {/* Mock Canvas Area (320x240 typical retro resolution) */}
                     {menu.elements.map(el => {
-                        const isSelected = selectedIds.includes(el.id);
+                        const isSelected = selectedSet.has(el.id);
                         return (
                             <div
                                 key={el.id}
