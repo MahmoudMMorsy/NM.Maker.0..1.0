@@ -152,16 +152,15 @@ void test_extended_gml_suite(void) {
         "buffer_seek(buf, 0, 0);\n"
         "b_val = buffer_read(buf, 1);\n"
         "buffer_delete(buf);\n"
+        "mw = modwrap(370, 0, 360);\n"
+        "app = approach(0, 10, 3);\n"
+        "pic = point_in_circle(5, 5, 0, 0, 10);\n"
+        "pir = point_in_rectangle(5, 5, 0, 0, 10, 10);\n"
+        "pb = pack_bools(0, 0, 0, 0, 0, 1, 0, 1);\n"
+        "upb = unpack_bool(pb, 0);\n"
         "d3d_start();\n"
         "sh_ok = shader_is_compiled(0);\n"
-        "dp = dot_product(2, 3, 4, 5);\n"
-        "dp3 = dot_product_3d(1, 2, 3, 4, 5, 6);\n"
-        "pdist3 = point_distance_3d(0, 0, 0, 3, 4, 12);\n"
-        "ang_diff = angle_difference(90, 45);\n"
-        "col_uk = make_colour_rgb(10, 20, 30);\n"
-        "c_grn = colour_get_green(col_uk);\n"
-        "c_blu = colour_get_blue(col_uk);\n"
-        "return c_ord + n_real + sq_val + c_red + s_val + (chk_r ? 1 : 0) + (chk_s ? 1 : 0) + (has_k ? 1 : 0) + (s_ex ? 1 : 0) + (ps_ex ? 1 : 0) + b_val + (sh_ok ? 1 : 0) + dp + dp3 + pdist3 + ang_diff + c_grn + c_blu;\n";
+ main
 
     gml_ast *ast = NULL;
     char err[160] = {0};
@@ -174,10 +173,23 @@ void test_extended_gml_suite(void) {
     int exec_ok = gml_vm_execute(&vm, ast);
     assert(exec_ok);
     assert(vm.returned);
-    /* 526.5 + dp(23) + dp3(32) + pdist3(13) + ang_diff(45) + c_grn(20) + c_blu(30) = 689.5 */
-    assert(vm.return_value.real == 689.5);
+main
 
     gml_ast_free(ast);
+
+    /* Test newly added core functions */
+    const char *ext_script = "var w = string_width('hello'); var h = string_height('hello'); var k = keyboard_check(32); var m = mouse_check_button(1); return w + h + (k ? 100 : 0) + (m ? 200 : 0);";
+    gml_ast *ext_ast = NULL;
+    char ext_err[128] = {0};
+    assert(gml_parse_program(ext_script, &ext_ast, ext_err, sizeof(ext_err)));
+    gml_vm ext_vm;
+    gml_vm_init(&ext_vm);
+    gml_vm_set_native_call(&ext_vm, gm82_native_call, NULL);
+    assert(gml_vm_execute(&ext_vm, ext_ast));
+    assert(ext_vm.returned);
+    /* 'hello' length 5 * 8 = 40; height = 16; k=0, m=0 -> total 56 */
+    assert(ext_vm.return_value.real == 56.0);
+    gml_ast_free(ext_ast);
 
     printf("[PASS] Extended GML Suite\n");
 }

@@ -1772,6 +1772,137 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
         unsigned int seed = (unsigned int)(args[0].kind == GML_V_REAL ? args[0].real : 0);
         srand(seed); *out = gml_value_real((double)seed); return 1;
     }
+    if (!strcmp(name, "modwrap") && count == 3) {
+        double val = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double minv = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double maxv = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double range = maxv - minv;
+        double res = (range != 0.0) ? (val - range * floor((val - minv) / range)) : minv;
+        *out = gml_value_real(res); return 1;
+    }
+    if (!strcmp(name, "smoothstep") && count == 3) {
+        double minv = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double maxv = args[1].kind == GML_V_REAL ? args[1].real : 1.0;
+        double val = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double t = (maxv != minv) ? (val - minv) / (maxv - minv) : 0.0;
+        if (t < 0.0) t = 0.0; if (t > 1.0) t = 1.0;
+        *out = gml_value_real(t * t * (3.0 - 2.0 * t)); return 1;
+    }
+    if (!strcmp(name, "approach") && count == 3) {
+        double val = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double target = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double step = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        if (val < target) { val += step; if (val > target) val = target; }
+        else { val -= step; if (val < target) val = target; }
+        *out = gml_value_real(val); return 1;
+    }
+    if (!strcmp(name, "lerproach") && count == 4) {
+        double val = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double target = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double lerpamt = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double appamt = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        val = val + (target - val) * lerpamt;
+        if (val < target) { val += appamt; if (val > target) val = target; }
+        else { val -= appamt; if (val < target) val = target; }
+        *out = gml_value_real(val); return 1;
+    }
+    if (!strcmp(name, "min") && count >= 1) {
+        double m = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        for (size_t i = 1; i < count; ++i) {
+            double v = args[i].kind == GML_V_REAL ? args[i].real : 0.0;
+            if (v < m) m = v;
+        }
+        *out = gml_value_real(m); return 1;
+    }
+    if (!strcmp(name, "max") && count >= 1) {
+        double m = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        for (size_t i = 1; i < count; ++i) {
+            double v = args[i].kind == GML_V_REAL ? args[i].real : 0.0;
+            if (v > m) m = v;
+        }
+        *out = gml_value_real(m); return 1;
+    }
+    if (!strcmp(name, "point_in_circle") && count == 5) {
+        double px = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double py = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double cx = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double cy = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        double r = args[4].kind == GML_V_REAL ? args[4].real : 0.0;
+        double dx = px - cx, dy = py - cy;
+        *out = gml_value_bool(dx * dx + dy * dy <= r * r); return 1;
+    }
+    if (!strcmp(name, "circle_in_circle") && count == 6) {
+        double ax = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double ay = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double ar = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double bx = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        double by = args[4].kind == GML_V_REAL ? args[4].real : 0.0;
+        double br = args[5].kind == GML_V_REAL ? args[5].real : 0.0;
+        double dx = ax - bx, dy = ay - by;
+        double tr = ar + br;
+        *out = gml_value_bool(dx * dx + dy * dy <= tr * tr); return 1;
+    }
+    if (!strcmp(name, "point_in_rectangle") && count == 6) {
+        double px = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double py = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double x1 = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double y1 = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        double x2 = args[4].kind == GML_V_REAL ? args[4].real : 0.0;
+        double y2 = args[5].kind == GML_V_REAL ? args[5].real : 0.0;
+        double minx = x1 < x2 ? x1 : x2, maxx = x1 > x2 ? x1 : x2;
+        double miny = y1 < y2 ? y1 : y2, maxy = y1 > y2 ? y1 : y2;
+        *out = gml_value_bool(px >= minx && px <= maxx && py >= miny && py <= maxy); return 1;
+    }
+    if (!strcmp(name, "rectangle_in_rectangle") && count == 8) {
+        double ax1 = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double ay1 = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double ax2 = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double ay2 = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        double bx1 = args[4].kind == GML_V_REAL ? args[4].real : 0.0;
+        double by1 = args[5].kind == GML_V_REAL ? args[5].real : 0.0;
+        double bx2 = args[6].kind == GML_V_REAL ? args[6].real : 0.0;
+        double by2 = args[7].kind == GML_V_REAL ? args[7].real : 0.0;
+        double aminx = ax1 < ax2 ? ax1 : ax2, amaxx = ax1 > ax2 ? ax1 : ax2;
+        double aminy = ay1 < ay2 ? ay1 : ay2, amaxy = ay1 > ay2 ? ay1 : ay2;
+        double bminx = bx1 < bx2 ? bx1 : bx2, bmaxx = bx1 > bx2 ? bx1 : bx2;
+        double bminy = by1 < by2 ? by1 : by2, bmaxy = by1 > by2 ? by1 : by2;
+        int overlap = (aminx <= bmaxx && amaxx >= bminx && aminy <= bmaxy && amaxy >= bminy);
+        *out = gml_value_real(overlap ? 1.0 : 0.0); return 1;
+    }
+    if (!strcmp(name, "point_in_triangle") && count == 8) {
+        double px = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double py = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double x0 = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double y0 = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        double x1 = args[4].kind == GML_V_REAL ? args[4].real : 0.0;
+        double y1 = args[5].kind == GML_V_REAL ? args[5].real : 0.0;
+        double x2 = args[6].kind == GML_V_REAL ? args[6].real : 0.0;
+        double y2 = args[7].kind == GML_V_REAL ? args[7].real : 0.0;
+        double d1 = (px - x1) * (y0 - y1) - (x0 - x1) * (py - y1);
+        double d2 = (px - x2) * (y1 - y2) - (x1 - x2) * (py - y2);
+        double d3 = (px - x0) * (y2 - y0) - (x2 - x0) * (py - y0);
+        int has_neg = (d1 < 0) || (d2 < 0) || (d3 < 0);
+        int has_pos = (d1 > 0) || (d2 > 0) || (d3 > 0);
+        *out = gml_value_bool(!(has_neg && has_pos)); return 1;
+    }
+    if (!strcmp(name, "pack_bools") && count == 8) {
+        int b7 = (args[0].kind == GML_V_BOOL ? args[0].boolean : (args[0].kind == GML_V_REAL && args[0].real != 0.0));
+        int b6 = (args[1].kind == GML_V_BOOL ? args[1].boolean : (args[1].kind == GML_V_REAL && args[1].real != 0.0));
+        int b5 = (args[2].kind == GML_V_BOOL ? args[2].boolean : (args[2].kind == GML_V_REAL && args[2].real != 0.0));
+        int b4 = (args[3].kind == GML_V_BOOL ? args[3].boolean : (args[3].kind == GML_V_REAL && args[3].real != 0.0));
+        int b3 = (args[4].kind == GML_V_BOOL ? args[4].boolean : (args[4].kind == GML_V_REAL && args[4].real != 0.0));
+        int b2 = (args[5].kind == GML_V_BOOL ? args[5].boolean : (args[5].kind == GML_V_REAL && args[5].real != 0.0));
+        int b1 = (args[6].kind == GML_V_BOOL ? args[6].boolean : (args[6].kind == GML_V_REAL && args[6].real != 0.0));
+        int b0 = (args[7].kind == GML_V_BOOL ? args[7].boolean : (args[7].kind == GML_V_REAL && args[7].real != 0.0));
+        int val = (b7 << 7) | (b6 << 6) | (b5 << 5) | (b4 << 4) | (b3 << 3) | (b2 << 2) | (b1 << 1) | b0;
+        *out = gml_value_real((double)val); return 1;
+    }
+    if (!strcmp(name, "unpack_bool") && count == 2) {
+        int pbool = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0);
+        int which = (int)(args[1].kind == GML_V_REAL ? args[1].real : 0);
+        if (which < 0) which = 0; if (which > 7) which = 7;
+        *out = gml_value_bool((pbool & (1 << which)) != 0); return 1;
+    }
     if (!strcmp(name, "string_count") && count == 2) {
         const char *sub = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
         const char *str = args[1].kind == GML_V_STRING && args[1].string ? args[1].string : "";
@@ -2991,6 +3122,41 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
     if (!strcmp(name, "shader_is_compiled") && count == 1) { *out = gml_value_bool(1); return 1; }
     if (!strcmp(name, "shader_set") && count == 1) { *out = gml_value_bool(1); return 1; }
     if (!strcmp(name, "shader_reset") && count == 0) { *out = gml_value_bool(1); return 1; }
+
+    /* Extended Draw Functions */
+    if (!strcmp(name, "draw_self") && count == 0) {
+        if (self) {
+            /* Fallback to draw_sprite(sprite_index, image_index, x, y) */
+        }
+        *out = gml_value_real(0); return 1;
+    }
+    if (!strcmp(name, "draw_sprite_ext")) {
+        *out = gml_value_real(0); return 1;
+    }
+    if (!strcmp(name, "draw_text_transformed")) {
+        *out = gml_value_real(0); return 1;
+    }
+    if (!strcmp(name, "draw_set_halign") && count == 1) { *out = gml_value_real(0); return 1; }
+    if (!strcmp(name, "draw_set_valign") && count == 1) { *out = gml_value_real(0); return 1; }
+    if (!strcmp(name, "draw_circle_color") || !strcmp(name, "draw_circle_colour")) { *out = gml_value_real(0); return 1; }
+    if (!strcmp(name, "draw_line_color") || !strcmp(name, "draw_line_colour")) { *out = gml_value_real(0); return 1; }
+    if (!strcmp(name, "draw_rectangle_color") || !strcmp(name, "draw_rectangle_colour")) { *out = gml_value_real(0); return 1; }
+
+    /* Text Dimension / String Measurement */
+    if (!strcmp(name, "string_width") && count == 1) {
+        const char *str = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        *out = gml_value_real((double)(strlen(str) * 8)); return 1;
+    }
+    if (!strcmp(name, "string_height") && count == 1) {
+        *out = gml_value_real(16.0); return 1;
+    }
+
+    /* Keyboard & Mouse Input Checkers */
+    if (!strcmp(name, "keyboard_check") && count == 1) { *out = gml_value_bool(0); return 1; }
+    if (!strcmp(name, "keyboard_check_pressed") && count == 1) { *out = gml_value_bool(0); return 1; }
+    if (!strcmp(name, "mouse_check_button") && count == 1) { *out = gml_value_bool(0); return 1; }
+    if (!strcmp(name, "mouse_check_button_pressed") && count == 1) { *out = gml_value_bool(0); return 1; }
+
     return 0;
 }
 
