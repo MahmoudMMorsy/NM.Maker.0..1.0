@@ -87,14 +87,7 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [selectedIds, menu, onUpdate]);
 
-    // ⚡ Bolt: Memoize selected IDs Set for O(1) membership checks and memoize selectedElement to eliminate per-render linear array scans.
-    const selectedIdsSet = useMemo(() => new Set(selectedIds), [selectedIds]);
-    const selectedElement = useMemo(
-        () => menu.elements.find(el => selectedIdsSet.has(el.id)),
-        [menu.elements, selectedIdsSet]
-    );
-
-    // ⚡ Bolt: Memoize element grouping by groupId to prevent object/array re-allocation thrashing during 60 FPS element dragging.
+main
     const { groupedElements, ungroupedElements } = useMemo(() => {
         const grouped: Record<string, UIElement[]> = {};
         const ungrouped: UIElement[] = [];
@@ -221,7 +214,7 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
                                     }
                                 }}
                                 onDoubleClick={() => handleRenameElement(el)}
-                                className={`flex items-center justify-between p-1 cursor-pointer border ${selectedIdsSet.has(el.id) ? 'bg-win-select text-white border-dotted border-gray-400' : 'border-transparent hover:bg-gray-100'}`}
+ main
                             >
                                 <span className="truncate flex-1 min-w-0 pointer-events-none" title="Double click to rename">{el.name} ({el.type})</span>
                                 <div className="flex gap-1 ml-1">
@@ -271,7 +264,7 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
                 <div className="bg-black relative shadow-lg" style={{ width: 320, height: 240, overflow: 'hidden' }}>
                     {/* Mock Canvas Area (320x240 typical retro resolution) */}
                     {menu.elements.map(el => {
-                        const isSelected = selectedIds.includes(el.id);
+                        const isSelected = selectedSet.has(el.id);
                         return (
                             <div
                                 key={el.id}
