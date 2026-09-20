@@ -87,15 +87,7 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [selectedIds, menu, onUpdate]);
 
-main
-            if (el.groupId) {
-                (grouped[el.groupId] = grouped[el.groupId] || []).push(el);
-            } else {
-                ungrouped.push(el);
-            }
-main
-        return { groupedElements: grouped, ungroupedElements: ungrouped };
-    }, [menu.elements]);
+    const selectedElement = menu.elements.find(el => selectedIds.includes(el.id));
 
     const handleMoveOrder = (id: string, dir: -1 | 1) => {
         const idx = menu.elements.findIndex(e => e.id === id);
@@ -198,6 +190,13 @@ main
                         </div>
                     )}
                     {(() => {
+                        const grouped: Record<string, UIElement[]> = {};
+                        const ungrouped: UIElement[] = [];
+                        menu.elements.forEach(el => {
+                            if (el.groupId) (grouped[el.groupId] = grouped[el.groupId] || []).push(el);
+                            else ungrouped.push(el);
+                        });
+
                         const renderElementItem = (el: UIElement) => (
                             <div
                                 key={el.id}
@@ -209,7 +208,7 @@ main
                                     }
                                 }}
                                 onDoubleClick={() => handleRenameElement(el)}
- main
+                                className={`flex items-center justify-between p-1 cursor-pointer border ${selectedIds.includes(el.id) ? 'bg-win-select text-white border-dotted border-gray-400' : 'border-transparent hover:bg-gray-100'}`}
                             >
                                 <span className="truncate flex-1 min-w-0 pointer-events-none" title="Double click to rename">{el.name} ({el.type})</span>
                                 <div className="flex gap-1 ml-1">
@@ -228,7 +227,7 @@ main
 
                         return (
                             <>
-                                {Object.entries(groupedElements).map(([gid, elements]) => (
+                                {Object.entries(grouped).map(([gid, elements]) => (
                                     <div key={gid} className="mb-2 border border-blue-100 rounded bg-blue-50/30 overflow-hidden">
                                         <div className="bg-blue-100/50 px-2 py-1 text-[10px] font-bold flex justify-between items-center group">
                                             <span className="flex items-center gap-1"><Square size={10} className="fill-blue-400 text-blue-500"/> Group ({elements.length})</span>
@@ -246,7 +245,7 @@ main
                                         </div>
                                     </div>
                                 ))}
-                                {ungroupedElements.map(renderElementItem)}
+                                {ungrouped.map(renderElementItem)}
                             </>
                         );
                     })()}
@@ -259,7 +258,7 @@ main
                 <div className="bg-black relative shadow-lg" style={{ width: 320, height: 240, overflow: 'hidden' }}>
                     {/* Mock Canvas Area (320x240 typical retro resolution) */}
                     {menu.elements.map(el => {
-                        const isSelected = selectedSet.has(el.id);
+                        const isSelected = selectedIds.includes(el.id);
                         return (
                             <div
                                 key={el.id}

@@ -766,20 +766,10 @@ export const analyzeProject = (project: ProjectSnapshot): AnalysisReport => {
     ...checkGameplay(project),
   ];
 
-  // ⚡ Bolt: Single-pass loop to calculate issue counts and avoid 4 array allocations from .filter()
-  let errorCount = 0;
-  let warningCount = 0;
-  let infoCount = 0;
-  let autoFixCount = 0;
-
-  for (let i = 0; i < allIssues.length; i++) {
-    const issue = allIssues[i];
-    if (issue.severity === 'error') errorCount++;
-    else if (issue.severity === 'warning') warningCount++;
-    else if (issue.severity === 'info') infoCount++;
-
-    if (issue.fixable) autoFixCount++;
-  }
+  const errorCount = allIssues.filter(i => i.severity === 'error').length;
+  const warningCount = allIssues.filter(i => i.severity === 'warning').length;
+  const infoCount = allIssues.filter(i => i.severity === 'info').length;
+  const autoFixCount = allIssues.filter(i => i.fixable).length;
   const aiFixCount = 0; // سيتم احتسابه بعد البحث في قاعدة البيانات
 
   // حساب Health Score

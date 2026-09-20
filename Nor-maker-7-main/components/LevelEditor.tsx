@@ -236,28 +236,6 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
     return count;
   }, [levelData]);
 
-  // ⚡ Bolt: Memoize room instance counts per object/tile ID to avoid re-scanning levelData (up to 250,000 cells) and allocating new objects/arrays on every component render.
-  const roomInstanceCounts = useMemo(() => {
-    const counts: { [key: number]: { name: string; indices: number[] } } = {};
-    for (let idx = 0; idx < levelData.length; idx++) {
-      const id = levelData[idx];
-      if (id !== 0) {
-        if (!counts[id]) {
-          let name = 'Unknown';
-          if (id === 1) name = 'Solid Wall';
-          else {
-            const obj = gameObjects[id - 2];
-            if (obj) name = obj.name;
-          }
-          counts[id] = { name, indices: [] };
-        }
-        counts[id].indices.push(idx);
-      }
-    }
-    const sortedIds = Object.keys(counts).map(Number).sort((a, b) => a - b);
-    return { counts, sortedIds };
-  }, [levelData, gameObjects]);
-
   // ⚡ Bolt: Pre-resolve wall tile definition (ID=1) before looping through grid tiles to avoid linear array search `tileDefs?.find()` inside high-frequency canvas render loops.
   const wallTileDef = useMemo(() => tileDefs?.find(t => t.id === 1), [tileDefs]);
 
@@ -980,58 +958,75 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
                         <div className="flex flex-col gap-2 h-full overflow-hidden">
                             <div className="text-gray-600 font-bold mb-1 px-1">Room Instances</div>
                             <div className="flex-1 overflow-y-auto border border-win-shadow shadow-win-in bg-white p-1">
-                                {roomInstanceCounts.sortedIds.length === 0 ? (
-                                    <div className="text-gray-400 text-center py-4 italic">No instances in room</div>
-                                ) : (
-                                    roomInstanceCounts.sortedIds.map(id => {
-                                        const instanceGroup = roomInstanceCounts.counts[id];
-                                        return (
-                                            <div key={id} className="mb-3 border-b border-gray-100 pb-2">
-                                                <div className="flex items-center justify-between bg-gray-50 p-1 mb-1">
-                                                    <span className="font-bold text-win-blue truncate max-w-[150px]">{instanceGroup.name} ({instanceGroup.indices.length})</span>
-                                                    <button
-                                                        onClick={() => {
-                                                            if (window.confirm(`Delete all ${instanceGroup.indices.length} instances of ${instanceGroup.name}?`)) {
-                                                                const newData = levelData.map(v => v === id ? 0 : v);
-                                                                onUpdate(newData);
-                                                            }
-                                                        }}
-                                                        className="text-[9px] bg-red-50 text-red-600 border border-red-200 px-1 hover:bg-red-600 hover:text-white rounded"
-                                                    >
-                                                        Clear All
-                                                    </button>
-                                                </div>
-                                                <div className="grid grid-cols-1 gap-0.5 pl-2">
-                                                    {instanceGroup.indices.map(idx => {
-                                                        const x = idx % width;
-                                                        const y = Math.floor(idx / width);
-                                                        return (
-                                                            <div
-                                                                key={idx}
-                                                                className="flex items-center justify-between text-[10px] hover:bg-blue-50 group px-1 cursor-default"
-                                                                onMouseEnter={() => setHoverPos({x, y})}
-                                                                onMouseLeave={() => setHoverPos(null)}
-                                                            >
-                                                                <span>Pos: ({x}, {y})</span>
-                                                                <button
-                                                                    onClick={() => {
-                                                                        const newData = [...levelData];
-                                                                        newData[idx] = 0;
-                                                                        onUpdate(newData);
-                                                                    }}
-                                                                    className="opacity-0 group-hover:opacity-100 text-red-500 hover:font-bold"
-                                                                    title="Delete this instance"
-                                                                >
-                                                                    ✕
-                                                                </button>
-                                                            </div>
-                                                        );
-                                                    })}
-                                                </div>
+                                {(() => {
+                                    const counts: { [key: number]: { name: string, indices: number[] } } = {};
+                                    levelData.forEach((id, idx) => {
+                                        if (id !== 0) {
+                                            if (!counts[id]) {
+                                                let name = "Unknown";
+                                                if (id === 1) name = "Solid Wall";
+                                                else {
+                                                    const obj = gameObjects[id - 2];
+                                                    if (obj) name = obj.name;
+                                                }
+                                                counts[id] = { name, indices: [] };
+                                            }
+                                            counts[id].indices.push(idx);
+                                        }
+                                    });
+
+                                    const sortedIds = Object.keys(counts).map(Number).sort((a, b) => a - b);
+
+                                    if (sortedIds.length === 0) {
+                                        return <div className="text-gray-400 text-center py-4 italic">No instances in room</div>;
+                                    }
+
+                                    return sortedIds.map(id => (
+                                        <div key={id} className="mb-3 border-b border-gray-100 pb-2">
+                                            <div className="flex items-center justify-between bg-gray-50 p-1 mb-1">
+                                                <span className="font-bold text-win-blue truncate max-w-[150px]">{counts[id].name} ({counts[id].indices.length})</span>
+                                                <button
+                                                    onClick={() => {
+                                                        if (window.confirm(`Delete all ${counts[id].indices.length} instances of ${counts[id].name}?`)) {
+                                                            const newData = levelData.map(v => v === id ? 0 : v);
+                                                            onUpdate(newData);
+                                                        }
+                                                    }}
+                                                    className="text-[9px] bg-red-50 text-red-600 border border-red-200 px-1 hover:bg-red-600 hover:text-white rounded"
+                                                >
+                                                    Clear All
+                                                </button>
                                             </div>
-                                        );
-                                    })
-                                )}
+                                            <div className="grid grid-cols-1 gap-0.5 pl-2">
+                                                {counts[id].indices.map(idx => {
+                                                    const x = idx % width;
+                                                    const y = Math.floor(idx / width);
+                                                    return (
+                                                        <div
+                                                            key={idx}
+                                                            className="flex items-center justify-between text-[10px] hover:bg-blue-50 group px-1 cursor-default"
+                                                            onMouseEnter={() => setHoverPos({x, y})}
+                                                            onMouseLeave={() => setHoverPos(null)}
+                                                        >
+                                                            <span>Pos: ({x}, {y})</span>
+                                                            <button
+                                                                onClick={() => {
+                                                                    const newData = [...levelData];
+                                                                    newData[idx] = 0;
+                                                                    onUpdate(newData);
+                                                                }}
+                                                                className="opacity-0 group-hover:opacity-100 text-red-500 hover:font-bold"
+                                                                title="Delete this instance"
+                                                            >
+                                                                ✕
+                                                            </button>
+                                                        </div>
+                                                    );
+                                                })}
+                                            </div>
+                                        </div>
+                                    ));
+                                })()}
                             </div>
                         </div>
                     )}

@@ -66,12 +66,7 @@ class NORSoundEngine {
       if (src.startsWith('data:')) {
         const base64 = src.split(',')[1];
         const binary  = atob(base64);
-        // ⚡ Bolt: Use in-place imperative loop instead of .map() to avoid allocating temporary JS arrays and function closures per byte during base64 audio decoding.
-        const bytes = new Uint8Array(binary.length);
-        for (let i = 0; i < binary.length; i++) {
-          bytes[i] = binary.charCodeAt(i);
-        }
-        arrayBuffer = bytes.buffer;
+        arrayBuffer   = new Uint8Array(binary.length).map((_, i) => binary.charCodeAt(i)).buffer;
       } else if (src.startsWith('blob:')) {
         arrayBuffer = await fetch(src).then(r => r.arrayBuffer());
       } else {
@@ -294,12 +289,7 @@ export const GAME_AUDIO_SCRIPT = `
       if (src.startsWith('data:')) {
         const b64 = src.split(',')[1];
         const bin = atob(b64);
-        // ⚡ Bolt: In-place byte copy loop to avoid memory overhead and GC churn in the runtime iframe audio decoder
-        const bytes = new Uint8Array(bin.length);
-        for (let i = 0; i < bin.length; i++) {
-          bytes[i] = bin.charCodeAt(i);
-        }
-        ab = bytes.buffer;
+        ab = new Uint8Array(bin.length).map((_,i)=>bin.charCodeAt(i)).buffer;
       } else if (src.startsWith('blob:')) {
         ab = await fetch(src).then(r=>r.arrayBuffer());
       } else return null;
