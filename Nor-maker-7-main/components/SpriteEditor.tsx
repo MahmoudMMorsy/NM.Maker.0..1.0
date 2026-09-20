@@ -653,11 +653,15 @@ const SpriteEditor: React.FC<SpriteEditorProps> = ({ initialImage, spriteId, rol
       const [fr, fg, fb] = computed.match(/\d+/g)!.map(Number);
 
       if (r === fr && g === fg && b === fb && a === 255) return;
-      const stack = [[startX, startY]];
-      while(stack.length) {
-          const [x, y] = stack.pop()!;
-          const pos = (y * canvasSize.w + x) * 4;
-          if (x < 0 || x >= canvasSize.w || y < 0 || y >= canvasSize.h) continue;
+      // ⚡ Bolt: Optimize BFS flood fill using a 1D scalar index stack to avoid thousands of `[x, y]` tuple array allocations per fill operation
+      const w = canvasSize.w;
+      const h = canvasSize.h;
+      const stack: number[] = [startY * w + startX];
+      while (stack.length > 0) {
+          const idx = stack.pop()!;
+          const x = idx % w;
+          const y = (idx / w) | 0;
+          const pos = idx * 4;
 
           const isTransparent = data[pos+3] === 0;
           const startIsTransparent = a === 0;
@@ -668,7 +672,10 @@ const SpriteEditor: React.FC<SpriteEditorProps> = ({ initialImage, spriteId, rol
 
           if (match) {
               data[pos] = fr; data[pos+1] = fg; data[pos+2] = fb; data[pos+3] = 255;
-              stack.push([x+1, y], [x-1, y], [x, y+1], [x, y-1]);
+              if (x + 1 < w) stack.push(idx + 1);
+              if (x - 1 >= 0) stack.push(idx - 1);
+              if (y + 1 < h) stack.push(idx + w);
+              if (y - 1 >= 0) stack.push(idx - w);
           }
       }
       ctx.putImageData(imageData, 0, 0);
