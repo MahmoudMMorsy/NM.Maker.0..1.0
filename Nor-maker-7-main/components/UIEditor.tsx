@@ -87,15 +87,7 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [selectedIds, menu, onUpdate]);
 
-    // ⚡ Bolt: Memoize O(1) selected set index and selected element lookup to prevent O(N*K) array scans on every render frame
-    const selectedSet = useMemo(() => new Set(selectedIds), [selectedIds]);
-
-    const selectedElement = useMemo(
-        () => menu.elements.find(el => selectedSet.has(el.id)),
-        [menu.elements, selectedSet]
-    );
-
-    // ⚡ Bolt: Memoize grouped & ungrouped elements to eliminate redundant object/array allocations during high-frequency dragging and property updates
+ main
     const { groupedElements, ungroupedElements } = useMemo(() => {
         const grouped: Record<string, UIElement[]> = {};
         const ungrouped: UIElement[] = [];
