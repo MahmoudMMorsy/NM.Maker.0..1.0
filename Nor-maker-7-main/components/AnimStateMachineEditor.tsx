@@ -149,8 +149,7 @@ const AnimStateMachineEditor: React.FC<Props> = ({ fsm: fsmProp, sprites, onUpda
     return map;
   }, [sprites]);
 
-  // ⚡ Bolt Optimization: Pre-build O(1) Map indices for transitions and state outgoing transition collections
-  // to avoid O(N) linear array searches (.find) and per-frame array allocations (.filter) during high-frequency graph renders (e.g. state dragging at 60fps).
+ main
   const transitionMap = useMemo(() => {
     const map = new Map<string, AnimTransition>();
     for (const t of fsm.transitions) map.set(t.id, t);
@@ -160,12 +159,7 @@ const AnimStateMachineEditor: React.FC<Props> = ({ fsm: fsmProp, sprites, onUpda
   const outgoingTransitionsMap = useMemo(() => {
     const map = new Map<string, AnimTransition[]>();
     for (const t of fsm.transitions) {
-      const list = map.get(t.from);
-      if (list) {
-        list.push(t);
-      } else {
-        map.set(t.from, [t]);
-      }
+main
     }
     return map;
   }, [fsm.transitions]);
@@ -188,6 +182,7 @@ const AnimStateMachineEditor: React.FC<Props> = ({ fsm: fsmProp, sprites, onUpda
 
   const selectedState = selectedStateId ? stateMap.get(selectedStateId) || null : null;
   const selectedTransition = selectedTransitionId ? transitionMap.get(selectedTransitionId) || null : null;
+main
 
   // ---------- render helpers ----------
   const STATE_W = 110, STATE_H = 44;
@@ -326,21 +321,7 @@ const AnimStateMachineEditor: React.FC<Props> = ({ fsm: fsmProp, sprites, onUpda
 
                 <div className="border-t border-gray-400 mt-3 pt-2">
                   <div className="font-bold text-[10px] mb-1 text-blue-900">Outgoing Transitions</div>
-                  {(() => {
-                    const outgoing = outgoingTransitionsMap.get(selectedState.id) || [];
-                    if (outgoing.length === 0) {
-                      return <div className="text-[10px] text-gray-500 italic">No outgoing transitions</div>;
-                    }
-                    return outgoing.map(t => {
-                      const dst = stateMap.get(t.to);
-                      return (
-                        <div key={t.id} onClick={() => setSelectedTransitionId(t.id)}
-                          className={`text-[10px] px-1 py-0.5 cursor-pointer rounded mb-0.5 ${selectedTransitionId === t.id ? 'bg-red-200' : 'hover:bg-blue-100'}`}>
-                          → {dst?.name} {t.condition && <span className="text-blue-700 italic">[{t.condition}]</span>}
-                        </div>
-                      );
-                    });
-                  })()}
+main
                 </div>
               </div>
             ) : selectedTransition ? (
