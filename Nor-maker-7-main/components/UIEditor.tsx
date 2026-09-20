@@ -87,7 +87,7 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [selectedIds, menu, onUpdate]);
 
- main
+main
     const { groupedElements, ungroupedElements } = useMemo(() => {
         const grouped: Record<string, UIElement[]> = {};
         const ungrouped: UIElement[] = [];
@@ -214,7 +214,7 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
                                     }
                                 }}
                                 onDoubleClick={() => handleRenameElement(el)}
-                                className={`flex items-center justify-between p-1 cursor-pointer border ${selectedSet.has(el.id) ? 'bg-win-select text-white border-dotted border-gray-400' : 'border-transparent hover:bg-gray-100'}`}
+ main
                             >
                                 <span className="truncate flex-1 min-w-0 pointer-events-none" title="Double click to rename">{el.name} ({el.type})</span>
                                 <div className="flex gap-1 ml-1">
