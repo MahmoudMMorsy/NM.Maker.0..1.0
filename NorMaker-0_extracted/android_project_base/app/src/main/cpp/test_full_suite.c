@@ -160,7 +160,7 @@ void test_extended_gml_suite(void) {
         "upb = unpack_bool(pb, 0);\n"
         "d3d_start();\n"
         "sh_ok = shader_is_compiled(0);\n"
-        "return c_ord + n_real + sq_val + c_red + s_val + (chk_r ? 1 : 0) + (chk_s ? 1 : 0) + (has_k ? 1 : 0) + (s_ex ? 1 : 0) + (ps_ex ? 1 : 0) + b_val + (sh_ok ? 1 : 0) + mw + app + (pic ? 1 : 0) + (pir ? 1 : 0) + pb + (upb ? 1 : 0);\n";
+ main
 
     gml_ast *ast = NULL;
     char err[160] = {0};
@@ -173,8 +173,7 @@ void test_extended_gml_suite(void) {
     int exec_ok = gml_vm_execute(&vm, ast);
     assert(exec_ok);
     assert(vm.returned);
-    /* 526.5 + mw(10) + app(3) + pic(1) + pir(1) + pb(5) + upb(1) = 547.5 */
-    assert(vm.return_value.real == 547.5);
+main
 
     gml_ast_free(ast);
 
