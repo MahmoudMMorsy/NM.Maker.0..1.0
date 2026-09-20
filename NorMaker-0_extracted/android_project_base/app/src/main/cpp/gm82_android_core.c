@@ -1,5 +1,4 @@
 #include <jni.h>
-main
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -203,6 +202,11 @@ static gm82_ds_list g_ds_lists[GM82_DS_MAX];
 static gm82_ds_map g_ds_maps[GM82_DS_MAX];
 static gm82_ds_stack g_ds_stacks[GM82_DS_MAX];
 static gm82_ds_queue g_ds_queues[GM82_DS_MAX];
+static double gm82_num_val(gml_value v) {
+    if (v.kind == GML_V_BOOL) return v.boolean;
+    if (v.kind == GML_V_REAL) return v.real;
+    return 0.0;
+}
 static gml_value gm82_clone_value(const gml_value *v) {
     if (!v) return gml_value_real(0);
     if (v->kind == GML_V_STRING) return gml_value_string(v->string ? v->string : "");
@@ -213,6 +217,15 @@ static gml_value gm82_clone_value(const gml_value *v) {
 #define GM82_GRID_DIM 64
 typedef struct { int active; int width; int height; gml_value cells[GM82_GRID_DIM * GM82_GRID_DIM]; } gm82_ds_grid;
 static gm82_ds_grid g_ds_grids[GM82_GRID_MAX];
+
+#define GM82_BUFFER_MAX 64
+#define GM82_BUFFER_CAP 65536
+typedef struct { int active; size_t size; size_t tell; uint8_t data[GM82_BUFFER_CAP]; } gm82_buffer;
+static gm82_buffer g_buffers[GM82_BUFFER_MAX];
+
+#define GM82_SURFACE_MAX 32
+typedef struct { int active; int width; int height; } gm82_surface;
+static gm82_surface g_surfaces[GM82_SURFACE_MAX];
 static void gm82_ds_clear(void) {
     for (int i = 0; i < GM82_DS_MAX; ++i) {
         for (size_t j = 0; j < g_ds_lists[i].count; ++j) gml_value_free(&g_ds_lists[i].items[j]);
@@ -1089,8 +1102,376 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
     if (!strcmp(name, "sound_loop") && count >= 1) { int sid = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1); gm82_sound_push(1, sid, 1, g_sound_volume); *out = gml_value_bool(1); return 1; }
     if (!strcmp(name, "sound_stop") && count >= 1) { int sid = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1); gm82_sound_push(2, sid, 0, g_sound_volume); *out = gml_value_bool(1); return 1; }
     if (!strcmp(name, "sound_set_volume") && count >= 2) { int sid = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1); float v = (float)(args[1].kind == GML_V_REAL ? args[1].real : 1.0); if (v < 0) v = 0; if (v > 1) v = 1; g_sound_volume = v; gm82_sound_push(3, sid, 0, v); *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "string_format") && count == 3) {
+        double val = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        int tot = (int)(args[1].kind == GML_V_REAL ? args[1].real : 0);
+        int dec = (int)(args[2].kind == GML_V_REAL ? args[2].real : 0);
+        if (tot < 0) tot = 0; if (tot > 128) tot = 128;
+        if (dec < 0) dec = 0; if (dec > 32) dec = 32;
+        char fmt[32], buf[256];
+        snprintf(fmt, sizeof(fmt), "%%%d.%df", tot, dec);
+        snprintf(buf, sizeof(buf), fmt, val);
+        *out = gml_value_string(buf); return 1;
+    }
+    if (!strcmp(name, "string_byte_at") && count == 2) {
+        const char *s = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        int pos = (int)(args[1].kind == GML_V_REAL ? args[1].real : 1);
+        size_t len = strlen(s);
+        *out = gml_value_real((pos >= 1 && (size_t)pos <= len) ? (unsigned char)s[pos - 1] : 0); return 1;
+    }
+    if (!strcmp(name, "string_byte_length") && count == 1) {
+        const char *s = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        *out = gml_value_real((double)strlen(s)); return 1;
+    }
+    if (!strcmp(name, "ds_list_sort") && count >= 1) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        int ascend = count >= 2 ? (args[1].kind == GML_V_BOOL ? args[1].boolean : (args[1].kind == GML_V_REAL && args[1].real != 0.0)) : 1;
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_lists[id].active && g_ds_lists[id].count > 1) {
+            size_t cnt = g_ds_lists[id].count;
+            for (size_t i = 0; i < cnt; ++i) {
+                for (size_t j = i + 1; j < cnt; ++j) {
+                    double val_i = gm82_num_val(g_ds_lists[id].items[i]), val_j = gm82_num_val(g_ds_lists[id].items[j]);
+                    int swap = ascend ? (val_i > val_j) : (val_i < val_j);
+                    if (swap) {
+                        gml_value tmp = g_ds_lists[id].items[i];
+                        g_ds_lists[id].items[i] = g_ds_lists[id].items[j];
+                        g_ds_lists[id].items[j] = tmp;
+                    }
+                }
+            }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "ds_list_shuffle") && count == 1) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_lists[id].active && g_ds_lists[id].count > 1) {
+            size_t cnt = g_ds_lists[id].count;
+            for (size_t i = cnt - 1; i > 0; --i) {
+                size_t j = (size_t)rand() % (i + 1);
+                gml_value tmp = g_ds_lists[id].items[i];
+                g_ds_lists[id].items[i] = g_ds_lists[id].items[j];
+                g_ds_lists[id].items[j] = tmp;
+            }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "ds_map_find_first") && count == 1) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_maps[id].active && g_ds_maps[id].count > 0) {
+            *out = gml_value_string(g_ds_maps[id].keys[0]); return 1;
+        }
+        *out = gml_value_string(""); return 1;
+    }
+    if (!strcmp(name, "ds_map_find_next") && count == 2) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        const char *key = gm82_ds_key(&args[1]);
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_maps[id].active) {
+            for (size_t i = 0; i + 1 < g_ds_maps[id].count; ++i) {
+                if (!strcmp(g_ds_maps[id].keys[i], key)) {
+                    *out = gml_value_string(g_ds_maps[id].keys[i + 1]); return 1;
+                }
+            }
+        }
+        *out = gml_value_string(""); return 1;
+    }
+    if (!strcmp(name, "ds_grid_add") && count == 4) {
+        int id = gm82_ds_handle(&args[0]) - 1, x = gm82_ds_handle(&args[1]), y = gm82_ds_handle(&args[2]);
+        double add_val = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        if (id >= 0 && id < GM82_GRID_MAX && g_ds_grids[id].active && x >= 0 && y >= 0 && x < g_ds_grids[id].width && y < g_ds_grids[id].height) {
+            int index = y * GM82_GRID_DIM + x;
+            double cur = gm82_num_val(g_ds_grids[id].cells[index]);
+            gml_value_free(&g_ds_grids[id].cells[index]);
+            g_ds_grids[id].cells[index] = gml_value_real(cur + add_val);
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "ds_grid_multiply") && count == 4) {
+        int id = gm82_ds_handle(&args[0]) - 1, x = gm82_ds_handle(&args[1]), y = gm82_ds_handle(&args[2]);
+        double mult_val = args[3].kind == GML_V_REAL ? args[3].real : 1.0;
+        if (id >= 0 && id < GM82_GRID_MAX && g_ds_grids[id].active && x >= 0 && y >= 0 && x < g_ds_grids[id].width && y < g_ds_grids[id].height) {
+            int index = y * GM82_GRID_DIM + x;
+            double cur = gm82_num_val(g_ds_grids[id].cells[index]);
+            gml_value_free(&g_ds_grids[id].cells[index]);
+            g_ds_grids[id].cells[index] = gml_value_real(cur * mult_val);
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "ds_grid_value_exists") && count == 6) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        int x1 = gm82_ds_handle(&args[1]), y1 = gm82_ds_handle(&args[2]), x2 = gm82_ds_handle(&args[3]), y2 = gm82_ds_handle(&args[4]);
+        int found = 0;
+        if (id >= 0 && id < GM82_GRID_MAX && g_ds_grids[id].active) {
+            int gw = g_ds_grids[id].width, gh = g_ds_grids[id].height;
+            if (x1 < 0) x1 = 0; if (y1 < 0) y1 = 0;
+            if (x2 >= gw) x2 = gw - 1; if (y2 >= gh) y2 = gh - 1;
+            for (int r = y1; r <= y2 && !found; ++r) {
+                for (int c = x1; c <= x2; ++c) {
+                    if (gm82_ds_equal(&g_ds_grids[id].cells[r * GM82_GRID_DIM + c], &args[5])) {
+                        found = 1; break;
+                    }
+                }
+            }
+        }
+        *out = gml_value_bool(found); return 1;
+    }
+    if (!strcmp(name, "ds_grid_value_x") && count == 6) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        int x1 = gm82_ds_handle(&args[1]), y1 = gm82_ds_handle(&args[2]), x2 = gm82_ds_handle(&args[3]), y2 = gm82_ds_handle(&args[4]);
+        int res_x = -1;
+        if (id >= 0 && id < GM82_GRID_MAX && g_ds_grids[id].active) {
+            int gw = g_ds_grids[id].width, gh = g_ds_grids[id].height;
+            if (x1 < 0) x1 = 0; if (y1 < 0) y1 = 0;
+            if (x2 >= gw) x2 = gw - 1; if (y2 >= gh) y2 = gh - 1;
+            for (int r = y1; r <= y2 && res_x < 0; ++r) {
+                for (int c = x1; c <= x2; ++c) {
+                    if (gm82_ds_equal(&g_ds_grids[id].cells[r * GM82_GRID_DIM + c], &args[5])) {
+                        res_x = c; break;
+                    }
+                }
+            }
+        }
+        *out = gml_value_real((double)res_x); return 1;
+    }
+    if (!strcmp(name, "ds_grid_value_y") && count == 6) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        int x1 = gm82_ds_handle(&args[1]), y1 = gm82_ds_handle(&args[2]), x2 = gm82_ds_handle(&args[3]), y2 = gm82_ds_handle(&args[4]);
+        int res_y = -1;
+        if (id >= 0 && id < GM82_GRID_MAX && g_ds_grids[id].active) {
+            int gw = g_ds_grids[id].width, gh = g_ds_grids[id].height;
+            if (x1 < 0) x1 = 0; if (y1 < 0) y1 = 0;
+            if (x2 >= gw) x2 = gw - 1; if (y2 >= gh) y2 = gh - 1;
+            for (int r = y1; r <= y2 && res_y < 0; ++r) {
+                for (int c = x1; c <= x2; ++c) {
+                    if (gm82_ds_equal(&g_ds_grids[id].cells[r * GM82_GRID_DIM + c], &args[5])) {
+                        res_y = r; break;
+                    }
+                }
+            }
+        }
+        *out = gml_value_real((double)res_y); return 1;
+    }
+    static int g_draw_color = 16777215;
+    if (!strcmp(name, "draw_set_color") && count == 1) {
+        g_draw_color = (int)(args[0].kind == GML_V_REAL ? args[0].real : 16777215.0);
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "draw_get_color") && count == 0) {
+        *out = gml_value_real((double)g_draw_color); return 1;
+    }
+    if (!strcmp(name, "draw_text") && count == 3) {
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "draw_line") && count == 4) {
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "draw_rectangle") && (count == 4 || count == 5)) {
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "draw_circle") && (count == 3 || count == 4)) {
+        *out = gml_value_bool(1); return 1;
+    }
     if (!strcmp(name, "draw_set_alpha") && count == 1) { float a = (float)(args[0].kind == GML_V_REAL ? args[0].real : 1.0); if (a < 0.0f) a = 0.0f; if (a > 1.0f) a = 1.0f; g_draw_alpha = a; *out = gml_value_bool(1); return 1; }
     if (!strcmp(name, "draw_sprite") && count == 4) { if (g_draw_command_count < GM82_MAX_DRAW_COMMANDS) { Gm82DrawCommand *cmd = &g_draw_commands[g_draw_command_count++]; cmd->sprite_id = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1); cmd->frame = (int)(args[1].kind == GML_V_REAL ? args[1].real : 0); cmd->x = (float)(args[2].kind == GML_V_REAL ? args[2].real : 0); cmd->y = (float)(args[3].kind == GML_V_REAL ? args[3].real : 0); cmd->alpha = g_draw_alpha; } *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "ds_list_sort") && count >= 1) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        int ascend = count >= 2 ? (args[1].kind == GML_V_BOOL ? args[1].boolean : (args[1].kind == GML_V_REAL && args[1].real != 0.0)) : 1;
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_lists[id].active && g_ds_lists[id].count > 1) {
+            for (size_t i = 0; i < g_ds_lists[id].count; ++i) {
+                for (size_t j = i + 1; j < g_ds_lists[id].count; ++j) {
+                    double va = g_ds_lists[id].items[i].kind == GML_V_REAL ? g_ds_lists[id].items[i].real : 0.0;
+                    double vb = g_ds_lists[id].items[j].kind == GML_V_REAL ? g_ds_lists[id].items[j].real : 0.0;
+                    int cmp = 0;
+                    if (g_ds_lists[id].items[i].kind == GML_V_STRING && g_ds_lists[id].items[j].kind == GML_V_STRING) {
+                        cmp = strcmp(g_ds_lists[id].items[i].string ? g_ds_lists[id].items[i].string : "", g_ds_lists[id].items[j].string ? g_ds_lists[id].items[j].string : "");
+                    } else {
+                        cmp = (va > vb) - (va < vb);
+                    }
+                    if ((ascend && cmp > 0) || (!ascend && cmp < 0)) {
+                        gml_value tmp = g_ds_lists[id].items[i];
+                        g_ds_lists[id].items[i] = g_ds_lists[id].items[j];
+                        g_ds_lists[id].items[j] = tmp;
+                    }
+                }
+            }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "ds_list_shuffle") && count == 1) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_lists[id].active && g_ds_lists[id].count > 1) {
+            for (size_t i = g_ds_lists[id].count - 1; i > 0; --i) {
+                size_t j = (size_t)rand() % (i + 1);
+                gml_value tmp = g_ds_lists[id].items[i];
+                g_ds_lists[id].items[i] = g_ds_lists[id].items[j];
+                g_ds_lists[id].items[j] = tmp;
+            }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "ds_map_find_first") && count == 1) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_maps[id].active && g_ds_maps[id].count > 0) {
+            *out = gml_value_string(g_ds_maps[id].keys[0]);
+        } else { *out = gml_value_string(""); }
+        return 1;
+    }
+    if (!strcmp(name, "ds_map_find_next") && count == 2) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        const char *key = gm82_ds_key(&args[1]);
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_maps[id].active) {
+            for (size_t i = 0; i < g_ds_maps[id].count; ++i) {
+                if (!strcmp(g_ds_maps[id].keys[i], key) && i + 1 < g_ds_maps[id].count) {
+                    *out = gml_value_string(g_ds_maps[id].keys[i + 1]);
+                    return 1;
+                }
+            }
+        }
+        *out = gml_value_string("");
+        return 1;
+    }
+    if (!strcmp(name, "ds_map_copy") && count == 2) {
+        int id1 = gm82_ds_handle(&args[0]) - 1;
+        int id2 = gm82_ds_handle(&args[1]) - 1;
+        if (id1 >= 0 && id1 < GM82_DS_MAX && g_ds_maps[id1].active && id2 >= 0 && id2 < GM82_DS_MAX && g_ds_maps[id2].active) {
+            for (size_t i = 0; i < g_ds_maps[id1].count; ++i) gml_value_free(&g_ds_maps[id1].values[i]);
+            g_ds_maps[id1].count = g_ds_maps[id2].count;
+            for (size_t i = 0; i < g_ds_maps[id2].count; ++i) {
+                snprintf(g_ds_maps[id1].keys[i], GM82_DS_KEY_CAP, "%s", g_ds_maps[id2].keys[i]);
+                g_ds_maps[id1].values[i] = gm82_clone_value(&g_ds_maps[id2].values[i]);
+            }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if ((!strcmp(name, "make_color_rgb") || !strcmp(name, "make_colour_rgb")) && count == 3) {
+        int r = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0);
+        int g = (int)(args[1].kind == GML_V_REAL ? args[1].real : 0);
+        int b = (int)(args[2].kind == GML_V_REAL ? args[2].real : 0);
+        if (r < 0) r = 0; if (r > 255) r = 255;
+        if (g < 0) g = 0; if (g > 255) g = 255;
+        if (b < 0) b = 0; if (b > 255) b = 255;
+        *out = gml_value_real((double)(r | (g << 8) | (b << 16)));
+        return 1;
+    }
+    if ((!strcmp(name, "make_color_hsv") || !strcmp(name, "make_colour_hsv")) && count == 3) {
+        int h = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0);
+        int s = (int)(args[1].kind == GML_V_REAL ? args[1].real : 0);
+        int v = (int)(args[2].kind == GML_V_REAL ? args[2].real : 0);
+        if (h < 0) h = 0; if (h > 255) h = 255;
+        if (s < 0) s = 0; if (s > 255) s = 255;
+        if (v < 0) v = 0; if (v > 255) v = 255;
+        float fh = (float)h / 255.0f * 360.0f, fs = (float)s / 255.0f, fv = (float)v / 255.0f;
+        float c = fv * fs, x = c * (1.0f - fabsf(fmodf(fh / 60.0f, 2.0f) - 1.0f)), m = fv - c;
+        float r1 = 0, g1 = 0, b1 = 0;
+        if (fh < 60) { r1 = c; g1 = x; } else if (fh < 120) { r1 = x; g1 = c; }
+        else if (fh < 180) { g1 = c; b1 = x; } else if (fh < 240) { g1 = x; b1 = c; }
+        else if (fh < 300) { r1 = x; b1 = c; } else { r1 = c; b1 = x; }
+        int r = (int)((r1 + m) * 255.0f), g_c = (int)((g1 + m) * 255.0f), b = (int)((b1 + m) * 255.0f);
+        *out = gml_value_real((double)(r | (g_c << 8) | (b << 16)));
+        return 1;
+    }
+    if ((!strcmp(name, "color_get_red") || !strcmp(name, "colour_get_red")) && count == 1) { int col = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0); *out = gml_value_real((double)(col & 0xFF)); return 1; }
+    if ((!strcmp(name, "color_get_green") || !strcmp(name, "colour_get_green")) && count == 1) { int col = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0); *out = gml_value_real((double)((col >> 8) & 0xFF)); return 1; }
+    if ((!strcmp(name, "color_get_blue") || !strcmp(name, "colour_get_blue")) && count == 1) { int col = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0); *out = gml_value_real((double)((col >> 16) & 0xFF)); return 1; }
+    if (!strcmp(name, "dot_product") && count == 4) {
+        double x1 = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double y1 = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double x2 = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double y2 = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        *out = gml_value_real(x1 * x2 + y1 * y2); return 1;
+    }
+    if (!strcmp(name, "dot_product_3d") && count == 6) {
+        double x1 = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double y1 = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double z1 = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double x2 = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        double y2 = args[4].kind == GML_V_REAL ? args[4].real : 0.0;
+        double z2 = args[5].kind == GML_V_REAL ? args[5].real : 0.0;
+        *out = gml_value_real(x1 * x2 + y1 * y2 + z1 * z2); return 1;
+    }
+    if (!strcmp(name, "dot_product_normal") && count == 4) {
+        double x1 = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double y1 = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double x2 = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double y2 = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        double l1 = sqrt(x1 * x1 + y1 * y1);
+        double l2 = sqrt(x2 * x2 + y2 * y2);
+        *out = gml_value_real((l1 > 0 && l2 > 0) ? (x1 * x2 + y1 * y2) / (l1 * l2) : 0.0); return 1;
+    }
+    if (!strcmp(name, "dot_product_3d_normal") && count == 6) {
+        double x1 = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double y1 = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double z1 = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double x2 = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        double y2 = args[4].kind == GML_V_REAL ? args[4].real : 0.0;
+        double z2 = args[5].kind == GML_V_REAL ? args[5].real : 0.0;
+        double l1 = sqrt(x1 * x1 + y1 * y1 + z1 * z1);
+        double l2 = sqrt(x2 * x2 + y2 * y2 + z2 * z2);
+        *out = gml_value_real((l1 > 0 && l2 > 0) ? (x1 * x2 + y1 * y2 + z1 * z2) / (l1 * l2) : 0.0); return 1;
+    }
+    if (!strcmp(name, "point_distance_3d") && count == 6) {
+        double x1 = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double y1 = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double z1 = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double x2 = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        double y2 = args[4].kind == GML_V_REAL ? args[4].real : 0.0;
+        double z2 = args[5].kind == GML_V_REAL ? args[5].real : 0.0;
+        double dx = x2 - x1, dy = y2 - y1, dz = z2 - z1;
+        *out = gml_value_real(sqrt(dx * dx + dy * dy + dz * dz)); return 1;
+    }
+    if (!strcmp(name, "angle_difference") && count == 2) {
+        double dest = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double src = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double diff = fmod(dest - src + 180.0, 360.0);
+        if (diff < 0) diff += 360.0;
+        *out = gml_value_real(diff - 180.0); return 1;
+    }
+    if (!strcmp(name, "show_debug_message") && count == 1) {
+        const char *msg = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        printf("[GML DEBUG] %s\n", msg);
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "show_message") && count == 1) {
+        const char *msg = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        printf("[GML MESSAGE] %s\n", msg);
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "room_goto_next") && count == 0) { g_runtime.room_id++; g_runtime.room_started = 0; *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "room_goto_previous") && count == 0) { if (g_runtime.room_id > 0) g_runtime.room_id--; g_runtime.room_started = 0; *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "game_end") && count == 0) { gm82_runtime_clear_room_transient(); *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "instance_change") && count >= 1) {
+        int new_obj = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
+        if (self && new_obj >= 0) { self->object_id = new_obj; }
+        *out = gml_value_bool(self != NULL); return 1;
+    }
+    if (!strcmp(name, "instance_copy") && count >= 1) {
+        int new_id = -1;
+        if (self) {
+            new_id = gm82_spawn_instance_layer(self->object_id, self->layer_id, self->x, self->y);
+            if (new_id >= 0) {
+                Gm82Instance *copied = gm82_find_instance(new_id);
+                if (copied) { copied->sprite_id = self->sprite_id; copied->vx = self->vx; copied->vy = self->vy; copied->speed = self->speed; copied->direction = self->direction; }
+            }
+        }
+        *out = gml_value_real((double)new_id); return 1;
+    }
+    if (!strcmp(name, "move_outside_solid") && count == 2) {
+        if (self) {
+            float dir = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0.0);
+            float maxdist = (float)(args[1].kind == GML_V_REAL ? args[1].real : 100.0);
+            float rad = dir * 3.14159265358979323846f / 180.0f;
+            float step_x = cosf(rad), step_y = -sinf(rad);
+            for (float dist = 0; dist < maxdist; dist += 1.0f) { self->x += step_x; self->y += step_y; }
+        }
+        *out = gml_value_bool(self != NULL); return 1;
+    }
+    if ((!strcmp(name, "move_bounce_solid") || !strcmp(name, "move_bounce_all")) && count >= 1) {
+        if (self) {
+            self->vx = -self->vx; self->vy = -self->vy;
+            self->direction = atan2f(-self->vy, self->vx) * 180.0f / 3.14159265358979323846f;
+            if (self->direction < 0.0f) self->direction += 360.0f;
+        }
+        *out = gml_value_bool(self != NULL); return 1;
+    }
     if (!strcmp(name, "ds_list_create") && count == 0) {
         for (int i = 0; i < GM82_DS_MAX; ++i) if (!g_ds_lists[i].active) { g_ds_lists[i].active = 1; g_ds_lists[i].count = 0; *out = gml_value_real((double)(i + 1)); return 1; }
         *out = gml_value_real(-1); return 1;
@@ -1390,6 +1771,137 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
     if (!strcmp(name, "random_set_seed") && count == 1) {
         unsigned int seed = (unsigned int)(args[0].kind == GML_V_REAL ? args[0].real : 0);
         srand(seed); *out = gml_value_real((double)seed); return 1;
+    }
+    if (!strcmp(name, "modwrap") && count == 3) {
+        double val = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double minv = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double maxv = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double range = maxv - minv;
+        double res = (range != 0.0) ? (val - range * floor((val - minv) / range)) : minv;
+        *out = gml_value_real(res); return 1;
+    }
+    if (!strcmp(name, "smoothstep") && count == 3) {
+        double minv = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double maxv = args[1].kind == GML_V_REAL ? args[1].real : 1.0;
+        double val = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double t = (maxv != minv) ? (val - minv) / (maxv - minv) : 0.0;
+        if (t < 0.0) t = 0.0; if (t > 1.0) t = 1.0;
+        *out = gml_value_real(t * t * (3.0 - 2.0 * t)); return 1;
+    }
+    if (!strcmp(name, "approach") && count == 3) {
+        double val = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double target = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double step = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        if (val < target) { val += step; if (val > target) val = target; }
+        else { val -= step; if (val < target) val = target; }
+        *out = gml_value_real(val); return 1;
+    }
+    if (!strcmp(name, "lerproach") && count == 4) {
+        double val = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double target = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double lerpamt = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double appamt = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        val = val + (target - val) * lerpamt;
+        if (val < target) { val += appamt; if (val > target) val = target; }
+        else { val -= appamt; if (val < target) val = target; }
+        *out = gml_value_real(val); return 1;
+    }
+    if (!strcmp(name, "min") && count >= 1) {
+        double m = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        for (size_t i = 1; i < count; ++i) {
+            double v = args[i].kind == GML_V_REAL ? args[i].real : 0.0;
+            if (v < m) m = v;
+        }
+        *out = gml_value_real(m); return 1;
+    }
+    if (!strcmp(name, "max") && count >= 1) {
+        double m = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        for (size_t i = 1; i < count; ++i) {
+            double v = args[i].kind == GML_V_REAL ? args[i].real : 0.0;
+            if (v > m) m = v;
+        }
+        *out = gml_value_real(m); return 1;
+    }
+    if (!strcmp(name, "point_in_circle") && count == 5) {
+        double px = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double py = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double cx = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double cy = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        double r = args[4].kind == GML_V_REAL ? args[4].real : 0.0;
+        double dx = px - cx, dy = py - cy;
+        *out = gml_value_bool(dx * dx + dy * dy <= r * r); return 1;
+    }
+    if (!strcmp(name, "circle_in_circle") && count == 6) {
+        double ax = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double ay = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double ar = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double bx = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        double by = args[4].kind == GML_V_REAL ? args[4].real : 0.0;
+        double br = args[5].kind == GML_V_REAL ? args[5].real : 0.0;
+        double dx = ax - bx, dy = ay - by;
+        double tr = ar + br;
+        *out = gml_value_bool(dx * dx + dy * dy <= tr * tr); return 1;
+    }
+    if (!strcmp(name, "point_in_rectangle") && count == 6) {
+        double px = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double py = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double x1 = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double y1 = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        double x2 = args[4].kind == GML_V_REAL ? args[4].real : 0.0;
+        double y2 = args[5].kind == GML_V_REAL ? args[5].real : 0.0;
+        double minx = x1 < x2 ? x1 : x2, maxx = x1 > x2 ? x1 : x2;
+        double miny = y1 < y2 ? y1 : y2, maxy = y1 > y2 ? y1 : y2;
+        *out = gml_value_bool(px >= minx && px <= maxx && py >= miny && py <= maxy); return 1;
+    }
+    if (!strcmp(name, "rectangle_in_rectangle") && count == 8) {
+        double ax1 = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double ay1 = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double ax2 = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double ay2 = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        double bx1 = args[4].kind == GML_V_REAL ? args[4].real : 0.0;
+        double by1 = args[5].kind == GML_V_REAL ? args[5].real : 0.0;
+        double bx2 = args[6].kind == GML_V_REAL ? args[6].real : 0.0;
+        double by2 = args[7].kind == GML_V_REAL ? args[7].real : 0.0;
+        double aminx = ax1 < ax2 ? ax1 : ax2, amaxx = ax1 > ax2 ? ax1 : ax2;
+        double aminy = ay1 < ay2 ? ay1 : ay2, amaxy = ay1 > ay2 ? ay1 : ay2;
+        double bminx = bx1 < bx2 ? bx1 : bx2, bmaxx = bx1 > bx2 ? bx1 : bx2;
+        double bminy = by1 < by2 ? by1 : by2, bmaxy = by1 > by2 ? by1 : by2;
+        int overlap = (aminx <= bmaxx && amaxx >= bminx && aminy <= bmaxy && amaxy >= bminy);
+        *out = gml_value_real(overlap ? 1.0 : 0.0); return 1;
+    }
+    if (!strcmp(name, "point_in_triangle") && count == 8) {
+        double px = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        double py = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
+        double x0 = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
+        double y0 = args[3].kind == GML_V_REAL ? args[3].real : 0.0;
+        double x1 = args[4].kind == GML_V_REAL ? args[4].real : 0.0;
+        double y1 = args[5].kind == GML_V_REAL ? args[5].real : 0.0;
+        double x2 = args[6].kind == GML_V_REAL ? args[6].real : 0.0;
+        double y2 = args[7].kind == GML_V_REAL ? args[7].real : 0.0;
+        double d1 = (px - x1) * (y0 - y1) - (x0 - x1) * (py - y1);
+        double d2 = (px - x2) * (y1 - y2) - (x1 - x2) * (py - y2);
+        double d3 = (px - x0) * (y2 - y0) - (x2 - x0) * (py - y0);
+        int has_neg = (d1 < 0) || (d2 < 0) || (d3 < 0);
+        int has_pos = (d1 > 0) || (d2 > 0) || (d3 > 0);
+        *out = gml_value_bool(!(has_neg && has_pos)); return 1;
+    }
+    if (!strcmp(name, "pack_bools") && count == 8) {
+        int b7 = (args[0].kind == GML_V_BOOL ? args[0].boolean : (args[0].kind == GML_V_REAL && args[0].real != 0.0));
+        int b6 = (args[1].kind == GML_V_BOOL ? args[1].boolean : (args[1].kind == GML_V_REAL && args[1].real != 0.0));
+        int b5 = (args[2].kind == GML_V_BOOL ? args[2].boolean : (args[2].kind == GML_V_REAL && args[2].real != 0.0));
+        int b4 = (args[3].kind == GML_V_BOOL ? args[3].boolean : (args[3].kind == GML_V_REAL && args[3].real != 0.0));
+        int b3 = (args[4].kind == GML_V_BOOL ? args[4].boolean : (args[4].kind == GML_V_REAL && args[4].real != 0.0));
+        int b2 = (args[5].kind == GML_V_BOOL ? args[5].boolean : (args[5].kind == GML_V_REAL && args[5].real != 0.0));
+        int b1 = (args[6].kind == GML_V_BOOL ? args[6].boolean : (args[6].kind == GML_V_REAL && args[6].real != 0.0));
+        int b0 = (args[7].kind == GML_V_BOOL ? args[7].boolean : (args[7].kind == GML_V_REAL && args[7].real != 0.0));
+        int val = (b7 << 7) | (b6 << 6) | (b5 << 5) | (b4 << 4) | (b3 << 3) | (b2 << 2) | (b1 << 1) | b0;
+        *out = gml_value_real((double)val); return 1;
+    }
+    if (!strcmp(name, "unpack_bool") && count == 2) {
+        int pbool = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0);
+        int which = (int)(args[1].kind == GML_V_REAL ? args[1].real : 0);
+        if (which < 0) which = 0; if (which > 7) which = 7;
+        *out = gml_value_bool((pbool & (1 << which)) != 0); return 1;
     }
     if (!strcmp(name, "string_count") && count == 2) {
         const char *sub = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
@@ -2487,6 +2999,164 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
         *out = gml_value_bool(1);
         return 1;
     }
+    /* Surfaces */
+    if (!strcmp(name, "surface_create") && count == 2) {
+        int w = (int)gm82_num_val(args[0]), h = (int)gm82_num_val(args[1]);
+        for (int i = 0; i < GM82_SURFACE_MAX; ++i) {
+            if (!g_surfaces[i].active) {
+                g_surfaces[i].active = 1;
+                g_surfaces[i].width = w > 0 ? w : 1;
+                g_surfaces[i].height = h > 0 ? h : 1;
+                *out = gml_value_real((double)(i + 1));
+                return 1;
+            }
+        }
+        *out = gml_value_real(-1.0); return 1;
+    }
+    if (!strcmp(name, "surface_exists") && count == 1) {
+        int id = (int)gm82_num_val(args[0]) - 1;
+        *out = gml_value_bool(id >= 0 && id < GM82_SURFACE_MAX && g_surfaces[id].active);
+        return 1;
+    }
+    if (!strcmp(name, "surface_free") && count == 1) {
+        int id = (int)gm82_num_val(args[0]) - 1;
+        if (id >= 0 && id < GM82_SURFACE_MAX) g_surfaces[id].active = 0;
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "surface_set_target") && count == 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "surface_reset_target") && count == 0) { *out = gml_value_bool(1); return 1; }
+    /* Matrices */
+    if (!strcmp(name, "matrix_get") && count == 1) {
+        gml_value arr = gml_value_array(16);
+        if (arr.array) {
+            for (int i = 0; i < 16; ++i) arr.array->items[i] = gml_value_real(i % 5 == 0 ? 1.0 : 0.0);
+        }
+        *out = arr; return 1;
+    }
+    if (!strcmp(name, "matrix_set") && count == 2) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "matrix_build") && count == 9) {
+        gml_value arr = gml_value_array(16);
+        if (arr.array) {
+            for (int i = 0; i < 16; ++i) arr.array->items[i] = gml_value_real(i % 5 == 0 ? 1.0 : 0.0);
+            arr.array->items[12] = args[0];
+            arr.array->items[13] = args[1];
+            arr.array->items[14] = args[2];
+        }
+        *out = arr; return 1;
+    }
+    if (!strcmp(name, "matrix_multiply") && count == 2) {
+        gml_value arr = gml_value_array(16);
+        if (arr.array) {
+            for (int i = 0; i < 16; ++i) arr.array->items[i] = gml_value_real(i % 5 == 0 ? 1.0 : 0.0);
+        }
+        *out = arr; return 1;
+    }
+    /* Particle Systems */
+    if (!strcmp(name, "part_system_create") && count == 0) { *out = gml_value_real(1.0); return 1; }
+    if (!strcmp(name, "part_system_destroy") && count == 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "part_system_exists") && count == 1) { *out = gml_value_bool(args[0].kind == GML_V_REAL && args[0].real > 0); return 1; }
+    if (!strcmp(name, "part_type_create") && count == 0) { *out = gml_value_real(1.0); return 1; }
+    if (!strcmp(name, "part_type_destroy") && count == 1) { *out = gml_value_bool(1); return 1; }
+    /* Buffers */
+    if (!strcmp(name, "buffer_create") && count == 3) {
+        size_t sz = (size_t)gm82_num_val(args[0]);
+        if (sz > GM82_BUFFER_CAP) sz = GM82_BUFFER_CAP;
+        for (int i = 0; i < GM82_BUFFER_MAX; ++i) {
+            if (!g_buffers[i].active) {
+                g_buffers[i].active = 1;
+                g_buffers[i].size = sz;
+                g_buffers[i].tell = 0;
+                memset(g_buffers[i].data, 0, sz);
+                *out = gml_value_real((double)(i + 1));
+                return 1;
+            }
+        }
+        *out = gml_value_real(-1.0); return 1;
+    }
+    if (!strcmp(name, "buffer_delete") && count == 1) {
+        int id = (int)gm82_num_val(args[0]) - 1;
+        if (id >= 0 && id < GM82_BUFFER_MAX) g_buffers[id].active = 0;
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "buffer_write") && count == 3) {
+        int id = (int)gm82_num_val(args[0]) - 1;
+        if (id >= 0 && id < GM82_BUFFER_MAX && g_buffers[id].active) {
+            double v = gm82_num_val(args[2]);
+            if (g_buffers[id].tell + sizeof(double) <= g_buffers[id].size) {
+                memcpy(&g_buffers[id].data[g_buffers[id].tell], &v, sizeof(double));
+                g_buffers[id].tell += sizeof(double);
+            }
+        }
+        *out = gml_value_real(0.0); return 1;
+    }
+    if (!strcmp(name, "buffer_read") && count == 2) {
+        int id = (int)gm82_num_val(args[0]) - 1;
+        if (id >= 0 && id < GM82_BUFFER_MAX && g_buffers[id].active) {
+            if (g_buffers[id].tell + sizeof(double) <= g_buffers[id].size) {
+                double v = 0;
+                memcpy(&v, &g_buffers[id].data[g_buffers[id].tell], sizeof(double));
+                g_buffers[id].tell += sizeof(double);
+                *out = gml_value_real(v); return 1;
+            }
+        }
+        *out = gml_value_real(0.0); return 1;
+    }
+    if (!strcmp(name, "buffer_seek") && count == 3) {
+        int id = (int)gm82_num_val(args[0]) - 1;
+        if (id >= 0 && id < GM82_BUFFER_MAX && g_buffers[id].active) {
+            size_t off = (size_t)gm82_num_val(args[2]);
+            if (off > g_buffers[id].size) off = g_buffers[id].size;
+            g_buffers[id].tell = off;
+        }
+        *out = gml_value_real(0.0); return 1;
+    }
+    if (!strcmp(name, "buffer_get_size") && count == 1) {
+        int id = (int)gm82_num_val(args[0]) - 1;
+        *out = gml_value_real((id >= 0 && id < GM82_BUFFER_MAX && g_buffers[id].active) ? (double)g_buffers[id].size : 0.0);
+        return 1;
+    }
+    /* D3D & Shaders */
+    if (!strcmp(name, "d3d_start") && count == 0) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "d3d_end") && count == 0) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "d3d_set_culling") && count == 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "shader_is_compiled") && count == 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "shader_set") && count == 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "shader_reset") && count == 0) { *out = gml_value_bool(1); return 1; }
+
+    /* Extended Draw Functions */
+    if (!strcmp(name, "draw_self") && count == 0) {
+        if (self) {
+            /* Fallback to draw_sprite(sprite_index, image_index, x, y) */
+        }
+        *out = gml_value_real(0); return 1;
+    }
+    if (!strcmp(name, "draw_sprite_ext")) {
+        *out = gml_value_real(0); return 1;
+    }
+    if (!strcmp(name, "draw_text_transformed")) {
+        *out = gml_value_real(0); return 1;
+    }
+    if (!strcmp(name, "draw_set_halign") && count == 1) { *out = gml_value_real(0); return 1; }
+    if (!strcmp(name, "draw_set_valign") && count == 1) { *out = gml_value_real(0); return 1; }
+    if (!strcmp(name, "draw_circle_color") || !strcmp(name, "draw_circle_colour")) { *out = gml_value_real(0); return 1; }
+    if (!strcmp(name, "draw_line_color") || !strcmp(name, "draw_line_colour")) { *out = gml_value_real(0); return 1; }
+    if (!strcmp(name, "draw_rectangle_color") || !strcmp(name, "draw_rectangle_colour")) { *out = gml_value_real(0); return 1; }
+
+    /* Text Dimension / String Measurement */
+    if (!strcmp(name, "string_width") && count == 1) {
+        const char *str = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        *out = gml_value_real((double)(strlen(str) * 8)); return 1;
+    }
+    if (!strcmp(name, "string_height") && count == 1) {
+        *out = gml_value_real(16.0); return 1;
+    }
+
+    /* Keyboard & Mouse Input Checkers */
+    if (!strcmp(name, "keyboard_check") && count == 1) { *out = gml_value_bool(0); return 1; }
+    if (!strcmp(name, "keyboard_check_pressed") && count == 1) { *out = gml_value_bool(0); return 1; }
+    if (!strcmp(name, "mouse_check_button") && count == 1) { *out = gml_value_bool(0); return 1; }
+    if (!strcmp(name, "mouse_check_button_pressed") && count == 1) { *out = gml_value_bool(0); return 1; }
+
     return 0;
 }
 
