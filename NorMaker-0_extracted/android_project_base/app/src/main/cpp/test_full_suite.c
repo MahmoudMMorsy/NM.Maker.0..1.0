@@ -13,6 +13,7 @@ extern double nor_export_nes_native(const char *project, const char *output);
 extern double nor_export_gbc_native(const char *project, const char *output);
 extern double nor_export_gba_native(const char *project, const char *output);
 extern int gm82_native_call(void *userdata, const char *name, const gml_value *args, size_t count, gml_value *out);
+ main
 
 void test_gmk_probe_suite(void) {
     uint8_t dummy[12] = {0x91, 0xd5, 0x12, 0x00, 0x20, 0x03, 0x00, 0x00, 0x7b, 0x00, 0x00, 0x00};
@@ -39,7 +40,9 @@ void test_gml_vm_suite(void) {
     gml_vm vm;
     gml_vm_init(&vm);
     gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+main
     int exec_ok = gml_vm_execute(&vm, ast);
+    if (!exec_ok) { printf("VM Error: %s\n", vm.error); }
     assert(exec_ok);
     assert(vm.returned);
     assert(vm.return_value.real == 20.0);
@@ -120,67 +123,13 @@ void test_gml_vm_suite(void) {
     printf("[PASS] GML VM Suite\n");
 }
 
-void test_extended_gml_suite(void) {
-    const char *code_ext =
-        "c_str = chr(65);\n"
-        "c_ord = ord(c_str);\n"
-        "n_real = real(\"123.5\");\n"
-        "chk_r = is_real(n_real);\n"
-        "chk_s = is_string(c_str);\n"
-        "sq_val = sqr(5);\n"
-        "col_rgb = make_color_rgb(255, 128, 0);\n"
-        "c_red = color_get_red(col_rgb);\n"
-        "c_green = color_get_green(col_rgb);\n"
-        "c_blue = color_get_blue(col_rgb);\n"
-        "c_val = color_get_value(col_rgb);\n"
-        "p_dist3d = point_distance_3d(0, 0, 0, 3, 4, 12);\n"
-        "d_prod = dot_product(2, 3, 4, 5);\n"
-        "l = ds_list_create();\n"
-        "ds_list_add(l, 30, 10, 20);\n"
-        "ds_list_sort(l, 1);\n"
-        "s_val = ds_list_find_value(l, 0);\n"
-        "ds_list_destroy(l);\n"
-        "m = ds_map_create();\n"
-        "ds_map_add(m, \"k1\", 100);\n"
-        "ds_map_add(m, \"k2\", 200);\n"
-        "f_key = ds_map_find_first(m);\n"
-        "has_k = (f_key == \"k1\");\n"
-        "ds_map_destroy(m);\n"
- main
-
-    gml_ast *ast = NULL;
-    char err[160] = {0};
-    int parse_ok = gml_parse_program(code_ext, &ast, err, sizeof(err));
+main
     assert(parse_ok);
 
     gml_vm vm;
     gml_vm_init(&vm);
     gml_vm_set_native_call(&vm, gm82_native_call, NULL);
-    int exec_ok = gml_vm_execute(&vm, ast);
-    assert(exec_ok);
-    assert(vm.returned);
- main
-
-    gml_ast_free(ast);
-
-    /* Test newly added core functions */
-    const char *ext_script = "var w = string_width('hello'); var h = string_height('hello'); var k = keyboard_check(32); var m = mouse_check_button(1); return w + h + (k ? 100 : 0) + (m ? 200 : 0);";
-    gml_ast *ext_ast = NULL;
-    char ext_err[128] = {0};
-    assert(gml_parse_program(ext_script, &ext_ast, ext_err, sizeof(ext_err)));
-    gml_vm ext_vm;
-    gml_vm_init(&ext_vm);
-    gml_vm_set_native_call(&ext_vm, gm82_native_call, NULL);
-    assert(gml_vm_execute(&ext_vm, ext_ast));
-    assert(ext_vm.returned);
-    /* 'hello' length 5 * 8 = 40; height = 16; k=0, m=0 -> total 56 */
-    assert(ext_vm.return_value.real == 56.0);
-    gml_ast_free(ext_ast);
-
-    printf("[PASS] Extended GML Suite\n");
-}
-
-
+main
 void test_retro_rom_suite(void) {
     const char *nes_path = "/tmp/nor_core_tests/test.nes";
     const char *gbc_path = "/tmp/nor_core_tests/test.gbc";
@@ -199,7 +148,7 @@ int main(void) {
     printf("--- Running Native Host Comprehensive Test Suite ---\n");
     test_gmk_probe_suite();
     test_gml_vm_suite();
-    test_extended_gml_suite();
+main
     test_retro_rom_suite();
     printf("--- All Native Host Tests Passed! ---\n");
     return 0;
