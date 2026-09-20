@@ -295,34 +295,7 @@ static gml_value call(gml_vm* vm, const gml_ast* n) {
         double sum = 0;
         for (size_t i = 0; i < c; i++) sum += num(a[i]);
         r = gml_value_real(sum / (double)c);
-    } else if (!strcmp(n->text, "dot_product") && c == 4) {
-        r = gml_value_real(num(a[0]) * num(a[2]) + num(a[1]) * num(a[3]));
-    } else if (!strcmp(n->text, "dot_product_3d") && c == 6) {
-        r = gml_value_real(num(a[0]) * num(a[3]) + num(a[1]) * num(a[4]) + num(a[2]) * num(a[5]));
-    } else if (!strcmp(n->text, "point_distance_3d") && c == 6) {
-        double dx = num(a[3]) - num(a[0]), dy = num(a[4]) - num(a[1]), dz = num(a[5]) - num(a[2]);
-        r = gml_value_real(sqrt(dx * dx + dy * dy + dz * dz));
-    } else if (!strcmp(n->text, "dot_product_normal") && c == 4) {
-        double l1 = sqrt(num(a[0]) * num(a[0]) + num(a[1]) * num(a[1]));
-        double l2 = sqrt(num(a[2]) * num(a[2]) + num(a[3]) * num(a[3]));
-        r = gml_value_real((l1 > 0 && l2 > 0) ? (num(a[0]) * num(a[2]) + num(a[1]) * num(a[3])) / (l1 * l2) : 0);
-    } else if (!strcmp(n->text, "dot_product_3d_normal") && c == 6) {
-        double l1 = sqrt(num(a[0]) * num(a[0]) + num(a[1]) * num(a[1]) + num(a[2]) * num(a[2]));
-        double l2 = sqrt(num(a[3]) * num(a[3]) + num(a[4]) * num(a[4]) + num(a[5]) * num(a[5]));
-        r = gml_value_real((l1 > 0 && l2 > 0) ? (num(a[0]) * num(a[3]) + num(a[1]) * num(a[4]) + num(a[2]) * num(a[5])) / (l1 * l2) : 0);
-    } else if (!strcmp(n->text, "angle_difference") && c == 2) {
-        double diff = fmod(num(a[0]) - num(a[1]) + 180.0, 360.0);
-        if (diff < 0) diff += 360.0;
-        r = gml_value_real(diff - 180.0);
-    } else if ((!strcmp(n->text, "make_color_rgb") || !strcmp(n->text, "make_colour_rgb")) && c == 3) {
-        int red = (int)num(a[0]) & 0xFF, green = (int)num(a[1]) & 0xFF, blue = (int)num(a[2]) & 0xFF;
-        r = gml_value_real((double)(red | (green << 8) | (blue << 16)));
-    } else if ((!strcmp(n->text, "color_get_red") || !strcmp(n->text, "colour_get_red")) && c == 1) {
-        r = gml_value_real((double)((int)num(a[0]) & 0xFF));
-    } else if ((!strcmp(n->text, "color_get_green") || !strcmp(n->text, "colour_get_green")) && c == 1) {
-        r = gml_value_real((double)(((int)num(a[0]) >> 8) & 0xFF));
-    } else if ((!strcmp(n->text, "color_get_blue") || !strcmp(n->text, "colour_get_blue")) && c == 1) {
-        r = gml_value_real((double)(((int)num(a[0]) >> 16) & 0xFF));
+ main
     } else if (vm->native_call && vm->native_call(vm->native_userdata, n->text, a, c, &r)) {}
     else if (vm->script_call && vm->script_call(vm->script_userdata, n->text, a, c, &r)) {}
     else snprintf(vm->error, sizeof vm->error, "unknown function: %s", n->text);

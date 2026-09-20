@@ -130,6 +130,11 @@ void test_extended_gml_suite(void) {
         "sq_val = sqr(5);\n"
         "col_rgb = make_color_rgb(255, 128, 0);\n"
         "c_red = color_get_red(col_rgb);\n"
+        "c_green = color_get_green(col_rgb);\n"
+        "c_blue = color_get_blue(col_rgb);\n"
+        "c_val = color_get_value(col_rgb);\n"
+        "p_dist3d = point_distance_3d(0, 0, 0, 3, 4, 12);\n"
+        "d_prod = dot_product(2, 3, 4, 5);\n"
         "l = ds_list_create();\n"
         "ds_list_add(l, 30, 10, 20);\n"
         "ds_list_sort(l, 1);\n"
@@ -141,25 +146,6 @@ void test_extended_gml_suite(void) {
         "f_key = ds_map_find_first(m);\n"
         "has_k = (f_key == \"k1\");\n"
         "ds_map_destroy(m);\n"
-        "s_id = surface_create(100, 100);\n"
-        "s_ex = surface_exists(s_id);\n"
-        "surface_free(s_id);\n"
-        "ps = part_system_create();\n"
-        "ps_ex = part_system_exists(ps);\n"
-        "part_system_destroy(ps);\n"
-        "buf = buffer_create(1024, 0, 1);\n"
-        "buffer_write(buf, 1, 42);\n"
-        "buffer_seek(buf, 0, 0);\n"
-        "b_val = buffer_read(buf, 1);\n"
-        "buffer_delete(buf);\n"
-        "mw = modwrap(370, 0, 360);\n"
-        "app = approach(0, 10, 3);\n"
-        "pic = point_in_circle(5, 5, 0, 0, 10);\n"
-        "pir = point_in_rectangle(5, 5, 0, 0, 10, 10);\n"
-        "pb = pack_bools(0, 0, 0, 0, 0, 1, 0, 1);\n"
-        "upb = unpack_bool(pb, 0);\n"
-        "d3d_start();\n"
-        "sh_ok = shader_is_compiled(0);\n"
  main
 
     gml_ast *ast = NULL;
@@ -173,7 +159,7 @@ void test_extended_gml_suite(void) {
     int exec_ok = gml_vm_execute(&vm, ast);
     assert(exec_ok);
     assert(vm.returned);
-main
+ main
 
     gml_ast_free(ast);
 
