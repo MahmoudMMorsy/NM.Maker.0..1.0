@@ -87,13 +87,23 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [selectedIds, menu, onUpdate]);
 
-main
+    const selectedElement = useMemo(() => {
+        return menu.elements.find(el => selectedIds.includes(el.id));
+    }, [menu.elements, selectedIds]);
+
+    const selectedSet = useMemo(() => new Set(selectedIds), [selectedIds]);
+
+    const { groupedElements, ungroupedElements } = useMemo(() => {
+        const grouped: Record<string, UIElement[]> = {};
+        const ungrouped: UIElement[] = [];
+        for (let i = 0; i < menu.elements.length; i++) {
+            const el = menu.elements[i];
             if (el.groupId) {
                 (grouped[el.groupId] = grouped[el.groupId] || []).push(el);
             } else {
                 ungrouped.push(el);
             }
-main
+        }
         return { groupedElements: grouped, ungroupedElements: ungrouped };
     }, [menu.elements]);
 
@@ -209,7 +219,6 @@ main
                                     }
                                 }}
                                 onDoubleClick={() => handleRenameElement(el)}
- main
                             >
                                 <span className="truncate flex-1 min-w-0 pointer-events-none" title="Double click to rename">{el.name} ({el.type})</span>
                                 <div className="flex gap-1 ml-1">
