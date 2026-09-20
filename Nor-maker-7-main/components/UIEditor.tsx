@@ -88,17 +88,12 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
     }, [selectedIds, menu, onUpdate]);
 
 main
-    const { groupedElements, ungroupedElements } = useMemo(() => {
-        const grouped: Record<string, UIElement[]> = {};
-        const ungrouped: UIElement[] = [];
-        for (let i = 0; i < menu.elements.length; i++) {
-            const el = menu.elements[i];
             if (el.groupId) {
                 (grouped[el.groupId] = grouped[el.groupId] || []).push(el);
             } else {
                 ungrouped.push(el);
             }
-        }
+main
         return { groupedElements: grouped, ungroupedElements: ungrouped };
     }, [menu.elements]);
 
