@@ -87,24 +87,13 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [selectedIds, menu, onUpdate]);
 
-    // ⚡ Bolt: Memoize selected element lookup to avoid linear array search (O(N)) on every component render during UI dragging and property updates.
-    const selectedElement = useMemo(() => {
-        if (selectedIds.length === 0) return undefined;
-        const selectedSet = new Set(selectedIds);
-        return menu.elements.find(el => selectedSet.has(el.id));
-    }, [menu.elements, selectedIds]);
-
-    // ⚡ Bolt: Memoize element grouping by groupId to eliminate per-render array and object allocations during high-frequency interaction re-renders.
-    const { groupedElements, ungroupedElements } = useMemo(() => {
-        const grouped: Record<string, UIElement[]> = {};
-        const ungrouped: UIElement[] = [];
-        menu.elements.forEach(el => {
+main
             if (el.groupId) {
                 (grouped[el.groupId] = grouped[el.groupId] || []).push(el);
             } else {
                 ungrouped.push(el);
             }
-        });
+main
         return { groupedElements: grouped, ungroupedElements: ungrouped };
     }, [menu.elements]);
 
@@ -220,7 +209,7 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
                                     }
                                 }}
                                 onDoubleClick={() => handleRenameElement(el)}
-                                className={`flex items-center justify-between p-1 cursor-pointer border ${selectedIds.includes(el.id) ? 'bg-win-select text-white border-dotted border-gray-400' : 'border-transparent hover:bg-gray-100'}`}
+ main
                             >
                                 <span className="truncate flex-1 min-w-0 pointer-events-none" title="Double click to rename">{el.name} ({el.type})</span>
                                 <div className="flex gap-1 ml-1">
@@ -270,7 +259,7 @@ export default function UIEditor({ menu, onUpdate, sprites }: UIEditorProps) {
                 <div className="bg-black relative shadow-lg" style={{ width: 320, height: 240, overflow: 'hidden' }}>
                     {/* Mock Canvas Area (320x240 typical retro resolution) */}
                     {menu.elements.map(el => {
-                        const isSelected = selectedIds.includes(el.id);
+                        const isSelected = selectedSet.has(el.id);
                         return (
                             <div
                                 key={el.id}
