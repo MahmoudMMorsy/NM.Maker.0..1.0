@@ -318,51 +318,6 @@ const ProjectAnalyzerPanel: React.FC<ProjectAnalyzerPanelProps> = ({
     }, {});
   }, [report?.issues]);
 
-  // ⚡ Bolt: Precompute selected issue count in a single pass to eliminate .filter().length array allocations during re-renders
-  const selectedIssueCount = React.useMemo(() => {
-    if (!report?.issues) return 0;
-    let count = 0;
-    for (let i = 0; i < report.issues.length; i++) {
-      if (selectedIssueIds[report.issues[i].id]) count++;
-    }
-    return count;
-  }, [report?.issues, selectedIssueIds]);
-
-  // ⚡ Bolt: Check if all issues are selected using precomputed count instead of iterating with .every() on every render
-  const isAllSelected = React.useMemo(() => {
-    return (report?.issues?.length || 0) > 0 && selectedIssueCount === report!.issues.length;
-  }, [report?.issues, selectedIssueCount]);
-
-  // ⚡ Bolt: Precompute error and warning counts per category in a single pass over issues to avoid repeated .filter() calls in render loops
-  const categoryCounts = React.useMemo(() => {
-    const map: Record<string, { errors: number; warnings: number }> = {};
-    if (report?.issues) {
-      for (let i = 0; i < report.issues.length; i++) {
-        const issue = report.issues[i];
-        let cat = map[issue.category];
-        if (!cat) {
-          cat = { errors: 0, warnings: 0 };
-          map[issue.category] = cat;
-        }
-        if (issue.severity === 'error') cat.errors++;
-        else if (issue.severity === 'warning') cat.warnings++;
-      }
-    }
-    return map;
-  }, [report?.issues]);
-
-  // ⚡ Bolt: Precompute Knowledge Base fix type metrics in a single pass to avoid .filter() array allocations during render
-  const knowledgeCounts = React.useMemo(() => {
-    let auto = 0;
-    let ai = 0;
-    for (let i = 0; i < knowledgeEntries.length; i++) {
-      const fixType = knowledgeEntries[i].fixType;
-      if (fixType === 'auto') auto++;
-      else if (fixType === 'ai') ai++;
-    }
-    return { auto, ai };
-  }, [knowledgeEntries]);
-
   const filteredIssues = (issues: ProjectIssue[]) =>
     filterSeverity === 'all' ? issues : issues.filter(i => i.severity === filterSeverity);
 
@@ -585,7 +540,7 @@ const ProjectAnalyzerPanel: React.FC<ProjectAnalyzerPanelProps> = ({
                     </div>
                     {report.issues.length > 0 && (
                       <span className="text-[8px] font-bold bg-purple-100 text-purple-700 px-1.5 py-0.5 rounded-full border border-purple-200">
-                        {selectedIssueCount} مشاكل محددة
+                        {report.issues.filter(i => selectedIssueIds[i.id]).length} مشاكل محددة
                       </span>
                     )}
                   </div>
@@ -617,7 +572,7 @@ const ProjectAnalyzerPanel: React.FC<ProjectAnalyzerPanelProps> = ({
                       className="w-full py-1.5 bg-purple-700 hover:bg-purple-800 text-white text-[9px] font-bold rounded shadow-win-out flex items-center justify-center gap-1 border border-purple-800"
                     >
                       <Brain size={11} />
-                      {selectedIssueCount > 0
+                      {report.issues.filter(i => selectedIssueIds[i.id]).length > 0
                         ? `إصلاح المشاكل المحددة وتخصيص اللعبة بالـ AI`
                         : `تعديل وترقية اللعبة بالـ AI`}
                     </button>
@@ -672,7 +627,7 @@ const ProjectAnalyzerPanel: React.FC<ProjectAnalyzerPanelProps> = ({
                     onClick={toggleAllIssues}
                     className="text-[8px] font-bold text-purple-700 hover:text-purple-900 flex items-center gap-1 bg-white border border-purple-200 px-1.5 py-0.5 rounded shadow-sm hover:bg-purple-50 transition-colors"
                   >
-                    {isAllSelected ? 'إلغاء تحديد الكل' : 'تحديد الكل للإصلاح'}
+                    {report.issues.every(i => selectedIssueIds[i.id]) ? 'إلغاء تحديد الكل' : 'تحديد الكل للإصلاح'}
                   </button>
                 )}
               </div>
@@ -690,9 +645,8 @@ const ProjectAnalyzerPanel: React.FC<ProjectAnalyzerPanelProps> = ({
                     const filtered = filteredIssues(catIssues);
                     if (filtered.length === 0) return null;
                     const isExpanded = expandedCategories[category] !== false;
-                    const counts = categoryCounts[category] || { errors: 0, warnings: 0 };
-                    const errCount = counts.errors;
-                    const warnCount = counts.warnings;
+                    const errCount = catIssues.filter(i => i.severity === 'error').length;
+                    const warnCount = catIssues.filter(i => i.severity === 'warning').length;
 
                     return (
                       <div key={category} className="border-b border-gray-200">
@@ -798,11 +752,11 @@ const ProjectAnalyzerPanel: React.FC<ProjectAnalyzerPanelProps> = ({
             </div>
             <div className="flex items-center gap-1 text-green-600">
               <CheckCircle size={10} />
-              <span>{knowledgeCounts.auto} تلقائي</span>
+              <span>{knowledgeEntries.filter(e => e.fixType === 'auto').length} تلقائي</span>
             </div>
             <div className="flex items-center gap-1 text-purple-600">
               <Brain size={10} />
-              <span>{knowledgeCounts.ai} AI</span>
+              <span>{knowledgeEntries.filter(e => e.fixType === 'ai').length} AI</span>
             </div>
           </div>
 

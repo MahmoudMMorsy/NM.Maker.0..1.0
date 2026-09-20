@@ -63,57 +63,37 @@ function autoExtractBounds(
   const visited = new Uint8Array(width * height);
   const regions: Array<{ x: number; y: number; w: number; h: number }> = [];
 
+  const isOpaque = (px: number, py: number) => {
+    if (px < 0 || px >= width || py < 0 || py >= height) return false;
+    return data[(py * width + px) * 4 + 3] > 10;
+  };
+
   for (let sy = 0; sy < height; sy++) {
     for (let sx = 0; sx < width; sx++) {
-      const startIdx = sy * width + sx;
-      if (visited[startIdx] || data[startIdx * 4 + 3] <= 10) continue;
+      const idx = sy * width + sx;
+      if (visited[idx] || !isOpaque(sx, sy)) continue;
 
-      // 1D index stack to eliminate per-pixel tuple/array allocations ([nx, ny], neighbors array)
-      const stack: number[] = [startIdx];
+      // BFS flood fill to find region
+      const stack: [number, number][] = [[sx, sy]];
       let minX = sx, maxX = sx, minY = sy, maxY = sy;
-      visited[startIdx] = 1;
+      visited[idx] = 1;
 
       while (stack.length > 0) {
-        const idx = stack.pop()!;
-        const cx = idx % width;
-        const cy = (idx / width) | 0;
-
+        const [cx, cy] = stack.pop()!;
         if (cx < minX) minX = cx;
         if (cx > maxX) maxX = cx;
         if (cy < minY) minY = cy;
         if (cy > maxY) maxY = cy;
 
-        // Check 4-connected neighbors directly to avoid temporary array allocations
-        // Right
-        if (cx + 1 < width) {
-          const ni = idx + 1;
-          if (!visited[ni] && data[ni * 4 + 3] > 10) {
+        const neighbors: [number, number][] = [
+          [cx + 1, cy], [cx - 1, cy], [cx, cy + 1], [cx, cy - 1]
+        ];
+        for (const [nx, ny] of neighbors) {
+          if (nx < 0 || nx >= width || ny < 0 || ny >= height) continue;
+          const ni = ny * width + nx;
+          if (!visited[ni] && isOpaque(nx, ny)) {
             visited[ni] = 1;
-            stack.push(ni);
-          }
-        }
-        // Left
-        if (cx - 1 >= 0) {
-          const ni = idx - 1;
-          if (!visited[ni] && data[ni * 4 + 3] > 10) {
-            visited[ni] = 1;
-            stack.push(ni);
-          }
-        }
-        // Down
-        if (cy + 1 < height) {
-          const ni = idx + width;
-          if (!visited[ni] && data[ni * 4 + 3] > 10) {
-            visited[ni] = 1;
-            stack.push(ni);
-          }
-        }
-        // Up
-        if (cy - 1 >= 0) {
-          const ni = idx - width;
-          if (!visited[ni] && data[ni * 4 + 3] > 10) {
-            visited[ni] = 1;
-            stack.push(ni);
+            stack.push([nx, ny]);
           }
         }
       }

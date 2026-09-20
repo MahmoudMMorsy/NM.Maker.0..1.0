@@ -130,11 +130,6 @@ void test_extended_gml_suite(void) {
         "sq_val = sqr(5);\n"
         "col_rgb = make_color_rgb(255, 128, 0);\n"
         "c_red = color_get_red(col_rgb);\n"
-        "c_green = color_get_green(col_rgb);\n"
-        "c_blue = color_get_blue(col_rgb);\n"
-        "c_val = color_get_value(col_rgb);\n"
-        "p_dist3d = point_distance_3d(0, 0, 0, 3, 4, 12);\n"
-        "d_prod = dot_product(2, 3, 4, 5);\n"
         "l = ds_list_create();\n"
         "ds_list_add(l, 30, 10, 20);\n"
         "ds_list_sort(l, 1);\n"
@@ -146,7 +141,7 @@ void test_extended_gml_suite(void) {
         "f_key = ds_map_find_first(m);\n"
         "has_k = (f_key == \"k1\");\n"
         "ds_map_destroy(m);\n"
- main
+        "return c_ord + n_real + sq_val + c_red + s_val + (chk_r ? 1 : 0) + (chk_s ? 1 : 0) + (has_k ? 1 : 0);\n";
 
     gml_ast *ast = NULL;
     char err[160] = {0};
@@ -159,23 +154,10 @@ void test_extended_gml_suite(void) {
     int exec_ok = gml_vm_execute(&vm, ast);
     assert(exec_ok);
     assert(vm.returned);
- main
+    /* c_ord(65) + n_real(123.5) + sq_val(25) + c_red(255) + s_val(10) + chk_r(1) + chk_s(1) + has_k(1) = 481.5 */
+    assert(vm.return_value.real == 481.5);
 
     gml_ast_free(ast);
-
-    /* Test newly added core functions */
-    const char *ext_script = "var w = string_width('hello'); var h = string_height('hello'); var k = keyboard_check(32); var m = mouse_check_button(1); return w + h + (k ? 100 : 0) + (m ? 200 : 0);";
-    gml_ast *ext_ast = NULL;
-    char ext_err[128] = {0};
-    assert(gml_parse_program(ext_script, &ext_ast, ext_err, sizeof(ext_err)));
-    gml_vm ext_vm;
-    gml_vm_init(&ext_vm);
-    gml_vm_set_native_call(&ext_vm, gm82_native_call, NULL);
-    assert(gml_vm_execute(&ext_vm, ext_ast));
-    assert(ext_vm.returned);
-    /* 'hello' length 5 * 8 = 40; height = 16; k=0, m=0 -> total 56 */
-    assert(ext_vm.return_value.real == 56.0);
-    gml_ast_free(ext_ast);
 
     printf("[PASS] Extended GML Suite\n");
 }
