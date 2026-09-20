@@ -27,3 +27,7 @@
 ## 2026-08-17 - Per-Pixel Array Allocations in BFS Image Flood Fill
 **Learning:** Performing image/canvas flood fill or BFS pixel grouping (such as auto-extracting sprite sheet bounds) using 2D coordinate tuples `[x, y]` and temporary neighbor arrays `[nx, ny]` allocates 5+ JS objects/arrays per pixel. For a 1024x1024 sprite sheet (~1M pixels), this generates 5,000,000+ short-lived allocations, causing severe CPU overhead and GC pauses.
 **Action:** Replace 2D coordinate tuple stacks `[number, number][]` with a 1D scalar index stack `number[]` (`idx`) and bitwise/integer coordinate math (`idx % width`, `(idx / width) | 0`) with inline neighbor bounds checks to achieve zero per-pixel allocations.
+
+## 2026-09-05 - O(N log N) Runtime Instance Sorting and GC Allocation Elimination
+**Learning:** Hot game loop functions (such as `instance_nearest` and `instance_furthest`) implemented using `.filter().sort()` allocate temporary arrays and perform $O(N \log N)$ sorting operations every frame (e.g. 60 times/sec per instance). Replaces `.filter().sort()` with single-pass $O(N)$ linear loops tracking min/max distance completely eliminates GC array allocation thrashing and reduces time complexity to $O(N)$.
+**Action:** Always replace `.filter().sort()[0]` with a single-pass loop tracking min/max variables when retrieving extrema from dynamic runtime collections.

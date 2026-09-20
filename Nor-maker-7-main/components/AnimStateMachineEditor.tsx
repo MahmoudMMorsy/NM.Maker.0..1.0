@@ -149,7 +149,6 @@ const AnimStateMachineEditor: React.FC<Props> = ({ fsm: fsmProp, sprites, onUpda
     return map;
   }, [sprites]);
 
- main
   const transitionMap = useMemo(() => {
     const map = new Map<string, AnimTransition>();
     for (const t of fsm.transitions) map.set(t.id, t);
@@ -159,7 +158,9 @@ const AnimStateMachineEditor: React.FC<Props> = ({ fsm: fsmProp, sprites, onUpda
   const outgoingTransitionsMap = useMemo(() => {
     const map = new Map<string, AnimTransition[]>();
     for (const t of fsm.transitions) {
-main
+      const list = map.get(t.from);
+      if (list) list.push(t);
+      else map.set(t.from, [t]);
     }
     return map;
   }, [fsm.transitions]);
@@ -182,7 +183,6 @@ main
 
   const selectedState = selectedStateId ? stateMap.get(selectedStateId) || null : null;
   const selectedTransition = selectedTransitionId ? transitionMap.get(selectedTransitionId) || null : null;
-main
 
   // ---------- render helpers ----------
   const STATE_W = 110, STATE_H = 44;
