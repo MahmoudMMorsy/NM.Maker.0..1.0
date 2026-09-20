@@ -78,21 +78,40 @@ export function useGamepad(options: UseGamepadOptions = {}) {
 
     stateRef.current.connected = true;
     stateRef.current.id        = gp.id;
-    stateRef.current.buttons   = gp.buttons.map(b => b.pressed);
-    stateRef.current.axes      = Array.from(gp.axes);
+
+    // ⚡ Bolt: Avoid per-frame array allocations (.map / Array.from) in the 60+ FPS RAF polling loop.
+    // Reusing existing arrays prevents frequent garbage collection pauses during gameplay.
+    if (stateRef.current.buttons.length !== gp.buttons.length) {
+      stateRef.current.buttons = new Array(gp.buttons.length);
+    }
+    for (let i = 0; i < gp.buttons.length; i++) {
+      stateRef.current.buttons[i] = gp.buttons[i].pressed;
+    }
+
+    if (stateRef.current.axes.length !== gp.axes.length) {
+      stateRef.current.axes = new Array(gp.axes.length);
+    }
+    for (let i = 0; i < gp.axes.length; i++) {
+      stateRef.current.axes[i] = gp.axes[i];
+    }
 
     // --- Buttons ---
-    gp.buttons.forEach((btn, i) => {
-      const key  = BUTTON_MAP[i];
-      const prev = prevButtons.current[i] ?? false;
+    if (prevButtons.current.length !== gp.buttons.length) {
+      prevButtons.current = new Array(gp.buttons.length).fill(false);
+    }
+
+    for (let i = 0; i < gp.buttons.length; i++) {
+      const btn = gp.buttons[i];
+      const key = BUTTON_MAP[i];
+      const prev = prevButtons.current[i];
       const curr = btn.pressed;
 
-      if (!key) return;
-
-      if (curr && !prev) dispatch(key, 'keydown');
-      if (!curr && prev) dispatch(key, 'keyup');
-    });
-    prevButtons.current = gp.buttons.map(b => b.pressed);
+      if (key) {
+        if (curr && !prev) dispatch(key, 'keydown');
+        if (!curr && prev) dispatch(key, 'keyup');
+      }
+      prevButtons.current[i] = curr;
+    }
 
     // --- Left Analog Stick (axes 0, 1) ---
     const lx = gp.axes[0] ?? 0;
@@ -171,20 +190,28 @@ export const GAMEPAD_SCRIPT = `
   function poll() {
     const gp = navigator.getGamepads()[0];
     if (gp) {
-      gp.buttons.forEach((b,i) => {
-        const key = MAP[i]; if (!key) return;
-        const was = prev[i] ?? false;
-        if (b.pressed && !was) fire(key,'keydown');
-        if (!b.pressed && was) fire(key,'keyup');
-      });
-      prev = gp.buttons.map(b=>b.pressed);
+      if (prev.length !== gp.buttons.length) {
+        prev = new Array(gp.buttons.length).fill(false);
+      }
+      for (let i = 0; i < gp.buttons.length; i++) {
+        const b = gp.buttons[i];
+        const key = MAP[i];
+        const was = prev[i];
+        if (key) {
+          if (b.pressed && !was) fire(key, 'keydown');
+          if (!b.pressed && was) fire(key, 'keyup');
+        }
+        prev[i] = b.pressed;
+      }
       const lx=gp.axes[0]||0, ly=gp.axes[1]||0;
-      const nx={x:Math.abs(lx)>DZONE, y:Math.abs(ly)>DZONE};
-      if (nx.x && !pAx.x) fire(lx<0?'ArrowLeft':'ArrowRight','keydown');
-      if (!nx.x && pAx.x) fire(lx<0?'ArrowLeft':'ArrowRight','keyup');
-      if (nx.y && !pAx.y) fire(ly<0?'ArrowUp':'ArrowDown','keydown');
-      if (!nx.y && pAx.y) fire(ly<0?'ArrowUp':'ArrowDown','keyup');
-      pAx = nx;
+      const nxX = Math.abs(lx) > DZONE;
+      const nxY = Math.abs(ly) > DZONE;
+      if (nxX && !pAx.x) fire(lx<0?'ArrowLeft':'ArrowRight','keydown');
+      if (!nxX && pAx.x) fire(lx<0?'ArrowLeft':'ArrowRight','keyup');
+      if (nxY && !pAx.y) fire(ly<0?'ArrowUp':'ArrowDown','keydown');
+      if (!nxY && pAx.y) fire(ly<0?'ArrowUp':'ArrowDown','keyup');
+      pAx.x = nxX;
+      pAx.y = nxY;
     }
     requestAnimationFrame(poll);
   }

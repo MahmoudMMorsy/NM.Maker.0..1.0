@@ -93,6 +93,8 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
   // Index lookup maps for O(1) asset access during render operations
   const spriteMap = useMemo(() => new Map<string, SpriteAsset>(sprites.map(s => [s.id, s])), [sprites]);
   const bgAssetMap = useMemo(() => new Map<string, BackgroundAsset>(backgroundAssets.map(b => [b.id, b])), [backgroundAssets]);
+  const stampMap = useMemo(() => new Map(stamps.map(s => [s.id, s])), [stamps]);
+  const model3DMap = useMemo(() => new Map((model3DAssets || []).map(a => [a.id, a])), [model3DAssets]);
 
   // selectedTool corresponds to the MAP ID.
   // 0=Eraser, 1=Solid Wall, 2+=Objects (gameObjects index + 2)
@@ -144,6 +146,7 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const spriteImagesRef = useRef<{[key: string]: HTMLImageElement}>({});
   const bgImagesRef = useRef<{[key: string]: HTMLImageElement}>({});
+  const tileImagesRef = useRef<{[key: number]: HTMLImageElement}>({});
 
   useEffect(() => {
     setSnapX(roomSettings.snapX || 16);
@@ -172,6 +175,18 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
         }
     });
   }, [backgroundAssets]);
+
+  useEffect(() => {
+    if (tileDefs) {
+      tileDefs.forEach((t) => {
+        if (t.src) {
+          const img = new Image();
+          img.src = t.src;
+          img.onload = () => { tileImagesRef.current[t.id] = img; drawCanvas(); };
+        }
+      });
+    }
+  }, [tileDefs]);
 
   useEffect(() => { drawCanvas(); }, [levelData, layers, currentLayerIndex, selection, isDraggingSelection, zoom, hoverPos, dragStart, showGrid, showUI, roomSettings.bgColor, roomSettings.drawBgColor, gameObjects]);
 
@@ -212,20 +227,47 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selection, layers, currentLayerIndex, levelData, width, height, onUpdate, onUpdateLayers]);
 
+  // ⚡ Bolt: Memoize placed non-zero tile count to avoid allocating arrays with levelData.filter() on 60 FPS mousemove events (hoverPos)
+  const placedTileCount = useMemo(() => {
+    let count = 0;
+    for (let i = 0; i < levelData.length; i++) {
+        if (levelData[i] !== 0) count++;
+    }
+    return count;
+  }, [levelData]);
+
+  // ⚡ Bolt: Memoize room instance counts per object/tile ID to avoid re-scanning levelData (up to 250,000 cells) and allocating new objects/arrays on every component render.
+  const roomInstanceCounts = useMemo(() => {
+    const counts: { [key: number]: { name: string; indices: number[] } } = {};
+    for (let idx = 0; idx < levelData.length; idx++) {
+      const id = levelData[idx];
+      if (id !== 0) {
+        if (!counts[id]) {
+          let name = 'Unknown';
+          if (id === 1) name = 'Solid Wall';
+          else {
+            const obj = gameObjects[id - 2];
+            if (obj) name = obj.name;
+          }
+          counts[id] = { name, indices: [] };
+        }
+        counts[id].indices.push(idx);
+      }
+    }
+    const sortedIds = Object.keys(counts).map(Number).sort((a, b) => a - b);
+    return { counts, sortedIds };
+  }, [levelData, gameObjects]);
+
+  // ⚡ Bolt: Pre-resolve wall tile definition (ID=1) before looping through grid tiles to avoid linear array search `tileDefs?.find()` inside high-frequency canvas render loops.
+  const wallTileDef = useMemo(() => tileDefs?.find(t => t.id === 1), [tileDefs]);
+
   const drawTileAt = (ctx: CanvasRenderingContext2D, tileId: number, x: number, y: number) => {
     if (tileId === 1) {
-        const tileDef = tileDefs?.find(t => t.id === 1);
-        if (tileDef?.src) {
-            const tileImg = new Image();
-            tileImg.src = tileDef.src;
-            ctx.drawImage(tileImg, x, y, snapX, snapY);
-        } else {
-            const wallColor = tileDef?.color || '#8b4513';
-            ctx.fillStyle = wallColor;
-            ctx.fillRect(x, y, snapX, snapY);
-            ctx.strokeStyle = wallColor.replace(/^#/, '') ? `${wallColor}99` : '#5c2e0e';
-            ctx.strokeRect(x, y, snapX, snapY);
-        }
+        const wallColor = wallTileDef?.color || '#8b4513';
+        ctx.fillStyle = wallColor;
+        ctx.fillRect(x, y, snapX, snapY);
+        ctx.strokeStyle = wallColor.replace(/^#/, '') ? `${wallColor}99` : '#5c2e0e';
+        ctx.strokeRect(x, y, snapX, snapY);
     } else {
         const objIndex = tileId - 2;
         const obj = gameObjects[objIndex];
@@ -523,16 +565,16 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
       }
   };
 
-  const applyStamp = (x: number, y: number) => {
-    const stamp = stamps.find(s => s.id === activeStampId);
-    if (!stamp) return;
+  const applyStamp = (x: number, y: number, selectedStampObj?: any) => {
+    const s = selectedStampObj;
+    if (!s) return;
     const newData = layers.length > 0 ? [...layers[currentLayerIndex].data] : [...levelData];
-    for(let sy=0; sy<stamp.height; sy++) {
-        for(let sx=0; sx<stamp.width; sx++) {
+    for(let sy=0; sy<s.height; sy++) {
+        for(let sx=0; sx<s.width; sx++) {
             const tx = x + sx;
             const ty = y + sy;
             if (tx >= 0 && tx < width && ty >= 0 && ty < height) {
-                const val = stamp.data[sy * stamp.width + sx];
+                const val = s.data[sy * s.width + sx];
                 if (val !== 0) newData[ty * width + tx] = val;
             }
         }
@@ -617,7 +659,7 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
 
   const place3DObjectAt = (gx: number, gy: number) => {
       if (!selected3DModelId) { window.alert('اختر نموذج 3D من القائمة العائمة أولاً\nSelect a 3D model from the floating panel first'); return; }
-      const asset = (model3DAssets || []).find(a => a.id === selected3DModelId);
+      const asset = model3DMap.get(selected3DModelId);
       if (!asset) return;
       const G = 16;
       const px = (gx - width/2) * G + G/2;
@@ -938,75 +980,58 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
                         <div className="flex flex-col gap-2 h-full overflow-hidden">
                             <div className="text-gray-600 font-bold mb-1 px-1">Room Instances</div>
                             <div className="flex-1 overflow-y-auto border border-win-shadow shadow-win-in bg-white p-1">
-                                {(() => {
-                                    const counts: { [key: number]: { name: string, indices: number[] } } = {};
-                                    levelData.forEach((id, idx) => {
-                                        if (id !== 0) {
-                                            if (!counts[id]) {
-                                                let name = "Unknown";
-                                                if (id === 1) name = "Solid Wall";
-                                                else {
-                                                    const obj = gameObjects[id - 2];
-                                                    if (obj) name = obj.name;
-                                                }
-                                                counts[id] = { name, indices: [] };
-                                            }
-                                            counts[id].indices.push(idx);
-                                        }
-                                    });
-
-                                    const sortedIds = Object.keys(counts).map(Number).sort((a, b) => a - b);
-
-                                    if (sortedIds.length === 0) {
-                                        return <div className="text-gray-400 text-center py-4 italic">No instances in room</div>;
-                                    }
-
-                                    return sortedIds.map(id => (
-                                        <div key={id} className="mb-3 border-b border-gray-100 pb-2">
-                                            <div className="flex items-center justify-between bg-gray-50 p-1 mb-1">
-                                                <span className="font-bold text-win-blue truncate max-w-[150px]">{counts[id].name} ({counts[id].indices.length})</span>
-                                                <button
-                                                    onClick={() => {
-                                                        if (window.confirm(`Delete all ${counts[id].indices.length} instances of ${counts[id].name}?`)) {
-                                                            const newData = levelData.map(v => v === id ? 0 : v);
-                                                            onUpdate(newData);
-                                                        }
-                                                    }}
-                                                    className="text-[9px] bg-red-50 text-red-600 border border-red-200 px-1 hover:bg-red-600 hover:text-white rounded"
-                                                >
-                                                    Clear All
-                                                </button>
-                                            </div>
-                                            <div className="grid grid-cols-1 gap-0.5 pl-2">
-                                                {counts[id].indices.map(idx => {
-                                                    const x = idx % width;
-                                                    const y = Math.floor(idx / width);
-                                                    return (
-                                                        <div
-                                                            key={idx}
-                                                            className="flex items-center justify-between text-[10px] hover:bg-blue-50 group px-1 cursor-default"
-                                                            onMouseEnter={() => setHoverPos({x, y})}
-                                                            onMouseLeave={() => setHoverPos(null)}
-                                                        >
-                                                            <span>Pos: ({x}, {y})</span>
-                                                            <button
-                                                                onClick={() => {
-                                                                    const newData = [...levelData];
-                                                                    newData[idx] = 0;
-                                                                    onUpdate(newData);
-                                                                }}
-                                                                className="opacity-0 group-hover:opacity-100 text-red-500 hover:font-bold"
-                                                                title="Delete this instance"
+                                {roomInstanceCounts.sortedIds.length === 0 ? (
+                                    <div className="text-gray-400 text-center py-4 italic">No instances in room</div>
+                                ) : (
+                                    roomInstanceCounts.sortedIds.map(id => {
+                                        const instanceGroup = roomInstanceCounts.counts[id];
+                                        return (
+                                            <div key={id} className="mb-3 border-b border-gray-100 pb-2">
+                                                <div className="flex items-center justify-between bg-gray-50 p-1 mb-1">
+                                                    <span className="font-bold text-win-blue truncate max-w-[150px]">{instanceGroup.name} ({instanceGroup.indices.length})</span>
+                                                    <button
+                                                        onClick={() => {
+                                                            if (window.confirm(`Delete all ${instanceGroup.indices.length} instances of ${instanceGroup.name}?`)) {
+                                                                const newData = levelData.map(v => v === id ? 0 : v);
+                                                                onUpdate(newData);
+                                                            }
+                                                        }}
+                                                        className="text-[9px] bg-red-50 text-red-600 border border-red-200 px-1 hover:bg-red-600 hover:text-white rounded"
+                                                    >
+                                                        Clear All
+                                                    </button>
+                                                </div>
+                                                <div className="grid grid-cols-1 gap-0.5 pl-2">
+                                                    {instanceGroup.indices.map(idx => {
+                                                        const x = idx % width;
+                                                        const y = Math.floor(idx / width);
+                                                        return (
+                                                            <div
+                                                                key={idx}
+                                                                className="flex items-center justify-between text-[10px] hover:bg-blue-50 group px-1 cursor-default"
+                                                                onMouseEnter={() => setHoverPos({x, y})}
+                                                                onMouseLeave={() => setHoverPos(null)}
                                                             >
-                                                                ✕
-                                                            </button>
-                                                        </div>
-                                                    );
-                                                })}
+                                                                <span>Pos: ({x}, {y})</span>
+                                                                <button
+                                                                    onClick={() => {
+                                                                        const newData = [...levelData];
+                                                                        newData[idx] = 0;
+                                                                        onUpdate(newData);
+                                                                    }}
+                                                                    className="opacity-0 group-hover:opacity-100 text-red-500 hover:font-bold"
+                                                                    title="Delete this instance"
+                                                                >
+                                                                    ✕
+                                                                </button>
+                                                            </div>
+                                                        );
+                                                    })}
+                                                </div>
                                             </div>
-                                        </div>
-                                    ));
-                                })()}
+                                        );
+                                    })
+                                )}
                             </div>
                         </div>
                     )}
@@ -1621,7 +1646,7 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
                 : <span className="text-gray-400 italic">move mouse over room</span>
             }
             <span className="text-gray-400">|</span>
-            <span>Tiles: {levelData.filter(t => t !== 0).length} / {levelData.length}</span>
+            <span>Tiles: {placedTileCount} / {levelData.length}</span>
             <span className="ml-auto text-gray-500 italic">
                 {currentToolType === 'eraser' ? 'Eraser'
                     : currentToolType === 'select' ? 'Select Area'

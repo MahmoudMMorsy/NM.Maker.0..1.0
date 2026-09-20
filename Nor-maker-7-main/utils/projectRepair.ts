@@ -392,10 +392,13 @@ export const autoRepairProject = async (
             room.map[(rows - 1) * cols + c] = 1;
           }
 
-          // Find player object
+          // Find player object with precomputed O(1) player sprite ID lookup
+          const playerSpriteIds = new Set(
+            fixed.sprites.filter(s => s.role === 'player').map(s => s.id)
+          );
           const playerIdx = fixed.gameObjects.findIndex(o =>
             o.name.toLowerCase().includes('player') ||
-            (o.spriteId && fixed.sprites.find(s => s.id === o.spriteId)?.role === 'player')
+            (o.spriteId && playerSpriteIds.has(o.spriteId))
           );
 
           if (playerIdx !== -1) {

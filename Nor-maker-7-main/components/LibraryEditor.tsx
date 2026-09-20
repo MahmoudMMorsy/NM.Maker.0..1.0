@@ -126,6 +126,9 @@ const LibraryEditor: React.FC<LibraryEditorProps> = ({ objectData, onUpdate, spr
     return gameObjects.filter(o => o.id !== objectData.id);
   }, [gameObjects, objectData.id]);
 
+  // Pre-build O(1) Map index for sprite assets to replace linear Array.prototype.find on render
+  const spriteMap = useMemo(() => new Map(sprites.map(s => [s.id, s])), [sprites]);
+
   // Dynamic Events List
   const dynamicEvents = useMemo(() => {
       return EVENTS.map(ev => {
@@ -363,7 +366,7 @@ const LibraryEditor: React.FC<LibraryEditorProps> = ({ objectData, onUpdate, spr
           <div className="flex flex-col gap-1 items-center -mt-1">
              <div className="w-20 h-20 bg-white border-2 border-t-[#808080] border-l-[#808080] border-r-white border-b-white flex flex-col items-center justify-center p-1 relative shadow-win-in">
                 {objectData.spriteId ? (
-                   <img src={sprites.find(s=>s.id===objectData.spriteId)?.src || undefined} className="max-w-full max-h-full image-render-pixel" />
+                   <img src={spriteMap.get(objectData.spriteId)?.src || undefined} className="max-w-full max-h-full image-render-pixel" />
                 ) : (
                    <span className="text-[9px] text-gray-500">&lt;no sprite&gt;</span>
                 )}

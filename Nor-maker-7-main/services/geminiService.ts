@@ -1331,9 +1331,10 @@ export const createEngineHTML = (
     projectData.assets.sounds.forEach(s => assetMap[s.id] = s.src);
 
     // Construct Object Definitions for Runtime
-    // We map the GameObject[] to a cleaner runtime structure
+    // Preserve the complete object contract for the generated runtime.
     const objectDefinitions = projectData.gameObjects.map(obj => {
         return {
+            ...obj,
             id: obj.id,
             name: obj.name,
             spriteId: obj.spriteId,
@@ -1347,6 +1348,77 @@ export const createEngineHTML = (
     }];
 
     const startRoomId = projectData.rooms.length > 0 ? projectData.rooms[0].id : 'rm_default';
+
+    const runtimeEventDiagnostics: any[] = [];
+    const normalizeRuntimeEventKey = (key: any) => {
+        if (key === undefined || key === null) return "";
+        const raw = String(key).trim();
+        const compact = raw.toLowerCase().replace(/[-. ]+/g, "_");
+        const aliases: Record<string, string> = {
+            create: "create", creation: "create", stepbegin: "step_begin", step_begin: "step_begin",
+            step: "step", stepend: "step_end", step_end: "step_end", draw: "draw",
+            destroy: "destroy", cleanup: "cleanup", alarm: "alarm", keyboard: "keyboard",
+            keypress: "keypress", keyrelease: "keyrelease", mouse: "mouse"
+        };
+        if (aliases[compact]) return aliases[compact];
+        const compound = raw.match(/^(collision|keyboard|keypress|keyrelease|alarm)[_. -]+(.+)$/i);
+        if (compound) return compound[1].toLowerCase() + "_" + compound[2];
+        return raw;
+    };
+
+    const compileRuntimeEventValue = (objId: string, eventKey: string, value: any): string => {
+        if (typeof value === "string") return value;
+        if (value && typeof value === "object" && !Array.isArray(value)) {
+            if (typeof value.code === "string") return value.code;
+            if (typeof value.js === "string") return value.js;
+            if (typeof value.gml === "string") {
+                runtimeEventDiagnostics.push({ objectId: objId, event: eventKey, status: "PARTIAL", reason: "raw_gml_source_not_compiled", length: value.gml.length });
+                return "";
+            }
+            if (Array.isArray(value.actions)) value = value.actions;
+        }
+        if (Array.isArray(value)) {
+            if (value.length === 0) return "";
+            const snippets = value.map(item => item && (typeof item === "string" ? item : (item.code || item.js))).filter(code => typeof code === "string");
+            if (snippets.length === value.length) return snippets.join("\n");
+            runtimeEventDiagnostics.push({ objectId: objId, event: eventKey, status: "PARTIAL", reason: "unsupported_event_value" });
+            return "";
+        }
+        if (value !== undefined && value !== null) runtimeEventDiagnostics.push({ objectId: objId, event: eventKey, status: "PARTIAL", reason: "unsupported_event_value" });
+        return "";
+    };
+
+    const normalizeRuntimeEvents = () => {
+        const out: Record<string, Record<string, string>> = {};
+        const sourceMap = projectData.objectEvents || {};
+        projectData.gameObjects.forEach(obj => {
+            const objId = obj.id;
+            const mapped = sourceMap[objId];
+            const source = mapped && (Array.isArray(mapped) || Object.keys(mapped).length > 0) ? mapped : ((obj as any).events || mapped || {});
+            const target: Record<string, string> = out[objId] = {};
+            if (Array.isArray(source)) {
+                source.forEach((entry: any) => {
+                    const eventKey = normalizeRuntimeEventKey(entry && (entry.eventKey || entry.key || entry.name));
+                    if (!eventKey) {
+                        runtimeEventDiagnostics.push({ objectId: objId, status: "PARTIAL", reason: "event_key_missing" });
+                        return;
+                    }
+                    const entryValue = entry.actions ?? entry.code ?? entry.js ?? (entry.gml !== undefined ? { gml: entry.gml } : entry.value);
+                    const code = compileRuntimeEventValue(objId, eventKey, entryValue);
+                    if (code) target[eventKey] = target[eventKey] ? target[eventKey] + "\n" + code : code;
+                });
+            } else if (source && typeof source === "object") {
+                Object.entries(source).forEach(([key, value]) => {
+                    const eventKey = normalizeRuntimeEventKey(key);
+                    const code = compileRuntimeEventValue(objId, eventKey, value);
+                    if (code) target[eventKey] = code;
+                });
+            }
+        });
+        return out;
+    };
+
+    const normalizedObjectEvents = normalizeRuntimeEvents();
 
     // Helper to safely stringify and escape JSON for HTML embedding
     const safeJSON = (data: any) => JSON.stringify(data).replace(/</g, '\\u003c').replace(/>/g, '\\u003e');
@@ -1379,7 +1451,8 @@ export const createEngineHTML = (
         scripts: projectData.scripts,
         objects: objectDefinitions,
         uiMenus: processedUIMenus,
-        events: projectData.objectEvents,
+        events: normalizedObjectEvents,
+        runtimeDiagnostics: { events: runtimeEventDiagnostics },
         defaultTransition: (projectData as any).defaultTransition || { type: 'fade', duration: 500, color: '#000000', easing: 'easeInOut' }
     };
 
@@ -2294,8 +2367,34 @@ export const createEngineHTML = (
         if (obj === null || obj === undefined) return false;
         return window.instances.some(i => !i.dead && (i.def.name === obj || i.def.id === obj || i === obj));
     };
-    window.instance_number  = (objName) => window.instances.filter(i=>!i.dead&&(i.def.name===objName||i.def.id===objName)).length;
-    window.instance_find    = (objName,n) => window.instances.filter(i=>!i.dead&&(i.def.name===objName||i.def.id===objName))[n||0]||null;
+    // ⚡ Bolt: Single-pass linear counter for instance_number to eliminate per-call .filter() array allocations.
+    window.instance_number = (objName) => {
+        if (!window.instances) return 0;
+        const isAll = objName === 'all';
+        let count = 0;
+        for (let i = 0; i < window.instances.length; i++) {
+            const inst = window.instances[i];
+            if (inst && !inst.dead && (isAll || inst.def?.name === objName || inst.def?.id === objName)) {
+                count++;
+            }
+        }
+        return count;
+    };
+    // ⚡ Bolt: Early-returning single-pass loop for instance_find to eliminate per-call .filter() array allocations.
+    window.instance_find = (objName, n) => {
+        if (!window.instances) return null;
+        const targetIdx = n || 0;
+        const isAll = objName === 'all';
+        let count = 0;
+        for (let i = 0; i < window.instances.length; i++) {
+            const inst = window.instances[i];
+            if (inst && !inst.dead && (isAll || inst.def?.name === objName || inst.def?.id === objName)) {
+                if (count === targetIdx) return inst;
+                count++;
+            }
+        }
+        return null;
+    };
 
     // --- GML Room/Game Functions ---
     window.room_goto = (rid) => loadRoom(rid);
@@ -2433,8 +2532,44 @@ export const createEngineHTML = (
             if (perfCreate) me.triggerEvent('create');
         }
     };
-    window.instance_nearest = (x,y,objName) => window.instances.filter(i=>!i.dead&&(i.def.name===objName||i.def.id===objName)).sort((a,b)=>((a.x-x)**2+(a.y-y)**2)-((b.x-x)**2+(b.y-y)**2))[0]||null;
-    window.instance_furthest = (x,y,objName) => window.instances.filter(i=>!i.dead&&(i.def.name===objName||i.def.id===objName)).sort((a,b)=>((b.x-x)**2+(b.y-y)**2)-((a.x-x)**2+(a.y-y)**2))[0]||null;
+    // ⚡ Bolt: O(N) single-pass distance evaluation for instance_nearest to eliminate O(N log N) sorting & GC thrashing.
+    window.instance_nearest = (x, y, objName) => {
+        if (!window.instances) return null;
+        let nearest = null;
+        let minDist = Infinity;
+        const isAll = objName === 'all';
+        for (let i = 0; i < window.instances.length; i++) {
+            const inst = window.instances[i];
+            if (!inst || inst.dead) continue;
+            if (isAll || inst.def?.name === objName || inst.def?.id === objName) {
+                const dist = (inst.x - x) ** 2 + (inst.y - y) ** 2;
+                if (dist < minDist) {
+                    minDist = dist;
+                    nearest = inst;
+                }
+            }
+        }
+        return nearest;
+    };
+    // ⚡ Bolt: O(N) single-pass distance evaluation for instance_furthest to eliminate O(N log N) sorting & GC thrashing.
+    window.instance_furthest = (x, y, objName) => {
+        if (!window.instances) return null;
+        let furthest = null;
+        let maxDist = -1;
+        const isAll = objName === 'all';
+        for (let i = 0; i < window.instances.length; i++) {
+            const inst = window.instances[i];
+            if (!inst || inst.dead) continue;
+            if (isAll || inst.def?.name === objName || inst.def?.id === objName) {
+                const dist = (inst.x - x) ** 2 + (inst.y - y) ** 2;
+                if (dist > maxDist) {
+                    maxDist = dist;
+                    furthest = inst;
+                }
+            }
+        }
+        return furthest;
+    };
 
     window.distance_to_point = (x, y) => {
         const me = window._currentInstance;

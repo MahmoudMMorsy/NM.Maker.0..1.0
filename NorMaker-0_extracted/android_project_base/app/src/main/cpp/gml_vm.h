@@ -41,6 +41,7 @@ gml_value gml_value_bool(int b);
 gml_value gml_value_string(const char *s);
 gml_value gml_value_array(size_t count);
 void gml_value_free(gml_value *v);
+void gml_vm_reset_ds_structures(void);
 void gml_vm_init(gml_vm *vm);
 int gml_vm_set(gml_vm *vm, const char *name, gml_value value);
 gml_value gml_vm_get(gml_vm *vm, const char *name);

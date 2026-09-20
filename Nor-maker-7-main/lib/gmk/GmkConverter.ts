@@ -256,54 +256,67 @@ export class GmkConverter {
     }
 
     private static async decodeGmkImage(rawData: Uint8Array, width?: number, height?: number): Promise<string> {
-        // 1. Try to find the BMP ('BM') signature
+        const bytes = rawData instanceof Uint8Array ? rawData : new Uint8Array(rawData || []);
+        const is = (a: number[]) => bytes.length >= a.length && a.every((v, i) => bytes[i] === v);
+        const png = is([137, 80, 78, 71, 13, 10, 26, 10]);
+        const jpeg = is([255, 216, 255]);
+        const gif = is([71, 73, 70, 56]);
+        const webp = bytes.length >= 12 && bytes[0] === 82 && bytes[1] === 73 && bytes[2] === 70 && bytes[3] === 70 && bytes[8] === 87 && bytes[9] === 69 && bytes[10] === 66 && bytes[11] === 80;
+
         let offset = -1;
-        for (let i = 0; i < Math.min(rawData.length - 2, 16); i++) {
-            if (rawData[i] === 0x42 && rawData[i+1] === 0x4D) {
-                offset = i;
-                break;
-            }
+        for (let i = 0; i + 1 < Math.min(bytes.length, 16); i++) {
+            if (bytes[i] === 0x42 && bytes[i + 1] === 0x4D) { offset = i; break; }
         }
 
-        if (offset !== -1) {
-            const blob = new Blob([rawData.slice(offset) as any], { type: 'image/bmp' });
+        if (offset !== -1 || png || jpeg || gif || webp) {
+            const imageBytes = offset >= 0 ? bytes.slice(offset) : bytes;
+            const type = offset >= 0 ? "image/bmp" : png ? "image/png" : jpeg ? "image/jpeg" : gif ? "image/gif" : "image/webp";
             return new Promise((resolve) => {
                 const reader = new FileReader();
-                reader.onload = (e) => resolve(e.target?.result as string);
-                reader.readAsDataURL(blob);
+                reader.onload = (e) => resolve(e && e.target ? (e.target.result as string) : "");
+                reader.onerror = () => resolve("");
+                reader.readAsDataURL(new Blob([imageBytes as any], { type }));
             });
         }
 
-        // 2. Fallback to raw BGRA (GM8.1 style) if width and height are provided
-        if (width && height && rawData.length >= width * height * 4) {
-            try {
-                const canvas = document.createElement('canvas');
-                canvas.width = width;
-                canvas.height = height;
-                const ctx = canvas.getContext('2d');
-                if (!ctx) return "";
+        // Raw BGRA fallback only for verified standalone frame
+        const w = Number(width) || 0;
+        const h = Number(height) || 0;
+        const expected = w * h * 4;
+        if (!Number.isInteger(w) || !Number.isInteger(h) || w <= 0 || h <= 0) return "";
 
-                const imageData = ctx.createImageData(width, height);
-                const data = imageData.data;
-
-                // BGRA -> RGBA conversion
-                for (let i = 0; i < width * height; i++) {
-                    const srcIdx = i * 4;
-                    const dstIdx = i * 4;
-                    data[dstIdx + 0] = rawData[srcIdx + 2]; // Red
-                    data[dstIdx + 1] = rawData[srcIdx + 1]; // Green
-                    data[dstIdx + 2] = rawData[srcIdx + 0]; // Blue
-                    data[dstIdx + 3] = rawData[srcIdx + 3]; // Alpha
-                }
-
-                ctx.putImageData(imageData, 0, 0);
-                return canvas.toDataURL('image/png');
-            } catch (e) {
-                console.error("Failed to decode raw BGRA image:", e);
-            }
+        let pixelBytes = bytes;
+        if (bytes.length === expected + 4) {
+            const declaredLength = (bytes[0] | bytes[1] << 8 | bytes[2] << 16 | bytes[3] << 24) >>> 0;
+            if (declaredLength !== expected) return "";
+            pixelBytes = bytes.subarray(4);
         }
+        if (pixelBytes.length !== expected) return "";
 
-        return "";
+        try {
+            const canvas = document.createElement('canvas');
+            canvas.width = w;
+            canvas.height = h;
+            const ctx = canvas.getContext('2d');
+            if (!ctx) return "";
+
+            const imageData = ctx.createImageData(w, h);
+            const out = imageData.data;
+
+            for (let i = 0; i < w * h; i++) {
+                const k = i * 4;
+                out[k] = pixelBytes[k + 2];     // R
+                out[k + 1] = pixelBytes[k + 1]; // G
+                out[k + 2] = pixelBytes[k];     // B
+                out[k + 3] = pixelBytes[k + 3]; // A
+            }
+
+            ctx.putImageData(imageData, 0, 0);
+            return canvas.toDataURL('image/png');
+        } catch (e) {
+            console.error("Failed to decode verified BGRA frame:", e);
+            return "";
+        }
     }
 
     private static intToHexColor(color: number): string {

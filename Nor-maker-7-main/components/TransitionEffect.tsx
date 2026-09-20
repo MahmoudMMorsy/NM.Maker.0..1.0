@@ -198,6 +198,8 @@ const CanvasTransition: React.FC<{type:string;duration:number;color:string;onDon
   const ref = useRef<HTMLCanvasElement>(null);
   const raf = useRef<number>(0);
   const t0  = useRef<number>(0);
+  // ⚡ Bolt: Pre-shuffled grid indices for pixel_dissolve to avoid O(N * collisions) rejection loops and per-frame Set allocations.
+  const permutationRef = useRef<{ total: number; order: Int32Array } | null>(null);
 
   const rgb = (hex:string):[number,number,number] => {
     const n=parseInt(hex.replace('#','').padEnd(6,'0'),16);
@@ -437,13 +439,27 @@ const CanvasTransition: React.FC<{type:string;duration:number;color:string;onDon
     }
     else if(type==='pixel_dissolve'){
       const ps=8,cols=Math.ceil(W/ps),rows=Math.ceil(H/ps),total=cols*rows;
-      const filled=Math.floor(t*total);
-      let lcg=12345;const visited=new Set<number>();let count=0;
-      while(count<filled){
-        lcg=(lcg*1664525+1013904223)&0xFFFFFFFF;
-        const idx=Math.abs(lcg)%total;
-        if(!visited.has(idx)){visited.add(idx);const c=idx%cols,ro=Math.floor(idx/cols);
-          ctx.fillStyle=`rgba(${r},${g},${b},1)`;ctx.fillRect(c*ps,ro*ps,ps,ps);count++;}
+      const filled=Math.min(Math.floor(t*total), total);
+      if (!permutationRef.current || permutationRef.current.total !== total) {
+        const order = new Int32Array(total);
+        for (let i = 0; i < total; i++) order[i] = i;
+        // Deterministic Fisher-Yates shuffle with LCG for reproducible transition pattern
+        let lcg = 12345;
+        for (let i = total - 1; i > 0; i--) {
+          lcg = (lcg * 1664525 + 1013904223) & 0xFFFFFFFF;
+          const j = Math.abs(lcg) % (i + 1);
+          const temp = order[i];
+          order[i] = order[j];
+          order[j] = temp;
+        }
+        permutationRef.current = { total, order };
+      }
+      const order = permutationRef.current.order;
+      ctx.fillStyle=`rgba(${r},${g},${b},1)`;
+      for (let i = 0; i < filled; i++) {
+        const idx = order[i];
+        const c = idx % cols, ro = Math.floor(idx / cols);
+        ctx.fillRect(c * ps, ro * ps, ps, ps);
       }
     }
     else if(type==='wave_horizontal'){
