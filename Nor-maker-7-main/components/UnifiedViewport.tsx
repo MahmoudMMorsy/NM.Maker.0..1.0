@@ -70,6 +70,10 @@ const ANGLE_TO_VIEWMODE: Record<CameraAngle, RoomViewMode> = {
     game:        '2d',
 };
 
+// ⚡ Bolt: Precompute O(1) Map indices for camera angles to avoid linear array scanning in render and callbacks
+const ANGLE_MAP = new Map<CameraAngle, typeof ANGLES[number]>(ANGLES.map(a => [a.id, a]));
+const MAPS_TO_ANGLE_MAP = new Map<InternalViewType, typeof ANGLES[number]>(ANGLES.map(a => [a.mapsTo, a]));
+
 export const UnifiedViewport: React.FC<UnifiedViewportProps> = (props) => {
     const {
         activeRoom, sprites, gameObjects, viewMode, onUpdateViewMode,
@@ -90,7 +94,7 @@ export const UnifiedViewport: React.FC<UnifiedViewportProps> = (props) => {
     };
 
     const internalViewType: InternalViewType =
-        ANGLES.find(x => x.id === angle)?.mapsTo ?? 'perspective';
+        ANGLE_MAP.get(angle)?.mapsTo ?? 'perspective';
 
     // Always render the SAME 3D scene. The camera angle just changes the
     // orthographic/perspective camera. This is exactly how UE5's "2D Game"
@@ -136,7 +140,7 @@ export const UnifiedViewport: React.FC<UnifiedViewportProps> = (props) => {
                     onViewTypeChange={(v) => {
                         // If the user picks an angle from ThreeDEditor's own
                         // built-in dropdown, sync our toolbar back to it.
-                        const match = ANGLES.find(a => a.mapsTo === v);
+                        const match = MAPS_TO_ANGLE_MAP.get(v as InternalViewType);
                         if (match) {
                             setAngle(match.id);
                             const tm = ANGLE_TO_VIEWMODE[match.id];
