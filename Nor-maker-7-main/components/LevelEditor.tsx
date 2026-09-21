@@ -644,14 +644,19 @@ const LevelEditor: React.FC<LevelEditorProps> = ({
       const fillVal = currentToolType === 'eraser' ? 0 : selectedTool;
       if(target === fillVal) return;
       const newData = [...levelData];
-      const stack = [[x,y]];
-      while(stack.length) {
-          const [cx, cy] = stack.pop()!;
-          const idx = cy*width+cx;
-          if(cx<0||cx>=width||cy<0||cy>=height) continue;
+      // ⚡ Bolt: Optimize tilemap flood fill using a 1D scalar index stack to avoid thousands of `[cx, cy]` tuple array allocations per fill operation
+      const stack: number[] = [y * width + x];
+      while(stack.length > 0) {
+          const idx = stack.pop()!;
+          const cx = idx % width;
+          const cy = (idx / width) | 0;
+
           if(newData[idx] === target) {
               newData[idx] = fillVal;
-              stack.push([cx+1, cy], [cx-1, cy], [cx, cy+1], [cx, cy-1]);
+              if (cx + 1 < width) stack.push(idx + 1);
+              if (cx - 1 >= 0) stack.push(idx - 1);
+              if (cy + 1 < height) stack.push(idx + width);
+              if (cy - 1 >= 0) stack.push(idx - width);
           }
       }
       onUpdate(newData);
