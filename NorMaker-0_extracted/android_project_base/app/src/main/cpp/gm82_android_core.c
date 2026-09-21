@@ -1967,22 +1967,26 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
     if (!strcmp(name, "place_empty") && count == 2) {
         float x = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0.0);
         float y = (float)(args[1].kind == GML_V_REAL ? args[1].real : 0.0);
+        float hw = self && self->sprite_width > 0 ? self->sprite_width * 0.5f : 8.0f;
+        float hh = self && self->sprite_height > 0 ? self->sprite_height * 0.5f : 8.0f;
         int empty = 1;
         for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
             Gm82Instance *other = &g_runtime.instances[i];
             if (!other->active || (self && other->id == self->id)) continue;
-            if (gm82_instance_overlaps_rect(other, x - 16.0f, y - 16.0f, x + 16.0f, y + 16.0f)) { empty = 0; break; }
+            if (gm82_instance_overlaps_rect(other, x - hw, y - hh, x + hw, y + hh)) { empty = 0; break; }
         }
         *out = gml_value_bool(empty); return 1;
     }
     if (!strcmp(name, "place_free") && count == 2) {
         float x = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0.0);
         float y = (float)(args[1].kind == GML_V_REAL ? args[1].real : 0.0);
+        float hw = self && self->sprite_width > 0 ? self->sprite_width * 0.5f : 8.0f;
+        float hh = self && self->sprite_height > 0 ? self->sprite_height * 0.5f : 8.0f;
         int free_place = 1;
         for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
             Gm82Instance *other = &g_runtime.instances[i];
-            if (!other->active || (self && other->id == self->id)) continue;
-            if (gm82_instance_overlaps_rect(other, x - 16.0f, y - 16.0f, x + 16.0f, y + 16.0f)) { free_place = 0; break; }
+            if (!other->active || (self && other->id == self->id) || !other->solid) continue;
+            if (gm82_instance_overlaps_rect(other, x - hw, y - hh, x + hw, y + hh)) { free_place = 0; break; }
         }
         *out = gml_value_bool(free_place); return 1;
     }
