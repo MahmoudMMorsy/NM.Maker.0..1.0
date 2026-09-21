@@ -522,6 +522,8 @@ struct Gm82Instance {
     int sprite_subimages;
     float x;
     float y;
+    float xprevious;
+    float yprevious;
     float vx;
     float vy;
     float speed;
@@ -896,6 +898,8 @@ static int gm82_member_get(void *userdata, const char *member, gml_value *out) {
     if (!it || !member || !out) return 0;
     if (!strcmp(member, "x")) { *out = gml_value_real(it->x); return 1; }
     if (!strcmp(member, "y")) { *out = gml_value_real(it->y); return 1; }
+    if (!strcmp(member, "xprevious")) { *out = gml_value_real(it->xprevious); return 1; }
+    if (!strcmp(member, "yprevious")) { *out = gml_value_real(it->yprevious); return 1; }
     if (!strcmp(member, "hspeed")) { *out = gml_value_real(it->vx); return 1; }
     if (!strcmp(member, "vspeed")) { *out = gml_value_real(it->vy); return 1; }
     if (!strcmp(member, "speed")) { *out = gml_value_real(it->speed); return 1; }
@@ -938,6 +942,8 @@ static int gm82_member_set(void *userdata, const char *member, const gml_value *
     float v = value->kind == GML_V_REAL ? (float)value->real : (value->kind == GML_V_BOOL ? (float)value->boolean : 0.0f);
     if (!strcmp(member, "x")) { it->x = v; return 1; }
     if (!strcmp(member, "y")) { it->y = v; return 1; }
+    if (!strcmp(member, "xprevious")) { it->xprevious = v; return 1; }
+    if (!strcmp(member, "yprevious")) { it->yprevious = v; return 1; }
     if (!strcmp(member, "hspeed")) { it->vx = v; gm82_update_speed_dir_from_vxvy(it); return 1; }
     if (!strcmp(member, "vspeed")) { it->vy = v; gm82_update_speed_dir_from_vxvy(it); return 1; }
     if (!strcmp(member, "speed")) { it->speed = v; gm82_update_vxvy_from_speed_dir(it); return 1; }
@@ -3362,6 +3368,13 @@ JNIEXPORT void JNICALL Java_com_normaker_nativefull_MainActivity_nativeRuntimeSt
     if (!g_runtime.room_started) {
         gm82_dispatch_other_event(4); /* ev_other / ev_room_start */
         g_runtime.room_started = 1;
+    }
+    for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+        Gm82Instance *it = &g_runtime.instances[i];
+        if (it->active) {
+            it->xprevious = it->x;
+            it->yprevious = it->y;
+        }
     }
     gm82_dispatch_create_events();
     gm82_dispatch_key_events();
