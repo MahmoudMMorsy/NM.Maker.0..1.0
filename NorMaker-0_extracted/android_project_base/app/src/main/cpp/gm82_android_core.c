@@ -561,6 +561,7 @@ typedef struct {
     Gm82Instance instances[GM82_MAX_INSTANCES];
     unsigned char keys[256];
     unsigned char key_pressed[256];
+    unsigned char key_released[256];
     Gm82SpriteBitmap bitmaps[GM82_MAX_SPRITE_BITMAPS];
     Gm82CollisionPair collisions[GM82_MAX_COLLISIONS];
     int collision_count;
@@ -3168,6 +3169,11 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
         *out = gml_value_bool(key >= 0 && key < 256 && g_runtime.key_pressed[key]);
         return 1;
     }
+    if (!strcmp(name, "keyboard_check_released") && count == 1) {
+        int key = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0);
+        *out = gml_value_bool(key >= 0 && key < 256 && g_runtime.key_released[key]);
+        return 1;
+    }
     if (!strcmp(name, "mouse_check_button") && count == 1) {
         int mb = (int)(args[0].kind == GML_V_REAL ? args[0].real : 1);
         int key = (mb == 1 ? 1 : (mb == 2 ? 2 : 4));
@@ -3178,6 +3184,12 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
         int mb = (int)(args[0].kind == GML_V_REAL ? args[0].real : 1);
         int key = (mb == 1 ? 1 : (mb == 2 ? 2 : 4));
         *out = gml_value_bool(key < 256 && g_runtime.key_pressed[key]);
+        return 1;
+    }
+    if (!strcmp(name, "mouse_check_button_released") && count == 1) {
+        int mb = (int)(args[0].kind == GML_V_REAL ? args[0].real : 1);
+        int key = (mb == 1 ? 1 : (mb == 2 ? 2 : 4));
+        *out = gml_value_bool(key < 256 && g_runtime.key_released[key]);
         return 1;
     }
 
@@ -3404,6 +3416,7 @@ JNIEXPORT void JNICALL Java_com_normaker_nativefull_MainActivity_nativeRuntimeSt
     /* End Step runs after movement and normal Step, before collision callbacks. */
     gm82_dispatch_step_events(2);
     memset(g_runtime.key_pressed, 0, sizeof(g_runtime.key_pressed));
+    memset(g_runtime.key_released, 0, sizeof(g_runtime.key_released));
     g_runtime.collision_count = 0;
     for (int a = 0; a < GM82_MAX_INSTANCES && g_runtime.collision_count < GM82_MAX_COLLISIONS; ++a) {
         Gm82Instance *left = &g_runtime.instances[a];
@@ -3691,6 +3704,7 @@ JNIEXPORT void JNICALL Java_com_normaker_nativefull_MainActivity_nativeRuntimeKe
     if (!g_runtime.initialized || key_code < 0 || key_code >= 256) return;
     /* GM82-compatible key state: arrows, space, enter and printable codes. */
     if (down && !g_runtime.keys[key_code]) g_runtime.key_pressed[key_code] = 1;
+    if (!down && g_runtime.keys[key_code]) g_runtime.key_released[key_code] = 1;
     g_runtime.keys[key_code] = down ? 1 : 0;
 }
 
