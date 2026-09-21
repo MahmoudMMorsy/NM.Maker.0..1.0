@@ -295,7 +295,6 @@ static gml_value call(gml_vm* vm, const gml_ast* n) {
         double sum = 0;
         for (size_t i = 0; i < c; i++) sum += num(a[i]);
         r = gml_value_real(sum / (double)c);
- main
     } else if (vm->native_call && vm->native_call(vm->native_userdata, n->text, a, c, &r)) {}
     else if (vm->script_call && vm->script_call(vm->script_userdata, n->text, a, c, &r)) {}
     else snprintf(vm->error, sizeof vm->error, "unknown function: %s", n->text);
