@@ -193,6 +193,10 @@ export const TRANSITION_MAP = new Map<string, TransitionDef>(
   TRANSITION_CATALOG.map(t => [t.id, t])
 );
 
+// ⚡ Bolt: Pre-allocated static index arrays for CSS transitions to prevent GC array allocations on every render
+const INTERLACE_INDICES = Array.from({ length: 16 }, (_, i) => i);
+const CHECKERBOARD_INDICES = Array.from({ length: 64 }, (_, i) => i);
+
 // ─── Canvas Engine ────────────────────────────────────────────────────────────
 const CanvasTransition: React.FC<{type:string;duration:number;color:string;onDone:()=>void}> = ({type,duration,color,onDone}) => {
   const ref = useRef<HTMLCanvasElement>(null);
@@ -717,12 +721,12 @@ const CSSTransition: React.FC<{type:string;duration:number;color:string;easing:s
     case 'gm8_push_bottom': return <div style={anim({transform:'translateY(-100%)'},{transform:'translateY(0)'})} onTransitionEnd={onEnd}/>;
     case 'gm8_interlace_h': return (
       <div style={{...base,backgroundColor:'transparent',display:'flex',flexDirection:'column'}}>
-        {Array.from({length:16}).map((_,i)=><div key={i} style={{flex:1,backgroundColor:color,transform:active?'scaleX(1)':'scaleX(0)',transformOrigin:i%2===0?'left center':'right center',transition:`transform ${s*0.7}s ${e} ${(i%2)*0.1}s`}} onTransitionEnd={i===15?onEnd:undefined}/>)}
+        {INTERLACE_INDICES.map((i)=><div key={i} style={{flex:1,backgroundColor:color,transform:active?'scaleX(1)':'scaleX(0)',transformOrigin:i%2===0?'left center':'right center',transition:`transform ${s*0.7}s ${e} ${(i%2)*0.1}s`}} onTransitionEnd={i===15?onEnd:undefined}/>)}
       </div>
     );
     case 'gm8_interlace_v': return (
       <div style={{...base,backgroundColor:'transparent',display:'flex'}}>
-        {Array.from({length:16}).map((_,i)=><div key={i} style={{flex:1,height:'100%',backgroundColor:color,transform:active?'scaleY(1)':'scaleY(0)',transformOrigin:i%2===0?'center top':'center bottom',transition:`transform ${s*0.7}s ${e} ${(i%2)*0.1}s`}} onTransitionEnd={i===15?onEnd:undefined}/>)}
+        {INTERLACE_INDICES.map((i)=><div key={i} style={{flex:1,height:'100%',backgroundColor:color,transform:active?'scaleY(1)':'scaleY(0)',transformOrigin:i%2===0?'center top':'center bottom',transition:`transform ${s*0.7}s ${e} ${(i%2)*0.1}s`}} onTransitionEnd={i===15?onEnd:undefined}/>)}
       </div>
     );
     case 'curtain': return (
@@ -741,7 +745,7 @@ const CSSTransition: React.FC<{type:string;duration:number;color:string;easing:s
       const N=8;
       return (
         <div style={{...base,backgroundColor:'transparent',display:'grid',gridTemplateColumns:`repeat(${N},1fr)`,gridTemplateRows:`repeat(${N},1fr)`}}>
-          {Array.from({length:N*N}).map((_,i)=>(
+          {CHECKERBOARD_INDICES.map((i)=>(
             <div key={i} style={{backgroundColor:color,opacity:active?1:0,transform:active?'scale(1)':'scale(0)',transition:`opacity 0.3s ${e} ${((i%N)+(Math.floor(i/N)))*0.04}s,transform 0.3s ${e} ${((i%N)+(Math.floor(i/N)))*0.04}s`}} onTransitionEnd={i===N*N-1?onEnd:undefined}/>
           ))}
         </div>
