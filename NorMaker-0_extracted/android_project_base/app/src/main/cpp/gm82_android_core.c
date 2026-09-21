@@ -541,6 +541,7 @@ struct Gm82Instance {
     int visible;
     int persistent;
     int mask_index;
+    int solid;
 };
 
 typedef struct {
@@ -560,6 +561,7 @@ typedef struct {
     Gm82Instance instances[GM82_MAX_INSTANCES];
     unsigned char keys[256];
     unsigned char key_pressed[256];
+    unsigned char key_released[256];
     Gm82SpriteBitmap bitmaps[GM82_MAX_SPRITE_BITMAPS];
     Gm82CollisionPair collisions[GM82_MAX_COLLISIONS];
     int collision_count;
@@ -917,6 +919,7 @@ static int gm82_member_get(void *userdata, const char *member, gml_value *out) {
     if (!strcmp(member, "visible")) { *out = gml_value_real(it->visible); return 1; }
     if (!strcmp(member, "persistent")) { *out = gml_value_real(it->persistent); return 1; }
     if (!strcmp(member, "mask_index")) { *out = gml_value_real(it->mask_index); return 1; }
+    if (!strcmp(member, "solid")) { *out = gml_value_bool(it->solid); return 1; }
     if (strncmp(member, "alarm", 5) == 0) {
         int idx = -1;
         if (member[5] == '[' && member[strlen(member)-1] == ']') {
@@ -953,6 +956,7 @@ static int gm82_member_set(void *userdata, const char *member, const gml_value *
     if (!strcmp(member, "visible")) { it->visible = (int)v; return 1; }
     if (!strcmp(member, "persistent")) { it->persistent = (int)v; return 1; }
     if (!strcmp(member, "mask_index")) { it->mask_index = (int)v; return 1; }
+    if (!strcmp(member, "solid")) { it->solid = value->kind == GML_V_BOOL ? value->boolean : (v != 0.0f); return 1; }
     if (strncmp(member, "alarm", 5) == 0) {
         int idx = -1;
         if (member[5] == '[' && member[strlen(member)-1] == ']') {
@@ -1423,6 +1427,35 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
             }
         }
         *out = gml_value_real((double)new_id); return 1;
+    }
+    if ((!strcmp(name, "move_contact_solid") || !strcmp(name, "move_contact_all")) && count >= 1) {
+        if (self) {
+            float dir = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0.0);
+            float maxdist = count >= 2 ? (float)(args[1].kind == GML_V_REAL ? args[1].real : 1000.0) : 1000.0f;
+            if (maxdist < 0.0f) maxdist = 1000.0f;
+            float rad = dir * 3.14159265358979323846f / 180.0f;
+            float step_x = cosf(rad), step_y = -sinf(rad);
+            int only_solid = !strcmp(name, "move_contact_solid");
+            float hw = self->sprite_width > 0 ? self->sprite_width * 0.5f : 8.0f;
+            float hh = self->sprite_height > 0 ? self->sprite_height * 0.5f : 8.0f;
+            for (float dist = 0.0f; dist < maxdist; dist += 1.0f) {
+                float next_x = self->x + step_x;
+                float next_y = self->y + step_y;
+                int blocked = 0;
+                for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+                    Gm82Instance *other = &g_runtime.instances[i];
+                    if (!other->active || other->id == self->id) continue;
+                    if (only_solid && !other->solid) continue;
+                    if (gm82_instance_overlaps_rect(other, next_x - hw, next_y - hh, next_x + hw, next_y + hh)) {
+                        blocked = 1; break;
+                    }
+                }
+                if (blocked) break;
+                self->x = next_x;
+                self->y = next_y;
+            }
+        }
+        *out = gml_value_bool(self != NULL); return 1;
     }
     if (!strcmp(name, "move_outside_solid") && count == 2) {
         if (self) {
@@ -1935,22 +1968,26 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
     if (!strcmp(name, "place_empty") && count == 2) {
         float x = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0.0);
         float y = (float)(args[1].kind == GML_V_REAL ? args[1].real : 0.0);
+        float hw = self && self->sprite_width > 0 ? self->sprite_width * 0.5f : 8.0f;
+        float hh = self && self->sprite_height > 0 ? self->sprite_height * 0.5f : 8.0f;
         int empty = 1;
         for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
             Gm82Instance *other = &g_runtime.instances[i];
             if (!other->active || (self && other->id == self->id)) continue;
-            if (gm82_instance_overlaps_rect(other, x - 16.0f, y - 16.0f, x + 16.0f, y + 16.0f)) { empty = 0; break; }
+            if (gm82_instance_overlaps_rect(other, x - hw, y - hh, x + hw, y + hh)) { empty = 0; break; }
         }
         *out = gml_value_bool(empty); return 1;
     }
     if (!strcmp(name, "place_free") && count == 2) {
         float x = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0.0);
         float y = (float)(args[1].kind == GML_V_REAL ? args[1].real : 0.0);
+        float hw = self && self->sprite_width > 0 ? self->sprite_width * 0.5f : 8.0f;
+        float hh = self && self->sprite_height > 0 ? self->sprite_height * 0.5f : 8.0f;
         int free_place = 1;
         for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
             Gm82Instance *other = &g_runtime.instances[i];
-            if (!other->active || (self && other->id == self->id)) continue;
-            if (gm82_instance_overlaps_rect(other, x - 16.0f, y - 16.0f, x + 16.0f, y + 16.0f)) { free_place = 0; break; }
+            if (!other->active || (self && other->id == self->id) || !other->solid) continue;
+            if (gm82_instance_overlaps_rect(other, x - hw, y - hh, x + hw, y + hh)) { free_place = 0; break; }
         }
         *out = gml_value_bool(free_place); return 1;
     }
@@ -3132,6 +3169,11 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
         *out = gml_value_bool(key >= 0 && key < 256 && g_runtime.key_pressed[key]);
         return 1;
     }
+    if (!strcmp(name, "keyboard_check_released") && count == 1) {
+        int key = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0);
+        *out = gml_value_bool(key >= 0 && key < 256 && g_runtime.key_released[key]);
+        return 1;
+    }
     if (!strcmp(name, "mouse_check_button") && count == 1) {
         int mb = (int)(args[0].kind == GML_V_REAL ? args[0].real : 1);
         int key = (mb == 1 ? 1 : (mb == 2 ? 2 : 4));
@@ -3142,6 +3184,12 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
         int mb = (int)(args[0].kind == GML_V_REAL ? args[0].real : 1);
         int key = (mb == 1 ? 1 : (mb == 2 ? 2 : 4));
         *out = gml_value_bool(key < 256 && g_runtime.key_pressed[key]);
+        return 1;
+    }
+    if (!strcmp(name, "mouse_check_button_released") && count == 1) {
+        int mb = (int)(args[0].kind == GML_V_REAL ? args[0].real : 1);
+        int key = (mb == 1 ? 1 : (mb == 2 ? 2 : 4));
+        *out = gml_value_bool(key < 256 && g_runtime.key_released[key]);
         return 1;
     }
 
@@ -3368,6 +3416,7 @@ JNIEXPORT void JNICALL Java_com_normaker_nativefull_MainActivity_nativeRuntimeSt
     /* End Step runs after movement and normal Step, before collision callbacks. */
     gm82_dispatch_step_events(2);
     memset(g_runtime.key_pressed, 0, sizeof(g_runtime.key_pressed));
+    memset(g_runtime.key_released, 0, sizeof(g_runtime.key_released));
     g_runtime.collision_count = 0;
     for (int a = 0; a < GM82_MAX_INSTANCES && g_runtime.collision_count < GM82_MAX_COLLISIONS; ++a) {
         Gm82Instance *left = &g_runtime.instances[a];
@@ -3655,6 +3704,7 @@ JNIEXPORT void JNICALL Java_com_normaker_nativefull_MainActivity_nativeRuntimeKe
     if (!g_runtime.initialized || key_code < 0 || key_code >= 256) return;
     /* GM82-compatible key state: arrows, space, enter and printable codes. */
     if (down && !g_runtime.keys[key_code]) g_runtime.key_pressed[key_code] = 1;
+    if (!down && g_runtime.keys[key_code]) g_runtime.key_released[key_code] = 1;
     g_runtime.keys[key_code] = down ? 1 : 0;
 }
 
