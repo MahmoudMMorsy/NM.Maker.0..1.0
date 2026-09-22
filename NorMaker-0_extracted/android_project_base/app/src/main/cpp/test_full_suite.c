@@ -158,6 +158,69 @@ void test_ini_files_suite(void) {
     printf("[PASS] INI Files Suite\n");
 }
 
+void test_drawing_display_audio_suite(void) {
+    const char *code =
+        "w = window_get_width();\n"
+        "h = window_get_height();\n"
+        "draw_sprite_ext(1, 0, 10, 20, 2, 2, 45, 16777215, 1.0);\n"
+        "draw_text_transformed(10, 50, \"Hello\", 1.5, 1.5, 0);\n"
+        "audio_play_sound(1, 0, false);\n"
+        "p1 = audio_is_playing(1);\n"
+        "audio_stop_sound(1);\n"
+        "p2 = audio_is_playing(1);\n"
+        "return (w > 0 && h > 0 && p1 && !p2) ? 1.0 : 0.0;\n";
+
+    gml_ast *ast = NULL;
+    char err[160] = {0};
+    int parse_ok = gml_parse_program(code, &ast, err, sizeof(err));
+    assert(parse_ok);
+
+    gml_vm vm;
+    gml_vm_init(&vm);
+    gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+
+    int exec_ok = gml_vm_execute(&vm, ast);
+    if (!exec_ok) { printf("VM Error: %s\n", vm.error); }
+    assert(exec_ok);
+    assert(vm.returned);
+    assert(vm.return_value.real == 1.0);
+
+    gml_ast_free(ast);
+
+    printf("[PASS] Drawing, Display & Audio Suite\n");
+}
+
+void test_instance_activation_suite(void) {
+    const char *code =
+        "instance_create(10, 20, 100);\n"
+        "instance_create(30, 40, 100);\n"
+        "c1 = instance_number(100);\n"
+        "instance_deactivate_object(100);\n"
+        "c2 = instance_number(100);\n"
+        "instance_activate_object(100);\n"
+        "c3 = instance_number(100);\n"
+        "return c1 * 100 + c2 * 10 + c3;\n";
+
+    gml_ast *ast = NULL;
+    char err[160] = {0};
+    int parse_ok = gml_parse_program(code, &ast, err, sizeof(err));
+    assert(parse_ok);
+
+    gml_vm vm;
+    gml_vm_init(&vm);
+    gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+
+    int exec_ok = gml_vm_execute(&vm, ast);
+    if (!exec_ok) { printf("VM Error: %s\n", vm.error); }
+    assert(exec_ok);
+    assert(vm.returned);
+    assert(vm.return_value.real == 202.0); /* 2*100 + 0*10 + 2 = 202 */
+
+    gml_ast_free(ast);
+
+    printf("[PASS] Instance Activation Suite\n");
+}
+
 void test_retro_rom_suite(void) {
     const char *nes_path = "/tmp/nor_core_tests/test.nes";
     const char *gbc_path = "/tmp/nor_core_tests/test.gbc";
@@ -180,6 +243,8 @@ int main(void) {
     test_object_inheritance_suite();
     test_ds_structures_suite();
     test_ini_files_suite();
+    test_instance_activation_suite();
+    test_drawing_display_audio_suite();
     test_retro_rom_suite();
     printf("--- All Native Host Tests Passed! ---\n");
     return 0;
