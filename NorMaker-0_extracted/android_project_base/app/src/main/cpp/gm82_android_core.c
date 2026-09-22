@@ -569,6 +569,12 @@ typedef struct {
     Gm82SpriteBitmap bitmaps[GM82_MAX_SPRITE_BITMAPS];
     Gm82CollisionPair collisions[GM82_MAX_COLLISIONS];
     int collision_count;
+    int view_enabled;
+    int view_visible[8];
+    float view_xview[8];
+    float view_yview[8];
+    float view_wview[8];
+    float view_hview[8];
 } Gm82Runtime;
 
 static Gm82Runtime g_runtime;
@@ -932,6 +938,27 @@ static int gm82_member_get(void *userdata, const char *member, gml_value *out) {
     if (!strcmp(member, "persistent")) { *out = gml_value_real(it->persistent); return 1; }
     if (!strcmp(member, "mask_index")) { *out = gml_value_real(it->mask_index); return 1; }
     if (!strcmp(member, "solid")) { *out = gml_value_bool(it->solid); return 1; }
+    if (!strcmp(member, "view_enabled")) { *out = gml_value_bool(g_runtime.view_enabled); return 1; }
+    if (!strncmp(member, "view_visible", 12)) {
+        int idx = 0; if (member[12] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[13]);
+        if (idx >= 0 && idx < 8) { *out = gml_value_bool(g_runtime.view_visible[idx]); return 1; }
+    }
+    if (!strncmp(member, "view_xview", 10)) {
+        int idx = 0; if (member[10] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[11]);
+        if (idx >= 0 && idx < 8) { *out = gml_value_real(g_runtime.view_xview[idx]); return 1; }
+    }
+    if (!strncmp(member, "view_yview", 10)) {
+        int idx = 0; if (member[10] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[11]);
+        if (idx >= 0 && idx < 8) { *out = gml_value_real(g_runtime.view_yview[idx]); return 1; }
+    }
+    if (!strncmp(member, "view_wview", 10)) {
+        int idx = 0; if (member[10] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[11]);
+        if (idx >= 0 && idx < 8) { *out = gml_value_real(g_runtime.view_wview[idx]); return 1; }
+    }
+    if (!strncmp(member, "view_hview", 10)) {
+        int idx = 0; if (member[10] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[11]);
+        if (idx >= 0 && idx < 8) { *out = gml_value_real(g_runtime.view_hview[idx]); return 1; }
+    }
     if (strncmp(member, "alarm", 5) == 0) {
         int idx = -1;
         if (member[5] == '[' && member[strlen(member)-1] == ']') {
@@ -973,6 +1000,27 @@ static int gm82_member_set(void *userdata, const char *member, const gml_value *
     if (!strcmp(member, "persistent")) { it->persistent = (int)v; return 1; }
     if (!strcmp(member, "mask_index")) { it->mask_index = (int)v; return 1; }
     if (!strcmp(member, "solid")) { it->solid = value->kind == GML_V_BOOL ? value->boolean : (v != 0.0f); return 1; }
+    if (!strcmp(member, "view_enabled")) { g_runtime.view_enabled = value->kind == GML_V_BOOL ? value->boolean : (v != 0.0f); return 1; }
+    if (!strncmp(member, "view_visible", 12)) {
+        int idx = 0; if (member[12] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[13]);
+        if (idx >= 0 && idx < 8) { g_runtime.view_visible[idx] = value->kind == GML_V_BOOL ? value->boolean : (v != 0.0f); return 1; }
+    }
+    if (!strncmp(member, "view_xview", 10)) {
+        int idx = 0; if (member[10] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[11]);
+        if (idx >= 0 && idx < 8) { g_runtime.view_xview[idx] = v; return 1; }
+    }
+    if (!strncmp(member, "view_yview", 10)) {
+        int idx = 0; if (member[10] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[11]);
+        if (idx >= 0 && idx < 8) { g_runtime.view_yview[idx] = v; return 1; }
+    }
+    if (!strncmp(member, "view_wview", 10)) {
+        int idx = 0; if (member[10] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[11]);
+        if (idx >= 0 && idx < 8) { g_runtime.view_wview[idx] = v; return 1; }
+    }
+    if (!strncmp(member, "view_hview", 10)) {
+        int idx = 0; if (member[10] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[11]);
+        if (idx >= 0 && idx < 8) { g_runtime.view_hview[idx] = v; return 1; }
+    }
     if (strncmp(member, "alarm", 5) == 0) {
         int idx = -1;
         if (member[5] == '[' && member[strlen(member)-1] == ']') {
