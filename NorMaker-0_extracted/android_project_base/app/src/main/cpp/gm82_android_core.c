@@ -94,6 +94,45 @@ static int g_object_event_count = 0;
 typedef struct { int active; int object_id; char name[GM82_OBJECT_NAME_CAP]; } gm82_object_name_entry;
 static gm82_object_name_entry g_object_names[GM82_MAX_OBJECT_NAMES];
 static int g_object_name_count = 0;
+
+#define GM82_MAX_OBJECT_PARENTS 2048
+typedef struct { int active; int object_id; int parent_id; } gm82_object_parent_entry;
+static gm82_object_parent_entry g_object_parents[GM82_MAX_OBJECT_PARENTS];
+static int g_object_parent_count = 0;
+
+static void gm82_object_parents_clear(void) { memset(g_object_parents, 0, sizeof(g_object_parents)); g_object_parent_count = 0; }
+static int gm82_object_set_parent_internal(int object_id, int parent_id) {
+    if (object_id < 0) return 0;
+    for (int i = 0; i < g_object_parent_count; ++i) {
+        if (g_object_parents[i].active && g_object_parents[i].object_id == object_id) {
+            g_object_parents[i].parent_id = parent_id;
+            return 1;
+        }
+    }
+    if (g_object_parent_count >= GM82_MAX_OBJECT_PARENTS) return 0;
+    gm82_object_parent_entry *entry = &g_object_parents[g_object_parent_count++];
+    entry->active = 1; entry->object_id = object_id; entry->parent_id = parent_id;
+    return 1;
+}
+static int gm82_object_get_parent_internal(int object_id) {
+    for (int i = 0; i < g_object_parent_count; ++i) {
+        if (g_object_parents[i].active && g_object_parents[i].object_id == object_id) {
+            return g_object_parents[i].parent_id;
+        }
+    }
+    return -100; /* ev_noone / no parent */
+}
+static int gm82_object_is_ancestor_internal(int object_id, int ancestor_id) {
+    int cur = object_id;
+    int depth = 0;
+    while (cur >= 0 && depth++ < 32) {
+        int parent = gm82_object_get_parent_internal(cur);
+        if (parent < 0) break;
+        if (parent == ancestor_id) return 1;
+        cur = parent;
+    }
+    return 0;
+}
 static void gm82_object_names_clear(void) { memset(g_object_names, 0, sizeof(g_object_names)); g_object_name_count = 0; }
 static int gm82_object_name_register(int object_id, const char *name) {
     if (object_id < 0 || !name || !*name) return 0;
@@ -1079,7 +1118,10 @@ static int gm82_script_call(void *userdata, const char *name, const gml_value *a
 }
 
 static int gm82_instance_matches(const Gm82Instance *other, const Gm82Instance *self, int object_id) {
-    return other && other->active && other != self && (object_id < 0 || other->object_id == object_id);
+    if (!other || !other->active || other == self) return 0;
+    if (object_id < 0 || object_id == -3 /* all */) return 1;
+    if (other->object_id == object_id) return 1;
+    return gm82_object_is_ancestor_internal(other->object_id, object_id);
 }
 static int gm82_instance_overlaps_rect(const Gm82Instance *other, float left, float top, float right, float bottom) {
     if (!other || !other->active) return 0;
@@ -1130,6 +1172,23 @@ static int gm82_instance_mask_overlaps_circle(const Gm82Instance *other, float c
 int gm82_native_call(void *userdata, const char *name, const gml_value *args, size_t count, gml_value *out) {
     Gm82Instance *self = (Gm82Instance *)userdata;
     if (!name || !out) return 0;
+    if (!strcmp(name, "object_get_parent") && count == 1) {
+        int obj = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
+        *out = gml_value_real((double)gm82_object_get_parent_internal(obj));
+        return 1;
+    }
+    if (!strcmp(name, "object_set_parent") && count == 2) {
+        int obj = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
+        int par = (int)(args[1].kind == GML_V_REAL ? args[1].real : -1);
+        *out = gml_value_bool(gm82_object_set_parent_internal(obj, par));
+        return 1;
+    }
+    if (!strcmp(name, "object_is_ancestor") && count == 2) {
+        int obj = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
+        int anc = (int)(args[1].kind == GML_V_REAL ? args[1].real : -1);
+        *out = gml_value_bool(gm82_object_is_ancestor_internal(obj, anc));
+        return 1;
+    }
     if (!strcmp(name, "__gm82core_dllcheck") && count == 0) { *out = gml_value_real(gm82_portable_dllcheck()); return 1; }
     if (!strcmp(name, "color_reverse") && count == 1) { double value = args[0].kind == GML_V_REAL ? args[0].real : 0.0; *out = gml_value_real(gm82_portable_color_reverse(value)); return 1; }
     if (!strcmp(name, "color_inverse") && count == 1) { double value = args[0].kind == GML_V_REAL ? args[0].real : 0.0; *out = gml_value_real(gm82_portable_color_inverse(value)); return 1; }
