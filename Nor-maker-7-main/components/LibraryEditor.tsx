@@ -17,6 +17,24 @@ import AnimStateMachineEditor from './AnimStateMachineEditor';
 
 const ALL_ACTIONS: ActionDefinition[] = [...ACTION_LIBRARY, ...EXTERNAL_ACTIONS];
 
+// ⚡ Bolt: Pre-build static module-level structures for ALL_ACTIONS to eliminate per-mount and per-render Map/Set allocations.
+const ACTION_MAP = new Map<string, ActionDefinition>(ALL_ACTIONS.map(a => [a.id, a]));
+
+const ACTIONS_BY_CATEGORY = (() => {
+  const map = new Map<string, ActionDefinition[]>();
+  for (const action of ALL_ACTIONS) {
+    const list = map.get(action.category);
+    if (list) {
+      list.push(action);
+    } else {
+      map.set(action.category, [action]);
+    }
+  }
+  return map;
+})();
+
+const CATEGORIES = Array.from(new Set(ALL_ACTIONS.map(a => a.category)));
+
 import RetroButton from './RetroButton';
 
 interface LibraryEditorProps {
@@ -102,28 +120,19 @@ const LibraryEditor: React.FC<LibraryEditorProps> = ({ objectData, onUpdate, spr
   const [isAiGenerating, setIsAiGenerating] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
 
-  // Pre-built O(1) Map lookup for ALL_ACTIONS to avoid linear array search per render
-  const actionMap = useMemo(() => {
-    return new Map<string, ActionDefinition>(ALL_ACTIONS.map(a => [a.id, a]));
-  }, []);
+  // ⚡ Bolt: Memoize pre-rendered select <option> React elements and assets context to avoid re-running `.map()` iterations and string concatenations on every render during parameter edits and event switches.
+  const spriteOptions = useMemo(() => {
+    return sprites.map(s => <option key={s.id} value={s.id}>{s.name}</option>);
+  }, [sprites]);
 
-  // Group ALL_ACTIONS by category once to perform O(1) tab list lookups during render
-  const actionsByCategory = useMemo(() => {
-    const map = new Map<string, ActionDefinition[]>();
-    for (const action of ALL_ACTIONS) {
-      const list = map.get(action.category);
-      if (list) {
-        list.push(action);
-      } else {
-        map.set(action.category, [action]);
-      }
-    }
-    return map;
-  }, []);
+  const fontOptions = useMemo(() => {
+    return fonts.map(f => <option key={f.id} value={f.id}>{f.name}</option>);
+  }, [fonts]);
 
-  // Memoize parent object options to avoid array allocations on every render pass
-  const parentGameObjects = useMemo(() => {
-    return gameObjects.filter(o => o.id !== objectData.id);
+  const parentObjectOptions = useMemo(() => {
+    return gameObjects
+      .filter(o => o.id !== objectData.id)
+      .map(o => <option key={o.id} value={o.id}>{o.name}</option>);
   }, [gameObjects, objectData.id]);
 
   // Pre-build O(1) Map index for sprite assets to replace linear Array.prototype.find on render
@@ -256,7 +265,7 @@ const LibraryEditor: React.FC<LibraryEditorProps> = ({ objectData, onUpdate, spr
   };
 
   const renderLibraryList = () => {
-    const actions = actionsByCategory.get(selectedTab) || [];
+    const actions = ACTIONS_BY_CATEGORY.get(selectedTab) || [];
     return actions.map(def => (
       <div
         key={def.id}
@@ -320,7 +329,6 @@ const LibraryEditor: React.FC<LibraryEditorProps> = ({ objectData, onUpdate, spr
       </button>
   );
 
-  const categories = useMemo(() => Array.from(new Set(ALL_ACTIONS.map(a => a.category))), []);
   const tabColors = ['orange', 'blue', 'blue', 'purple', 'green', 'red', 'yellow', 'cyan', 'indigo', 'rose', 'teal', 'amber'];
 
   return (
@@ -383,7 +391,7 @@ const LibraryEditor: React.FC<LibraryEditorProps> = ({ objectData, onUpdate, spr
                 className="w-full text-[10px] border-2 border-t-[#808080] border-l-[#808080] border-r-white border-b-white bg-white p-0.5"
             >
                 <option value="">&lt;no sprite&gt;</option>
-                {sprites.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+                {spriteOptions}
             </select>
           </div>
         </fieldset>
@@ -439,9 +447,7 @@ const LibraryEditor: React.FC<LibraryEditorProps> = ({ objectData, onUpdate, spr
             className="flex-1 border-2 border-t-[#808080] border-l-[#808080] border-r-white border-b-white bg-white p-0.5 text-[10px]"
           >
             <option value="">&lt;no parent&gt;</option>
-            {parentGameObjects.map(o => (
-              <option key={o.id} value={o.id}>{o.name}</option>
-            ))}
+            {parentObjectOptions}
           </select>
         </div>
 
@@ -453,7 +459,7 @@ const LibraryEditor: React.FC<LibraryEditorProps> = ({ objectData, onUpdate, spr
              className="flex-1 border-2 border-t-[#808080] border-l-[#808080] border-r-white border-b-white bg-white p-0.5 text-[10px]"
           >
             <option value="">&lt;same as sprite&gt;</option>
-            {sprites.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+            {spriteOptions}
           </select>
         </div>
 
@@ -676,7 +682,7 @@ Objects: ${gameObjects.map(o => o.id + ' (' + o.name + ')').join(', ')}
          )}
 
          {(objectData.events[selectedEvent] || []).map((action, idx) => {
-             const def = actionMap.get(action.libId);
+             const def = ACTION_MAP.get(action.libId);
              if(!def) return null;
              return (
                  <div key={action.id} className="bg-[#D4D0C8] border-2 border-t-white border-l-white border-r-[#404040] border-b-[#404040] p-1 flex items-center gap-2 text-xs flex-wrap">
@@ -712,7 +718,7 @@ Objects: ${gameObjects.map(o => o.id + ' (' + o.name + ')').join(', ')}
                                         onChange={(e) => updateActionParam(idx, p.key, e.target.value)}
                                     >
                                         <option value="">(None)</option>
-                                        {sprites.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+                                        {spriteOptions}
                                     </select>
                                 ) : p.key === 'font' ? (
                                     /* Font Asset Selector */
@@ -722,7 +728,7 @@ Objects: ${gameObjects.map(o => o.id + ' (' + o.name + ')').join(', ')}
                                         onChange={(e) => updateActionParam(idx, p.key, e.target.value)}
                                     >
                                         <option value="">(Default)</option>
-                                        {fonts.map(f => <option key={f.id} value={f.id}>{f.name}</option>)}
+                                        {fontOptions}
                                     </select>
                                 ) : p.key === 'code' ? (
                                     <textarea
@@ -865,7 +871,7 @@ Objects: ${gameObjects.map(o => o.id + ' (' + o.name + ')').join(', ')}
 
           {/* Vertical Tabs */}
           <div className="w-[48px] flex flex-col bg-[#D4D0C8] overflow-y-auto overflow-x-hidden pt-2 border-l border-white shadow-[inset_1px_0_0_#DFDFDF]">
-              {categories.map((cat, idx) => {
+              {CATEGORIES.map((cat, idx) => {
                   const isActive = selectedTab === cat;
                   return (
                       <button
