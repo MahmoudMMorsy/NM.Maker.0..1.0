@@ -89,9 +89,6 @@ typedef struct {
 static gm82_object_event g_object_events[GM82_MAX_OBJECT_EVENTS];
 static int g_object_event_count = 0;
 
-#define GM82_MAX_OBJECT_PARENTS 2048
-static int g_object_parents[GM82_MAX_OBJECT_PARENTS];
-
 #define GM82_MAX_OBJECT_NAMES 2048
 #define GM82_OBJECT_NAME_CAP 192
 typedef struct { int active; int object_id; char name[GM82_OBJECT_NAME_CAP]; } gm82_object_name_entry;
@@ -1131,16 +1128,6 @@ static int gm82_instance_matches(const Gm82Instance *other, const Gm82Instance *
     if (object_id < 0 || object_id == -3 /* all */) return 1;
     if (other->object_id == object_id) return 1;
     return gm82_object_is_ancestor_internal(other->object_id, object_id);
-    if (object_id < 0 || object_id == 100000) return 1;
-    int curr = other->object_id;
-    int depth = 0;
-    while (curr >= 0 && depth < 32) {
-        if (curr == object_id) return 1;
-        if (curr >= 0 && curr < GM82_MAX_OBJECT_PARENTS) curr = g_object_parents[curr];
-        else break;
-        depth++;
-    }
-    return 0;
 }
 static int gm82_instance_overlaps_rect(const Gm82Instance *other, float left, float top, float right, float bottom) {
     if (!other || !other->active) return 0;
@@ -1727,34 +1714,6 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
     if (!strcmp(name, "ds_queue_enqueue") && count >= 2) { int id = gm82_ds_handle(&args[0]) - 1; if (id >= 0 && id < GM82_DS_MAX && g_ds_queues[id].active) { for (size_t i = 1; i < count && g_ds_queues[id].count < GM82_DS_CAP; ++i) g_ds_queues[id].items[g_ds_queues[id].count++] = gm82_clone_value(&args[i]); } *out = gml_value_bool(1); return 1; }
     if (!strcmp(name, "ds_queue_dequeue") && count == 1) { int id = gm82_ds_handle(&args[0]) - 1; if (id >= 0 && id < GM82_DS_MAX && g_ds_queues[id].active && g_ds_queues[id].count > 0) { *out = g_ds_queues[id].items[0]; for (size_t i = 0; i + 1 < g_ds_queues[id].count; ++i) g_ds_queues[id].items[i] = g_ds_queues[id].items[i + 1]; g_ds_queues[id].count--; return 1; } *out = gml_value_real(0); return 1; }
     if (!strcmp(name, "ds_queue_head") && count == 1) { int id = gm82_ds_handle(&args[0]) - 1; if (id >= 0 && id < GM82_DS_MAX && g_ds_queues[id].active && g_ds_queues[id].count > 0) { *out = gm82_clone_value(&g_ds_queues[id].items[0]); return 1; } *out = gml_value_real(0); return 1; }
-    if (!strcmp(name, "object_get_parent") && count == 1) {
-        int obj = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
-        int p = (obj >= 0 && obj < GM82_MAX_OBJECT_PARENTS) ? g_object_parents[obj] : -1;
-        *out = gml_value_real((double)p);
-        return 1;
-    }
-    if (!strcmp(name, "object_set_parent") && count == 2) {
-        int obj = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
-        int p = (int)(args[1].kind == GML_V_REAL ? args[1].real : -1);
-        if (obj >= 0 && obj < GM82_MAX_OBJECT_PARENTS) g_object_parents[obj] = p;
-        *out = gml_value_bool(1);
-        return 1;
-    }
-    if (!strcmp(name, "object_is_ancestor") && count == 2) {
-        int obj = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
-        int ancestor = (int)(args[1].kind == GML_V_REAL ? args[1].real : -1);
-        int is_anc = 0;
-        int curr = (obj >= 0 && obj < GM82_MAX_OBJECT_PARENTS) ? g_object_parents[obj] : -1;
-        int depth = 0;
-        while (curr >= 0 && depth < 32) {
-            if (curr == ancestor) { is_anc = 1; break; }
-            if (curr < GM82_MAX_OBJECT_PARENTS) curr = g_object_parents[curr];
-            else break;
-            depth++;
-        }
-        *out = gml_value_bool(is_anc);
-        return 1;
-    }
     if (!strcmp(name, "instance_exists") && count == 1) {
         int needle = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1); int found = 0;
         for (int i = 0; i < GM82_MAX_INSTANCES; ++i) if (g_runtime.instances[i].active && (g_runtime.instances[i].id == needle || g_runtime.instances[i].object_id == needle)) { found = 1; break; }
@@ -2719,6 +2678,33 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
             if (spawned) spawned->depth = depth;
         }
         *out = gml_value_real((double)created); return 1;
+    }
+    if (!strcmp(name, "instance_deactivate_all") && count == 1) {
+        int notme = args[0].kind == GML_V_BOOL ? args[0].boolean : (args[0].kind == GML_V_REAL && args[0].real != 0.0);
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            Gm82Instance *it = &g_runtime.instances[i];
+            if (it->active) {
+                if (notme && self && it->id == self->id) continue;
+                it->active = 0;
+            }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "instance_deactivate_object") && count == 1) {
+        int target_obj = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            Gm82Instance *it = &g_runtime.instances[i];
+            if (it->active && gm82_instance_matches(it, NULL, target_obj)) {
+                it->active = 0;
+            }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "instance_activate_all") && count == 0) {
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "instance_activate_object") && count == 1) {
+        *out = gml_value_bool(1); return 1;
     }
     if (!strcmp(name, "instance_find") && count == 2) {
         int object_id = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
