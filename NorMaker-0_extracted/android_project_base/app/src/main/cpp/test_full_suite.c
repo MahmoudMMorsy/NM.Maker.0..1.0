@@ -72,6 +72,92 @@ void test_gml_extended_builtins_suite(void) {
     printf("[PASS] GML Extended Builtins Suite\n");
 }
 
+void test_object_inheritance_suite(void) {
+    const char *code =
+        "object_set_parent(10, 100);\n"
+        "p = object_get_parent(10);\n"
+        "anc = object_is_ancestor(10, 100);\n"
+        "return p + (anc ? 1000 : 0);\n";
+
+    gml_ast *ast = NULL;
+    char err[160] = {0};
+    int parse_ok = gml_parse_program(code, &ast, err, sizeof(err));
+    assert(parse_ok);
+
+    gml_vm vm;
+    gml_vm_init(&vm);
+    gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+
+    int exec_ok = gml_vm_execute(&vm, ast);
+    if (!exec_ok) { printf("VM Error: %s\n", vm.error); }
+    assert(exec_ok);
+    assert(vm.returned);
+    assert(vm.return_value.real == 1100.0);
+
+    gml_ast_free(ast);
+
+    printf("[PASS] Object Inheritance Suite\n");
+}
+
+void test_ds_structures_suite(void) {
+    const char *code =
+        "l = ds_list_create();\n"
+        "ds_list_add(l, 10);\n"
+        "ds_list_add(l, 20);\n"
+        "sz = ds_list_size(l);\n"
+        "val = ds_list_find_value(l, 1);\n"
+        "ds_list_destroy(l);\n"
+        "return sz * 100 + val;\n";
+
+    gml_ast *ast = NULL;
+    char err[160] = {0};
+    int parse_ok = gml_parse_program(code, &ast, err, sizeof(err));
+    assert(parse_ok);
+
+    gml_vm vm;
+    gml_vm_init(&vm);
+    gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+
+    int exec_ok = gml_vm_execute(&vm, ast);
+    if (!exec_ok) { printf("VM Error: %s\n", vm.error); }
+    assert(exec_ok);
+    assert(vm.returned);
+    assert(vm.return_value.real == 220.0); /* 2*100 + 20 = 220 */
+
+    gml_ast_free(ast);
+
+    printf("[PASS] Data Structures Suite\n");
+}
+
+void test_ini_files_suite(void) {
+    const char *code =
+        "ini_open(\"/tmp/nor_core_tests/test.ini\");\n"
+        "ini_write_real(\"Game\", \"score\", 500);\n"
+        "ini_write_string(\"Game\", \"player\", \"Player1\");\n"
+        "sc = ini_read_real(\"Game\", \"score\", 0);\n"
+        "ini_close();\n"
+        "return sc;\n";
+
+    gml_ast *ast = NULL;
+    char err[160] = {0};
+    int parse_ok = gml_parse_program(code, &ast, err, sizeof(err));
+    assert(parse_ok);
+
+    gml_vm vm;
+    gml_vm_init(&vm);
+    gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+
+    int exec_ok = gml_vm_execute(&vm, ast);
+    if (!exec_ok) { printf("VM Error: %s\n", vm.error); }
+    assert(exec_ok);
+    assert(vm.returned);
+    assert(vm.return_value.real == 500.0);
+
+    gml_ast_free(ast);
+
+    printf("[PASS] INI Files Suite\n");
+}
+
 void test_retro_rom_suite(void) {
     const char *nes_path = "/tmp/nor_core_tests/test.nes";
     const char *gbc_path = "/tmp/nor_core_tests/test.gbc";
@@ -91,6 +177,9 @@ int main(void) {
     test_gmk_probe_suite();
     test_gml_vm_suite();
     test_gml_extended_builtins_suite();
+    test_object_inheritance_suite();
+    test_ds_structures_suite();
+    test_ini_files_suite();
     test_retro_rom_suite();
     printf("--- All Native Host Tests Passed! ---\n");
     return 0;
