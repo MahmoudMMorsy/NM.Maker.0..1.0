@@ -2688,7 +2688,18 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
         }
         *out = gml_value_bool(1); return 1;
     }
-    if (!strcmp(name, "room_goto") && count == 1) { g_runtime.room_id = (int)(args[0].kind == GML_V_REAL ? args[0].real : g_runtime.room_id); g_runtime.room_started = 0; *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "room_goto") && count == 1) {
+        int target_room = (int)(args[0].kind == GML_V_REAL ? args[0].real : g_runtime.room_id);
+        g_runtime.room_id = target_room;
+        if (g_runtime.room_started) gm82_dispatch_other_event(5); /* ev_other / ev_room_end */
+        g_runtime.room_started = 0;
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            if (g_runtime.instances[i].active && !g_runtime.instances[i].persistent) {
+                g_runtime.instances[i].active = 0;
+            }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
     if (!strcmp(name, "point_distance") && count == 4) {
         double x1 = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
         double y1 = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
