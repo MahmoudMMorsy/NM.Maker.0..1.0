@@ -524,6 +524,8 @@ struct Gm82Instance {
     float y;
     float xprevious;
     float yprevious;
+    float xstart;
+    float ystart;
     float vx;
     float vy;
     float speed;
@@ -792,6 +794,10 @@ static int gm82_spawn_instance_layer(int object_id, int layer_id, float x, float
         spawned->sprite_subimages = 1;
         spawned->x = x;
         spawned->y = y;
+        spawned->xprevious = x;
+        spawned->yprevious = y;
+        spawned->xstart = x;
+        spawned->ystart = y;
         spawned->friction = 0.0f;
         spawned->gravity = 0.0f;
         spawned->gravity_direction = 270.0f;
@@ -900,6 +906,8 @@ static int gm82_member_get(void *userdata, const char *member, gml_value *out) {
     if (!strcmp(member, "y")) { *out = gml_value_real(it->y); return 1; }
     if (!strcmp(member, "xprevious")) { *out = gml_value_real(it->xprevious); return 1; }
     if (!strcmp(member, "yprevious")) { *out = gml_value_real(it->yprevious); return 1; }
+    if (!strcmp(member, "xstart")) { *out = gml_value_real(it->xstart); return 1; }
+    if (!strcmp(member, "ystart")) { *out = gml_value_real(it->ystart); return 1; }
     if (!strcmp(member, "hspeed")) { *out = gml_value_real(it->vx); return 1; }
     if (!strcmp(member, "vspeed")) { *out = gml_value_real(it->vy); return 1; }
     if (!strcmp(member, "speed")) { *out = gml_value_real(it->speed); return 1; }
@@ -944,6 +952,8 @@ static int gm82_member_set(void *userdata, const char *member, const gml_value *
     if (!strcmp(member, "y")) { it->y = v; return 1; }
     if (!strcmp(member, "xprevious")) { it->xprevious = v; return 1; }
     if (!strcmp(member, "yprevious")) { it->yprevious = v; return 1; }
+    if (!strcmp(member, "xstart")) { it->xstart = v; return 1; }
+    if (!strcmp(member, "ystart")) { it->ystart = v; return 1; }
     if (!strcmp(member, "hspeed")) { it->vx = v; gm82_update_speed_dir_from_vxvy(it); return 1; }
     if (!strcmp(member, "vspeed")) { it->vy = v; gm82_update_speed_dir_from_vxvy(it); return 1; }
     if (!strcmp(member, "speed")) { it->speed = v; gm82_update_vxvy_from_speed_dir(it); return 1; }
