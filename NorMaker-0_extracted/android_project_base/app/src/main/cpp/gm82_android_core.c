@@ -522,6 +522,10 @@ struct Gm82Instance {
     int sprite_subimages;
     float x;
     float y;
+    float xprevious;
+    float yprevious;
+    float xstart;
+    float ystart;
     float vx;
     float vy;
     float speed;
@@ -565,6 +569,12 @@ typedef struct {
     Gm82SpriteBitmap bitmaps[GM82_MAX_SPRITE_BITMAPS];
     Gm82CollisionPair collisions[GM82_MAX_COLLISIONS];
     int collision_count;
+    int view_enabled;
+    int view_visible[8];
+    float view_xview[8];
+    float view_yview[8];
+    float view_wview[8];
+    float view_hview[8];
 } Gm82Runtime;
 
 static Gm82Runtime g_runtime;
@@ -790,6 +800,10 @@ static int gm82_spawn_instance_layer(int object_id, int layer_id, float x, float
         spawned->sprite_subimages = 1;
         spawned->x = x;
         spawned->y = y;
+        spawned->xprevious = x;
+        spawned->yprevious = y;
+        spawned->xstart = x;
+        spawned->ystart = y;
         spawned->friction = 0.0f;
         spawned->gravity = 0.0f;
         spawned->gravity_direction = 270.0f;
@@ -896,6 +910,10 @@ static int gm82_member_get(void *userdata, const char *member, gml_value *out) {
     if (!it || !member || !out) return 0;
     if (!strcmp(member, "x")) { *out = gml_value_real(it->x); return 1; }
     if (!strcmp(member, "y")) { *out = gml_value_real(it->y); return 1; }
+    if (!strcmp(member, "xprevious")) { *out = gml_value_real(it->xprevious); return 1; }
+    if (!strcmp(member, "yprevious")) { *out = gml_value_real(it->yprevious); return 1; }
+    if (!strcmp(member, "xstart")) { *out = gml_value_real(it->xstart); return 1; }
+    if (!strcmp(member, "ystart")) { *out = gml_value_real(it->ystart); return 1; }
     if (!strcmp(member, "hspeed")) { *out = gml_value_real(it->vx); return 1; }
     if (!strcmp(member, "vspeed")) { *out = gml_value_real(it->vy); return 1; }
     if (!strcmp(member, "speed")) { *out = gml_value_real(it->speed); return 1; }
@@ -920,6 +938,27 @@ static int gm82_member_get(void *userdata, const char *member, gml_value *out) {
     if (!strcmp(member, "persistent")) { *out = gml_value_real(it->persistent); return 1; }
     if (!strcmp(member, "mask_index")) { *out = gml_value_real(it->mask_index); return 1; }
     if (!strcmp(member, "solid")) { *out = gml_value_bool(it->solid); return 1; }
+    if (!strcmp(member, "view_enabled")) { *out = gml_value_bool(g_runtime.view_enabled); return 1; }
+    if (!strncmp(member, "view_visible", 12)) {
+        int idx = 0; if (member[12] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[13]);
+        if (idx >= 0 && idx < 8) { *out = gml_value_bool(g_runtime.view_visible[idx]); return 1; }
+    }
+    if (!strncmp(member, "view_xview", 10)) {
+        int idx = 0; if (member[10] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[11]);
+        if (idx >= 0 && idx < 8) { *out = gml_value_real(g_runtime.view_xview[idx]); return 1; }
+    }
+    if (!strncmp(member, "view_yview", 10)) {
+        int idx = 0; if (member[10] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[11]);
+        if (idx >= 0 && idx < 8) { *out = gml_value_real(g_runtime.view_yview[idx]); return 1; }
+    }
+    if (!strncmp(member, "view_wview", 10)) {
+        int idx = 0; if (member[10] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[11]);
+        if (idx >= 0 && idx < 8) { *out = gml_value_real(g_runtime.view_wview[idx]); return 1; }
+    }
+    if (!strncmp(member, "view_hview", 10)) {
+        int idx = 0; if (member[10] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[11]);
+        if (idx >= 0 && idx < 8) { *out = gml_value_real(g_runtime.view_hview[idx]); return 1; }
+    }
     if (strncmp(member, "alarm", 5) == 0) {
         int idx = -1;
         if (member[5] == '[' && member[strlen(member)-1] == ']') {
@@ -938,6 +977,10 @@ static int gm82_member_set(void *userdata, const char *member, const gml_value *
     float v = value->kind == GML_V_REAL ? (float)value->real : (value->kind == GML_V_BOOL ? (float)value->boolean : 0.0f);
     if (!strcmp(member, "x")) { it->x = v; return 1; }
     if (!strcmp(member, "y")) { it->y = v; return 1; }
+    if (!strcmp(member, "xprevious")) { it->xprevious = v; return 1; }
+    if (!strcmp(member, "yprevious")) { it->yprevious = v; return 1; }
+    if (!strcmp(member, "xstart")) { it->xstart = v; return 1; }
+    if (!strcmp(member, "ystart")) { it->ystart = v; return 1; }
     if (!strcmp(member, "hspeed")) { it->vx = v; gm82_update_speed_dir_from_vxvy(it); return 1; }
     if (!strcmp(member, "vspeed")) { it->vy = v; gm82_update_speed_dir_from_vxvy(it); return 1; }
     if (!strcmp(member, "speed")) { it->speed = v; gm82_update_vxvy_from_speed_dir(it); return 1; }
@@ -957,6 +1000,27 @@ static int gm82_member_set(void *userdata, const char *member, const gml_value *
     if (!strcmp(member, "persistent")) { it->persistent = (int)v; return 1; }
     if (!strcmp(member, "mask_index")) { it->mask_index = (int)v; return 1; }
     if (!strcmp(member, "solid")) { it->solid = value->kind == GML_V_BOOL ? value->boolean : (v != 0.0f); return 1; }
+    if (!strcmp(member, "view_enabled")) { g_runtime.view_enabled = value->kind == GML_V_BOOL ? value->boolean : (v != 0.0f); return 1; }
+    if (!strncmp(member, "view_visible", 12)) {
+        int idx = 0; if (member[12] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[13]);
+        if (idx >= 0 && idx < 8) { g_runtime.view_visible[idx] = value->kind == GML_V_BOOL ? value->boolean : (v != 0.0f); return 1; }
+    }
+    if (!strncmp(member, "view_xview", 10)) {
+        int idx = 0; if (member[10] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[11]);
+        if (idx >= 0 && idx < 8) { g_runtime.view_xview[idx] = v; return 1; }
+    }
+    if (!strncmp(member, "view_yview", 10)) {
+        int idx = 0; if (member[10] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[11]);
+        if (idx >= 0 && idx < 8) { g_runtime.view_yview[idx] = v; return 1; }
+    }
+    if (!strncmp(member, "view_wview", 10)) {
+        int idx = 0; if (member[10] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[11]);
+        if (idx >= 0 && idx < 8) { g_runtime.view_wview[idx] = v; return 1; }
+    }
+    if (!strncmp(member, "view_hview", 10)) {
+        int idx = 0; if (member[10] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[11]);
+        if (idx >= 0 && idx < 8) { g_runtime.view_hview[idx] = v; return 1; }
+    }
     if (strncmp(member, "alarm", 5) == 0) {
         int idx = -1;
         if (member[5] == '[' && member[strlen(member)-1] == ']') {
@@ -3362,6 +3426,13 @@ JNIEXPORT void JNICALL Java_com_normaker_nativefull_MainActivity_nativeRuntimeSt
     if (!g_runtime.room_started) {
         gm82_dispatch_other_event(4); /* ev_other / ev_room_start */
         g_runtime.room_started = 1;
+    }
+    for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+        Gm82Instance *it = &g_runtime.instances[i];
+        if (it->active) {
+            it->xprevious = it->x;
+            it->yprevious = it->y;
+        }
     }
     gm82_dispatch_create_events();
     gm82_dispatch_key_events();
