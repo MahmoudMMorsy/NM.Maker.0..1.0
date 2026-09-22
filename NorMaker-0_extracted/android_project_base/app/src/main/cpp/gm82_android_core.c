@@ -3083,22 +3083,37 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
     if (!strcmp(name, "distance_to_point") && count == 2) {
         double px = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
         double py = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
-        double sx = self ? (double)self->x : 0.0;
-        double sy = self ? (double)self->y : 0.0;
-        double dx = px - sx, dy = py - sy;
+        if (!self) { *out = gml_value_real(0.0); return 1; }
+        double shw = self->sprite_width > 0 ? (double)self->sprite_width * 0.5 : 8.0;
+        double shh = self->sprite_height > 0 ? (double)self->sprite_height * 0.5 : 8.0;
+        double left = (double)self->x - shw, right = (double)self->x + shw;
+        double top = (double)self->y - shh, bottom = (double)self->y + shh;
+        double cx = px < left ? left : (px > right ? right : px);
+        double cy = py < top ? top : (py > bottom ? bottom : py);
+        double dx = px - cx, dy = py - cy;
         *out = gml_value_real(sqrt(dx * dx + dy * dy));
         return 1;
     }
     if (!strcmp(name, "distance_to_object") && count == 1) {
         int target_obj = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
-        double sx = self ? (double)self->x : 0.0;
-        double sy = self ? (double)self->y : 0.0;
+        if (!self) { *out = gml_value_real(100000.0); return 1; }
+        double shw = self->sprite_width > 0 ? (double)self->sprite_width * 0.5 : 8.0;
+        double shh = self->sprite_height > 0 ? (double)self->sprite_height * 0.5 : 8.0;
+        double s_left = (double)self->x - shw, s_right = (double)self->x + shw;
+        double s_top = (double)self->y - shh, s_bottom = (double)self->y + shh;
         double best_dist = -1.0;
         for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
             Gm82Instance *other = &g_runtime.instances[i];
             if (!gm82_instance_matches(other, self, target_obj)) continue;
-            if (self && other->id == self->id) continue;
-            double dx = (double)other->x - sx, dy = (double)other->y - sy;
+            double ohw = other->sprite_width > 0 ? (double)other->sprite_width * 0.5 : 8.0;
+            double ohh = other->sprite_height > 0 ? (double)other->sprite_height * 0.5 : 8.0;
+            double o_left = (double)other->x - ohw, o_right = (double)other->x + ohw;
+            double o_top = (double)other->y - ohh, o_bottom = (double)other->y + ohh;
+            double dx = 0.0, dy = 0.0;
+            if (s_right < o_left) dx = o_left - s_right;
+            else if (o_right < s_left) dx = s_left - o_right;
+            if (s_bottom < o_top) dy = o_top - s_bottom;
+            else if (o_bottom < s_top) dy = s_top - o_bottom;
             double d = sqrt(dx * dx + dy * dy);
             if (best_dist < 0.0 || d < best_dist) best_dist = d;
         }
