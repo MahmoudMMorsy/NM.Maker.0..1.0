@@ -2775,6 +2775,33 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
         }
         *out = gml_value_real((double)created); return 1;
     }
+    if (!strcmp(name, "instance_deactivate_all") && count == 1) {
+        int notme = args[0].kind == GML_V_BOOL ? args[0].boolean : (args[0].kind == GML_V_REAL && args[0].real != 0.0);
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            Gm82Instance *it = &g_runtime.instances[i];
+            if (it->active) {
+                if (notme && self && it->id == self->id) continue;
+                it->active = 0;
+            }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "instance_deactivate_object") && count == 1) {
+        int target_obj = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            Gm82Instance *it = &g_runtime.instances[i];
+            if (it->active && gm82_instance_matches(it, NULL, target_obj)) {
+                it->active = 0;
+            }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "instance_activate_all") && count == 0) {
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "instance_activate_object") && count == 1) {
+        *out = gml_value_bool(1); return 1;
+    }
     if (!strcmp(name, "instance_find") && count == 2) {
         int object_id = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
         int ordinal = (int)(args[1].kind == GML_V_REAL ? args[1].real : -1);
