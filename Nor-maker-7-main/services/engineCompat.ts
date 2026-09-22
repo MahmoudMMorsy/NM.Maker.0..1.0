@@ -162,13 +162,38 @@ export const GML_COMPAT_SCRIPT = `
     window.audio_play_sound = (s, p, l) => { if(l) GM82Audio.play_music(s); else GM82Audio.play_sfx(s); };
     window.audio_stop_sound = (s) => GM82Audio.stop_music();
 
+    // --- DISPLAY & WINDOW API ---
+    window.window_get_width = () => (window.innerWidth || 640);
+    window.window_get_height = () => (window.innerHeight || 480);
+    window.display_get_width = () => (window.screen ? window.screen.width : 640);
+    window.display_get_height = () => (window.screen ? window.screen.height : 480);
+
     // --- INSTANCE API ---
     window.instance_destroy = (id) => {
         if(!id) return;
         if(typeof id === 'object') id.dead = true;
         else window.instances.filter(i => i.def.id === id || i.def.name === id).forEach(i => i.dead = true);
     };
-    window.instance_exists = (obj) => window.instances.some(i => !i.dead && (i.def.id === obj || i.def.name === obj || i === obj));
+    window.instance_exists = (obj) => window.instances.some(i => !i.dead && !i.deactivated && (i.def.id === obj || i.def.name === obj || i === obj));
+    window.instance_deactivate_all = (notme) => {
+        (window.instances || []).forEach(i => {
+            if(!i.dead) {
+                if(notme && (i === window.self || i === window.other)) return;
+                i.deactivated = true;
+            }
+        });
+    };
+    window.instance_deactivate_object = (obj) => {
+        (window.instances || []).forEach(i => {
+            if(!i.dead && (i.def.id === obj || i.def.name === obj || i === obj)) i.deactivated = true;
+        });
+    };
+    window.instance_activate_all = () => {
+        (window.instances || []).forEach(i => { if(i.deactivated) i.deactivated = false; });
+    };
+    window.instance_activate_object = (obj) => {
+        (window.instances || []).forEach(i => { if(i.def.id === obj || i.def.name === obj || i === obj) i.deactivated = false; });
+    };
 
     // --- GML DATA STRUCTURES API (ds_list, ds_map, ds_grid, ds_stack, ds_queue) ---
     window._ds_lists = {}; window._ds_list_id = 0;

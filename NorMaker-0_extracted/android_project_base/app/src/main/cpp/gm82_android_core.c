@@ -89,9 +89,6 @@ typedef struct {
 static gm82_object_event g_object_events[GM82_MAX_OBJECT_EVENTS];
 static int g_object_event_count = 0;
 
-#define GM82_MAX_OBJECT_PARENTS 2048
-static int g_object_parents[GM82_MAX_OBJECT_PARENTS];
-
 #define GM82_MAX_OBJECT_NAMES 2048
 #define GM82_OBJECT_NAME_CAP 192
 typedef struct { int active; int object_id; char name[GM82_OBJECT_NAME_CAP]; } gm82_object_name_entry;
@@ -553,6 +550,7 @@ static int gm82_instance_mask_overlaps_circle(const Gm82Instance *other, float c
 
 struct Gm82Instance {
     int active;
+    int deactivated;
     unsigned char create_dispatched;
     unsigned char destroy_dispatching;
     int id;
@@ -627,7 +625,21 @@ static void gm82_dispatch_destroy_event(Gm82Instance *it);
 static void gm82_dispatch_other_event(int subtype);
 static void gm82_runtime_clear_room_transient(void);
 #define GM82_MAX_DRAW_COMMANDS 2048
-typedef struct { int sprite_id; int frame; float x; float y; float alpha; } Gm82DrawCommand;
+typedef struct {
+    int kind; /* 0: sprite, 1: text, 2: line, 3: rect, 4: circle */
+    int sprite_id;
+    int frame;
+    float x;
+    float y;
+    float x2;
+    float y2;
+    float xscale;
+    float yscale;
+    float angle;
+    int color;
+    float alpha;
+    char text[128];
+} Gm82DrawCommand;
 static Gm82DrawCommand g_draw_commands[GM82_MAX_DRAW_COMMANDS];
 static int g_draw_command_count = 0;
 static float g_draw_alpha = 1.0f;
@@ -1127,20 +1139,49 @@ static int gm82_script_call(void *userdata, const char *name, const gml_value *a
 }
 
 static int gm82_instance_matches(const Gm82Instance *other, const Gm82Instance *self, int object_id) {
-    if (!other || !other->active || other == self) return 0;
+    if (!other || !other->active || other->deactivated || other == self) return 0;
     if (object_id < 0 || object_id == -3 /* all */) return 1;
     if (other->object_id == object_id) return 1;
     return gm82_object_is_ancestor_internal(other->object_id, object_id);
-    if (object_id < 0 || object_id == 100000) return 1;
-    int curr = other->object_id;
-    int depth = 0;
-    while (curr >= 0 && depth < 32) {
-        if (curr == object_id) return 1;
-        if (curr >= 0 && curr < GM82_MAX_OBJECT_PARENTS) curr = g_object_parents[curr];
-        else break;
-        depth++;
+}
+
+static void gm82_instance_deactivate_all_internal(Gm82Instance *self, int notme) {
+    for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+        Gm82Instance *it = &g_runtime.instances[i];
+        if (!it->active) continue;
+        if (notme && self && it->id == self->id) continue;
+        it->deactivated = 1;
     }
-    return 0;
+}
+
+static void gm82_instance_deactivate_object_internal(Gm82Instance *self, int target_obj) {
+    (void)self;
+    for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+        Gm82Instance *it = &g_runtime.instances[i];
+        if (!it->active || it->deactivated) continue;
+        if (it->id == target_obj || it->object_id == target_obj || gm82_object_is_ancestor_internal(it->object_id, target_obj)) {
+            it->deactivated = 1;
+        }
+    }
+}
+
+static void gm82_instance_activate_all_internal(void) {
+    for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+        Gm82Instance *it = &g_runtime.instances[i];
+        if (it->active) {
+            it->deactivated = 0;
+        }
+    }
+}
+
+static void gm82_instance_activate_object_internal(int target_obj) {
+    for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+        Gm82Instance *it = &g_runtime.instances[i];
+        if (!it->active) continue;
+        if (it->id == target_obj || it->object_id == target_obj || gm82_object_is_ancestor_internal(it->object_id, target_obj)) {
+            it->deactivated = 0;
+        }
+    }
 }
 static int gm82_instance_overlaps_rect(const Gm82Instance *other, float left, float top, float right, float bottom) {
     if (!other || !other->active) return 0;
@@ -1727,37 +1768,33 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
     if (!strcmp(name, "ds_queue_enqueue") && count >= 2) { int id = gm82_ds_handle(&args[0]) - 1; if (id >= 0 && id < GM82_DS_MAX && g_ds_queues[id].active) { for (size_t i = 1; i < count && g_ds_queues[id].count < GM82_DS_CAP; ++i) g_ds_queues[id].items[g_ds_queues[id].count++] = gm82_clone_value(&args[i]); } *out = gml_value_bool(1); return 1; }
     if (!strcmp(name, "ds_queue_dequeue") && count == 1) { int id = gm82_ds_handle(&args[0]) - 1; if (id >= 0 && id < GM82_DS_MAX && g_ds_queues[id].active && g_ds_queues[id].count > 0) { *out = g_ds_queues[id].items[0]; for (size_t i = 0; i + 1 < g_ds_queues[id].count; ++i) g_ds_queues[id].items[i] = g_ds_queues[id].items[i + 1]; g_ds_queues[id].count--; return 1; } *out = gml_value_real(0); return 1; }
     if (!strcmp(name, "ds_queue_head") && count == 1) { int id = gm82_ds_handle(&args[0]) - 1; if (id >= 0 && id < GM82_DS_MAX && g_ds_queues[id].active && g_ds_queues[id].count > 0) { *out = gm82_clone_value(&g_ds_queues[id].items[0]); return 1; } *out = gml_value_real(0); return 1; }
-    if (!strcmp(name, "object_get_parent") && count == 1) {
-        int obj = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
-        int p = (obj >= 0 && obj < GM82_MAX_OBJECT_PARENTS) ? g_object_parents[obj] : -1;
-        *out = gml_value_real((double)p);
-        return 1;
+    if (!strcmp(name, "instance_deactivate_all") && count >= 1) {
+        int notme = (args[0].kind == GML_V_BOOL ? args[0].boolean : (args[0].kind == GML_V_REAL && args[0].real != 0.0));
+        gm82_instance_deactivate_all_internal(self, notme);
+        *out = gml_value_bool(1); return 1;
     }
-    if (!strcmp(name, "object_set_parent") && count == 2) {
-        int obj = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
-        int p = (int)(args[1].kind == GML_V_REAL ? args[1].real : -1);
-        if (obj >= 0 && obj < GM82_MAX_OBJECT_PARENTS) g_object_parents[obj] = p;
-        *out = gml_value_bool(1);
-        return 1;
+    if (!strcmp(name, "instance_deactivate_object") && count == 1) {
+        int target_obj = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
+        gm82_instance_deactivate_object_internal(self, target_obj);
+        *out = gml_value_bool(1); return 1;
     }
-    if (!strcmp(name, "object_is_ancestor") && count == 2) {
-        int obj = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
-        int ancestor = (int)(args[1].kind == GML_V_REAL ? args[1].real : -1);
-        int is_anc = 0;
-        int curr = (obj >= 0 && obj < GM82_MAX_OBJECT_PARENTS) ? g_object_parents[obj] : -1;
-        int depth = 0;
-        while (curr >= 0 && depth < 32) {
-            if (curr == ancestor) { is_anc = 1; break; }
-            if (curr < GM82_MAX_OBJECT_PARENTS) curr = g_object_parents[curr];
-            else break;
-            depth++;
-        }
-        *out = gml_value_bool(is_anc);
-        return 1;
+    if (!strcmp(name, "instance_activate_all") && count == 0) {
+        gm82_instance_activate_all_internal();
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "instance_activate_object") && count == 1) {
+        int target_obj = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
+        gm82_instance_activate_object_internal(target_obj);
+        *out = gml_value_bool(1); return 1;
     }
     if (!strcmp(name, "instance_exists") && count == 1) {
         int needle = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1); int found = 0;
-        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) if (g_runtime.instances[i].active && (g_runtime.instances[i].id == needle || g_runtime.instances[i].object_id == needle)) { found = 1; break; }
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            Gm82Instance *it = &g_runtime.instances[i];
+            if (it->active && !it->deactivated && (it->id == needle || it->object_id == needle || gm82_object_is_ancestor_internal(it->object_id, needle))) {
+                found = 1; break;
+            }
+        }
         *out = gml_value_bool(found); return 1;
     }
     if (!strcmp(name, "instance_number") && count == 1) {
@@ -2115,14 +2152,32 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
         *out = gml_value_real(args[0].kind == GML_V_ARRAY && args[0].array ? (double)args[0].array->count : 0.0);
         return 1;
     }
-    if (!strcmp(name, "sound_is_playing") && count == 1) {
-        *out = gml_value_bool(0); return 1;
+    if (!strcmp(name, "sound_is_playing") && count >= 1) {
+        int sid = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
+        int playing = 0;
+        for (int i = 0; i < g_sound_command_count; ++i) {
+            if (g_sound_commands[i].sound_id == sid) playing = (g_sound_commands[i].kind != 2);
+        }
+        *out = gml_value_bool(playing); return 1;
+    }
+    if (!strcmp(name, "audio_is_playing") && count >= 1) {
+        int sid = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
+        int playing = 0;
+        for (int i = 0; i < g_sound_command_count; ++i) {
+            if (g_sound_commands[i].sound_id == sid) playing = (g_sound_commands[i].kind != 2);
+        }
+        *out = gml_value_bool(playing); return 1;
     }
     if (!strcmp(name, "audio_play_sound") && count >= 3) {
         int sid = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
         int loop = args[2].kind == GML_V_BOOL ? args[2].boolean : (args[2].kind == GML_V_REAL && args[2].real != 0.0);
         gm82_sound_push(1, sid, loop, g_sound_volume);
         *out = gml_value_real(1.0); return 1;
+    }
+    if (!strcmp(name, "audio_stop_sound") && count >= 1) {
+        int sid = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
+        gm82_sound_push(2, sid, 0, g_sound_volume);
+        *out = gml_value_bool(1); return 1;
     }
     if (!strcmp(name, "position_empty") && count == 2) {
         float x = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0.0);
@@ -3338,24 +3393,132 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
     if (!strcmp(name, "shader_set") && count == 1) { *out = gml_value_bool(1); return 1; }
     if (!strcmp(name, "shader_reset") && count == 0) { *out = gml_value_bool(1); return 1; }
 
+    /* Display & Window Info Functions */
+    if (!strcmp(name, "window_get_width") && count == 0) {
+        *out = gml_value_real((double)(g_runtime.width > 0 ? g_runtime.width : 640));
+        return 1;
+    }
+    if (!strcmp(name, "window_get_height") && count == 0) {
+        *out = gml_value_real((double)(g_runtime.height > 0 ? g_runtime.height : 480));
+        return 1;
+    }
+    if (!strcmp(name, "display_get_width") && count == 0) {
+        *out = gml_value_real((double)(g_runtime.width > 0 ? g_runtime.width : 640));
+        return 1;
+    }
+    if (!strcmp(name, "display_get_height") && count == 0) {
+        *out = gml_value_real((double)(g_runtime.height > 0 ? g_runtime.height : 480));
+        return 1;
+    }
+
     /* Extended Draw Functions */
     if (!strcmp(name, "draw_self") && count == 0) {
-        if (self) {
-            /* Fallback to draw_sprite(sprite_index, image_index, x, y) */
+        if (self && g_draw_command_count < GM82_MAX_DRAW_COMMANDS) {
+            Gm82DrawCommand *cmd = &g_draw_commands[g_draw_command_count++];
+            memset(cmd, 0, sizeof(*cmd));
+            cmd->kind = 0;
+            cmd->sprite_id = self->sprite_id;
+            cmd->frame = self->frame;
+            cmd->x = self->x;
+            cmd->y = self->y;
+            cmd->xscale = self->image_xscale;
+            cmd->yscale = self->image_yscale;
+            cmd->angle = self->image_angle;
+            cmd->alpha = self->image_alpha * g_draw_alpha;
         }
-        *out = gml_value_real(0); return 1;
+        *out = gml_value_bool(1); return 1;
     }
-    if (!strcmp(name, "draw_sprite_ext")) {
-        *out = gml_value_real(0); return 1;
+    if (!strcmp(name, "draw_sprite_ext") && count >= 4) {
+        if (g_draw_command_count < GM82_MAX_DRAW_COMMANDS) {
+            Gm82DrawCommand *cmd = &g_draw_commands[g_draw_command_count++];
+            memset(cmd, 0, sizeof(*cmd));
+            cmd->kind = 0;
+            cmd->sprite_id = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
+            cmd->frame = (int)(args[1].kind == GML_V_REAL ? args[1].real : 0);
+            cmd->x = (float)(args[2].kind == GML_V_REAL ? args[2].real : 0);
+            cmd->y = (float)(args[3].kind == GML_V_REAL ? args[3].real : 0);
+            cmd->xscale = count >= 5 ? (float)(args[4].kind == GML_V_REAL ? args[4].real : 1.0) : 1.0f;
+            cmd->yscale = count >= 6 ? (float)(args[5].kind == GML_V_REAL ? args[5].real : 1.0) : 1.0f;
+            cmd->angle = count >= 7 ? (float)(args[6].kind == GML_V_REAL ? args[6].real : 0.0) : 0.0f;
+            cmd->color = count >= 8 ? (int)(args[7].kind == GML_V_REAL ? args[7].real : 16777215.0) : 16777215;
+            cmd->alpha = count >= 9 ? (float)(args[8].kind == GML_V_REAL ? args[8].real : 1.0) : g_draw_alpha;
+        }
+        *out = gml_value_bool(1); return 1;
     }
-    if (!strcmp(name, "draw_text_transformed")) {
-        *out = gml_value_real(0); return 1;
+    if (!strcmp(name, "draw_sprite_stretched") && count >= 6) {
+        if (g_draw_command_count < GM82_MAX_DRAW_COMMANDS) {
+            Gm82DrawCommand *cmd = &g_draw_commands[g_draw_command_count++];
+            memset(cmd, 0, sizeof(*cmd));
+            cmd->kind = 0;
+            cmd->sprite_id = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
+            cmd->frame = (int)(args[1].kind == GML_V_REAL ? args[1].real : 0);
+            cmd->x = (float)(args[2].kind == GML_V_REAL ? args[2].real : 0);
+            cmd->y = (float)(args[3].kind == GML_V_REAL ? args[3].real : 0);
+            cmd->x2 = (float)(args[4].kind == GML_V_REAL ? args[4].real : 0);
+            cmd->y2 = (float)(args[5].kind == GML_V_REAL ? args[5].real : 0);
+            cmd->alpha = g_draw_alpha;
+        }
+        *out = gml_value_bool(1); return 1;
     }
-    if (!strcmp(name, "draw_set_halign") && count == 1) { *out = gml_value_real(0); return 1; }
-    if (!strcmp(name, "draw_set_valign") && count == 1) { *out = gml_value_real(0); return 1; }
-    if (!strcmp(name, "draw_circle_color") || !strcmp(name, "draw_circle_colour")) { *out = gml_value_real(0); return 1; }
-    if (!strcmp(name, "draw_line_color") || !strcmp(name, "draw_line_colour")) { *out = gml_value_real(0); return 1; }
-    if (!strcmp(name, "draw_rectangle_color") || !strcmp(name, "draw_rectangle_colour")) { *out = gml_value_real(0); return 1; }
+    if (!strcmp(name, "draw_text_transformed") && count >= 6) {
+        if (g_draw_command_count < GM82_MAX_DRAW_COMMANDS) {
+            Gm82DrawCommand *cmd = &g_draw_commands[g_draw_command_count++];
+            memset(cmd, 0, sizeof(*cmd));
+            cmd->kind = 1;
+            cmd->x = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0);
+            cmd->y = (float)(args[1].kind == GML_V_REAL ? args[1].real : 0);
+            const char *str = args[2].kind == GML_V_STRING && args[2].string ? args[2].string : "";
+            snprintf(cmd->text, sizeof(cmd->text), "%s", str);
+            cmd->xscale = (float)(args[3].kind == GML_V_REAL ? args[3].real : 1.0);
+            cmd->yscale = (float)(args[4].kind == GML_V_REAL ? args[4].real : 1.0);
+            cmd->angle = (float)(args[5].kind == GML_V_REAL ? args[5].real : 0.0);
+            cmd->alpha = g_draw_alpha;
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "draw_set_halign") && count == 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "draw_set_valign") && count == 1) { *out = gml_value_bool(1); return 1; }
+    if ((!strcmp(name, "draw_circle_color") || !strcmp(name, "draw_circle_colour")) && count >= 5) {
+        if (g_draw_command_count < GM82_MAX_DRAW_COMMANDS) {
+            Gm82DrawCommand *cmd = &g_draw_commands[g_draw_command_count++];
+            memset(cmd, 0, sizeof(*cmd));
+            cmd->kind = 4;
+            cmd->x = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0);
+            cmd->y = (float)(args[1].kind == GML_V_REAL ? args[1].real : 0);
+            cmd->x2 = (float)(args[2].kind == GML_V_REAL ? args[2].real : 0);
+            cmd->color = (int)(args[3].kind == GML_V_REAL ? args[3].real : 16777215.0);
+            cmd->alpha = g_draw_alpha;
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if ((!strcmp(name, "draw_line_color") || !strcmp(name, "draw_line_colour")) && count >= 6) {
+        if (g_draw_command_count < GM82_MAX_DRAW_COMMANDS) {
+            Gm82DrawCommand *cmd = &g_draw_commands[g_draw_command_count++];
+            memset(cmd, 0, sizeof(*cmd));
+            cmd->kind = 2;
+            cmd->x = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0);
+            cmd->y = (float)(args[1].kind == GML_V_REAL ? args[1].real : 0);
+            cmd->x2 = (float)(args[2].kind == GML_V_REAL ? args[2].real : 0);
+            cmd->y2 = (float)(args[3].kind == GML_V_REAL ? args[3].real : 0);
+            cmd->color = (int)(args[4].kind == GML_V_REAL ? args[4].real : 16777215.0);
+            cmd->alpha = g_draw_alpha;
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if ((!strcmp(name, "draw_rectangle_color") || !strcmp(name, "draw_rectangle_colour")) && count >= 8) {
+        if (g_draw_command_count < GM82_MAX_DRAW_COMMANDS) {
+            Gm82DrawCommand *cmd = &g_draw_commands[g_draw_command_count++];
+            memset(cmd, 0, sizeof(*cmd));
+            cmd->kind = 3;
+            cmd->x = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0);
+            cmd->y = (float)(args[1].kind == GML_V_REAL ? args[1].real : 0);
+            cmd->x2 = (float)(args[2].kind == GML_V_REAL ? args[2].real : 0);
+            cmd->y2 = (float)(args[3].kind == GML_V_REAL ? args[3].real : 0);
+            cmd->color = (int)(args[4].kind == GML_V_REAL ? args[4].real : 16777215.0);
+            cmd->alpha = g_draw_alpha;
+        }
+        *out = gml_value_bool(1); return 1;
+    }
 
     /* Text Dimension / String Measurement */
     if (!strcmp(name, "string_width") && count == 1) {
