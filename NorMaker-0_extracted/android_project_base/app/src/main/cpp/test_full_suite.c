@@ -99,6 +99,33 @@ void test_object_inheritance_suite(void) {
     printf("[PASS] Object Inheritance Suite\n");
 }
 
+void test_global_and_kinematics_suite(void) {
+    const char *code =
+        "global.score = 100;\n"
+        "global.score += 50;\n"
+        "snapped = place_snapped(16, 16);\n"
+        "return global.score + (snapped ? 1000 : 0);\n";
+
+    gml_ast *ast = NULL;
+    char err[160] = {0};
+    int parse_ok = gml_parse_program(code, &ast, err, sizeof(err));
+    assert(parse_ok);
+
+    gml_vm vm;
+    gml_vm_init(&vm);
+    gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+
+    int exec_ok = gml_vm_execute(&vm, ast);
+    if (!exec_ok) { printf("VM Error: %s\n", vm.error); }
+    assert(exec_ok);
+    assert(vm.returned);
+    assert(vm.return_value.real == 1150.0);
+
+    gml_ast_free(ast);
+
+    printf("[PASS] Global Variables and Kinematics Suite\n");
+}
+
 void test_ds_structures_suite(void) {
     const char *code =
         "l = ds_list_create();\n"
@@ -178,6 +205,7 @@ int main(void) {
     test_gml_vm_suite();
     test_gml_extended_builtins_suite();
     test_object_inheritance_suite();
+    test_global_and_kinematics_suite();
     test_ds_structures_suite();
     test_ini_files_suite();
     test_retro_rom_suite();

@@ -10,10 +10,70 @@ gml_value gml_value_bool(int b){gml_value v=undef();v.kind=GML_V_BOOL;v.boolean=
 gml_value gml_value_string(const char*s){gml_value v=undef();v.kind=GML_V_STRING;const char*src=s?s:"";size_t n=strlen(src);v.string=malloc(n+1);if(v.string)memcpy(v.string,src,n+1);return v;} gml_value gml_value_array(size_t count){gml_value v=undef();v.kind=GML_V_ARRAY;v.array=calloc(1,sizeof *v.array);if(!v.array)return v;v.array->count=count;v.array->items=calloc(count?count:1,sizeof(gml_value));if(!v.array->items){free(v.array);v.array=0;v.kind=GML_V_UNDEFINED;}return v;} void gml_value_free(gml_value*v){if(!v)return;if(v->kind==GML_V_STRING)free(v->string);else if(v->kind==GML_V_ARRAY&&v->array){for(size_t i=0;i<v->array->count;i++)gml_value_free(&v->array->items[i]);free(v->array->items);free(v->array);}memset(v,0,sizeof*v);} static gml_value copyv(const gml_value*v){if(!v)return undef();if(v->kind==GML_V_STRING)return gml_value_string(v->string);if(v->kind==GML_V_ARRAY&&v->array){gml_value r=gml_value_array(v->array->count);if(r.array)for(size_t i=0;i<v->array->count;i++){r.array->items[i]=copyv(&v->array->items[i]);}return r;}return *v;}
 void gml_vm_init(gml_vm*vm){memset(vm,0,sizeof*vm);}
 void gml_vm_set_native_call(gml_vm*vm,gml_native_call callback,void*userdata){if(vm){vm->native_call=callback;vm->native_userdata=userdata;}} void gml_vm_set_name_resolver(gml_vm*vm,gml_name_resolve callback,void*userdata){if(vm){vm->name_resolve=callback;vm->name_userdata=userdata;}} void gml_vm_set_with_callback(gml_vm*vm,gml_with_call callback,void*userdata){if(vm){vm->with_call=callback;vm->with_userdata=userdata;}} void gml_vm_set_member_callbacks(gml_vm*vm,gml_member_get getter,gml_member_set setter,void*userdata){if(vm){vm->member_get=getter;vm->member_set=setter;vm->member_userdata=userdata;}} void gml_vm_set_script_call(gml_vm*vm,gml_script_call callback,void*userdata){if(vm){vm->script_call=callback;vm->script_userdata=userdata;}} void gml_vm_push_scope(gml_vm*vm){if(vm&&vm->scope_depth<GML_VM_MAX_SCOPE_DEPTH)vm->scope_marks[vm->scope_depth++]=vm->count;} void gml_vm_pop_scope(gml_vm*vm){if(!vm||!vm->scope_depth)return;size_t mark=vm->scope_marks[--vm->scope_depth];while(vm->count>mark){vm->count--;gml_value_free(&vm->vars[vm->count].value);memset(&vm->vars[vm->count],0,sizeof vm->vars[vm->count]);}}
-int gml_vm_set(gml_vm*vm,const char*n,gml_value v){if(!vm||!n)return 0;size_t mark=vm->scope_depth?vm->scope_marks[vm->scope_depth-1]:0;for(size_t i=vm->count;i>mark;i--)if(!strcmp(vm->vars[i-1].name,n)){gml_value_free(&vm->vars[i-1].value);vm->vars[i-1].value=copyv(&v);return 1;}if(vm->count>=GML_VM_MAX_VARS)return 0;strncpy(vm->vars[vm->count].name,n,63);vm->vars[vm->count].name[63]=0;vm->vars[vm->count].value=copyv(&v);vm->count++;return 1;}
-gml_value gml_vm_get(gml_vm*vm,const char*n){if(vm&&n){if(!strcmp(n,"true"))return gml_value_bool(1);if(!strcmp(n,"false"))return gml_value_bool(0);for(size_t i=vm->count;i>0;i--)if(!strcmp(vm->vars[i-1].name,n))return copyv(&vm->vars[i-1].value);}return undef();}
+static gml_vm_var g_global_vars[GML_VM_MAX_VARS];
+static size_t g_global_var_count = 0;
+
+int gml_vm_set(gml_vm*vm,const char*n,gml_value v){
+    if(!n) return 0;
+    if(!strncmp(n, "global.", 7)) {
+        const char *real_n = n + 7;
+        for (size_t i = 0; i < g_global_var_count; i++) {
+            if (!strcmp(g_global_vars[i].name, real_n)) {
+                gml_value_free(&g_global_vars[i].value);
+                g_global_vars[i].value = copyv(&v);
+                return 1;
+            }
+        }
+        if (g_global_var_count >= GML_VM_MAX_VARS) return 0;
+        strncpy(g_global_vars[g_global_var_count].name, real_n, 63);
+        g_global_vars[g_global_var_count].name[63] = 0;
+        g_global_vars[g_global_var_count].value = copyv(&v);
+        g_global_var_count++;
+        return 1;
+    }
+    if(!vm) return 0;
+    size_t mark=vm->scope_depth?vm->scope_marks[vm->scope_depth-1]:0;
+    for(size_t i=vm->count;i>mark;i--)if(!strcmp(vm->vars[i-1].name,n)){gml_value_free(&vm->vars[i-1].value);vm->vars[i-1].value=copyv(&v);return 1;}
+    if(vm->count>=GML_VM_MAX_VARS)return 0;
+    strncpy(vm->vars[vm->count].name,n,63);vm->vars[vm->count].name[63]=0;
+    vm->vars[vm->count].value=copyv(&v);vm->count++;return 1;
+}
+
+gml_value gml_vm_get(gml_vm*vm,const char*n){
+    if(!n) return undef();
+    if(!strncmp(n, "global.", 7)) {
+        const char *real_n = n + 7;
+        for (size_t i = 0; i < g_global_var_count; i++) {
+            if (!strcmp(g_global_vars[i].name, real_n)) return copyv(&g_global_vars[i].value);
+        }
+        return undef();
+    }
+    if(vm){
+        if(!strcmp(n,"true"))return gml_value_bool(1);
+        if(!strcmp(n,"false"))return gml_value_bool(0);
+        for(size_t i=vm->count;i>0;i--)if(!strcmp(vm->vars[i-1].name,n))return copyv(&vm->vars[i-1].value);
+    }
+    return undef();
+}
 static double num(gml_value v){if(v.kind==GML_V_BOOL)return v.boolean;if(v.kind==GML_V_REAL)return v.real;return 0;}
-static int truth(gml_value v){if(v.kind==GML_V_STRING)return v.string&&v.string[0];return num(v)!=0;} static const char* text_of(gml_value v){return v.kind==GML_V_STRING&&v.string?v.string:"";} static gml_value number_text(double value){char buffer[64];snprintf(buffer,sizeof buffer,"%.15g",value);return gml_value_string(buffer);} static gml_value eval(gml_vm*vm,const gml_ast*n); static gml_value* named_slot(gml_vm*vm,const char*n){if(!vm||!n)return 0;for(size_t i=vm->count;i>0;i--)if(!strcmp(vm->vars[i-1].name,n))return &vm->vars[i-1].value;return 0;} static gml_value eval_member(gml_vm*vm,const gml_ast*n){if(!n||!n->left||!n->text)return undef();gml_value base=eval(vm,n->left);gml_value r=undef();if(!strcmp(n->text,"length")){if(base.kind==GML_V_ARRAY&&base.array)r=gml_value_real((double)base.array->count);else if(base.kind==GML_V_STRING&&base.string)r=gml_value_real((double)strlen(base.string));}else if(vm->member_get && n->left->kind==GML_AST_NAME && !strcmp(n->left->text,"self")){vm->member_get(vm->member_userdata,n->text,&r);}gml_value_free(&base);return r;} static gml_value eval_index(gml_vm*vm,const gml_ast*n){if(!n||!n->left||!n->right)return undef();gml_value*base=(n->left->kind==GML_AST_NAME)?named_slot(vm,n->left->text):0;gml_value temp=undef();if(!base){temp=eval(vm,n->left);base=&temp;}gml_value idx=eval(vm,n->right);size_t i=num(idx)<0?0:(size_t)num(idx);gml_value r=undef();if(base->kind==GML_V_ARRAY&&base->array&&i<base->array->count)r=copyv(&base->array->items[i]);gml_value_free(&idx);if(base==&temp)gml_value_free(&temp);return r;} static gml_value eval(gml_vm*vm,const gml_ast*n);
+static int truth(gml_value v){if(v.kind==GML_V_STRING)return v.string&&v.string[0];return num(v)!=0;} static const char* text_of(gml_value v){return v.kind==GML_V_STRING&&v.string?v.string:"";} static gml_value number_text(double value){char buffer[64];snprintf(buffer,sizeof buffer,"%.15g",value);return gml_value_string(buffer);} static gml_value eval(gml_vm*vm,const gml_ast*n); static gml_value* named_slot(gml_vm*vm,const char*n){if(!vm||!n)return 0;for(size_t i=vm->count;i>0;i--)if(!strcmp(vm->vars[i-1].name,n))return &vm->vars[i-1].value;return 0;} static gml_value eval_member(gml_vm*vm,const gml_ast*n){
+    if(!n||!n->left||!n->text)return undef();
+    if(n->left->kind==GML_AST_NAME && !strcmp(n->left->text,"global")){
+        char full[128];
+        snprintf(full, sizeof full, "global.%s", n->text);
+        return gml_vm_get(vm, full);
+    }
+    gml_value base=eval(vm,n->left);
+    gml_value r=undef();
+    if(!strcmp(n->text,"length")){
+        if(base.kind==GML_V_ARRAY&&base.array)r=gml_value_real((double)base.array->count);
+        else if(base.kind==GML_V_STRING&&base.string)r=gml_value_real((double)strlen(base.string));
+    }else if(vm->member_get && n->left->kind==GML_AST_NAME && !strcmp(n->left->text,"self")){
+        vm->member_get(vm->member_userdata,n->text,&r);
+    }
+    gml_value_free(&base);
+    return r;
+} static gml_value eval_index(gml_vm*vm,const gml_ast*n){if(!n||!n->left||!n->right)return undef();gml_value*base=(n->left->kind==GML_AST_NAME)?named_slot(vm,n->left->text):0;gml_value temp=undef();if(!base){temp=eval(vm,n->left);base=&temp;}gml_value idx=eval(vm,n->right);size_t i=num(idx)<0?0:(size_t)num(idx);gml_value r=undef();if(base->kind==GML_V_ARRAY&&base->array&&i<base->array->count)r=copyv(&base->array->items[i]);gml_value_free(&idx);if(base==&temp)gml_value_free(&temp);return r;} static gml_value eval(gml_vm*vm,const gml_ast*n);
 static gml_value call(gml_vm* vm, const gml_ast* n) {
     if (!n->text) return undef();
     gml_value a[32];
@@ -303,7 +363,29 @@ static gml_value call(gml_vm* vm, const gml_ast* n) {
     return r;
 }
 
-static gml_value eval(gml_vm*vm,const gml_ast*n){if(!n)return undef();switch(n->kind){case GML_AST_NUMBER:return gml_value_real(n->number);case GML_AST_STRING:return gml_value_string(n->text);case GML_AST_NAME:{gml_value named=gml_vm_get(vm,n->text);if(named.kind==GML_V_UNDEFINED&&vm->name_resolve){gml_value resolved=undef();if(vm->name_resolve(vm->name_userdata,n->text,&resolved)){gml_value_free(&named);return resolved;}gml_value_free(&resolved);}return named;}case GML_AST_INDEX:return eval_index(vm,n);case GML_AST_MEMBER:return eval_member(vm,n);case GML_AST_CALL:return call(vm,n);case GML_AST_TERNARY:{gml_value condition=eval(vm,n->left);int choose_yes=truth(condition);gml_value_free(&condition);return eval(vm,choose_yes?n->right:n->items[0]);}case GML_AST_UNARY:{gml_value a=eval(vm,n->left);double x=num(a);gml_value r=(n->op==GML_T_NOT)?gml_value_bool(!truth(a)):gml_value_real(n->op==GML_T_MINUS?-x:x);gml_value_free(&a);return r;}case GML_AST_ASSIGN:{gml_value r=eval(vm,n->right);if(n->left&&n->left->kind==GML_AST_NAME)gml_vm_set(vm,n->left->text,r);else if(n->left&&n->left->kind==GML_AST_MEMBER&&n->left->left&&n->left->left->kind==GML_AST_NAME&&!strcmp(n->left->left->text,"self")){if(vm->member_set)vm->member_set(vm->member_userdata,n->left->text,&r);}else if(n->left&&n->left->kind==GML_AST_INDEX&&n->left->left&&n->left->left->kind==GML_AST_NAME){gml_value*base=named_slot(vm,n->left->left->text);gml_value idx=eval(vm,n->left->right);size_t i=num(idx)<0?0:(size_t)num(idx);if(base&&base->kind==GML_V_ARRAY&&base->array&&i<base->array->count){gml_value_free(&base->array->items[i]);base->array->items[i]=copyv(&r);}gml_value_free(&idx);}return r;}case GML_AST_BINARY:{
+static gml_value eval(gml_vm*vm,const gml_ast*n){if(!n)return undef();switch(n->kind){case GML_AST_NUMBER:return gml_value_real(n->number);case GML_AST_STRING:return gml_value_string(n->text);case GML_AST_NAME:{gml_value named=gml_vm_get(vm,n->text);if(named.kind==GML_V_UNDEFINED&&vm->name_resolve){gml_value resolved=undef();if(vm->name_resolve(vm->name_userdata,n->text,&resolved)){gml_value_free(&named);return resolved;}gml_value_free(&resolved);}return named;}case GML_AST_INDEX:return eval_index(vm,n);case GML_AST_MEMBER:return eval_member(vm,n);case GML_AST_CALL:return call(vm,n);case GML_AST_TERNARY:{gml_value condition=eval(vm,n->left);int choose_yes=truth(condition);gml_value_free(&condition);return eval(vm,choose_yes?n->right:n->items[0]);}case GML_AST_UNARY:{gml_value a=eval(vm,n->left);double x=num(a);gml_value r=(n->op==GML_T_NOT)?gml_value_bool(!truth(a)):gml_value_real(n->op==GML_T_MINUS?-x:x);gml_value_free(&a);return r;}case GML_AST_ASSIGN:{
+    gml_value r=eval(vm,n->right);
+    if(n->left&&n->left->kind==GML_AST_NAME) gml_vm_set(vm,n->left->text,r);
+    else if(n->left&&n->left->kind==GML_AST_MEMBER&&n->left->left&&n->left->left->kind==GML_AST_NAME&&!strcmp(n->left->left->text,"global")){
+        char full[128];
+        snprintf(full, sizeof full, "global.%s", n->left->text);
+        gml_vm_set(vm, full, r);
+    }
+    else if(n->left&&n->left->kind==GML_AST_MEMBER&&n->left->left&&n->left->left->kind==GML_AST_NAME&&!strcmp(n->left->left->text,"self")){
+        if(vm->member_set)vm->member_set(vm->member_userdata,n->left->text,&r);
+    }
+    else if(n->left&&n->left->kind==GML_AST_INDEX&&n->left->left&&n->left->left->kind==GML_AST_NAME){
+        gml_value*base=named_slot(vm,n->left->left->text);
+        gml_value idx=eval(vm,n->left->right);
+        size_t i=num(idx)<0?0:(size_t)num(idx);
+        if(base&&base->kind==GML_V_ARRAY&&base->array&&i<base->array->count){
+            gml_value_free(&base->array->items[i]);
+            base->array->items[i]=copyv(&r);
+        }
+        gml_value_free(&idx);
+    }
+    return r;
+}case GML_AST_BINARY:{
  gml_value a=eval(vm,n->left);
  if(n->op==GML_T_AND){
   int left_truth=truth(a);

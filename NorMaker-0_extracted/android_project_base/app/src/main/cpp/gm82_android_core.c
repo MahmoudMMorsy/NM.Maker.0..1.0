@@ -1593,6 +1593,179 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
         *out = gml_value_bool(is_anc);
         return 1;
     }
+    if (!strcmp(name, "place_snapped") && count == 2) {
+        float hsnap = (float)(args[0].kind == GML_V_REAL ? args[0].real : 1.0);
+        float vsnap = (float)(args[1].kind == GML_V_REAL ? args[1].real : 1.0);
+        int snapped = 1;
+        if (self) {
+            if (hsnap > 0.0f && fabsf(fmodf(self->x, hsnap)) > 0.001f) snapped = 0;
+            if (vsnap > 0.0f && fabsf(fmodf(self->y, vsnap)) > 0.001f) snapped = 0;
+        }
+        *out = gml_value_bool(snapped); return 1;
+    }
+    if (!strcmp(name, "place_free") && count == 2) {
+        float px = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0.0);
+        float py = (float)(args[1].kind == GML_V_REAL ? args[1].real : 0.0);
+        int free_pos = 1;
+        if (self) {
+            float hw = self->sprite_width > 0 ? self->sprite_width * 0.5f : 8.0f;
+            float hh = self->sprite_height > 0 ? self->sprite_height * 0.5f : 8.0f;
+            float left = px - hw, right = px + hw, top = py - hh, bottom = py + hh;
+            for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+                Gm82Instance *other = &g_runtime.instances[i];
+                if (!gm82_instance_matches(other, self, -1)) continue;
+                if (gm82_instance_overlaps_rect(other, left, top, right, bottom)) { free_pos = 0; break; }
+            }
+        }
+        *out = gml_value_bool(free_pos); return 1;
+    }
+    if (!strcmp(name, "place_empty") && count == 2) {
+        float px = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0.0);
+        float py = (float)(args[1].kind == GML_V_REAL ? args[1].real : 0.0);
+        int empty_pos = 1;
+        if (self) {
+            float hw = self->sprite_width > 0 ? self->sprite_width * 0.5f : 8.0f;
+            float hh = self->sprite_height > 0 ? self->sprite_height * 0.5f : 8.0f;
+            float left = px - hw, right = px + hw, top = py - hh, bottom = py + hh;
+            for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+                Gm82Instance *other = &g_runtime.instances[i];
+                if (!gm82_instance_matches(other, self, -1)) continue;
+                if (gm82_instance_overlaps_rect(other, left, top, right, bottom)) { empty_pos = 0; break; }
+            }
+        }
+        *out = gml_value_bool(empty_pos); return 1;
+    }
+    if ((!strcmp(name, "move_contact_solid") || !strcmp(name, "move_contact_all")) && count >= 2) {
+        float dir = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0.0);
+        float maxdist = (float)(args[1].kind == GML_V_REAL ? args[1].real : 1000.0);
+        if (maxdist < 0.0f) maxdist = 1000.0f;
+        if (self) {
+            float rad = dir * 3.14159265358979323846f / 180.0f;
+            float dx = cosf(rad), dy = -sinf(rad);
+            float moved = 0.0f;
+            float hw = self->sprite_width > 0 ? self->sprite_width * 0.5f : 8.0f;
+            float hh = self->sprite_height > 0 ? self->sprite_height * 0.5f : 8.0f;
+            while (moved < maxdist) {
+                float test_x = self->x + dx;
+                float test_y = self->y + dy;
+                int collision = 0;
+                float left = test_x - hw, right = test_x + hw, top = test_y - hh, bottom = test_y + hh;
+                for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+                    Gm82Instance *other = &g_runtime.instances[i];
+                    if (!gm82_instance_matches(other, self, -1)) continue;
+                    if (gm82_instance_overlaps_rect(other, left, top, right, bottom)) { collision = 1; break; }
+                }
+                if (collision) break;
+                self->x = test_x; self->y = test_y;
+                moved += 1.0f;
+            }
+        }
+        *out = gml_value_bool(self != NULL); return 1;
+    }
+    if ((!strcmp(name, "move_outside_solid") || !strcmp(name, "move_outside_all")) && count >= 2) {
+        float dir = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0.0);
+        float maxdist = (float)(args[1].kind == GML_V_REAL ? args[1].real : 1000.0);
+        if (self) {
+            float rad = dir * 3.14159265358979323846f / 180.0f;
+            float dx = cosf(rad), dy = -sinf(rad);
+            float moved = 0.0f;
+            float hw = self->sprite_width > 0 ? self->sprite_width * 0.5f : 8.0f;
+            float hh = self->sprite_height > 0 ? self->sprite_height * 0.5f : 8.0f;
+            while (moved < maxdist) {
+                int collision = 0;
+                float left = self->x - hw, right = self->x + hw, top = self->y - hh, bottom = self->y + hh;
+                for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+                    Gm82Instance *other = &g_runtime.instances[i];
+                    if (!gm82_instance_matches(other, self, -1)) continue;
+                    if (gm82_instance_overlaps_rect(other, left, top, right, bottom)) { collision = 1; break; }
+                }
+                if (!collision) break;
+                self->x += dx; self->y += dy;
+                moved += 1.0f;
+            }
+        }
+        *out = gml_value_bool(self != NULL); return 1;
+    }
+    if ((!strcmp(name, "move_bounce_solid") || !strcmp(name, "move_bounce_all")) && count >= 1) {
+        if (self) {
+            self->vx = -self->vx; self->vy = -self->vy;
+            gm82_update_speed_dir_from_vxvy(self);
+        }
+        *out = gml_value_bool(self != NULL); return 1;
+    }
+    if (!strcmp(name, "instance_deactivate_all") && count >= 1) {
+        int notme = (int)(args[0].kind == GML_V_REAL ? args[0].real : (args[0].kind == GML_V_BOOL ? args[0].boolean : 0));
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            Gm82Instance *it = &g_runtime.instances[i];
+            if (!it->active) continue;
+            if (notme && self && it->id == self->id) continue;
+            it->active = 0;
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "instance_activate_all") && count == 0) {
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            if (g_runtime.instances[i].id > 0) g_runtime.instances[i].active = 1;
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "instance_deactivate_object") && count == 1) {
+        int target_obj = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            Gm82Instance *it = &g_runtime.instances[i];
+            if (!it->active) continue;
+            if (target_obj < 0 || it->object_id == target_obj || it->id == target_obj) {
+                it->active = 0;
+            }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "instance_activate_object") && count == 1) {
+        int target_obj = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            Gm82Instance *it = &g_runtime.instances[i];
+            if (it->id > 0 && (target_obj < 0 || it->object_id == target_obj || it->id == target_obj)) {
+                it->active = 1;
+            }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "instance_deactivate_region") && count >= 5) {
+        float left = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0.0);
+        float top = (float)(args[1].kind == GML_V_REAL ? args[1].real : 0.0);
+        float width = (float)(args[2].kind == GML_V_REAL ? args[2].real : 0.0);
+        float height = (float)(args[3].kind == GML_V_REAL ? args[3].real : 0.0);
+        int inside = (int)(args[4].kind == GML_V_REAL ? args[4].real : (args[4].kind == GML_V_BOOL ? args[4].boolean : 1));
+        int notme = (count >= 6) ? (int)(args[5].kind == GML_V_REAL ? args[5].real : (args[5].kind == GML_V_BOOL ? args[5].boolean : 0)) : 0;
+        float right = left + width, bottom = top + height;
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            Gm82Instance *it = &g_runtime.instances[i];
+            if (!it->active) continue;
+            if (notme && self && it->id == self->id) continue;
+            int overlaps = (it->x >= left && it->x <= right && it->y >= top && it->y <= bottom);
+            if ((inside && overlaps) || (!inside && !overlaps)) {
+                it->active = 0;
+            }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "instance_activate_region") && count >= 5) {
+        float left = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0.0);
+        float top = (float)(args[1].kind == GML_V_REAL ? args[1].real : 0.0);
+        float width = (float)(args[2].kind == GML_V_REAL ? args[2].real : 0.0);
+        float height = (float)(args[3].kind == GML_V_REAL ? args[3].real : 0.0);
+        int inside = (int)(args[4].kind == GML_V_REAL ? args[4].real : (args[4].kind == GML_V_BOOL ? args[4].boolean : 1));
+        float right = left + width, bottom = top + height;
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            Gm82Instance *it = &g_runtime.instances[i];
+            if (it->id <= 0) continue;
+            int overlaps = (it->x >= left && it->x <= right && it->y >= top && it->y <= bottom);
+            if ((inside && overlaps) || (!inside && !overlaps)) {
+                it->active = 1;
+            }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
     if (!strcmp(name, "instance_exists") && count == 1) {
         int needle = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1); int found = 0;
         for (int i = 0; i < GM82_MAX_INSTANCES; ++i) if (g_runtime.instances[i].active && (g_runtime.instances[i].id == needle || g_runtime.instances[i].object_id == needle)) { found = 1; break; }
