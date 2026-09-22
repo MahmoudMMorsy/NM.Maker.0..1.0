@@ -614,6 +614,8 @@ typedef struct {
     float view_yview[8];
     float view_wview[8];
     float view_hview[8];
+    float mouse_x;
+    float mouse_y;
 } Gm82Runtime;
 
 static Gm82Runtime g_runtime;
@@ -977,6 +979,8 @@ static int gm82_member_get(void *userdata, const char *member, gml_value *out) {
     if (!strcmp(member, "persistent")) { *out = gml_value_real(it->persistent); return 1; }
     if (!strcmp(member, "mask_index")) { *out = gml_value_real(it->mask_index); return 1; }
     if (!strcmp(member, "solid")) { *out = gml_value_bool(it->solid); return 1; }
+    if (!strcmp(member, "mouse_x")) { *out = gml_value_real(g_runtime.mouse_x); return 1; }
+    if (!strcmp(member, "mouse_y")) { *out = gml_value_real(g_runtime.mouse_y); return 1; }
     if (!strcmp(member, "view_enabled")) { *out = gml_value_bool(g_runtime.view_enabled); return 1; }
     if (!strncmp(member, "view_visible", 12)) {
         int idx = 0; if (member[12] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[13]);
@@ -1039,6 +1043,8 @@ static int gm82_member_set(void *userdata, const char *member, const gml_value *
     if (!strcmp(member, "persistent")) { it->persistent = (int)v; return 1; }
     if (!strcmp(member, "mask_index")) { it->mask_index = (int)v; return 1; }
     if (!strcmp(member, "solid")) { it->solid = value->kind == GML_V_BOOL ? value->boolean : (v != 0.0f); return 1; }
+    if (!strcmp(member, "mouse_x")) { g_runtime.mouse_x = v; return 1; }
+    if (!strcmp(member, "mouse_y")) { g_runtime.mouse_y = v; return 1; }
     if (!strcmp(member, "view_enabled")) { g_runtime.view_enabled = value->kind == GML_V_BOOL ? value->boolean : (v != 0.0f); return 1; }
     if (!strncmp(member, "view_visible", 12)) {
         int idx = 0; if (member[12] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[13]);
