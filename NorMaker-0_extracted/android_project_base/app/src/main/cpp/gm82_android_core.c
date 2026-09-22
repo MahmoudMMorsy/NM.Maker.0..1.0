@@ -2661,6 +2661,18 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
         int created = object_id >= 0 ? gm82_spawn_instance_layer(object_id, layer_id, x, y) : -1;
         *out = gml_value_real((double)created); return 1;
     }
+    if (!strcmp(name, "instance_create_depth") && count == 4) {
+        float x = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0.0);
+        float y = (float)(args[1].kind == GML_V_REAL ? args[1].real : 0.0);
+        float depth = (float)(args[2].kind == GML_V_REAL ? args[2].real : 0.0);
+        int object_id = (int)(args[3].kind == GML_V_REAL ? args[3].real : -1);
+        int created = object_id >= 0 ? gm82_spawn_instance_layer(object_id, -1, x, y) : -1;
+        if (created >= 0) {
+            Gm82Instance *spawned = gm82_find_instance(created);
+            if (spawned) spawned->depth = depth;
+        }
+        *out = gml_value_real((double)created); return 1;
+    }
     if (!strcmp(name, "instance_find") && count == 2) {
         int object_id = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
         int ordinal = (int)(args[1].kind == GML_V_REAL ? args[1].real : -1);
