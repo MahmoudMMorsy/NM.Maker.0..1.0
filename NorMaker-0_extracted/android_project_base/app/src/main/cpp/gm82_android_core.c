@@ -97,6 +97,45 @@ static int g_object_parents[GM82_MAX_OBJECT_PARENTS];
 typedef struct { int active; int object_id; char name[GM82_OBJECT_NAME_CAP]; } gm82_object_name_entry;
 static gm82_object_name_entry g_object_names[GM82_MAX_OBJECT_NAMES];
 static int g_object_name_count = 0;
+
+#define GM82_MAX_OBJECT_PARENTS 2048
+typedef struct { int active; int object_id; int parent_id; } gm82_object_parent_entry;
+static gm82_object_parent_entry g_object_parents[GM82_MAX_OBJECT_PARENTS];
+static int g_object_parent_count = 0;
+
+static void gm82_object_parents_clear(void) { memset(g_object_parents, 0, sizeof(g_object_parents)); g_object_parent_count = 0; }
+static int gm82_object_set_parent_internal(int object_id, int parent_id) {
+    if (object_id < 0) return 0;
+    for (int i = 0; i < g_object_parent_count; ++i) {
+        if (g_object_parents[i].active && g_object_parents[i].object_id == object_id) {
+            g_object_parents[i].parent_id = parent_id;
+            return 1;
+        }
+    }
+    if (g_object_parent_count >= GM82_MAX_OBJECT_PARENTS) return 0;
+    gm82_object_parent_entry *entry = &g_object_parents[g_object_parent_count++];
+    entry->active = 1; entry->object_id = object_id; entry->parent_id = parent_id;
+    return 1;
+}
+static int gm82_object_get_parent_internal(int object_id) {
+    for (int i = 0; i < g_object_parent_count; ++i) {
+        if (g_object_parents[i].active && g_object_parents[i].object_id == object_id) {
+            return g_object_parents[i].parent_id;
+        }
+    }
+    return -100; /* ev_noone / no parent */
+}
+static int gm82_object_is_ancestor_internal(int object_id, int ancestor_id) {
+    int cur = object_id;
+    int depth = 0;
+    while (cur >= 0 && depth++ < 32) {
+        int parent = gm82_object_get_parent_internal(cur);
+        if (parent < 0) break;
+        if (parent == ancestor_id) return 1;
+        cur = parent;
+    }
+    return 0;
+}
 static void gm82_object_names_clear(void) { memset(g_object_names, 0, sizeof(g_object_names)); g_object_name_count = 0; }
 static int gm82_object_name_register(int object_id, const char *name) {
     if (object_id < 0 || !name || !*name) return 0;
@@ -578,6 +617,8 @@ typedef struct {
     float view_yview[8];
     float view_wview[8];
     float view_hview[8];
+    float mouse_x;
+    float mouse_y;
 } Gm82Runtime;
 
 static Gm82Runtime g_runtime;
@@ -941,6 +982,8 @@ static int gm82_member_get(void *userdata, const char *member, gml_value *out) {
     if (!strcmp(member, "persistent")) { *out = gml_value_real(it->persistent); return 1; }
     if (!strcmp(member, "mask_index")) { *out = gml_value_real(it->mask_index); return 1; }
     if (!strcmp(member, "solid")) { *out = gml_value_bool(it->solid); return 1; }
+    if (!strcmp(member, "mouse_x")) { *out = gml_value_real(g_runtime.mouse_x); return 1; }
+    if (!strcmp(member, "mouse_y")) { *out = gml_value_real(g_runtime.mouse_y); return 1; }
     if (!strcmp(member, "view_enabled")) { *out = gml_value_bool(g_runtime.view_enabled); return 1; }
     if (!strncmp(member, "view_visible", 12)) {
         int idx = 0; if (member[12] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[13]);
@@ -1003,6 +1046,8 @@ static int gm82_member_set(void *userdata, const char *member, const gml_value *
     if (!strcmp(member, "persistent")) { it->persistent = (int)v; return 1; }
     if (!strcmp(member, "mask_index")) { it->mask_index = (int)v; return 1; }
     if (!strcmp(member, "solid")) { it->solid = value->kind == GML_V_BOOL ? value->boolean : (v != 0.0f); return 1; }
+    if (!strcmp(member, "mouse_x")) { g_runtime.mouse_x = v; return 1; }
+    if (!strcmp(member, "mouse_y")) { g_runtime.mouse_y = v; return 1; }
     if (!strcmp(member, "view_enabled")) { g_runtime.view_enabled = value->kind == GML_V_BOOL ? value->boolean : (v != 0.0f); return 1; }
     if (!strncmp(member, "view_visible", 12)) {
         int idx = 0; if (member[12] == '[' && member[strlen(member)-1] == ']') idx = atoi(&member[13]);
@@ -1083,6 +1128,9 @@ static int gm82_script_call(void *userdata, const char *name, const gml_value *a
 
 static int gm82_instance_matches(const Gm82Instance *other, const Gm82Instance *self, int object_id) {
     if (!other || !other->active || other == self) return 0;
+    if (object_id < 0 || object_id == -3 /* all */) return 1;
+    if (other->object_id == object_id) return 1;
+    return gm82_object_is_ancestor_internal(other->object_id, object_id);
     if (object_id < 0 || object_id == 100000) return 1;
     int curr = other->object_id;
     int depth = 0;
@@ -1143,6 +1191,23 @@ static int gm82_instance_mask_overlaps_circle(const Gm82Instance *other, float c
 int gm82_native_call(void *userdata, const char *name, const gml_value *args, size_t count, gml_value *out) {
     Gm82Instance *self = (Gm82Instance *)userdata;
     if (!name || !out) return 0;
+    if (!strcmp(name, "object_get_parent") && count == 1) {
+        int obj = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
+        *out = gml_value_real((double)gm82_object_get_parent_internal(obj));
+        return 1;
+    }
+    if (!strcmp(name, "object_set_parent") && count == 2) {
+        int obj = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
+        int par = (int)(args[1].kind == GML_V_REAL ? args[1].real : -1);
+        *out = gml_value_bool(gm82_object_set_parent_internal(obj, par));
+        return 1;
+    }
+    if (!strcmp(name, "object_is_ancestor") && count == 2) {
+        int obj = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
+        int anc = (int)(args[1].kind == GML_V_REAL ? args[1].real : -1);
+        *out = gml_value_bool(gm82_object_is_ancestor_internal(obj, anc));
+        return 1;
+    }
     if (!strcmp(name, "__gm82core_dllcheck") && count == 0) { *out = gml_value_real(gm82_portable_dllcheck()); return 1; }
     if (!strcmp(name, "color_reverse") && count == 1) { double value = args[0].kind == GML_V_REAL ? args[0].real : 0.0; *out = gml_value_real(gm82_portable_color_reverse(value)); return 1; }
     if (!strcmp(name, "color_inverse") && count == 1) { double value = args[0].kind == GML_V_REAL ? args[0].real : 0.0; *out = gml_value_real(gm82_portable_color_inverse(value)); return 1; }
@@ -2643,6 +2708,18 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
         int created = object_id >= 0 ? gm82_spawn_instance_layer(object_id, layer_id, x, y) : -1;
         *out = gml_value_real((double)created); return 1;
     }
+    if (!strcmp(name, "instance_create_depth") && count == 4) {
+        float x = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0.0);
+        float y = (float)(args[1].kind == GML_V_REAL ? args[1].real : 0.0);
+        float depth = (float)(args[2].kind == GML_V_REAL ? args[2].real : 0.0);
+        int object_id = (int)(args[3].kind == GML_V_REAL ? args[3].real : -1);
+        int created = object_id >= 0 ? gm82_spawn_instance_layer(object_id, -1, x, y) : -1;
+        if (created >= 0) {
+            Gm82Instance *spawned = gm82_find_instance(created);
+            if (spawned) spawned->depth = depth;
+        }
+        *out = gml_value_real((double)created); return 1;
+    }
     if (!strcmp(name, "instance_find") && count == 2) {
         int object_id = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
         int ordinal = (int)(args[1].kind == GML_V_REAL ? args[1].real : -1);
@@ -2670,7 +2747,18 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
         }
         *out = gml_value_bool(1); return 1;
     }
-    if (!strcmp(name, "room_goto") && count == 1) { g_runtime.room_id = (int)(args[0].kind == GML_V_REAL ? args[0].real : g_runtime.room_id); g_runtime.room_started = 0; *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "room_goto") && count == 1) {
+        int target_room = (int)(args[0].kind == GML_V_REAL ? args[0].real : g_runtime.room_id);
+        g_runtime.room_id = target_room;
+        if (g_runtime.room_started) gm82_dispatch_other_event(5); /* ev_other / ev_room_end */
+        g_runtime.room_started = 0;
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            if (g_runtime.instances[i].active && !g_runtime.instances[i].persistent) {
+                g_runtime.instances[i].active = 0;
+            }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
     if (!strcmp(name, "point_distance") && count == 4) {
         double x1 = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
         double y1 = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
@@ -3054,22 +3142,37 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
     if (!strcmp(name, "distance_to_point") && count == 2) {
         double px = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
         double py = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
-        double sx = self ? (double)self->x : 0.0;
-        double sy = self ? (double)self->y : 0.0;
-        double dx = px - sx, dy = py - sy;
+        if (!self) { *out = gml_value_real(0.0); return 1; }
+        double shw = self->sprite_width > 0 ? (double)self->sprite_width * 0.5 : 8.0;
+        double shh = self->sprite_height > 0 ? (double)self->sprite_height * 0.5 : 8.0;
+        double left = (double)self->x - shw, right = (double)self->x + shw;
+        double top = (double)self->y - shh, bottom = (double)self->y + shh;
+        double cx = px < left ? left : (px > right ? right : px);
+        double cy = py < top ? top : (py > bottom ? bottom : py);
+        double dx = px - cx, dy = py - cy;
         *out = gml_value_real(sqrt(dx * dx + dy * dy));
         return 1;
     }
     if (!strcmp(name, "distance_to_object") && count == 1) {
         int target_obj = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
-        double sx = self ? (double)self->x : 0.0;
-        double sy = self ? (double)self->y : 0.0;
+        if (!self) { *out = gml_value_real(100000.0); return 1; }
+        double shw = self->sprite_width > 0 ? (double)self->sprite_width * 0.5 : 8.0;
+        double shh = self->sprite_height > 0 ? (double)self->sprite_height * 0.5 : 8.0;
+        double s_left = (double)self->x - shw, s_right = (double)self->x + shw;
+        double s_top = (double)self->y - shh, s_bottom = (double)self->y + shh;
         double best_dist = -1.0;
         for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
             Gm82Instance *other = &g_runtime.instances[i];
             if (!gm82_instance_matches(other, self, target_obj)) continue;
-            if (self && other->id == self->id) continue;
-            double dx = (double)other->x - sx, dy = (double)other->y - sy;
+            double ohw = other->sprite_width > 0 ? (double)other->sprite_width * 0.5 : 8.0;
+            double ohh = other->sprite_height > 0 ? (double)other->sprite_height * 0.5 : 8.0;
+            double o_left = (double)other->x - ohw, o_right = (double)other->x + ohw;
+            double o_top = (double)other->y - ohh, o_bottom = (double)other->y + ohh;
+            double dx = 0.0, dy = 0.0;
+            if (s_right < o_left) dx = o_left - s_right;
+            else if (o_right < s_left) dx = s_left - o_right;
+            if (s_bottom < o_top) dy = o_top - s_bottom;
+            else if (o_bottom < s_top) dy = s_top - o_bottom;
             double d = sqrt(dx * dx + dy * dy);
             if (best_dist < 0.0 || d < best_dist) best_dist = d;
         }
