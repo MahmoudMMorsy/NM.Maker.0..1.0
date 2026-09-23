@@ -62,7 +62,7 @@ void test_gml_extended_builtins_suite(void) {
     gml_vm_set_native_call(&vm, gm82_native_call, NULL);
 
     int exec_ok = gml_vm_execute(&vm, ast);
-    if (!exec_ok) { printf("VM Error: %s\n", vm.error); }
+    if (!exec_ok) { printf("VM Error: %s\n", vm.error); fflush(stdout); }
     assert(exec_ok);
     assert(vm.returned);
     assert(vm.return_value.real == 14.0); /* 9 + 5 = 14 */
@@ -89,7 +89,7 @@ void test_object_inheritance_suite(void) {
     gml_vm_set_native_call(&vm, gm82_native_call, NULL);
 
     int exec_ok = gml_vm_execute(&vm, ast);
-    if (!exec_ok) { printf("VM Error: %s\n", vm.error); }
+    if (!exec_ok) { printf("VM Error: %s\n", vm.error); fflush(stdout); }
     assert(exec_ok);
     assert(vm.returned);
     assert(vm.return_value.real == 1100.0);
@@ -119,7 +119,7 @@ void test_ds_structures_suite(void) {
     gml_vm_set_native_call(&vm, gm82_native_call, NULL);
 
     int exec_ok = gml_vm_execute(&vm, ast);
-    if (!exec_ok) { printf("VM Error: %s\n", vm.error); }
+    if (!exec_ok) { printf("VM Error: %s\n", vm.error); fflush(stdout); }
     assert(exec_ok);
     assert(vm.returned);
     assert(vm.return_value.real == 220.0); /* 2*100 + 20 = 220 */
@@ -148,7 +148,7 @@ void test_ini_files_suite(void) {
     gml_vm_set_native_call(&vm, gm82_native_call, NULL);
 
     int exec_ok = gml_vm_execute(&vm, ast);
-    if (!exec_ok) { printf("VM Error: %s\n", vm.error); }
+    if (!exec_ok) { printf("VM Error: %s\n", vm.error); fflush(stdout); }
     assert(exec_ok);
     assert(vm.returned);
     assert(vm.return_value.real == 500.0);
@@ -180,7 +180,7 @@ void test_drawing_display_audio_suite(void) {
     gml_vm_set_native_call(&vm, gm82_native_call, NULL);
 
     int exec_ok = gml_vm_execute(&vm, ast);
-    if (!exec_ok) { printf("VM Error: %s\n", vm.error); }
+    if (!exec_ok) { printf("VM Error: %s\n", vm.error); fflush(stdout); }
     assert(exec_ok);
     assert(vm.returned);
     assert(vm.return_value.real == 1.0);
@@ -211,7 +211,7 @@ void test_instance_activation_suite(void) {
     gml_vm_set_native_call(&vm, gm82_native_call, NULL);
 
     int exec_ok = gml_vm_execute(&vm, ast);
-    if (!exec_ok) { printf("VM Error: %s\n", vm.error); }
+    if (!exec_ok) { printf("VM Error: %s\n", vm.error); fflush(stdout); }
     assert(exec_ok);
     assert(vm.returned);
     assert(vm.return_value.real == 202.0); /* 2*100 + 0*10 + 2 = 202 */
@@ -219,6 +219,46 @@ void test_instance_activation_suite(void) {
     gml_ast_free(ast);
 
     printf("[PASS] Instance Activation Suite\n");
+}
+
+
+void test_gml_actions_and_math_helpers_suite(void) {
+    const char *code =
+        "o = ord(\"A\");\n"
+        "c = chr(66);\n"
+        "m = mean(10, 20, 30);\n"
+        "med = median(1, 10, 5);\n"
+        "action_set_score(100);\n"
+        "action_set_life(3);\n"
+        "action_set_health(75);\n"
+        "g = ds_grid_create(4, 4);\n"
+        "ds_grid_add_region(g, 0, 0, 1, 1, 5);\n"
+        "sum = ds_grid_get_sum(g, 0, 0, 1, 1);\n"
+        "ds_grid_destroy(g);\n"
+        "return o + m + med + sum + score + lives + health;\n";
+
+    gml_ast *ast = NULL;
+    char err[160] = {0};
+    int parse_ok = gml_parse_program(code, &ast, err, sizeof(err));
+    assert(parse_ok);
+
+    gml_vm vm;
+    gml_vm_init(&vm);
+    gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+    extern int gm82_member_get(void*,const char*,gml_value*); extern int gm82_member_set(void*,const char*,const gml_value*); extern int gm82_resolve_name(void*,const char*,gml_value*);
+    gml_vm_set_name_resolver(&vm, gm82_resolve_name, NULL);
+    gml_vm_set_member_callbacks(&vm, gm82_member_get, gm82_member_set, NULL);
+
+    int exec_ok = gml_vm_execute(&vm, ast);
+    if (!exec_ok) { printf("VM Error: %s\n", vm.error); fflush(stdout); }
+    assert(exec_ok);
+    assert(vm.returned);
+    /* 65 (o) + 20 (m) + 5 (med) + 20 (sum=5*4) + 100 (score) + 3 (lives) + 75 (health) = 288 */
+        assert(vm.return_value.real == 288.0);
+
+    gml_ast_free(ast);
+
+    printf("[PASS] GML Actions & Math Helpers Suite\n");
 }
 
 void test_retro_rom_suite(void) {
@@ -245,6 +285,7 @@ int main(void) {
     test_ini_files_suite();
     test_instance_activation_suite();
     test_drawing_display_audio_suite();
+    test_gml_actions_and_math_helpers_suite();
     test_retro_rom_suite();
     printf("--- All Native Host Tests Passed! ---\n");
     return 0;
