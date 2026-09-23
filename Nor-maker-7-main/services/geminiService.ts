@@ -2415,24 +2415,32 @@ export const createEngineHTML = (
     window.ds_grid_clear = (g, v) => { for(let i=0; i<g.w; i++) for(let j=0; j<g.h; j++) g[i][j] = v; };
 
     // --- GML Collision Functions (Shape Based) ---
+    // ⚡ Bolt: Imperative single-pass collision loops to avoid .find() closure allocations and GC thrashing during hot frame loops
     window.collision_rectangle = (x1, y1, x2, y2, obj, prec, notme) => {
         const me = window._currentInstance;
-        return window.instances.find(i => {
-            if (i.dead || (notme && i === me)) return false;
-            if (typeof obj === 'string' && i.def.name !== obj && i.def.id !== obj && obj !== 'all') return false;
-            return i.x < Math.max(x1, x2) && i.x + i.w > Math.min(x1, x2) && i.y < Math.max(y1, y2) && i.y + i.h > Math.min(y1, y2);
-        }) || null;
+        const minX = Math.min(x1, x2), maxX = Math.max(x1, x2);
+        const minY = Math.min(y1, y2), maxY = Math.max(y1, y2);
+        const insts = window.instances;
+        for (let idx = 0; idx < insts.length; idx++) {
+            const i = insts[idx];
+            if (i.dead || (notme && i === me)) continue;
+            if (typeof obj === 'string' && i.def.name !== obj && i.def.id !== obj && obj !== 'all') continue;
+            if (i.x < maxX && i.x + i.w > minX && i.y < maxY && i.y + i.h > minY) return i;
+        }
+        return null;
     };
     window.collision_circle = (x, y, rad, obj, prec, notme) => {
         const me = window._currentInstance;
-        return window.instances.find(i => {
-            if (i.dead || (notme && i === me)) return false;
-            if (typeof obj === 'string' && i.def.name !== obj && i.def.id !== obj && obj !== 'all') return false;
-            // Simplified: distance from center of circle to center of instance box
-            const dx = (i.x + i.w/2) - x;
-            const dy = (i.y + i.h/2) - y;
-            return Math.hypot(dx, dy) < rad + Math.max(i.w, i.h)/2;
-        }) || null;
+        const insts = window.instances;
+        for (let idx = 0; idx < insts.length; idx++) {
+            const i = insts[idx];
+            if (i.dead || (notme && i === me)) continue;
+            if (typeof obj === 'string' && i.def.name !== obj && i.def.id !== obj && obj !== 'all') continue;
+            const dx = (i.x + i.w / 2) - x;
+            const dy = (i.y + i.h / 2) - y;
+            if (Math.hypot(dx, dy) < rad + Math.max(i.w, i.h) / 2) return i;
+        }
+        return null;
     };
     window.point_in_rectangle = (px, py, x1, y1, x2, y2) => px >= x1 && px <= x2 && py >= y1 && py <= y2;
     window.point_in_circle = (px, py, cx, cy, rad) => Math.hypot(px - cx, py - cy) <= rad;
@@ -2681,27 +2689,45 @@ export const createEngineHTML = (
             if (dist > 2000) break; // Safety
         }
     };
-    // collision_rectangle: returns live instance or noone (null)
+    // ⚡ Bolt: Imperative collision helpers eliminating .find() temporary function closures
     window.collision_rectangle = (x1,y1,x2,y2,obj,prec,notme) => {
         const caller = notme ? window._currentInstance : null;
-        return window.instances.find(i=>{
-            if (i.dead) return false;
-            if (caller && i===caller) return false;
-            if (typeof obj === 'string' ? (i.def.name!==obj&&i.def.id!==obj) : false) return false;
-            if (typeof obj === 'string' && i.def.name!==obj && i.def.id!==obj) return false;
-            return x1<i.x+i.w && x2>i.x && y1<i.y+i.h && y2>i.y;
-        }) || null;
+        const minX = Math.min(x1, x2), maxX = Math.max(x1, x2);
+        const minY = Math.min(y1, y2), maxY = Math.max(y1, y2);
+        const insts = window.instances;
+        for (let idx = 0; idx < insts.length; idx++) {
+            const i = insts[idx];
+            if (i.dead || (caller && i === caller)) continue;
+            if (typeof obj === 'string' && i.def.name !== obj && i.def.id !== obj && obj !== 'all') continue;
+            if (minX < i.x + i.w && maxX > i.x && minY < i.y + i.h && maxY > i.y) return i;
+        }
+        return null;
     };
     window.collision_line = (x1,y1,x2,y2,obj,prec,notme) => {
         // Simplified: check if any target instance's bbox intersects the line's bounding box
         const minX=Math.min(x1,x2), maxX=Math.max(x1,x2), minY=Math.min(y1,y2), maxY=Math.max(y1,y2);
         return window.collision_rectangle(minX,minY,maxX,maxY,obj,prec,notme);
     };
-    window.collision_point = (x,y,obj,prec,notme) =>
-        window.instances.find(i=>!i.dead&&(i.def.name===obj||i.def.id===obj)&&x>=i.x&&x<i.x+i.w&&y>=i.y&&y<i.y+i.h)||null;
-    window.collision_circle = (x,y,r,obj,prec,notme) =>
-        window.instances.find(i=>!i.dead&&(i.def.name===obj||i.def.id===obj)&&
-            Math.hypot(x-(i.x+i.w/2),y-(i.y+i.h/2))<r+(i.w+i.h)/4)||null;
+    window.collision_point = (x,y,obj,prec,notme) => {
+        const insts = window.instances;
+        for (let idx = 0; idx < insts.length; idx++) {
+            const i = insts[idx];
+            if (i.dead) continue;
+            if (typeof obj === 'string' && i.def.name !== obj && i.def.id !== obj && obj !== 'all') continue;
+            if (x >= i.x && x < i.x + i.w && y >= i.y && y < i.y + i.h) return i;
+        }
+        return null;
+    };
+    window.collision_circle = (x,y,r,obj,prec,notme) => {
+        const insts = window.instances;
+        for (let idx = 0; idx < insts.length; idx++) {
+            const i = insts[idx];
+            if (i.dead) continue;
+            if (typeof obj === 'string' && i.def.name !== obj && i.def.id !== obj && obj !== 'all') continue;
+            if (Math.hypot(x - (i.x + i.w / 2), y - (i.y + i.h / 2)) < r + (i.w + i.h) / 4) return i;
+        }
+        return null;
+    };
     window.move_towards_point = (inst,x,y,spd) => {
         if (!inst) return;
         const angle = Math.atan2(y-inst.y, x-inst.x);
@@ -4574,7 +4600,16 @@ export const createEngineHTML = (
             }
 
             // --- PLAYER DEATH LOGIC ---
-            const playerBefore = window.instances.find(i => i.def.name.toLowerCase().includes('player') || (activeView && i.def.name === activeView.followObj));
+            // ⚡ Bolt: Single-pass imperative loop for player check to avoid .find() closures and redundant string operations
+            let playerBefore = null;
+            const loopInsts = window.instances;
+            for (let idx = 0; idx < loopInsts.length; idx++) {
+                const inst = loopInsts[idx];
+                if (!inst.dead && (inst.def.name.toLowerCase().includes('player') || (activeView && inst.def.name === activeView.followObj))) {
+                    playerBefore = inst;
+                    break;
+                }
+            }
 
             if (playerBefore && playerBefore.health !== undefined && playerBefore.health <= 0) {
                 playerBefore.dead = true;
@@ -4595,7 +4630,14 @@ export const createEngineHTML = (
             });
             window.instances = window.instances.filter(i => !i.dead);
 
-            const playerAfter = window.instances.find(i => i.def.name.toLowerCase().includes('player') || (activeView && i.def.name === activeView.followObj));
+            let playerAfter = null;
+            for (let idx = 0; idx < window.instances.length; idx++) {
+                const inst = window.instances[idx];
+                if (inst.def.name.toLowerCase().includes('player') || (activeView && inst.def.name === activeView.followObj)) {
+                    playerAfter = inst;
+                    break;
+                }
+            }
             if (playerAfter) {
                 window.hudVisible = true;
             }
