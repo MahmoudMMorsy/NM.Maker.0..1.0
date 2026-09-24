@@ -107,7 +107,14 @@ void test_ds_structures_suite(void) {
         "sz = ds_list_size(l);\n"
         "val = ds_list_find_value(l, 1);\n"
         "ds_list_destroy(l);\n"
-        "return sz * 100 + val;\n";
+        "pr = ds_priority_create();\n"
+        "ds_priority_add(pr, 100, 5);\n"
+        "ds_priority_add(pr, 200, 1);\n"
+        "ds_priority_add(pr, 300, 10);\n"
+        "p_min = ds_priority_find_min(pr);\n"
+        "p_max = ds_priority_find_max(pr);\n"
+        "ds_priority_destroy(pr);\n"
+        "return sz * 100 + val + p_min + p_max;\n";
 
     gml_ast *ast = NULL;
     char err[160] = {0};
@@ -122,11 +129,37 @@ void test_ds_structures_suite(void) {
     if (!exec_ok) { printf("VM Error: %s\n", vm.error); }
     assert(exec_ok);
     assert(vm.returned);
-    assert(vm.return_value.real == 220.0); /* 2*100 + 20 = 220 */
+    assert(vm.return_value.real == 720.0); /* 220 + 200 + 300 = 720 */
 
     gml_ast_free(ast);
 
     printf("[PASS] Data Structures Suite\n");
+}
+
+void test_motion_planning_epsilon_suite(void) {
+    const char *code =
+        "math_set_epsilon(0.0001);\n"
+        "eps = math_get_epsilon();\n"
+        "return eps;\n";
+
+    gml_ast *ast = NULL;
+    char err[160] = {0};
+    int parse_ok = gml_parse_program(code, &ast, err, sizeof(err));
+    assert(parse_ok);
+
+    gml_vm vm;
+    gml_vm_init(&vm);
+    gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+
+    int exec_ok = gml_vm_execute(&vm, ast);
+    if (!exec_ok) { printf("VM Error: %s\n", vm.error); }
+    assert(exec_ok);
+    assert(vm.returned);
+    assert(vm.return_value.real == 0.0001);
+
+    gml_ast_free(ast);
+
+    printf("[PASS] Motion Planning & Epsilon Suite\n");
 }
 
 void test_ini_files_suite(void) {
@@ -242,6 +275,7 @@ int main(void) {
     test_gml_extended_builtins_suite();
     test_object_inheritance_suite();
     test_ds_structures_suite();
+    test_motion_planning_epsilon_suite();
     test_ini_files_suite();
     test_instance_activation_suite();
     test_drawing_display_audio_suite();
