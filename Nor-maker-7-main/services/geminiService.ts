@@ -2520,7 +2520,19 @@ export const createEngineHTML = (
         ctx.fillText(text, x, y);
     };
 
-    window.instance_number  = (objName) => window.instances.filter(i=>!i.dead&&(i.def.name===objName||i.def.id===objName)).length;
+    // ⚡ Bolt: Single-pass linear counter for instance_number to eliminate per-call .filter() array allocations.
+    window.instance_number = (objName) => {
+        if (!window.instances) return 0;
+        const isAll = objName === 'all';
+        let count = 0;
+        for (let i = 0; i < window.instances.length; i++) {
+            const inst = window.instances[i];
+            if (inst && !inst.dead && (isAll || inst.def?.name === objName || inst.def?.id === objName)) {
+                count++;
+            }
+        }
+        return count;
+    };
     window.instance_change = (objName, perfCreate) => {
         const me = window._currentInstance;
         if (!me) return;
