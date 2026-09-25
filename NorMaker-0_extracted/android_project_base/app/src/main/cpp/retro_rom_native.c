@@ -71,8 +71,14 @@ double nor_export_nes_native(const char *project, const char *output) {
     prg[16382] = 0x00; prg[16383] = 0x80; /* NMI -> 0x8000 */
     fwrite(prg, 1, sizeof(prg), f);
 
-    /* 8KB CHR ROM Data */
+    /* 8KB CHR ROM Data - Pattern Table Tiles (Character RAM) */
     uint8_t chr[8192] = {0};
+    /* Standard NES 8x8 Tile Pattern for Letter 'N' */
+    static const uint8_t tile_n[16] = {
+        0x81, 0xC1, 0xA1, 0x91, 0x89, 0x85, 0x83, 0x81,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+    };
+    memcpy(chr, tile_n, sizeof(tile_n));
     fwrite(chr, 1, sizeof(chr), f);
 
     fclose(f);
