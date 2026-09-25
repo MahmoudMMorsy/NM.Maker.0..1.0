@@ -31,3 +31,7 @@
 ## 2026-09-05 - O(N log N) Runtime Instance Sorting and GC Allocation Elimination
 **Learning:** Hot game loop functions (such as `instance_nearest` and `instance_furthest`) implemented using `.filter().sort()` allocate temporary arrays and perform $O(N \log N)$ sorting operations every frame (e.g. 60 times/sec per instance). Replaces `.filter().sort()` with single-pass $O(N)$ linear loops tracking min/max distance completely eliminates GC array allocation thrashing and reduces time complexity to $O(N)$.
 **Action:** Always replace `.filter().sort()[0]` with a single-pass loop tracking min/max variables when retrieving extrema from dynamic runtime collections.
+
+## 2026-09-23 - Eliminating Function Closures and Redundant Invariant Math in Frame Collision Checks
+**Learning:** Higher-order array methods (like `.find()`) inside hot frame-by-frame engine routines (like `collision_rectangle`, `collision_circle`, `collision_point`) allocate short-lived predicate closures every call (e.g. hundreds of times per frame). Furthermore, placing invariant expressions like `Math.min(x1, x2)` inside the loop body re-evaluates min/max calculations on every iteration.
+**Action:** Replace `.find()` inside high-frequency collision or game loop checks with single-pass imperative `for` loops, hoisting invariant bounds calculations (`minX`, `maxX`, `minY`, `maxY`) outside the loop to eliminate closure allocations and GC thrashing.
