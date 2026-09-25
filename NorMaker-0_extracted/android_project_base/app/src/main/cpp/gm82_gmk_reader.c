@@ -48,14 +48,15 @@ static int read_bool32(gmk_reader *r, int *v) { int32_t x=0; if(!i32(r,&x)) retu
 static int skip_action_block(gmk_reader *r, int *actionsOut) {
     int32_t ver=0,count=0; if(!i32(r,&ver)||!i32(r,&count)||count<0||count>1000) return 0;
     for(int32_t k=0;k<count;k++) {
-        int32_t x=0,args=0; int b=0;
-        if(!i32(r,&x)||!i32(r,&x)||!i32(r,&x)||!i32(r,&x)) return 0;
-        if(!read_bool32(r,&b)||!read_bool32(r,&b)||!read_bool32(r,&b)||!i32(r,&x)) return 0;
+        int32_t libId=0,actId=0,actKind=0,appliesTo=0,args=0; int relative=0,isNot=0,isQuestion=0;
+        if(!i32(r,&libId)||!i32(r,&actId)||!i32(r,&actKind)||!i32(r,&appliesTo)) return 0;
+        if(!read_bool32(r,&relative)||!read_bool32(r,&isNot)||!read_bool32(r,&isQuestion)||!i32(r,&appliesTo)) return 0;
         if(!read_discard_string(r)||!read_discard_string(r)||!i32(r,&args)||args<0||args>64) return 0;
-        for(int32_t a=0;a<args;a++) if(!i32(r,&x)) return 0;
-        if(!i32(r,&x)||!read_bool32(r,&b)) return 0;
+        for(int32_t a=0;a<args;a++) { int32_t type=0; if(!i32(r,&type)) return 0; }
+        int32_t target=0; int execInfo=0;
+        if(!i32(r,&target)||!read_bool32(r,&execInfo)) return 0;
         for(int32_t a=0;a<args;a++) if(!read_discard_string(r)) return 0;
-        if(!read_bool32(r,&b)) return 0;
+        if(!read_bool32(r,&execInfo)) return 0;
     }
     if(actionsOut) *actionsOut=count;
     return 1;
