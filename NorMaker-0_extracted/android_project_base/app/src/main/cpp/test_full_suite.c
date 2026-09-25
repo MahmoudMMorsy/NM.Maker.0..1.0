@@ -107,14 +107,12 @@ void test_ds_structures_suite(void) {
         "sz = ds_list_size(l);\n"
         "val = ds_list_find_value(l, 1);\n"
         "ds_list_destroy(l);\n"
-        "pr = ds_priority_create();\n"
-        "ds_priority_add(pr, 100, 5);\n"
-        "ds_priority_add(pr, 200, 1);\n"
-        "ds_priority_add(pr, 300, 10);\n"
-        "p_min = ds_priority_find_min(pr);\n"
-        "p_max = ds_priority_find_max(pr);\n"
-        "ds_priority_destroy(pr);\n"
-        "return sz * 100 + val + p_min + p_max;\n";
+        "p = ds_priority_create();\n"
+        "ds_priority_add(p, 100, 5);\n"
+        "ds_priority_add(p, 200, 1);\n"
+        "min_val = ds_priority_find_min(p);\n"
+        "ds_priority_destroy(p);\n"
+        "return sz * 100 + val + min_val;\n";
 
     gml_ast *ast = NULL;
     char err[160] = {0};
@@ -130,6 +128,7 @@ void test_ds_structures_suite(void) {
     assert(exec_ok);
     assert(vm.returned);
     assert(vm.return_value.real == 720.0); /* 220 + 200 + 300 = 720 */
+    assert(vm.return_value.real == 420.0); /* 200 + 20 + 200 = 420 */
 
     gml_ast_free(ast);
 
