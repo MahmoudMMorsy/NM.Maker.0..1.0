@@ -243,10 +243,13 @@ typedef struct { int active; size_t count; gml_value items[GM82_DS_CAP]; } gm82_
 typedef struct { int active; size_t count; char keys[GM82_DS_CAP][GM82_DS_KEY_CAP]; gml_value values[GM82_DS_CAP]; } gm82_ds_map;
 typedef struct { int active; size_t count; gml_value items[GM82_DS_CAP]; } gm82_ds_stack;
 typedef struct { int active; size_t count; gml_value items[GM82_DS_CAP]; } gm82_ds_queue;
+typedef struct { int active; size_t count; gml_value items[GM82_DS_CAP]; double priorities[GM82_DS_CAP]; } gm82_ds_priority;
 static gm82_ds_list g_ds_lists[GM82_DS_MAX];
 static gm82_ds_map g_ds_maps[GM82_DS_MAX];
 static gm82_ds_stack g_ds_stacks[GM82_DS_MAX];
 static gm82_ds_queue g_ds_queues[GM82_DS_MAX];
+static gm82_ds_priority g_ds_priorities[GM82_DS_MAX];
+static double g_math_epsilon = 0.00001;
 static double gm82_num_val(gml_value v) {
     if (v.kind == GML_V_BOOL) return v.boolean;
     if (v.kind == GML_V_REAL) return v.real;
@@ -277,10 +280,12 @@ static void gm82_ds_clear(void) {
         for (size_t j = 0; j < g_ds_maps[i].count; ++j) gml_value_free(&g_ds_maps[i].values[j]);
         for (size_t j = 0; j < g_ds_stacks[i].count; ++j) gml_value_free(&g_ds_stacks[i].items[j]);
         for (size_t j = 0; j < g_ds_queues[i].count; ++j) gml_value_free(&g_ds_queues[i].items[j]);
+        for (size_t j = 0; j < g_ds_priorities[i].count; ++j) gml_value_free(&g_ds_priorities[i].items[j]);
     }
     for (int i = 0; i < GM82_GRID_MAX; ++i) for (int j = 0; j < GM82_GRID_DIM * GM82_GRID_DIM; ++j) gml_value_free(&g_ds_grids[i].cells[j]);
     memset(g_ds_lists, 0, sizeof(g_ds_lists)); memset(g_ds_maps, 0, sizeof(g_ds_maps));
     memset(g_ds_stacks, 0, sizeof(g_ds_stacks)); memset(g_ds_queues, 0, sizeof(g_ds_queues));
+    memset(g_ds_priorities, 0, sizeof(g_ds_priorities));
     memset(g_ds_grids, 0, sizeof(g_ds_grids));
 }
 static int gm82_ds_handle(const gml_value *v) { return v && v->kind == GML_V_REAL ? (int)v->real : 0; }
@@ -1768,6 +1773,83 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
     if (!strcmp(name, "ds_queue_enqueue") && count >= 2) { int id = gm82_ds_handle(&args[0]) - 1; if (id >= 0 && id < GM82_DS_MAX && g_ds_queues[id].active) { for (size_t i = 1; i < count && g_ds_queues[id].count < GM82_DS_CAP; ++i) g_ds_queues[id].items[g_ds_queues[id].count++] = gm82_clone_value(&args[i]); } *out = gml_value_bool(1); return 1; }
     if (!strcmp(name, "ds_queue_dequeue") && count == 1) { int id = gm82_ds_handle(&args[0]) - 1; if (id >= 0 && id < GM82_DS_MAX && g_ds_queues[id].active && g_ds_queues[id].count > 0) { *out = g_ds_queues[id].items[0]; for (size_t i = 0; i + 1 < g_ds_queues[id].count; ++i) g_ds_queues[id].items[i] = g_ds_queues[id].items[i + 1]; g_ds_queues[id].count--; return 1; } *out = gml_value_real(0); return 1; }
     if (!strcmp(name, "ds_queue_head") && count == 1) { int id = gm82_ds_handle(&args[0]) - 1; if (id >= 0 && id < GM82_DS_MAX && g_ds_queues[id].active && g_ds_queues[id].count > 0) { *out = gm82_clone_value(&g_ds_queues[id].items[0]); return 1; } *out = gml_value_real(0); return 1; }
+    if (!strcmp(name, "ds_priority_create") && count == 0) { for (int i = 0; i < GM82_DS_MAX; ++i) if (!g_ds_priorities[i].active) { g_ds_priorities[i].active = 1; g_ds_priorities[i].count = 0; *out = gml_value_real((double)(i + 1)); return 1; } *out = gml_value_real(-1); return 1; }
+    if (!strcmp(name, "ds_priority_destroy") && count == 1) { int id = gm82_ds_handle(&args[0]) - 1; if (id >= 0 && id < GM82_DS_MAX && g_ds_priorities[id].active) { for (size_t i = 0; i < g_ds_priorities[id].count; ++i) gml_value_free(&g_ds_priorities[id].items[i]); memset(&g_ds_priorities[id], 0, sizeof(g_ds_priorities[id])); } *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "ds_priority_clear") && count == 1) { int id = gm82_ds_handle(&args[0]) - 1; if (id >= 0 && id < GM82_DS_MAX && g_ds_priorities[id].active) { for (size_t i = 0; i < g_ds_priorities[id].count; ++i) gml_value_free(&g_ds_priorities[id].items[i]); g_ds_priorities[id].count = 0; } *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "ds_priority_empty") && count == 1) { int id = gm82_ds_handle(&args[0]) - 1; *out = gml_value_bool(id < 0 || id >= GM82_DS_MAX || !g_ds_priorities[id].active || g_ds_priorities[id].count == 0); return 1; }
+    if (!strcmp(name, "ds_priority_size") && count == 1) { int id = gm82_ds_handle(&args[0]) - 1; *out = gml_value_real(id >= 0 && id < GM82_DS_MAX && g_ds_priorities[id].active ? (double)g_ds_priorities[id].count : 0); return 1; }
+    if (!strcmp(name, "ds_priority_add") && count == 3) {
+        int id = gm82_ds_handle(&args[0]) - 1; double prio = gm82_num_val(args[2]);
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_priorities[id].active && g_ds_priorities[id].count < GM82_DS_CAP) {
+            g_ds_priorities[id].items[g_ds_priorities[id].count] = gm82_clone_value(&args[1]);
+            g_ds_priorities[id].priorities[g_ds_priorities[id].count] = prio;
+            g_ds_priorities[id].count++;
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "ds_priority_find_min") && count == 1) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_priorities[id].active && g_ds_priorities[id].count > 0) {
+            size_t best = 0;
+            for (size_t i = 1; i < g_ds_priorities[id].count; ++i) {
+                if (g_ds_priorities[id].priorities[i] < g_ds_priorities[id].priorities[best]) best = i;
+            }
+            *out = gm82_clone_value(&g_ds_priorities[id].items[best]); return 1;
+        }
+        *out = gml_value_real(0); return 1;
+    }
+    if (!strcmp(name, "ds_priority_find_max") && count == 1) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_priorities[id].active && g_ds_priorities[id].count > 0) {
+            size_t best = 0;
+            for (size_t i = 1; i < g_ds_priorities[id].count; ++i) {
+                if (g_ds_priorities[id].priorities[i] > g_ds_priorities[id].priorities[best]) best = i;
+            }
+            *out = gm82_clone_value(&g_ds_priorities[id].items[best]); return 1;
+        }
+        *out = gml_value_real(0); return 1;
+    }
+    if (!strcmp(name, "ds_priority_delete_min") && count == 1) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_priorities[id].active && g_ds_priorities[id].count > 0) {
+            size_t best = 0;
+            for (size_t i = 1; i < g_ds_priorities[id].count; ++i) {
+                if (g_ds_priorities[id].priorities[i] < g_ds_priorities[id].priorities[best]) best = i;
+            }
+            *out = g_ds_priorities[id].items[best];
+            for (size_t i = best; i + 1 < g_ds_priorities[id].count; ++i) {
+                g_ds_priorities[id].items[i] = g_ds_priorities[id].items[i + 1];
+                g_ds_priorities[id].priorities[i] = g_ds_priorities[id].priorities[i + 1];
+            }
+            g_ds_priorities[id].count--; return 1;
+        }
+        *out = gml_value_real(0); return 1;
+    }
+    if (!strcmp(name, "ds_priority_delete_max") && count == 1) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_priorities[id].active && g_ds_priorities[id].count > 0) {
+            size_t best = 0;
+            for (size_t i = 1; i < g_ds_priorities[id].count; ++i) {
+                if (g_ds_priorities[id].priorities[i] > g_ds_priorities[id].priorities[best]) best = i;
+            }
+            *out = g_ds_priorities[id].items[best];
+            for (size_t i = best; i + 1 < g_ds_priorities[id].count; ++i) {
+                g_ds_priorities[id].items[i] = g_ds_priorities[id].items[i + 1];
+                g_ds_priorities[id].priorities[i] = g_ds_priorities[id].priorities[i + 1];
+            }
+            g_ds_priorities[id].count--; return 1;
+        }
+        *out = gml_value_real(0); return 1;
+    }
+    if (!strcmp(name, "math_set_epsilon") && count == 1) { g_math_epsilon = gm82_num_val(args[0]); *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "math_get_epsilon") && count == 0) { *out = gml_value_real(g_math_epsilon); return 1; }
+    if ((!strcmp(name, "mp_linear_step") || !strcmp(name, "mp_linear_step_object")) && count >= 4 && self) {
+        float tx = (float)gm82_num_val(args[0]), ty = (float)gm82_num_val(args[1]), spd = (float)gm82_num_val(args[2]);
+        float dx = tx - self->x, dy = ty - self->y, dist = sqrtf(dx * dx + dy * dy);
+        if (dist <= spd || dist < 0.0001f) { self->x = tx; self->y = ty; *out = gml_value_bool(1); return 1; }
+        self->x += (dx / dist) * spd; self->y += (dy / dist) * spd;
+        *out = gml_value_bool(0); return 1;
+    }
     if (!strcmp(name, "instance_deactivate_all") && count >= 1) {
         int notme = (args[0].kind == GML_V_BOOL ? args[0].boolean : (args[0].kind == GML_V_REAL && args[0].real != 0.0));
         gm82_instance_deactivate_all_internal(self, notme);
