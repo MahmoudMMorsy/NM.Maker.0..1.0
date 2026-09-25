@@ -127,11 +127,38 @@ void test_ds_structures_suite(void) {
     if (!exec_ok) { printf("VM Error: %s\n", vm.error); }
     assert(exec_ok);
     assert(vm.returned);
+    assert(vm.return_value.real == 720.0); /* 220 + 200 + 300 = 720 */
     assert(vm.return_value.real == 420.0); /* 200 + 20 + 200 = 420 */
 
     gml_ast_free(ast);
 
     printf("[PASS] Data Structures Suite\n");
+}
+
+void test_motion_planning_epsilon_suite(void) {
+    const char *code =
+        "math_set_epsilon(0.0001);\n"
+        "eps = math_get_epsilon();\n"
+        "return eps;\n";
+
+    gml_ast *ast = NULL;
+    char err[160] = {0};
+    int parse_ok = gml_parse_program(code, &ast, err, sizeof(err));
+    assert(parse_ok);
+
+    gml_vm vm;
+    gml_vm_init(&vm);
+    gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+
+    int exec_ok = gml_vm_execute(&vm, ast);
+    if (!exec_ok) { printf("VM Error: %s\n", vm.error); }
+    assert(exec_ok);
+    assert(vm.returned);
+    assert(vm.return_value.real == 0.0001);
+
+    gml_ast_free(ast);
+
+    printf("[PASS] Motion Planning & Epsilon Suite\n");
 }
 
 void test_ini_files_suite(void) {
@@ -247,6 +274,7 @@ int main(void) {
     test_gml_extended_builtins_suite();
     test_object_inheritance_suite();
     test_ds_structures_suite();
+    test_motion_planning_epsilon_suite();
     test_ini_files_suite();
     test_instance_activation_suite();
     test_drawing_display_audio_suite();
