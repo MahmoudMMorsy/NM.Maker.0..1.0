@@ -57,15 +57,28 @@ double nor_export_nes_native(const char *project, const char *output) {
 
     fwrite(header, 1, 16, f);
 
-    /* 16KB PRG ROM Code */
+    /* 16KB PRG ROM Code with Minimal Execution Loop */
     uint8_t prg[16384] = {0};
+    /* 6502 Machine Code Entry at 0x8000 */
+    prg[0] = 0x78; /* SEI */
+    prg[1] = 0xD8; /* CLD */
+    prg[2] = 0xA2; prg[3] = 0xFF; /* LDX #$FF */
+    prg[4] = 0x9A; /* TXS */
+    prg[5] = 0x4C; prg[6] = 0x05; prg[7] = 0x80; /* JMP $8005 (Infinite Main Loop) */
+
     /* NMI/Reset Vector at 0xFFFC */
     prg[16380] = 0x00; prg[16381] = 0x80; /* Reset -> 0x8000 */
     prg[16382] = 0x00; prg[16383] = 0x80; /* NMI -> 0x8000 */
     fwrite(prg, 1, sizeof(prg), f);
 
-    /* 8KB CHR ROM Data */
+    /* 8KB CHR ROM Data - Pattern Table Tiles (Character RAM) */
     uint8_t chr[8192] = {0};
+    /* Standard NES 8x8 Tile Pattern for Letter 'N' */
+    static const uint8_t tile_n[16] = {
+        0x81, 0xC1, 0xA1, 0x91, 0x89, 0x85, 0x83, 0x81,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+    };
+    memcpy(chr, tile_n, sizeof(tile_n));
     fwrite(chr, 1, sizeof(chr), f);
 
     fclose(f);
@@ -87,6 +100,10 @@ double nor_export_gbc_native(const char *project, const char *output) {
     rom[0x0101] = 0xC3; /* JP 0x0150 */
     rom[0x0102] = 0x50;
     rom[0x0103] = 0x01;
+
+    /* Main Executable Game Loop at 0x0150 */
+    rom[0x0150] = 0x31; /* LD A, (HL) */
+    rom[0x0151] = 0x18; rom[0x0152] = 0xFD; /* JR -3 -> Loop 0x0151 */
 
     /* Nintendo Graphic Logo at 0x0104 - 0x0133 */
     static const uint8_t nintendo_logo[48] = {
@@ -125,6 +142,9 @@ double nor_export_gba_native(const char *project, const char *output) {
 
     /* ARM Branch to 0x080000C0 at 0x0000 */
     rom[0] = 0x2E; rom[1] = 0x00; rom[2] = 0x00; rom[3] = 0xEA;
+
+    /* ARM Loop Code at Offset 0x00C0 (Address 0x080000C0) */
+    rom[0xC0] = 0xFE; rom[0xC1] = 0xFF; rom[0xC2] = 0xFF; rom[0xC3] = 0xEA; /* B 0x080000C0 */
 
     /* GBA Title */
     const char *title = "NORMAKERGBA";
