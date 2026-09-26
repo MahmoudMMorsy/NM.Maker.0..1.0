@@ -127,8 +127,7 @@ void test_ds_structures_suite(void) {
     if (!exec_ok) { printf("VM Error: %s\n", vm.error); fflush(stdout); }
     assert(exec_ok);
     assert(vm.returned);
-    assert(vm.return_value.real == 720.0); /* 220 + 200 + 300 = 720 */
-    assert(vm.return_value.real == 420.0); /* 200 + 20 + 200 = 420 */
+    assert(vm.return_value.real == 420.0); /* sz(2)*100 + val(20) + min_val(200) = 420 */
 
     gml_ast_free(ast);
 
@@ -293,6 +292,42 @@ void test_gml_actions_and_math_helpers_suite(void) {
     printf("[PASS] GML Actions & Math Helpers Suite\n");
 }
 
+void test_ds_queue_and_stack_suite(void) {
+    const char *code =
+        "q = ds_queue_create();\n"
+        "ds_queue_enqueue(q, 10, 20, 30);\n"
+        "q_sz = ds_queue_size(q);\n"
+        "q_head = ds_queue_head(q);\n"
+        "q_pop = ds_queue_dequeue(q);\n"
+        "ds_queue_destroy(q);\n"
+        "st = ds_stack_create();\n"
+        "ds_stack_push(st, 100, 200);\n"
+        "st_top = ds_stack_top(st);\n"
+        "st_pop = ds_stack_pop(st);\n"
+        "ds_stack_destroy(st);\n"
+        "return q_sz * 10000 + q_head * 1000 + q_pop * 100 + st_top * 10 + st_pop;\n";
+
+    gml_ast *ast = NULL;
+    char err[160] = {0};
+    int parse_ok = gml_parse_program(code, &ast, err, sizeof(err));
+    assert(parse_ok);
+
+    gml_vm vm;
+    gml_vm_init(&vm);
+    gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+
+    int exec_ok = gml_vm_execute(&vm, ast);
+    if (!exec_ok) { printf("VM Error: %s\n", vm.error); fflush(stdout); }
+    assert(exec_ok);
+    assert(vm.returned);
+    /* q_sz(3)*10000 + q_head(10)*1000 + q_pop(10)*100 + st_top(200)*10 + st_pop(200) = 30000 + 10000 + 1000 + 2000 + 200 = 43200 */
+    assert(vm.return_value.real == 43200.0);
+
+    gml_ast_free(ast);
+
+    printf("[PASS] DS Queue & Stack Suite\n");
+}
+
 void test_retro_rom_suite(void) {
     const char *nes_path = "/tmp/nor_core_tests/test.nes";
     const char *gbc_path = "/tmp/nor_core_tests/test.gbc";
@@ -319,6 +354,7 @@ int main(void) {
     test_instance_activation_suite();
     test_drawing_display_audio_suite();
     test_gml_actions_and_math_helpers_suite();
+    test_ds_queue_and_stack_suite();
     test_retro_rom_suite();
     printf("--- All Native Host Tests Passed! ---\n");
     return 0;
