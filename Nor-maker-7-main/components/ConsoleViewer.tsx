@@ -11,6 +11,9 @@ interface ConsoleViewerProps {
   title: string;
 }
 
+// ⚡ Bolt: Pre-allocate static sound array at module level to avoid array allocation on every 500ms debug polling re-render
+const SYNTH_SOUND_TYPES = ['coin', 'laser', 'hit', 'explosion', 'powerup', 'jump'];
+
 const ConsoleViewer: React.FC<ConsoleViewerProps> = ({ mode, content, title }) => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -443,7 +446,7 @@ const ConsoleViewer: React.FC<ConsoleViewerProps> = ({ mode, content, title }) =
               <div className="flex flex-col gap-1 mt-1">
                 <span className="text-[10px] text-gray-500 font-bold">🎵 اختبار مخرجات الصوت التوليدي (Sound Synth Board):</span>
                 <div className="flex flex-wrap gap-1">
-                  {['coin', 'laser', 'hit', 'explosion', 'powerup', 'jump'].map((snd) => (
+                  {SYNTH_SOUND_TYPES.map((snd) => (
                     <button
                       key={snd}
                       onClick={() => playPreviewSound(snd)}
