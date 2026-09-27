@@ -349,6 +349,12 @@ void test_gm82_geometry_and_utility_suite(void) {
     if (!exec_ok) { printf("VM Error: %s\n", vm.error); fflush(stdout); }
     assert(exec_ok);
     assert(vm.returned);
+    /* q_sz(3)*10000 + q_head(10)*1000 + q_pop(10)*100 + st_top(200)*10 + st_pop(200) = 30000 + 10000 + 1000 + 2000 + 200 = 43200 */
+    assert(vm.return_value.real == 43200.0);
+
+    gml_ast_free(ast);
+
+    printf("[PASS] DS Queue & Stack Suite\n");
     /* 1000 + 100 + 20 + 2 + 1 = 1123 */
     assert(vm.return_value.real == 1123.0);
 
