@@ -2655,22 +2655,30 @@ export const createEngineHTML = (
             return x < i.x + i.w && x + mw > i.x && y < i.y + i.h && y + mh > i.y;
         });
     };
+    // ⚡ Bolt: Single-pass imperative loops for instance_place and instance_position to eliminate .find() closure allocations during frame loops
     window.instance_place = (x, y, obj, self) => {
         const me = self || window._currentInstance;
-        if (!me) return null;
+        if (!me || !window.instances) return null;
         const mw = me.w || 16; const mh = me.h || 16;
-        return window.instances.find(i => {
-            if (i.dead || i === me) return false;
-            if (typeof obj === 'string' && i.def.name !== obj && i.def.id !== obj) return false;
-            return x < i.x + i.w && x + mw > i.x && y < i.y + i.h && y + mh > i.y;
-        }) || null;
+        const insts = window.instances;
+        for (let idx = 0; idx < insts.length; idx++) {
+            const i = insts[idx];
+            if (i.dead || i === me) continue;
+            if (typeof obj === 'string' && i.def.name !== obj && i.def.id !== obj) continue;
+            if (x < i.x + i.w && x + mw > i.x && y < i.y + i.h && y + mh > i.y) return i;
+        }
+        return null;
     };
     window.instance_position = (x, y, obj) => {
-        return window.instances.find(i => {
-            if (i.dead) return false;
-            if (typeof obj === 'string' && i.def.name !== obj && i.def.id !== obj) return false;
-            return x >= i.x && x < i.x + i.w && y >= i.y && y < i.y + i.h;
-        }) || null;
+        if (!window.instances) return null;
+        const insts = window.instances;
+        for (let idx = 0; idx < insts.length; idx++) {
+            const i = insts[idx];
+            if (i.dead) continue;
+            if (typeof obj === 'string' && i.def.name !== obj && i.def.id !== obj) continue;
+            if (x >= i.x && x < i.x + i.w && y >= i.y && y < i.y + i.h) return i;
+        }
+        return null;
     };
     window.move_contact_solid = (dir, maxdist) => {
         const me = window._currentInstance;
