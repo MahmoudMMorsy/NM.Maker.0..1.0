@@ -2172,6 +2172,23 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
         else { val -= step; if (val < target) val = target; }
         *out = gml_value_real(val); return 1;
     }
+
+    if (!strcmp(name, "pack_bools") && count >= 1) {
+        uint32_t mask = 0;
+        for (size_t i = 0; i < count && i < 32; ++i) {
+            int b = (args[i].kind == GML_V_BOOL) ? args[i].boolean : (args[i].kind == GML_V_REAL && args[i].real != 0.0);
+            if (b) mask |= (1U << i);
+        }
+        *out = gml_value_real((double)mask); return 1;
+    }
+    if (!strcmp(name, "unpack_bool") && count == 2) {
+        uint32_t mask = (uint32_t)(args[0].kind == GML_V_REAL ? args[0].real : 0.0);
+        int idx = (int)(args[1].kind == GML_V_REAL ? args[1].real : 0.0);
+        int val = 0;
+        if (idx >= 0 && idx < 32) val = (mask & (1U << idx)) ? 1 : 0;
+        *out = gml_value_bool(val); return 1;
+    }
+
     if (!strcmp(name, "lerproach") && count == 4) {
         double val = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
         double target = args[1].kind == GML_V_REAL ? args[1].real : 0.0;
