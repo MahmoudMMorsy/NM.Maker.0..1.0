@@ -11,6 +11,9 @@ interface SoundEditorProps {
   onSave: (src: string) => void;
 }
 
+// ⚡ Bolt: Pre-allocate 30 bar indices at module level to avoid per-render Array.from({length: 30}) allocations during visualizer updates and playback
+const VISUALIZER_BARS = Array.from({ length: 30 }, (_, i) => i);
+
 const SoundEditor: React.FC<SoundEditorProps> = ({ soundId, name, initialSrc, onSave }) => {
   const [src, setSrc] = useState(initialSrc);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -56,7 +59,7 @@ const SoundEditor: React.FC<SoundEditorProps> = ({ soundId, name, initialSrc, on
       <div className="bg-black border-2 border-win-shadow shadow-win-in h-32 mb-4 relative flex items-center justify-center overflow-hidden">
         {/* Fake Bars Visualizer */}
         <div className="absolute inset-0 flex items-end justify-center px-4 pb-1 gap-1 opacity-50">
-            {Array.from({length: 30}).map((_, i) => (
+            {VISUALIZER_BARS.map((i) => (
                 <div
                     key={i}
                     className={`flex-1 bg-green-500 transition-all duration-75 ease-in-out ${isPlaying ? 'animate-pulse' : ''}`}
