@@ -103,6 +103,32 @@ const ToolButton = ({ active, onClick, title, children, disabled }: { active?: b
     </button>
 );
 
+// ⚡ Bolt: Fast module-level color parser helper to convert hex/rgb color strings to RGB tuples without triggering DOM element creation or layout reflows (getComputedStyle)
+const parseColorToRgb = (colorStr: string): [number, number, number] => {
+    if (colorStr.startsWith('#')) {
+        const hex = colorStr.slice(1);
+        if (hex.length === 3) {
+            return [
+                parseInt(hex[0] + hex[0], 16),
+                parseInt(hex[1] + hex[1], 16),
+                parseInt(hex[2] + hex[2], 16)
+            ];
+        }
+        if (hex.length === 6) {
+            return [
+                parseInt(hex.slice(0, 2), 16),
+                parseInt(hex.slice(2, 4), 16),
+                parseInt(hex.slice(4, 6), 16)
+            ];
+        }
+    }
+    const match = colorStr.match(/\d+/g);
+    if (match && match.length >= 3) {
+        return [Number(match[0]), Number(match[1]), Number(match[2])];
+    }
+    return [255, 255, 255];
+};
+
 const SpriteEditor: React.FC<SpriteEditorProps> = ({ initialImage, spriteId, role, initialFrameWidth, initialFrameHeight, onSave, onRoleChange, isBackground, onImportFrames, initialModel3D, onModel3DChange }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -648,9 +674,7 @@ const SpriteEditor: React.FC<SpriteEditorProps> = ({ initialImage, spriteId, rol
       const startPos = (startY * canvasSize.w + startX) * 4;
       const r = data[startPos], g = data[startPos+1], b = data[startPos+2], a = data[startPos+3];
 
-      const dummy = document.createElement('div'); dummy.style.color = fillColor; document.body.appendChild(dummy);
-      const computed = window.getComputedStyle(dummy).color; document.body.removeChild(dummy);
-      const [fr, fg, fb] = computed.match(/\d+/g)!.map(Number);
+      const [fr, fg, fb] = parseColorToRgb(fillColor);
 
       if (r === fr && g === fg && b === fb && a === 255) return;
       // ⚡ Bolt: Optimize BFS flood fill using a 1D scalar index stack to avoid thousands of `[x, y]` tuple array allocations per fill operation
