@@ -329,6 +329,7 @@ void test_3d_and_color_math_suite(void) {
 void test_ds_queue_and_stack_suite(void) {
     const char *code =
         "q = ds_queue_create();\n"
+        "ds_queue_enqueue(q, 10, 20, 30);\n"
         "ds_queue_enqueue(q, 10);\n"
         "ds_queue_enqueue(q, 20);\n"
         "ds_queue_enqueue(q, 30);\n"
@@ -337,6 +338,7 @@ void test_ds_queue_and_stack_suite(void) {
         "q_pop = ds_queue_dequeue(q);\n"
         "ds_queue_destroy(q);\n"
         "st = ds_stack_create();\n"
+        "ds_stack_push(st, 100, 200);\n"
         "ds_stack_push(st, 100);\n"
         "ds_stack_push(st, 200);\n"
         "st_top = ds_stack_top(st);\n"
