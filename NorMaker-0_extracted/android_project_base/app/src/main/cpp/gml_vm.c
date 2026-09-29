@@ -253,8 +253,10 @@ static gml_value call(gml_vm* vm, const gml_ast* n) {
     } else if (!strcmp(n->text, "string_format") && c == 3) {
         double val = num(a[0]);
         int tot = (int)num(a[1]), dec = (int)num(a[2]);
-        if (tot < 0) tot = 0; if (tot > 128) tot = 128;
-        if (dec < 0) dec = 0; if (dec > 32) dec = 32;
+        if (tot < 0) tot = 0;
+        if (tot > 128) tot = 128;
+        if (dec < 0) dec = 0;
+        if (dec > 32) dec = 32;
         char fmt[32], buf[256];
         snprintf(fmt, sizeof fmt, "%%%d.%df", tot, dec);
         snprintf(buf, sizeof buf, fmt, val);

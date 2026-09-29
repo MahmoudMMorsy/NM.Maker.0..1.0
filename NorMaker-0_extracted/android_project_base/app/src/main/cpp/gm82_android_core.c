@@ -100,6 +100,7 @@ typedef struct { int active; int object_id; int parent_id; } gm82_object_parent_
 static gm82_object_parent_entry g_object_parents[GM82_MAX_OBJECT_PARENTS];
 static int g_object_parent_count = 0;
 
+static void gm82_object_parents_clear(void) __attribute__((unused));
 static void gm82_object_parents_clear(void) { memset(g_object_parents, 0, sizeof(g_object_parents)); g_object_parent_count = 0; }
 static int gm82_object_set_parent_internal(int object_id, int parent_id) {
     if (object_id < 0) return 0;
@@ -1239,8 +1240,10 @@ static int gm82_instance_mask_overlaps_rect(const Gm82Instance *other, float lef
     float origin_x = other->x - bitmap->width * 0.5f, origin_y = other->y - bitmap->height * 0.5f;
     int x0 = (int)floorf(left - origin_x), x1 = (int)ceilf(right - origin_x);
     int y0 = (int)floorf(top - origin_y), y1 = (int)ceilf(bottom - origin_y);
-    if (x0 < 0) x0 = 0; if (y0 < 0) y0 = 0;
-    if (x1 > bitmap->width) x1 = bitmap->width; if (y1 > bitmap->height) y1 = bitmap->height;
+    if (x0 < 0) x0 = 0;
+    if (y0 < 0) y0 = 0;
+    if (x1 > bitmap->width) x1 = bitmap->width;
+    if (y1 > bitmap->height) y1 = bitmap->height;
     for (int y = y0; y < y1; ++y) for (int x = x0; x < x1; ++x) if (gm82_mask_pixel_opaque(bitmap, x, y)) return 1;
     return 0;
 }
@@ -1289,8 +1292,10 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
         double val = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
         int tot = (int)(args[1].kind == GML_V_REAL ? args[1].real : 0);
         int dec = (int)(args[2].kind == GML_V_REAL ? args[2].real : 0);
-        if (tot < 0) tot = 0; if (tot > 128) tot = 128;
-        if (dec < 0) dec = 0; if (dec > 32) dec = 32;
+        if (tot < 0) tot = 0;
+        if (tot > 128) tot = 128;
+        if (dec < 0) dec = 0;
+        if (dec > 32) dec = 32;
         char fmt[32], buf[256];
         snprintf(fmt, sizeof(fmt), "%%%d.%df", tot, dec);
         snprintf(buf, sizeof(buf), fmt, val);
@@ -1385,8 +1390,10 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
         int found = 0;
         if (id >= 0 && id < GM82_GRID_MAX && g_ds_grids[id].active) {
             int gw = g_ds_grids[id].width, gh = g_ds_grids[id].height;
-            if (x1 < 0) x1 = 0; if (y1 < 0) y1 = 0;
-            if (x2 >= gw) x2 = gw - 1; if (y2 >= gh) y2 = gh - 1;
+            if (x1 < 0) x1 = 0;
+            if (y1 < 0) y1 = 0;
+            if (x2 >= gw) x2 = gw - 1;
+            if (y2 >= gh) y2 = gh - 1;
             for (int r = y1; r <= y2 && !found; ++r) {
                 for (int c = x1; c <= x2; ++c) {
                     if (gm82_ds_equal(&g_ds_grids[id].cells[r * GM82_GRID_DIM + c], &args[5])) {
@@ -1403,8 +1410,10 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
         int res_x = -1;
         if (id >= 0 && id < GM82_GRID_MAX && g_ds_grids[id].active) {
             int gw = g_ds_grids[id].width, gh = g_ds_grids[id].height;
-            if (x1 < 0) x1 = 0; if (y1 < 0) y1 = 0;
-            if (x2 >= gw) x2 = gw - 1; if (y2 >= gh) y2 = gh - 1;
+            if (x1 < 0) x1 = 0;
+            if (y1 < 0) y1 = 0;
+            if (x2 >= gw) x2 = gw - 1;
+            if (y2 >= gh) y2 = gh - 1;
             for (int r = y1; r <= y2 && res_x < 0; ++r) {
                 for (int c = x1; c <= x2; ++c) {
                     if (gm82_ds_equal(&g_ds_grids[id].cells[r * GM82_GRID_DIM + c], &args[5])) {
@@ -1421,8 +1430,10 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
         int res_y = -1;
         if (id >= 0 && id < GM82_GRID_MAX && g_ds_grids[id].active) {
             int gw = g_ds_grids[id].width, gh = g_ds_grids[id].height;
-            if (x1 < 0) x1 = 0; if (y1 < 0) y1 = 0;
-            if (x2 >= gw) x2 = gw - 1; if (y2 >= gh) y2 = gh - 1;
+            if (x1 < 0) x1 = 0;
+            if (y1 < 0) y1 = 0;
+            if (x2 >= gw) x2 = gw - 1;
+            if (y2 >= gh) y2 = gh - 1;
             for (int r = y1; r <= y2 && res_y < 0; ++r) {
                 for (int c = x1; c <= x2; ++c) {
                     if (gm82_ds_equal(&g_ds_grids[id].cells[r * GM82_GRID_DIM + c], &args[5])) {
@@ -1515,11 +1526,13 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
     if (!strcmp(name, "ds_map_copy") && count == 2) {
         int id1 = gm82_ds_handle(&args[0]) - 1;
         int id2 = gm82_ds_handle(&args[1]) - 1;
-        if (id1 >= 0 && id1 < GM82_DS_MAX && g_ds_maps[id1].active && id2 >= 0 && id2 < GM82_DS_MAX && g_ds_maps[id2].active) {
+        if (id1 >= 0 && id1 < GM82_DS_MAX && g_ds_maps[id1].active && id2 >= 0 && id2 < GM82_DS_MAX && g_ds_maps[id2].active && id1 != id2) {
             for (size_t i = 0; i < g_ds_maps[id1].count; ++i) gml_value_free(&g_ds_maps[id1].values[i]);
             g_ds_maps[id1].count = g_ds_maps[id2].count;
             for (size_t i = 0; i < g_ds_maps[id2].count; ++i) {
-                snprintf(g_ds_maps[id1].keys[i], GM82_DS_KEY_CAP, "%s", g_ds_maps[id2].keys[i]);
+                char temp_key[GM82_DS_KEY_CAP];
+                snprintf(temp_key, sizeof(temp_key), "%s", g_ds_maps[id2].keys[i]);
+                snprintf(g_ds_maps[id1].keys[i], GM82_DS_KEY_CAP, "%s", temp_key);
                 g_ds_maps[id1].values[i] = gm82_clone_value(&g_ds_maps[id2].values[i]);
             }
         }
@@ -1529,9 +1542,12 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
         int r = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0);
         int g = (int)(args[1].kind == GML_V_REAL ? args[1].real : 0);
         int b = (int)(args[2].kind == GML_V_REAL ? args[2].real : 0);
-        if (r < 0) r = 0; if (r > 255) r = 255;
-        if (g < 0) g = 0; if (g > 255) g = 255;
-        if (b < 0) b = 0; if (b > 255) b = 255;
+        if (r < 0) r = 0;
+        if (r > 255) r = 255;
+        if (g < 0) g = 0;
+        if (g > 255) g = 255;
+        if (b < 0) b = 0;
+        if (b > 255) b = 255;
         *out = gml_value_real((double)(r | (g << 8) | (b << 16)));
         return 1;
     }
@@ -1539,9 +1555,12 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
         int h = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0);
         int s = (int)(args[1].kind == GML_V_REAL ? args[1].real : 0);
         int v = (int)(args[2].kind == GML_V_REAL ? args[2].real : 0);
-        if (h < 0) h = 0; if (h > 255) h = 255;
-        if (s < 0) s = 0; if (s > 255) s = 255;
-        if (v < 0) v = 0; if (v > 255) v = 255;
+        if (h < 0) h = 0;
+        if (h > 255) h = 255;
+        if (s < 0) s = 0;
+        if (s > 255) s = 255;
+        if (v < 0) v = 0;
+        if (v > 255) v = 255;
         float fh = (float)h / 255.0f * 360.0f, fs = (float)s / 255.0f, fv = (float)v / 255.0f;
         float c = fv * fs, x = c * (1.0f - fabsf(fmodf(fh / 60.0f, 2.0f) - 1.0f)), m = fv - c;
         float r1 = 0, g1 = 0, b1 = 0;
@@ -1815,7 +1834,9 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
                 if (!strcmp(g_ds_maps[id].keys[i], key)) {
                     gml_value_free(&g_ds_maps[id].values[i]);
                     for (size_t j = i; j + 1 < g_ds_maps[id].count; ++j) {
-                        snprintf(g_ds_maps[id].keys[j], GM82_DS_KEY_CAP, "%s", g_ds_maps[id].keys[j+1]);
+                        char temp_key[GM82_DS_KEY_CAP];
+                        snprintf(temp_key, sizeof(temp_key), "%s", g_ds_maps[id].keys[j+1]);
+                        snprintf(g_ds_maps[id].keys[j], GM82_DS_KEY_CAP, "%s", temp_key);
                         g_ds_maps[id].values[j] = g_ds_maps[id].values[j+1];
                     }
                     g_ds_maps[id].count--;
@@ -2113,7 +2134,7 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
     }
     if (!strcmp(name, "mean") && count >= 1) {
         double sum = 0.0;
-        for (int i = 0; i < count; ++i) sum += args[i].kind == GML_V_REAL ? args[i].real : 0.0;
+        for (size_t i = 0; i < count; ++i) sum += args[i].kind == GML_V_REAL ? args[i].real : 0.0;
         *out = gml_value_real(sum / (double)count); return 1;
     }
     if (!strcmp(name, "random") && count == 1) {
@@ -2161,7 +2182,8 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
         double maxv = args[1].kind == GML_V_REAL ? args[1].real : 1.0;
         double val = args[2].kind == GML_V_REAL ? args[2].real : 0.0;
         double t = (maxv != minv) ? (val - minv) / (maxv - minv) : 0.0;
-        if (t < 0.0) t = 0.0; if (t > 1.0) t = 1.0;
+        if (t < 0.0) t = 0.0;
+        if (t > 1.0) t = 1.0;
         *out = gml_value_real(t * t * (3.0 - 2.0 * t)); return 1;
     }
     if (!strcmp(name, "approach") && count == 3) {
@@ -2293,7 +2315,8 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
     if (!strcmp(name, "unpack_bool") && count == 2) {
         int pbool = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0);
         int which = (int)(args[1].kind == GML_V_REAL ? args[1].real : 0);
-        if (which < 0) which = 0; if (which > 7) which = 7;
+        if (which < 0) which = 0;
+        if (which > 7) which = 7;
         *out = gml_value_bool((pbool & (1 << which)) != 0); return 1;
     }
     if (!strcmp(name, "string_count") && count == 2) {
@@ -3690,7 +3713,8 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
         int w = (int)(args[1].kind == GML_V_REAL ? args[1].real : 0);
         int h = (int)(args[2].kind == GML_V_REAL ? args[2].real : 0);
         if (id >= 0 && id < GM82_GRID_MAX && g_ds_grids[id].active) {
-            if (w < 0) w = 0; if (h < 0) h = 0;
+            if (w < 0) w = 0;
+            if (h < 0) h = 0;
             if (w > GM82_GRID_DIM) w = GM82_GRID_DIM;
             if (h > GM82_GRID_DIM) h = GM82_GRID_DIM;
             g_ds_grids[id].width = w;
@@ -3707,8 +3731,10 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
         int y2 = (int)(args[4].kind == GML_V_REAL ? args[4].real : 0);
         if (id >= 0 && id < GM82_GRID_MAX && g_ds_grids[id].active) {
             int gw = g_ds_grids[id].width, gh = g_ds_grids[id].height;
-            if (x1 < 0) x1 = 0; if (y1 < 0) y1 = 0;
-            if (x2 >= gw) x2 = gw - 1; if (y2 >= gh) y2 = gh - 1;
+            if (x1 < 0) x1 = 0;
+            if (y1 < 0) y1 = 0;
+            if (x2 >= gw) x2 = gw - 1;
+            if (y2 >= gh) y2 = gh - 1;
             for (int r = y1; r <= y2; ++r) {
                 for (int c = x1; c <= x2; ++c) {
                     int idx = r * GM82_GRID_DIM + c;
@@ -4162,6 +4188,7 @@ static void gm82_dispatch_step_events(int step_subtype) {
 
 /* GM8 event type 8 is Draw. Draw events are evaluated at render time, after
    simulation has completed and before the command buffer is consumed. */
+static void gm82_dispatch_draw_events(void) __attribute__((unused));
 static void gm82_dispatch_draw_events(void) {
     for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
         Gm82Instance *it = &g_runtime.instances[i];
