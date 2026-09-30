@@ -8,6 +8,8 @@
 #include <sys/stat.h>
 #include <errno.h>
 #include <time.h>
+#include <dirent.h>
+#include <strings.h>
 
 #ifndef HOST_TEST_BUILD
 #include <android/bitmap.h>
@@ -4823,4 +4825,262 @@ JNIEXPORT jint JNICALL Java_com_normaker_nativefull_MainActivity_nativeRegisterO
 JNIEXPORT jint JNICALL Java_com_normaker_nativefull_MainActivity_nativeObjectEventCount(JNIEnv *env, jobject self) {
     (void)env; (void)self;
     return (jint)g_object_event_count;
+}
+
+static int gm82_find_object_id_by_name(const char *name) {
+    if (!name || !*name) return -1;
+    for (int i = 0; i < g_object_name_count; ++i) {
+        if (g_object_names[i].active && strcasecmp(g_object_names[i].name, name) == 0) {
+            return g_object_names[i].object_id;
+        }
+    }
+    return -1;
+}
+
+static int gm82_parse_event_header(const char *header, int *main_type, int *sub_type) {
+    if (!header || !*header || !main_type || !sub_type) return 0;
+    *main_type = 0;
+    *sub_type = 0;
+    if (strncasecmp(header, "Create_", 7) == 0) {
+        *main_type = 0; *sub_type = atoi(header + 7); return 1;
+    }
+    if (strncasecmp(header, "Destroy_", 8) == 0) {
+        *main_type = 1; *sub_type = atoi(header + 8); return 1;
+    }
+    if (strncasecmp(header, "Alarm_", 6) == 0) {
+        *main_type = 2; *sub_type = atoi(header + 6); return 1;
+    }
+    if (strncasecmp(header, "Step_", 5) == 0) {
+        *main_type = 3; *sub_type = atoi(header + 5); return 1;
+    }
+    if (strncasecmp(header, "Collision_", 10) == 0) {
+        const char *other_name = header + 10;
+        int other_id = gm82_find_object_id_by_name(other_name);
+        if (other_id < 0) {
+            other_id = g_object_name_count;
+            gm82_object_name_register(other_id, other_name);
+        }
+        *main_type = 4; *sub_type = other_id; return 1;
+    }
+    if (strncasecmp(header, "Keyboard_", 9) == 0) {
+        *main_type = 5; *sub_type = atoi(header + 9); return 1;
+    }
+    if (strncasecmp(header, "Other_", 6) == 0) {
+        *main_type = 7; *sub_type = atoi(header + 6); return 1;
+    }
+    if (strncasecmp(header, "Draw_", 5) == 0) {
+        *main_type = 8; *sub_type = atoi(header + 5); return 1;
+    }
+    if (strncasecmp(header, "KeyPress_", 9) == 0) {
+        *main_type = 9; *sub_type = atoi(header + 9); return 1;
+    }
+    if (strncasecmp(header, "KeyRelease_", 11) == 0) {
+        *main_type = 10; *sub_type = atoi(header + 11); return 1;
+    }
+    return 0;
+}
+
+int gm82_load_yyd_project(const char *dir_path) {
+    if (!dir_path || !*dir_path) return 0;
+    struct stat st;
+    if (stat(dir_path, &st) != 0 || !S_ISDIR(st.st_mode)) return 0;
+
+    gm82_event_clear();
+    gm82_script_clear();
+    gm82_resource_clear();
+    gm82_object_parents_clear();
+    gm82_object_names_clear();
+    for (int i = 0; i < GM82_MAX_INSTANCES; ++i) g_runtime.instances[i].active = 0;
+    g_runtime.next_id = 100001;
+
+    /* 1. Scripts */
+    char scripts_dir[4096];
+    snprintf(scripts_dir, sizeof(scripts_dir), "%s/scripts", dir_path);
+    DIR *d = opendir(scripts_dir);
+    if (d) {
+        struct dirent *ent;
+        while ((ent = readdir(d)) != NULL) {
+            if (ent->d_name[0] == '.') continue;
+            size_t len = strlen(ent->d_name);
+            if (len > 4 && strcmp(ent->d_name + len - 4, ".gml") == 0) {
+                char name[128];
+                snprintf(name, sizeof(name), "%.*s", (int)(len - 4), ent->d_name);
+                char file_path[8192];
+                snprintf(file_path, sizeof(file_path), "%s/%s", scripts_dir, ent->d_name);
+                FILE *sf = fopen(file_path, "rb");
+                if (sf) {
+                    fseek(sf, 0, SEEK_END);
+                    long slen = ftell(sf);
+                    fseek(sf, 0, SEEK_SET);
+                    if (slen > 0 && slen < 512 * 1024) {
+                        char *code = (char*)malloc((size_t)slen + 1);
+                        if (code) {
+                            size_t got = fread(code, 1, (size_t)slen, sf);
+                            code[got] = 0;
+                            gm82_script_register(name, code);
+                            free(code);
+                        }
+                    }
+                    fclose(sf);
+                }
+            }
+        }
+        closedir(d);
+    }
+
+    /* 2. Objects */
+    char objects_dir[4096];
+    snprintf(objects_dir, sizeof(objects_dir), "%s/objects", dir_path);
+    d = opendir(objects_dir);
+    if (d) {
+        struct dirent *ent;
+        while ((ent = readdir(d)) != NULL) {
+            if (ent->d_name[0] == '.') continue;
+            size_t len = strlen(ent->d_name);
+            if (len > 4 && (strcmp(ent->d_name + len - 4, ".txt") == 0 || strcmp(ent->d_name + len - 4, ".gml") == 0)) {
+                if (strcmp(ent->d_name, "index.yyd") == 0 || strcmp(ent->d_name, "tree.yyd") == 0) continue;
+                char obj_name[128];
+                snprintf(obj_name, sizeof(obj_name), "%.*s", (int)(len - 4), ent->d_name);
+                if (gm82_find_object_id_by_name(obj_name) < 0) {
+                    int id = g_object_name_count;
+                    gm82_object_name_register(id, obj_name);
+                }
+            }
+        }
+        rewinddir(d);
+        while ((ent = readdir(d)) != NULL) {
+            if (ent->d_name[0] == '.') continue;
+            size_t len = strlen(ent->d_name);
+            if (len > 4 && strcmp(ent->d_name + len - 4, ".txt") == 0) {
+                if (strcmp(ent->d_name, "index.yyd") == 0 || strcmp(ent->d_name, "tree.yyd") == 0) continue;
+                char obj_name[128];
+                snprintf(obj_name, sizeof(obj_name), "%.*s", (int)(len - 4), ent->d_name);
+                int obj_id = gm82_find_object_id_by_name(obj_name);
+                if (obj_id >= 0) {
+                    char txt_path[8192];
+                    snprintf(txt_path, sizeof(txt_path), "%s/%s", objects_dir, ent->d_name);
+                    FILE *tf = fopen(txt_path, "r");
+                    if (tf) {
+                        char line[512];
+                        while (fgets(line, sizeof(line), tf)) {
+                            char *eq = strchr(line, '=');
+                            if (!eq) continue;
+                            *eq = 0;
+                            char *key = line;
+                            char *val = eq + 1;
+                            while (*val == ' ' || *val == '\t') val++;
+                            size_t vl = strlen(val);
+                            while (vl > 0 && (val[vl-1] == '\r' || val[vl-1] == '\n' || val[vl-1] == ' ')) val[--vl] = 0;
+                            if (strcasecmp(key, "parent") == 0 && *val) {
+                                int parent_id = gm82_find_object_id_by_name(val);
+                                if (parent_id >= 0) gm82_object_set_parent_internal(obj_id, parent_id);
+                            }
+                        }
+                        fclose(tf);
+                    }
+                }
+            } else if (len > 4 && strcmp(ent->d_name + len - 4, ".gml") == 0) {
+                if (strcmp(ent->d_name, "index.yyd") == 0 || strcmp(ent->d_name, "tree.yyd") == 0) continue;
+                char obj_name[128];
+                snprintf(obj_name, sizeof(obj_name), "%.*s", (int)(len - 4), ent->d_name);
+                int obj_id = gm82_find_object_id_by_name(obj_name);
+                if (obj_id >= 0) {
+                    char gml_path[8192];
+                    snprintf(gml_path, sizeof(gml_path), "%s/%s", objects_dir, ent->d_name);
+                    FILE *gf = fopen(gml_path, "r");
+                    if (gf) {
+                        char line[1024];
+                        char cur_header[128] = {0};
+                        char event_code[8192] = {0};
+                        size_t code_len = 0;
+                        while (fgets(line, sizeof(line), gf)) {
+                            if (strncmp(line, "#define ", 8) == 0) {
+                                if (cur_header[0] && code_len > 0) {
+                                    int main_type=0, sub_type=0;
+                                    if (gm82_parse_event_header(cur_header, &main_type, &sub_type)) {
+                                        gm82_event_register(obj_id, main_type, sub_type, event_code);
+                                    }
+                                }
+                                sscanf(line + 8, "%127s", cur_header);
+                                event_code[0] = 0;
+                                code_len = 0;
+                            } else if (cur_header[0]) {
+                                size_t llen = strlen(line);
+                                if (code_len + llen < sizeof(event_code) - 1) {
+                                    memcpy(event_code + code_len, line, llen);
+                                    code_len += llen;
+                                    event_code[code_len] = 0;
+                                }
+                            }
+                        }
+                        if (cur_header[0] && code_len > 0) {
+                            int main_type=0, sub_type=0;
+                            if (gm82_parse_event_header(cur_header, &main_type, &sub_type)) {
+                                gm82_event_register(obj_id, main_type, sub_type, event_code);
+                            }
+                        }
+                        fclose(gf);
+                    }
+                }
+            }
+        }
+        closedir(d);
+    }
+
+    /* 3. Rooms */
+    char rooms_dir[4096];
+    snprintf(rooms_dir, sizeof(rooms_dir), "%s/rooms", dir_path);
+    d = opendir(rooms_dir);
+    if (d) {
+        struct dirent *ent;
+        while ((ent = readdir(d)) != NULL) {
+            if (ent->d_name[0] == '.') continue;
+            char room_path[8192];
+            snprintf(room_path, sizeof(room_path), "%s/%s", rooms_dir, ent->d_name);
+            struct stat rst;
+            if (stat(room_path, &rst) == 0 && S_ISDIR(rst.st_mode)) {
+                char inst_path[8192];
+                snprintf(inst_path, sizeof(inst_path), "%s", room_path);
+                strcat(inst_path, "/instances.txt");
+                FILE *inf = fopen(inst_path, "r");
+                if (inf) {
+                    char line[1024];
+                    while (fgets(line, sizeof(line), inf)) {
+                        char obj_name[128] = {0};
+                        float x=0.0f, y=0.0f;
+                        int inst_id=0;
+                        if (sscanf(line, "%127[^,],%f,%f,%x", obj_name, &x, &y, &inst_id) >= 3) {
+                            int obj_id = gm82_find_object_id_by_name(obj_name);
+                            if (obj_id >= 0) {
+                                int created = gm82_spawn_instance_layer(obj_id, 0, x, y);
+                                Gm82Instance *it = gm82_find_instance(created);
+                                if (it) {
+                                    if (inst_id > 0) it->id = inst_id;
+                                    it->xstart = x;
+                                    it->ystart = y;
+                                    it->xprevious = x;
+                                    it->yprevious = y;
+                                }
+                            }
+                        }
+                    }
+                    fclose(inf);
+                }
+            }
+        }
+        closedir(d);
+    }
+
+    g_runtime.initialized = 1;
+    g_runtime.room_started = 0;
+    return 1;
+}
+
+int gm82_simulate_yyd_project(const char *dir_path, int step_count) {
+    if (!gm82_load_yyd_project(dir_path)) return 0;
+    if (step_count <= 0) step_count = 1;
+    for (int s = 0; s < step_count; ++s) {
+        Java_com_normaker_nativefull_MainActivity_nativeRuntimeStep(NULL, NULL, 1.0f / 60.0f);
+    }
+    return 1;
 }
