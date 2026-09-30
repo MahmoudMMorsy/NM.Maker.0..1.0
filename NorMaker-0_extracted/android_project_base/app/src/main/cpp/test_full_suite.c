@@ -466,6 +466,7 @@ int main(void) {
     test_gml_extended_builtins_suite();
     test_object_inheritance_suite();
     test_ds_structures_suite();
+    test_ds_queue_and_stack_suite();
     test_motion_planning_epsilon_suite();
     test_ini_files_suite();
     test_instance_activation_suite();
