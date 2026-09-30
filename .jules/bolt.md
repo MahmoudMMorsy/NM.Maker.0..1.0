@@ -35,3 +35,7 @@
 ## 2026-09-23 - Eliminating Function Closures and Redundant Invariant Math in Frame Collision Checks
 **Learning:** Higher-order array methods (like `.find()`) inside hot frame-by-frame engine routines (like `collision_rectangle`, `collision_circle`, `collision_point`) allocate short-lived predicate closures every call (e.g. hundreds of times per frame). Furthermore, placing invariant expressions like `Math.min(x1, x2)` inside the loop body re-evaluates min/max calculations on every iteration.
 **Action:** Replace `.find()` inside high-frequency collision or game loop checks with single-pass imperative `for` loops, hoisting invariant bounds calculations (`minX`, `maxX`, `minY`, `maxY`) outside the loop to eliminate closure allocations and GC thrashing.
+
+## 2026-10-12 - Hoisting Static Configurations and JSX Trees Out of Component Render Bodies
+**Learning:** Defining static config arrays containing complex objects or JSX trees (like template lists with icons) inside component render bodies re-allocates all items on every keystroke or state change. Hoisting static configuration arrays to module scope and memoizing set lookups for array membership checks avoids GC allocation churn and reduces array searches to $O(1)$.
+**Action:** Always place static configuration lists and immutable JSX element templates at module scope outside component functions, and wrap item selection collections in `React.useMemo` for $O(1)$ set checks.

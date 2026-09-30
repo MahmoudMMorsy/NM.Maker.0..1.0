@@ -1,6 +1,75 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useMemo } from 'react';
 import { Folder, Upload, Globe, Package, Gamepad2, Wand2, HardDrive, Rocket, Mic, Image as ImageIcon, X, Target, Waypoints, Zap, MessageSquare, TreePine, Eye, User, ArrowDown, Car, Glasses, Smartphone, File, ChevronRight, Trash2, Sparkles, FolderOpen } from 'lucide-react';
 import RetroButton from './RetroButton';
+
+// ⚡ Bolt: Lift static premium templates list out of WelcomeScreen component render body to module level
+// to eliminate repeated array and JSX icon allocations on every render/keystroke.
+const PREMIUM_TEMPLATES = [
+    {
+        id: 'starter',
+        icon: <Package size={16} className="text-blue-600"/>,
+        bg: 'bg-blue-100 border-blue-300',
+        label: 'ألعاب منصات ومغامرات جانبية (Classic Platformer)',
+        desc: 'فيزياء قفز واحتكاك مثالية، بلوكات حمم حية، مفاتيح وأبواب مقفلة مع واجهة HUD وصوت قفز توليدي.'
+    },
+    {
+        id: 'rpg',
+        icon: <MessageSquare size={16} className="text-yellow-600"/>,
+        bg: 'bg-yellow-100 border-yellow-300',
+        label: 'تقمص أدوار واستكشاف ومتاهة (RPG / Adventure)',
+        desc: 'تجوال في قرية ريترو، التفاعل مع الساحر (NPC) بنوافذ حوارات، وفتح صناديق الكنز بالمفاتيح.'
+    },
+    {
+        id: 'shooter',
+        icon: <Target size={16} className="text-red-600"/>,
+        bg: 'bg-red-100 border-red-300',
+        label: 'إطلاق نار وفضاء وأركيد (Shooter / Space)',
+        desc: 'سفينة فضائية متحركة، ليزر توليدي، موجات غزاة متدفقة مع مواجهة زعيم نهائي (Boss Battle) وتفجيرات.'
+    },
+    {
+        id: 'runner',
+        icon: <Zap size={16} className="text-orange-600"/>,
+        bg: 'bg-orange-100 border-orange-300',
+        label: 'جري لانهائي وتفادي عقبات (Endless Runner)',
+        desc: 'تحكم بالقفز والانحناء لتفادي العقبات والخفافيش، نقاط متزايدة، وتسارع تدريجي مع صوتيات ريترو مذهلة.'
+    },
+    {
+        id: 'maze',
+        icon: <Waypoints size={16} className="text-green-600"/>,
+        bg: 'bg-green-100 border-green-300',
+        label: 'ألغاز وتحدي ذكاء ومتاهات (Puzzle / Maze)',
+        desc: 'لوحات ضغط على الأرض لتفعيل بوابات حديدية، جمع البلورات، وفتح مسارات سرية للوصول للمخرج.'
+    },
+    {
+        id: 'fighter',
+        icon: <Target size={16} className="text-red-500 animate-pulse"/>,
+        bg: 'bg-red-50 border-red-300',
+        label: 'قتال وتلاحم قتالي (Fighting / Beat \'em Up)',
+        desc: 'حلبة متكاملة، حركات هجوم كومبو (ركل ولكم)، صد للضربات، ومنافس ذكي مع شريط طاقة مزدوج.'
+    },
+    {
+        id: 'racing',
+        icon: <Car size={16} className="text-emerald-600"/>,
+        bg: 'bg-emerald-100 border-emerald-300',
+        label: 'سباقات وسرعة ومقاومة (Retro Racing)',
+        desc: 'فيزياء انزلاق وانعطاف حقيقية (Drift Physics)، منافس ذكي، حواف مضمار حية، وعداد دورات حماسي.'
+    },
+    {
+        id: 'strategy',
+        icon: <Waypoints size={16} className="text-purple-600"/>,
+        bg: 'bg-purple-100 border-purple-300',
+        label: 'ألعاب استراتيجية وتخطيط (RTS Strategy)',
+        desc: 'توليد الموارد عبر عمال مناجم الذهب تلقائياً، تدريب الفرسان والجنود، ومهاجمة قلعة جيش الأورك الحية.'
+    },
+    {
+        id: 'arcade',
+        icon: <Sparkles size={16} className="text-pink-600"/>,
+        bg: 'bg-pink-100 border-pink-300',
+        label: 'أركيد كلاسيكي كسر الطوب (Brick Breaker)',
+        desc: 'فيزياء ارتداد مثالية، طوب متفجر (TNT)، مكافآت تسقط عشوائياً (Power-ups)، وطوب يتطلب عدة ضربات.'
+    },
+    { id: 'blank', icon: <File size={16} className="text-gray-600"/>, bg: 'bg-gray-100 border-gray-300', label: 'مشروع فارغ كلياً (Blank Project)', desc: 'غرفة ومساحة عمل فارغة لبناء لعبتك الفريدة من الصفر المطلق.' },
+];
 
 const WelcomeScreen = ({ prompt, setPrompt, isListening, handleVoiceInput, handleGenerate, handleCreateOffline, selectedImage, setSelectedImage, onImageSelect, imageInputRef, gmkInputRef, handleOpenGmk, gmxFolderInputRef, handleOpenGmx, htmlInputRef, handleOpenHtml, nesInputRef, savedTemplates, handleLoadSavedTemplate, handleDeleteSavedTemplate, handleDeleteMultipleSavedTemplates, handleImportNor }: any) => {
     // Set 'local' (Game Templates) as the default active tab so the user sees all 9 premium templates instantly!
@@ -9,6 +78,9 @@ const WelcomeScreen = ({ prompt, setPrompt, isListening, handleVoiceInput, handl
     const [selectedTemplates, setSelectedTemplates] = useState<string[]>([]);
     const [aiMode, setAiMode] = useState<'local' | 'online'>('local');
     const norInputRef = useRef<HTMLInputElement>(null);
+
+    // ⚡ Bolt: Precompute selectedTemplatesSet to achieve O(1) lookups during savedTemplates rendering
+    const selectedTemplatesSet = useMemo(() => new Set(selectedTemplates), [selectedTemplates]);
 
     const toggleTemplateSelection = (e: React.MouseEvent, id: string) => {
         e.stopPropagation();
@@ -163,72 +235,7 @@ const WelcomeScreen = ({ prompt, setPrompt, isListening, handleVoiceInput, handl
                                     </div>
 
                                     <div className="flex flex-col gap-1.5">
-                                        {[
-                                            {
-                                                id: 'starter',
-                                                icon: <Package size={16} className="text-blue-600"/>,
-                                                bg: 'bg-blue-100 border-blue-300',
-                                                label: 'ألعاب منصات ومغامرات جانبية (Classic Platformer)',
-                                                desc: 'فيزياء قفز واحتكاك مثالية، بلوكات حمم حية، مفاتيح وأبواب مقفلة مع واجهة HUD وصوت قفز توليدي.'
-                                            },
-                                            {
-                                                id: 'rpg',
-                                                icon: <MessageSquare size={16} className="text-yellow-600"/>,
-                                                bg: 'bg-yellow-100 border-yellow-300',
-                                                label: 'تقمص أدوار واستكشاف ومتاهة (RPG / Adventure)',
-                                                desc: 'تجوال في قرية ريترو، التفاعل مع الساحر (NPC) بنوافذ حوارات، وفتح صناديق الكنز بالمفاتيح.'
-                                            },
-                                            {
-                                                id: 'shooter',
-                                                icon: <Target size={16} className="text-red-600"/>,
-                                                bg: 'bg-red-100 border-red-300',
-                                                label: 'إطلاق نار وفضاء وأركيد (Shooter / Space)',
-                                                desc: 'سفينة فضائية متحركة، ليزر توليدي، موجات غزاة متدفقة مع مواجهة زعيم نهائي (Boss Battle) وتفجيرات.'
-                                            },
-                                            {
-                                                id: 'runner',
-                                                icon: <Zap size={16} className="text-orange-600"/>,
-                                                bg: 'bg-orange-100 border-orange-300',
-                                                label: 'جري لانهائي وتفادي عقبات (Endless Runner)',
-                                                desc: 'تحكم بالقفز والانحناء لتفادي العقبات والخفافيش، نقاط متزايدة، وتسارع تدريجي مع صوتيات ريترو مذهلة.'
-                                            },
-                                            {
-                                                id: 'maze',
-                                                icon: <Waypoints size={16} className="text-green-600"/>,
-                                                bg: 'bg-green-100 border-green-300',
-                                                label: 'ألغاز وتحدي ذكاء ومتاهات (Puzzle / Maze)',
-                                                desc: 'لوحات ضغط على الأرض لتفعيل بوابات حديدية، جمع البلورات، وفتح مسارات سرية للوصول للمخرج.'
-                                            },
-                                            {
-                                                id: 'fighter',
-                                                icon: <Target size={16} className="text-red-500 animate-pulse"/>,
-                                                bg: 'bg-red-50 border-red-300',
-                                                label: 'قتال وتلاحم قتالي (Fighting / Beat \'em Up)',
-                                                desc: 'حلبة متكاملة، حركات هجوم كومبو (ركل ولكم)، صد للضربات، ومنافس ذكي مع شريط طاقة مزدوج.'
-                                            },
-                                            {
-                                                id: 'racing',
-                                                icon: <Car size={16} className="text-emerald-600"/>,
-                                                bg: 'bg-emerald-100 border-emerald-300',
-                                                label: 'سباقات وسرعة ومقاومة (Retro Racing)',
-                                                desc: 'فيزياء انزلاق وانعطاف حقيقية (Drift Physics)، منافس ذكي، حواف مضمار حية، وعداد دورات حماسي.'
-                                            },
-                                            {
-                                                id: 'strategy',
-                                                icon: <Waypoints size={16} className="text-purple-600"/>,
-                                                bg: 'bg-purple-100 border-purple-300',
-                                                label: 'ألعاب استراتيجية وتخطيط (RTS Strategy)',
-                                                desc: 'توليد الموارد عبر عمال مناجم الذهب تلقائياً، تدريب الفرسان والجنود، ومهاجمة قلعة جيش الأورك الحية.'
-                                            },
-                                            {
-                                                id: 'arcade',
-                                                icon: <Sparkles size={16} className="text-pink-600"/>,
-                                                bg: 'bg-pink-100 border-pink-300',
-                                                label: 'أركيد كلاسيكي كسر الطوب (Brick Breaker)',
-                                                desc: 'فيزياء ارتداد مثالية، طوب متفجر (TNT)، مكافآت تسقط عشوائياً (Power-ups)، وطوب يتطلب عدة ضربات.'
-                                            },
-                                            { id: 'blank',         icon: <File size={16} className="text-gray-600"/>,       bg: 'bg-gray-100 border-gray-300',   label: 'مشروع فارغ كلياً (Blank Project)', desc: 'غرفة ومساحة عمل فارغة لبناء لعبتك الفريدة من الصفر المطلق.' },
-                                        ].map(({ id, icon, bg, label, desc }) => (
+                                        {PREMIUM_TEMPLATES.map(({ id, icon, bg, label, desc }) => (
                                             <label
                                                 key={id}
                                                 onClick={() => setLocalTemplate(id)}
@@ -266,7 +273,7 @@ const WelcomeScreen = ({ prompt, setPrompt, isListening, handleVoiceInput, handl
                                                 </div>
                                                 {savedTemplates.map((t: any) => (
                                                     <label key={t.id} className={`flex items-center gap-3 cursor-pointer p-2 border ${localTemplate === t.id ? 'bg-blue-50 border-blue-300' : 'hover:bg-gray-50 border-transparent'}`}>
-                                                        <input type="checkbox" checked={selectedTemplates.includes(t.id)} onClick={(e) => toggleTemplateSelection(e, t.id)} onChange={() => {}} className="shrink-0"/>
+                                                        <input type="checkbox" checked={selectedTemplatesSet.has(t.id)} onClick={(e) => toggleTemplateSelection(e, t.id)} onChange={() => {}} className="shrink-0"/>
                                                         <input type="radio" name="tpl" checked={localTemplate === t.id} onChange={() => setLocalTemplate(t.id)} className="shrink-0"/>
                                                         <div className="w-7 h-7 bg-purple-100 border border-purple-300 flex items-center justify-center rounded shrink-0"><Folder size={14} className="text-purple-600"/></div>
                                                         <div className="flex items-center justify-between w-full text-right">
