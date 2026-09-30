@@ -669,7 +669,75 @@ static Gm82SoundCommand g_sound_commands[GM82_MAX_SOUND_COMMANDS];
 static int g_sound_command_count = 0;
 static float g_sound_volume = 1.0f;
 static void gm82_sound_clear(void) { g_sound_command_count = 0; g_sound_volume = 1.0f; memset(g_sound_commands, 0, sizeof(g_sound_commands)); }
-static void gm82_sound_push(int kind, int sound_id, int loop, float volume) { if (g_sound_command_count >= GM82_MAX_SOUND_COMMANDS) return; Gm82SoundCommand *c = &g_sound_commands[g_sound_command_count++]; c->kind = kind; c->sound_id = sound_id; c->loop = loop; c->volume = volume; }
+
+#if defined(__ANDROID__) && !defined(HOST_TEST_BUILD)
+#include <SLES/OpenSLES.h>
+#include <SLES/OpenSLES_Android.h>
+
+static SLObjectItf g_opensl_engine_object = NULL;
+static SLEngineItf g_opensl_engine = NULL;
+static SLObjectItf g_opensl_output_mix = NULL;
+static SLObjectItf g_opensl_player_object = NULL;
+static SLPlayItf g_opensl_player = NULL;
+static SLAndroidSimpleBufferQueueItf g_opensl_buffer_queue = NULL;
+
+static void gm82_opensl_init(void) {
+    if (g_opensl_engine_object) return;
+    SLresult res = slCreateEngine(&g_opensl_engine_object, 0, NULL, 0, NULL, NULL);
+    if (res != SL_RESULT_SUCCESS || !g_opensl_engine_object) return;
+    res = (*g_opensl_engine_object)->Realize(g_opensl_engine_object, SL_BOOLEAN_FALSE);
+    if (res != SL_RESULT_SUCCESS) return;
+    res = (*g_opensl_engine_object)->GetInterface(g_opensl_engine_object, SL_IID_ENGINE, &g_opensl_engine);
+    if (res != SL_RESULT_SUCCESS || !g_opensl_engine) return;
+
+    res = (*g_opensl_engine)->CreateOutputMix(g_opensl_engine, &g_opensl_output_mix, 0, NULL, NULL);
+    if (res != SL_RESULT_SUCCESS || !g_opensl_output_mix) return;
+    (*g_opensl_output_mix)->Realize(g_opensl_output_mix, SL_BOOLEAN_FALSE);
+
+    SLDataLocator_AndroidSimpleBufferQueue loc_bufq = { SL_DATALOCATOR_ANDROIDSIMPLEBUFFERQUEUE, 2 };
+    SLDataFormat_PCM format_pcm = {
+        SL_DATAFORMAT_PCM, 1, SL_SAMPLINGRATE_22_05,
+        SL_PCMSAMPLEFORMAT_FIXED_16, SL_PCMSAMPLEFORMAT_FIXED_16,
+        SL_SPEAKER_FRONT_CENTER, SL_BYTEORDER_LITTLEENDIAN
+    };
+    SLDataSource audio_src = { &loc_bufq, &format_pcm };
+    SLDataLocator_OutputMix loc_outmix = { SL_DATALOCATOR_OUTPUTMIX, g_opensl_output_mix };
+    SLDataSink audio_sink = { &loc_outmix, NULL };
+    const SLInterfaceID ids[1] = { SL_IID_BUFFERQUEUE };
+    const SLboolean req[1] = { SL_BOOLEAN_TRUE };
+
+    res = (*g_opensl_engine)->CreateAudioPlayer(
+        g_opensl_engine, &g_opensl_player_object, &audio_src, &audio_sink, 1, ids, req);
+    if (res == SL_RESULT_SUCCESS && g_opensl_player_object) {
+        (*g_opensl_player_object)->Realize(g_opensl_player_object, SL_BOOLEAN_FALSE);
+        (*g_opensl_player_object)->GetInterface(g_opensl_player_object, SL_IID_PLAY, &g_opensl_player);
+        (*g_opensl_player_object)->GetInterface(g_opensl_player_object, SL_IID_BUFFERQUEUE, &g_opensl_buffer_queue);
+        if (g_opensl_player) (*g_opensl_player)->SetPlayState(g_opensl_player, SL_PLAYSTATE_PLAYING);
+    }
+}
+
+static void gm82_opensl_play_pcm(const int16_t *pcm_data, size_t sample_count, int sample_rate) {
+    (void)sample_rate;
+    gm82_opensl_init();
+    if (g_opensl_buffer_queue && pcm_data && sample_count > 0) {
+        (*g_opensl_buffer_queue)->Enqueue(g_opensl_buffer_queue, pcm_data, (SLuint32)(sample_count * sizeof(int16_t)));
+    }
+}
+#else
+static void gm82_opensl_init(void) {}
+static void gm82_opensl_play_pcm(const int16_t *pcm_data, size_t sample_count, int sample_rate) {
+    (void)gm82_opensl_init; (void)pcm_data; (void)sample_count; (void)sample_rate;
+}
+#endif
+
+static void gm82_sound_push(int kind, int sound_id, int loop, float volume) {
+    if (g_sound_command_count >= GM82_MAX_SOUND_COMMANDS) return;
+    Gm82SoundCommand *c = &g_sound_commands[g_sound_command_count++];
+    c->kind = kind; c->sound_id = sound_id; c->loop = loop; c->volume = volume;
+    if (kind == 1) {
+        gm82_opensl_play_pcm(NULL, 0, 22050);
+    }
+}
 
 typedef struct {
     int active;

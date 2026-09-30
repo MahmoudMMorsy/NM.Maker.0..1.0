@@ -21,6 +21,12 @@ static int chunk_owned(gmk_reader *r, uint32_t seed, uint8_t **out, size_t *outn
     uint8_t *raw=(uint8_t*)malloc(len ? len : 1); if(!raw) return 0; memcpy(raw,r->p+r->o,len); r->o+=(size_t)len;
     if(seed) { uint32_t key=seed; for(uint32_t i=0;i<len;i++){ raw[i]=(uint8_t)(raw[i]^(key&0xffu)); key=key*0x08088405u+1u; } }
     if(len>2 && raw[0]==0x78) { uLongf cap=(uLongf)(len*8u+1024u); if(cap>100u*1024u*1024u) cap=100u*1024u*1024u; uint8_t *infl=NULL; int rc=Z_BUF_ERROR; while(rc==Z_BUF_ERROR && cap<=100u*1024u*1024u){ infl=(uint8_t*)realloc(infl,(size_t)cap); if(!infl) {free(raw);return 0;} uLongf got=cap; rc=uncompress(infl,&got,raw,(uLong)len); if(rc==Z_BUF_ERROR) cap*=2u; else if(rc==Z_OK){free(raw);*out=infl;*outn=(size_t)got;return 1;} } free(infl); }
+    if(len >= 40 && raw[0] == 40 && raw[1] == 0 && raw[2] == 0 && raw[3] == 0) {
+        int dw = 0, dh = 0; uint8_t *drgba = NULL;
+        if (gm82_decode_dib_bitmap(raw, (size_t)len, &dw, &dh, &drgba)) {
+            free(raw); *out = drgba; *outn = (size_t)dw * (size_t)dh * 4; return 1;
+        }
+    }
     *out=raw; *outn=(size_t)len; return 1;
 }
 static void json_escape(char *dst, size_t cap, const char *src) {
@@ -256,4 +262,86 @@ char *gm82_gmk_resource_manifest_json(const uint8_t *data, size_t size) {
     char *fallback=(char*)malloc(256); if(!fallback) return NULL;
     snprintf(fallback,256,"{\"ok\":true,\"format\":\"GMK\",\"magic\":%d,\"version\":%d,\"appId\":%d,\"parseStatus\":\"partial\",\"warning\":\"resource layout requires a matching GM8 fixture; raw bytes preserved\"}",magic,version,app);
     return fallback;
+}
+
+int gm82_decode_dib_bitmap(const uint8_t *data, size_t size, int *width, int *height, uint8_t **rgba_out) {
+    if (!data || size < 40 || !width || !height || !rgba_out) return 0;
+    *rgba_out = NULL;
+    uint32_t biSize = (uint32_t)data[0] | ((uint32_t)data[1] << 8) | ((uint32_t)data[2] << 16) | ((uint32_t)data[3] << 24);
+    if (biSize < 40 || biSize > size) return 0;
+    int32_t w = (int32_t)((uint32_t)data[4] | ((uint32_t)data[5] << 8) | ((uint32_t)data[6] << 16) | ((uint32_t)data[7] << 24));
+    int32_t h = (int32_t)((uint32_t)data[8] | ((uint32_t)data[9] << 8) | ((uint32_t)data[10] << 16) | ((uint32_t)data[11] << 24));
+    uint16_t biBitCount = (uint16_t)(data[14] | (data[15] << 8));
+    uint32_t biCompression = (uint32_t)data[16] | ((uint32_t)data[17] << 8) | ((uint32_t)data[18] << 16) | ((uint32_t)data[19] << 24);
+    uint32_t biClrUsed = (uint32_t)data[32] | ((uint32_t)data[33] << 8) | ((uint32_t)data[34] << 16) | ((uint32_t)data[35] << 24);
+
+    if (w <= 0 || w > 16384 || h == 0 || h > 16384 || h < -16384 || (biCompression != 0 && biCompression != 3)) return 0;
+    int abs_h = h < 0 ? -h : h;
+    int top_down = h < 0 ? 1 : 0;
+
+    if ((uint64_t)w * (uint64_t)abs_h * 4ULL > 256ULL * 1024ULL * 1024ULL) return 0;
+
+    size_t palette_offset = biSize;
+    size_t num_colors = biClrUsed;
+    if (num_colors == 0 && biBitCount <= 8) num_colors = (1U << biBitCount);
+    if (num_colors > 256) num_colors = 256;
+    size_t palette_bytes = num_colors * 4;
+    size_t pixel_offset = palette_offset + palette_bytes;
+
+    if (palette_offset + palette_bytes > size || pixel_offset >= size) return 0;
+
+    size_t pixel_bytes = (size_t)w * (size_t)abs_h * 4;
+    uint8_t *rgba = (uint8_t *)malloc(pixel_bytes);
+    if (!rgba) return 0;
+
+    size_t row_stride = (((size_t)w * biBitCount + 31) / 32) * 4;
+
+    for (int y = 0; y < abs_h; ++y) {
+        int src_y = top_down ? y : (abs_h - 1 - y);
+        size_t row_offset = pixel_offset + (size_t)src_y * row_stride;
+        if (row_offset + row_stride > size) {
+            memset(rgba + y * w * 4, 0, (size_t)w * 4);
+            continue;
+        }
+        const uint8_t *src_row = data + row_offset;
+        uint8_t *dst_row = rgba + y * w * 4;
+
+        if (biBitCount == 24) {
+            for (int x = 0; x < w; ++x) {
+                dst_row[x * 4 + 0] = src_row[x * 3 + 2];
+                dst_row[x * 4 + 1] = src_row[x * 3 + 1];
+                dst_row[x * 4 + 2] = src_row[x * 3 + 0];
+                dst_row[x * 4 + 3] = 255;
+            }
+        } else if (biBitCount == 32) {
+            for (int x = 0; x < w; ++x) {
+                dst_row[x * 4 + 0] = src_row[x * 4 + 2];
+                dst_row[x * 4 + 1] = src_row[x * 4 + 1];
+                dst_row[x * 4 + 2] = src_row[x * 4 + 0];
+                dst_row[x * 4 + 3] = src_row[x * 4 + 3] ? src_row[x * 4 + 3] : 255;
+            }
+        } else if (biBitCount == 8) {
+            const uint8_t *palette = data + palette_offset;
+            for (int x = 0; x < w; ++x) {
+                uint8_t idx = src_row[x];
+                if ((size_t)idx < num_colors && palette_offset + idx * 4 + 3 <= size) {
+                    dst_row[x * 4 + 0] = palette[idx * 4 + 2];
+                    dst_row[x * 4 + 1] = palette[idx * 4 + 1];
+                    dst_row[x * 4 + 2] = palette[idx * 4 + 0];
+                    dst_row[x * 4 + 3] = 255;
+                } else {
+                    dst_row[x * 4 + 0] = 0; dst_row[x * 4 + 1] = 0; dst_row[x * 4 + 2] = 0; dst_row[x * 4 + 3] = 255;
+                }
+            }
+        } else {
+            for (int x = 0; x < w; ++x) {
+                dst_row[x * 4 + 0] = 255; dst_row[x * 4 + 1] = 255; dst_row[x * 4 + 2] = 255; dst_row[x * 4 + 3] = 255;
+            }
+        }
+    }
+
+    *width = w;
+    *height = abs_h;
+    *rgba_out = rgba;
+    return 1;
 }
