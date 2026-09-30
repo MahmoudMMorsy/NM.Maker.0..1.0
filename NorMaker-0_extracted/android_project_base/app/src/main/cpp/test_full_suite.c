@@ -10,6 +10,9 @@ extern double nor_export_nes_native(const char *project, const char *output);
 extern double nor_export_gbc_native(const char *project, const char *output);
 extern double nor_export_gba_native(const char *project, const char *output);
 extern double nor_validate_rom_native(const char *path, double kind);
+extern double nor_import_format_native(const char *path);
+extern int gm82_load_yyd_project(const char *dir_path);
+extern int gm82_simulate_yyd_project(const char *dir_path, int step_count);
 extern int gm82_native_call(void *userdata, const char *name, const gml_value *args, size_t count, gml_value *out);
 
 void test_gmk_probe_suite(void) {
@@ -412,6 +415,50 @@ void test_retro_rom_suite(void) {
     printf("[PASS] Retro ROM Suite\n");
 }
 
+void test_gm82_project_simulation_suite(void) {
+    const char *proj_dir = "/tmp/nor_core_tests/yyd_sim_test";
+    int sys_res = system("rm -rf /tmp/nor_core_tests/yyd_sim_test && mkdir -p /tmp/nor_core_tests/yyd_sim_test/objects /tmp/nor_core_tests/yyd_sim_test/rooms/room0 /tmp/nor_core_tests/yyd_sim_test/scripts");
+    (void)sys_res;
+
+    FILE *f = fopen("/tmp/nor_core_tests/yyd_sim_test/objects/player.txt", "w");
+    assert(f != NULL);
+    fputs("sprite=sprPlayer\ndepth=0\nvisible=1\n", f);
+    fclose(f);
+
+    f = fopen("/tmp/nor_core_tests/yyd_sim_test/objects/player.gml", "w");
+    assert(f != NULL);
+    fputs("#define Create_0\nx = 100;\ny = 200;\nhspeed = 2;\n#define Step_0\nimage_angle -= 5;\n", f);
+    fclose(f);
+
+    f = fopen("/tmp/nor_core_tests/yyd_sim_test/rooms/room0/instances.txt", "w");
+    assert(f != NULL);
+    fputs("player,100,200,00010001,0,1,1,4294967295,0,0\n", f);
+    fclose(f);
+
+    f = fopen("/tmp/nor_core_tests/yyd_sim_test/scripts/scr_test.gml", "w");
+    assert(f != NULL);
+    fputs("return argument0 * 2;\n", f);
+    fclose(f);
+
+    double fmt = nor_import_format_native(proj_dir);
+    assert(fmt == 7.0);
+
+    int load_ok = gm82_load_yyd_project(proj_dir);
+    assert(load_ok == 1);
+
+    int sim_ok = gm82_simulate_yyd_project(proj_dir, 10);
+    assert(sim_ok == 1);
+
+    int unz = system("unzip -q -o source/gm82test-main.zip -d /tmp/gm82test_extracted 2>/dev/null || true");
+    (void)unz;
+    const char *real_proj = "/tmp/gm82test_extracted/gm82test-main/test.gm82";
+    if (nor_import_format_native(real_proj) == 7.0) {
+        assert(gm82_simulate_yyd_project(real_proj, 5) == 1);
+    }
+
+    printf("[PASS] GM82 Project Simulation Suite\n");
+}
+
 int main(void) {
     printf("--- Running Native Host Comprehensive Test Suite ---\n");
     test_gmk_probe_suite();
@@ -428,6 +475,7 @@ int main(void) {
     test_ds_queue_and_stack_suite();
     test_gm82_geometry_and_utility_suite();
     test_retro_rom_suite();
+    test_gm82_project_simulation_suite();
     printf("--- All Native Host Tests Passed! ---\n");
     return 0;
 }
