@@ -330,21 +330,21 @@ void test_ds_queue_and_stack_suite(void) {
     const char *code =
         "q = ds_queue_create();\n"
         "ds_queue_enqueue(q, 10, 20, 30);\n"
-        "ds_queue_enqueue(q, 10);\n"
-        "ds_queue_enqueue(q, 20);\n"
-        "ds_queue_enqueue(q, 30);\n"
-        "q_sz = ds_queue_size(q);\n"
+        "q_sz1 = ds_queue_size(q);\n"
+        "ds_queue_enqueue(q, 40);\n"
+        "ds_queue_enqueue(q, 50);\n"
+        "q_sz2 = ds_queue_size(q);\n"
         "q_head = ds_queue_head(q);\n"
         "q_pop = ds_queue_dequeue(q);\n"
         "ds_queue_destroy(q);\n"
         "st = ds_stack_create();\n"
         "ds_stack_push(st, 100, 200);\n"
-        "ds_stack_push(st, 100);\n"
-        "ds_stack_push(st, 200);\n"
-        "st_top = ds_stack_top(st);\n"
+        "st_top1 = ds_stack_top(st);\n"
+        "ds_stack_push(st, 300);\n"
+        "st_top2 = ds_stack_top(st);\n"
         "st_pop = ds_stack_pop(st);\n"
         "ds_stack_destroy(st);\n"
-        "return q_sz * 10000 + q_head * 1000 + q_pop * 100 + st_top * 10 + st_pop;\n";
+        "return q_sz1 * 100000 + q_sz2 * 10000 + q_head * 1000 + q_pop * 100 + st_top1 * 10 + (st_top2 == 300 && st_pop == 300 ? 1 : 0);\n";
 
     gml_ast *ast = NULL;
     char err[160] = {0};
@@ -359,8 +359,8 @@ void test_ds_queue_and_stack_suite(void) {
     if (!exec_ok) { printf("VM Error: %s\n", vm.error); fflush(stdout); }
     assert(exec_ok);
     assert(vm.returned);
-    /* q_sz(3)*10000 + q_head(10)*1000 + q_pop(10)*100 + st_top(200)*10 + st_pop(200) = 30000 + 10000 + 1000 + 2000 + 200 = 43200 */
-    assert(vm.return_value.real == 43200.0);
+    /* 3*100000 + 5*10000 + 10*1000 + 10*100 + 200*10 + 1 = 363001.0 */
+    assert(vm.return_value.real == 363001.0);
 
     gml_ast_free(ast);
 
