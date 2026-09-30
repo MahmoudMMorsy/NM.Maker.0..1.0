@@ -2035,20 +2035,26 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
     if (!strcmp(name, "place_meeting") && count == 3) {
         float x = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0), y = (float)(args[1].kind == GML_V_REAL ? args[1].real : 0);
         int object_id = (int)(args[2].kind == GML_V_REAL ? args[2].real : -1); int hit = 0;
+        float hw = self && self->sprite_width > 0 ? self->sprite_width * 0.5f : 8.0f;
+        float hh = self && self->sprite_height > 0 ? self->sprite_height * 0.5f : 8.0f;
         for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
             Gm82Instance *other = &g_runtime.instances[i];
             if (!gm82_instance_matches(other, self, object_id)) continue;
-            if (gm82_instance_overlaps_rect(other, x - 0.5f, y - 0.5f, x + 0.5f, y + 0.5f)) { hit = 1; break; }
+            if (self && other->id == self->id) continue;
+            if (gm82_instance_overlaps_rect(other, x - hw, y - hh, x + hw, y + hh)) { hit = 1; break; }
         }
         *out = gml_value_bool(hit); return 1;
     }
     if (!strcmp(name, "instance_place") && count == 3) {
         float x = (float)(args[0].kind == GML_V_REAL ? args[0].real : 0), y = (float)(args[1].kind == GML_V_REAL ? args[1].real : 0);
         int object_id = (int)(args[2].kind == GML_V_REAL ? args[2].real : -1); int result = -1;
+        float hw = self && self->sprite_width > 0 ? self->sprite_width * 0.5f : 8.0f;
+        float hh = self && self->sprite_height > 0 ? self->sprite_height * 0.5f : 8.0f;
         for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
             Gm82Instance *other = &g_runtime.instances[i];
             if (!gm82_instance_matches(other, self, object_id)) continue;
-            if (gm82_instance_overlaps_rect(other, x - 0.5f, y - 0.5f, x + 0.5f, y + 0.5f)) { result = other->id; break; }
+            if (self && other->id == self->id) continue;
+            if (gm82_instance_overlaps_rect(other, x - hw, y - hh, x + hw, y + hh)) { result = other->id; break; }
         }
         *out = gml_value_real((double)result); return 1;
     }
