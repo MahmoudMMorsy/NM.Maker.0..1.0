@@ -24,6 +24,7 @@ This report provides an unvarnished, technical audit of the current Android / Na
 3. **Asset & Format Parsing:**
    - GMK probe & parsing engine (`gm82_gmk_reader.c`) for GM7 and GM8 binary project formats.
    - Decompression streams using `zlib`.
+   - Legacy GM4/GM5 uncompressed DIB bitmap decoder (`gm82_decode_dib_bitmap`).
    - Image RGBA decoding for sprites and tilesets.
 
 ### Identified Gaps & Future Roadmap Items (To Reach 100% Native Parity)

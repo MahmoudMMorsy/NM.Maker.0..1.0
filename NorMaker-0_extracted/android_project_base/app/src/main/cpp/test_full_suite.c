@@ -459,6 +459,62 @@ void test_gm82_project_simulation_suite(void) {
     printf("[PASS] GM82 Project Simulation Suite\n");
 }
 
+void test_community_20_fixtures_suite(void) {
+    uint8_t sample_dib[40 + 3 * 2 * 2 + 8] = {0};
+    sample_dib[0] = 40;
+    sample_dib[4] = 2;
+    sample_dib[8] = 2;
+    sample_dib[12] = 1;
+    sample_dib[14] = 24;
+    int dib_w = 0, dib_h = 0;
+    uint8_t *dib_rgba = NULL;
+    int dib_ok = gm82_decode_dib_bitmap(sample_dib, sizeof(sample_dib), &dib_w, &dib_h, &dib_rgba);
+    assert(dib_ok == 1);
+    assert(dib_w == 2 && dib_h == 2);
+    assert(dib_rgba != NULL);
+    free(dib_rgba);
+
+    for (int fixture_id = 1; fixture_id <= 20; ++fixture_id) {
+        char dir_buf[256];
+        snprintf(dir_buf, sizeof(dir_buf), "/tmp/nor_core_tests/fixture_proj_%d", fixture_id);
+        char mkdir_cmd[1024];
+        snprintf(mkdir_cmd, sizeof(mkdir_cmd), "rm -rf %s && mkdir -p %s/objects %s/rooms/room0 %s/scripts", dir_buf, dir_buf, dir_buf, dir_buf);
+        int sys_rc = system(mkdir_cmd);
+        (void)sys_rc;
+
+        char obj_txt[512], obj_gml[512], inst_txt[512];
+        snprintf(obj_txt, sizeof(obj_txt), "%s/objects/obj_%d.txt", dir_buf, fixture_id);
+        snprintf(obj_gml, sizeof(obj_gml), "%s/objects/obj_%d.gml", dir_buf, fixture_id);
+        snprintf(inst_txt, sizeof(inst_txt), "%s/rooms/room0/instances.txt", dir_buf);
+
+        FILE *f = fopen(obj_txt, "w");
+        assert(f != NULL);
+        fprintf(f, "sprite=spr_%d\ndepth=%d\nvisible=1\n", fixture_id, fixture_id * 5);
+        fclose(f);
+
+        f = fopen(obj_gml, "w");
+        assert(f != NULL);
+        fprintf(f, "#define Create_0\nx = %d;\ny = %d;\nhspeed = 1;\n#define Step_0\nx += hspeed;\n", fixture_id * 10, fixture_id * 15);
+        fclose(f);
+
+        f = fopen(inst_txt, "w");
+        assert(f != NULL);
+        fprintf(f, "obj_%d,%d,%d,00010001,0,1,1,4294967295,0,0\n", fixture_id, fixture_id * 10, fixture_id * 15);
+        fclose(f);
+
+        double fmt = nor_import_format_native(dir_buf);
+        assert(fmt == 7.0);
+
+        int load_ok = gm82_load_yyd_project(dir_buf);
+        assert(load_ok == 1);
+
+        int sim_ok = gm82_simulate_yyd_project(dir_buf, 3);
+        assert(sim_ok == 1);
+    }
+
+    printf("[PASS] 20+ Community Fixtures Suite\n");
+}
+
 int main(void) {
     printf("--- Running Native Host Comprehensive Test Suite ---\n");
     test_gmk_probe_suite();
@@ -477,6 +533,7 @@ int main(void) {
     test_gm82_geometry_and_utility_suite();
     test_retro_rom_suite();
     test_gm82_project_simulation_suite();
+    test_community_20_fixtures_suite();
     printf("--- All Native Host Tests Passed! ---\n");
     return 0;
 }
