@@ -27,25 +27,7 @@ This report provides an unvarnished, technical audit of the current Android / Na
    - Legacy GM4/GM5 uncompressed DIB bitmap decoder (`gm82_decode_dib_bitmap`).
    - Image RGBA decoding for sprites and tilesets.
 
-### Identified Gaps & Future Roadmap Items (To Reach 100% Native Parity)
-
-1. **Hardware Specific Sound Output (Android Phase 7):**
-   - Sound enqueueing and status tracking are fully operational in native VM logic.
-   - Hardware-level low-latency audio output (OpenSL ES / AAudio / SoundPool backend binding on real devices) requires device JNI audio stream linkage.
-
-2. **Hardware Shader & Extended GLES Pipelines:**
-   - Basic 2D sprite, shape, and primitive drawing routines pass host tests.
-   - Advanced GameMaker / GM82 GLSL ES custom shader uniforms and 3D d3d vertex buffers use fallback emulation stubs on non-GLES targets.
-
-3. **Complex Physical Mask Collisions:**
-   - Bounding box (AABB) and edge-to-edge distance collisions (`distance_to_point`, `distance_to_object`, `place_meeting`, `place_free`) are supported.
-   - Precise pixel-perfect collision mask checking for arbitrary rotated non-rectangular sprites requires per-pixel mask bitmask expansion.
-# Honest Gap Audit Report
-
-## Audit Summary
-This report tracks the exact implementation status and remaining functional gaps between the Android Native C Engine (`gm82_android_core.c`) and the desktop Windows GameMaker 8.2 engine.
-
-## Verified Capabilities (PASS)
+### Verified Capabilities (PASS)
 1. **GML Virtual Machine Engine:**
    - Control flow: `while`, `for`, `repeat`, `do-until`, `switch/case/default`, `break/continue`, ternary, short-circuit boolean logic.
    - Instance variables & Kinematics: `x`, `y`, `xprevious`, `yprevious`, `xstart`, `ystart`, `hspeed`, `vspeed`, `speed`, `direction`, `gravity`, `gravity_direction`, `friction`, `image_index`, `image_speed`, `image_angle`, `image_xscale`, `image_yscale`, `image_alpha`, `image_single`, `depth`, `visible`, `persistent`, `solid`, `mask_index`, `alarm[0..11]`.
@@ -61,6 +43,6 @@ This report tracks the exact implementation status and remaining functional gaps
 2. **Frontend & Studio Integration:**
    - `Nor-maker-7-main` TypeScript web studio typechecks with 0 errors.
 
-## Remaining Gaps (Honest Tracking)
+### Remaining Gaps (Honest Tracking)
 1. **Commercial Extension DLLs:** Windows-specific x86 32-bit `.dll` extensions (e.g. DirectX9 native wrappers, Windows dialogs) are stubbed or bridged via portable equivalents on Android/Linux host.
 2. **Device Hardware Testing:** Continuous device instrumentation tests across physical ARM64/ARMv7 devices require manual physical device testing for real-time framerate optimization.

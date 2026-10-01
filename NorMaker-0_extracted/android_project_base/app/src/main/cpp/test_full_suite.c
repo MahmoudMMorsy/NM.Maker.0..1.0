@@ -477,7 +477,7 @@ void test_community_20_fixtures_suite(void) {
     for (int fixture_id = 1; fixture_id <= 20; ++fixture_id) {
         char dir_buf[256];
         snprintf(dir_buf, sizeof(dir_buf), "/tmp/nor_core_tests/fixture_proj_%d", fixture_id);
-        char mkdir_cmd[1024];
+        char mkdir_cmd[2048];
         snprintf(mkdir_cmd, sizeof(mkdir_cmd), "rm -rf %s && mkdir -p %s/objects %s/rooms/room0 %s/scripts", dir_buf, dir_buf, dir_buf, dir_buf);
         int sys_rc = system(mkdir_cmd);
         (void)sys_rc;
