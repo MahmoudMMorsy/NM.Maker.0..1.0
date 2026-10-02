@@ -1348,6 +1348,37 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
         *out = gml_value_bool(gm82_object_is_ancestor_internal(obj, anc));
         return 1;
     }
+    if (!strcmp(name, "external_define") && count >= 5) {
+        static int g_ext_handle_counter = 100;
+        *out = gml_value_real((double)g_ext_handle_counter++);
+        return 1;
+    }
+    if (!strcmp(name, "external_call") && count >= 1) {
+        *out = gml_value_real(0.0);
+        return 1;
+    }
+    if (!strcmp(name, "external_free") && count >= 1) {
+        *out = gml_value_real(0.0);
+        return 1;
+    }
+    if (!strcmp(name, "window_handle") && count == 0) {
+        *out = gml_value_real(1.0);
+        return 1;
+    }
+    if (!strcmp(name, "display_mouse_get_x") && count == 0) {
+        *out = gml_value_real((double)g_runtime.mouse_x);
+        return 1;
+    }
+    if (!strcmp(name, "display_mouse_get_y") && count == 0) {
+        *out = gml_value_real((double)g_runtime.mouse_y);
+        return 1;
+    }
+    if (!strcmp(name, "display_mouse_set") && count == 2) {
+        if (args[0].kind == GML_V_REAL) g_runtime.mouse_x = (float)args[0].real;
+        if (args[1].kind == GML_V_REAL) g_runtime.mouse_y = (float)args[1].real;
+        *out = gml_value_real(0.0);
+        return 1;
+    }
     if (!strcmp(name, "__gm82core_dllcheck") && count == 0) { *out = gml_value_real(gm82_portable_dllcheck()); return 1; }
     if (!strcmp(name, "color_reverse") && count == 1) { double value = args[0].kind == GML_V_REAL ? args[0].real : 0.0; *out = gml_value_real(gm82_portable_color_reverse(value)); return 1; }
     if (!strcmp(name, "color_inverse") && count == 1) { double value = args[0].kind == GML_V_REAL ? args[0].real : 0.0; *out = gml_value_real(gm82_portable_color_inverse(value)); return 1; }

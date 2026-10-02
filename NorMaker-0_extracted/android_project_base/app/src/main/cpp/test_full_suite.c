@@ -556,6 +556,37 @@ void test_community_20_fixtures_suite(void) {
     printf("[PASS] 20+ Community Fixtures Suite\n");
 }
 
+void test_external_dll_and_display_suite(void) {
+    const char *code =
+        "h = external_define(\"test.dll\", \"test_func\", 1, 1, 0);\n"
+        "res = external_call(h);\n"
+        "ef = external_free(\"test.dll\");\n"
+        "w = window_handle();\n"
+        "display_mouse_set(150, 250);\n"
+        "mx = display_mouse_get_x();\n"
+        "my = display_mouse_get_y();\n"
+        "return (h >= 100 && res == 0 && ef == 0 && w == 1 && mx == 150 && my == 250) ? 1.0 : 0.0;\n";
+
+    gml_ast *ast = NULL;
+    char err[160] = {0};
+    int parse_ok = gml_parse_program(code, &ast, err, sizeof(err));
+    assert(parse_ok);
+
+    gml_vm vm;
+    gml_vm_init(&vm);
+    gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+
+    int exec_ok = gml_vm_execute(&vm, ast);
+    if (!exec_ok) { printf("VM Error: %s\n", vm.error); fflush(stdout); }
+    assert(exec_ok);
+    assert(vm.returned);
+    assert(vm.return_value.real == 1.0);
+
+    gml_ast_free(ast);
+
+    printf("[PASS] External DLL & Display Suite\n");
+}
+
 int main(void) {
     printf("--- Running Native Host Comprehensive Test Suite ---\n");
     test_gmk_probe_suite();
@@ -576,6 +607,7 @@ int main(void) {
     test_gm82_project_simulation_suite();
     test_new_gm82_core_functions_suite();
     test_community_20_fixtures_suite();
+    test_external_dll_and_display_suite();
     printf("--- All Native Host Tests Passed! ---\n");
     return 0;
 }

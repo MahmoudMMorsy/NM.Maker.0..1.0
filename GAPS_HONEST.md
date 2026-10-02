@@ -38,6 +38,7 @@ This report provides an unvarnished, technical audit of the current Android / Na
    - Object Inheritance: `object_set_parent`, `object_get_parent`, `object_is_ancestor`.
    - Instance Activation & Queries: `instance_deactivate_all`, `instance_deactivate_object`, `instance_deactivate_region`, `instance_activate_all`, `instance_activate_object`, `instance_activate_region`, `instance_nearest`, `instance_farthest`, `instance_nth_nearest`, `instance_nth_farthest`.
    - String & Data Structure Utilities: `string_trim`, `string_contains`, `string_starts_with`, `string_ends_with`, `ds_list_add_list`, `ds_map_add_map`, `get_timer`, `parameter_count`, `parameter_string`, `game_restart_soft`.
+   - Win32 Extension Stubs & Display Queries: `external_define`, `external_call`, `external_free`, `window_handle`, `display_mouse_get_x`, `display_mouse_get_y`, `display_mouse_set`.
    - Motion Planning: `mp_linear_step`, `mp_linear_step_object`, `math_set_epsilon`, `math_get_epsilon`.
    - INI Storage: `ini_open`, `ini_read_real`, `ini_write_real`, `ini_read_string`, `ini_write_string`, `ini_close`, `ini_key_delete`, `ini_section_delete`.
    - Drawing & Audio Dispatchers: `draw_sprite_ext`, `draw_text_transformed`, `audio_play_sound`, `audio_is_playing`, `audio_stop_sound`.
