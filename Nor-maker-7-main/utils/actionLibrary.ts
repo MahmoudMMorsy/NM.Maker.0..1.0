@@ -26,11 +26,23 @@ export interface ActionDefinition {
   generateCode?: (params: Record<string, any>) => string;
 }
 
+// ⚡ Bolt: Cache custom external action maps in a WeakMap to eliminate linear .find() array scans when custom arrays are passed.
+const customExternalMapCache = new WeakMap<ActionDefinition[], Map<string, ActionDefinition>>();
+
 export const generateActionCode = (action: { libId: string; params: Record<string, any> }, externalActions?: ActionDefinition[]): string => {
   let def = ACTION_MAP.get(action.libId);
   if (!def) {
     if (externalActions) {
-      def = externalActions.find(a => a.id === action.libId);
+      if (externalActions === EXTERNAL_ACTIONS) {
+        def = EXTERNAL_ACTION_MAP.get(action.libId);
+      } else {
+        let map = customExternalMapCache.get(externalActions);
+        if (!map) {
+          map = new Map(externalActions.map(a => [a.id, a]));
+          customExternalMapCache.set(externalActions, map);
+        }
+        def = map.get(action.libId);
+      }
     } else {
       def = EXTERNAL_ACTION_MAP.get(action.libId);
     }
