@@ -17,7 +17,8 @@ This report provides an unvarnished, technical audit of the current Android / Na
 2. **Instance & Object Lifecycle:**
    - Object parent hierarchy resolution (`object_get_parent`, `object_set_parent`, `object_is_ancestor`).
    - Instance creation, destruction, depth sorting, and layer spawning (`gm82_spawn_instance_layer`).
-   - Instance activation and deactivation (`instance_deactivate_all`, `instance_deactivate_object`, `instance_activate_all`, `instance_activate_object`).
+   - Instance activation and deactivation (`instance_deactivate_all`, `instance_deactivate_object`, `instance_deactivate_region`, `instance_activate_all`, `instance_activate_object`, `instance_activate_region`).
+   - Instance spatial queries (`instance_nearest`, `instance_farthest`, `instance_nth_nearest`, `instance_nth_farthest`).
    - Motion kinematics (`speed`, `direction`, `hspeed`, `vspeed`, `gravity`, `gravity_direction`, `friction`).
    - Frame step synchronization (`xprevious`, `yprevious`, `xstart`, `ystart`).
 
@@ -35,7 +36,8 @@ This report provides an unvarnished, technical audit of the current Android / Na
    - Data Structures: `ds_list_*`, `ds_map_*`, `ds_grid_*`, `ds_queue_*`, `ds_stack_*`, `ds_priority_*`.
    - GM82 Math & Utility Polyfills: `modwrap`, `approach`, `lerproach`, `smoothstep`, `point_in_circle`, `point_in_rectangle`, `point_in_triangle`, `circle_in_circle`, `rectangle_in_rectangle`, `pack_bools`, `unpack_bool`.
    - Object Inheritance: `object_set_parent`, `object_get_parent`, `object_is_ancestor`.
-   - Instance Activation: `instance_deactivate_all`, `instance_deactivate_object`, `instance_activate_all`, `instance_activate_object`.
+   - Instance Activation & Queries: `instance_deactivate_all`, `instance_deactivate_object`, `instance_deactivate_region`, `instance_activate_all`, `instance_activate_object`, `instance_activate_region`, `instance_nearest`, `instance_farthest`, `instance_nth_nearest`, `instance_nth_farthest`.
+   - String & Data Structure Utilities: `string_trim`, `string_contains`, `string_starts_with`, `string_ends_with`, `ds_list_add_list`, `ds_map_add_map`, `get_timer`, `parameter_count`, `parameter_string`, `game_restart_soft`.
    - Motion Planning: `mp_linear_step`, `mp_linear_step_object`, `math_set_epsilon`, `math_get_epsilon`.
    - INI Storage: `ini_open`, `ini_read_real`, `ini_write_real`, `ini_read_string`, `ini_write_string`, `ini_close`, `ini_key_delete`, `ini_section_delete`.
    - Drawing & Audio Dispatchers: `draw_sprite_ext`, `draw_text_transformed`, `audio_play_sound`, `audio_is_playing`, `audio_stop_sound`.

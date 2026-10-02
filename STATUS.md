@@ -5,7 +5,7 @@
 All native host test binaries compile with zero warnings (-Wall -Wextra -Wno-unused-parameter) and all TypeScript compilation checks pass with zero errors.
 
 ### Native Host Core Tests (`test_full_suite.c`)
-- **Status:** PASS (17/17 test suites passing)
+- **Status:** PASS (18/18 test suites passing)
 - **Suites Executed:**
   1. `test_gmk_probe_suite`: PASS
   2. `test_gml_vm_suite`: PASS
@@ -22,8 +22,9 @@ All native host test binaries compile with zero warnings (-Wall -Wextra -Wno-unu
   13. `test_gm82_geometry_and_utility_suite`: PASS
   14. `test_retro_rom_suite`: PASS
   15. `test_gm82_project_simulation_suite`: PASS
-  16. `test_community_20_fixtures_suite`: PASS (20+ Community Game Fixtures & DIB Bitmaps Verified)
-  17. `core_validation_contract_suite`: PASS (gmk_probe_contract_test, gml_do_until_test, gml_invoke_test, core_benchmark)
+  16. `test_new_gm82_core_functions_suite`: PASS (Extended region activation/deactivation, nth nearest/farthest, string trim/contains, get_timer, parameter queries)
+  17. `test_community_20_fixtures_suite`: PASS (20+ Community Game Fixtures & DIB Bitmaps Verified)
+  18. `core_validation_contract_suite`: PASS (gmk_probe_contract_test, gml_do_until_test, gml_invoke_test, core_benchmark)
 
 ### Auxiliary C Native Executables
 - `test_gmk_probe`: PASS (Format probe and header version detection)

@@ -459,6 +459,47 @@ void test_gm82_project_simulation_suite(void) {
     printf("[PASS] GM82 Project Simulation Suite\n");
 }
 
+void test_new_gm82_core_functions_suite(void) {
+    const char *code =
+        "str = string_trim(\"   Hello GM82   \");\n"
+        "c1 = string_contains(str, \"GM82\");\n"
+        "s1 = string_starts_with(str, \"Hello\");\n"
+        "e1 = string_ends_with(str, \"GM82\");\n"
+        "l1 = ds_list_create(); ds_list_add(l1, 10, 20);\n"
+        "l2 = ds_list_create(); ds_list_add(l2, 30, 40);\n"
+        "ds_list_add_list(l1, l2);\n"
+        "sz = ds_list_size(l1);\n"
+        "m1 = ds_map_create(); m2 = ds_map_create();\n"
+        "ds_map_add(m2, \"key\", 99);\n"
+        "ds_map_add_map(m1, \"submap\", m2);\n"
+        "has_m = ds_map_exists(m1, \"submap\");\n"
+        "ds_list_destroy(l1); ds_list_destroy(l2);\n"
+        "ds_map_destroy(m1); ds_map_destroy(m2);\n"
+        "tm = get_timer();\n"
+        "pc = parameter_count();\n"
+        "ps = parameter_string(0);\n"
+        "return (c1 && s1 && e1 && sz == 4 && has_m && tm > 0.0) ? 1.0 : 0.0;\n";
+
+    gml_ast *ast = NULL;
+    char err[160] = {0};
+    int parse_ok = gml_parse_program(code, &ast, err, sizeof(err));
+    assert(parse_ok);
+
+    gml_vm vm;
+    gml_vm_init(&vm);
+    gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+
+    int exec_ok = gml_vm_execute(&vm, ast);
+    if (!exec_ok) { printf("VM Error: %s\n", vm.error); fflush(stdout); }
+    assert(exec_ok);
+    assert(vm.returned);
+    assert(vm.return_value.real == 1.0);
+
+    gml_ast_free(ast);
+
+    printf("[PASS] New GM82 Core Functions Suite\n");
+}
+
 void test_community_20_fixtures_suite(void) {
     uint8_t sample_dib[40 + 3 * 2 * 2 + 8] = {0};
     sample_dib[0] = 40;
@@ -533,6 +574,7 @@ int main(void) {
     test_gm82_geometry_and_utility_suite();
     test_retro_rom_suite();
     test_gm82_project_simulation_suite();
+    test_new_gm82_core_functions_suite();
     test_community_20_fixtures_suite();
     printf("--- All Native Host Tests Passed! ---\n");
     return 0;

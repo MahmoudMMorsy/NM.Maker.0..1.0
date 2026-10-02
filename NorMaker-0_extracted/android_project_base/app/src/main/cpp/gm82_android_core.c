@@ -2028,6 +2028,25 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
         gm82_instance_deactivate_object_internal(self, target_obj);
         *out = gml_value_bool(1); return 1;
     }
+    if (!strcmp(name, "instance_deactivate_region") && count >= 6) {
+        float left = (float)gm82_num_val(args[0]);
+        float top = (float)gm82_num_val(args[1]);
+        float w = (float)gm82_num_val(args[2]);
+        float h = (float)gm82_num_val(args[3]);
+        int inside = args[4].kind == GML_V_BOOL ? args[4].boolean : (args[4].kind == GML_V_REAL && args[4].real != 0.0);
+        int notme = args[5].kind == GML_V_BOOL ? args[5].boolean : (args[5].kind == GML_V_REAL && args[5].real != 0.0);
+        float right = left + w, bottom = top + h;
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            Gm82Instance *it = &g_runtime.instances[i];
+            if (!it->active) continue;
+            if (notme && self && it->id == self->id) continue;
+            int overlap = gm82_instance_overlaps_rect(it, left, top, right, bottom);
+            if ((inside && overlap) || (!inside && !overlap)) {
+                it->deactivated = 1;
+            }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
     if (!strcmp(name, "instance_activate_all") && count == 0) {
         gm82_instance_activate_all_internal();
         *out = gml_value_bool(1); return 1;
@@ -2035,6 +2054,158 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
     if (!strcmp(name, "instance_activate_object") && count == 1) {
         int target_obj = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1);
         gm82_instance_activate_object_internal(target_obj);
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "instance_activate_region") && count == 5) {
+        float left = (float)gm82_num_val(args[0]);
+        float top = (float)gm82_num_val(args[1]);
+        float w = (float)gm82_num_val(args[2]);
+        float h = (float)gm82_num_val(args[3]);
+        int inside = args[4].kind == GML_V_BOOL ? args[4].boolean : (args[4].kind == GML_V_REAL && args[4].real != 0.0);
+        float right = left + w, bottom = top + h;
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            Gm82Instance *it = &g_runtime.instances[i];
+            if (!it->active) continue;
+            int overlap = gm82_instance_overlaps_rect(it, left, top, right, bottom);
+            if ((inside && overlap) || (!inside && !overlap)) {
+                it->deactivated = 0;
+            }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "instance_farthest") && count == 3) {
+        float x = (float)gm82_num_val(args[0]), y = (float)gm82_num_val(args[1]);
+        int object_id = (int)gm82_num_val(args[2]), result = -1;
+        float best = -1.0f;
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            Gm82Instance *other = &g_runtime.instances[i];
+            if (!gm82_instance_matches(other, self, object_id)) continue;
+            float dx = other->x - x, dy = other->y - y, distance = dx * dx + dy * dy;
+            if (distance > best) { best = distance; result = other->id; }
+        }
+        *out = gml_value_real((double)result); return 1;
+    }
+    if (!strcmp(name, "instance_nth_nearest") && count == 4) {
+        float x = (float)gm82_num_val(args[0]), y = (float)gm82_num_val(args[1]);
+        int object_id = (int)gm82_num_val(args[2]);
+        int n = (int)gm82_num_val(args[3]);
+        if (n < 1) n = 1;
+        typedef struct { int id; float dist; } DistPair;
+        DistPair list[GM82_MAX_INSTANCES];
+        int count_list = 0;
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            Gm82Instance *other = &g_runtime.instances[i];
+            if (!gm82_instance_matches(other, self, object_id)) continue;
+            float dx = other->x - x, dy = other->y - y;
+            list[count_list].id = other->id;
+            list[count_list].dist = dx * dx + dy * dy;
+            count_list++;
+        }
+        for (int i = 0; i < count_list; ++i) {
+            for (int j = i + 1; j < count_list; ++j) {
+                if (list[i].dist > list[j].dist) { DistPair tmp = list[i]; list[i] = list[j]; list[j] = tmp; }
+            }
+        }
+        int res = (n <= count_list) ? list[n - 1].id : -1;
+        *out = gml_value_real((double)res); return 1;
+    }
+    if (!strcmp(name, "instance_nth_farthest") && count == 4) {
+        float x = (float)gm82_num_val(args[0]), y = (float)gm82_num_val(args[1]);
+        int object_id = (int)gm82_num_val(args[2]);
+        int n = (int)gm82_num_val(args[3]);
+        if (n < 1) n = 1;
+        typedef struct { int id; float dist; } DistPair;
+        DistPair list[GM82_MAX_INSTANCES];
+        int count_list = 0;
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            Gm82Instance *other = &g_runtime.instances[i];
+            if (!gm82_instance_matches(other, self, object_id)) continue;
+            float dx = other->x - x, dy = other->y - y;
+            list[count_list].id = other->id;
+            list[count_list].dist = dx * dx + dy * dy;
+            count_list++;
+        }
+        for (int i = 0; i < count_list; ++i) {
+            for (int j = i + 1; j < count_list; ++j) {
+                if (list[i].dist < list[j].dist) { DistPair tmp = list[i]; list[i] = list[j]; list[j] = tmp; }
+            }
+        }
+        int res = (n <= count_list) ? list[n - 1].id : -1;
+        *out = gml_value_real((double)res); return 1;
+    }
+    if (!strcmp(name, "string_trim") && count == 1) {
+        const char *s = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        while (isspace((unsigned char)*s)) s++;
+        size_t len = strlen(s);
+        while (len > 0 && isspace((unsigned char)s[len - 1])) len--;
+        char *buf = (char *)malloc(len + 1);
+        if (buf) { memcpy(buf, s, len); buf[len] = 0; *out = gml_value_string(buf); free(buf); }
+        else *out = gml_value_string("");
+        return 1;
+    }
+    if (!strcmp(name, "string_contains") && count == 2) {
+        const char *str = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        const char *sub = args[1].kind == GML_V_STRING && args[1].string ? args[1].string : "";
+        *out = gml_value_bool(strstr(str, sub) != NULL); return 1;
+    }
+    if (!strcmp(name, "string_starts_with") && count == 2) {
+        const char *str = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        const char *prefix = args[1].kind == GML_V_STRING && args[1].string ? args[1].string : "";
+        *out = gml_value_bool(strncmp(str, prefix, strlen(prefix)) == 0); return 1;
+    }
+    if (!strcmp(name, "string_ends_with") && count == 2) {
+        const char *str = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        const char *suffix = args[1].kind == GML_V_STRING && args[1].string ? args[1].string : "";
+        size_t len_str = strlen(str), len_suf = strlen(suffix);
+        *out = gml_value_bool(len_str >= len_suf && strcmp(str + (len_str - len_suf), suffix) == 0); return 1;
+    }
+    if (!strcmp(name, "ds_list_add_list") && count == 2) {
+        int id1 = gm82_ds_handle(&args[0]) - 1, id2 = gm82_ds_handle(&args[1]) - 1;
+        if (id1 >= 0 && id1 < GM82_DS_MAX && g_ds_lists[id1].active &&
+            id2 >= 0 && id2 < GM82_DS_MAX && g_ds_lists[id2].active) {
+            for (size_t i = 0; i < g_ds_lists[id2].count && g_ds_lists[id1].count < GM82_DS_CAP; ++i) {
+                g_ds_lists[id1].items[g_ds_lists[id1].count++] = gm82_clone_value(&g_ds_lists[id2].items[i]);
+            }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "ds_map_add_map") && count == 3) {
+        int id1 = gm82_ds_handle(&args[0]) - 1;
+        const char *key = gm82_ds_key(&args[1]);
+        int id2 = gm82_ds_handle(&args[2]) - 1;
+        if (id1 >= 0 && id1 < GM82_DS_MAX && g_ds_maps[id1].active && *key &&
+            id2 >= 0 && id2 < GM82_DS_MAX && g_ds_maps[id2].active) {
+            gml_value map_val = gml_value_real((double)(id2 + 1));
+            size_t slot = g_ds_maps[id1].count;
+            for (size_t i = 0; i < g_ds_maps[id1].count; ++i) if (!strcmp(g_ds_maps[id1].keys[i], key)) { slot = i; break; }
+            if (slot < GM82_DS_CAP) {
+                if (slot == g_ds_maps[id1].count) g_ds_maps[id1].count++;
+                snprintf(g_ds_maps[id1].keys[slot], GM82_DS_KEY_CAP, "%s", key);
+                gml_value_free(&g_ds_maps[id1].values[slot]);
+                g_ds_maps[id1].values[slot] = map_val;
+            }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "get_timer") && count == 0) {
+        struct timespec ts;
+        clock_gettime(CLOCK_MONOTONIC, &ts);
+        uint64_t micros = (uint64_t)ts.tv_sec * 1000000u + (uint64_t)(ts.tv_nsec / 1000u);
+        *out = gml_value_real((double)micros); return 1;
+    }
+    if (!strcmp(name, "parameter_count") && count == 0) {
+        *out = gml_value_real(0.0); return 1;
+    }
+    if (!strcmp(name, "parameter_string") && count == 1) {
+        *out = gml_value_string(""); return 1;
+    }
+    if (!strcmp(name, "game_restart_soft") && count == 0) {
+        gm82_runtime_clear_room_transient();
+        if (g_runtime.room_started) gm82_dispatch_other_event(5);
+        g_runtime.room_started = 0;
+        for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+            if (g_runtime.instances[i].active && !g_runtime.instances[i].persistent) g_runtime.instances[i].active = 0;
+        }
         *out = gml_value_bool(1); return 1;
     }
     if (!strcmp(name, "instance_exists") && count == 1) {
