@@ -39,3 +39,7 @@
 ## 2026-10-12 - Hoisting Static Configurations and JSX Trees Out of Component Render Bodies
 **Learning:** Defining static config arrays containing complex objects or JSX trees (like template lists with icons) inside component render bodies re-allocates all items on every keystroke or state change. Hoisting static configuration arrays to module scope and memoizing set lookups for array membership checks avoids GC allocation churn and reduces array searches to $O(1)$.
 **Action:** Always place static configuration lists and immutable JSX element templates at module scope outside component functions, and wrap item selection collections in `React.useMemo` for $O(1)$ set checks.
+
+## 2026-10-18 - Action Code Generation O(N) Array Search Elimination via Map and WeakMap Caching
+**Learning:** Functions like `generateActionCode` that map action definitions during code generation/compilation often receive arrays (e.g. `EXTERNAL_ACTIONS`) as parameter fallbacks. Performing `externalActions.find(...)` inside loops generates $O(N)$ linear scans per action across every event and object. Short-circuiting reference equality to static `EXTERNAL_ACTION_MAP` and caching custom arrays in a `WeakMap` converts code generation action resolution to $O(1)$ constant time without leaking memory.
+**Action:** When helper functions take array parameters for lookups, check for static pre-indexed Map constants or use a `WeakMap` to lazily index and cache the array parameter to $O(1)$ Map lookups.
