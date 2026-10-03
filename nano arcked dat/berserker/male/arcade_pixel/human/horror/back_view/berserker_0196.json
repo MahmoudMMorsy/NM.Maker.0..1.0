@@ -1,0 +1,28 @@
+{
+  "file": "berserker_0196.png",
+  "type": "berserker",
+  "gender": "male",
+  "race": "human",
+  "style": "arcade_pixel",
+  "source": "horror",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "great_axe",
+    "warpaint",
+    "fur_trim",
+    "muscular",
+    "rage",
+    "male",
+    "human",
+    "arcade_pixel",
+    "back_view",
+    "bright",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural arcade_pixel sprite of berserker (human male)"
+}

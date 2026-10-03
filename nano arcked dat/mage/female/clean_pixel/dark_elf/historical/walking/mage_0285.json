@@ -1,0 +1,28 @@
+{
+  "file": "mage_0285.png",
+  "type": "mage",
+  "gender": "female",
+  "race": "dark_elf",
+  "style": "clean_pixel",
+  "source": "historical",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "robe",
+    "staff",
+    "magic_circle",
+    "glowing_eyes",
+    "spells",
+    "female",
+    "dark_elf",
+    "clean_pixel",
+    "walking",
+    "white",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural clean_pixel sprite of mage (dark_elf female)"
+}

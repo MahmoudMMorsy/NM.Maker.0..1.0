@@ -1,0 +1,28 @@
+{
+  "file": "golem_0315.png",
+  "type": "golem",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "retro_16bit",
+  "source": "generic",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "stone_body",
+    "runic_core",
+    "massive",
+    "rocky",
+    "construct",
+    "genderless",
+    "elemental",
+    "retro_16bit",
+    "attacking",
+    "silver",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_16bit sprite of golem (elemental genderless)"
+}

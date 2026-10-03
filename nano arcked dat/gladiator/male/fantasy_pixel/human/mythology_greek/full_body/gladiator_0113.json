@@ -1,0 +1,29 @@
+{
+  "file": "gladiator_0113.png",
+  "type": "gladiator",
+  "gender": "male",
+  "race": "human",
+  "style": "fantasy_pixel",
+  "source": "mythology_greek",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "trident",
+    "net",
+    "arena_armor",
+    "scars",
+    "muscular",
+    "male",
+    "human",
+    "fantasy_pixel",
+    "full_body",
+    "red",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural fantasy_pixel sprite of gladiator (human male)"
+}

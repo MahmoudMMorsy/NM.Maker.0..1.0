@@ -1,0 +1,29 @@
+{
+  "file": "scholar_0256.png",
+  "type": "scholar",
+  "gender": "female",
+  "race": "elf",
+  "style": "fantasy_pixel",
+  "source": "sci_fi",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "spectacles",
+    "thick_book",
+    "scrolls",
+    "ink_quill",
+    "robe",
+    "female",
+    "elf",
+    "fantasy_pixel",
+    "idle",
+    "black",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural fantasy_pixel sprite of scholar (elf female)"
+}

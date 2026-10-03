@@ -1,0 +1,29 @@
+{
+  "file": "ninja_0298.png",
+  "type": "ninja",
+  "gender": "male",
+  "race": "human",
+  "style": "clean_pixel",
+  "source": "sci_fi",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "shuriken",
+    "ninjato",
+    "black_garb",
+    "smokebomb",
+    "mask",
+    "male",
+    "human",
+    "clean_pixel",
+    "idle",
+    "black",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural clean_pixel sprite of ninja (human male)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "assassin_0383.png",
+  "type": "assassin",
+  "gender": "male",
+  "race": "human",
+  "style": "chibi",
+  "source": "cyberpunk",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "dual_wield",
+    "blades",
+    "shadow",
+    "poison_vial",
+    "hooded",
+    "male",
+    "human",
+    "chibi",
+    "walking",
+    "white",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural chibi sprite of assassin (human male)"
+}

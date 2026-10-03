@@ -1,0 +1,28 @@
+{
+  "file": "staff_0264.png",
+  "type": "staff",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "realistic_pixel",
+  "source": "historical",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "carved_wood",
+    "gemstone_tip",
+    "magical",
+    "focus",
+    "conduit",
+    "genderless",
+    "elemental",
+    "realistic_pixel",
+    "side_view",
+    "multicolor",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural realistic_pixel sprite of staff (elemental genderless)"
+}

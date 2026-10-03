@@ -1,0 +1,27 @@
+{
+  "file": "assassin_0195.png",
+  "type": "assassin",
+  "gender": "male",
+  "race": "human",
+  "style": "detailed_pixel",
+  "source": "steampunk",
+  "pose": "front_view",
+  "colors": [
+    "dark",
+    "blue"
+  ],
+  "tags": [
+    "dual_wield",
+    "blades",
+    "shadow",
+    "poison_vial",
+    "hooded",
+    "male",
+    "human",
+    "detailed_pixel",
+    "front_view",
+    "dark"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural detailed_pixel sprite of assassin (human male)"
+}

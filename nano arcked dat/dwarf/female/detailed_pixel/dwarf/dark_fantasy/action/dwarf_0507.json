@@ -1,0 +1,28 @@
+{
+  "file": "dwarf_0507.png",
+  "type": "dwarf",
+  "gender": "female",
+  "race": "dwarf",
+  "style": "detailed_pixel",
+  "source": "dark_fantasy",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "braided_beard",
+    "war_hammer",
+    "heavy_shield",
+    "stout",
+    "sturdy",
+    "female",
+    "dwarf",
+    "detailed_pixel",
+    "action",
+    "green",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural detailed_pixel sprite of dwarf (dwarf female)"
+}

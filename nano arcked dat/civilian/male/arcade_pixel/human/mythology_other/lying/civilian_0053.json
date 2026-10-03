@@ -1,0 +1,28 @@
+{
+  "file": "civilian_0053.png",
+  "type": "civilian",
+  "gender": "male",
+  "race": "human",
+  "style": "arcade_pixel",
+  "source": "mythology_other",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "simple_clothes",
+    "basket",
+    "townsperson",
+    "friendly",
+    "apron",
+    "male",
+    "human",
+    "arcade_pixel",
+    "lying",
+    "brown",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural arcade_pixel sprite of civilian (human male)"
+}

@@ -1,0 +1,27 @@
+{
+  "file": "paladin_0103.png",
+  "type": "paladin",
+  "gender": "male",
+  "race": "human",
+  "style": "clean_pixel",
+  "source": "comic",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "golden_armor",
+    "hammer",
+    "holy_aura",
+    "banner",
+    "shield",
+    "male",
+    "human",
+    "clean_pixel",
+    "walking",
+    "white"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural clean_pixel sprite of paladin (human male)"
+}

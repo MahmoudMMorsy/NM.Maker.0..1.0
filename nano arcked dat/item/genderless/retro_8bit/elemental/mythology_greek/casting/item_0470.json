@@ -1,0 +1,28 @@
+{
+  "file": "item_0470.png",
+  "type": "item",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "retro_8bit",
+  "source": "mythology_greek",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "artifact",
+    "quest_object",
+    "mysterious",
+    "valuable",
+    "relic",
+    "genderless",
+    "elemental",
+    "retro_8bit",
+    "casting",
+    "purple",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural retro_8bit sprite of item (elemental genderless)"
+}

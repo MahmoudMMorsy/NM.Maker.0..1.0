@@ -1,0 +1,29 @@
+{
+  "file": "beast_0399.png",
+  "type": "beast",
+  "gender": "non_human",
+  "race": "animal_like",
+  "style": "fantasy_pixel",
+  "source": "generic",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "claws",
+    "fur",
+    "fangs",
+    "wild",
+    "quadruped",
+    "non_human",
+    "animal_like",
+    "fantasy_pixel",
+    "attacking",
+    "silver",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural fantasy_pixel sprite of beast (animal_like non_human)"
+}

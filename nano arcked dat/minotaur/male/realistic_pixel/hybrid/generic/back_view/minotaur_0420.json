@@ -1,0 +1,27 @@
+{
+  "file": "minotaur_0420.png",
+  "type": "minotaur",
+  "gender": "male",
+  "race": "hybrid",
+  "style": "realistic_pixel",
+  "source": "generic",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "bull_head",
+    "labrys_axe",
+    "hooves",
+    "ring_nose",
+    "muscular",
+    "male",
+    "hybrid",
+    "realistic_pixel",
+    "back_view",
+    "bright"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural realistic_pixel sprite of minotaur (hybrid male)"
+}

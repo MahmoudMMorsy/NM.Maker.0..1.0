@@ -1,0 +1,28 @@
+{
+  "file": "necromancer_0386.png",
+  "type": "necromancer",
+  "gender": "female",
+  "race": "undead",
+  "style": "fantasy_pixel",
+  "source": "mythology_greek",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "skull_staff",
+    "dark_magic",
+    "tattered_robe",
+    "glowing_eyes",
+    "bones",
+    "female",
+    "undead",
+    "fantasy_pixel",
+    "casting",
+    "purple",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural fantasy_pixel sprite of necromancer (undead female)"
+}

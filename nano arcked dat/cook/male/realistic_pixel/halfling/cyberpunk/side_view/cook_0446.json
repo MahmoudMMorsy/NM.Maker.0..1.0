@@ -1,0 +1,28 @@
+{
+  "file": "cook_0446.png",
+  "type": "cook",
+  "gender": "male",
+  "race": "halfling",
+  "style": "realistic_pixel",
+  "source": "cyberpunk",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "chef_hat",
+    "ladle",
+    "frying_pan",
+    "apron",
+    "plump",
+    "male",
+    "halfling",
+    "realistic_pixel",
+    "side_view",
+    "multicolor",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural realistic_pixel sprite of cook (halfling male)"
+}

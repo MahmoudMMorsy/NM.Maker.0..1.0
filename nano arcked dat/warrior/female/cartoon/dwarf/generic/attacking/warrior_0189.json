@@ -1,0 +1,29 @@
+{
+  "file": "warrior_0189.png",
+  "type": "warrior",
+  "gender": "female",
+  "race": "dwarf",
+  "style": "cartoon",
+  "source": "generic",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "armor",
+    "sword",
+    "shield",
+    "helmet",
+    "muscular",
+    "female",
+    "dwarf",
+    "cartoon",
+    "attacking",
+    "silver",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural cartoon sprite of warrior (dwarf female)"
+}

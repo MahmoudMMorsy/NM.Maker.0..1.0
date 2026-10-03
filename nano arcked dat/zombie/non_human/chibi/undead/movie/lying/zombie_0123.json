@@ -1,0 +1,29 @@
+{
+  "file": "zombie_0123.png",
+  "type": "zombie",
+  "gender": "non_human",
+  "race": "undead",
+  "style": "chibi",
+  "source": "movie",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "rotting",
+    "shuffling",
+    "torn_clothes",
+    "pale",
+    "walker",
+    "non_human",
+    "undead",
+    "chibi",
+    "lying",
+    "brown",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural chibi sprite of zombie (undead non_human)"
+}

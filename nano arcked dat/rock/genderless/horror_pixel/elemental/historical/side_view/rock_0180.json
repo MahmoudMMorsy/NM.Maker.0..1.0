@@ -1,0 +1,28 @@
+{
+  "file": "rock_0180.png",
+  "type": "rock",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "horror_pixel",
+  "source": "historical",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "boulder",
+    "mossy",
+    "jagged",
+    "mineral",
+    "stone",
+    "genderless",
+    "elemental",
+    "horror_pixel",
+    "side_view",
+    "multicolor",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural horror_pixel sprite of rock (elemental genderless)"
+}

@@ -1,0 +1,27 @@
+{
+  "file": "gun_0079.png",
+  "type": "gun",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "arcade_pixel",
+  "source": "anime_series",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "barrel",
+    "trigger",
+    "firearm",
+    "bullet",
+    "tech",
+    "genderless",
+    "elemental",
+    "arcade_pixel",
+    "sitting",
+    "orange"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural arcade_pixel sprite of gun (elemental genderless)"
+}

@@ -1,0 +1,27 @@
+{
+  "file": "helmet_0075.png",
+  "type": "helmet",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "sci_fi_pixel",
+  "source": "historical",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "visor",
+    "plume",
+    "headgear",
+    "steel",
+    "guard",
+    "genderless",
+    "elemental",
+    "sci_fi_pixel",
+    "walking",
+    "white"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural sci_fi_pixel sprite of helmet (elemental genderless)"
+}

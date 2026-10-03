@@ -1,0 +1,29 @@
+{
+  "file": "rock_0086.png",
+  "type": "rock",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "dark_fantasy",
+  "source": "rpg_fantasy",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "boulder",
+    "mossy",
+    "jagged",
+    "mineral",
+    "stone",
+    "genderless",
+    "elemental",
+    "dark_fantasy",
+    "portrait",
+    "blue",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural dark_fantasy sprite of rock (elemental genderless)"
+}

@@ -1,0 +1,29 @@
+{
+  "file": "zombie_0499.png",
+  "type": "zombie",
+  "gender": "male",
+  "race": "undead",
+  "style": "anime_pixel",
+  "source": "anime_series",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "rotting",
+    "shuffling",
+    "torn_clothes",
+    "pale",
+    "walker",
+    "male",
+    "undead",
+    "anime_pixel",
+    "sitting",
+    "orange",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural anime_pixel sprite of zombie (undead male)"
+}

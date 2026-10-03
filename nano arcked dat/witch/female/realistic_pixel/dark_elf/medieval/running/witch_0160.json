@@ -1,0 +1,28 @@
+{
+  "file": "witch_0160.png",
+  "type": "witch",
+  "gender": "female",
+  "race": "dark_elf",
+  "style": "realistic_pixel",
+  "source": "medieval",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "pointed_hat",
+    "cauldron",
+    "broomstick",
+    "black_cat",
+    "curse",
+    "female",
+    "dark_elf",
+    "realistic_pixel",
+    "running",
+    "gold",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural realistic_pixel sprite of witch (dark_elf female)"
+}

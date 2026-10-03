@@ -1,0 +1,27 @@
+{
+  "file": "cyborg_0142.png",
+  "type": "cyborg",
+  "gender": "female",
+  "race": "cyborg",
+  "style": "clean_pixel",
+  "source": "anime_series",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "cybernetic_arm",
+    "ocular_implants",
+    "wires",
+    "plating",
+    "tech",
+    "female",
+    "cyborg",
+    "clean_pixel",
+    "portrait",
+    "blue"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural clean_pixel sprite of cyborg (cyborg female)"
+}

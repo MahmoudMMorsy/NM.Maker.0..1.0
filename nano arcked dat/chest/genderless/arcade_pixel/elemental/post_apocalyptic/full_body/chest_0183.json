@@ -1,0 +1,29 @@
+{
+  "file": "chest_0183.png",
+  "type": "chest",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "arcade_pixel",
+  "source": "post_apocalyptic",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "wooden_planks",
+    "iron_bands",
+    "padlock",
+    "treasure",
+    "container",
+    "genderless",
+    "elemental",
+    "arcade_pixel",
+    "full_body",
+    "red",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural arcade_pixel sprite of chest (elemental genderless)"
+}

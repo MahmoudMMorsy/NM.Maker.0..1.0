@@ -1,0 +1,27 @@
+{
+  "file": "elder_0249.png",
+  "type": "elder",
+  "gender": "female",
+  "race": "human",
+  "style": "retro_8bit",
+  "source": "movie",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "walking_stick",
+    "wrinkled",
+    "grey_hair",
+    "long_beard",
+    "wise",
+    "female",
+    "human",
+    "retro_8bit",
+    "lying",
+    "brown"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_8bit sprite of elder (human female)"
+}

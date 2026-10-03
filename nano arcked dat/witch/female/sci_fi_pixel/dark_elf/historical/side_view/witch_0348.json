@@ -1,0 +1,27 @@
+{
+  "file": "witch_0348.png",
+  "type": "witch",
+  "gender": "female",
+  "race": "dark_elf",
+  "style": "sci_fi_pixel",
+  "source": "historical",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "pointed_hat",
+    "cauldron",
+    "broomstick",
+    "black_cat",
+    "curse",
+    "female",
+    "dark_elf",
+    "sci_fi_pixel",
+    "side_view",
+    "multicolor"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural sci_fi_pixel sprite of witch (dark_elf female)"
+}

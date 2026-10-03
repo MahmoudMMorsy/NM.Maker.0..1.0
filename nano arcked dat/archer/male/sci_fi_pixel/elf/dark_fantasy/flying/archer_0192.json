@@ -1,0 +1,28 @@
+{
+  "file": "archer_0192.png",
+  "type": "archer",
+  "gender": "male",
+  "race": "elf",
+  "style": "sci_fi_pixel",
+  "source": "dark_fantasy",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "bow",
+    "quiver",
+    "leather_armor",
+    "agile",
+    "hood",
+    "male",
+    "elf",
+    "sci_fi_pixel",
+    "flying",
+    "pink",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural sci_fi_pixel sprite of archer (elf male)"
+}

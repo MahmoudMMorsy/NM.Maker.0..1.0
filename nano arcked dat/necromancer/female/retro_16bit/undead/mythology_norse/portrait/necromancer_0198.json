@@ -1,0 +1,28 @@
+{
+  "file": "necromancer_0198.png",
+  "type": "necromancer",
+  "gender": "female",
+  "race": "undead",
+  "style": "retro_16bit",
+  "source": "mythology_norse",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "skull_staff",
+    "dark_magic",
+    "tattered_robe",
+    "glowing_eyes",
+    "bones",
+    "female",
+    "undead",
+    "retro_16bit",
+    "portrait",
+    "blue",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_16bit sprite of necromancer (undead female)"
+}

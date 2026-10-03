@@ -1,0 +1,29 @@
+{
+  "file": "dancer_0163.png",
+  "type": "dancer",
+  "gender": "male",
+  "race": "human",
+  "style": "cartoon",
+  "source": "anime_series",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "flowing_veils",
+    "cymbals",
+    "agile",
+    "ribbons",
+    "costume",
+    "male",
+    "human",
+    "cartoon",
+    "sitting",
+    "orange",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural cartoon sprite of dancer (human male)"
+}

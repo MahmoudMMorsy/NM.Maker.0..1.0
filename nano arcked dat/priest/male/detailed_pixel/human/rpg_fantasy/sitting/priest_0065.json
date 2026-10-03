@@ -1,0 +1,27 @@
+{
+  "file": "priest_0065.png",
+  "type": "priest",
+  "gender": "male",
+  "race": "human",
+  "style": "detailed_pixel",
+  "source": "rpg_fantasy",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "holy_symbol",
+    "white_robes",
+    "scroll",
+    "blessing",
+    "pious",
+    "male",
+    "human",
+    "detailed_pixel",
+    "sitting",
+    "orange"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural detailed_pixel sprite of priest (human male)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "soldier_0114.png",
+  "type": "soldier",
+  "gender": "male",
+  "race": "human",
+  "style": "sci_fi_pixel",
+  "source": "mythology_norse",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "rifle",
+    "tactical_vest",
+    "camo",
+    "combat_boots",
+    "helmet",
+    "male",
+    "human",
+    "sci_fi_pixel",
+    "portrait",
+    "blue",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural sci_fi_pixel sprite of soldier (human male)"
+}

@@ -1,0 +1,29 @@
+{
+  "file": "cyber_soldier_0022.png",
+  "type": "cyber_soldier",
+  "gender": "female",
+  "race": "human",
+  "style": "fantasy_pixel",
+  "source": "game_original",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "plasma_rifle",
+    "visor",
+    "exosuit",
+    "cyberware",
+    "neon",
+    "female",
+    "human",
+    "fantasy_pixel",
+    "casting",
+    "purple",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural fantasy_pixel sprite of cyber_soldier (human female)"
+}

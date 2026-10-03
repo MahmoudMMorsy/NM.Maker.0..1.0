@@ -1,0 +1,28 @@
+{
+  "file": "furniture_0468.png",
+  "type": "furniture",
+  "gender": "genderless",
+  "race": "human",
+  "style": "detailed_pixel",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "carved_wood",
+    "cushion",
+    "table_chair",
+    "decor",
+    "interior",
+    "genderless",
+    "human",
+    "detailed_pixel",
+    "running",
+    "gold",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural detailed_pixel sprite of furniture (human genderless)"
+}

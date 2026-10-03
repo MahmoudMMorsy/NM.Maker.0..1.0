@@ -1,0 +1,28 @@
+{
+  "file": "mermaid_0230.png",
+  "type": "mermaid",
+  "gender": "female",
+  "race": "merfolk",
+  "style": "fantasy_pixel",
+  "source": "oc_original",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "fish_tail",
+    "seashells",
+    "trident",
+    "flowing_hair",
+    "scales",
+    "female",
+    "merfolk",
+    "fantasy_pixel",
+    "running",
+    "gold",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural fantasy_pixel sprite of mermaid (merfolk female)"
+}

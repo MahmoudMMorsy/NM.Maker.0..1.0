@@ -1,0 +1,28 @@
+{
+  "file": "undead_0404.png",
+  "type": "undead",
+  "gender": "non_human",
+  "race": "undead",
+  "style": "arcade_pixel",
+  "source": "cyberpunk",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "decayed",
+    "glowing_eyes",
+    "tattered",
+    "dark_aura",
+    "cursed",
+    "non_human",
+    "undead",
+    "arcade_pixel",
+    "side_view",
+    "multicolor",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural arcade_pixel sprite of undead (undead non_human)"
+}

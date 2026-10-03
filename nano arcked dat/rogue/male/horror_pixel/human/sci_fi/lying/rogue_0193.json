@@ -1,0 +1,29 @@
+{
+  "file": "rogue_0193.png",
+  "type": "rogue",
+  "gender": "male",
+  "race": "human",
+  "style": "horror_pixel",
+  "source": "sci_fi",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "dagger",
+    "stealth",
+    "cloak",
+    "scars",
+    "mask",
+    "male",
+    "human",
+    "horror_pixel",
+    "lying",
+    "brown",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural horror_pixel sprite of rogue (human male)"
+}

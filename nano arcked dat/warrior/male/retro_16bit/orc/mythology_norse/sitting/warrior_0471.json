@@ -1,0 +1,28 @@
+{
+  "file": "warrior_0471.png",
+  "type": "warrior",
+  "gender": "male",
+  "race": "orc",
+  "style": "retro_16bit",
+  "source": "mythology_norse",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "armor",
+    "sword",
+    "shield",
+    "helmet",
+    "muscular",
+    "male",
+    "orc",
+    "retro_16bit",
+    "sitting",
+    "orange",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_16bit sprite of warrior (orc male)"
+}

@@ -1,0 +1,29 @@
+{
+  "file": "assassin_0007.png",
+  "type": "assassin",
+  "gender": "male",
+  "race": "dark_elf",
+  "style": "cartoon",
+  "source": "horror",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "dual_wield",
+    "blades",
+    "shadow",
+    "poison_vial",
+    "hooded",
+    "male",
+    "dark_elf",
+    "cartoon",
+    "attacking",
+    "silver",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural cartoon sprite of assassin (dark_elf male)"
+}

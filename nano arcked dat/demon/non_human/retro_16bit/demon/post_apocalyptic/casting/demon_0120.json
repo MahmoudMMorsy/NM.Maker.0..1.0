@@ -1,0 +1,29 @@
+{
+  "file": "demon_0120.png",
+  "type": "demon",
+  "gender": "non_human",
+  "race": "demon",
+  "style": "retro_16bit",
+  "source": "post_apocalyptic",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "horns",
+    "leathery_wings",
+    "red_skin",
+    "pitchfork",
+    "tail",
+    "non_human",
+    "demon",
+    "retro_16bit",
+    "casting",
+    "purple",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_16bit sprite of demon (demon non_human)"
+}

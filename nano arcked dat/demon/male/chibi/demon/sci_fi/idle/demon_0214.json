@@ -1,0 +1,28 @@
+{
+  "file": "demon_0214.png",
+  "type": "demon",
+  "gender": "male",
+  "race": "demon",
+  "style": "chibi",
+  "source": "sci_fi",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "horns",
+    "leathery_wings",
+    "red_skin",
+    "pitchfork",
+    "tail",
+    "male",
+    "demon",
+    "chibi",
+    "idle",
+    "black",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural chibi sprite of demon (demon male)"
+}

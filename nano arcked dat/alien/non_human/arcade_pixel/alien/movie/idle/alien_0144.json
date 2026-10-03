@@ -1,0 +1,28 @@
+{
+  "file": "alien_0144.png",
+  "type": "alien",
+  "gender": "non_human",
+  "race": "alien",
+  "style": "arcade_pixel",
+  "source": "movie",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "tentacles",
+    "multiple_eyes",
+    "bioluminescence",
+    "exoskeleton",
+    "space",
+    "non_human",
+    "alien",
+    "arcade_pixel",
+    "idle",
+    "black",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural arcade_pixel sprite of alien (alien non_human)"
+}

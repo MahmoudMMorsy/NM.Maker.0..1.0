@@ -1,0 +1,29 @@
+{
+  "file": "soldier_0396.png",
+  "type": "soldier",
+  "gender": "male",
+  "race": "human",
+  "style": "chibi",
+  "source": "movie",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "rifle",
+    "tactical_vest",
+    "camo",
+    "combat_boots",
+    "helmet",
+    "male",
+    "human",
+    "chibi",
+    "idle",
+    "black",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural chibi sprite of soldier (human male)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "thief_0201.png",
+  "type": "thief",
+  "gender": "male",
+  "race": "goblin",
+  "style": "chibi",
+  "source": "historical",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "pouch",
+    "lockpick",
+    "light_boots",
+    "shadows",
+    "sneaky",
+    "male",
+    "goblin",
+    "chibi",
+    "walking",
+    "white",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural chibi sprite of thief (goblin male)"
+}

@@ -1,0 +1,29 @@
+{
+  "file": "bard_0294.png",
+  "type": "bard",
+  "gender": "male",
+  "race": "human",
+  "style": "dark_fantasy",
+  "source": "generic",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "lute",
+    "feather_hat",
+    "colorful",
+    "charming",
+    "song",
+    "male",
+    "human",
+    "dark_fantasy",
+    "back_view",
+    "bright",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural dark_fantasy sprite of bard (human male)"
+}

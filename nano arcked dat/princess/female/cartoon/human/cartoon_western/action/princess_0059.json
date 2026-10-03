@@ -1,0 +1,29 @@
+{
+  "file": "princess_0059.png",
+  "type": "princess",
+  "gender": "female",
+  "race": "human",
+  "style": "cartoon",
+  "source": "cartoon_western",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "tiara",
+    "silk_gown",
+    "fan",
+    "graceful",
+    "noble",
+    "female",
+    "human",
+    "cartoon",
+    "action",
+    "green",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural cartoon sprite of princess (human female)"
+}

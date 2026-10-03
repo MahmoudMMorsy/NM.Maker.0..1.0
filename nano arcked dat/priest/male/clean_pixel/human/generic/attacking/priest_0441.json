@@ -1,0 +1,27 @@
+{
+  "file": "priest_0441.png",
+  "type": "priest",
+  "gender": "male",
+  "race": "human",
+  "style": "clean_pixel",
+  "source": "generic",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "holy_symbol",
+    "white_robes",
+    "scroll",
+    "blessing",
+    "pious",
+    "male",
+    "human",
+    "clean_pixel",
+    "attacking",
+    "silver"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural clean_pixel sprite of priest (human male)"
+}

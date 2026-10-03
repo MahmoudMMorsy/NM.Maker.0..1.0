@@ -1,0 +1,28 @@
+{
+  "file": "shield_0168.png",
+  "type": "shield",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "clean_pixel",
+  "source": "generic",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "crested",
+    "wood_iron",
+    "sturdy",
+    "blocker",
+    "defense",
+    "genderless",
+    "elemental",
+    "clean_pixel",
+    "back_view",
+    "bright",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural clean_pixel sprite of shield (elemental genderless)"
+}

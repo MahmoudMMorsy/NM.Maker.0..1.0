@@ -1,0 +1,28 @@
+{
+  "file": "gun_0361.png",
+  "type": "gun",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "sci_fi_pixel",
+  "source": "sci_fi",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "barrel",
+    "trigger",
+    "firearm",
+    "bullet",
+    "tech",
+    "genderless",
+    "elemental",
+    "sci_fi_pixel",
+    "lying",
+    "brown",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural sci_fi_pixel sprite of gun (elemental genderless)"
+}

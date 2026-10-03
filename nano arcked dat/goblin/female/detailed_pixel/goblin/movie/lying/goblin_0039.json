@@ -1,0 +1,28 @@
+{
+  "file": "goblin_0039.png",
+  "type": "goblin",
+  "gender": "female",
+  "race": "goblin",
+  "style": "detailed_pixel",
+  "source": "movie",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "big_ears",
+    "pointed_nose",
+    "dagger",
+    "cunning",
+    "short",
+    "female",
+    "goblin",
+    "detailed_pixel",
+    "lying",
+    "brown",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural detailed_pixel sprite of goblin (goblin female)"
+}

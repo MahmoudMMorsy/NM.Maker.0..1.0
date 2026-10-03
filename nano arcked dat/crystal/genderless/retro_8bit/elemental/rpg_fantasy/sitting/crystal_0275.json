@@ -1,0 +1,27 @@
+{
+  "file": "crystal_0275.png",
+  "type": "crystal",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "retro_8bit",
+  "source": "rpg_fantasy",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "glowing",
+    "shard",
+    "faceted",
+    "magical_gem",
+    "prismatic",
+    "genderless",
+    "elemental",
+    "retro_8bit",
+    "sitting",
+    "orange"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural retro_8bit sprite of crystal (elemental genderless)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "soldier_0020.png",
+  "type": "soldier",
+  "gender": "female",
+  "race": "human",
+  "style": "cartoon",
+  "source": "oc_original",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "rifle",
+    "tactical_vest",
+    "camo",
+    "combat_boots",
+    "helmet",
+    "female",
+    "human",
+    "cartoon",
+    "running",
+    "gold",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural cartoon sprite of soldier (human female)"
+}

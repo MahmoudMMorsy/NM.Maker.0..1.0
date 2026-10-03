@@ -1,0 +1,27 @@
+{
+  "file": "prince_0434.png",
+  "type": "prince",
+  "gender": "male",
+  "race": "human",
+  "style": "anime_pixel",
+  "source": "modern",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "ornate_sword",
+    "circlet",
+    "cape",
+    "young",
+    "noble",
+    "male",
+    "human",
+    "anime_pixel",
+    "back_view",
+    "bright"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural anime_pixel sprite of prince (human male)"
+}

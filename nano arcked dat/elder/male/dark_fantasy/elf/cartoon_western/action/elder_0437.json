@@ -1,0 +1,28 @@
+{
+  "file": "elder_0437.png",
+  "type": "elder",
+  "gender": "male",
+  "race": "elf",
+  "style": "dark_fantasy",
+  "source": "cartoon_western",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "walking_stick",
+    "wrinkled",
+    "grey_hair",
+    "long_beard",
+    "wise",
+    "male",
+    "elf",
+    "dark_fantasy",
+    "action",
+    "green",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural dark_fantasy sprite of elder (elf male)"
+}

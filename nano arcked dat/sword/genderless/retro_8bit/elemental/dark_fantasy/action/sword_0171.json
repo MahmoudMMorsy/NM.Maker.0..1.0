@@ -1,0 +1,27 @@
+{
+  "file": "sword_0171.png",
+  "type": "sword",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "retro_8bit",
+  "source": "dark_fantasy",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "double_edged",
+    "crossguard",
+    "hilt",
+    "pommel",
+    "steel",
+    "genderless",
+    "elemental",
+    "retro_8bit",
+    "action",
+    "green"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_8bit sprite of sword (elemental genderless)"
+}

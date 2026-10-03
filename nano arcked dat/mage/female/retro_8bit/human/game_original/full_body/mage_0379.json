@@ -1,0 +1,29 @@
+{
+  "file": "mage_0379.png",
+  "type": "mage",
+  "gender": "female",
+  "race": "human",
+  "style": "retro_8bit",
+  "source": "game_original",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "robe",
+    "staff",
+    "magic_circle",
+    "glowing_eyes",
+    "spells",
+    "female",
+    "human",
+    "retro_8bit",
+    "full_body",
+    "red",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural retro_8bit sprite of mage (human female)"
+}

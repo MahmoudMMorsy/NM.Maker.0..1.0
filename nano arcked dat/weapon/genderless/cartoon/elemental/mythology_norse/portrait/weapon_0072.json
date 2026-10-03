@@ -1,0 +1,27 @@
+{
+  "file": "weapon_0072.png",
+  "type": "weapon",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "cartoon",
+  "source": "mythology_norse",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "blade",
+    "sharp",
+    "forged",
+    "deadly",
+    "equipment",
+    "genderless",
+    "elemental",
+    "cartoon",
+    "portrait",
+    "blue"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural cartoon sprite of weapon (elemental genderless)"
+}

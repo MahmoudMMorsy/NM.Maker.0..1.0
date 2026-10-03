@@ -1,0 +1,29 @@
+{
+  "file": "vampire_0125.png",
+  "type": "vampire",
+  "gender": "female",
+  "race": "undead",
+  "style": "dark_fantasy",
+  "source": "oc_original",
+  "pose": "front_view",
+  "colors": [
+    "dark",
+    "blue"
+  ],
+  "tags": [
+    "fangs",
+    "high_collar",
+    "pale_skin",
+    "bat_wings",
+    "noble_gothic",
+    "female",
+    "undead",
+    "dark_fantasy",
+    "front_view",
+    "dark",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural dark_fantasy sprite of vampire (undead female)"
+}

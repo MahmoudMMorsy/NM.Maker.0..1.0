@@ -1,0 +1,29 @@
+{
+  "file": "farmer_0250.png",
+  "type": "farmer",
+  "gender": "female",
+  "race": "human",
+  "style": "retro_16bit",
+  "source": "comic",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "pitchfork",
+    "straw_hat",
+    "overalls",
+    "wheat",
+    "rugged",
+    "female",
+    "human",
+    "retro_16bit",
+    "side_view",
+    "multicolor",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural retro_16bit sprite of farmer (human female)"
+}

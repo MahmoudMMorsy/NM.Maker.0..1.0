@@ -1,0 +1,28 @@
+{
+  "file": "merchant_0430.png",
+  "type": "merchant",
+  "gender": "male",
+  "race": "human",
+  "style": "arcade_pixel",
+  "source": "mythology_egypt",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "coin_pouch",
+    "backpack",
+    "trade_goods",
+    "tunic",
+    "hat",
+    "male",
+    "human",
+    "arcade_pixel",
+    "flying",
+    "pink",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural arcade_pixel sprite of merchant (human male)"
+}

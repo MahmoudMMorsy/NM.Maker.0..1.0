@@ -1,0 +1,28 @@
+{
+  "file": "zombie_0405.png",
+  "type": "zombie",
+  "gender": "non_human",
+  "race": "undead",
+  "style": "retro_8bit",
+  "source": "steampunk",
+  "pose": "front_view",
+  "colors": [
+    "dark",
+    "blue"
+  ],
+  "tags": [
+    "rotting",
+    "shuffling",
+    "torn_clothes",
+    "pale",
+    "walker",
+    "non_human",
+    "undead",
+    "retro_8bit",
+    "front_view",
+    "dark",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_8bit sprite of zombie (undead non_human)"
+}

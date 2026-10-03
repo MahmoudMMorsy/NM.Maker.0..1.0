@@ -1,0 +1,29 @@
+{
+  "file": "thief_0389.png",
+  "type": "thief",
+  "gender": "female",
+  "race": "goblin",
+  "style": "clean_pixel",
+  "source": "mythology_other",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "pouch",
+    "lockpick",
+    "light_boots",
+    "shadows",
+    "sneaky",
+    "female",
+    "goblin",
+    "clean_pixel",
+    "lying",
+    "brown",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural clean_pixel sprite of thief (goblin female)"
+}

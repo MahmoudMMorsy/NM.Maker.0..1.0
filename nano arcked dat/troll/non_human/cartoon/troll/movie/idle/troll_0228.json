@@ -1,0 +1,28 @@
+{
+  "file": "troll_0228.png",
+  "type": "troll",
+  "gender": "non_human",
+  "race": "troll",
+  "style": "cartoon",
+  "source": "movie",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "regenerating",
+    "club",
+    "warty",
+    "tall",
+    "lanky",
+    "non_human",
+    "troll",
+    "cartoon",
+    "idle",
+    "black",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural cartoon sprite of troll (troll non_human)"
+}

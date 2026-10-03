@@ -1,0 +1,28 @@
+{
+  "file": "cyborg_0424.png",
+  "type": "cyborg",
+  "gender": "female",
+  "race": "cyborg",
+  "style": "dark_fantasy",
+  "source": "sci_fi",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "cybernetic_arm",
+    "ocular_implants",
+    "wires",
+    "plating",
+    "tech",
+    "female",
+    "cyborg",
+    "dark_fantasy",
+    "idle",
+    "black",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural dark_fantasy sprite of cyborg (cyborg female)"
+}

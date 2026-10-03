@@ -1,0 +1,27 @@
+{
+  "file": "giant_0041.png",
+  "type": "giant",
+  "gender": "female",
+  "race": "giant",
+  "style": "retro_8bit",
+  "source": "oc_original",
+  "pose": "front_view",
+  "colors": [
+    "dark",
+    "blue"
+  ],
+  "tags": [
+    "colossal",
+    "boulder",
+    "pelt",
+    "crushing",
+    "imposing",
+    "female",
+    "giant",
+    "retro_8bit",
+    "front_view",
+    "dark"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural retro_8bit sprite of giant (giant female)"
+}

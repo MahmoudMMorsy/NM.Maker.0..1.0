@@ -1,0 +1,27 @@
+{
+  "file": "armor_0073.png",
+  "type": "armor",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "dark_fantasy",
+  "source": "mythology_egypt",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "steel",
+    "defensive",
+    "cuirass",
+    "engraved",
+    "protection",
+    "genderless",
+    "elemental",
+    "dark_fantasy",
+    "action",
+    "green"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural dark_fantasy sprite of armor (elemental genderless)"
+}

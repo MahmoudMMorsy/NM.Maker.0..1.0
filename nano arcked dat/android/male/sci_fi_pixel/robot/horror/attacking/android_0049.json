@@ -1,0 +1,28 @@
+{
+  "file": "android_0049.png",
+  "type": "android",
+  "gender": "male",
+  "race": "robot",
+  "style": "sci_fi_pixel",
+  "source": "horror",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "synthetic_skin",
+    "glowing_joints",
+    "futuristic",
+    "sleek",
+    "ai",
+    "male",
+    "robot",
+    "sci_fi_pixel",
+    "attacking",
+    "silver",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural sci_fi_pixel sprite of android (robot male)"
+}

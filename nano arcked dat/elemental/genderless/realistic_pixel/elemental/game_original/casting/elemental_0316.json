@@ -1,0 +1,28 @@
+{
+  "file": "elemental_0316.png",
+  "type": "elemental",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "realistic_pixel",
+  "source": "game_original",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "flames",
+    "water_whorl",
+    "lightning_sparks",
+    "earthen",
+    "pure_energy",
+    "genderless",
+    "elemental",
+    "realistic_pixel",
+    "casting",
+    "purple",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural realistic_pixel sprite of elemental (elemental genderless)"
+}

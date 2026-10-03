@@ -1,0 +1,28 @@
+{
+  "file": "alchemist_0158.png",
+  "type": "alchemist",
+  "gender": "female",
+  "race": "gnome",
+  "style": "retro_8bit",
+  "source": "mythology_other",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "goggles",
+    "bubbling_vial",
+    "herbs",
+    "apron",
+    "satchel",
+    "female",
+    "gnome",
+    "retro_8bit",
+    "idle",
+    "black",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural retro_8bit sprite of alchemist (gnome female)"
+}

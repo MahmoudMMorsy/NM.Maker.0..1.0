@@ -1,0 +1,28 @@
+{
+  "file": "elf_0506.png",
+  "type": "elf",
+  "gender": "male",
+  "race": "high_elf",
+  "style": "clean_pixel",
+  "source": "rpg_fantasy",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "pointed_ears",
+    "graceful",
+    "bow",
+    "silver_hair",
+    "nature",
+    "male",
+    "high_elf",
+    "clean_pixel",
+    "portrait",
+    "blue",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural clean_pixel sprite of elf (high_elf male)"
+}

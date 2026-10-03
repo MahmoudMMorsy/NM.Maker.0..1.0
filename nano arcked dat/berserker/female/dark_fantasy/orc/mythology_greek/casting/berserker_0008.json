@@ -1,0 +1,27 @@
+{
+  "file": "berserker_0008.png",
+  "type": "berserker",
+  "gender": "female",
+  "race": "orc",
+  "style": "dark_fantasy",
+  "source": "mythology_greek",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "great_axe",
+    "warpaint",
+    "fur_trim",
+    "muscular",
+    "rage",
+    "female",
+    "orc",
+    "dark_fantasy",
+    "casting",
+    "purple"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural dark_fantasy sprite of berserker (orc female)"
+}

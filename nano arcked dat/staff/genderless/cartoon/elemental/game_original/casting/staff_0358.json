@@ -1,0 +1,29 @@
+{
+  "file": "staff_0358.png",
+  "type": "staff",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "cartoon",
+  "source": "game_original",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "carved_wood",
+    "gemstone_tip",
+    "magical",
+    "focus",
+    "conduit",
+    "genderless",
+    "elemental",
+    "cartoon",
+    "casting",
+    "purple",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural cartoon sprite of staff (elemental genderless)"
+}

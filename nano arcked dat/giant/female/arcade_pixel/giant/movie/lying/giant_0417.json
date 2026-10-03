@@ -1,0 +1,27 @@
+{
+  "file": "giant_0417.png",
+  "type": "giant",
+  "gender": "female",
+  "race": "giant",
+  "style": "arcade_pixel",
+  "source": "movie",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "colossal",
+    "boulder",
+    "pelt",
+    "crushing",
+    "imposing",
+    "female",
+    "giant",
+    "arcade_pixel",
+    "lying",
+    "brown"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural arcade_pixel sprite of giant (giant female)"
+}

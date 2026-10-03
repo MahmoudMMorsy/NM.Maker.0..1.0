@@ -1,0 +1,27 @@
+{
+  "file": "priest_0347.png",
+  "type": "priest",
+  "gender": "female",
+  "race": "human",
+  "style": "fantasy_pixel",
+  "source": "mythology_other",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "holy_symbol",
+    "white_robes",
+    "scroll",
+    "blessing",
+    "pious",
+    "female",
+    "human",
+    "fantasy_pixel",
+    "lying",
+    "brown"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural fantasy_pixel sprite of priest (human female)"
+}

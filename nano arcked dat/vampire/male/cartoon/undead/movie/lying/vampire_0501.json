@@ -1,0 +1,28 @@
+{
+  "file": "vampire_0501.png",
+  "type": "vampire",
+  "gender": "male",
+  "race": "undead",
+  "style": "cartoon",
+  "source": "movie",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "fangs",
+    "high_collar",
+    "pale_skin",
+    "bat_wings",
+    "noble_gothic",
+    "male",
+    "undead",
+    "cartoon",
+    "lying",
+    "brown",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural cartoon sprite of vampire (undead male)"
+}

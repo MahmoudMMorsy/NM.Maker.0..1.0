@@ -1,0 +1,27 @@
+{
+  "file": "summoner_0481.png",
+  "type": "summoner",
+  "gender": "male",
+  "race": "elf",
+  "style": "detailed_pixel",
+  "source": "comic",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "grimoire",
+    "runes",
+    "summoning_circle",
+    "familiar",
+    "robes",
+    "male",
+    "elf",
+    "detailed_pixel",
+    "walking",
+    "white"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural detailed_pixel sprite of summoner (elf male)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "mecha_0235.png",
+  "type": "mecha",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "arcade_pixel",
+  "source": "sci_fi",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "giant_robot",
+    "cockpit",
+    "missile_pods",
+    "thrusters",
+    "armor_plating",
+    "genderless",
+    "robot",
+    "arcade_pixel",
+    "lying",
+    "brown",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural arcade_pixel sprite of mecha (robot genderless)"
+}

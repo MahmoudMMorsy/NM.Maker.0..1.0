@@ -1,0 +1,29 @@
+{
+  "file": "troll_0134.png",
+  "type": "troll",
+  "gender": "female",
+  "race": "troll",
+  "style": "realistic_pixel",
+  "source": "mythology_greek",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "regenerating",
+    "club",
+    "warty",
+    "tall",
+    "lanky",
+    "female",
+    "troll",
+    "realistic_pixel",
+    "casting",
+    "purple",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural realistic_pixel sprite of troll (troll female)"
+}

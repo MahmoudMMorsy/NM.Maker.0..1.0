@@ -1,0 +1,28 @@
+{
+  "file": "pirate_0393.png",
+  "type": "pirate",
+  "gender": "female",
+  "race": "orc",
+  "style": "retro_16bit",
+  "source": "post_apocalyptic",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "cutlass",
+    "eyepatch",
+    "tricorne_hat",
+    "flintlock",
+    "boots",
+    "female",
+    "orc",
+    "retro_16bit",
+    "full_body",
+    "red",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_16bit sprite of pirate (orc female)"
+}

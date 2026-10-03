@@ -1,0 +1,28 @@
+{
+  "file": "necromancer_0104.png",
+  "type": "necromancer",
+  "gender": "male",
+  "race": "human",
+  "style": "detailed_pixel",
+  "source": "oc_original",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "skull_staff",
+    "dark_magic",
+    "tattered_robe",
+    "glowing_eyes",
+    "bones",
+    "male",
+    "human",
+    "detailed_pixel",
+    "running",
+    "gold",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural detailed_pixel sprite of necromancer (human male)"
+}

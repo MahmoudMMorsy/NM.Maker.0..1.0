@@ -1,0 +1,29 @@
+{
+  "file": "demon_0496.png",
+  "type": "demon",
+  "gender": "female",
+  "race": "demon",
+  "style": "retro_8bit",
+  "source": "medieval",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "horns",
+    "leathery_wings",
+    "red_skin",
+    "pitchfork",
+    "tail",
+    "female",
+    "demon",
+    "retro_8bit",
+    "running",
+    "gold",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural retro_8bit sprite of demon (demon female)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "golem_0409.png",
+  "type": "golem",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "chibi",
+  "source": "mythology_egypt",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "stone_body",
+    "runic_core",
+    "massive",
+    "rocky",
+    "construct",
+    "genderless",
+    "elemental",
+    "chibi",
+    "action",
+    "green",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural chibi sprite of golem (elemental genderless)"
+}

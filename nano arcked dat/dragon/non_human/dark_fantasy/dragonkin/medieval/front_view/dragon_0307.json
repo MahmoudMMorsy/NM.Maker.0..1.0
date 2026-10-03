@@ -1,0 +1,29 @@
+{
+  "file": "dragon_0307.png",
+  "type": "dragon",
+  "gender": "non_human",
+  "race": "dragonkin",
+  "style": "dark_fantasy",
+  "source": "medieval",
+  "pose": "front_view",
+  "colors": [
+    "dark",
+    "blue"
+  ],
+  "tags": [
+    "wings",
+    "scales",
+    "fire_breath",
+    "horns",
+    "tail",
+    "giant",
+    "non_human",
+    "dragonkin",
+    "dark_fantasy",
+    "front_view",
+    "dark",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural dark_fantasy sprite of dragon (dragonkin non_human)"
+}

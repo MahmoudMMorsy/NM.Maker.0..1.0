@@ -1,0 +1,28 @@
+{
+  "file": "gunslinger_0209.png",
+  "type": "gunslinger",
+  "gender": "female",
+  "race": "cyborg",
+  "style": "arcade_pixel",
+  "source": "oc_original",
+  "pose": "front_view",
+  "colors": [
+    "dark",
+    "blue"
+  ],
+  "tags": [
+    "dual_revolvers",
+    "poncho",
+    "cowboy_hat",
+    "spurs",
+    "holster",
+    "female",
+    "cyborg",
+    "arcade_pixel",
+    "front_view",
+    "dark",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural arcade_pixel sprite of gunslinger (cyborg female)"
+}

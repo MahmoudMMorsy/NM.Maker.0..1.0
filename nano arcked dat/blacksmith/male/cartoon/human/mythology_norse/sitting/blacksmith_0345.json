@@ -1,0 +1,29 @@
+{
+  "file": "blacksmith_0345.png",
+  "type": "blacksmith",
+  "gender": "male",
+  "race": "human",
+  "style": "cartoon",
+  "source": "mythology_norse",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "leather_apron",
+    "heavy_hammer",
+    "anvil",
+    "soot",
+    "muscular",
+    "male",
+    "human",
+    "cartoon",
+    "sitting",
+    "orange",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural cartoon sprite of blacksmith (human male)"
+}

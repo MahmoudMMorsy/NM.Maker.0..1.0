@@ -1,0 +1,29 @@
+{
+  "file": "archer_0474.png",
+  "type": "archer",
+  "gender": "female",
+  "race": "elf",
+  "style": "chibi",
+  "source": "historical",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "bow",
+    "quiver",
+    "leather_armor",
+    "agile",
+    "hood",
+    "female",
+    "elf",
+    "chibi",
+    "side_view",
+    "multicolor",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural chibi sprite of archer (elf female)"
+}

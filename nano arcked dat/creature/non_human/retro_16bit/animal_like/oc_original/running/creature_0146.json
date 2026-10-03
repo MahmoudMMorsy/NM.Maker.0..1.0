@@ -1,0 +1,27 @@
+{
+  "file": "creature_0146.png",
+  "type": "creature",
+  "gender": "non_human",
+  "race": "animal_like",
+  "style": "retro_16bit",
+  "source": "oc_original",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "mysterious",
+    "exotic",
+    "chitin",
+    "wings",
+    "unique",
+    "non_human",
+    "animal_like",
+    "retro_16bit",
+    "running",
+    "gold"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural retro_16bit sprite of creature (animal_like non_human)"
+}

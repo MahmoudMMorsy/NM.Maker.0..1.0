@@ -1,0 +1,29 @@
+{
+  "file": "soldier_0302.png",
+  "type": "soldier",
+  "gender": "male",
+  "race": "human",
+  "style": "retro_16bit",
+  "source": "mythology_greek",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "rifle",
+    "tactical_vest",
+    "camo",
+    "combat_boots",
+    "helmet",
+    "male",
+    "human",
+    "retro_16bit",
+    "casting",
+    "purple",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural retro_16bit sprite of soldier (human male)"
+}

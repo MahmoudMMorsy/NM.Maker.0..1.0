@@ -1,0 +1,27 @@
+{
+  "file": "dwarf_0131.png",
+  "type": "dwarf",
+  "gender": "female",
+  "race": "dwarf",
+  "style": "arcade_pixel",
+  "source": "cyberpunk",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "braided_beard",
+    "war_hammer",
+    "heavy_shield",
+    "stout",
+    "sturdy",
+    "female",
+    "dwarf",
+    "arcade_pixel",
+    "walking",
+    "white"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural arcade_pixel sprite of dwarf (dwarf female)"
+}

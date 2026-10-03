@@ -1,0 +1,28 @@
+{
+  "file": "sword_0453.png",
+  "type": "sword",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "horror_pixel",
+  "source": "historical",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "double_edged",
+    "crossguard",
+    "hilt",
+    "pommel",
+    "steel",
+    "genderless",
+    "elemental",
+    "horror_pixel",
+    "walking",
+    "white",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural horror_pixel sprite of sword (elemental genderless)"
+}

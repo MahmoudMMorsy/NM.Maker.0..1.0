@@ -1,0 +1,27 @@
+{
+  "file": "elemental_0128.png",
+  "type": "elemental",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "horror_pixel",
+  "source": "rpg_fantasy",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "flames",
+    "water_whorl",
+    "lightning_sparks",
+    "earthen",
+    "pure_energy",
+    "genderless",
+    "elemental",
+    "horror_pixel",
+    "portrait",
+    "blue"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural horror_pixel sprite of elemental (elemental genderless)"
+}

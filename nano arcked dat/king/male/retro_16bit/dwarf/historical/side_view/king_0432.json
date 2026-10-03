@@ -1,0 +1,28 @@
+{
+  "file": "king_0432.png",
+  "type": "king",
+  "gender": "male",
+  "race": "dwarf",
+  "style": "retro_16bit",
+  "source": "historical",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "golden_crown",
+    "scepter",
+    "royal_mantle",
+    "throne",
+    "bearded",
+    "male",
+    "dwarf",
+    "retro_16bit",
+    "side_view",
+    "multicolor",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_16bit sprite of king (dwarf male)"
+}

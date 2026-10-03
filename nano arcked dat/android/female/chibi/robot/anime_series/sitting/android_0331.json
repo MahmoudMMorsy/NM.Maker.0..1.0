@@ -1,0 +1,28 @@
+{
+  "file": "android_0331.png",
+  "type": "android",
+  "gender": "female",
+  "race": "robot",
+  "style": "chibi",
+  "source": "anime_series",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "synthetic_skin",
+    "glowing_joints",
+    "futuristic",
+    "sleek",
+    "ai",
+    "female",
+    "robot",
+    "chibi",
+    "sitting",
+    "orange",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural chibi sprite of android (robot female)"
+}

@@ -1,0 +1,27 @@
+{
+  "file": "monster_0051.png",
+  "type": "monster",
+  "gender": "non_human",
+  "race": "hybrid",
+  "style": "clean_pixel",
+  "source": "mythology_norse",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "frightening",
+    "spikes",
+    "acid",
+    "grotesque",
+    "wild",
+    "non_human",
+    "hybrid",
+    "clean_pixel",
+    "sitting",
+    "orange"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural clean_pixel sprite of monster (hybrid non_human)"
+}

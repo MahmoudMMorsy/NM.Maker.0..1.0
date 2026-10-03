@@ -1,0 +1,27 @@
+{
+  "file": "animal_0306.png",
+  "type": "animal",
+  "gender": "non_human",
+  "race": "animal_like",
+  "style": "cartoon",
+  "source": "historical",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "natural",
+    "tail",
+    "whiskers",
+    "paws",
+    "wildlife",
+    "non_human",
+    "animal_like",
+    "cartoon",
+    "side_view",
+    "multicolor"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural cartoon sprite of animal (animal_like non_human)"
+}

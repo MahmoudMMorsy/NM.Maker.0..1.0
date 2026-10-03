@@ -1,0 +1,29 @@
+{
+  "file": "hunter_0014.png",
+  "type": "hunter",
+  "gender": "male",
+  "race": "human",
+  "style": "arcade_pixel",
+  "source": "modern",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "crossbow",
+    "trap",
+    "fur_coat",
+    "tracking",
+    "pet_wolf",
+    "male",
+    "human",
+    "arcade_pixel",
+    "back_view",
+    "bright",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural arcade_pixel sprite of hunter (human male)"
+}

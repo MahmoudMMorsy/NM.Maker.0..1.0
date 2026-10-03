@@ -1,0 +1,28 @@
+{
+  "file": "plant_0085.png",
+  "type": "plant",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "cartoon",
+  "source": "game_original",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "vines",
+    "petals",
+    "stems",
+    "blooms",
+    "flora",
+    "genderless",
+    "elemental",
+    "cartoon",
+    "full_body",
+    "red",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural cartoon sprite of plant (elemental genderless)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "gun_0267.png",
+  "type": "gun",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "cartoon",
+  "source": "post_apocalyptic",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "barrel",
+    "trigger",
+    "firearm",
+    "bullet",
+    "tech",
+    "genderless",
+    "elemental",
+    "cartoon",
+    "full_body",
+    "red",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural cartoon sprite of gun (elemental genderless)"
+}

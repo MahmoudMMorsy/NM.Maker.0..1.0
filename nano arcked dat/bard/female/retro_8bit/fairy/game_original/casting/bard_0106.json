@@ -1,0 +1,28 @@
+{
+  "file": "bard_0106.png",
+  "type": "bard",
+  "gender": "female",
+  "race": "fairy",
+  "style": "retro_8bit",
+  "source": "game_original",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "lute",
+    "feather_hat",
+    "colorful",
+    "charming",
+    "song",
+    "female",
+    "fairy",
+    "retro_8bit",
+    "casting",
+    "purple",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural retro_8bit sprite of bard (fairy female)"
+}

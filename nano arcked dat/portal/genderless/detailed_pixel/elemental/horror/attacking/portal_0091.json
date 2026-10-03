@@ -1,0 +1,27 @@
+{
+  "file": "portal_0091.png",
+  "type": "portal",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "detailed_pixel",
+  "source": "horror",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "swirling_vortex",
+    "runic_frame",
+    "dimension",
+    "glowing_energy",
+    "teleport",
+    "genderless",
+    "elemental",
+    "detailed_pixel",
+    "attacking",
+    "silver"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural detailed_pixel sprite of portal (elemental genderless)"
+}

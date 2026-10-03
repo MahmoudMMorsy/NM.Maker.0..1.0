@@ -1,0 +1,28 @@
+{
+  "file": "zombie_0311.png",
+  "type": "zombie",
+  "gender": "male",
+  "race": "undead",
+  "style": "clean_pixel",
+  "source": "cartoon_western",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "rotting",
+    "shuffling",
+    "torn_clothes",
+    "pale",
+    "walker",
+    "male",
+    "undead",
+    "clean_pixel",
+    "action",
+    "green",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural clean_pixel sprite of zombie (undead male)"
+}

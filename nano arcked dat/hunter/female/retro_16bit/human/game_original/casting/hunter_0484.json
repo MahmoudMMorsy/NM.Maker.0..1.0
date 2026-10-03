@@ -1,0 +1,29 @@
+{
+  "file": "hunter_0484.png",
+  "type": "hunter",
+  "gender": "female",
+  "race": "human",
+  "style": "retro_16bit",
+  "source": "game_original",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "crossbow",
+    "trap",
+    "fur_coat",
+    "tracking",
+    "pet_wolf",
+    "female",
+    "human",
+    "retro_16bit",
+    "casting",
+    "purple",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural retro_16bit sprite of hunter (human female)"
+}

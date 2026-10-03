@@ -1,0 +1,28 @@
+{
+  "file": "alchemist_0346.png",
+  "type": "alchemist",
+  "gender": "female",
+  "race": "gnome",
+  "style": "dark_fantasy",
+  "source": "mythology_egypt",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "goggles",
+    "bubbling_vial",
+    "herbs",
+    "apron",
+    "satchel",
+    "female",
+    "gnome",
+    "dark_fantasy",
+    "flying",
+    "pink",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural dark_fantasy sprite of alchemist (gnome female)"
+}

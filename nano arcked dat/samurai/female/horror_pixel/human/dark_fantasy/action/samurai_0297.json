@@ -1,0 +1,27 @@
+{
+  "file": "samurai_0297.png",
+  "type": "samurai",
+  "gender": "female",
+  "race": "human",
+  "style": "horror_pixel",
+  "source": "dark_fantasy",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "katana",
+    "samurai_armor",
+    "kabuto_helmet",
+    "honorable",
+    "sash",
+    "female",
+    "human",
+    "horror_pixel",
+    "action",
+    "green"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural horror_pixel sprite of samurai (human female)"
+}

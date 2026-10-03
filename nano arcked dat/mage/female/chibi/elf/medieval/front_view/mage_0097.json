@@ -1,0 +1,29 @@
+{
+  "file": "mage_0097.png",
+  "type": "mage",
+  "gender": "female",
+  "race": "elf",
+  "style": "chibi",
+  "source": "medieval",
+  "pose": "front_view",
+  "colors": [
+    "dark",
+    "blue"
+  ],
+  "tags": [
+    "robe",
+    "staff",
+    "magic_circle",
+    "glowing_eyes",
+    "spells",
+    "female",
+    "elf",
+    "chibi",
+    "front_view",
+    "dark",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural chibi sprite of mage (elf female)"
+}

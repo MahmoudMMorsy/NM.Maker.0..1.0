@@ -1,0 +1,28 @@
+{
+  "file": "robot_0516.png",
+  "type": "robot",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "fantasy_pixel",
+  "source": "historical",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "metallic",
+    "circuits",
+    "led_eyes",
+    "laser",
+    "mechanical",
+    "genderless",
+    "robot",
+    "fantasy_pixel",
+    "side_view",
+    "multicolor",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural fantasy_pixel sprite of robot (robot genderless)"
+}

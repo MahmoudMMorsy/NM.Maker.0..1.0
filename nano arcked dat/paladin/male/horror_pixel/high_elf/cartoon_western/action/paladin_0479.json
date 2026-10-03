@@ -1,0 +1,29 @@
+{
+  "file": "paladin_0479.png",
+  "type": "paladin",
+  "gender": "male",
+  "race": "high_elf",
+  "style": "horror_pixel",
+  "source": "cartoon_western",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "golden_armor",
+    "hammer",
+    "holy_aura",
+    "banner",
+    "shield",
+    "male",
+    "high_elf",
+    "horror_pixel",
+    "action",
+    "green",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural horror_pixel sprite of paladin (high_elf male)"
+}

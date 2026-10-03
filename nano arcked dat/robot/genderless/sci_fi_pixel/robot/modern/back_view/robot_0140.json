@@ -1,0 +1,29 @@
+{
+  "file": "robot_0140.png",
+  "type": "robot",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "sci_fi_pixel",
+  "source": "modern",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "metallic",
+    "circuits",
+    "led_eyes",
+    "laser",
+    "mechanical",
+    "genderless",
+    "robot",
+    "sci_fi_pixel",
+    "back_view",
+    "bright",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural sci_fi_pixel sprite of robot (robot genderless)"
+}

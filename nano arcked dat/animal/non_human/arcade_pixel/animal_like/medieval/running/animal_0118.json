@@ -1,0 +1,28 @@
+{
+  "file": "animal_0118.png",
+  "type": "animal",
+  "gender": "non_human",
+  "race": "animal_like",
+  "style": "arcade_pixel",
+  "source": "medieval",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "natural",
+    "tail",
+    "whiskers",
+    "paws",
+    "wildlife",
+    "non_human",
+    "animal_like",
+    "arcade_pixel",
+    "running",
+    "gold",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural arcade_pixel sprite of animal (animal_like non_human)"
+}

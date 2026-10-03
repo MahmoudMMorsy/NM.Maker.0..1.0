@@ -1,0 +1,28 @@
+{
+  "file": "zombie_0217.png",
+  "type": "zombie",
+  "gender": "non_human",
+  "race": "undead",
+  "style": "fantasy_pixel",
+  "source": "horror",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "rotting",
+    "shuffling",
+    "torn_clothes",
+    "pale",
+    "walker",
+    "non_human",
+    "undead",
+    "fantasy_pixel",
+    "attacking",
+    "silver",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural fantasy_pixel sprite of zombie (undead non_human)"
+}

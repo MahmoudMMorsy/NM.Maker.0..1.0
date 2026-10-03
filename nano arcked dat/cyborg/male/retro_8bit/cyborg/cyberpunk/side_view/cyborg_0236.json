@@ -1,0 +1,29 @@
+{
+  "file": "cyborg_0236.png",
+  "type": "cyborg",
+  "gender": "male",
+  "race": "cyborg",
+  "style": "retro_8bit",
+  "source": "cyberpunk",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "cybernetic_arm",
+    "ocular_implants",
+    "wires",
+    "plating",
+    "tech",
+    "male",
+    "cyborg",
+    "retro_8bit",
+    "side_view",
+    "multicolor",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural retro_8bit sprite of cyborg (cyborg male)"
+}

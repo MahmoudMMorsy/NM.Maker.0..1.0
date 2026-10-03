@@ -1,0 +1,27 @@
+{
+  "file": "vampire_0031.png",
+  "type": "vampire",
+  "gender": "male",
+  "race": "undead",
+  "style": "anime_pixel",
+  "source": "mythology_egypt",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "fangs",
+    "high_collar",
+    "pale_skin",
+    "bat_wings",
+    "noble_gothic",
+    "male",
+    "undead",
+    "anime_pixel",
+    "action",
+    "green"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural anime_pixel sprite of vampire (undead male)"
+}

@@ -1,0 +1,29 @@
+{
+  "file": "door_0466.png",
+  "type": "door",
+  "gender": "genderless",
+  "race": "human",
+  "style": "horror_pixel",
+  "source": "sci_fi",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "heavy_oak",
+    "hinges",
+    "handle",
+    "archway",
+    "entrance",
+    "genderless",
+    "human",
+    "horror_pixel",
+    "idle",
+    "black",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural horror_pixel sprite of door (human genderless)"
+}

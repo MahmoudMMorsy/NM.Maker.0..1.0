@@ -1,0 +1,29 @@
+{
+  "file": "archer_0004.png",
+  "type": "archer",
+  "gender": "female",
+  "race": "human",
+  "style": "realistic_pixel",
+  "source": "sci_fi",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "bow",
+    "quiver",
+    "leather_armor",
+    "agile",
+    "hood",
+    "female",
+    "human",
+    "realistic_pixel",
+    "idle",
+    "black",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural realistic_pixel sprite of archer (human female)"
+}

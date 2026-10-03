@@ -1,0 +1,29 @@
+{
+  "file": "ghost_0314.png",
+  "type": "ghost",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "retro_8bit",
+  "source": "oc_original",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "translucent",
+    "floating",
+    "spectral",
+    "haunting",
+    "glowing",
+    "genderless",
+    "undead",
+    "retro_8bit",
+    "running",
+    "gold",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural retro_8bit sprite of ghost (undead genderless)"
+}

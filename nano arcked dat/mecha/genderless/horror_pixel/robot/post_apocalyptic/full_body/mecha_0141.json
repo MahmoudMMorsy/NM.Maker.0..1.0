@@ -1,0 +1,27 @@
+{
+  "file": "mecha_0141.png",
+  "type": "mecha",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "horror_pixel",
+  "source": "post_apocalyptic",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "giant_robot",
+    "cockpit",
+    "missile_pods",
+    "thrusters",
+    "armor_plating",
+    "genderless",
+    "robot",
+    "horror_pixel",
+    "full_body",
+    "red"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural horror_pixel sprite of mecha (robot genderless)"
+}

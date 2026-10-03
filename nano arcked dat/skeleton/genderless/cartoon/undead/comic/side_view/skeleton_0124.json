@@ -1,0 +1,28 @@
+{
+  "file": "skeleton_0124.png",
+  "type": "skeleton",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "cartoon",
+  "source": "comic",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "bare_bones",
+    "scythe",
+    "empty_sockets",
+    "cracked",
+    "warrior",
+    "genderless",
+    "undead",
+    "cartoon",
+    "side_view",
+    "multicolor",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural cartoon sprite of skeleton (undead genderless)"
+}

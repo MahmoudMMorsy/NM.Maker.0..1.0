@@ -1,0 +1,29 @@
+{
+  "file": "alien_0332.png",
+  "type": "alien",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "cartoon",
+  "source": "cartoon_western",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "tentacles",
+    "multiple_eyes",
+    "bioluminescence",
+    "exoskeleton",
+    "space",
+    "genderless",
+    "alien",
+    "cartoon",
+    "flying",
+    "pink",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural cartoon sprite of alien (alien genderless)"
+}

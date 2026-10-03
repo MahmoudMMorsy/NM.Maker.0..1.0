@@ -1,0 +1,28 @@
+{
+  "file": "witch_0066.png",
+  "type": "witch",
+  "gender": "female",
+  "race": "dark_elf",
+  "style": "arcade_pixel",
+  "source": "dark_fantasy",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "pointed_hat",
+    "cauldron",
+    "broomstick",
+    "black_cat",
+    "curse",
+    "female",
+    "dark_elf",
+    "arcade_pixel",
+    "flying",
+    "pink",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural arcade_pixel sprite of witch (dark_elf female)"
+}

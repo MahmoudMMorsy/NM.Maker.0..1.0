@@ -1,0 +1,27 @@
+{
+  "file": "castle_0082.png",
+  "type": "castle",
+  "gender": "genderless",
+  "race": "human",
+  "style": "realistic_pixel",
+  "source": "comic",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "battlements",
+    "towers",
+    "drawbridge",
+    "stone_walls",
+    "fortress",
+    "genderless",
+    "human",
+    "realistic_pixel",
+    "side_view",
+    "multicolor"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural realistic_pixel sprite of castle (human genderless)"
+}

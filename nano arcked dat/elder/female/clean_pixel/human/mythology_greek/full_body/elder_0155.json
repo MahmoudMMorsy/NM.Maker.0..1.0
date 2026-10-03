@@ -1,0 +1,28 @@
+{
+  "file": "elder_0155.png",
+  "type": "elder",
+  "gender": "female",
+  "race": "human",
+  "style": "clean_pixel",
+  "source": "mythology_greek",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "walking_stick",
+    "wrinkled",
+    "grey_hair",
+    "long_beard",
+    "wise",
+    "female",
+    "human",
+    "clean_pixel",
+    "full_body",
+    "red",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural clean_pixel sprite of elder (human female)"
+}

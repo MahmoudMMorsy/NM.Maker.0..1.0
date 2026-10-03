@@ -1,0 +1,28 @@
+{
+  "file": "gunslinger_0115.png",
+  "type": "gunslinger",
+  "gender": "male",
+  "race": "cyborg",
+  "style": "horror_pixel",
+  "source": "mythology_egypt",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "dual_revolvers",
+    "poncho",
+    "cowboy_hat",
+    "spurs",
+    "holster",
+    "male",
+    "cyborg",
+    "horror_pixel",
+    "action",
+    "green",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural horror_pixel sprite of gunslinger (cyborg male)"
+}

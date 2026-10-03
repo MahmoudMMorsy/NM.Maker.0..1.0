@@ -1,0 +1,29 @@
+{
+  "file": "android_0237.png",
+  "type": "android",
+  "gender": "androgynous",
+  "race": "robot",
+  "style": "retro_16bit",
+  "source": "steampunk",
+  "pose": "front_view",
+  "colors": [
+    "dark",
+    "blue"
+  ],
+  "tags": [
+    "synthetic_skin",
+    "glowing_joints",
+    "futuristic",
+    "sleek",
+    "ai",
+    "androgynous",
+    "robot",
+    "retro_16bit",
+    "front_view",
+    "dark",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_16bit sprite of android (robot androgynous)"
+}

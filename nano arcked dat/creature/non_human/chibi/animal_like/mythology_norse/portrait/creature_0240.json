@@ -1,0 +1,28 @@
+{
+  "file": "creature_0240.png",
+  "type": "creature",
+  "gender": "non_human",
+  "race": "animal_like",
+  "style": "chibi",
+  "source": "mythology_norse",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "mysterious",
+    "exotic",
+    "chitin",
+    "wings",
+    "unique",
+    "non_human",
+    "animal_like",
+    "chibi",
+    "portrait",
+    "blue",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural chibi sprite of creature (animal_like non_human)"
+}
