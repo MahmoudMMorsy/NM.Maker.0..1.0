@@ -1,0 +1,27 @@
+{
+  "file": "hunter_0108.png",
+  "type": "hunter",
+  "gender": "male",
+  "race": "beastkin",
+  "style": "realistic_pixel",
+  "source": "dark_fantasy",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "crossbow",
+    "trap",
+    "fur_coat",
+    "tracking",
+    "pet_wolf",
+    "male",
+    "beastkin",
+    "realistic_pixel",
+    "flying",
+    "pink"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural realistic_pixel sprite of hunter (beastkin male)"
+}

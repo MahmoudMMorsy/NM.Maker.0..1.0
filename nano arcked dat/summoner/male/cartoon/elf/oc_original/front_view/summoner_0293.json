@@ -1,0 +1,28 @@
+{
+  "file": "summoner_0293.png",
+  "type": "summoner",
+  "gender": "male",
+  "race": "elf",
+  "style": "cartoon",
+  "source": "oc_original",
+  "pose": "front_view",
+  "colors": [
+    "dark",
+    "blue"
+  ],
+  "tags": [
+    "grimoire",
+    "runes",
+    "summoning_circle",
+    "familiar",
+    "robes",
+    "male",
+    "elf",
+    "cartoon",
+    "front_view",
+    "dark",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural cartoon sprite of summoner (elf male)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "merchant_0054.png",
+  "type": "merchant",
+  "gender": "male",
+  "race": "human",
+  "style": "retro_8bit",
+  "source": "historical",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "coin_pouch",
+    "backpack",
+    "trade_goods",
+    "tunic",
+    "hat",
+    "male",
+    "human",
+    "retro_8bit",
+    "side_view",
+    "multicolor",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_8bit sprite of merchant (human male)"
+}

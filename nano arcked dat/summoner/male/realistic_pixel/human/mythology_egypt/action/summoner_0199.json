@@ -1,0 +1,28 @@
+{
+  "file": "summoner_0199.png",
+  "type": "summoner",
+  "gender": "male",
+  "race": "human",
+  "style": "realistic_pixel",
+  "source": "mythology_egypt",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "grimoire",
+    "runes",
+    "summoning_circle",
+    "familiar",
+    "robes",
+    "male",
+    "human",
+    "realistic_pixel",
+    "action",
+    "green",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural realistic_pixel sprite of summoner (human male)"
+}

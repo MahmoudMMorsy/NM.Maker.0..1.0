@@ -1,0 +1,29 @@
+{
+  "file": "monster_0427.png",
+  "type": "monster",
+  "gender": "non_human",
+  "race": "beastkin",
+  "style": "horror_pixel",
+  "source": "horror",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "frightening",
+    "spikes",
+    "acid",
+    "grotesque",
+    "wild",
+    "non_human",
+    "beastkin",
+    "horror_pixel",
+    "attacking",
+    "silver",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural horror_pixel sprite of monster (beastkin non_human)"
+}

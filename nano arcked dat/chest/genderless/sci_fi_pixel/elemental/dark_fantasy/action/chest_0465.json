@@ -1,0 +1,28 @@
+{
+  "file": "chest_0465.png",
+  "type": "chest",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "sci_fi_pixel",
+  "source": "dark_fantasy",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "wooden_planks",
+    "iron_bands",
+    "padlock",
+    "treasure",
+    "container",
+    "genderless",
+    "elemental",
+    "sci_fi_pixel",
+    "action",
+    "green",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural sci_fi_pixel sprite of chest (elemental genderless)"
+}

@@ -1,0 +1,29 @@
+{
+  "file": "armor_0261.png",
+  "type": "armor",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "arcade_pixel",
+  "source": "mythology_norse",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "steel",
+    "defensive",
+    "cuirass",
+    "engraved",
+    "protection",
+    "genderless",
+    "elemental",
+    "arcade_pixel",
+    "sitting",
+    "orange",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural arcade_pixel sprite of armor (elemental genderless)"
+}

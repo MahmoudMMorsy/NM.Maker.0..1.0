@@ -1,0 +1,29 @@
+{
+  "file": "giant_0511.png",
+  "type": "giant",
+  "gender": "male",
+  "race": "giant",
+  "style": "realistic_pixel",
+  "source": "horror",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "colossal",
+    "boulder",
+    "pelt",
+    "crushing",
+    "imposing",
+    "male",
+    "giant",
+    "realistic_pixel",
+    "attacking",
+    "silver",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural realistic_pixel sprite of giant (giant male)"
+}

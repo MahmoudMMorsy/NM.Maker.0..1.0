@@ -1,0 +1,28 @@
+{
+  "file": "monk_0476.png",
+  "type": "monk",
+  "gender": "male",
+  "race": "human",
+  "style": "dark_fantasy",
+  "source": "modern",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "wraps",
+    "martial_arts",
+    "beads",
+    "tattooed",
+    "focused",
+    "male",
+    "human",
+    "dark_fantasy",
+    "back_view",
+    "bright",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural dark_fantasy sprite of monk (human male)"
+}

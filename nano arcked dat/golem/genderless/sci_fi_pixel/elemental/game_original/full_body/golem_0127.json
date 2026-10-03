@@ -1,0 +1,29 @@
+{
+  "file": "golem_0127.png",
+  "type": "golem",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "sci_fi_pixel",
+  "source": "game_original",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "stone_body",
+    "runic_core",
+    "massive",
+    "rocky",
+    "construct",
+    "genderless",
+    "elemental",
+    "sci_fi_pixel",
+    "full_body",
+    "red",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural sci_fi_pixel sprite of golem (elemental genderless)"
+}

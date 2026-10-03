@@ -1,0 +1,28 @@
+{
+  "file": "troll_0040.png",
+  "type": "troll",
+  "gender": "female",
+  "race": "troll",
+  "style": "arcade_pixel",
+  "source": "comic",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "regenerating",
+    "club",
+    "warty",
+    "tall",
+    "lanky",
+    "female",
+    "troll",
+    "arcade_pixel",
+    "side_view",
+    "multicolor",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural arcade_pixel sprite of troll (troll female)"
+}

@@ -1,0 +1,27 @@
+{
+  "file": "queen_0245.png",
+  "type": "queen",
+  "gender": "female",
+  "race": "human",
+  "style": "horror_pixel",
+  "source": "modern",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "tiara",
+    "flowing_dress",
+    "royal_scepter",
+    "elegant",
+    "majestic",
+    "female",
+    "human",
+    "horror_pixel",
+    "attacking",
+    "silver"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural horror_pixel sprite of queen (human female)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "goblin_0227.png",
+  "type": "goblin",
+  "gender": "female",
+  "race": "goblin",
+  "style": "chibi",
+  "source": "cartoon_western",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "big_ears",
+    "pointed_nose",
+    "dagger",
+    "cunning",
+    "short",
+    "female",
+    "goblin",
+    "chibi",
+    "action",
+    "green",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural chibi sprite of goblin (goblin female)"
+}

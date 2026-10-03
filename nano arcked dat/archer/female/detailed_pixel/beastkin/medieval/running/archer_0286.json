@@ -1,0 +1,28 @@
+{
+  "file": "archer_0286.png",
+  "type": "archer",
+  "gender": "female",
+  "race": "beastkin",
+  "style": "detailed_pixel",
+  "source": "medieval",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "bow",
+    "quiver",
+    "leather_armor",
+    "agile",
+    "hood",
+    "female",
+    "beastkin",
+    "detailed_pixel",
+    "running",
+    "gold",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural detailed_pixel sprite of archer (beastkin female)"
+}

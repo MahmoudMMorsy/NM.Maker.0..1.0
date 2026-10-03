@@ -1,0 +1,29 @@
+{
+  "file": "skeleton_0500.png",
+  "type": "skeleton",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "chibi",
+  "source": "cartoon_western",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "bare_bones",
+    "scythe",
+    "empty_sockets",
+    "cracked",
+    "warrior",
+    "genderless",
+    "undead",
+    "chibi",
+    "flying",
+    "pink",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural chibi sprite of skeleton (undead genderless)"
+}

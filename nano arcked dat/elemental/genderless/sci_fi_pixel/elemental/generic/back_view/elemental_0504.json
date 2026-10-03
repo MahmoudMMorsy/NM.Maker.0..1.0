@@ -1,0 +1,28 @@
+{
+  "file": "elemental_0504.png",
+  "type": "elemental",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "sci_fi_pixel",
+  "source": "generic",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "flames",
+    "water_whorl",
+    "lightning_sparks",
+    "earthen",
+    "pure_energy",
+    "genderless",
+    "elemental",
+    "sci_fi_pixel",
+    "back_view",
+    "bright",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural sci_fi_pixel sprite of elemental (elemental genderless)"
+}

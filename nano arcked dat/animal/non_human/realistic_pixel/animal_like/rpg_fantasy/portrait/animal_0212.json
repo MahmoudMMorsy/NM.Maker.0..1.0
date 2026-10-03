@@ -1,0 +1,29 @@
+{
+  "file": "animal_0212.png",
+  "type": "animal",
+  "gender": "non_human",
+  "race": "animal_like",
+  "style": "realistic_pixel",
+  "source": "rpg_fantasy",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "natural",
+    "tail",
+    "whiskers",
+    "paws",
+    "wildlife",
+    "non_human",
+    "animal_like",
+    "realistic_pixel",
+    "portrait",
+    "blue",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural realistic_pixel sprite of animal (animal_like non_human)"
+}

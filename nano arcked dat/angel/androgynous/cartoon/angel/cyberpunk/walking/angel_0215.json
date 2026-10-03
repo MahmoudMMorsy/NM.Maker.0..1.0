@@ -1,0 +1,29 @@
+{
+  "file": "angel_0215.png",
+  "type": "angel",
+  "gender": "androgynous",
+  "race": "angel",
+  "style": "cartoon",
+  "source": "cyberpunk",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "feathered_wings",
+    "halo",
+    "golden_light",
+    "white_robe",
+    "divine",
+    "androgynous",
+    "angel",
+    "cartoon",
+    "walking",
+    "white",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural cartoon sprite of angel (angel androgynous)"
+}

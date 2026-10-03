@@ -1,0 +1,28 @@
+{
+  "file": "cyborg_0330.png",
+  "type": "cyborg",
+  "gender": "male",
+  "race": "cyborg",
+  "style": "anime_pixel",
+  "source": "post_apocalyptic",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "cybernetic_arm",
+    "ocular_implants",
+    "wires",
+    "plating",
+    "tech",
+    "male",
+    "cyborg",
+    "anime_pixel",
+    "casting",
+    "purple",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural anime_pixel sprite of cyborg (cyborg male)"
+}

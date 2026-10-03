@@ -1,0 +1,28 @@
+{
+  "file": "ninja_0204.png",
+  "type": "ninja",
+  "gender": "male",
+  "race": "human",
+  "style": "fantasy_pixel",
+  "source": "post_apocalyptic",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "shuriken",
+    "ninjato",
+    "black_garb",
+    "smokebomb",
+    "mask",
+    "male",
+    "human",
+    "fantasy_pixel",
+    "casting",
+    "purple",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural fantasy_pixel sprite of ninja (human male)"
+}

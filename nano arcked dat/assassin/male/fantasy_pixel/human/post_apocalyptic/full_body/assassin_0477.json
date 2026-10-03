@@ -1,0 +1,28 @@
+{
+  "file": "assassin_0477.png",
+  "type": "assassin",
+  "gender": "male",
+  "race": "human",
+  "style": "fantasy_pixel",
+  "source": "post_apocalyptic",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "dual_wield",
+    "blades",
+    "shadow",
+    "poison_vial",
+    "hooded",
+    "male",
+    "human",
+    "fantasy_pixel",
+    "full_body",
+    "red",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural fantasy_pixel sprite of assassin (human male)"
+}

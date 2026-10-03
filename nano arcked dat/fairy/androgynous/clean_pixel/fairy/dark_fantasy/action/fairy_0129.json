@@ -1,0 +1,29 @@
+{
+  "file": "fairy_0129.png",
+  "type": "fairy",
+  "gender": "androgynous",
+  "race": "fairy",
+  "style": "clean_pixel",
+  "source": "dark_fantasy",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "insect_wings",
+    "sparkles",
+    "tiny",
+    "wand",
+    "nature",
+    "androgynous",
+    "fairy",
+    "clean_pixel",
+    "action",
+    "green",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural clean_pixel sprite of fairy (fairy androgynous)"
+}

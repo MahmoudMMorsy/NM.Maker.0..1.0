@@ -1,0 +1,29 @@
+{
+  "file": "blacksmith_0157.png",
+  "type": "blacksmith",
+  "gender": "male",
+  "race": "human",
+  "style": "arcade_pixel",
+  "source": "mythology_egypt",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "leather_apron",
+    "heavy_hammer",
+    "anvil",
+    "soot",
+    "muscular",
+    "male",
+    "human",
+    "arcade_pixel",
+    "action",
+    "green",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural arcade_pixel sprite of blacksmith (human male)"
+}

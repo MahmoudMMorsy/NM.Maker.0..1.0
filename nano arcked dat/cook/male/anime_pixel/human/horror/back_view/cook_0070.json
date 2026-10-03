@@ -1,0 +1,28 @@
+{
+  "file": "cook_0070.png",
+  "type": "cook",
+  "gender": "male",
+  "race": "human",
+  "style": "anime_pixel",
+  "source": "horror",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "chef_hat",
+    "ladle",
+    "frying_pan",
+    "apron",
+    "plump",
+    "male",
+    "human",
+    "anime_pixel",
+    "back_view",
+    "bright",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural anime_pixel sprite of cook (human male)"
+}

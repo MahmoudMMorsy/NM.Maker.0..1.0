@@ -1,0 +1,28 @@
+{
+  "file": "ghost_0408.png",
+  "type": "ghost",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "anime_pixel",
+  "source": "mythology_norse",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "translucent",
+    "floating",
+    "spectral",
+    "haunting",
+    "glowing",
+    "genderless",
+    "undead",
+    "anime_pixel",
+    "portrait",
+    "blue",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural anime_pixel sprite of ghost (undead genderless)"
+}

@@ -1,0 +1,29 @@
+{
+  "file": "item_0376.png",
+  "type": "item",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "clean_pixel",
+  "source": "comic",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "artifact",
+    "quest_object",
+    "mysterious",
+    "valuable",
+    "relic",
+    "genderless",
+    "elemental",
+    "clean_pixel",
+    "side_view",
+    "multicolor",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural clean_pixel sprite of item (elemental genderless)"
+}

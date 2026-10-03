@@ -1,0 +1,29 @@
+{
+  "file": "portal_0373.png",
+  "type": "portal",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "fantasy_pixel",
+  "source": "anime_series",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "swirling_vortex",
+    "runic_frame",
+    "dimension",
+    "glowing_energy",
+    "teleport",
+    "genderless",
+    "elemental",
+    "fantasy_pixel",
+    "sitting",
+    "orange",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural fantasy_pixel sprite of portal (elemental genderless)"
+}

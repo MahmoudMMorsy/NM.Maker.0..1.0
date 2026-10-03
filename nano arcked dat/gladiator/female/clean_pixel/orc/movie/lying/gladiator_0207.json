@@ -1,0 +1,28 @@
+{
+  "file": "gladiator_0207.png",
+  "type": "gladiator",
+  "gender": "female",
+  "race": "orc",
+  "style": "clean_pixel",
+  "source": "movie",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "trident",
+    "net",
+    "arena_armor",
+    "scars",
+    "muscular",
+    "female",
+    "orc",
+    "clean_pixel",
+    "lying",
+    "brown",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural clean_pixel sprite of gladiator (orc female)"
+}

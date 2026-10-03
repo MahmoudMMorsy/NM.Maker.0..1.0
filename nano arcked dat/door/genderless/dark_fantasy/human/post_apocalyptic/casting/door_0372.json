@@ -1,0 +1,27 @@
+{
+  "file": "door_0372.png",
+  "type": "door",
+  "gender": "genderless",
+  "race": "human",
+  "style": "dark_fantasy",
+  "source": "post_apocalyptic",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "heavy_oak",
+    "hinges",
+    "handle",
+    "archway",
+    "entrance",
+    "genderless",
+    "human",
+    "dark_fantasy",
+    "casting",
+    "purple"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural dark_fantasy sprite of door (human genderless)"
+}

@@ -1,0 +1,29 @@
+{
+  "file": "cook_0164.png",
+  "type": "cook",
+  "gender": "male",
+  "race": "halfling",
+  "style": "dark_fantasy",
+  "source": "cartoon_western",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "chef_hat",
+    "ladle",
+    "frying_pan",
+    "apron",
+    "plump",
+    "male",
+    "halfling",
+    "dark_fantasy",
+    "flying",
+    "pink",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural dark_fantasy sprite of cook (halfling male)"
+}

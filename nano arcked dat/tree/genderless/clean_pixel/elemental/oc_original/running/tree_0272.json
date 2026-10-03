@@ -1,0 +1,27 @@
+{
+  "file": "tree_0272.png",
+  "type": "tree",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "clean_pixel",
+  "source": "oc_original",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "leaves",
+    "trunk",
+    "roots",
+    "bark",
+    "foliage",
+    "genderless",
+    "elemental",
+    "clean_pixel",
+    "running",
+    "gold"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural clean_pixel sprite of tree (elemental genderless)"
+}

@@ -1,0 +1,27 @@
+{
+  "file": "beast_0023.png",
+  "type": "beast",
+  "gender": "non_human",
+  "race": "beastkin",
+  "style": "sci_fi_pixel",
+  "source": "rpg_fantasy",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "claws",
+    "fur",
+    "fangs",
+    "wild",
+    "quadruped",
+    "non_human",
+    "beastkin",
+    "sci_fi_pixel",
+    "sitting",
+    "orange"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural sci_fi_pixel sprite of beast (beastkin non_human)"
+}

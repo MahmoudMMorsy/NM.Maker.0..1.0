@@ -1,0 +1,29 @@
+{
+  "file": "angel_0121.png",
+  "type": "angel",
+  "gender": "androgynous",
+  "race": "angel",
+  "style": "realistic_pixel",
+  "source": "anime_series",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "feathered_wings",
+    "halo",
+    "golden_light",
+    "white_robe",
+    "divine",
+    "androgynous",
+    "angel",
+    "realistic_pixel",
+    "sitting",
+    "orange",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural realistic_pixel sprite of angel (angel androgynous)"
+}

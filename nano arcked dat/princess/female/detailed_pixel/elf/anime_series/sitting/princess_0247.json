@@ -1,0 +1,27 @@
+{
+  "file": "princess_0247.png",
+  "type": "princess",
+  "gender": "female",
+  "race": "elf",
+  "style": "detailed_pixel",
+  "source": "anime_series",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "tiara",
+    "silk_gown",
+    "fan",
+    "graceful",
+    "noble",
+    "female",
+    "elf",
+    "detailed_pixel",
+    "sitting",
+    "orange"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural detailed_pixel sprite of princess (elf female)"
+}

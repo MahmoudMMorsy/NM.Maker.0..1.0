@@ -1,0 +1,27 @@
+{
+  "file": "angel_0403.png",
+  "type": "angel",
+  "gender": "androgynous",
+  "race": "angel",
+  "style": "detailed_pixel",
+  "source": "sci_fi",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "feathered_wings",
+    "halo",
+    "golden_light",
+    "white_robe",
+    "divine",
+    "androgynous",
+    "angel",
+    "detailed_pixel",
+    "lying",
+    "brown"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural detailed_pixel sprite of angel (angel androgynous)"
+}

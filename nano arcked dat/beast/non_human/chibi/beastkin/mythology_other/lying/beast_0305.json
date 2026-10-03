@@ -1,0 +1,28 @@
+{
+  "file": "beast_0305.png",
+  "type": "beast",
+  "gender": "non_human",
+  "race": "beastkin",
+  "style": "chibi",
+  "source": "mythology_other",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "claws",
+    "fur",
+    "fangs",
+    "wild",
+    "quadruped",
+    "non_human",
+    "beastkin",
+    "chibi",
+    "lying",
+    "brown",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural chibi sprite of beast (beastkin non_human)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "elf_0318.png",
+  "type": "elf",
+  "gender": "female",
+  "race": "high_elf",
+  "style": "chibi",
+  "source": "dark_fantasy",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "pointed_ears",
+    "graceful",
+    "bow",
+    "silver_hair",
+    "nature",
+    "female",
+    "high_elf",
+    "chibi",
+    "flying",
+    "pink",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural chibi sprite of elf (high_elf female)"
+}

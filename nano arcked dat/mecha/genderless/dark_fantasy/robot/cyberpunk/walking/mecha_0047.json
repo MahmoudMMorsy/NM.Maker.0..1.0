@@ -1,0 +1,29 @@
+{
+  "file": "mecha_0047.png",
+  "type": "mecha",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "dark_fantasy",
+  "source": "cyberpunk",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "giant_robot",
+    "cockpit",
+    "missile_pods",
+    "thrusters",
+    "armor_plating",
+    "genderless",
+    "robot",
+    "dark_fantasy",
+    "walking",
+    "white",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural dark_fantasy sprite of mecha (robot genderless)"
+}

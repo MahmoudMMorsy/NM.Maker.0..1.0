@@ -1,0 +1,28 @@
+{
+  "file": "mage_0473.png",
+  "type": "mage",
+  "gender": "female",
+  "race": "human",
+  "style": "anime_pixel",
+  "source": "mythology_other",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "robe",
+    "staff",
+    "magic_circle",
+    "glowing_eyes",
+    "spells",
+    "female",
+    "human",
+    "anime_pixel",
+    "lying",
+    "brown",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural anime_pixel sprite of mage (human female)"
+}

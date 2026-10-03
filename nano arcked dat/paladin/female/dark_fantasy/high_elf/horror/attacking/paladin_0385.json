@@ -1,0 +1,28 @@
+{
+  "file": "paladin_0385.png",
+  "type": "paladin",
+  "gender": "female",
+  "race": "high_elf",
+  "style": "dark_fantasy",
+  "source": "horror",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "golden_armor",
+    "hammer",
+    "holy_aura",
+    "banner",
+    "shield",
+    "female",
+    "high_elf",
+    "dark_fantasy",
+    "attacking",
+    "silver",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural dark_fantasy sprite of paladin (high_elf female)"
+}

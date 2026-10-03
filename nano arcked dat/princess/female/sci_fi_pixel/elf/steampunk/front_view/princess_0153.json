@@ -1,0 +1,28 @@
+{
+  "file": "princess_0153.png",
+  "type": "princess",
+  "gender": "female",
+  "race": "elf",
+  "style": "sci_fi_pixel",
+  "source": "steampunk",
+  "pose": "front_view",
+  "colors": [
+    "dark",
+    "blue"
+  ],
+  "tags": [
+    "tiara",
+    "silk_gown",
+    "fan",
+    "graceful",
+    "noble",
+    "female",
+    "elf",
+    "sci_fi_pixel",
+    "front_view",
+    "dark",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural sci_fi_pixel sprite of princess (elf female)"
+}

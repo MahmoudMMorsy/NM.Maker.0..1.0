@@ -1,0 +1,28 @@
+{
+  "file": "skeleton_0312.png",
+  "type": "skeleton",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "detailed_pixel",
+  "source": "movie",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "bare_bones",
+    "scythe",
+    "empty_sockets",
+    "cracked",
+    "warrior",
+    "genderless",
+    "undead",
+    "detailed_pixel",
+    "idle",
+    "black",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural detailed_pixel sprite of skeleton (undead genderless)"
+}

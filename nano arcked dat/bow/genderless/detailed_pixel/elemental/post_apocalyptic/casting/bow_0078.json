@@ -1,0 +1,29 @@
+{
+  "file": "bow_0078.png",
+  "type": "bow",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "detailed_pixel",
+  "source": "post_apocalyptic",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "yew_wood",
+    "bowstring",
+    "recurve",
+    "hunting",
+    "ranged",
+    "genderless",
+    "elemental",
+    "detailed_pixel",
+    "casting",
+    "purple",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural detailed_pixel sprite of bow (elemental genderless)"
+}

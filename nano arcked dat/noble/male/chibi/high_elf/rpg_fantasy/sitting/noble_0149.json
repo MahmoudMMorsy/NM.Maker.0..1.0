@@ -1,0 +1,28 @@
+{
+  "file": "noble_0149.png",
+  "type": "noble",
+  "gender": "male",
+  "race": "high_elf",
+  "style": "chibi",
+  "source": "rpg_fantasy",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "silk_garb",
+    "jeweled_ring",
+    "crown",
+    "fancy",
+    "cape",
+    "male",
+    "high_elf",
+    "chibi",
+    "sitting",
+    "orange",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural chibi sprite of noble (high_elf male)"
+}

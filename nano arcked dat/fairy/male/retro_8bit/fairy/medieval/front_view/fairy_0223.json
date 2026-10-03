@@ -1,0 +1,28 @@
+{
+  "file": "fairy_0223.png",
+  "type": "fairy",
+  "gender": "male",
+  "race": "fairy",
+  "style": "retro_8bit",
+  "source": "medieval",
+  "pose": "front_view",
+  "colors": [
+    "dark",
+    "blue"
+  ],
+  "tags": [
+    "insect_wings",
+    "sparkles",
+    "tiny",
+    "wand",
+    "nature",
+    "male",
+    "fairy",
+    "retro_8bit",
+    "front_view",
+    "dark",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural retro_8bit sprite of fairy (fairy male)"
+}

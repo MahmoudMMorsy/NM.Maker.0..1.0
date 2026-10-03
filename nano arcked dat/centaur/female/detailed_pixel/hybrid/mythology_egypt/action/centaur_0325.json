@@ -1,0 +1,28 @@
+{
+  "file": "centaur_0325.png",
+  "type": "centaur",
+  "gender": "female",
+  "race": "hybrid",
+  "style": "detailed_pixel",
+  "source": "mythology_egypt",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "horse_body",
+    "spear",
+    "hooves",
+    "wild",
+    "archer",
+    "female",
+    "hybrid",
+    "detailed_pixel",
+    "action",
+    "green",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural detailed_pixel sprite of centaur (hybrid female)"
+}

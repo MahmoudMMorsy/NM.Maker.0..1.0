@@ -1,0 +1,28 @@
+{
+  "file": "queen_0057.png",
+  "type": "queen",
+  "gender": "female",
+  "race": "human",
+  "style": "anime_pixel",
+  "source": "post_apocalyptic",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "tiara",
+    "flowing_dress",
+    "royal_scepter",
+    "elegant",
+    "majestic",
+    "female",
+    "human",
+    "anime_pixel",
+    "full_body",
+    "red",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural anime_pixel sprite of queen (human female)"
+}

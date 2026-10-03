@@ -1,0 +1,30 @@
+{
+  "file": "dragon_0025.png",
+  "type": "dragon",
+  "gender": "non_human",
+  "race": "dragonkin",
+  "style": "clean_pixel",
+  "source": "sci_fi",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "wings",
+    "scales",
+    "fire_breath",
+    "horns",
+    "tail",
+    "giant",
+    "non_human",
+    "dragonkin",
+    "clean_pixel",
+    "lying",
+    "brown",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural clean_pixel sprite of dragon (dragonkin non_human)"
+}

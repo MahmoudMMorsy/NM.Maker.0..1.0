@@ -1,0 +1,28 @@
+{
+  "file": "elemental_0410.png",
+  "type": "elemental",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "cartoon",
+  "source": "mythology_other",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "flames",
+    "water_whorl",
+    "lightning_sparks",
+    "earthen",
+    "pure_energy",
+    "genderless",
+    "elemental",
+    "cartoon",
+    "idle",
+    "black",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural cartoon sprite of elemental (elemental genderless)"
+}

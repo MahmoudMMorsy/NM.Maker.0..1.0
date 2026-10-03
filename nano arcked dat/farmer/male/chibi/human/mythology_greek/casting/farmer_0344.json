@@ -1,0 +1,28 @@
+{
+  "file": "farmer_0344.png",
+  "type": "farmer",
+  "gender": "male",
+  "race": "human",
+  "style": "chibi",
+  "source": "mythology_greek",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "pitchfork",
+    "straw_hat",
+    "overalls",
+    "wheat",
+    "rugged",
+    "male",
+    "human",
+    "chibi",
+    "casting",
+    "purple",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural chibi sprite of farmer (human male)"
+}

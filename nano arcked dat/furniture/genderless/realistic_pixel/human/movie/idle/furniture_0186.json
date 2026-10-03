@@ -1,0 +1,27 @@
+{
+  "file": "furniture_0186.png",
+  "type": "furniture",
+  "gender": "genderless",
+  "race": "human",
+  "style": "realistic_pixel",
+  "source": "movie",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "carved_wood",
+    "cushion",
+    "table_chair",
+    "decor",
+    "interior",
+    "genderless",
+    "human",
+    "realistic_pixel",
+    "idle",
+    "black"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural realistic_pixel sprite of furniture (human genderless)"
+}

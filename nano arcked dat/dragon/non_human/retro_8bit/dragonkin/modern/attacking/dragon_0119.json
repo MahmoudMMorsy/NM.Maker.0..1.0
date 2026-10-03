@@ -1,0 +1,30 @@
+{
+  "file": "dragon_0119.png",
+  "type": "dragon",
+  "gender": "non_human",
+  "race": "dragonkin",
+  "style": "retro_8bit",
+  "source": "modern",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "wings",
+    "scales",
+    "fire_breath",
+    "horns",
+    "tail",
+    "giant",
+    "non_human",
+    "dragonkin",
+    "retro_8bit",
+    "attacking",
+    "silver",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural retro_8bit sprite of dragon (dragonkin non_human)"
+}

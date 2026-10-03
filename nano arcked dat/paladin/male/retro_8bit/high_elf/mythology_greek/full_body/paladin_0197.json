@@ -1,0 +1,28 @@
+{
+  "file": "paladin_0197.png",
+  "type": "paladin",
+  "gender": "male",
+  "race": "high_elf",
+  "style": "retro_8bit",
+  "source": "mythology_greek",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "golden_armor",
+    "hammer",
+    "holy_aura",
+    "banner",
+    "shield",
+    "male",
+    "high_elf",
+    "retro_8bit",
+    "full_body",
+    "red",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural retro_8bit sprite of paladin (high_elf male)"
+}

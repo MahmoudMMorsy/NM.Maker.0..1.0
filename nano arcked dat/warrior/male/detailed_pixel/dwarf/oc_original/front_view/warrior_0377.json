@@ -1,0 +1,27 @@
+{
+  "file": "warrior_0377.png",
+  "type": "warrior",
+  "gender": "male",
+  "race": "dwarf",
+  "style": "detailed_pixel",
+  "source": "oc_original",
+  "pose": "front_view",
+  "colors": [
+    "dark",
+    "blue"
+  ],
+  "tags": [
+    "armor",
+    "sword",
+    "shield",
+    "helmet",
+    "muscular",
+    "male",
+    "dwarf",
+    "detailed_pixel",
+    "front_view",
+    "dark"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural detailed_pixel sprite of warrior (dwarf male)"
+}

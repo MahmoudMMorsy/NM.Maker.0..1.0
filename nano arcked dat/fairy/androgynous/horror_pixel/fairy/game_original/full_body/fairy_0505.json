@@ -1,0 +1,27 @@
+{
+  "file": "fairy_0505.png",
+  "type": "fairy",
+  "gender": "androgynous",
+  "race": "fairy",
+  "style": "horror_pixel",
+  "source": "game_original",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "insect_wings",
+    "sparkles",
+    "tiny",
+    "wand",
+    "nature",
+    "androgynous",
+    "fairy",
+    "horror_pixel",
+    "full_body",
+    "red"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural horror_pixel sprite of fairy (fairy androgynous)"
+}

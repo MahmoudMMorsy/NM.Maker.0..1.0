@@ -1,0 +1,29 @@
+{
+  "file": "dragon_0495.png",
+  "type": "dragon",
+  "gender": "non_human",
+  "race": "dragonkin",
+  "style": "arcade_pixel",
+  "source": "historical",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "wings",
+    "scales",
+    "fire_breath",
+    "horns",
+    "tail",
+    "giant",
+    "non_human",
+    "dragonkin",
+    "arcade_pixel",
+    "walking",
+    "white",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural arcade_pixel sprite of dragon (dragonkin non_human)"
+}

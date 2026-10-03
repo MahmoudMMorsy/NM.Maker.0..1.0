@@ -1,0 +1,28 @@
+{
+  "file": "summoner_0011.png",
+  "type": "summoner",
+  "gender": "female",
+  "race": "elf",
+  "style": "horror_pixel",
+  "source": "mythology_other",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "grimoire",
+    "runes",
+    "summoning_circle",
+    "familiar",
+    "robes",
+    "female",
+    "elf",
+    "horror_pixel",
+    "lying",
+    "brown",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural horror_pixel sprite of summoner (elf female)"
+}

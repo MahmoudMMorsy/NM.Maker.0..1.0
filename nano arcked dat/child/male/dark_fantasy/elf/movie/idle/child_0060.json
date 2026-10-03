@@ -1,0 +1,28 @@
+{
+  "file": "child_0060.png",
+  "type": "child",
+  "gender": "male",
+  "race": "elf",
+  "style": "dark_fantasy",
+  "source": "movie",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "small_stature",
+    "toy",
+    "casual_clothing",
+    "playful",
+    "young",
+    "male",
+    "elf",
+    "dark_fantasy",
+    "idle",
+    "black",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural dark_fantasy sprite of child (elf male)"
+}

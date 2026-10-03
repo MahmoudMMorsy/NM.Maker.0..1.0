@@ -1,0 +1,29 @@
+{
+  "file": "demon_0308.png",
+  "type": "demon",
+  "gender": "non_human",
+  "race": "demon",
+  "style": "fantasy_pixel",
+  "source": "modern",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "horns",
+    "leathery_wings",
+    "red_skin",
+    "pitchfork",
+    "tail",
+    "non_human",
+    "demon",
+    "fantasy_pixel",
+    "back_view",
+    "bright",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural fantasy_pixel sprite of demon (demon non_human)"
+}

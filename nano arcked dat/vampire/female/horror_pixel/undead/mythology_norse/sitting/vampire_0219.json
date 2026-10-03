@@ -1,0 +1,28 @@
+{
+  "file": "vampire_0219.png",
+  "type": "vampire",
+  "gender": "female",
+  "race": "undead",
+  "style": "horror_pixel",
+  "source": "mythology_norse",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "fangs",
+    "high_collar",
+    "pale_skin",
+    "bat_wings",
+    "noble_gothic",
+    "female",
+    "undead",
+    "horror_pixel",
+    "sitting",
+    "orange",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural horror_pixel sprite of vampire (undead female)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "bard_0200.png",
+  "type": "bard",
+  "gender": "male",
+  "race": "fairy",
+  "style": "anime_pixel",
+  "source": "mythology_other",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "lute",
+    "feather_hat",
+    "colorful",
+    "charming",
+    "song",
+    "male",
+    "fairy",
+    "anime_pixel",
+    "idle",
+    "black",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural anime_pixel sprite of bard (fairy male)"
+}

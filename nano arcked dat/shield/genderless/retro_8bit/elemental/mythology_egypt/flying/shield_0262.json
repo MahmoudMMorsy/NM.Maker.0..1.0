@@ -1,0 +1,28 @@
+{
+  "file": "shield_0262.png",
+  "type": "shield",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "retro_8bit",
+  "source": "mythology_egypt",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "crested",
+    "wood_iron",
+    "sturdy",
+    "blocker",
+    "defense",
+    "genderless",
+    "elemental",
+    "retro_8bit",
+    "flying",
+    "pink",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural retro_8bit sprite of shield (elemental genderless)"
+}

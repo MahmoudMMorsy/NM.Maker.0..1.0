@@ -1,0 +1,28 @@
+{
+  "file": "noble_0243.png",
+  "type": "noble",
+  "gender": "female",
+  "race": "human",
+  "style": "fantasy_pixel",
+  "source": "historical",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "silk_garb",
+    "jeweled_ring",
+    "crown",
+    "fancy",
+    "cape",
+    "female",
+    "human",
+    "fantasy_pixel",
+    "walking",
+    "white",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural fantasy_pixel sprite of noble (human female)"
+}

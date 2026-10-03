@@ -1,0 +1,27 @@
+{
+  "file": "samurai_0485.png",
+  "type": "samurai",
+  "gender": "male",
+  "race": "human",
+  "style": "realistic_pixel",
+  "source": "rpg_fantasy",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "katana",
+    "samurai_armor",
+    "kabuto_helmet",
+    "honorable",
+    "sash",
+    "male",
+    "human",
+    "realistic_pixel",
+    "sitting",
+    "orange"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural realistic_pixel sprite of samurai (human male)"
+}

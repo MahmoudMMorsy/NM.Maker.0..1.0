@@ -1,0 +1,29 @@
+{
+  "file": "android_0425.png",
+  "type": "android",
+  "gender": "androgynous",
+  "race": "robot",
+  "style": "fantasy_pixel",
+  "source": "cyberpunk",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "synthetic_skin",
+    "glowing_joints",
+    "futuristic",
+    "sleek",
+    "ai",
+    "androgynous",
+    "robot",
+    "fantasy_pixel",
+    "walking",
+    "white",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural fantasy_pixel sprite of android (robot androgynous)"
+}

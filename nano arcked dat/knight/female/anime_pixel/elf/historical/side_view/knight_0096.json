@@ -1,0 +1,28 @@
+{
+  "file": "knight_0096.png",
+  "type": "knight",
+  "gender": "female",
+  "race": "elf",
+  "style": "anime_pixel",
+  "source": "historical",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "plate_armor",
+    "sword",
+    "shield",
+    "cape",
+    "heroic",
+    "female",
+    "elf",
+    "anime_pixel",
+    "side_view",
+    "multicolor",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural anime_pixel sprite of knight (elf female)"
+}

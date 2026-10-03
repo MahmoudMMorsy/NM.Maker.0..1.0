@@ -1,0 +1,28 @@
+{
+  "file": "centaur_0513.png",
+  "type": "centaur",
+  "gender": "female",
+  "race": "hybrid",
+  "style": "chibi",
+  "source": "mythology_norse",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "horse_body",
+    "spear",
+    "hooves",
+    "wild",
+    "archer",
+    "female",
+    "hybrid",
+    "chibi",
+    "sitting",
+    "orange",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural chibi sprite of centaur (hybrid female)"
+}

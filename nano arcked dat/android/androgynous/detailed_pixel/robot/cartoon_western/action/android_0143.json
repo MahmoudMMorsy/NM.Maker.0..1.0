@@ -1,0 +1,29 @@
+{
+  "file": "android_0143.png",
+  "type": "android",
+  "gender": "androgynous",
+  "race": "robot",
+  "style": "detailed_pixel",
+  "source": "cartoon_western",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "synthetic_skin",
+    "glowing_joints",
+    "futuristic",
+    "sleek",
+    "ai",
+    "androgynous",
+    "robot",
+    "detailed_pixel",
+    "action",
+    "green",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural detailed_pixel sprite of android (robot androgynous)"
+}

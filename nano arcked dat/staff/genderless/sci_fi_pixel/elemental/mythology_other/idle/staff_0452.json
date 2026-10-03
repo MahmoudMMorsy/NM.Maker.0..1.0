@@ -1,0 +1,28 @@
+{
+  "file": "staff_0452.png",
+  "type": "staff",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "sci_fi_pixel",
+  "source": "mythology_other",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "carved_wood",
+    "gemstone_tip",
+    "magical",
+    "focus",
+    "conduit",
+    "genderless",
+    "elemental",
+    "sci_fi_pixel",
+    "idle",
+    "black",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural sci_fi_pixel sprite of staff (elemental genderless)"
+}

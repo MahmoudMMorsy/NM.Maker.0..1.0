@@ -1,0 +1,28 @@
+{
+  "file": "item_0282.png",
+  "type": "item",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "fantasy_pixel",
+  "source": "mythology_norse",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "artifact",
+    "quest_object",
+    "mysterious",
+    "valuable",
+    "relic",
+    "genderless",
+    "elemental",
+    "fantasy_pixel",
+    "portrait",
+    "blue",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural fantasy_pixel sprite of item (elemental genderless)"
+}

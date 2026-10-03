@@ -1,0 +1,29 @@
+{
+  "file": "troll_0510.png",
+  "type": "troll",
+  "gender": "non_human",
+  "race": "troll",
+  "style": "retro_16bit",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "regenerating",
+    "club",
+    "warty",
+    "tall",
+    "lanky",
+    "non_human",
+    "troll",
+    "retro_16bit",
+    "running",
+    "gold",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_16bit sprite of troll (troll non_human)"
+}

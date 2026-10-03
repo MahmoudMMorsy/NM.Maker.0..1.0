@@ -1,0 +1,28 @@
+{
+  "file": "princess_0341.png",
+  "type": "princess",
+  "gender": "female",
+  "race": "human",
+  "style": "retro_16bit",
+  "source": "cyberpunk",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "tiara",
+    "silk_gown",
+    "fan",
+    "graceful",
+    "noble",
+    "female",
+    "human",
+    "retro_16bit",
+    "walking",
+    "white",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural retro_16bit sprite of princess (human female)"
+}

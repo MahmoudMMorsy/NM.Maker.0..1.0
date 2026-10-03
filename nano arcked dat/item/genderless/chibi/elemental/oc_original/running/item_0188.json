@@ -1,0 +1,28 @@
+{
+  "file": "item_0188.png",
+  "type": "item",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "chibi",
+  "source": "oc_original",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "artifact",
+    "quest_object",
+    "mysterious",
+    "valuable",
+    "relic",
+    "genderless",
+    "elemental",
+    "chibi",
+    "running",
+    "gold",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural chibi sprite of item (elemental genderless)"
+}

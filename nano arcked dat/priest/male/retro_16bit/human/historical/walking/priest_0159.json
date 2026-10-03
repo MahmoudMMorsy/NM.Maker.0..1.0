@@ -1,0 +1,27 @@
+{
+  "file": "priest_0159.png",
+  "type": "priest",
+  "gender": "male",
+  "race": "human",
+  "style": "retro_16bit",
+  "source": "historical",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "holy_symbol",
+    "white_robes",
+    "scroll",
+    "blessing",
+    "pious",
+    "male",
+    "human",
+    "retro_16bit",
+    "walking",
+    "white"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_16bit sprite of priest (human male)"
+}

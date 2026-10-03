@@ -1,0 +1,28 @@
+{
+  "file": "paladin_0009.png",
+  "type": "paladin",
+  "gender": "male",
+  "race": "human",
+  "style": "fantasy_pixel",
+  "source": "mythology_norse",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "golden_armor",
+    "hammer",
+    "holy_aura",
+    "banner",
+    "shield",
+    "male",
+    "human",
+    "fantasy_pixel",
+    "sitting",
+    "orange",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural fantasy_pixel sprite of paladin (human male)"
+}

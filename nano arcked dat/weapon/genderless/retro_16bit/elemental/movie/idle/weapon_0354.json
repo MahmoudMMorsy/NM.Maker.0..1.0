@@ -1,0 +1,27 @@
+{
+  "file": "weapon_0354.png",
+  "type": "weapon",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "retro_16bit",
+  "source": "movie",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "blade",
+    "sharp",
+    "forged",
+    "deadly",
+    "equipment",
+    "genderless",
+    "elemental",
+    "retro_16bit",
+    "idle",
+    "black"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_16bit sprite of weapon (elemental genderless)"
+}

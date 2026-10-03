@@ -1,0 +1,29 @@
+{
+  "file": "farmer_0156.png",
+  "type": "farmer",
+  "gender": "male",
+  "race": "human",
+  "style": "detailed_pixel",
+  "source": "mythology_norse",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "pitchfork",
+    "straw_hat",
+    "overalls",
+    "wheat",
+    "rugged",
+    "male",
+    "human",
+    "detailed_pixel",
+    "portrait",
+    "blue",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural detailed_pixel sprite of farmer (human male)"
+}

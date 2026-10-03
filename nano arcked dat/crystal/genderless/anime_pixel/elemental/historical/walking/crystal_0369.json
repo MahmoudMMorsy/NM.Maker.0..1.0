@@ -1,0 +1,28 @@
+{
+  "file": "crystal_0369.png",
+  "type": "crystal",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "anime_pixel",
+  "source": "historical",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "glowing",
+    "shard",
+    "faceted",
+    "magical_gem",
+    "prismatic",
+    "genderless",
+    "elemental",
+    "anime_pixel",
+    "walking",
+    "white",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural anime_pixel sprite of crystal (elemental genderless)"
+}

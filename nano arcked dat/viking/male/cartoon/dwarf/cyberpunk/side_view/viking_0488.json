@@ -1,0 +1,28 @@
+{
+  "file": "viking_0488.png",
+  "type": "viking",
+  "gender": "male",
+  "race": "dwarf",
+  "style": "cartoon",
+  "source": "cyberpunk",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "horned_helm",
+    "bearded",
+    "battle_axe",
+    "round_shield",
+    "fur",
+    "male",
+    "dwarf",
+    "cartoon",
+    "side_view",
+    "multicolor",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural cartoon sprite of viking (dwarf male)"
+}

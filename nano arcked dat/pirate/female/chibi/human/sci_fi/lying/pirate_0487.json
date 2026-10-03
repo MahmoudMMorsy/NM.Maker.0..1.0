@@ -1,0 +1,27 @@
+{
+  "file": "pirate_0487.png",
+  "type": "pirate",
+  "gender": "female",
+  "race": "human",
+  "style": "chibi",
+  "source": "sci_fi",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "cutlass",
+    "eyepatch",
+    "tricorne_hat",
+    "flintlock",
+    "boots",
+    "female",
+    "human",
+    "chibi",
+    "lying",
+    "brown"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural chibi sprite of pirate (human female)"
+}

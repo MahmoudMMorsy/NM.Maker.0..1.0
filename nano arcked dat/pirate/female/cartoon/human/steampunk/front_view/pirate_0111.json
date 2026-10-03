@@ -1,0 +1,27 @@
+{
+  "file": "pirate_0111.png",
+  "type": "pirate",
+  "gender": "female",
+  "race": "human",
+  "style": "cartoon",
+  "source": "steampunk",
+  "pose": "front_view",
+  "colors": [
+    "dark",
+    "blue"
+  ],
+  "tags": [
+    "cutlass",
+    "eyepatch",
+    "tricorne_hat",
+    "flintlock",
+    "boots",
+    "female",
+    "human",
+    "cartoon",
+    "front_view",
+    "dark"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural cartoon sprite of pirate (human female)"
+}

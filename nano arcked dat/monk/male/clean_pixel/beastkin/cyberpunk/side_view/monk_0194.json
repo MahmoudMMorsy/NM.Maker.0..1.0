@@ -1,0 +1,29 @@
+{
+  "file": "monk_0194.png",
+  "type": "monk",
+  "gender": "male",
+  "race": "beastkin",
+  "style": "clean_pixel",
+  "source": "cyberpunk",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "wraps",
+    "martial_arts",
+    "beads",
+    "tattooed",
+    "focused",
+    "male",
+    "beastkin",
+    "clean_pixel",
+    "side_view",
+    "multicolor",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural clean_pixel sprite of monk (beastkin male)"
+}

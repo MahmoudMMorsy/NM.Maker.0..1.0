@@ -1,0 +1,28 @@
+{
+  "file": "gladiator_0301.png",
+  "type": "gladiator",
+  "gender": "female",
+  "race": "minotaur",
+  "style": "retro_8bit",
+  "source": "horror",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "trident",
+    "net",
+    "arena_armor",
+    "scars",
+    "muscular",
+    "female",
+    "minotaur",
+    "retro_8bit",
+    "attacking",
+    "silver",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural retro_8bit sprite of gladiator (minotaur female)"
+}

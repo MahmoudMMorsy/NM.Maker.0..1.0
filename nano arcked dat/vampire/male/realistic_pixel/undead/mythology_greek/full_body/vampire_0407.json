@@ -1,0 +1,28 @@
+{
+  "file": "vampire_0407.png",
+  "type": "vampire",
+  "gender": "male",
+  "race": "undead",
+  "style": "realistic_pixel",
+  "source": "mythology_greek",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "fangs",
+    "high_collar",
+    "pale_skin",
+    "bat_wings",
+    "noble_gothic",
+    "male",
+    "undead",
+    "realistic_pixel",
+    "full_body",
+    "red",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural realistic_pixel sprite of vampire (undead male)"
+}

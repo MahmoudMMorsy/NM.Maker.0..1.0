@@ -1,0 +1,29 @@
+{
+  "file": "guard_0165.png",
+  "type": "guard",
+  "gender": "female",
+  "race": "human",
+  "style": "fantasy_pixel",
+  "source": "movie",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "spear",
+    "chainmail",
+    "surcoat",
+    "kettle_helm",
+    "vigilant",
+    "female",
+    "human",
+    "fantasy_pixel",
+    "lying",
+    "brown",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural fantasy_pixel sprite of guard (human female)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "shield_0356.png",
+  "type": "shield",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "anime_pixel",
+  "source": "oc_original",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "crested",
+    "wood_iron",
+    "sturdy",
+    "blocker",
+    "defense",
+    "genderless",
+    "elemental",
+    "anime_pixel",
+    "running",
+    "gold",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural anime_pixel sprite of shield (elemental genderless)"
+}

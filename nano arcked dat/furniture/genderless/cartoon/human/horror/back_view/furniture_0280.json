@@ -1,0 +1,28 @@
+{
+  "file": "furniture_0280.png",
+  "type": "furniture",
+  "gender": "genderless",
+  "race": "human",
+  "style": "cartoon",
+  "source": "horror",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "carved_wood",
+    "cushion",
+    "table_chair",
+    "decor",
+    "interior",
+    "genderless",
+    "human",
+    "cartoon",
+    "back_view",
+    "bright",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural cartoon sprite of furniture (human genderless)"
+}

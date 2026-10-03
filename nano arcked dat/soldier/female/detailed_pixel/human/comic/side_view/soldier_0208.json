@@ -1,0 +1,27 @@
+{
+  "file": "soldier_0208.png",
+  "type": "soldier",
+  "gender": "female",
+  "race": "human",
+  "style": "detailed_pixel",
+  "source": "comic",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "rifle",
+    "tactical_vest",
+    "camo",
+    "combat_boots",
+    "helmet",
+    "female",
+    "human",
+    "detailed_pixel",
+    "side_view",
+    "multicolor"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural detailed_pixel sprite of soldier (human female)"
+}

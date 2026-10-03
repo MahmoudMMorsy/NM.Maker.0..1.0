@@ -1,0 +1,29 @@
+{
+  "file": "farmer_0062.png",
+  "type": "farmer",
+  "gender": "female",
+  "race": "human",
+  "style": "sci_fi_pixel",
+  "source": "oc_original",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "pitchfork",
+    "straw_hat",
+    "overalls",
+    "wheat",
+    "rugged",
+    "female",
+    "human",
+    "sci_fi_pixel",
+    "running",
+    "gold",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural sci_fi_pixel sprite of farmer (human female)"
+}

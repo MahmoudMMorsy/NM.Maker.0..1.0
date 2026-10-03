@@ -1,0 +1,28 @@
+{
+  "file": "weapon_0448.png",
+  "type": "weapon",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "chibi",
+  "source": "horror",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "blade",
+    "sharp",
+    "forged",
+    "deadly",
+    "equipment",
+    "genderless",
+    "elemental",
+    "chibi",
+    "back_view",
+    "bright",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural chibi sprite of weapon (elemental genderless)"
+}

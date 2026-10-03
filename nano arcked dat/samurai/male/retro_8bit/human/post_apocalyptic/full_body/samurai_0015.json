@@ -1,0 +1,29 @@
+{
+  "file": "samurai_0015.png",
+  "type": "samurai",
+  "gender": "male",
+  "race": "human",
+  "style": "retro_8bit",
+  "source": "post_apocalyptic",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "katana",
+    "samurai_armor",
+    "kabuto_helmet",
+    "honorable",
+    "sash",
+    "male",
+    "human",
+    "retro_8bit",
+    "full_body",
+    "red",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_8bit sprite of samurai (human male)"
+}

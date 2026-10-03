@@ -1,0 +1,29 @@
+{
+  "file": "food_0469.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "human",
+  "style": "arcade_pixel",
+  "source": "horror",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "roasted_meat",
+    "bread_loaf",
+    "cheese_wheel",
+    "feast",
+    "delicious",
+    "genderless",
+    "human",
+    "arcade_pixel",
+    "attacking",
+    "silver",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural arcade_pixel sprite of food (human genderless)"
+}

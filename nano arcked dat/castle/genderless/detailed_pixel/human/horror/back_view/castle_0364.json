@@ -1,0 +1,28 @@
+{
+  "file": "castle_0364.png",
+  "type": "castle",
+  "gender": "genderless",
+  "race": "human",
+  "style": "detailed_pixel",
+  "source": "horror",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "battlements",
+    "towers",
+    "drawbridge",
+    "stone_walls",
+    "fortress",
+    "genderless",
+    "human",
+    "detailed_pixel",
+    "back_view",
+    "bright",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural detailed_pixel sprite of castle (human genderless)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "witch_0442.png",
+  "type": "witch",
+  "gender": "female",
+  "race": "dark_elf",
+  "style": "detailed_pixel",
+  "source": "game_original",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "pointed_hat",
+    "cauldron",
+    "broomstick",
+    "black_cat",
+    "curse",
+    "female",
+    "dark_elf",
+    "detailed_pixel",
+    "casting",
+    "purple",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural detailed_pixel sprite of witch (dark_elf female)"
+}

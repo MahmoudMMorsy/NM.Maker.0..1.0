@@ -1,0 +1,28 @@
+{
+  "file": "merchant_0336.png",
+  "type": "merchant",
+  "gender": "male",
+  "race": "dwarf",
+  "style": "horror_pixel",
+  "source": "generic",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "coin_pouch",
+    "backpack",
+    "trade_goods",
+    "tunic",
+    "hat",
+    "male",
+    "dwarf",
+    "horror_pixel",
+    "back_view",
+    "bright",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural horror_pixel sprite of merchant (dwarf male)"
+}

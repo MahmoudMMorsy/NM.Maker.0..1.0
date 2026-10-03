@@ -1,0 +1,27 @@
+{
+  "file": "queen_0151.png",
+  "type": "queen",
+  "gender": "female",
+  "race": "elf",
+  "style": "dark_fantasy",
+  "source": "sci_fi",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "tiara",
+    "flowing_dress",
+    "royal_scepter",
+    "elegant",
+    "majestic",
+    "female",
+    "elf",
+    "dark_fantasy",
+    "lying",
+    "brown"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural dark_fantasy sprite of queen (elf female)"
+}

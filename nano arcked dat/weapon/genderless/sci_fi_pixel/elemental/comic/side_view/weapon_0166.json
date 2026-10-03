@@ -1,0 +1,29 @@
+{
+  "file": "weapon_0166.png",
+  "type": "weapon",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "sci_fi_pixel",
+  "source": "comic",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "blade",
+    "sharp",
+    "forged",
+    "deadly",
+    "equipment",
+    "genderless",
+    "elemental",
+    "sci_fi_pixel",
+    "side_view",
+    "multicolor",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural sci_fi_pixel sprite of weapon (elemental genderless)"
+}

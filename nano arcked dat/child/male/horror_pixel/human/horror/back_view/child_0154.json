@@ -1,0 +1,28 @@
+{
+  "file": "child_0154.png",
+  "type": "child",
+  "gender": "male",
+  "race": "human",
+  "style": "horror_pixel",
+  "source": "horror",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "small_stature",
+    "toy",
+    "casual_clothing",
+    "playful",
+    "young",
+    "male",
+    "human",
+    "horror_pixel",
+    "back_view",
+    "bright",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural horror_pixel sprite of child (human male)"
+}

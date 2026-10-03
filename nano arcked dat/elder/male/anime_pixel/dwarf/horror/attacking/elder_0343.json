@@ -1,0 +1,28 @@
+{
+  "file": "elder_0343.png",
+  "type": "elder",
+  "gender": "male",
+  "race": "dwarf",
+  "style": "anime_pixel",
+  "source": "horror",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "walking_stick",
+    "wrinkled",
+    "grey_hair",
+    "long_beard",
+    "wise",
+    "male",
+    "dwarf",
+    "anime_pixel",
+    "attacking",
+    "silver",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural anime_pixel sprite of elder (dwarf male)"
+}

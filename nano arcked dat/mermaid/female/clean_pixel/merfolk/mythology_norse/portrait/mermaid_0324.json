@@ -1,0 +1,28 @@
+{
+  "file": "mermaid_0324.png",
+  "type": "mermaid",
+  "gender": "female",
+  "race": "merfolk",
+  "style": "clean_pixel",
+  "source": "mythology_norse",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "fish_tail",
+    "seashells",
+    "trident",
+    "flowing_hair",
+    "scales",
+    "female",
+    "merfolk",
+    "clean_pixel",
+    "portrait",
+    "blue",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural clean_pixel sprite of mermaid (merfolk female)"
+}

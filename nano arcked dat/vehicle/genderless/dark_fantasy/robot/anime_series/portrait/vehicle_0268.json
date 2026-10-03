@@ -1,0 +1,27 @@
+{
+  "file": "vehicle_0268.png",
+  "type": "vehicle",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "dark_fantasy",
+  "source": "anime_series",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "wheels",
+    "chassis",
+    "engine",
+    "transport",
+    "metal",
+    "genderless",
+    "robot",
+    "dark_fantasy",
+    "portrait",
+    "blue"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural dark_fantasy sprite of vehicle (robot genderless)"
+}

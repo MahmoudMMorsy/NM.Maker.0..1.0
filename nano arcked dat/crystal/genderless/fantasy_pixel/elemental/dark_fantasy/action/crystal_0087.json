@@ -1,0 +1,28 @@
+{
+  "file": "crystal_0087.png",
+  "type": "crystal",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "fantasy_pixel",
+  "source": "dark_fantasy",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "glowing",
+    "shard",
+    "faceted",
+    "magical_gem",
+    "prismatic",
+    "genderless",
+    "elemental",
+    "fantasy_pixel",
+    "action",
+    "green",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural fantasy_pixel sprite of crystal (elemental genderless)"
+}

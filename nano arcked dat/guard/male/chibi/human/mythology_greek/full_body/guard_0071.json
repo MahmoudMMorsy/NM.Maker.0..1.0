@@ -1,0 +1,29 @@
+{
+  "file": "guard_0071.png",
+  "type": "guard",
+  "gender": "male",
+  "race": "human",
+  "style": "chibi",
+  "source": "mythology_greek",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "spear",
+    "chainmail",
+    "surcoat",
+    "kettle_helm",
+    "vigilant",
+    "male",
+    "human",
+    "chibi",
+    "full_body",
+    "red",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural chibi sprite of guard (human male)"
+}

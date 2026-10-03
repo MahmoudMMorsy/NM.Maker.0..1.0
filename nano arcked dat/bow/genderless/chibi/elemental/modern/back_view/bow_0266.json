@@ -1,0 +1,27 @@
+{
+  "file": "bow_0266.png",
+  "type": "bow",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "chibi",
+  "source": "modern",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "yew_wood",
+    "bowstring",
+    "recurve",
+    "hunting",
+    "ranged",
+    "genderless",
+    "elemental",
+    "chibi",
+    "back_view",
+    "bright"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural chibi sprite of bow (elemental genderless)"
+}

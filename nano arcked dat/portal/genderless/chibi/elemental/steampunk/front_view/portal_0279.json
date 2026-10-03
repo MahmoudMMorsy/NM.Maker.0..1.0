@@ -1,0 +1,27 @@
+{
+  "file": "portal_0279.png",
+  "type": "portal",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "chibi",
+  "source": "steampunk",
+  "pose": "front_view",
+  "colors": [
+    "dark",
+    "blue"
+  ],
+  "tags": [
+    "swirling_vortex",
+    "runic_frame",
+    "dimension",
+    "glowing_energy",
+    "teleport",
+    "genderless",
+    "elemental",
+    "chibi",
+    "front_view",
+    "dark"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural chibi sprite of portal (elemental genderless)"
+}

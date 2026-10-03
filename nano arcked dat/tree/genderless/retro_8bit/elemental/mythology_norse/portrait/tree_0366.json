@@ -1,0 +1,27 @@
+{
+  "file": "tree_0366.png",
+  "type": "tree",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "retro_8bit",
+  "source": "mythology_norse",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "leaves",
+    "trunk",
+    "roots",
+    "bark",
+    "foliage",
+    "genderless",
+    "elemental",
+    "retro_8bit",
+    "portrait",
+    "blue"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_8bit sprite of tree (elemental genderless)"
+}
