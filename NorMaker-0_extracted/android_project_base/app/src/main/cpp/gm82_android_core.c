@@ -1379,6 +1379,75 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
         *out = gml_value_real(0.0);
         return 1;
     }
+    if (!strcmp(name, "alarm_get") && count == 1) {
+        int idx = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0);
+        double val = (self && idx >= 0 && idx < 12) ? (double)self->alarms[idx] : -1.0;
+        *out = gml_value_real(val);
+        return 1;
+    }
+    if (!strcmp(name, "alarm_set") && count == 2) {
+        int idx = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0);
+        int val = (int)(args[1].kind == GML_V_REAL ? args[1].real : -1);
+        if (self && idx >= 0 && idx < 12) self->alarms[idx] = val;
+        *out = gml_value_bool(1);
+        return 1;
+    }
+    if (!strcmp(name, "animation_stop") && count == 0) {
+        if (self) self->image_speed = 0.0f;
+        *out = gml_value_bool(1);
+        return 1;
+    }
+    if (!strcmp(name, "ds_list_find_first") && count == 1) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_lists[id].active && g_ds_lists[id].count > 0) {
+            *out = g_ds_lists[id].items[0]; return 1;
+        }
+        *out = gml_value_real(0.0); return 1;
+    }
+    if (!strcmp(name, "ds_list_find_last") && count == 1) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_lists[id].active && g_ds_lists[id].count > 0) {
+            *out = g_ds_lists[id].items[g_ds_lists[id].count - 1]; return 1;
+        }
+        *out = gml_value_real(0.0); return 1;
+    }
+    if (!strcmp(name, "ds_list_contains") && count == 2) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        int found = 0;
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_lists[id].active) {
+            for (size_t i = 0; i < g_ds_lists[id].count; ++i) {
+                if (g_ds_lists[id].items[i].kind == args[1].kind) {
+                    if (args[1].kind == GML_V_REAL && g_ds_lists[id].items[i].real == args[1].real) { found = 1; break; }
+                    if (args[1].kind == GML_V_STRING && !strcmp(g_ds_lists[id].items[i].string, args[1].string)) { found = 1; break; }
+                }
+            }
+        }
+        *out = gml_value_bool(found); return 1;
+    }
+    if (!strcmp(name, "ds_list_add_many") && count >= 2) {
+        int id = gm82_ds_handle(&args[0]) - 1;
+        if (id >= 0 && id < GM82_DS_MAX && g_ds_lists[id].active) {
+            for (size_t i = 1; i < count; ++i) {
+                if (g_ds_lists[id].count < GM82_DS_CAP) {
+                    g_ds_lists[id].items[g_ds_lists[id].count++] = args[i];
+                }
+            }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "ds_list_concat") && count == 2) {
+        int id1 = gm82_ds_handle(&args[0]) - 1;
+        int id2 = gm82_ds_handle(&args[1]) - 1;
+        if (id1 >= 0 && id1 < GM82_DS_MAX && g_ds_lists[id1].active &&
+            id2 >= 0 && id2 < GM82_DS_MAX && g_ds_lists[id2].active) {
+            for (size_t i = 0; i < g_ds_lists[id2].count; ++i) {
+                if (g_ds_lists[id1].count < GM82_DS_CAP) {
+                    g_ds_lists[id1].items[g_ds_lists[id1].count++] = g_ds_lists[id2].items[i];
+                }
+            }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
     if (!strcmp(name, "__gm82core_dllcheck") && count == 0) { *out = gml_value_real(gm82_portable_dllcheck()); return 1; }
     if (!strcmp(name, "color_reverse") && count == 1) { double value = args[0].kind == GML_V_REAL ? args[0].real : 0.0; *out = gml_value_real(gm82_portable_color_reverse(value)); return 1; }
     if (!strcmp(name, "color_inverse") && count == 1) { double value = args[0].kind == GML_V_REAL ? args[0].real : 0.0; *out = gml_value_real(gm82_portable_color_inverse(value)); return 1; }
@@ -2724,6 +2793,19 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
         if (buf) {
             for (size_t i = 0; i < len; ++i) buf[i] = (char)toupper((unsigned char)s[i]);
             buf[len] = '\0';
+            *out = gml_value_string(buf);
+            free(buf);
+        } else *out = gml_value_string("");
+        return 1;
+    }
+    if (!strcmp(name, "string_lettersdigits") && count == 1) {
+        const char *s = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        size_t len = strlen(s);
+        char *buf = (char *)malloc(len + 1);
+        if (buf) {
+            size_t w = 0;
+            for (size_t i = 0; i < len; ++i) if (isalnum((unsigned char)s[i])) buf[w++] = s[i];
+            buf[w] = '\0';
             *out = gml_value_string(buf);
             free(buf);
         } else *out = gml_value_string("");

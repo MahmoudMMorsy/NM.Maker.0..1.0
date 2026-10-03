@@ -478,16 +478,32 @@ void test_new_gm82_core_functions_suite(void) {
         "tm = get_timer();\n"
         "pc = parameter_count();\n"
         "ps = parameter_string(0);\n"
-        "return (c1 && s1 && e1 && sz == 4 && has_m && tm > 0.0) ? 1.0 : 0.0;\n";
+        "alarm_set(0, 60);\n"
+        "al0 = alarm_get(0);\n"
+        "animation_stop();\n"
+        "l3 = ds_list_create();\n"
+        "ds_list_add_many(l3, 100, 200, 300);\n"
+        "first_val = ds_list_find_first(l3);\n"
+        "last_val = ds_list_find_last(l3);\n"
+        "has_200 = ds_list_contains(l3, 200);\n"
+        "l4 = ds_list_create(); ds_list_add(l4, 400);\n"
+        "ds_list_concat(l3, l4);\n"
+        "l3_sz = ds_list_size(l3);\n"
+        "ds_list_destroy(l3); ds_list_destroy(l4);\n"
+        "return (c1 && s1 && e1 && sz == 4 && has_m && tm > 0.0 && al0 == 60 && first_val == 100 && last_val == 300 && has_200 && l3_sz == 4) ? 1.0 : 0.0;\n";
 
     gml_ast *ast = NULL;
     char err[160] = {0};
     int parse_ok = gml_parse_program(code, &ast, err, sizeof(err));
     assert(parse_ok);
 
+    static struct { int active; int id; int object_index; float x, y, xprevious, yprevious, xstart, ystart, hspeed, vspeed, speed, direction, gravity, gravity_direction, friction, image_index, image_speed, image_angle, image_xscale, image_yscale, image_alpha; int image_single; float depth; int visible, persistent, solid, mask_index; int alarms[12]; } dummy_inst;
+    memset(&dummy_inst, 0, sizeof(dummy_inst));
+    dummy_inst.active = 1;
+
     gml_vm vm;
     gml_vm_init(&vm);
-    gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+    gml_vm_set_native_call(&vm, gm82_native_call, &dummy_inst);
 
     int exec_ok = gml_vm_execute(&vm, ast);
     if (!exec_ok) { printf("VM Error: %s\n", vm.error); fflush(stdout); }
