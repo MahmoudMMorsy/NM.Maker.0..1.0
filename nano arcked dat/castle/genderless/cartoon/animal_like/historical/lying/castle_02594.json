@@ -1,0 +1,21 @@
+{
+  "file": "castle_02594.png",
+  "type": "castle",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "cartoon",
+  "source": "historical",
+  "pose": "lying",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "bow",
+    "potion",
+    "gloves",
+    "robe"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of castle"
+}

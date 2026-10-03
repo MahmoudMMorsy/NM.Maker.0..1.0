@@ -1,0 +1,21 @@
+{
+  "file": "skeleton_00316.png",
+  "type": "skeleton",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "horror_pixel",
+  "source": "mythology_norse",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "boots",
+    "wings",
+    "robe",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of skeleton"
+}

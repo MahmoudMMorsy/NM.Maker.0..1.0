@@ -1,0 +1,21 @@
+{
+  "file": "monk_02700.png",
+  "type": "monk",
+  "gender": "androgynous",
+  "race": "high_elf",
+  "style": "realistic_pixel",
+  "source": "dark_fantasy",
+  "pose": "sitting",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "tail",
+    "lightning",
+    "potion",
+    "staff"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of monk"
+}

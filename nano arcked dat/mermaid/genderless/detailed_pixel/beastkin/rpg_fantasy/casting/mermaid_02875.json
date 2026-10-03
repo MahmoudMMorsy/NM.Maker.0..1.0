@@ -1,0 +1,21 @@
+{
+  "file": "mermaid_02875.png",
+  "type": "mermaid",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "detailed_pixel",
+  "source": "rpg_fantasy",
+  "pose": "casting",
+  "colors": [
+    "red",
+    "silver"
+  ],
+  "tags": [
+    "young",
+    "fire",
+    "bow",
+    "axe"
+  ],
+  "resolution": "128x128",
+  "notes": "detailed_pixel pixel art asset of mermaid"
+}

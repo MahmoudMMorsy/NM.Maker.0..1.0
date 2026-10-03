@@ -1,0 +1,21 @@
+{
+  "file": "rock_01269.png",
+  "type": "rock",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "dark_fantasy",
+  "source": "mythology_egypt",
+  "pose": "attacking",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "gloves",
+    "robe",
+    "glowing_eyes",
+    "young"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of rock"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "undead_02842.png",
+  "type": "undead",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "dark_fantasy",
+  "source": "mythology_norse",
+  "pose": "walking",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "armor",
+    "fire",
+    "sword",
+    "magic_circle"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of undead"
+}

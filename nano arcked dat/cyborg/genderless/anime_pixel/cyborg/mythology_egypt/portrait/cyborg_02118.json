@@ -1,0 +1,21 @@
+{
+  "file": "cyborg_02118.png",
+  "type": "cyborg",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "anime_pixel",
+  "source": "mythology_egypt",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "wings",
+    "cape",
+    "magic_circle",
+    "old"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of cyborg"
+}

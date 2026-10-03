@@ -1,0 +1,21 @@
+{
+  "file": "potion_02941.png",
+  "type": "potion",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "cartoon",
+  "source": "modern",
+  "pose": "idle",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "bow",
+    "axe",
+    "old",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of potion"
+}

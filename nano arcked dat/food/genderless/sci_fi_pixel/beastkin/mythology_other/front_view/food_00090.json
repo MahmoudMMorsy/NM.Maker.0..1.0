@@ -1,0 +1,21 @@
+{
+  "file": "food_00090.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "sci_fi_pixel",
+  "source": "mythology_other",
+  "pose": "front_view",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "axe",
+    "muscular",
+    "staff",
+    "young"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of food"
+}

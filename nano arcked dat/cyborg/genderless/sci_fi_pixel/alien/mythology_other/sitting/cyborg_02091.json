@@ -1,0 +1,21 @@
+{
+  "file": "cyborg_02091.png",
+  "type": "cyborg",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "sci_fi_pixel",
+  "source": "mythology_other",
+  "pose": "sitting",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "boots",
+    "slim",
+    "horns",
+    "sword"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of cyborg"
+}

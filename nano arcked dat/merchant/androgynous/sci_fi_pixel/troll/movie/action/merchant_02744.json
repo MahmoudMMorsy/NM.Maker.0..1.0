@@ -1,0 +1,21 @@
+{
+  "file": "merchant_02744.png",
+  "type": "merchant",
+  "gender": "androgynous",
+  "race": "troll",
+  "style": "sci_fi_pixel",
+  "source": "movie",
+  "pose": "action",
+  "colors": [
+    "purple",
+    "blue"
+  ],
+  "tags": [
+    "boots",
+    "cape",
+    "helmet",
+    "muscular"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of merchant"
+}

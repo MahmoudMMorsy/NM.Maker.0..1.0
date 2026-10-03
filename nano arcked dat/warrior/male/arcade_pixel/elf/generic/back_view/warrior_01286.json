@@ -1,0 +1,21 @@
+{
+  "file": "warrior_01286.png",
+  "type": "warrior",
+  "gender": "male",
+  "race": "elf",
+  "style": "arcade_pixel",
+  "source": "generic",
+  "pose": "back_view",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "tail",
+    "dual_wield",
+    "robe",
+    "boots"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of warrior"
+}

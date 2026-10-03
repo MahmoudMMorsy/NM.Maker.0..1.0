@@ -1,0 +1,21 @@
+{
+  "file": "gun_02710.png",
+  "type": "gun",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "arcade_pixel",
+  "source": "cyberpunk",
+  "pose": "sitting",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "horns",
+    "shield",
+    "fire",
+    "muscular"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of gun"
+}

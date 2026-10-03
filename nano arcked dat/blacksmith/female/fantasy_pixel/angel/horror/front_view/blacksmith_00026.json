@@ -1,0 +1,21 @@
+{
+  "file": "blacksmith_00026.png",
+  "type": "blacksmith",
+  "gender": "female",
+  "race": "angel",
+  "style": "fantasy_pixel",
+  "source": "horror",
+  "pose": "front_view",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "young",
+    "ice",
+    "cape",
+    "axe"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of blacksmith"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "noble_00186.png",
+  "type": "noble",
+  "gender": "androgynous",
+  "race": "elf",
+  "style": "sci_fi_pixel",
+  "source": "movie",
+  "pose": "portrait",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "muscular",
+    "armor",
+    "fire",
+    "gloves"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of noble"
+}

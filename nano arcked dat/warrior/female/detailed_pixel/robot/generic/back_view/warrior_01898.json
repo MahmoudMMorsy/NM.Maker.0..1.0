@@ -1,0 +1,21 @@
+{
+  "file": "warrior_01898.png",
+  "type": "warrior",
+  "gender": "female",
+  "race": "robot",
+  "style": "detailed_pixel",
+  "source": "generic",
+  "pose": "back_view",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "ice",
+    "sword",
+    "boots",
+    "cape"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of warrior"
+}

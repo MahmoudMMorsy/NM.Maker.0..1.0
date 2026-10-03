@@ -1,0 +1,21 @@
+{
+  "file": "witch_01859.png",
+  "type": "witch",
+  "gender": "male",
+  "race": "fairy",
+  "style": "realistic_pixel",
+  "source": "movie",
+  "pose": "back_view",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "sword",
+    "fire",
+    "muscular",
+    "helmet"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of witch"
+}

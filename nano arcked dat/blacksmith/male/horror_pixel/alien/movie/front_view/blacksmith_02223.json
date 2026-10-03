@@ -1,0 +1,21 @@
+{
+  "file": "blacksmith_02223.png",
+  "type": "blacksmith",
+  "gender": "male",
+  "race": "alien",
+  "style": "horror_pixel",
+  "source": "movie",
+  "pose": "front_view",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "gloves",
+    "axe",
+    "muscular",
+    "boots"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of blacksmith"
+}

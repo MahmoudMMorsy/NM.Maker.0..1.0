@@ -1,0 +1,21 @@
+{
+  "file": "werewolf_01719.png",
+  "type": "werewolf",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "chibi",
+  "source": "dark_fantasy",
+  "pose": "sitting",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "robe",
+    "gloves",
+    "shield",
+    "armor"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of werewolf"
+}

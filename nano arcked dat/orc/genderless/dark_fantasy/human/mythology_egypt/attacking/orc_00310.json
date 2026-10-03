@@ -1,0 +1,21 @@
+{
+  "file": "orc_00310.png",
+  "type": "orc",
+  "gender": "genderless",
+  "race": "human",
+  "style": "dark_fantasy",
+  "source": "mythology_egypt",
+  "pose": "attacking",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "cape",
+    "shield",
+    "armor",
+    "gloves"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of orc"
+}

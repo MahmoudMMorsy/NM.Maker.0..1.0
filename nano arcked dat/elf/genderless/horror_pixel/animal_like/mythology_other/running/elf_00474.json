@@ -1,0 +1,21 @@
+{
+  "file": "elf_00474.png",
+  "type": "elf",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "horror_pixel",
+  "source": "mythology_other",
+  "pose": "running",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "dual_wield",
+    "potion",
+    "slim",
+    "magic_circle"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of elf"
+}

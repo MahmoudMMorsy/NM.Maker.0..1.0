@@ -1,0 +1,21 @@
+{
+  "file": "castle_01125.png",
+  "type": "castle",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "dark_fantasy",
+  "source": "modern",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "blue"
+  ],
+  "tags": [
+    "young",
+    "sword",
+    "horns",
+    "robe"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of castle"
+}

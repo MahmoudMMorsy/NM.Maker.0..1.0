@@ -1,0 +1,21 @@
+{
+  "file": "cyborg_00091.png",
+  "type": "cyborg",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "anime_pixel",
+  "source": "mythology_other",
+  "pose": "full_body",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "tail",
+    "ice",
+    "armor",
+    "horns"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of cyborg"
+}

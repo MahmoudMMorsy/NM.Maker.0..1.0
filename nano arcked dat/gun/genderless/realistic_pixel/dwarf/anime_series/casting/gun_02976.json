@@ -1,0 +1,21 @@
+{
+  "file": "gun_02976.png",
+  "type": "gun",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "realistic_pixel",
+  "source": "anime_series",
+  "pose": "casting",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "cape",
+    "tail",
+    "bow"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of gun"
+}

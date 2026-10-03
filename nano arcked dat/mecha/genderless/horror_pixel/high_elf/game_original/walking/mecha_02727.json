@@ -1,0 +1,21 @@
+{
+  "file": "mecha_02727.png",
+  "type": "mecha",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "horror_pixel",
+  "source": "game_original",
+  "pose": "walking",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "wings",
+    "sword",
+    "staff",
+    "lightning"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of mecha"
+}

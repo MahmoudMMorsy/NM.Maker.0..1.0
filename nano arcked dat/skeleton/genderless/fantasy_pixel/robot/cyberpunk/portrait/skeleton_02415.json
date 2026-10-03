@@ -1,0 +1,21 @@
+{
+  "file": "skeleton_02415.png",
+  "type": "skeleton",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "fantasy_pixel",
+  "source": "cyberpunk",
+  "pose": "portrait",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "shield",
+    "bow",
+    "lightning",
+    "helmet"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of skeleton"
+}

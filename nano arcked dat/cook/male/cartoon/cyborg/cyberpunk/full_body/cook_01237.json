@@ -1,0 +1,21 @@
+{
+  "file": "cook_01237.png",
+  "type": "cook",
+  "gender": "male",
+  "race": "cyborg",
+  "style": "cartoon",
+  "source": "cyberpunk",
+  "pose": "full_body",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "tail",
+    "young",
+    "lightning",
+    "slim"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of cook"
+}

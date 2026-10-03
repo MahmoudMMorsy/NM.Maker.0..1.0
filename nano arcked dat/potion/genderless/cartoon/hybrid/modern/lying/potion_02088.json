@@ -1,0 +1,21 @@
+{
+  "file": "potion_02088.png",
+  "type": "potion",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "cartoon",
+  "source": "modern",
+  "pose": "lying",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "young",
+    "sword",
+    "ice",
+    "helmet"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of potion"
+}

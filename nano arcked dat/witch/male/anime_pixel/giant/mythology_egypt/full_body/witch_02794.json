@@ -1,0 +1,21 @@
+{
+  "file": "witch_02794.png",
+  "type": "witch",
+  "gender": "male",
+  "race": "giant",
+  "style": "anime_pixel",
+  "source": "mythology_egypt",
+  "pose": "full_body",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "dual_wield",
+    "gloves",
+    "old",
+    "tail"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of witch"
+}

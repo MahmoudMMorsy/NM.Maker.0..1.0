@@ -1,0 +1,21 @@
+{
+  "file": "robot_00853.png",
+  "type": "robot",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "retro_16bit",
+  "source": "anime_series",
+  "pose": "running",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "boots",
+    "magic_circle",
+    "helmet",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of robot"
+}

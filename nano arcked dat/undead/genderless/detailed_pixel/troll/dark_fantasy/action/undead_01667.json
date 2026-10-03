@@ -1,0 +1,21 @@
+{
+  "file": "undead_01667.png",
+  "type": "undead",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "detailed_pixel",
+  "source": "dark_fantasy",
+  "pose": "action",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "sword",
+    "muscular",
+    "wings",
+    "cape"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of undead"
+}

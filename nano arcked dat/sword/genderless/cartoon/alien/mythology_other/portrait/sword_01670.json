@@ -1,0 +1,21 @@
+{
+  "file": "sword_01670.png",
+  "type": "sword",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "cartoon",
+  "source": "mythology_other",
+  "pose": "portrait",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "old",
+    "bow",
+    "armor",
+    "wings"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of sword"
+}

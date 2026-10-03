@@ -1,0 +1,21 @@
+{
+  "file": "dwarf_00413.png",
+  "type": "dwarf",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "cartoon",
+  "source": "mythology_other",
+  "pose": "full_body",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "muscular",
+    "helmet",
+    "shield",
+    "ice"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of dwarf"
+}

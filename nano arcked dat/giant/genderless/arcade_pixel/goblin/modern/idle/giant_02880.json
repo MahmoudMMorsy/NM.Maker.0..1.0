@@ -1,0 +1,21 @@
+{
+  "file": "giant_02880.png",
+  "type": "giant",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "arcade_pixel",
+  "source": "modern",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "sword",
+    "cape",
+    "tail",
+    "horns"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of giant"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "merchant_02099.png",
+  "type": "merchant",
+  "gender": "male",
+  "race": "alien",
+  "style": "fantasy_pixel",
+  "source": "rpg_fantasy",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "staff",
+    "dual_wield",
+    "lightning",
+    "wings"
+  ],
+  "resolution": "32x32",
+  "notes": "fantasy_pixel pixel art asset of merchant"
+}

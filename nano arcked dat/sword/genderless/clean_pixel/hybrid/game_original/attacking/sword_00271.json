@@ -1,0 +1,21 @@
+{
+  "file": "sword_00271.png",
+  "type": "sword",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "clean_pixel",
+  "source": "game_original",
+  "pose": "attacking",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "dual_wield",
+    "staff",
+    "tail",
+    "armor"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of sword"
+}

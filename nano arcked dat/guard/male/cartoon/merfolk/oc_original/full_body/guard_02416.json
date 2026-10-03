@@ -1,0 +1,21 @@
+{
+  "file": "guard_02416.png",
+  "type": "guard",
+  "gender": "male",
+  "race": "merfolk",
+  "style": "cartoon",
+  "source": "oc_original",
+  "pose": "full_body",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "bow",
+    "shield",
+    "young",
+    "robe"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of guard"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "monk_00169.png",
+  "type": "monk",
+  "gender": "male",
+  "race": "hybrid",
+  "style": "realistic_pixel",
+  "source": "oc_original",
+  "pose": "back_view",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "horns",
+    "boots",
+    "gloves",
+    "sword"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of monk"
+}

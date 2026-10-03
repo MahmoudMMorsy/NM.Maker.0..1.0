@@ -1,0 +1,21 @@
+{
+  "file": "angel_01054.png",
+  "type": "angel",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "retro_16bit",
+  "source": "modern",
+  "pose": "portrait",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "robe",
+    "potion",
+    "wings",
+    "glowing_eyes"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of angel"
+}

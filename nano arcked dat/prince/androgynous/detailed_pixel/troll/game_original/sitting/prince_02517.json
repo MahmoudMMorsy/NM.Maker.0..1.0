@@ -1,0 +1,21 @@
+{
+  "file": "prince_02517.png",
+  "type": "prince",
+  "gender": "androgynous",
+  "race": "troll",
+  "style": "detailed_pixel",
+  "source": "game_original",
+  "pose": "sitting",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "axe",
+    "horns",
+    "fire",
+    "shield"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of prince"
+}

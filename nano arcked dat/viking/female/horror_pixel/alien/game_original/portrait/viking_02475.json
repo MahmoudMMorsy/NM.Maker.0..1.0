@@ -1,0 +1,21 @@
+{
+  "file": "viking_02475.png",
+  "type": "viking",
+  "gender": "female",
+  "race": "alien",
+  "style": "horror_pixel",
+  "source": "game_original",
+  "pose": "portrait",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "magic_circle",
+    "boots",
+    "gloves",
+    "armor"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of viking"
+}

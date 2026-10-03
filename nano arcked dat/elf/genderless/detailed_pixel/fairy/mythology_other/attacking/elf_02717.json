@@ -1,0 +1,21 @@
+{
+  "file": "elf_02717.png",
+  "type": "elf",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "detailed_pixel",
+  "source": "mythology_other",
+  "pose": "attacking",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "horns",
+    "boots",
+    "tail",
+    "cape"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of elf"
+}

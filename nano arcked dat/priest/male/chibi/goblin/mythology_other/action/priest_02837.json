@@ -1,0 +1,21 @@
+{
+  "file": "priest_02837.png",
+  "type": "priest",
+  "gender": "male",
+  "race": "goblin",
+  "style": "chibi",
+  "source": "mythology_other",
+  "pose": "action",
+  "colors": [
+    "purple",
+    "blue"
+  ],
+  "tags": [
+    "old",
+    "robe",
+    "staff",
+    "tail"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of priest"
+}

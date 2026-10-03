@@ -1,0 +1,21 @@
+{
+  "file": "chest_01461.png",
+  "type": "chest",
+  "gender": "genderless",
+  "race": "human",
+  "style": "retro_8bit",
+  "source": "historical",
+  "pose": "portrait",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "sword",
+    "gloves",
+    "cape",
+    "young"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_8bit pixel art asset of chest"
+}

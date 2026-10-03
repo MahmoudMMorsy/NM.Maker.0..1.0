@@ -1,0 +1,21 @@
+{
+  "file": "archer_00481.png",
+  "type": "archer",
+  "gender": "male",
+  "race": "elf",
+  "style": "retro_8bit",
+  "source": "mythology_other",
+  "pose": "sitting",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "tail",
+    "slim",
+    "helmet",
+    "cape"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of archer"
+}

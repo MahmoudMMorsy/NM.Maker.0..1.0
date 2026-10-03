@@ -1,0 +1,21 @@
+{
+  "file": "vehicle_02979.png",
+  "type": "vehicle",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "clean_pixel",
+  "source": "modern",
+  "pose": "portrait",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "muscular",
+    "magic_circle",
+    "horns",
+    "helmet"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of vehicle"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "dancer_00998.png",
+  "type": "dancer",
+  "gender": "female",
+  "race": "fairy",
+  "style": "sci_fi_pixel",
+  "source": "sci_fi",
+  "pose": "full_body",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "muscular",
+    "ice",
+    "slim",
+    "gloves"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of dancer"
+}

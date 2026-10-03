@@ -1,0 +1,21 @@
+{
+  "file": "android_02839.png",
+  "type": "android",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "dark_fantasy",
+  "source": "mythology_egypt",
+  "pose": "lying",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "robe",
+    "sword",
+    "muscular",
+    "dual_wield"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of android"
+}

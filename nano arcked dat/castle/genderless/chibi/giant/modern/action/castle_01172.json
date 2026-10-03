@@ -1,0 +1,21 @@
+{
+  "file": "castle_01172.png",
+  "type": "castle",
+  "gender": "genderless",
+  "race": "giant",
+  "style": "chibi",
+  "source": "modern",
+  "pose": "action",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "potion",
+    "sword",
+    "helmet",
+    "muscular"
+  ],
+  "resolution": "32x32",
+  "notes": "chibi pixel art asset of castle"
+}

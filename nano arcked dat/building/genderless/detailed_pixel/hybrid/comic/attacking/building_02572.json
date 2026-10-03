@@ -1,0 +1,21 @@
+{
+  "file": "building_02572.png",
+  "type": "building",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "detailed_pixel",
+  "source": "comic",
+  "pose": "attacking",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "magic_circle",
+    "staff",
+    "bow",
+    "potion"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of building"
+}

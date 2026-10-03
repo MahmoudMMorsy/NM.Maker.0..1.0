@@ -1,0 +1,21 @@
+{
+  "file": "warrior_00417.png",
+  "type": "warrior",
+  "gender": "male",
+  "race": "dark_elf",
+  "style": "dark_fantasy",
+  "source": "rpg_fantasy",
+  "pose": "lying",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "gloves",
+    "ice",
+    "lightning",
+    "cape"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of warrior"
+}

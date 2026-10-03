@@ -1,0 +1,21 @@
+{
+  "file": "soldier_00482.png",
+  "type": "soldier",
+  "gender": "male",
+  "race": "goblin",
+  "style": "sci_fi_pixel",
+  "source": "mythology_norse",
+  "pose": "back_view",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "ice",
+    "fire",
+    "muscular",
+    "cape"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of soldier"
+}

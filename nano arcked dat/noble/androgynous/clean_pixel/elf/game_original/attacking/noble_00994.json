@@ -1,0 +1,21 @@
+{
+  "file": "noble_00994.png",
+  "type": "noble",
+  "gender": "androgynous",
+  "race": "elf",
+  "style": "clean_pixel",
+  "source": "game_original",
+  "pose": "attacking",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "staff",
+    "old",
+    "gloves",
+    "horns"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of noble"
+}

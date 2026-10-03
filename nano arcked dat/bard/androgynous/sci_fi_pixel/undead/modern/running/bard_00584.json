@@ -1,0 +1,21 @@
+{
+  "file": "bard_00584.png",
+  "type": "bard",
+  "gender": "androgynous",
+  "race": "undead",
+  "style": "sci_fi_pixel",
+  "source": "modern",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "magic_circle",
+    "staff",
+    "slim",
+    "wings"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of bard"
+}

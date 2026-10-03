@@ -1,0 +1,21 @@
+{
+  "file": "blacksmith_01908.png",
+  "type": "blacksmith",
+  "gender": "androgynous",
+  "race": "cyborg",
+  "style": "horror_pixel",
+  "source": "sci_fi",
+  "pose": "attacking",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "ice",
+    "wings",
+    "staff"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of blacksmith"
+}

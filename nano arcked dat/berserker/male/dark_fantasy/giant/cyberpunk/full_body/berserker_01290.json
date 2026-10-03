@@ -1,0 +1,21 @@
+{
+  "file": "berserker_01290.png",
+  "type": "berserker",
+  "gender": "male",
+  "race": "giant",
+  "style": "dark_fantasy",
+  "source": "cyberpunk",
+  "pose": "full_body",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "magic_circle",
+    "young",
+    "bow",
+    "helmet"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of berserker"
+}

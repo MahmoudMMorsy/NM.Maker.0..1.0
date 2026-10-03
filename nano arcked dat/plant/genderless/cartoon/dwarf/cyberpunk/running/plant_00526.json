@@ -1,0 +1,21 @@
+{
+  "file": "plant_00526.png",
+  "type": "plant",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "cartoon",
+  "source": "cyberpunk",
+  "pose": "running",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "staff",
+    "potion",
+    "horns",
+    "bow"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of plant"
+}

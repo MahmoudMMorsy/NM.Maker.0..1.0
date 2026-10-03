@@ -1,0 +1,21 @@
+{
+  "file": "shield_02943.png",
+  "type": "shield",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "chibi",
+  "source": "horror",
+  "pose": "sitting",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "boots",
+    "cape",
+    "magic_circle",
+    "axe"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of shield"
+}

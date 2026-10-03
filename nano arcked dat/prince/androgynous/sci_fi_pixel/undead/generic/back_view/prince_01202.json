@@ -1,0 +1,21 @@
+{
+  "file": "prince_01202.png",
+  "type": "prince",
+  "gender": "androgynous",
+  "race": "undead",
+  "style": "sci_fi_pixel",
+  "source": "generic",
+  "pose": "back_view",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "gloves",
+    "shield",
+    "dual_wield"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of prince"
+}

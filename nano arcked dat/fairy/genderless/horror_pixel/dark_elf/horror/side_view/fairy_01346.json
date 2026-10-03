@@ -1,0 +1,21 @@
+{
+  "file": "fairy_01346.png",
+  "type": "fairy",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "horror_pixel",
+  "source": "horror",
+  "pose": "side_view",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "old",
+    "shield",
+    "potion"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of fairy"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "witch_01205.png",
+  "type": "witch",
+  "gender": "female",
+  "race": "dwarf",
+  "style": "dark_fantasy",
+  "source": "mythology_other",
+  "pose": "idle",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "gloves",
+    "slim",
+    "bow",
+    "sword"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of witch"
+}

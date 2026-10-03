@@ -1,0 +1,21 @@
+{
+  "file": "elf_01014.png",
+  "type": "elf",
+  "gender": "genderless",
+  "race": "human",
+  "style": "chibi",
+  "source": "mythology_norse",
+  "pose": "full_body",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "wings",
+    "shield",
+    "glowing_eyes",
+    "cape"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of elf"
+}

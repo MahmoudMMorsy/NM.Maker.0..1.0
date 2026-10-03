@@ -1,0 +1,21 @@
+{
+  "file": "queen_02137.png",
+  "type": "queen",
+  "gender": "female",
+  "race": "dragonkin",
+  "style": "dark_fantasy",
+  "source": "anime_series",
+  "pose": "sitting",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "cape",
+    "lightning",
+    "staff",
+    "fire"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of queen"
+}

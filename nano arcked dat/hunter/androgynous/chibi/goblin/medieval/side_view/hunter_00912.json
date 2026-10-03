@@ -1,0 +1,21 @@
+{
+  "file": "hunter_00912.png",
+  "type": "hunter",
+  "gender": "androgynous",
+  "race": "goblin",
+  "style": "chibi",
+  "source": "medieval",
+  "pose": "side_view",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "wings",
+    "cape",
+    "boots",
+    "axe"
+  ],
+  "resolution": "32x32",
+  "notes": "chibi pixel art asset of hunter"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "queen_01664.png",
+  "type": "queen",
+  "gender": "male",
+  "race": "hybrid",
+  "style": "cartoon",
+  "source": "post_apocalyptic",
+  "pose": "idle",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "gloves",
+    "lightning",
+    "robe",
+    "dual_wield"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of queen"
+}

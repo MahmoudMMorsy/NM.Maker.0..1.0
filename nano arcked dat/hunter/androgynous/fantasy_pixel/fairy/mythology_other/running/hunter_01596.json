@@ -1,0 +1,21 @@
+{
+  "file": "hunter_01596.png",
+  "type": "hunter",
+  "gender": "androgynous",
+  "race": "fairy",
+  "style": "fantasy_pixel",
+  "source": "mythology_other",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "bow",
+    "axe",
+    "lightning",
+    "shield"
+  ],
+  "resolution": "32x32",
+  "notes": "fantasy_pixel pixel art asset of hunter"
+}

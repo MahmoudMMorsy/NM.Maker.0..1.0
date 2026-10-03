@@ -1,0 +1,21 @@
+{
+  "file": "undead_01678.png",
+  "type": "undead",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "fantasy_pixel",
+  "source": "cartoon_western",
+  "pose": "front_view",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "muscular",
+    "dual_wield",
+    "robe",
+    "armor"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of undead"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "armor_00201.png",
+  "type": "armor",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "clean_pixel",
+  "source": "cartoon_western",
+  "pose": "walking",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "potion",
+    "boots",
+    "dual_wield",
+    "tail"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of armor"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "prince_01776.png",
+  "type": "prince",
+  "gender": "androgynous",
+  "race": "hybrid",
+  "style": "horror_pixel",
+  "source": "oc_original",
+  "pose": "idle",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "boots",
+    "muscular",
+    "gloves",
+    "dual_wield"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of prince"
+}

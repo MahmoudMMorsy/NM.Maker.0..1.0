@@ -1,0 +1,21 @@
+{
+  "file": "monk_02694.png",
+  "type": "monk",
+  "gender": "female",
+  "race": "cyborg",
+  "style": "anime_pixel",
+  "source": "mythology_norse",
+  "pose": "full_body",
+  "colors": [
+    "purple",
+    "red"
+  ],
+  "tags": [
+    "tail",
+    "lightning",
+    "potion",
+    "boots"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of monk"
+}

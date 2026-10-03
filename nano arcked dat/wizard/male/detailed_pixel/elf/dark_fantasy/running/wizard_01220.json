@@ -1,0 +1,21 @@
+{
+  "file": "wizard_01220.png",
+  "type": "wizard",
+  "gender": "male",
+  "race": "elf",
+  "style": "detailed_pixel",
+  "source": "dark_fantasy",
+  "pose": "running",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "lightning",
+    "muscular",
+    "shield",
+    "dual_wield"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of wizard"
+}

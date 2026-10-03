@@ -1,0 +1,21 @@
+{
+  "file": "pirate_01628.png",
+  "type": "pirate",
+  "gender": "androgynous",
+  "race": "orc",
+  "style": "fantasy_pixel",
+  "source": "dark_fantasy",
+  "pose": "running",
+  "colors": [
+    "red",
+    "green"
+  ],
+  "tags": [
+    "gloves",
+    "tail",
+    "fire",
+    "old"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of pirate"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "tree_02859.png",
+  "type": "tree",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "fantasy_pixel",
+  "source": "sci_fi",
+  "pose": "side_view",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "shield",
+    "bow",
+    "boots",
+    "staff"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of tree"
+}

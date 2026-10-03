@@ -1,0 +1,21 @@
+{
+  "file": "vehicle_00911.png",
+  "type": "vehicle",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "fantasy_pixel",
+  "source": "cartoon_western",
+  "pose": "lying",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "wings",
+    "glowing_eyes",
+    "dual_wield",
+    "slim"
+  ],
+  "resolution": "32x32",
+  "notes": "fantasy_pixel pixel art asset of vehicle"
+}

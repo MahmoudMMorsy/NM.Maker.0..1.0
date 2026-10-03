@@ -1,0 +1,21 @@
+{
+  "file": "noble_01601.png",
+  "type": "noble",
+  "gender": "male",
+  "race": "high_elf",
+  "style": "cartoon",
+  "source": "dark_fantasy",
+  "pose": "flying",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "old",
+    "gloves",
+    "glowing_eyes",
+    "magic_circle"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of noble"
+}

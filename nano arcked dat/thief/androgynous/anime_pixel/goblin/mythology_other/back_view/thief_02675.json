@@ -1,0 +1,21 @@
+{
+  "file": "thief_02675.png",
+  "type": "thief",
+  "gender": "androgynous",
+  "race": "goblin",
+  "style": "anime_pixel",
+  "source": "mythology_other",
+  "pose": "back_view",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "slim",
+    "magic_circle",
+    "axe",
+    "robe"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of thief"
+}

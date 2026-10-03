@@ -1,0 +1,21 @@
+{
+  "file": "demon_00250.png",
+  "type": "demon",
+  "gender": "genderless",
+  "race": "human",
+  "style": "retro_8bit",
+  "source": "mythology_other",
+  "pose": "side_view",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "shield",
+    "helmet",
+    "sword",
+    "tail"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of demon"
+}

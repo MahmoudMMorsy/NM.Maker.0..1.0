@@ -1,0 +1,21 @@
+{
+  "file": "hunter_01187.png",
+  "type": "hunter",
+  "gender": "androgynous",
+  "race": "dark_elf",
+  "style": "realistic_pixel",
+  "source": "mythology_greek",
+  "pose": "casting",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "sword",
+    "horns",
+    "robe",
+    "lightning"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of hunter"
+}

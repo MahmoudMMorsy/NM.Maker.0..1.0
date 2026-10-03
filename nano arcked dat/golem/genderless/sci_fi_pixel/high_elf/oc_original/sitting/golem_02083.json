@@ -1,0 +1,21 @@
+{
+  "file": "golem_02083.png",
+  "type": "golem",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "sci_fi_pixel",
+  "source": "oc_original",
+  "pose": "sitting",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "boots",
+    "robe",
+    "lightning",
+    "wings"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of golem"
+}

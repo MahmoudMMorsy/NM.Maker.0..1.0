@@ -1,0 +1,21 @@
+{
+  "file": "rogue_01685.png",
+  "type": "rogue",
+  "gender": "androgynous",
+  "race": "robot",
+  "style": "clean_pixel",
+  "source": "dark_fantasy",
+  "pose": "full_body",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "magic_circle",
+    "young",
+    "ice"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of rogue"
+}

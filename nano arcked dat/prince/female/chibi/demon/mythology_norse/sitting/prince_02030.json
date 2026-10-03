@@ -1,0 +1,21 @@
+{
+  "file": "prince_02030.png",
+  "type": "prince",
+  "gender": "female",
+  "race": "demon",
+  "style": "chibi",
+  "source": "mythology_norse",
+  "pose": "sitting",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "dual_wield",
+    "armor",
+    "sword",
+    "potion"
+  ],
+  "resolution": "32x32",
+  "notes": "chibi pixel art asset of prince"
+}

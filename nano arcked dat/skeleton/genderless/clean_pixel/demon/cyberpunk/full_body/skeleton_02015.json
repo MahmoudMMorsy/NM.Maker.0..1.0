@@ -1,0 +1,21 @@
+{
+  "file": "skeleton_02015.png",
+  "type": "skeleton",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "clean_pixel",
+  "source": "cyberpunk",
+  "pose": "full_body",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "dual_wield",
+    "ice",
+    "shield",
+    "young"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of skeleton"
+}

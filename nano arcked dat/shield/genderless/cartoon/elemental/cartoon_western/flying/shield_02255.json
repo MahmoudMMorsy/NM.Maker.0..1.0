@@ -1,0 +1,21 @@
+{
+  "file": "shield_02255.png",
+  "type": "shield",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "cartoon",
+  "source": "cartoon_western",
+  "pose": "flying",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "gloves",
+    "staff",
+    "armor",
+    "ice"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of shield"
+}

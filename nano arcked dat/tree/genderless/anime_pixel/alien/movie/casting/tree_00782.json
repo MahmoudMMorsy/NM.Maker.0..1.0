@@ -1,0 +1,21 @@
+{
+  "file": "tree_00782.png",
+  "type": "tree",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "anime_pixel",
+  "source": "movie",
+  "pose": "casting",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "muscular",
+    "slim",
+    "young",
+    "armor"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of tree"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "elder_02278.png",
+  "type": "elder",
+  "gender": "male",
+  "race": "fairy",
+  "style": "retro_8bit",
+  "source": "sci_fi",
+  "pose": "casting",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "wings",
+    "robe",
+    "axe",
+    "shield"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of elder"
+}

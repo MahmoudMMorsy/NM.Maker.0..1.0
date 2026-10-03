@@ -1,0 +1,21 @@
+{
+  "file": "animal_01661.png",
+  "type": "animal",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "cartoon",
+  "source": "mythology_greek",
+  "pose": "side_view",
+  "colors": [
+    "red",
+    "green"
+  ],
+  "tags": [
+    "wings",
+    "boots",
+    "fire",
+    "bow"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of animal"
+}

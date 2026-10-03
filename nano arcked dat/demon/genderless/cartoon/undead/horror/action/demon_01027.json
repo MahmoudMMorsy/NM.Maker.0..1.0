@@ -1,0 +1,21 @@
+{
+  "file": "demon_01027.png",
+  "type": "demon",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "cartoon",
+  "source": "horror",
+  "pose": "action",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "wings",
+    "fire",
+    "magic_circle",
+    "slim"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of demon"
+}

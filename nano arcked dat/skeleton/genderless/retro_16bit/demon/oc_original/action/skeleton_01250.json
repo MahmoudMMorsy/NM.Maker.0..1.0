@@ -1,0 +1,21 @@
+{
+  "file": "skeleton_01250.png",
+  "type": "skeleton",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "retro_16bit",
+  "source": "oc_original",
+  "pose": "action",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "helmet",
+    "tail",
+    "horns",
+    "magic_circle"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of skeleton"
+}

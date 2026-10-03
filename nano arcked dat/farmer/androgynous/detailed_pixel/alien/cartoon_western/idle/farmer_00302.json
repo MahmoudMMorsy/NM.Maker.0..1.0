@@ -1,0 +1,21 @@
+{
+  "file": "farmer_00302.png",
+  "type": "farmer",
+  "gender": "androgynous",
+  "race": "alien",
+  "style": "detailed_pixel",
+  "source": "cartoon_western",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "ice",
+    "helmet",
+    "tail",
+    "potion"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of farmer"
+}

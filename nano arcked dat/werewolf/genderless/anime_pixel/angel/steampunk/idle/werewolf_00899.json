@@ -1,0 +1,21 @@
+{
+  "file": "werewolf_00899.png",
+  "type": "werewolf",
+  "gender": "genderless",
+  "race": "angel",
+  "style": "anime_pixel",
+  "source": "steampunk",
+  "pose": "idle",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "axe",
+    "dual_wield",
+    "lightning",
+    "shield"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of werewolf"
+}

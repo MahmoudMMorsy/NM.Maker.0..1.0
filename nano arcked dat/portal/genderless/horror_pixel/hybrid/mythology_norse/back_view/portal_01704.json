@@ -1,0 +1,21 @@
+{
+  "file": "portal_01704.png",
+  "type": "portal",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "horror_pixel",
+  "source": "mythology_norse",
+  "pose": "back_view",
+  "colors": [
+    "red",
+    "green"
+  ],
+  "tags": [
+    "helmet",
+    "bow",
+    "robe",
+    "sword"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of portal"
+}

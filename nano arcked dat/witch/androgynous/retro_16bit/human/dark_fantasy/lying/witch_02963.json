@@ -1,0 +1,21 @@
+{
+  "file": "witch_02963.png",
+  "type": "witch",
+  "gender": "androgynous",
+  "race": "human",
+  "style": "retro_16bit",
+  "source": "dark_fantasy",
+  "pose": "lying",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "cape",
+    "muscular",
+    "robe",
+    "shield"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of witch"
+}

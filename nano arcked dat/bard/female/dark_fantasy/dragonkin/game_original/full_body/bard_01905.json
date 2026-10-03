@@ -1,0 +1,21 @@
+{
+  "file": "bard_01905.png",
+  "type": "bard",
+  "gender": "female",
+  "race": "dragonkin",
+  "style": "dark_fantasy",
+  "source": "game_original",
+  "pose": "full_body",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "armor",
+    "muscular",
+    "young",
+    "old"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of bard"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "elf_01061.png",
+  "type": "elf",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "dark_fantasy",
+  "source": "cartoon_western",
+  "pose": "sitting",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "tail",
+    "robe",
+    "glowing_eyes",
+    "armor"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of elf"
+}

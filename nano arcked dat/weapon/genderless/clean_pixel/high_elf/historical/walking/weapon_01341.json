@@ -1,0 +1,21 @@
+{
+  "file": "weapon_01341.png",
+  "type": "weapon",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "clean_pixel",
+  "source": "historical",
+  "pose": "walking",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "helmet",
+    "robe",
+    "armor",
+    "fire"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of weapon"
+}

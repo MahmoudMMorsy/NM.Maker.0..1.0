@@ -1,0 +1,21 @@
+{
+  "file": "angel_02001.png",
+  "type": "angel",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "horror_pixel",
+  "source": "game_original",
+  "pose": "running",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "young",
+    "sword",
+    "cape",
+    "ice"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of angel"
+}

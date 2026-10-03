@@ -1,0 +1,21 @@
+{
+  "file": "ghost_00465.png",
+  "type": "ghost",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "realistic_pixel",
+  "source": "steampunk",
+  "pose": "full_body",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "boots",
+    "staff",
+    "gloves",
+    "fire"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of ghost"
+}

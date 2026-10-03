@@ -1,0 +1,21 @@
+{
+  "file": "armor_01711.png",
+  "type": "armor",
+  "gender": "genderless",
+  "race": "human",
+  "style": "dark_fantasy",
+  "source": "mythology_greek",
+  "pose": "walking",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "horns",
+    "bow",
+    "robe",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of armor"
+}

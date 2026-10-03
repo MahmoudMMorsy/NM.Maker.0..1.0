@@ -1,0 +1,21 @@
+{
+  "file": "castle_02224.png",
+  "type": "castle",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "sci_fi_pixel",
+  "source": "movie",
+  "pose": "front_view",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "robe",
+    "magic_circle",
+    "young",
+    "tail"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of castle"
+}

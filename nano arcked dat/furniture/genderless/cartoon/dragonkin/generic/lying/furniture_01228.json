@@ -1,0 +1,21 @@
+{
+  "file": "furniture_01228.png",
+  "type": "furniture",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "cartoon",
+  "source": "generic",
+  "pose": "lying",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "fire",
+    "armor",
+    "dual_wield",
+    "muscular"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of furniture"
+}

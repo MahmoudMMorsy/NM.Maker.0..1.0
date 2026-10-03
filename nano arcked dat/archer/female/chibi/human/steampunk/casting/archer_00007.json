@@ -1,0 +1,21 @@
+{
+  "file": "archer_00007.png",
+  "type": "archer",
+  "gender": "female",
+  "race": "human",
+  "style": "chibi",
+  "source": "steampunk",
+  "pose": "casting",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "sword",
+    "muscular",
+    "magic_circle",
+    "horns"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of archer"
+}

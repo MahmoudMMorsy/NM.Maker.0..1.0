@@ -1,0 +1,21 @@
+{
+  "file": "paladin_01794.png",
+  "type": "paladin",
+  "gender": "male",
+  "race": "dragonkin",
+  "style": "retro_16bit",
+  "source": "modern",
+  "pose": "front_view",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "magic_circle",
+    "glowing_eyes",
+    "gloves",
+    "axe"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of paladin"
+}

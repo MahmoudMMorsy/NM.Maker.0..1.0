@@ -1,0 +1,21 @@
+{
+  "file": "princess_00146.png",
+  "type": "princess",
+  "gender": "androgynous",
+  "race": "goblin",
+  "style": "fantasy_pixel",
+  "source": "steampunk",
+  "pose": "front_view",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "lightning",
+    "potion",
+    "horns",
+    "bow"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of princess"
+}

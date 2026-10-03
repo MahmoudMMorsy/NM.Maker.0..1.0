@@ -1,0 +1,21 @@
+{
+  "file": "vampire_00651.png",
+  "type": "vampire",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "fantasy_pixel",
+  "source": "horror",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "dual_wield",
+    "glowing_eyes",
+    "magic_circle",
+    "bow"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of vampire"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "mecha_00569.png",
+  "type": "mecha",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "retro_16bit",
+  "source": "historical",
+  "pose": "casting",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "young",
+    "glowing_eyes",
+    "axe",
+    "muscular"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of mecha"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "helmet_02539.png",
+  "type": "helmet",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "anime_pixel",
+  "source": "cyberpunk",
+  "pose": "walking",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "fire",
+    "young",
+    "bow",
+    "glowing_eyes"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of helmet"
+}

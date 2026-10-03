@@ -1,0 +1,21 @@
+{
+  "file": "portal_00799.png",
+  "type": "portal",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "retro_8bit",
+  "source": "mythology_greek",
+  "pose": "full_body",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "dual_wield",
+    "potion",
+    "old",
+    "bow"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_8bit pixel art asset of portal"
+}

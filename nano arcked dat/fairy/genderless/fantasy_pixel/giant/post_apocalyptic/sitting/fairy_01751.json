@@ -1,0 +1,21 @@
+{
+  "file": "fairy_01751.png",
+  "type": "fairy",
+  "gender": "genderless",
+  "race": "giant",
+  "style": "fantasy_pixel",
+  "source": "post_apocalyptic",
+  "pose": "sitting",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "ice",
+    "shield",
+    "bow",
+    "slim"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of fairy"
+}

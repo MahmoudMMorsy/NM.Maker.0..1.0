@@ -1,0 +1,21 @@
+{
+  "file": "berserker_02758.png",
+  "type": "berserker",
+  "gender": "female",
+  "race": "dwarf",
+  "style": "dark_fantasy",
+  "source": "steampunk",
+  "pose": "casting",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "staff",
+    "old",
+    "glowing_eyes",
+    "boots"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of berserker"
+}

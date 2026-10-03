@@ -1,0 +1,21 @@
+{
+  "file": "monk_01457.png",
+  "type": "monk",
+  "gender": "female",
+  "race": "elf",
+  "style": "anime_pixel",
+  "source": "steampunk",
+  "pose": "idle",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "old",
+    "sword",
+    "horns",
+    "staff"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of monk"
+}

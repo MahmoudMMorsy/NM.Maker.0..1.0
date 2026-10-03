@@ -1,0 +1,21 @@
+{
+  "file": "mecha_02936.png",
+  "type": "mecha",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "horror_pixel",
+  "source": "generic",
+  "pose": "front_view",
+  "colors": [
+    "red",
+    "silver"
+  ],
+  "tags": [
+    "slim",
+    "young",
+    "armor",
+    "tail"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of mecha"
+}

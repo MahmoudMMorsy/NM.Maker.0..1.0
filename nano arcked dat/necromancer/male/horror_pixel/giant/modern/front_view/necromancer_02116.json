@@ -1,0 +1,21 @@
+{
+  "file": "necromancer_02116.png",
+  "type": "necromancer",
+  "gender": "male",
+  "race": "giant",
+  "style": "horror_pixel",
+  "source": "modern",
+  "pose": "front_view",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "ice",
+    "boots",
+    "helmet",
+    "dual_wield"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of necromancer"
+}

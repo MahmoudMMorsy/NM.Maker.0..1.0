@@ -1,0 +1,21 @@
+{
+  "file": "demon_01140.png",
+  "type": "demon",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "arcade_pixel",
+  "source": "medieval",
+  "pose": "lying",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "cape",
+    "shield",
+    "armor",
+    "bow"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of demon"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "king_01345.png",
+  "type": "king",
+  "gender": "male",
+  "race": "high_elf",
+  "style": "chibi",
+  "source": "mythology_other",
+  "pose": "full_body",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "ice",
+    "fire",
+    "potion",
+    "helmet"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of king"
+}

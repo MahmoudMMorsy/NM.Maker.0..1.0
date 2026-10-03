@@ -1,0 +1,21 @@
+{
+  "file": "samurai_02543.png",
+  "type": "samurai",
+  "gender": "male",
+  "race": "undead",
+  "style": "clean_pixel",
+  "source": "anime_series",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "ice",
+    "tail",
+    "wings",
+    "lightning"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of samurai"
+}

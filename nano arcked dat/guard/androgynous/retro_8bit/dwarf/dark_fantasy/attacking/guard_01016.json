@@ -1,0 +1,21 @@
+{
+  "file": "guard_01016.png",
+  "type": "guard",
+  "gender": "androgynous",
+  "race": "dwarf",
+  "style": "retro_8bit",
+  "source": "dark_fantasy",
+  "pose": "attacking",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "staff",
+    "young",
+    "ice",
+    "muscular"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of guard"
+}

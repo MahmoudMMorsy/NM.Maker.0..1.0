@@ -1,0 +1,21 @@
+{
+  "file": "monster_02378.png",
+  "type": "monster",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "arcade_pixel",
+  "source": "mythology_egypt",
+  "pose": "back_view",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "shield",
+    "ice",
+    "cape"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of monster"
+}

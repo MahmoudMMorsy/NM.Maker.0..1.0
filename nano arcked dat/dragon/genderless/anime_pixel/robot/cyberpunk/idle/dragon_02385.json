@@ -1,0 +1,21 @@
+{
+  "file": "dragon_02385.png",
+  "type": "dragon",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "anime_pixel",
+  "source": "cyberpunk",
+  "pose": "idle",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "potion",
+    "gloves",
+    "sword",
+    "axe"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of dragon"
+}

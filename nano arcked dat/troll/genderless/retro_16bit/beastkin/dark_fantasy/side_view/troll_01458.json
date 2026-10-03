@@ -1,0 +1,21 @@
+{
+  "file": "troll_01458.png",
+  "type": "troll",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "retro_16bit",
+  "source": "dark_fantasy",
+  "pose": "side_view",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "fire",
+    "old",
+    "magic_circle",
+    "ice"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of troll"
+}

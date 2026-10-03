@@ -1,0 +1,21 @@
+{
+  "file": "troll_02219.png",
+  "type": "troll",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "realistic_pixel",
+  "source": "game_original",
+  "pose": "lying",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "old",
+    "shield",
+    "gloves",
+    "boots"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of troll"
+}

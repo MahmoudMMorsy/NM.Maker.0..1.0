@@ -1,0 +1,21 @@
+{
+  "file": "tree_01580.png",
+  "type": "tree",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "retro_8bit",
+  "source": "medieval",
+  "pose": "front_view",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "ice",
+    "potion",
+    "axe",
+    "dual_wield"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of tree"
+}

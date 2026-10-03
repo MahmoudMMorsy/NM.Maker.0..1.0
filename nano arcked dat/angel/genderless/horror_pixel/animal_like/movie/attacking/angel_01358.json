@@ -1,0 +1,21 @@
+{
+  "file": "angel_01358.png",
+  "type": "angel",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "horror_pixel",
+  "source": "movie",
+  "pose": "attacking",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "staff",
+    "lightning",
+    "dual_wield",
+    "slim"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of angel"
+}

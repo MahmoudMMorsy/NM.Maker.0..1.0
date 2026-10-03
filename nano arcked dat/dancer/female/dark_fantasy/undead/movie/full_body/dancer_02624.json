@@ -1,0 +1,21 @@
+{
+  "file": "dancer_02624.png",
+  "type": "dancer",
+  "gender": "female",
+  "race": "undead",
+  "style": "dark_fantasy",
+  "source": "movie",
+  "pose": "full_body",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "fire",
+    "slim",
+    "staff",
+    "glowing_eyes"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of dancer"
+}

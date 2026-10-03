@@ -1,0 +1,21 @@
+{
+  "file": "orc_01007.png",
+  "type": "orc",
+  "gender": "genderless",
+  "race": "giant",
+  "style": "cartoon",
+  "source": "cyberpunk",
+  "pose": "sitting",
+  "colors": [
+    "red",
+    "silver"
+  ],
+  "tags": [
+    "robe",
+    "staff",
+    "magic_circle",
+    "ice"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of orc"
+}

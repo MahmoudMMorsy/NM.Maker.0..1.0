@@ -1,0 +1,21 @@
+{
+  "file": "gunslinger_01603.png",
+  "type": "gunslinger",
+  "gender": "androgynous",
+  "race": "elemental",
+  "style": "sci_fi_pixel",
+  "source": "dark_fantasy",
+  "pose": "side_view",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "staff",
+    "axe",
+    "tail",
+    "fire"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of gunslinger"
+}

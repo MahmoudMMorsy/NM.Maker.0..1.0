@@ -1,0 +1,21 @@
+{
+  "file": "angel_00157.png",
+  "type": "angel",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "retro_16bit",
+  "source": "historical",
+  "pose": "full_body",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "horns",
+    "tail",
+    "bow",
+    "old"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of angel"
+}

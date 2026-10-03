@@ -1,0 +1,21 @@
+{
+  "file": "dwarf_02178.png",
+  "type": "dwarf",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "dark_fantasy",
+  "source": "oc_original",
+  "pose": "walking",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "dual_wield",
+    "helmet",
+    "shield",
+    "old"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of dwarf"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "food_02063.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "detailed_pixel",
+  "source": "anime_series",
+  "pose": "running",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "axe",
+    "staff",
+    "fire",
+    "magic_circle"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of food"
+}

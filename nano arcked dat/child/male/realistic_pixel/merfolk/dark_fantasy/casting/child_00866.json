@@ -1,0 +1,21 @@
+{
+  "file": "child_00866.png",
+  "type": "child",
+  "gender": "male",
+  "race": "merfolk",
+  "style": "realistic_pixel",
+  "source": "dark_fantasy",
+  "pose": "casting",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "magic_circle",
+    "boots",
+    "bow",
+    "horns"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of child"
+}

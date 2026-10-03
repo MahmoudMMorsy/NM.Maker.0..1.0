@@ -1,0 +1,21 @@
+{
+  "file": "zombie_01931.png",
+  "type": "zombie",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "arcade_pixel",
+  "source": "mythology_norse",
+  "pose": "portrait",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "boots",
+    "bow",
+    "shield",
+    "old"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of zombie"
+}

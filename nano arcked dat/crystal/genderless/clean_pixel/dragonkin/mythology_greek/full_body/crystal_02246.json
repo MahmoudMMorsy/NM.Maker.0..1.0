@@ -1,0 +1,21 @@
+{
+  "file": "crystal_02246.png",
+  "type": "crystal",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "clean_pixel",
+  "source": "mythology_greek",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "helmet",
+    "robe",
+    "cape",
+    "potion"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of crystal"
+}

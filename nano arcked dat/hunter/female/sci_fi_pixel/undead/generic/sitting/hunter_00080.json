@@ -1,0 +1,21 @@
+{
+  "file": "hunter_00080.png",
+  "type": "hunter",
+  "gender": "female",
+  "race": "undead",
+  "style": "sci_fi_pixel",
+  "source": "generic",
+  "pose": "sitting",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "horns",
+    "helmet",
+    "ice",
+    "bow"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of hunter"
+}

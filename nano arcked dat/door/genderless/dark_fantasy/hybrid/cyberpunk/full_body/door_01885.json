@@ -1,0 +1,21 @@
+{
+  "file": "door_01885.png",
+  "type": "door",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "dark_fantasy",
+  "source": "cyberpunk",
+  "pose": "full_body",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "robe",
+    "muscular",
+    "dual_wield",
+    "shield"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of door"
+}

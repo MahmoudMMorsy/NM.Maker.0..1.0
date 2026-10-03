@@ -1,0 +1,21 @@
+{
+  "file": "alchemist_01790.png",
+  "type": "alchemist",
+  "gender": "female",
+  "race": "elf",
+  "style": "horror_pixel",
+  "source": "comic",
+  "pose": "portrait",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "horns",
+    "slim",
+    "helmet",
+    "armor"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of alchemist"
+}

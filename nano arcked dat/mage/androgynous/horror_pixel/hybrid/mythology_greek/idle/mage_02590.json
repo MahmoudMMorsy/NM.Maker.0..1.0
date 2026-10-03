@@ -1,0 +1,21 @@
+{
+  "file": "mage_02590.png",
+  "type": "mage",
+  "gender": "androgynous",
+  "race": "hybrid",
+  "style": "horror_pixel",
+  "source": "mythology_greek",
+  "pose": "idle",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "magic_circle",
+    "shield",
+    "armor",
+    "axe"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of mage"
+}

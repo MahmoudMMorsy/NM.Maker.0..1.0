@@ -1,0 +1,21 @@
+{
+  "file": "witch_00074.png",
+  "type": "witch",
+  "gender": "male",
+  "race": "robot",
+  "style": "arcade_pixel",
+  "source": "mythology_greek",
+  "pose": "side_view",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "potion",
+    "lightning",
+    "horns",
+    "shield"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of witch"
+}

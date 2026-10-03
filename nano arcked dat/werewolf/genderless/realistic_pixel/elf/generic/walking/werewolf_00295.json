@@ -1,0 +1,21 @@
+{
+  "file": "werewolf_00295.png",
+  "type": "werewolf",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "realistic_pixel",
+  "source": "generic",
+  "pose": "walking",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "potion",
+    "cape",
+    "slim",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of werewolf"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "werewolf_00939.png",
+  "type": "werewolf",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "clean_pixel",
+  "source": "dark_fantasy",
+  "pose": "portrait",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "robe",
+    "wings",
+    "cape",
+    "glowing_eyes"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of werewolf"
+}

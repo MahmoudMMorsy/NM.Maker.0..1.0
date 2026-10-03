@@ -1,0 +1,21 @@
+{
+  "file": "hunter_00370.png",
+  "type": "hunter",
+  "gender": "female",
+  "race": "robot",
+  "style": "sci_fi_pixel",
+  "source": "medieval",
+  "pose": "full_body",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "young",
+    "potion",
+    "sword",
+    "shield"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of hunter"
+}

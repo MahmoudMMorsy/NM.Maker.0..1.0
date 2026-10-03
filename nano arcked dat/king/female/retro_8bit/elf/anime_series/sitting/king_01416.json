@@ -1,0 +1,21 @@
+{
+  "file": "king_01416.png",
+  "type": "king",
+  "gender": "female",
+  "race": "elf",
+  "style": "retro_8bit",
+  "source": "anime_series",
+  "pose": "sitting",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "axe",
+    "gloves",
+    "helmet",
+    "horns"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of king"
+}

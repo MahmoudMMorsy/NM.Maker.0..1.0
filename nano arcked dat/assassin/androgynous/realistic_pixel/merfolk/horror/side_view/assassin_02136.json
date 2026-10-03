@@ -1,0 +1,21 @@
+{
+  "file": "assassin_02136.png",
+  "type": "assassin",
+  "gender": "androgynous",
+  "race": "merfolk",
+  "style": "realistic_pixel",
+  "source": "horror",
+  "pose": "side_view",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "robe",
+    "muscular",
+    "staff",
+    "boots"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of assassin"
+}

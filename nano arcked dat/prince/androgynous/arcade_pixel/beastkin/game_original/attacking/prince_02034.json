@@ -1,0 +1,21 @@
+{
+  "file": "prince_02034.png",
+  "type": "prince",
+  "gender": "androgynous",
+  "race": "beastkin",
+  "style": "arcade_pixel",
+  "source": "game_original",
+  "pose": "attacking",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "lightning",
+    "axe",
+    "armor",
+    "horns"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of prince"
+}

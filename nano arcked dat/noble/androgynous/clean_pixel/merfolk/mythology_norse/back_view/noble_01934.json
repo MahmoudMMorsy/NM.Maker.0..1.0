@@ -1,0 +1,21 @@
+{
+  "file": "noble_01934.png",
+  "type": "noble",
+  "gender": "androgynous",
+  "race": "merfolk",
+  "style": "clean_pixel",
+  "source": "mythology_norse",
+  "pose": "back_view",
+  "colors": [
+    "purple",
+    "red"
+  ],
+  "tags": [
+    "sword",
+    "wings",
+    "axe",
+    "fire"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of noble"
+}

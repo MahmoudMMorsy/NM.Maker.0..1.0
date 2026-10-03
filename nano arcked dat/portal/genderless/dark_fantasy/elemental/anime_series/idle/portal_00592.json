@@ -1,0 +1,21 @@
+{
+  "file": "portal_00592.png",
+  "type": "portal",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "dark_fantasy",
+  "source": "anime_series",
+  "pose": "idle",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "boots",
+    "horns",
+    "fire"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of portal"
+}

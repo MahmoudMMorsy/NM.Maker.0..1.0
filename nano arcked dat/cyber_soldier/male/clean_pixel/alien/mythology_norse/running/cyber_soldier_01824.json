@@ -1,0 +1,21 @@
+{
+  "file": "cyber_soldier_01824.png",
+  "type": "cyber_soldier",
+  "gender": "male",
+  "race": "alien",
+  "style": "clean_pixel",
+  "source": "mythology_norse",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "gloves",
+    "cape",
+    "muscular",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of cyber_soldier"
+}

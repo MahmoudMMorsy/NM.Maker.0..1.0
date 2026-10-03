@@ -1,0 +1,21 @@
+{
+  "file": "paladin_00619.png",
+  "type": "paladin",
+  "gender": "androgynous",
+  "race": "dwarf",
+  "style": "arcade_pixel",
+  "source": "mythology_greek",
+  "pose": "walking",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "slim",
+    "muscular",
+    "tail",
+    "wings"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of paladin"
+}

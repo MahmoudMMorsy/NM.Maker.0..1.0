@@ -1,0 +1,21 @@
+{
+  "file": "plant_02873.png",
+  "type": "plant",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "clean_pixel",
+  "source": "modern",
+  "pose": "side_view",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "dual_wield",
+    "tail",
+    "ice",
+    "staff"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of plant"
+}

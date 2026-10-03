@@ -1,0 +1,21 @@
+{
+  "file": "door_01421.png",
+  "type": "door",
+  "gender": "genderless",
+  "race": "human",
+  "style": "arcade_pixel",
+  "source": "anime_series",
+  "pose": "portrait",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "slim",
+    "helmet",
+    "ice",
+    "tail"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of door"
+}

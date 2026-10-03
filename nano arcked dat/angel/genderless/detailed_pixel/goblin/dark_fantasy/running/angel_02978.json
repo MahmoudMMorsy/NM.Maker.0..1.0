@@ -1,0 +1,21 @@
+{
+  "file": "angel_02978.png",
+  "type": "angel",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "detailed_pixel",
+  "source": "dark_fantasy",
+  "pose": "running",
+  "colors": [
+    "red",
+    "silver"
+  ],
+  "tags": [
+    "armor",
+    "muscular",
+    "young",
+    "wings"
+  ],
+  "resolution": "128x128",
+  "notes": "detailed_pixel pixel art asset of angel"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "elemental_00778.png",
+  "type": "elemental",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "arcade_pixel",
+  "source": "dark_fantasy",
+  "pose": "full_body",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "ice",
+    "glowing_eyes",
+    "wings",
+    "young"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of elemental"
+}

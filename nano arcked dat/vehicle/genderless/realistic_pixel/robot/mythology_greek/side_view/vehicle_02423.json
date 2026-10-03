@@ -1,0 +1,21 @@
+{
+  "file": "vehicle_02423.png",
+  "type": "vehicle",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "realistic_pixel",
+  "source": "mythology_greek",
+  "pose": "side_view",
+  "colors": [
+    "silver",
+    "red"
+  ],
+  "tags": [
+    "robe",
+    "young",
+    "ice",
+    "old"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of vehicle"
+}

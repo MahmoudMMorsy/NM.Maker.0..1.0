@@ -1,0 +1,21 @@
+{
+  "file": "alien_00386.png",
+  "type": "alien",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "retro_8bit",
+  "source": "mythology_norse",
+  "pose": "flying",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "helmet",
+    "ice",
+    "slim",
+    "old"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of alien"
+}

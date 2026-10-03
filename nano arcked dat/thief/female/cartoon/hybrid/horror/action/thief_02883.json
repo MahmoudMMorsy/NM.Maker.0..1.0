@@ -1,0 +1,21 @@
+{
+  "file": "thief_02883.png",
+  "type": "thief",
+  "gender": "female",
+  "race": "hybrid",
+  "style": "cartoon",
+  "source": "horror",
+  "pose": "action",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "shield",
+    "robe",
+    "ice",
+    "potion"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of thief"
+}

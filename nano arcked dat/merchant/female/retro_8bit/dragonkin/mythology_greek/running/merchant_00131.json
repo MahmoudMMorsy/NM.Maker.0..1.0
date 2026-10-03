@@ -1,0 +1,21 @@
+{
+  "file": "merchant_00131.png",
+  "type": "merchant",
+  "gender": "female",
+  "race": "dragonkin",
+  "style": "retro_8bit",
+  "source": "mythology_greek",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "fire",
+    "gloves",
+    "shield",
+    "tail"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of merchant"
+}

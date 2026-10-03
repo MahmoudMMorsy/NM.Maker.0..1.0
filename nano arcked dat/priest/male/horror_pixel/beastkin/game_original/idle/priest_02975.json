@@ -1,0 +1,21 @@
+{
+  "file": "priest_02975.png",
+  "type": "priest",
+  "gender": "male",
+  "race": "beastkin",
+  "style": "horror_pixel",
+  "source": "game_original",
+  "pose": "idle",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "cape",
+    "old",
+    "horns",
+    "boots"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of priest"
+}

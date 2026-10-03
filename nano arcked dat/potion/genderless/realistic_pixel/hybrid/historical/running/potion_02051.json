@@ -1,0 +1,21 @@
+{
+  "file": "potion_02051.png",
+  "type": "potion",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "realistic_pixel",
+  "source": "historical",
+  "pose": "running",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "lightning",
+    "tail",
+    "dual_wield",
+    "robe"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of potion"
+}

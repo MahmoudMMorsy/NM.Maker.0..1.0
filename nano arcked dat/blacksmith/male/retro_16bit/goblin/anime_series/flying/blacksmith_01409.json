@@ -1,0 +1,21 @@
+{
+  "file": "blacksmith_01409.png",
+  "type": "blacksmith",
+  "gender": "male",
+  "race": "goblin",
+  "style": "retro_16bit",
+  "source": "anime_series",
+  "pose": "flying",
+  "colors": [
+    "red",
+    "green"
+  ],
+  "tags": [
+    "robe",
+    "slim",
+    "potion",
+    "magic_circle"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of blacksmith"
+}

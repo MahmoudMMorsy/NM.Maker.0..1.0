@@ -1,0 +1,21 @@
+{
+  "file": "bow_02067.png",
+  "type": "bow",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "realistic_pixel",
+  "source": "oc_original",
+  "pose": "walking",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "staff",
+    "robe",
+    "cape",
+    "slim"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of bow"
+}

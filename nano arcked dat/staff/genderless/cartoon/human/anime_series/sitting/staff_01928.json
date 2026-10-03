@@ -1,0 +1,21 @@
+{
+  "file": "staff_01928.png",
+  "type": "staff",
+  "gender": "genderless",
+  "race": "human",
+  "style": "cartoon",
+  "source": "anime_series",
+  "pose": "sitting",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "ice",
+    "robe",
+    "lightning",
+    "dual_wield"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of staff"
+}

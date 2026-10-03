@@ -1,0 +1,21 @@
+{
+  "file": "orc_02485.png",
+  "type": "orc",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "realistic_pixel",
+  "source": "steampunk",
+  "pose": "flying",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "wings",
+    "cape",
+    "helmet",
+    "muscular"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of orc"
+}

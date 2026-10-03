@@ -1,0 +1,21 @@
+{
+  "file": "cook_02127.png",
+  "type": "cook",
+  "gender": "androgynous",
+  "race": "fairy",
+  "style": "anime_pixel",
+  "source": "mythology_norse",
+  "pose": "sitting",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "gloves",
+    "old",
+    "bow",
+    "ice"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of cook"
+}

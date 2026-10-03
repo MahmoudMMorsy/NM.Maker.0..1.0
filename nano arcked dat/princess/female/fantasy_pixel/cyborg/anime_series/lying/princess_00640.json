@@ -1,0 +1,21 @@
+{
+  "file": "princess_00640.png",
+  "type": "princess",
+  "gender": "female",
+  "race": "cyborg",
+  "style": "fantasy_pixel",
+  "source": "anime_series",
+  "pose": "lying",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "bow",
+    "staff",
+    "sword",
+    "fire"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of princess"
+}

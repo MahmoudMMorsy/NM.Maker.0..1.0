@@ -1,0 +1,21 @@
+{
+  "file": "paladin_02437.png",
+  "type": "paladin",
+  "gender": "androgynous",
+  "race": "troll",
+  "style": "retro_8bit",
+  "source": "cartoon_western",
+  "pose": "portrait",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "ice",
+    "magic_circle",
+    "axe"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_8bit pixel art asset of paladin"
+}

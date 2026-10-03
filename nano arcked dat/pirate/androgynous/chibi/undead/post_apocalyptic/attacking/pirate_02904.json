@@ -1,0 +1,21 @@
+{
+  "file": "pirate_02904.png",
+  "type": "pirate",
+  "gender": "androgynous",
+  "race": "undead",
+  "style": "chibi",
+  "source": "post_apocalyptic",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "young",
+    "dual_wield",
+    "fire",
+    "ice"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of pirate"
+}

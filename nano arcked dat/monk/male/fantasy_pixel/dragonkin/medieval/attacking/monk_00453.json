@@ -1,0 +1,21 @@
+{
+  "file": "monk_00453.png",
+  "type": "monk",
+  "gender": "male",
+  "race": "dragonkin",
+  "style": "fantasy_pixel",
+  "source": "medieval",
+  "pose": "attacking",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "potion",
+    "muscular",
+    "tail",
+    "ice"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of monk"
+}

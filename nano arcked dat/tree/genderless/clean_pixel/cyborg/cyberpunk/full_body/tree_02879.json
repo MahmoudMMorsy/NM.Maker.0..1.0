@@ -1,0 +1,21 @@
+{
+  "file": "tree_02879.png",
+  "type": "tree",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "clean_pixel",
+  "source": "cyberpunk",
+  "pose": "full_body",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "axe",
+    "muscular",
+    "cape",
+    "potion"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of tree"
+}

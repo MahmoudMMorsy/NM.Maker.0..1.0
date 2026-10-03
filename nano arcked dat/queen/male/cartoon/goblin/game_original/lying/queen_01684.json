@@ -1,0 +1,21 @@
+{
+  "file": "queen_01684.png",
+  "type": "queen",
+  "gender": "male",
+  "race": "goblin",
+  "style": "cartoon",
+  "source": "game_original",
+  "pose": "lying",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "armor",
+    "slim",
+    "tail",
+    "cape"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of queen"
+}

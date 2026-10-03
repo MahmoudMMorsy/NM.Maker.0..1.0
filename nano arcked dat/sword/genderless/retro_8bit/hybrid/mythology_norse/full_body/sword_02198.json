@@ -1,0 +1,21 @@
+{
+  "file": "sword_02198.png",
+  "type": "sword",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "retro_8bit",
+  "source": "mythology_norse",
+  "pose": "full_body",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "axe",
+    "boots",
+    "cape",
+    "fire"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of sword"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "monster_02444.png",
+  "type": "monster",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "chibi",
+  "source": "generic",
+  "pose": "flying",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "old",
+    "sword",
+    "boots",
+    "ice"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of monster"
+}

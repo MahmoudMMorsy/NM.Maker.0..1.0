@@ -1,0 +1,21 @@
+{
+  "file": "prince_02968.png",
+  "type": "prince",
+  "gender": "male",
+  "race": "merfolk",
+  "style": "dark_fantasy",
+  "source": "modern",
+  "pose": "lying",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "gloves",
+    "horns",
+    "dual_wield",
+    "cape"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of prince"
+}

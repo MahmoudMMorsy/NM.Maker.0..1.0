@@ -1,0 +1,21 @@
+{
+  "file": "farmer_01853.png",
+  "type": "farmer",
+  "gender": "female",
+  "race": "giant",
+  "style": "realistic_pixel",
+  "source": "medieval",
+  "pose": "walking",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "gloves",
+    "fire",
+    "young",
+    "ice"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of farmer"
+}

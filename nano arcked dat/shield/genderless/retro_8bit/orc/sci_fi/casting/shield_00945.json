@@ -1,0 +1,21 @@
+{
+  "file": "shield_00945.png",
+  "type": "shield",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "retro_8bit",
+  "source": "sci_fi",
+  "pose": "casting",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "dual_wield",
+    "helmet",
+    "tail",
+    "old"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of shield"
+}

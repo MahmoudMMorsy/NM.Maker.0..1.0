@@ -1,0 +1,21 @@
+{
+  "file": "priest_01588.png",
+  "type": "priest",
+  "gender": "androgynous",
+  "race": "beastkin",
+  "style": "clean_pixel",
+  "source": "mythology_other",
+  "pose": "full_body",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "shield",
+    "ice",
+    "horns",
+    "sword"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of priest"
+}

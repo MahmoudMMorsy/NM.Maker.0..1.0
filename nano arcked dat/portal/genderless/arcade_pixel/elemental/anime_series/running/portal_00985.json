@@ -1,0 +1,21 @@
+{
+  "file": "portal_00985.png",
+  "type": "portal",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "arcade_pixel",
+  "source": "anime_series",
+  "pose": "running",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "wings",
+    "magic_circle",
+    "shield",
+    "helmet"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of portal"
+}

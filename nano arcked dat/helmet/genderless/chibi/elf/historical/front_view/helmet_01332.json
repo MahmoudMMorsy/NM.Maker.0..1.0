@@ -1,0 +1,21 @@
+{
+  "file": "helmet_01332.png",
+  "type": "helmet",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "chibi",
+  "source": "historical",
+  "pose": "front_view",
+  "colors": [
+    "silver",
+    "red"
+  ],
+  "tags": [
+    "bow",
+    "tail",
+    "staff",
+    "potion"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of helmet"
+}

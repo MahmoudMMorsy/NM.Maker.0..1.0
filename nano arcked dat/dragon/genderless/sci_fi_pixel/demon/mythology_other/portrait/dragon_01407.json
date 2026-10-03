@@ -1,0 +1,21 @@
+{
+  "file": "dragon_01407.png",
+  "type": "dragon",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "sci_fi_pixel",
+  "source": "mythology_other",
+  "pose": "portrait",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "armor",
+    "dual_wield",
+    "wings",
+    "cape"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of dragon"
+}

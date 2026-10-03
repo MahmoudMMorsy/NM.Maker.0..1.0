@@ -1,0 +1,21 @@
+{
+  "file": "child_01329.png",
+  "type": "child",
+  "gender": "female",
+  "race": "fairy",
+  "style": "dark_fantasy",
+  "source": "movie",
+  "pose": "flying",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "bow",
+    "armor",
+    "muscular",
+    "gloves"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of child"
+}

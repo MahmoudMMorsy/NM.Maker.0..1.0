@@ -1,0 +1,21 @@
+{
+  "file": "child_01797.png",
+  "type": "child",
+  "gender": "female",
+  "race": "alien",
+  "style": "sci_fi_pixel",
+  "source": "mythology_greek",
+  "pose": "flying",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "slim",
+    "axe",
+    "gloves",
+    "lightning"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of child"
+}

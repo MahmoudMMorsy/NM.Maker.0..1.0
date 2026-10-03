@@ -1,0 +1,21 @@
+{
+  "file": "samurai_02682.png",
+  "type": "samurai",
+  "gender": "androgynous",
+  "race": "undead",
+  "style": "fantasy_pixel",
+  "source": "sci_fi",
+  "pose": "full_body",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "axe",
+    "robe",
+    "wings",
+    "gloves"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of samurai"
+}

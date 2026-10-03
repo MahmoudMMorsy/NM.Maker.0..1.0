@@ -1,0 +1,21 @@
+{
+  "file": "assassin_02451.png",
+  "type": "assassin",
+  "gender": "androgynous",
+  "race": "robot",
+  "style": "anime_pixel",
+  "source": "generic",
+  "pose": "walking",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "boots",
+    "glowing_eyes",
+    "staff",
+    "sword"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of assassin"
+}

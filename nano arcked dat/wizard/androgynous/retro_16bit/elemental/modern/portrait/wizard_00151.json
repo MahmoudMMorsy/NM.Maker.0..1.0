@@ -1,0 +1,21 @@
+{
+  "file": "wizard_00151.png",
+  "type": "wizard",
+  "gender": "androgynous",
+  "race": "elemental",
+  "style": "retro_16bit",
+  "source": "modern",
+  "pose": "portrait",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "cape",
+    "shield",
+    "helmet",
+    "boots"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of wizard"
+}

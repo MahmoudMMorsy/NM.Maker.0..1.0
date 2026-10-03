@@ -1,0 +1,21 @@
+{
+  "file": "paladin_00995.png",
+  "type": "paladin",
+  "gender": "androgynous",
+  "race": "giant",
+  "style": "sci_fi_pixel",
+  "source": "dark_fantasy",
+  "pose": "idle",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "armor",
+    "old",
+    "magic_circle",
+    "wings"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of paladin"
+}

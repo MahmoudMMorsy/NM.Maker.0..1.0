@@ -1,0 +1,21 @@
+{
+  "file": "hunter_01699.png",
+  "type": "hunter",
+  "gender": "female",
+  "race": "demon",
+  "style": "realistic_pixel",
+  "source": "comic",
+  "pose": "sitting",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "fire",
+    "gloves",
+    "axe",
+    "glowing_eyes"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of hunter"
+}

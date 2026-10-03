@@ -1,0 +1,21 @@
+{
+  "file": "berserker_02614.png",
+  "type": "berserker",
+  "gender": "female",
+  "race": "human",
+  "style": "clean_pixel",
+  "source": "modern",
+  "pose": "idle",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "potion",
+    "ice",
+    "fire",
+    "armor"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of berserker"
+}

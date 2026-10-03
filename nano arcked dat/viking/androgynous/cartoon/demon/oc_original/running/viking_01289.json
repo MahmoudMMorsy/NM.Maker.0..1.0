@@ -1,0 +1,21 @@
+{
+  "file": "viking_01289.png",
+  "type": "viking",
+  "gender": "androgynous",
+  "race": "demon",
+  "style": "cartoon",
+  "source": "oc_original",
+  "pose": "running",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "armor",
+    "cape",
+    "shield",
+    "robe"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of viking"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "summoner_02909.png",
+  "type": "summoner",
+  "gender": "male",
+  "race": "demon",
+  "style": "detailed_pixel",
+  "source": "sci_fi",
+  "pose": "running",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "axe",
+    "armor",
+    "shield",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of summoner"
+}

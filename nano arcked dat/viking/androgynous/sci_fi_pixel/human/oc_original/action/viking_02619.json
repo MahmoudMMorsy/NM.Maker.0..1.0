@@ -1,0 +1,21 @@
+{
+  "file": "viking_02619.png",
+  "type": "viking",
+  "gender": "androgynous",
+  "race": "human",
+  "style": "sci_fi_pixel",
+  "source": "oc_original",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "magic_circle",
+    "robe",
+    "potion",
+    "shield"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of viking"
+}

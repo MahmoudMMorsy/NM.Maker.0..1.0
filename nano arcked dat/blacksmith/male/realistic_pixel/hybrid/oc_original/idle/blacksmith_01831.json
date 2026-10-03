@@ -1,0 +1,21 @@
+{
+  "file": "blacksmith_01831.png",
+  "type": "blacksmith",
+  "gender": "male",
+  "race": "hybrid",
+  "style": "realistic_pixel",
+  "source": "oc_original",
+  "pose": "idle",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "young",
+    "fire",
+    "staff",
+    "slim"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of blacksmith"
+}

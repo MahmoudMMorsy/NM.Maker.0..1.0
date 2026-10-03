@@ -1,0 +1,21 @@
+{
+  "file": "shield_02545.png",
+  "type": "shield",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "sci_fi_pixel",
+  "source": "mythology_other",
+  "pose": "flying",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "ice",
+    "staff",
+    "robe",
+    "muscular"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of shield"
+}

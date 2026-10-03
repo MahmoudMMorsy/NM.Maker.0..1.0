@@ -1,0 +1,21 @@
+{
+  "file": "ghost_02501.png",
+  "type": "ghost",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "sci_fi_pixel",
+  "source": "cartoon_western",
+  "pose": "action",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "helmet",
+    "old",
+    "cape",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of ghost"
+}

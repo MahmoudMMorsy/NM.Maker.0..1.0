@@ -1,0 +1,21 @@
+{
+  "file": "plant_02525.png",
+  "type": "plant",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "chibi",
+  "source": "mythology_greek",
+  "pose": "portrait",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "helmet",
+    "lightning",
+    "horns",
+    "old"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of plant"
+}

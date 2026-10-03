@@ -1,0 +1,21 @@
+{
+  "file": "plant_01167.png",
+  "type": "plant",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "horror_pixel",
+  "source": "oc_original",
+  "pose": "walking",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "slim",
+    "staff",
+    "horns",
+    "young"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of plant"
+}

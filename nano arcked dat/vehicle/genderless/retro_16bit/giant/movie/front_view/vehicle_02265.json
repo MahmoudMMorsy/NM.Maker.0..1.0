@@ -1,0 +1,21 @@
+{
+  "file": "vehicle_02265.png",
+  "type": "vehicle",
+  "gender": "genderless",
+  "race": "giant",
+  "style": "retro_16bit",
+  "source": "movie",
+  "pose": "front_view",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "slim",
+    "axe",
+    "fire",
+    "old"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of vehicle"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "summoner_02405.png",
+  "type": "summoner",
+  "gender": "male",
+  "race": "merfolk",
+  "style": "dark_fantasy",
+  "source": "historical",
+  "pose": "back_view",
+  "colors": [
+    "silver",
+    "red"
+  ],
+  "tags": [
+    "staff",
+    "axe",
+    "robe",
+    "cape"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of summoner"
+}

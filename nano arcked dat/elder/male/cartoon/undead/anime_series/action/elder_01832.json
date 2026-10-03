@@ -1,0 +1,21 @@
+{
+  "file": "elder_01832.png",
+  "type": "elder",
+  "gender": "male",
+  "race": "undead",
+  "style": "cartoon",
+  "source": "anime_series",
+  "pose": "action",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "lightning",
+    "potion",
+    "horns",
+    "old"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of elder"
+}

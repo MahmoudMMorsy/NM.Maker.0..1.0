@@ -1,0 +1,21 @@
+{
+  "file": "shield_02123.png",
+  "type": "shield",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "realistic_pixel",
+  "source": "dark_fantasy",
+  "pose": "action",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "cape",
+    "wings",
+    "lightning"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of shield"
+}

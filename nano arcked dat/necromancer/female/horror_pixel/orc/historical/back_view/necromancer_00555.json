@@ -1,0 +1,21 @@
+{
+  "file": "necromancer_00555.png",
+  "type": "necromancer",
+  "gender": "female",
+  "race": "orc",
+  "style": "horror_pixel",
+  "source": "historical",
+  "pose": "back_view",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "shield",
+    "sword",
+    "gloves",
+    "bow"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of necromancer"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "zombie_02234.png",
+  "type": "zombie",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "horror_pixel",
+  "source": "anime_series",
+  "pose": "flying",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "ice",
+    "wings",
+    "boots",
+    "bow"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of zombie"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "priest_00927.png",
+  "type": "priest",
+  "gender": "female",
+  "race": "fairy",
+  "style": "detailed_pixel",
+  "source": "game_original",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "sword",
+    "tail",
+    "ice",
+    "robe"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of priest"
+}

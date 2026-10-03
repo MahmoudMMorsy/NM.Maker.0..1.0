@@ -1,0 +1,21 @@
+{
+  "file": "guard_01441.png",
+  "type": "guard",
+  "gender": "androgynous",
+  "race": "dark_elf",
+  "style": "realistic_pixel",
+  "source": "modern",
+  "pose": "back_view",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "boots",
+    "dual_wield",
+    "fire",
+    "armor"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of guard"
+}

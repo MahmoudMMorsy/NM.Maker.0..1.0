@@ -1,0 +1,21 @@
+{
+  "file": "ninja_00002.png",
+  "type": "ninja",
+  "gender": "female",
+  "race": "orc",
+  "style": "anime_pixel",
+  "source": "mythology_norse",
+  "pose": "action",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "old",
+    "glowing_eyes",
+    "tail",
+    "horns"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of ninja"
+}

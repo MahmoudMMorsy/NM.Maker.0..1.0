@@ -1,0 +1,21 @@
+{
+  "file": "angel_00731.png",
+  "type": "angel",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "retro_16bit",
+  "source": "anime_series",
+  "pose": "casting",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "sword",
+    "armor",
+    "glowing_eyes",
+    "staff"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of angel"
+}

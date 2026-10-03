@@ -1,0 +1,21 @@
+{
+  "file": "bard_01151.png",
+  "type": "bard",
+  "gender": "male",
+  "race": "orc",
+  "style": "cartoon",
+  "source": "anime_series",
+  "pose": "attacking",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "muscular",
+    "magic_circle",
+    "lightning",
+    "axe"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of bard"
+}

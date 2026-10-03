@@ -1,0 +1,21 @@
+{
+  "file": "gladiator_01339.png",
+  "type": "gladiator",
+  "gender": "female",
+  "race": "human",
+  "style": "chibi",
+  "source": "historical",
+  "pose": "flying",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "slim",
+    "bow",
+    "wings",
+    "axe"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of gladiator"
+}

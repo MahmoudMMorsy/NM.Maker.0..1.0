@@ -1,0 +1,21 @@
+{
+  "file": "undead_01911.png",
+  "type": "undead",
+  "gender": "genderless",
+  "race": "giant",
+  "style": "horror_pixel",
+  "source": "modern",
+  "pose": "attacking",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "slim",
+    "staff",
+    "lightning",
+    "horns"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of undead"
+}

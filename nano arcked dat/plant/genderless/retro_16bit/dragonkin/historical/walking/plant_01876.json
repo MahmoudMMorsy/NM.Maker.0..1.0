@@ -1,0 +1,21 @@
+{
+  "file": "plant_01876.png",
+  "type": "plant",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "retro_16bit",
+  "source": "historical",
+  "pose": "walking",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "axe",
+    "muscular",
+    "gloves",
+    "cape"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of plant"
+}

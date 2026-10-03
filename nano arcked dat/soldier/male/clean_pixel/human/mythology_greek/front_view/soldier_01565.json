@@ -1,0 +1,21 @@
+{
+  "file": "soldier_01565.png",
+  "type": "soldier",
+  "gender": "male",
+  "race": "human",
+  "style": "clean_pixel",
+  "source": "mythology_greek",
+  "pose": "front_view",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "robe",
+    "staff",
+    "dual_wield",
+    "slim"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of soldier"
+}

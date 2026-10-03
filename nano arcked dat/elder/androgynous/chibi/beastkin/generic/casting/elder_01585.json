@@ -1,0 +1,21 @@
+{
+  "file": "elder_01585.png",
+  "type": "elder",
+  "gender": "androgynous",
+  "race": "beastkin",
+  "style": "chibi",
+  "source": "generic",
+  "pose": "casting",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "shield",
+    "horns",
+    "old",
+    "robe"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of elder"
+}

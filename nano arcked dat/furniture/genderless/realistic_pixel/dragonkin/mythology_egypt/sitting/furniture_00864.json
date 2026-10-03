@@ -1,0 +1,21 @@
+{
+  "file": "furniture_00864.png",
+  "type": "furniture",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "realistic_pixel",
+  "source": "mythology_egypt",
+  "pose": "sitting",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "horns",
+    "robe",
+    "potion",
+    "fire"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of furniture"
+}

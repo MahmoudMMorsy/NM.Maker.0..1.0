@@ -1,0 +1,21 @@
+{
+  "file": "gun_01034.png",
+  "type": "gun",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "dark_fantasy",
+  "source": "post_apocalyptic",
+  "pose": "running",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "ice",
+    "glowing_eyes",
+    "cape",
+    "young"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of gun"
+}

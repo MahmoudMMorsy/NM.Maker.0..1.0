@@ -1,0 +1,21 @@
+{
+  "file": "potion_02209.png",
+  "type": "potion",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "horror_pixel",
+  "source": "mythology_norse",
+  "pose": "flying",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "young",
+    "robe",
+    "armor",
+    "gloves"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of potion"
+}

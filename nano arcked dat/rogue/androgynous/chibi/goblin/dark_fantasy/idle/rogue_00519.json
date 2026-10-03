@@ -1,0 +1,21 @@
+{
+  "file": "rogue_00519.png",
+  "type": "rogue",
+  "gender": "androgynous",
+  "race": "goblin",
+  "style": "chibi",
+  "source": "dark_fantasy",
+  "pose": "idle",
+  "colors": [
+    "purple",
+    "red"
+  ],
+  "tags": [
+    "staff",
+    "armor",
+    "shield",
+    "robe"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of rogue"
+}

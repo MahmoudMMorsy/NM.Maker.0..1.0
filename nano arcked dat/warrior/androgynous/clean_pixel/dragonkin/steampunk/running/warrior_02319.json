@@ -1,0 +1,21 @@
+{
+  "file": "warrior_02319.png",
+  "type": "warrior",
+  "gender": "androgynous",
+  "race": "dragonkin",
+  "style": "clean_pixel",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "old",
+    "wings",
+    "muscular",
+    "sword"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of warrior"
+}

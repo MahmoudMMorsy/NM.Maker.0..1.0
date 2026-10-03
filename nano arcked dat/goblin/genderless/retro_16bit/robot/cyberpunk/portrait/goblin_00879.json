@@ -1,0 +1,21 @@
+{
+  "file": "goblin_00879.png",
+  "type": "goblin",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "retro_16bit",
+  "source": "cyberpunk",
+  "pose": "portrait",
+  "colors": [
+    "silver",
+    "red"
+  ],
+  "tags": [
+    "lightning",
+    "magic_circle",
+    "ice",
+    "cape"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of goblin"
+}

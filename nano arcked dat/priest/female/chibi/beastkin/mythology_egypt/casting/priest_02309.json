@@ -1,0 +1,21 @@
+{
+  "file": "priest_02309.png",
+  "type": "priest",
+  "gender": "female",
+  "race": "beastkin",
+  "style": "chibi",
+  "source": "mythology_egypt",
+  "pose": "casting",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "tail",
+    "slim",
+    "muscular",
+    "shield"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of priest"
+}

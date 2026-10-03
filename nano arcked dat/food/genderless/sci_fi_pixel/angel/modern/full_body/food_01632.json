@@ -1,0 +1,21 @@
+{
+  "file": "food_01632.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "angel",
+  "style": "sci_fi_pixel",
+  "source": "modern",
+  "pose": "full_body",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "robe",
+    "horns",
+    "gloves",
+    "dual_wield"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of food"
+}

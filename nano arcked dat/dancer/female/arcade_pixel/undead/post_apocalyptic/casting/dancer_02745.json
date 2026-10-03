@@ -1,0 +1,21 @@
+{
+  "file": "dancer_02745.png",
+  "type": "dancer",
+  "gender": "female",
+  "race": "undead",
+  "style": "arcade_pixel",
+  "source": "post_apocalyptic",
+  "pose": "casting",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "tail",
+    "old",
+    "cape",
+    "axe"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of dancer"
+}

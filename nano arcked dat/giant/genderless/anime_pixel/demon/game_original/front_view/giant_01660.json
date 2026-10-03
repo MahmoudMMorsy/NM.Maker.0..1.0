@@ -1,0 +1,21 @@
+{
+  "file": "giant_01660.png",
+  "type": "giant",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "anime_pixel",
+  "source": "game_original",
+  "pose": "front_view",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "old",
+    "tail",
+    "lightning",
+    "fire"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of giant"
+}

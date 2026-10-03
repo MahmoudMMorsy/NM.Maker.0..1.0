@@ -1,0 +1,21 @@
+{
+  "file": "cyborg_02284.png",
+  "type": "cyborg",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "clean_pixel",
+  "source": "sci_fi",
+  "pose": "lying",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "cape",
+    "slim",
+    "axe",
+    "horns"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of cyborg"
+}

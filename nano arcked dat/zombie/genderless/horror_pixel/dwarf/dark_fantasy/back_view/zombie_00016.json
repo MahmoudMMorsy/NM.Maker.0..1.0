@@ -1,0 +1,21 @@
+{
+  "file": "zombie_00016.png",
+  "type": "zombie",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "horror_pixel",
+  "source": "dark_fantasy",
+  "pose": "back_view",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "helmet",
+    "young",
+    "dual_wield",
+    "bow"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of zombie"
+}

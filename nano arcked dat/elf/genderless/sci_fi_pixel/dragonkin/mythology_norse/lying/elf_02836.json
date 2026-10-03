@@ -1,0 +1,21 @@
+{
+  "file": "elf_02836.png",
+  "type": "elf",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "sci_fi_pixel",
+  "source": "mythology_norse",
+  "pose": "lying",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "robe",
+    "staff",
+    "axe",
+    "lightning"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of elf"
+}

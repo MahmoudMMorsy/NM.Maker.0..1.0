@@ -1,0 +1,21 @@
+{
+  "file": "crystal_00194.png",
+  "type": "crystal",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "arcade_pixel",
+  "source": "medieval",
+  "pose": "running",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "magic_circle",
+    "old",
+    "boots",
+    "glowing_eyes"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of crystal"
+}

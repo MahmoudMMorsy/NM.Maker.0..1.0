@@ -1,0 +1,21 @@
+{
+  "file": "wizard_00319.png",
+  "type": "wizard",
+  "gender": "female",
+  "race": "troll",
+  "style": "detailed_pixel",
+  "source": "mythology_greek",
+  "pose": "walking",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "fire",
+    "horns",
+    "young",
+    "bow"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of wizard"
+}

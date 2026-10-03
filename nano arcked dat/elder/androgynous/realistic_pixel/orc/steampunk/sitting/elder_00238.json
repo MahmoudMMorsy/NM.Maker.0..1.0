@@ -1,0 +1,21 @@
+{
+  "file": "elder_00238.png",
+  "type": "elder",
+  "gender": "androgynous",
+  "race": "orc",
+  "style": "realistic_pixel",
+  "source": "steampunk",
+  "pose": "sitting",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "tail",
+    "muscular",
+    "wings",
+    "old"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of elder"
+}

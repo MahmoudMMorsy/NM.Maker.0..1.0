@@ -1,0 +1,21 @@
+{
+  "file": "demon_02548.png",
+  "type": "demon",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "cartoon",
+  "source": "oc_original",
+  "pose": "attacking",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "old",
+    "tail",
+    "armor"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of demon"
+}

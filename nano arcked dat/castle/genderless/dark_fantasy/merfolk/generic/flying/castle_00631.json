@@ -1,0 +1,21 @@
+{
+  "file": "castle_00631.png",
+  "type": "castle",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "dark_fantasy",
+  "source": "generic",
+  "pose": "flying",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "armor",
+    "axe",
+    "helmet",
+    "boots"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of castle"
+}

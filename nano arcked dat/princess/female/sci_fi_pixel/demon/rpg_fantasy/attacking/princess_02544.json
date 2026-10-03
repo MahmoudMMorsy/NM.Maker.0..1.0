@@ -1,0 +1,21 @@
+{
+  "file": "princess_02544.png",
+  "type": "princess",
+  "gender": "female",
+  "race": "demon",
+  "style": "sci_fi_pixel",
+  "source": "rpg_fantasy",
+  "pose": "attacking",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "lightning",
+    "wings",
+    "cape",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of princess"
+}

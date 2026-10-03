@@ -1,0 +1,21 @@
+{
+  "file": "tree_02918.png",
+  "type": "tree",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "clean_pixel",
+  "source": "historical",
+  "pose": "side_view",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "wings",
+    "glowing_eyes",
+    "lightning",
+    "tail"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of tree"
+}

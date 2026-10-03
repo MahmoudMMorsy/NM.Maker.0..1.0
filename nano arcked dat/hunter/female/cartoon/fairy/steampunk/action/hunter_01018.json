@@ -1,0 +1,21 @@
+{
+  "file": "hunter_01018.png",
+  "type": "hunter",
+  "gender": "female",
+  "race": "fairy",
+  "style": "cartoon",
+  "source": "steampunk",
+  "pose": "action",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "horns",
+    "bow",
+    "slim",
+    "dual_wield"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of hunter"
+}

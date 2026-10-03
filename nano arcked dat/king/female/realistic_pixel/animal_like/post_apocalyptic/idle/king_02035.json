@@ -1,0 +1,21 @@
+{
+  "file": "king_02035.png",
+  "type": "king",
+  "gender": "female",
+  "race": "animal_like",
+  "style": "realistic_pixel",
+  "source": "post_apocalyptic",
+  "pose": "idle",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "boots",
+    "young",
+    "horns",
+    "fire"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of king"
+}

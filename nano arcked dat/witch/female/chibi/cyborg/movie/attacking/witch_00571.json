@@ -1,0 +1,21 @@
+{
+  "file": "witch_00571.png",
+  "type": "witch",
+  "gender": "female",
+  "race": "cyborg",
+  "style": "chibi",
+  "source": "movie",
+  "pose": "attacking",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "ice",
+    "horns",
+    "lightning",
+    "robe"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of witch"
+}

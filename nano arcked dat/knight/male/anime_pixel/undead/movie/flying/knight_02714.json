@@ -1,0 +1,21 @@
+{
+  "file": "knight_02714.png",
+  "type": "knight",
+  "gender": "male",
+  "race": "undead",
+  "style": "anime_pixel",
+  "source": "movie",
+  "pose": "flying",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "slim",
+    "axe",
+    "potion",
+    "ice"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of knight"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "spaceship_00901.png",
+  "type": "spaceship",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "realistic_pixel",
+  "source": "medieval",
+  "pose": "sitting",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "dual_wield",
+    "slim",
+    "sword",
+    "bow"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of spaceship"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "cook_02418.png",
+  "type": "cook",
+  "gender": "androgynous",
+  "race": "animal_like",
+  "style": "realistic_pixel",
+  "source": "cyberpunk",
+  "pose": "lying",
+  "colors": [
+    "purple",
+    "blue"
+  ],
+  "tags": [
+    "ice",
+    "potion",
+    "axe",
+    "staff"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of cook"
+}

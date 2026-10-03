@@ -1,0 +1,21 @@
+{
+  "file": "king_01204.png",
+  "type": "king",
+  "gender": "male",
+  "race": "hybrid",
+  "style": "cartoon",
+  "source": "mythology_egypt",
+  "pose": "side_view",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "armor",
+    "helmet",
+    "wings",
+    "shield"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of king"
+}

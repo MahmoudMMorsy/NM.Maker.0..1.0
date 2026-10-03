@@ -1,0 +1,21 @@
+{
+  "file": "skeleton_00903.png",
+  "type": "skeleton",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "realistic_pixel",
+  "source": "cartoon_western",
+  "pose": "casting",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "boots",
+    "shield",
+    "armor",
+    "lightning"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of skeleton"
+}

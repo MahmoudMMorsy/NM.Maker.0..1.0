@@ -1,0 +1,21 @@
+{
+  "file": "goblin_00389.png",
+  "type": "goblin",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "detailed_pixel",
+  "source": "cyberpunk",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "boots",
+    "slim",
+    "robe"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of goblin"
+}

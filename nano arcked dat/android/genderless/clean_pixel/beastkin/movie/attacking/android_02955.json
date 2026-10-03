@@ -1,0 +1,21 @@
+{
+  "file": "android_02955.png",
+  "type": "android",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "clean_pixel",
+  "source": "movie",
+  "pose": "attacking",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "horns",
+    "old",
+    "dual_wield",
+    "armor"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of android"
+}

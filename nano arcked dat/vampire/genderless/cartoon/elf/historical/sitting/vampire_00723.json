@@ -1,0 +1,21 @@
+{
+  "file": "vampire_00723.png",
+  "type": "vampire",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "cartoon",
+  "source": "historical",
+  "pose": "sitting",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "gloves",
+    "helmet",
+    "old",
+    "glowing_eyes"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of vampire"
+}

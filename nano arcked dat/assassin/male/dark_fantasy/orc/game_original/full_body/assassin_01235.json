@@ -1,0 +1,21 @@
+{
+  "file": "assassin_01235.png",
+  "type": "assassin",
+  "gender": "male",
+  "race": "orc",
+  "style": "dark_fantasy",
+  "source": "game_original",
+  "pose": "full_body",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "dual_wield",
+    "slim",
+    "axe",
+    "young"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of assassin"
+}

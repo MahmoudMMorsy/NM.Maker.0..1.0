@@ -1,0 +1,21 @@
+{
+  "file": "crystal_01944.png",
+  "type": "crystal",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "retro_8bit",
+  "source": "game_original",
+  "pose": "casting",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "staff",
+    "potion",
+    "robe",
+    "young"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_8bit pixel art asset of crystal"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "thief_00144.png",
+  "type": "thief",
+  "gender": "androgynous",
+  "race": "undead",
+  "style": "horror_pixel",
+  "source": "horror",
+  "pose": "casting",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "magic_circle",
+    "young",
+    "old",
+    "boots"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of thief"
+}

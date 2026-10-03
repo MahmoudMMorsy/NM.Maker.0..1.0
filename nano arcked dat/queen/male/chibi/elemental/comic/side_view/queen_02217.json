@@ -1,0 +1,21 @@
+{
+  "file": "queen_02217.png",
+  "type": "queen",
+  "gender": "male",
+  "race": "elemental",
+  "style": "chibi",
+  "source": "comic",
+  "pose": "side_view",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "fire",
+    "helmet",
+    "cape",
+    "wings"
+  ],
+  "resolution": "32x32",
+  "notes": "chibi pixel art asset of queen"
+}

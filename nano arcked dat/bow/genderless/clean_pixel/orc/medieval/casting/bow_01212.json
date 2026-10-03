@@ -1,0 +1,21 @@
+{
+  "file": "bow_01212.png",
+  "type": "bow",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "clean_pixel",
+  "source": "medieval",
+  "pose": "casting",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "dual_wield",
+    "axe",
+    "slim",
+    "helmet"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of bow"
+}

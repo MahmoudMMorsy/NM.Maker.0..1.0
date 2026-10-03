@@ -1,0 +1,21 @@
+{
+  "file": "pirate_00390.png",
+  "type": "pirate",
+  "gender": "male",
+  "race": "robot",
+  "style": "horror_pixel",
+  "source": "historical",
+  "pose": "walking",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "bow",
+    "armor",
+    "dual_wield",
+    "cape"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of pirate"
+}

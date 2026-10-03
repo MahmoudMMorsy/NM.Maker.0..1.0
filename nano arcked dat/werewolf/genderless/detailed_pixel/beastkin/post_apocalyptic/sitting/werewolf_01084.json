@@ -1,0 +1,21 @@
+{
+  "file": "werewolf_01084.png",
+  "type": "werewolf",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "detailed_pixel",
+  "source": "post_apocalyptic",
+  "pose": "sitting",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "old",
+    "magic_circle",
+    "gloves",
+    "sword"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of werewolf"
+}

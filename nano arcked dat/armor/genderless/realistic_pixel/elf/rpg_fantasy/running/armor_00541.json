@@ -1,0 +1,21 @@
+{
+  "file": "armor_00541.png",
+  "type": "armor",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "realistic_pixel",
+  "source": "rpg_fantasy",
+  "pose": "running",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "potion",
+    "horns",
+    "tail",
+    "muscular"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of armor"
+}

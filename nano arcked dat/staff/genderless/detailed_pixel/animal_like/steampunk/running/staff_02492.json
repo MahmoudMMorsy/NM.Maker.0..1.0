@@ -1,0 +1,21 @@
+{
+  "file": "staff_02492.png",
+  "type": "staff",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "detailed_pixel",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "fire",
+    "helmet",
+    "slim",
+    "staff"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of staff"
+}

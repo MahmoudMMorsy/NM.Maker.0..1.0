@@ -1,0 +1,21 @@
+{
+  "file": "staff_00076.png",
+  "type": "staff",
+  "gender": "genderless",
+  "race": "giant",
+  "style": "clean_pixel",
+  "source": "mythology_norse",
+  "pose": "flying",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "horns",
+    "magic_circle",
+    "shield",
+    "staff"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of staff"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "dragon_00411.png",
+  "type": "dragon",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "dark_fantasy",
+  "source": "generic",
+  "pose": "walking",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "boots",
+    "lightning",
+    "fire",
+    "old"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of dragon"
+}

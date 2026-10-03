@@ -1,0 +1,21 @@
+{
+  "file": "orc_02433.png",
+  "type": "orc",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "retro_16bit",
+  "source": "movie",
+  "pose": "front_view",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "wings",
+    "magic_circle",
+    "armor",
+    "gloves"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of orc"
+}

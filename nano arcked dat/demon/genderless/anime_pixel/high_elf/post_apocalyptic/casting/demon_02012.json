@@ -1,0 +1,21 @@
+{
+  "file": "demon_02012.png",
+  "type": "demon",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "anime_pixel",
+  "source": "post_apocalyptic",
+  "pose": "casting",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "cape",
+    "tail",
+    "glowing_eyes",
+    "muscular"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of demon"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "orc_00838.png",
+  "type": "orc",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "chibi",
+  "source": "comic",
+  "pose": "flying",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "horns",
+    "robe",
+    "muscular"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of orc"
+}

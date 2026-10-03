@@ -1,0 +1,21 @@
+{
+  "file": "demon_01608.png",
+  "type": "demon",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "arcade_pixel",
+  "source": "mythology_norse",
+  "pose": "flying",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "dual_wield",
+    "bow",
+    "glowing_eyes",
+    "muscular"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of demon"
+}

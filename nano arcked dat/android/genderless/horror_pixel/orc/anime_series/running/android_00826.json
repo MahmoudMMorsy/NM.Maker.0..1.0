@@ -1,0 +1,21 @@
+{
+  "file": "android_00826.png",
+  "type": "android",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "horror_pixel",
+  "source": "anime_series",
+  "pose": "running",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "wings",
+    "magic_circle",
+    "axe",
+    "armor"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of android"
+}

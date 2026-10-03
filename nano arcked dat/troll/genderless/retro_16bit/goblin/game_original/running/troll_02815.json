@@ -1,0 +1,21 @@
+{
+  "file": "troll_02815.png",
+  "type": "troll",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "retro_16bit",
+  "source": "game_original",
+  "pose": "running",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "boots",
+    "dual_wield",
+    "lightning",
+    "glowing_eyes"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of troll"
+}

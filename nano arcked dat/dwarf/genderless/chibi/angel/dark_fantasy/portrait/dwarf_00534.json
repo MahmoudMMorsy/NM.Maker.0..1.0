@@ -1,0 +1,21 @@
+{
+  "file": "dwarf_00534.png",
+  "type": "dwarf",
+  "gender": "genderless",
+  "race": "angel",
+  "style": "chibi",
+  "source": "dark_fantasy",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "horns",
+    "muscular",
+    "tail",
+    "young"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of dwarf"
+}

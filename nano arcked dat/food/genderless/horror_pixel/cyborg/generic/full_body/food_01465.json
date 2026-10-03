@@ -1,0 +1,21 @@
+{
+  "file": "food_01465.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "horror_pixel",
+  "source": "generic",
+  "pose": "full_body",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "potion",
+    "lightning",
+    "fire",
+    "young"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of food"
+}

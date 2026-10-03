@@ -1,0 +1,21 @@
+{
+  "file": "prince_01767.png",
+  "type": "prince",
+  "gender": "androgynous",
+  "race": "giant",
+  "style": "cartoon",
+  "source": "mythology_other",
+  "pose": "running",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "armor",
+    "axe",
+    "helmet",
+    "horns"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of prince"
+}

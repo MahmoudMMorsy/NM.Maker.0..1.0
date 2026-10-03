@@ -1,0 +1,21 @@
+{
+  "file": "cook_01858.png",
+  "type": "cook",
+  "gender": "male",
+  "race": "robot",
+  "style": "retro_8bit",
+  "source": "mythology_egypt",
+  "pose": "casting",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "young",
+    "armor",
+    "old",
+    "muscular"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of cook"
+}

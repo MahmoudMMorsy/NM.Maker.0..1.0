@@ -1,0 +1,21 @@
+{
+  "file": "cyber_soldier_02388.png",
+  "type": "cyber_soldier",
+  "gender": "androgynous",
+  "race": "animal_like",
+  "style": "detailed_pixel",
+  "source": "horror",
+  "pose": "running",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "lightning",
+    "robe",
+    "dual_wield",
+    "fire"
+  ],
+  "resolution": "128x128",
+  "notes": "detailed_pixel pixel art asset of cyber_soldier"
+}

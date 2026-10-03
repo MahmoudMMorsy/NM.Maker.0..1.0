@@ -1,0 +1,21 @@
+{
+  "file": "cyborg_00679.png",
+  "type": "cyborg",
+  "gender": "genderless",
+  "race": "giant",
+  "style": "horror_pixel",
+  "source": "oc_original",
+  "pose": "portrait",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "boots",
+    "robe",
+    "wings",
+    "dual_wield"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of cyborg"
+}

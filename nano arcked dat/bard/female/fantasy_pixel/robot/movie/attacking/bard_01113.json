@@ -1,0 +1,21 @@
+{
+  "file": "bard_01113.png",
+  "type": "bard",
+  "gender": "female",
+  "race": "robot",
+  "style": "fantasy_pixel",
+  "source": "movie",
+  "pose": "attacking",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "boots",
+    "dual_wield",
+    "slim",
+    "muscular"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of bard"
+}

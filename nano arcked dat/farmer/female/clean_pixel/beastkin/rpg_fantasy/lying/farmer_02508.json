@@ -1,0 +1,21 @@
+{
+  "file": "farmer_02508.png",
+  "type": "farmer",
+  "gender": "female",
+  "race": "beastkin",
+  "style": "clean_pixel",
+  "source": "rpg_fantasy",
+  "pose": "lying",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "young",
+    "glowing_eyes",
+    "sword",
+    "fire"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of farmer"
+}

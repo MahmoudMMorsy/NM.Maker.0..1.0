@@ -1,0 +1,21 @@
+{
+  "file": "gunslinger_02575.png",
+  "type": "gunslinger",
+  "gender": "female",
+  "race": "orc",
+  "style": "retro_16bit",
+  "source": "oc_original",
+  "pose": "walking",
+  "colors": [
+    "red",
+    "green"
+  ],
+  "tags": [
+    "bow",
+    "shield",
+    "staff",
+    "ice"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of gunslinger"
+}

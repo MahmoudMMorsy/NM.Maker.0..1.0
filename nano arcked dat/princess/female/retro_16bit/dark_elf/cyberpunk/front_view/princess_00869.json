@@ -1,0 +1,21 @@
+{
+  "file": "princess_00869.png",
+  "type": "princess",
+  "gender": "female",
+  "race": "dark_elf",
+  "style": "retro_16bit",
+  "source": "cyberpunk",
+  "pose": "front_view",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "ice",
+    "muscular",
+    "axe",
+    "potion"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of princess"
+}

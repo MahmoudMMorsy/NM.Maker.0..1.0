@@ -1,0 +1,21 @@
+{
+  "file": "cyber_soldier_02732.png",
+  "type": "cyber_soldier",
+  "gender": "male",
+  "race": "giant",
+  "style": "chibi",
+  "source": "steampunk",
+  "pose": "attacking",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "young",
+    "dual_wield",
+    "slim",
+    "shield"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of cyber_soldier"
+}

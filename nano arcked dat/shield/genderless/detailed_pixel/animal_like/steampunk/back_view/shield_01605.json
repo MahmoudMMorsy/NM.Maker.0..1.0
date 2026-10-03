@@ -1,0 +1,21 @@
+{
+  "file": "shield_01605.png",
+  "type": "shield",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "detailed_pixel",
+  "source": "steampunk",
+  "pose": "back_view",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "staff",
+    "sword",
+    "wings",
+    "helmet"
+  ],
+  "resolution": "128x128",
+  "notes": "detailed_pixel pixel art asset of shield"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "noble_02392.png",
+  "type": "noble",
+  "gender": "male",
+  "race": "elf",
+  "style": "arcade_pixel",
+  "source": "medieval",
+  "pose": "attacking",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "boots",
+    "gloves",
+    "sword",
+    "fire"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of noble"
+}

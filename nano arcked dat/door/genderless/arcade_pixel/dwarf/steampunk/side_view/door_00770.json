@@ -1,0 +1,21 @@
+{
+  "file": "door_00770.png",
+  "type": "door",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "arcade_pixel",
+  "source": "steampunk",
+  "pose": "side_view",
+  "colors": [
+    "purple",
+    "red"
+  ],
+  "tags": [
+    "cape",
+    "shield",
+    "slim",
+    "lightning"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of door"
+}

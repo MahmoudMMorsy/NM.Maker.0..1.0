@@ -1,0 +1,21 @@
+{
+  "file": "ghost_02656.png",
+  "type": "ghost",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "detailed_pixel",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "magic_circle",
+    "robe",
+    "tail",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of ghost"
+}

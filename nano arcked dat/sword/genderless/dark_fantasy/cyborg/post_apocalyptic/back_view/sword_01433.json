@@ -1,0 +1,21 @@
+{
+  "file": "sword_01433.png",
+  "type": "sword",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "dark_fantasy",
+  "source": "post_apocalyptic",
+  "pose": "back_view",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "staff",
+    "armor",
+    "wings",
+    "dual_wield"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of sword"
+}

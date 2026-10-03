@@ -1,0 +1,21 @@
+{
+  "file": "monk_00746.png",
+  "type": "monk",
+  "gender": "androgynous",
+  "race": "alien",
+  "style": "detailed_pixel",
+  "source": "medieval",
+  "pose": "front_view",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "wings",
+    "ice",
+    "potion"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of monk"
+}

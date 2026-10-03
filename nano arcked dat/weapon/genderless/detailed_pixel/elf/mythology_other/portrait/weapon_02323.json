@@ -1,0 +1,21 @@
+{
+  "file": "weapon_02323.png",
+  "type": "weapon",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "detailed_pixel",
+  "source": "mythology_other",
+  "pose": "portrait",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "magic_circle",
+    "lightning",
+    "shield",
+    "fire"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of weapon"
+}

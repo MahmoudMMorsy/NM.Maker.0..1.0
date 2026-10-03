@@ -1,0 +1,21 @@
+{
+  "file": "alchemist_02498.png",
+  "type": "alchemist",
+  "gender": "female",
+  "race": "demon",
+  "style": "cartoon",
+  "source": "mythology_other",
+  "pose": "lying",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "ice",
+    "boots",
+    "horns",
+    "bow"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of alchemist"
+}

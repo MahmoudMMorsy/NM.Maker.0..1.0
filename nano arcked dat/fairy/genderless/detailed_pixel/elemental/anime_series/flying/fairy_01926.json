@@ -1,0 +1,21 @@
+{
+  "file": "fairy_01926.png",
+  "type": "fairy",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "detailed_pixel",
+  "source": "anime_series",
+  "pose": "flying",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "old",
+    "ice",
+    "fire",
+    "helmet"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of fairy"
+}

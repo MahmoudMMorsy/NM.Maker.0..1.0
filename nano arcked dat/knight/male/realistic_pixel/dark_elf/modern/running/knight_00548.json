@@ -1,0 +1,21 @@
+{
+  "file": "knight_00548.png",
+  "type": "knight",
+  "gender": "male",
+  "race": "dark_elf",
+  "style": "realistic_pixel",
+  "source": "modern",
+  "pose": "running",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "magic_circle",
+    "cape",
+    "old",
+    "glowing_eyes"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of knight"
+}

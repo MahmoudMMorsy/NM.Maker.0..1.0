@@ -1,0 +1,21 @@
+{
+  "file": "princess_01799.png",
+  "type": "princess",
+  "gender": "male",
+  "race": "orc",
+  "style": "clean_pixel",
+  "source": "mythology_norse",
+  "pose": "lying",
+  "colors": [
+    "silver",
+    "red"
+  ],
+  "tags": [
+    "muscular",
+    "helmet",
+    "armor",
+    "bow"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of princess"
+}

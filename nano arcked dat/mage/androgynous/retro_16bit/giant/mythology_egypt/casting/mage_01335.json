@@ -1,0 +1,21 @@
+{
+  "file": "mage_01335.png",
+  "type": "mage",
+  "gender": "androgynous",
+  "race": "giant",
+  "style": "retro_16bit",
+  "source": "mythology_egypt",
+  "pose": "casting",
+  "colors": [
+    "silver",
+    "red"
+  ],
+  "tags": [
+    "young",
+    "robe",
+    "axe",
+    "horns"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of mage"
+}

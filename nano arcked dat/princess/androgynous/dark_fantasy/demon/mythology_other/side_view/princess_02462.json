@@ -1,0 +1,21 @@
+{
+  "file": "princess_02462.png",
+  "type": "princess",
+  "gender": "androgynous",
+  "race": "demon",
+  "style": "dark_fantasy",
+  "source": "mythology_other",
+  "pose": "side_view",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "cape",
+    "potion",
+    "horns",
+    "muscular"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of princess"
+}

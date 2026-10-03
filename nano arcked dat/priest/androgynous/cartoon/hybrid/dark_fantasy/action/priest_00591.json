@@ -1,0 +1,21 @@
+{
+  "file": "priest_00591.png",
+  "type": "priest",
+  "gender": "androgynous",
+  "race": "hybrid",
+  "style": "cartoon",
+  "source": "dark_fantasy",
+  "pose": "action",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "slim",
+    "potion",
+    "ice",
+    "young"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of priest"
+}

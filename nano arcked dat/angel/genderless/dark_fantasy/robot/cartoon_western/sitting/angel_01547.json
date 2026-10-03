@@ -1,0 +1,21 @@
+{
+  "file": "angel_01547.png",
+  "type": "angel",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "dark_fantasy",
+  "source": "cartoon_western",
+  "pose": "sitting",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "boots",
+    "ice",
+    "sword",
+    "bow"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of angel"
+}

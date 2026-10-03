@@ -1,0 +1,21 @@
+{
+  "file": "bow_00597.png",
+  "type": "bow",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "retro_8bit",
+  "source": "mythology_norse",
+  "pose": "attacking",
+  "colors": [
+    "purple",
+    "red"
+  ],
+  "tags": [
+    "horns",
+    "helmet",
+    "young",
+    "old"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of bow"
+}

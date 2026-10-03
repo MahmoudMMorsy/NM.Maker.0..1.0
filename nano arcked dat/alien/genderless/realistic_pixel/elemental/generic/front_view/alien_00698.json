@@ -1,0 +1,21 @@
+{
+  "file": "alien_00698.png",
+  "type": "alien",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "realistic_pixel",
+  "source": "generic",
+  "pose": "front_view",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "helmet",
+    "wings",
+    "sword",
+    "young"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of alien"
+}

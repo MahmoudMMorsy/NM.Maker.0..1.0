@@ -1,0 +1,21 @@
+{
+  "file": "beast_00849.png",
+  "type": "beast",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "realistic_pixel",
+  "source": "oc_original",
+  "pose": "running",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "fire",
+    "magic_circle",
+    "ice",
+    "cape"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of beast"
+}

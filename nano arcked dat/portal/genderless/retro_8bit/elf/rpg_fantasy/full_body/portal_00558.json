@@ -1,0 +1,21 @@
+{
+  "file": "portal_00558.png",
+  "type": "portal",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "retro_8bit",
+  "source": "rpg_fantasy",
+  "pose": "full_body",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "wings",
+    "helmet",
+    "tail",
+    "shield"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_8bit pixel art asset of portal"
+}

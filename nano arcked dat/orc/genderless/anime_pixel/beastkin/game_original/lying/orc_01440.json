@@ -1,0 +1,21 @@
+{
+  "file": "orc_01440.png",
+  "type": "orc",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "anime_pixel",
+  "source": "game_original",
+  "pose": "lying",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "sword",
+    "glowing_eyes",
+    "shield",
+    "potion"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of orc"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "knight_02852.png",
+  "type": "knight",
+  "gender": "androgynous",
+  "race": "undead",
+  "style": "anime_pixel",
+  "source": "historical",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "sword",
+    "lightning",
+    "glowing_eyes",
+    "shield"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of knight"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "animal_02754.png",
+  "type": "animal",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "realistic_pixel",
+  "source": "generic",
+  "pose": "casting",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "old",
+    "bow",
+    "helmet",
+    "tail"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of animal"
+}

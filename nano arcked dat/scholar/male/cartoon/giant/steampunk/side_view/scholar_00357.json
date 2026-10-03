@@ -1,0 +1,21 @@
+{
+  "file": "scholar_00357.png",
+  "type": "scholar",
+  "gender": "male",
+  "race": "giant",
+  "style": "cartoon",
+  "source": "steampunk",
+  "pose": "side_view",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "potion",
+    "sword",
+    "bow",
+    "slim"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of scholar"
+}

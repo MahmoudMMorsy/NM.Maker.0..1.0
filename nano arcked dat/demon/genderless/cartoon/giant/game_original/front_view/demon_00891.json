@@ -1,0 +1,21 @@
+{
+  "file": "demon_00891.png",
+  "type": "demon",
+  "gender": "genderless",
+  "race": "giant",
+  "style": "cartoon",
+  "source": "game_original",
+  "pose": "front_view",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "bow",
+    "old",
+    "armor",
+    "wings"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of demon"
+}

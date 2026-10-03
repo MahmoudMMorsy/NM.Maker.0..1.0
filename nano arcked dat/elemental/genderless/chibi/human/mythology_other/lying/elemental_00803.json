@@ -1,0 +1,21 @@
+{
+  "file": "elemental_00803.png",
+  "type": "elemental",
+  "gender": "genderless",
+  "race": "human",
+  "style": "chibi",
+  "source": "mythology_other",
+  "pose": "lying",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "ice",
+    "horns",
+    "gloves",
+    "glowing_eyes"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of elemental"
+}

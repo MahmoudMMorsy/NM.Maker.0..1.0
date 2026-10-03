@@ -1,0 +1,21 @@
+{
+  "file": "king_01735.png",
+  "type": "king",
+  "gender": "female",
+  "race": "merfolk",
+  "style": "anime_pixel",
+  "source": "rpg_fantasy",
+  "pose": "walking",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "cape",
+    "glowing_eyes",
+    "slim",
+    "potion"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of king"
+}

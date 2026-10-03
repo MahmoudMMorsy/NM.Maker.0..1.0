@@ -1,0 +1,21 @@
+{
+  "file": "gunslinger_01765.png",
+  "type": "gunslinger",
+  "gender": "female",
+  "race": "dragonkin",
+  "style": "arcade_pixel",
+  "source": "comic",
+  "pose": "side_view",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "fire",
+    "axe",
+    "ice",
+    "glowing_eyes"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of gunslinger"
+}

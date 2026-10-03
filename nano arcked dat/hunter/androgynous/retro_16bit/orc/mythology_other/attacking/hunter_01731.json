@@ -1,0 +1,21 @@
+{
+  "file": "hunter_01731.png",
+  "type": "hunter",
+  "gender": "androgynous",
+  "race": "orc",
+  "style": "retro_16bit",
+  "source": "mythology_other",
+  "pose": "attacking",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "ice",
+    "lightning",
+    "axe",
+    "dual_wield"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of hunter"
+}

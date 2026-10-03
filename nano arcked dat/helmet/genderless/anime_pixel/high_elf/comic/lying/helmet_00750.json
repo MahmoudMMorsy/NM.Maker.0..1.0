@@ -1,0 +1,21 @@
+{
+  "file": "helmet_00750.png",
+  "type": "helmet",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "anime_pixel",
+  "source": "comic",
+  "pose": "lying",
+  "colors": [
+    "red",
+    "green"
+  ],
+  "tags": [
+    "sword",
+    "lightning",
+    "old",
+    "shield"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of helmet"
+}

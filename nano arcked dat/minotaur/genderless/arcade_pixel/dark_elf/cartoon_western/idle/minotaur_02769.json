@@ -1,0 +1,21 @@
+{
+  "file": "minotaur_02769.png",
+  "type": "minotaur",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "arcade_pixel",
+  "source": "cartoon_western",
+  "pose": "idle",
+  "colors": [
+    "purple",
+    "blue"
+  ],
+  "tags": [
+    "ice",
+    "wings",
+    "potion",
+    "bow"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of minotaur"
+}

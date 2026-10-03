@@ -1,0 +1,21 @@
+{
+  "file": "hunter_02894.png",
+  "type": "hunter",
+  "gender": "androgynous",
+  "race": "dwarf",
+  "style": "retro_8bit",
+  "source": "modern",
+  "pose": "front_view",
+  "colors": [
+    "red",
+    "green"
+  ],
+  "tags": [
+    "cape",
+    "old",
+    "dual_wield",
+    "robe"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of hunter"
+}

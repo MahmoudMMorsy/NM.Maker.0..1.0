@@ -1,0 +1,21 @@
+{
+  "file": "mecha_01733.png",
+  "type": "mecha",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "dark_fantasy",
+  "source": "steampunk",
+  "pose": "flying",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "boots",
+    "robe",
+    "young",
+    "wings"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of mecha"
+}

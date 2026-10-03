@@ -1,0 +1,21 @@
+{
+  "file": "gunslinger_00821.png",
+  "type": "gunslinger",
+  "gender": "male",
+  "race": "orc",
+  "style": "arcade_pixel",
+  "source": "movie",
+  "pose": "attacking",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "armor",
+    "helmet",
+    "muscular"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of gunslinger"
+}

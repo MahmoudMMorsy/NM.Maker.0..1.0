@@ -1,0 +1,21 @@
+{
+  "file": "android_02410.png",
+  "type": "android",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "arcade_pixel",
+  "source": "mythology_norse",
+  "pose": "full_body",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "muscular",
+    "axe",
+    "bow",
+    "slim"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of android"
+}

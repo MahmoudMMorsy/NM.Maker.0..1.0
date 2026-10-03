@@ -1,0 +1,21 @@
+{
+  "file": "pirate_01217.png",
+  "type": "pirate",
+  "gender": "female",
+  "race": "beastkin",
+  "style": "dark_fantasy",
+  "source": "movie",
+  "pose": "action",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "helmet",
+    "glowing_eyes",
+    "dual_wield",
+    "muscular"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of pirate"
+}

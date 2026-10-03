@@ -1,0 +1,21 @@
+{
+  "file": "gunslinger_01855.png",
+  "type": "gunslinger",
+  "gender": "female",
+  "race": "human",
+  "style": "anime_pixel",
+  "source": "mythology_other",
+  "pose": "portrait",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "potion",
+    "helmet",
+    "slim",
+    "gloves"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of gunslinger"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "summoner_02615.png",
+  "type": "summoner",
+  "gender": "female",
+  "race": "orc",
+  "style": "dark_fantasy",
+  "source": "movie",
+  "pose": "action",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "fire",
+    "cape",
+    "dual_wield",
+    "sword"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of summoner"
+}

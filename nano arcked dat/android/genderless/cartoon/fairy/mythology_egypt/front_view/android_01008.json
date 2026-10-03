@@ -1,0 +1,21 @@
+{
+  "file": "android_01008.png",
+  "type": "android",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "cartoon",
+  "source": "mythology_egypt",
+  "pose": "front_view",
+  "colors": [
+    "purple",
+    "blue"
+  ],
+  "tags": [
+    "bow",
+    "wings",
+    "helmet",
+    "slim"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of android"
+}

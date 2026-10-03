@@ -1,0 +1,21 @@
+{
+  "file": "wizard_00062.png",
+  "type": "wizard",
+  "gender": "androgynous",
+  "race": "robot",
+  "style": "clean_pixel",
+  "source": "mythology_other",
+  "pose": "casting",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "tail",
+    "sword",
+    "slim",
+    "cape"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of wizard"
+}

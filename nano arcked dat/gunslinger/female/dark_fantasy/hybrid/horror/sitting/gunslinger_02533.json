@@ -1,0 +1,21 @@
+{
+  "file": "gunslinger_02533.png",
+  "type": "gunslinger",
+  "gender": "female",
+  "race": "hybrid",
+  "style": "dark_fantasy",
+  "source": "horror",
+  "pose": "sitting",
+  "colors": [
+    "red",
+    "silver"
+  ],
+  "tags": [
+    "magic_circle",
+    "gloves",
+    "boots",
+    "helmet"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of gunslinger"
+}

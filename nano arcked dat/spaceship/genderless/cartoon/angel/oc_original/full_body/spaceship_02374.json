@@ -1,0 +1,21 @@
+{
+  "file": "spaceship_02374.png",
+  "type": "spaceship",
+  "gender": "genderless",
+  "race": "angel",
+  "style": "cartoon",
+  "source": "oc_original",
+  "pose": "full_body",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "boots",
+    "helmet",
+    "wings",
+    "axe"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of spaceship"
+}

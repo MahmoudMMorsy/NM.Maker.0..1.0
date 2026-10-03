@@ -1,0 +1,21 @@
+{
+  "file": "weapon_00615.png",
+  "type": "weapon",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "fantasy_pixel",
+  "source": "horror",
+  "pose": "side_view",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "young",
+    "gloves",
+    "shield",
+    "wings"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of weapon"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "food_01917.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "clean_pixel",
+  "source": "game_original",
+  "pose": "sitting",
+  "colors": [
+    "purple",
+    "red"
+  ],
+  "tags": [
+    "muscular",
+    "axe",
+    "dual_wield",
+    "helmet"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of food"
+}

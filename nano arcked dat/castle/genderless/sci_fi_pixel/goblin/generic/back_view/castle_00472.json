@@ -1,0 +1,21 @@
+{
+  "file": "castle_00472.png",
+  "type": "castle",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "sci_fi_pixel",
+  "source": "generic",
+  "pose": "back_view",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "dual_wield",
+    "glowing_eyes",
+    "tail",
+    "wings"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of castle"
+}

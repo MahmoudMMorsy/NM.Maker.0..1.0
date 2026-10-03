@@ -1,0 +1,21 @@
+{
+  "file": "animal_01862.png",
+  "type": "animal",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "dark_fantasy",
+  "source": "steampunk",
+  "pose": "full_body",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "sword",
+    "old",
+    "fire",
+    "shield"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of animal"
+}

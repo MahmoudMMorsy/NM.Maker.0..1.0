@@ -1,0 +1,21 @@
+{
+  "file": "giant_00895.png",
+  "type": "giant",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "fantasy_pixel",
+  "source": "dark_fantasy",
+  "pose": "side_view",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "gloves",
+    "shield",
+    "young",
+    "sword"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of giant"
+}

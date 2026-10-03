@@ -1,0 +1,21 @@
+{
+  "file": "soldier_01938.png",
+  "type": "soldier",
+  "gender": "androgynous",
+  "race": "elf",
+  "style": "detailed_pixel",
+  "source": "post_apocalyptic",
+  "pose": "casting",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "young",
+    "axe",
+    "potion",
+    "sword"
+  ],
+  "resolution": "128x128",
+  "notes": "detailed_pixel pixel art asset of soldier"
+}

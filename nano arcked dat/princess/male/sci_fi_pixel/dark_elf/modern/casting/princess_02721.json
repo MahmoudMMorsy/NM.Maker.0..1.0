@@ -1,0 +1,21 @@
+{
+  "file": "princess_02721.png",
+  "type": "princess",
+  "gender": "male",
+  "race": "dark_elf",
+  "style": "sci_fi_pixel",
+  "source": "modern",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "wings",
+    "muscular",
+    "robe",
+    "shield"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of princess"
+}

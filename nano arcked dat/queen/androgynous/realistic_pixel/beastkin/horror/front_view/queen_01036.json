@@ -1,0 +1,21 @@
+{
+  "file": "queen_01036.png",
+  "type": "queen",
+  "gender": "androgynous",
+  "race": "beastkin",
+  "style": "realistic_pixel",
+  "source": "horror",
+  "pose": "front_view",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "sword",
+    "ice",
+    "bow",
+    "robe"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of queen"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "sword_01371.png",
+  "type": "sword",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "sci_fi_pixel",
+  "source": "mythology_egypt",
+  "pose": "back_view",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "old",
+    "muscular",
+    "potion",
+    "boots"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of sword"
+}

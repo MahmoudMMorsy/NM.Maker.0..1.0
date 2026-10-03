@@ -1,0 +1,21 @@
+{
+  "file": "monk_02779.png",
+  "type": "monk",
+  "gender": "androgynous",
+  "race": "cyborg",
+  "style": "horror_pixel",
+  "source": "cartoon_western",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "boots",
+    "muscular",
+    "lightning",
+    "axe"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of monk"
+}

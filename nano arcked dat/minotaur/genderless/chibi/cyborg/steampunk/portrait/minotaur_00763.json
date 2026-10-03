@@ -1,0 +1,21 @@
+{
+  "file": "minotaur_00763.png",
+  "type": "minotaur",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "chibi",
+  "source": "steampunk",
+  "pose": "portrait",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "staff",
+    "slim",
+    "young",
+    "robe"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of minotaur"
+}

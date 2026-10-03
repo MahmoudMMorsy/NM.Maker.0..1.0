@@ -1,0 +1,21 @@
+{
+  "file": "samurai_01820.png",
+  "type": "samurai",
+  "gender": "androgynous",
+  "race": "merfolk",
+  "style": "arcade_pixel",
+  "source": "medieval",
+  "pose": "side_view",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "dual_wield",
+    "lightning",
+    "axe",
+    "potion"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of samurai"
+}

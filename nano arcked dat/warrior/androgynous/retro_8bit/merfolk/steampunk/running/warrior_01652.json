@@ -1,0 +1,21 @@
+{
+  "file": "warrior_01652.png",
+  "type": "warrior",
+  "gender": "androgynous",
+  "race": "merfolk",
+  "style": "retro_8bit",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "cape",
+    "gloves",
+    "bow",
+    "tail"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_8bit pixel art asset of warrior"
+}

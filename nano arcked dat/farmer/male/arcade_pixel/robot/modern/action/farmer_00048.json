@@ -1,0 +1,21 @@
+{
+  "file": "farmer_00048.png",
+  "type": "farmer",
+  "gender": "male",
+  "race": "robot",
+  "style": "arcade_pixel",
+  "source": "modern",
+  "pose": "action",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "shield",
+    "helmet",
+    "axe",
+    "fire"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of farmer"
+}

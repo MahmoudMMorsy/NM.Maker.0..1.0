@@ -1,0 +1,21 @@
+{
+  "file": "fairy_00172.png",
+  "type": "fairy",
+  "gender": "genderless",
+  "race": "angel",
+  "style": "detailed_pixel",
+  "source": "generic",
+  "pose": "action",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "ice",
+    "gloves",
+    "staff",
+    "axe"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of fairy"
+}

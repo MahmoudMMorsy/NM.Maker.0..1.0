@@ -1,0 +1,21 @@
+{
+  "file": "knight_02257.png",
+  "type": "knight",
+  "gender": "female",
+  "race": "goblin",
+  "style": "fantasy_pixel",
+  "source": "oc_original",
+  "pose": "attacking",
+  "colors": [
+    "purple",
+    "blue"
+  ],
+  "tags": [
+    "potion",
+    "magic_circle",
+    "shield",
+    "glowing_eyes"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of knight"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "rogue_00260.png",
+  "type": "rogue",
+  "gender": "male",
+  "race": "elf",
+  "style": "retro_8bit",
+  "source": "cartoon_western",
+  "pose": "casting",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "old",
+    "glowing_eyes",
+    "tail",
+    "wings"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of rogue"
+}

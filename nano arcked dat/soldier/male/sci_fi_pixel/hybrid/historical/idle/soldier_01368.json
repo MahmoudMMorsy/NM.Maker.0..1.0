@@ -1,0 +1,21 @@
+{
+  "file": "soldier_01368.png",
+  "type": "soldier",
+  "gender": "male",
+  "race": "hybrid",
+  "style": "sci_fi_pixel",
+  "source": "historical",
+  "pose": "idle",
+  "colors": [
+    "red",
+    "green"
+  ],
+  "tags": [
+    "cape",
+    "bow",
+    "fire",
+    "horns"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of soldier"
+}

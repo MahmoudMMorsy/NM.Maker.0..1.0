@@ -1,0 +1,21 @@
+{
+  "file": "civilian_00152.png",
+  "type": "civilian",
+  "gender": "female",
+  "race": "goblin",
+  "style": "retro_16bit",
+  "source": "mythology_greek",
+  "pose": "running",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "potion",
+    "slim",
+    "sword",
+    "fire"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of civilian"
+}

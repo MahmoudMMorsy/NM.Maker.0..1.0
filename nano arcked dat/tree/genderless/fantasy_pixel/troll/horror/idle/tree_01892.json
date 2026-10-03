@@ -1,0 +1,21 @@
+{
+  "file": "tree_01892.png",
+  "type": "tree",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "fantasy_pixel",
+  "source": "horror",
+  "pose": "idle",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "magic_circle",
+    "old",
+    "horns",
+    "tail"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of tree"
+}

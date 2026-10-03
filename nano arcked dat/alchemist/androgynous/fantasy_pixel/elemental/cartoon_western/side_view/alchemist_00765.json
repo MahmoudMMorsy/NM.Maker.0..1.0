@@ -1,0 +1,21 @@
+{
+  "file": "alchemist_00765.png",
+  "type": "alchemist",
+  "gender": "androgynous",
+  "race": "elemental",
+  "style": "fantasy_pixel",
+  "source": "cartoon_western",
+  "pose": "side_view",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "robe",
+    "helmet",
+    "axe",
+    "tail"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of alchemist"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "archer_02989.png",
+  "type": "archer",
+  "gender": "female",
+  "race": "dwarf",
+  "style": "retro_16bit",
+  "source": "mythology_other",
+  "pose": "flying",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "armor",
+    "magic_circle",
+    "glowing_eyes",
+    "slim"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of archer"
+}

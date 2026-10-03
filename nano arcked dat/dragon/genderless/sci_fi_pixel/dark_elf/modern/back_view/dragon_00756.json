@@ -1,0 +1,21 @@
+{
+  "file": "dragon_00756.png",
+  "type": "dragon",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "sci_fi_pixel",
+  "source": "modern",
+  "pose": "back_view",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "young",
+    "robe",
+    "tail",
+    "glowing_eyes"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of dragon"
+}

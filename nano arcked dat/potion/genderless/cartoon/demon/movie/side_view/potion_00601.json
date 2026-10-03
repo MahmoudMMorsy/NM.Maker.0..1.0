@@ -1,0 +1,21 @@
+{
+  "file": "potion_00601.png",
+  "type": "potion",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "cartoon",
+  "source": "movie",
+  "pose": "side_view",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "cape",
+    "lightning",
+    "young"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of potion"
+}

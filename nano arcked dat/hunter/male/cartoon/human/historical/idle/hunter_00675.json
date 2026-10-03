@@ -1,0 +1,21 @@
+{
+  "file": "hunter_00675.png",
+  "type": "hunter",
+  "gender": "male",
+  "race": "human",
+  "style": "cartoon",
+  "source": "historical",
+  "pose": "idle",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "cape",
+    "potion",
+    "young",
+    "tail"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of hunter"
+}

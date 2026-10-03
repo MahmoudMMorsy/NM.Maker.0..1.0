@@ -1,0 +1,21 @@
+{
+  "file": "queen_02358.png",
+  "type": "queen",
+  "gender": "male",
+  "race": "undead",
+  "style": "sci_fi_pixel",
+  "source": "mythology_egypt",
+  "pose": "side_view",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "muscular",
+    "ice",
+    "fire",
+    "horns"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of queen"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "gun_02862.png",
+  "type": "gun",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "sci_fi_pixel",
+  "source": "horror",
+  "pose": "action",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "lightning",
+    "cape",
+    "bow",
+    "helmet"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of gun"
+}

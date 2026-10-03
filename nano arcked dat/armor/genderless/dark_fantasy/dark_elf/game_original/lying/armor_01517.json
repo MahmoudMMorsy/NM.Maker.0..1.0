@@ -1,0 +1,21 @@
+{
+  "file": "armor_01517.png",
+  "type": "armor",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "dark_fantasy",
+  "source": "game_original",
+  "pose": "lying",
+  "colors": [
+    "red",
+    "green"
+  ],
+  "tags": [
+    "muscular",
+    "potion",
+    "helmet",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of armor"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "skeleton_02153.png",
+  "type": "skeleton",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "arcade_pixel",
+  "source": "mythology_egypt",
+  "pose": "flying",
+  "colors": [
+    "red",
+    "green"
+  ],
+  "tags": [
+    "fire",
+    "boots",
+    "slim",
+    "cape"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of skeleton"
+}

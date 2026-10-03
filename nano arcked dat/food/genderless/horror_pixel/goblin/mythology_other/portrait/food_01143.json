@@ -1,0 +1,21 @@
+{
+  "file": "food_01143.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "horror_pixel",
+  "source": "mythology_other",
+  "pose": "portrait",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "young",
+    "ice",
+    "staff",
+    "gloves"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of food"
+}

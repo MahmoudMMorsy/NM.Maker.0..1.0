@@ -1,0 +1,21 @@
+{
+  "file": "giant_01814.png",
+  "type": "giant",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "realistic_pixel",
+  "source": "generic",
+  "pose": "full_body",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "wings",
+    "glowing_eyes",
+    "boots",
+    "old"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of giant"
+}

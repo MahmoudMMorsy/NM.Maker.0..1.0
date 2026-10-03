@@ -1,0 +1,21 @@
+{
+  "file": "soldier_01803.png",
+  "type": "soldier",
+  "gender": "androgynous",
+  "race": "fairy",
+  "style": "retro_16bit",
+  "source": "historical",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "ice",
+    "slim",
+    "armor",
+    "robe"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of soldier"
+}

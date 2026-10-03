@@ -1,0 +1,21 @@
+{
+  "file": "elemental_00290.png",
+  "type": "elemental",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "realistic_pixel",
+  "source": "post_apocalyptic",
+  "pose": "back_view",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "lightning",
+    "robe",
+    "cape",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of elemental"
+}

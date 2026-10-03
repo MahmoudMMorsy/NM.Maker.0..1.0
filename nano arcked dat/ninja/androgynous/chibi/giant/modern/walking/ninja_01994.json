@@ -1,0 +1,21 @@
+{
+  "file": "ninja_01994.png",
+  "type": "ninja",
+  "gender": "androgynous",
+  "race": "giant",
+  "style": "chibi",
+  "source": "modern",
+  "pose": "walking",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "ice",
+    "axe",
+    "slim",
+    "armor"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of ninja"
+}

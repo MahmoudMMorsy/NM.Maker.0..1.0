@@ -1,0 +1,21 @@
+{
+  "file": "undead_00905.png",
+  "type": "undead",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "fantasy_pixel",
+  "source": "mythology_norse",
+  "pose": "action",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "staff",
+    "potion",
+    "young",
+    "gloves"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of undead"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "child_00359.png",
+  "type": "child",
+  "gender": "male",
+  "race": "elf",
+  "style": "detailed_pixel",
+  "source": "mythology_egypt",
+  "pose": "idle",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "muscular",
+    "wings",
+    "fire",
+    "old"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of child"
+}

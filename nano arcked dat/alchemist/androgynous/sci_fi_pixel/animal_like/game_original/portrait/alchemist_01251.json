@@ -1,0 +1,21 @@
+{
+  "file": "alchemist_01251.png",
+  "type": "alchemist",
+  "gender": "androgynous",
+  "race": "animal_like",
+  "style": "sci_fi_pixel",
+  "source": "game_original",
+  "pose": "portrait",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "young",
+    "sword",
+    "magic_circle",
+    "robe"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of alchemist"
+}

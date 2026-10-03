@@ -1,0 +1,21 @@
+{
+  "file": "elf_02993.png",
+  "type": "elf",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "detailed_pixel",
+  "source": "historical",
+  "pose": "flying",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "sword",
+    "armor",
+    "staff",
+    "robe"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of elf"
+}

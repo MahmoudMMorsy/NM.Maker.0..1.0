@@ -1,0 +1,21 @@
+{
+  "file": "knight_00940.png",
+  "type": "knight",
+  "gender": "androgynous",
+  "race": "cyborg",
+  "style": "anime_pixel",
+  "source": "mythology_other",
+  "pose": "attacking",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "young",
+    "horns",
+    "slim",
+    "muscular"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of knight"
+}

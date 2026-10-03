@@ -1,0 +1,21 @@
+{
+  "file": "demon_00585.png",
+  "type": "demon",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "clean_pixel",
+  "source": "horror",
+  "pose": "walking",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "dual_wield",
+    "helmet",
+    "robe",
+    "staff"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of demon"
+}

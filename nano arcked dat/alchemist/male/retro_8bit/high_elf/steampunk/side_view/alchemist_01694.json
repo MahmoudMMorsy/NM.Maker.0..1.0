@@ -1,0 +1,21 @@
+{
+  "file": "alchemist_01694.png",
+  "type": "alchemist",
+  "gender": "male",
+  "race": "high_elf",
+  "style": "retro_8bit",
+  "source": "steampunk",
+  "pose": "side_view",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "armor",
+    "magic_circle",
+    "tail",
+    "sword"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of alchemist"
+}

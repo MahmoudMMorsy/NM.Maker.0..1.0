@@ -1,0 +1,21 @@
+{
+  "file": "beast_01024.png",
+  "type": "beast",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "retro_8bit",
+  "source": "mythology_other",
+  "pose": "front_view",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "fire",
+    "old",
+    "bow",
+    "muscular"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_8bit pixel art asset of beast"
+}

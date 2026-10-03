@@ -1,0 +1,21 @@
+{
+  "file": "viking_00865.png",
+  "type": "viking",
+  "gender": "male",
+  "race": "robot",
+  "style": "horror_pixel",
+  "source": "oc_original",
+  "pose": "flying",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "horns",
+    "boots",
+    "muscular",
+    "tail"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of viking"
+}

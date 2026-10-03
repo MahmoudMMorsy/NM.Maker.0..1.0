@@ -1,0 +1,21 @@
+{
+  "file": "child_00364.png",
+  "type": "child",
+  "gender": "androgynous",
+  "race": "high_elf",
+  "style": "realistic_pixel",
+  "source": "post_apocalyptic",
+  "pose": "portrait",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "horns",
+    "dual_wield",
+    "gloves",
+    "axe"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of child"
+}

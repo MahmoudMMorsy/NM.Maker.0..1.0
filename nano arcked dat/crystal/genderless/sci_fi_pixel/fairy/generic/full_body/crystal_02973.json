@@ -1,0 +1,21 @@
+{
+  "file": "crystal_02973.png",
+  "type": "crystal",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "sci_fi_pixel",
+  "source": "generic",
+  "pose": "full_body",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "axe",
+    "wings",
+    "lightning",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of crystal"
+}

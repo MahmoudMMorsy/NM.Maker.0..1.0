@@ -1,0 +1,21 @@
+{
+  "file": "weapon_02007.png",
+  "type": "weapon",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "detailed_pixel",
+  "source": "historical",
+  "pose": "running",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "lightning",
+    "tail",
+    "gloves",
+    "slim"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of weapon"
+}

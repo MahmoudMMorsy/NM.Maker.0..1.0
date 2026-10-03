@@ -1,0 +1,21 @@
+{
+  "file": "summoner_01144.png",
+  "type": "summoner",
+  "gender": "androgynous",
+  "race": "high_elf",
+  "style": "arcade_pixel",
+  "source": "mythology_greek",
+  "pose": "running",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "boots",
+    "axe",
+    "slim",
+    "horns"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of summoner"
+}

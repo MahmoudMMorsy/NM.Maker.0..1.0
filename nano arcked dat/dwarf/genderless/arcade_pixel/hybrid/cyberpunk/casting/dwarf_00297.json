@@ -1,0 +1,21 @@
+{
+  "file": "dwarf_00297.png",
+  "type": "dwarf",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "arcade_pixel",
+  "source": "cyberpunk",
+  "pose": "casting",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "potion",
+    "fire",
+    "boots",
+    "lightning"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of dwarf"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "hunter_00528.png",
+  "type": "hunter",
+  "gender": "androgynous",
+  "race": "alien",
+  "style": "horror_pixel",
+  "source": "anime_series",
+  "pose": "walking",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "old",
+    "boots",
+    "slim",
+    "staff"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of hunter"
+}

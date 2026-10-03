@@ -1,0 +1,21 @@
+{
+  "file": "potion_01183.png",
+  "type": "potion",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "detailed_pixel",
+  "source": "cartoon_western",
+  "pose": "back_view",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "cape",
+    "bow",
+    "fire",
+    "ice"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of potion"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "centaur_00991.png",
+  "type": "centaur",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "detailed_pixel",
+  "source": "oc_original",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "wings",
+    "lightning",
+    "dual_wield",
+    "boots"
+  ],
+  "resolution": "128x128",
+  "notes": "detailed_pixel pixel art asset of centaur"
+}

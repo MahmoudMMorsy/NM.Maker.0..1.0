@@ -1,0 +1,21 @@
+{
+  "file": "thief_02532.png",
+  "type": "thief",
+  "gender": "female",
+  "race": "hybrid",
+  "style": "cartoon",
+  "source": "mythology_other",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "magic_circle",
+    "shield",
+    "muscular",
+    "axe"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of thief"
+}

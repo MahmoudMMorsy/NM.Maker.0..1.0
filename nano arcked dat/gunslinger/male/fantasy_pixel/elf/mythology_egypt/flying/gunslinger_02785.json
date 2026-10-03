@@ -1,0 +1,21 @@
+{
+  "file": "gunslinger_02785.png",
+  "type": "gunslinger",
+  "gender": "male",
+  "race": "elf",
+  "style": "fantasy_pixel",
+  "source": "mythology_egypt",
+  "pose": "flying",
+  "colors": [
+    "red",
+    "silver"
+  ],
+  "tags": [
+    "dual_wield",
+    "bow",
+    "potion",
+    "gloves"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of gunslinger"
+}

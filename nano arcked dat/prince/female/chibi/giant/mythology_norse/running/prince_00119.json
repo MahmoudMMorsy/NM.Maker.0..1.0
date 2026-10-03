@@ -1,0 +1,21 @@
+{
+  "file": "prince_00119.png",
+  "type": "prince",
+  "gender": "female",
+  "race": "giant",
+  "style": "chibi",
+  "source": "mythology_norse",
+  "pose": "running",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "magic_circle",
+    "wings",
+    "armor",
+    "shield"
+  ],
+  "resolution": "32x32",
+  "notes": "chibi pixel art asset of prince"
+}

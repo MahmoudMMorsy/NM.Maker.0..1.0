@@ -1,0 +1,21 @@
+{
+  "file": "assassin_00953.png",
+  "type": "assassin",
+  "gender": "androgynous",
+  "race": "dragonkin",
+  "style": "retro_16bit",
+  "source": "sci_fi",
+  "pose": "action",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "ice",
+    "tail",
+    "armor",
+    "glowing_eyes"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of assassin"
+}

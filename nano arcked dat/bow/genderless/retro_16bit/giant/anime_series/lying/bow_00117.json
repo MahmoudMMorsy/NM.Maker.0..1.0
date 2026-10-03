@@ -1,0 +1,21 @@
+{
+  "file": "bow_00117.png",
+  "type": "bow",
+  "gender": "genderless",
+  "race": "giant",
+  "style": "retro_16bit",
+  "source": "anime_series",
+  "pose": "lying",
+  "colors": [
+    "purple",
+    "red"
+  ],
+  "tags": [
+    "young",
+    "lightning",
+    "dual_wield",
+    "axe"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of bow"
+}

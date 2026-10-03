@@ -1,0 +1,21 @@
+{
+  "file": "potion_01334.png",
+  "type": "potion",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "retro_16bit",
+  "source": "cartoon_western",
+  "pose": "idle",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "lightning",
+    "wings",
+    "helmet",
+    "gloves"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of potion"
+}

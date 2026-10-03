@@ -1,0 +1,21 @@
+{
+  "file": "minotaur_02742.png",
+  "type": "minotaur",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "chibi",
+  "source": "cartoon_western",
+  "pose": "flying",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "magic_circle",
+    "slim",
+    "axe",
+    "robe"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of minotaur"
+}

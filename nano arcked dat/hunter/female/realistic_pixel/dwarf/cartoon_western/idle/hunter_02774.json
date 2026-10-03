@@ -1,0 +1,21 @@
+{
+  "file": "hunter_02774.png",
+  "type": "hunter",
+  "gender": "female",
+  "race": "dwarf",
+  "style": "realistic_pixel",
+  "source": "cartoon_western",
+  "pose": "idle",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "ice",
+    "staff",
+    "lightning",
+    "sword"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of hunter"
+}

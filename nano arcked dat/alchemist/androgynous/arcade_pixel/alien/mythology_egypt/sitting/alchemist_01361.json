@@ -1,0 +1,21 @@
+{
+  "file": "alchemist_01361.png",
+  "type": "alchemist",
+  "gender": "androgynous",
+  "race": "alien",
+  "style": "arcade_pixel",
+  "source": "mythology_egypt",
+  "pose": "sitting",
+  "colors": [
+    "silver",
+    "red"
+  ],
+  "tags": [
+    "robe",
+    "shield",
+    "muscular",
+    "slim"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of alchemist"
+}

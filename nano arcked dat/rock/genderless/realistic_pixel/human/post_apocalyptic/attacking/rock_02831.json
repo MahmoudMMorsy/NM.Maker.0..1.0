@@ -1,0 +1,21 @@
+{
+  "file": "rock_02831.png",
+  "type": "rock",
+  "gender": "genderless",
+  "race": "human",
+  "style": "realistic_pixel",
+  "source": "post_apocalyptic",
+  "pose": "attacking",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "slim",
+    "wings",
+    "bow",
+    "sword"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of rock"
+}

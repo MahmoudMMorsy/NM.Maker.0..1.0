@@ -1,0 +1,21 @@
+{
+  "file": "vampire_01598.png",
+  "type": "vampire",
+  "gender": "genderless",
+  "race": "giant",
+  "style": "cartoon",
+  "source": "oc_original",
+  "pose": "idle",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "young",
+    "ice",
+    "sword",
+    "fire"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of vampire"
+}

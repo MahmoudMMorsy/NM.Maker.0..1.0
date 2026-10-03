@@ -1,0 +1,21 @@
+{
+  "file": "android_00371.png",
+  "type": "android",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "anime_pixel",
+  "source": "post_apocalyptic",
+  "pose": "lying",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "boots",
+    "fire",
+    "armor",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of android"
+}

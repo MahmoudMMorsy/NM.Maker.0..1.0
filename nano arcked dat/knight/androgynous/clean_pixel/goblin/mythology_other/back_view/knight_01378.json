@@ -1,0 +1,21 @@
+{
+  "file": "knight_01378.png",
+  "type": "knight",
+  "gender": "androgynous",
+  "race": "goblin",
+  "style": "clean_pixel",
+  "source": "mythology_other",
+  "pose": "back_view",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "boots",
+    "wings",
+    "tail",
+    "horns"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of knight"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "mage_00775.png",
+  "type": "mage",
+  "gender": "female",
+  "race": "animal_like",
+  "style": "dark_fantasy",
+  "source": "cartoon_western",
+  "pose": "back_view",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "sword",
+    "tail",
+    "glowing_eyes",
+    "lightning"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of mage"
+}

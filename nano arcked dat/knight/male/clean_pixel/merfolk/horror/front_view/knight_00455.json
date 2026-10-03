@@ -1,0 +1,21 @@
+{
+  "file": "knight_00455.png",
+  "type": "knight",
+  "gender": "male",
+  "race": "merfolk",
+  "style": "clean_pixel",
+  "source": "horror",
+  "pose": "front_view",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "boots",
+    "young",
+    "helmet",
+    "lightning"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of knight"
+}

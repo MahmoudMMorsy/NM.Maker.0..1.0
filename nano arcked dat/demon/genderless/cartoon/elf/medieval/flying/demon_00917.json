@@ -1,0 +1,21 @@
+{
+  "file": "demon_00917.png",
+  "type": "demon",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "cartoon",
+  "source": "medieval",
+  "pose": "flying",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "armor",
+    "bow",
+    "horns",
+    "cape"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of demon"
+}

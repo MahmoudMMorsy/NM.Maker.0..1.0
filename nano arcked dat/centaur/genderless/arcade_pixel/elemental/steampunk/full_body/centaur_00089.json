@@ -1,0 +1,21 @@
+{
+  "file": "centaur_00089.png",
+  "type": "centaur",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "arcade_pixel",
+  "source": "steampunk",
+  "pose": "full_body",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "slim",
+    "shield",
+    "fire",
+    "wings"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of centaur"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "elemental_02677.png",
+  "type": "elemental",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "sci_fi_pixel",
+  "source": "anime_series",
+  "pose": "lying",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "ice",
+    "magic_circle",
+    "robe",
+    "muscular"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of elemental"
+}

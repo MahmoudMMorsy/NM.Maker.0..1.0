@@ -1,0 +1,21 @@
+{
+  "file": "rogue_01045.png",
+  "type": "rogue",
+  "gender": "female",
+  "race": "undead",
+  "style": "dark_fantasy",
+  "source": "dark_fantasy",
+  "pose": "back_view",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "ice",
+    "sword",
+    "horns",
+    "armor"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of rogue"
+}

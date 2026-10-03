@@ -1,0 +1,21 @@
+{
+  "file": "rock_02162.png",
+  "type": "rock",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "sci_fi_pixel",
+  "source": "oc_original",
+  "pose": "action",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "magic_circle",
+    "staff",
+    "potion",
+    "slim"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of rock"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "bard_00142.png",
+  "type": "bard",
+  "gender": "female",
+  "race": "giant",
+  "style": "retro_8bit",
+  "source": "comic",
+  "pose": "back_view",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "sword",
+    "cape",
+    "potion",
+    "boots"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of bard"
+}

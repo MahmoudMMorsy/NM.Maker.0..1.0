@@ -1,0 +1,21 @@
+{
+  "file": "queen_02135.png",
+  "type": "queen",
+  "gender": "female",
+  "race": "high_elf",
+  "style": "detailed_pixel",
+  "source": "modern",
+  "pose": "back_view",
+  "colors": [
+    "red",
+    "silver"
+  ],
+  "tags": [
+    "robe",
+    "dual_wield",
+    "boots",
+    "staff"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of queen"
+}

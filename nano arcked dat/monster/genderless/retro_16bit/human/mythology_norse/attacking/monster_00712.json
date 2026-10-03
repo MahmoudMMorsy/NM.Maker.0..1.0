@@ -1,0 +1,21 @@
+{
+  "file": "monster_00712.png",
+  "type": "monster",
+  "gender": "genderless",
+  "race": "human",
+  "style": "retro_16bit",
+  "source": "mythology_norse",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "shield",
+    "horns",
+    "ice",
+    "bow"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of monster"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "helmet_00676.png",
+  "type": "helmet",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "detailed_pixel",
+  "source": "cyberpunk",
+  "pose": "side_view",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "potion",
+    "tail",
+    "lightning",
+    "fire"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of helmet"
+}

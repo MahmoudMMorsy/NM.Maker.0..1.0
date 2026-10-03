@@ -1,0 +1,21 @@
+{
+  "file": "food_02371.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "anime_pixel",
+  "source": "mythology_norse",
+  "pose": "portrait",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "dual_wield",
+    "staff",
+    "potion",
+    "robe"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of food"
+}

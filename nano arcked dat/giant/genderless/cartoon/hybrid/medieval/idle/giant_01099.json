@@ -1,0 +1,21 @@
+{
+  "file": "giant_01099.png",
+  "type": "giant",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "cartoon",
+  "source": "medieval",
+  "pose": "idle",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "helmet",
+    "axe",
+    "staff",
+    "young"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of giant"
+}

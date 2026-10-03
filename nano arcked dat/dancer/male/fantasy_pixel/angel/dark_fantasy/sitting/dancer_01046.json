@@ -1,0 +1,21 @@
+{
+  "file": "dancer_01046.png",
+  "type": "dancer",
+  "gender": "male",
+  "race": "angel",
+  "style": "fantasy_pixel",
+  "source": "dark_fantasy",
+  "pose": "sitting",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "horns",
+    "helmet",
+    "staff",
+    "dual_wield"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of dancer"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "sword_00432.png",
+  "type": "sword",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "fantasy_pixel",
+  "source": "cyberpunk",
+  "pose": "idle",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "robe",
+    "potion",
+    "axe",
+    "staff"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of sword"
+}

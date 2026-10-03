@@ -1,0 +1,21 @@
+{
+  "file": "noble_01157.png",
+  "type": "noble",
+  "gender": "androgynous",
+  "race": "animal_like",
+  "style": "horror_pixel",
+  "source": "historical",
+  "pose": "portrait",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "old",
+    "young",
+    "robe",
+    "muscular"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of noble"
+}

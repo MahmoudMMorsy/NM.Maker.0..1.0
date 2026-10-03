@@ -1,0 +1,21 @@
+{
+  "file": "portal_02999.png",
+  "type": "portal",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "arcade_pixel",
+  "source": "anime_series",
+  "pose": "flying",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "muscular",
+    "tail",
+    "glowing_eyes",
+    "potion"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of portal"
+}

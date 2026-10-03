@@ -1,0 +1,21 @@
+{
+  "file": "cook_02021.png",
+  "type": "cook",
+  "gender": "male",
+  "race": "cyborg",
+  "style": "detailed_pixel",
+  "source": "anime_series",
+  "pose": "front_view",
+  "colors": [
+    "silver",
+    "red"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "armor",
+    "sword",
+    "wings"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of cook"
+}

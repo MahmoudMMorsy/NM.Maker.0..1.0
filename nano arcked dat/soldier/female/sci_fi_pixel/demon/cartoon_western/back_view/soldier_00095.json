@@ -1,0 +1,21 @@
+{
+  "file": "soldier_00095.png",
+  "type": "soldier",
+  "gender": "female",
+  "race": "demon",
+  "style": "sci_fi_pixel",
+  "source": "cartoon_western",
+  "pose": "back_view",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "bow",
+    "axe",
+    "muscular"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of soldier"
+}

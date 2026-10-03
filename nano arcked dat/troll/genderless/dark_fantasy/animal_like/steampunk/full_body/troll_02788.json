@@ -1,0 +1,21 @@
+{
+  "file": "troll_02788.png",
+  "type": "troll",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "dark_fantasy",
+  "source": "steampunk",
+  "pose": "full_body",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "magic_circle",
+    "wings",
+    "glowing_eyes",
+    "slim"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of troll"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "summoner_01645.png",
+  "type": "summoner",
+  "gender": "female",
+  "race": "dragonkin",
+  "style": "realistic_pixel",
+  "source": "post_apocalyptic",
+  "pose": "running",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "fire",
+    "potion",
+    "lightning",
+    "horns"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of summoner"
+}

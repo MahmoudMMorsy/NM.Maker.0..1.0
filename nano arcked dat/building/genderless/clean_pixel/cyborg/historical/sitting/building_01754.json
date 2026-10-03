@@ -1,0 +1,21 @@
+{
+  "file": "building_01754.png",
+  "type": "building",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "clean_pixel",
+  "source": "historical",
+  "pose": "sitting",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "robe",
+    "shield",
+    "sword",
+    "ice"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of building"
+}

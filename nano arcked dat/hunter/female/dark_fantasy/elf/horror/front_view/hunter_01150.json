@@ -1,0 +1,21 @@
+{
+  "file": "hunter_01150.png",
+  "type": "hunter",
+  "gender": "female",
+  "race": "elf",
+  "style": "dark_fantasy",
+  "source": "horror",
+  "pose": "front_view",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "cape",
+    "muscular",
+    "potion",
+    "glowing_eyes"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of hunter"
+}

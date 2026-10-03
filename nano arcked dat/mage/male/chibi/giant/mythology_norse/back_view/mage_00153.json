@@ -1,0 +1,21 @@
+{
+  "file": "mage_00153.png",
+  "type": "mage",
+  "gender": "male",
+  "race": "giant",
+  "style": "chibi",
+  "source": "mythology_norse",
+  "pose": "back_view",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "axe",
+    "dual_wield",
+    "young",
+    "magic_circle"
+  ],
+  "resolution": "32x32",
+  "notes": "chibi pixel art asset of mage"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "guard_00753.png",
+  "type": "guard",
+  "gender": "androgynous",
+  "race": "goblin",
+  "style": "arcade_pixel",
+  "source": "generic",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "gloves",
+    "young",
+    "ice",
+    "wings"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of guard"
+}

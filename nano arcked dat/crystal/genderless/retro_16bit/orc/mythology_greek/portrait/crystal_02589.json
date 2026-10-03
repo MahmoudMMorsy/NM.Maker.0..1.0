@@ -1,0 +1,21 @@
+{
+  "file": "crystal_02589.png",
+  "type": "crystal",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "retro_16bit",
+  "source": "mythology_greek",
+  "pose": "portrait",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "horns",
+    "dual_wield",
+    "muscular",
+    "slim"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of crystal"
+}

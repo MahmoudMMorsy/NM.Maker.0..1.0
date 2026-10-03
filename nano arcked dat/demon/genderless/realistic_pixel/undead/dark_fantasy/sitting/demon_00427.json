@@ -1,0 +1,21 @@
+{
+  "file": "demon_00427.png",
+  "type": "demon",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "realistic_pixel",
+  "source": "dark_fantasy",
+  "pose": "sitting",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "sword",
+    "muscular",
+    "tail",
+    "lightning"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of demon"
+}

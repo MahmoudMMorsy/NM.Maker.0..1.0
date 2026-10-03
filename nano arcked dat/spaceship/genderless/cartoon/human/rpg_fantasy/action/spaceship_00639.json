@@ -1,0 +1,21 @@
+{
+  "file": "spaceship_00639.png",
+  "type": "spaceship",
+  "gender": "genderless",
+  "race": "human",
+  "style": "cartoon",
+  "source": "rpg_fantasy",
+  "pose": "action",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "lightning",
+    "ice",
+    "horns",
+    "old"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of spaceship"
+}

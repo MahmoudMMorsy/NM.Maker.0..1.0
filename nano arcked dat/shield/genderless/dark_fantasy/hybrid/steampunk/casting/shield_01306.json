@@ -1,0 +1,21 @@
+{
+  "file": "shield_01306.png",
+  "type": "shield",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "dark_fantasy",
+  "source": "steampunk",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "axe",
+    "dual_wield",
+    "armor",
+    "horns"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of shield"
+}

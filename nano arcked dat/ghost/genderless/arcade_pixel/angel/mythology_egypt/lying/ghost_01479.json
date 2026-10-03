@@ -1,0 +1,21 @@
+{
+  "file": "ghost_01479.png",
+  "type": "ghost",
+  "gender": "genderless",
+  "race": "angel",
+  "style": "arcade_pixel",
+  "source": "mythology_egypt",
+  "pose": "lying",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "young",
+    "dual_wield",
+    "robe",
+    "shield"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of ghost"
+}

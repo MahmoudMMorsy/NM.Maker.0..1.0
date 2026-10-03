@@ -1,0 +1,21 @@
+{
+  "file": "animal_01372.png",
+  "type": "animal",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "anime_pixel",
+  "source": "comic",
+  "pose": "front_view",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "shield",
+    "muscular",
+    "wings",
+    "magic_circle"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of animal"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "bard_01742.png",
+  "type": "bard",
+  "gender": "female",
+  "race": "beastkin",
+  "style": "realistic_pixel",
+  "source": "horror",
+  "pose": "lying",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "robe",
+    "tail",
+    "staff",
+    "magic_circle"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of bard"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "soldier_01095.png",
+  "type": "soldier",
+  "gender": "androgynous",
+  "race": "demon",
+  "style": "retro_16bit",
+  "source": "horror",
+  "pose": "sitting",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "magic_circle",
+    "shield",
+    "dual_wield",
+    "young"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of soldier"
+}

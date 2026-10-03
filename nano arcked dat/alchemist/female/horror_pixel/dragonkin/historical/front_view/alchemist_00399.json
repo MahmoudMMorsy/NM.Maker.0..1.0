@@ -1,0 +1,21 @@
+{
+  "file": "alchemist_00399.png",
+  "type": "alchemist",
+  "gender": "female",
+  "race": "dragonkin",
+  "style": "horror_pixel",
+  "source": "historical",
+  "pose": "front_view",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "horns",
+    "lightning",
+    "robe",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of alchemist"
+}

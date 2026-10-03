@@ -1,0 +1,21 @@
+{
+  "file": "cook_00430.png",
+  "type": "cook",
+  "gender": "male",
+  "race": "dark_elf",
+  "style": "horror_pixel",
+  "source": "comic",
+  "pose": "flying",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "helmet",
+    "lightning",
+    "tail",
+    "armor"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of cook"
+}

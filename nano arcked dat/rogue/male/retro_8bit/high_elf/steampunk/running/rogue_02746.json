@@ -1,0 +1,21 @@
+{
+  "file": "rogue_02746.png",
+  "type": "rogue",
+  "gender": "male",
+  "race": "high_elf",
+  "style": "retro_8bit",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "horns",
+    "staff",
+    "sword",
+    "slim"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of rogue"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "summoner_01813.png",
+  "type": "summoner",
+  "gender": "female",
+  "race": "demon",
+  "style": "fantasy_pixel",
+  "source": "medieval",
+  "pose": "side_view",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "lightning",
+    "robe",
+    "shield",
+    "cape"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of summoner"
+}

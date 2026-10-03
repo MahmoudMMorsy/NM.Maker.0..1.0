@@ -1,0 +1,21 @@
+{
+  "file": "sword_00422.png",
+  "type": "sword",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "chibi",
+  "source": "sci_fi",
+  "pose": "side_view",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "boots",
+    "armor",
+    "fire",
+    "horns"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of sword"
+}

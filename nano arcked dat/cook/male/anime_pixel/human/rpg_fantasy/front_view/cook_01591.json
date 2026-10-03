@@ -1,0 +1,21 @@
+{
+  "file": "cook_01591.png",
+  "type": "cook",
+  "gender": "male",
+  "race": "human",
+  "style": "anime_pixel",
+  "source": "rpg_fantasy",
+  "pose": "front_view",
+  "colors": [
+    "purple",
+    "red"
+  ],
+  "tags": [
+    "armor",
+    "robe",
+    "slim",
+    "dual_wield"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of cook"
+}

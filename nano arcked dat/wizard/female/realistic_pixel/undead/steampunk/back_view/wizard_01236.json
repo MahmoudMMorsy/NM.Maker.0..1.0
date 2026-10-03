@@ -1,0 +1,21 @@
+{
+  "file": "wizard_01236.png",
+  "type": "wizard",
+  "gender": "female",
+  "race": "undead",
+  "style": "realistic_pixel",
+  "source": "steampunk",
+  "pose": "back_view",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "horns",
+    "ice",
+    "cape",
+    "old"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of wizard"
+}

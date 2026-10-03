@@ -1,0 +1,21 @@
+{
+  "file": "mage_01412.png",
+  "type": "mage",
+  "gender": "androgynous",
+  "race": "giant",
+  "style": "anime_pixel",
+  "source": "dark_fantasy",
+  "pose": "casting",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "shield",
+    "tail",
+    "lightning",
+    "bow"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of mage"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "goblin_00096.png",
+  "type": "goblin",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "sci_fi_pixel",
+  "source": "cartoon_western",
+  "pose": "casting",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "ice",
+    "axe",
+    "robe",
+    "sword"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of goblin"
+}

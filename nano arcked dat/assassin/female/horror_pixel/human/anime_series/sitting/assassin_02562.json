@@ -1,0 +1,21 @@
+{
+  "file": "assassin_02562.png",
+  "type": "assassin",
+  "gender": "female",
+  "race": "human",
+  "style": "horror_pixel",
+  "source": "anime_series",
+  "pose": "sitting",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "lightning",
+    "gloves",
+    "sword",
+    "old"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of assassin"
+}

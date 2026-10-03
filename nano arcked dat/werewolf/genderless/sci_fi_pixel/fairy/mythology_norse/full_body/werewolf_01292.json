@@ -1,0 +1,21 @@
+{
+  "file": "werewolf_01292.png",
+  "type": "werewolf",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "sci_fi_pixel",
+  "source": "mythology_norse",
+  "pose": "full_body",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "tail",
+    "axe",
+    "fire",
+    "glowing_eyes"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of werewolf"
+}

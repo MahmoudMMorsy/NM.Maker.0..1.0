@@ -1,0 +1,21 @@
+{
+  "file": "archer_02627.png",
+  "type": "archer",
+  "gender": "male",
+  "race": "beastkin",
+  "style": "detailed_pixel",
+  "source": "rpg_fantasy",
+  "pose": "lying",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "shield",
+    "old",
+    "potion",
+    "horns"
+  ],
+  "resolution": "128x128",
+  "notes": "detailed_pixel pixel art asset of archer"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "gladiator_01004.png",
+  "type": "gladiator",
+  "gender": "female",
+  "race": "beastkin",
+  "style": "clean_pixel",
+  "source": "generic",
+  "pose": "lying",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "ice",
+    "armor",
+    "magic_circle",
+    "horns"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of gladiator"
+}

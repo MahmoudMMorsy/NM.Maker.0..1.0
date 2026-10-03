@@ -1,0 +1,21 @@
+{
+  "file": "samurai_00220.png",
+  "type": "samurai",
+  "gender": "male",
+  "race": "elf",
+  "style": "retro_8bit",
+  "source": "game_original",
+  "pose": "front_view",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "old",
+    "muscular",
+    "dual_wield",
+    "fire"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_8bit pixel art asset of samurai"
+}

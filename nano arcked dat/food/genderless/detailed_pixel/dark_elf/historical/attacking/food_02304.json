@@ -1,0 +1,21 @@
+{
+  "file": "food_02304.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "detailed_pixel",
+  "source": "historical",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "axe",
+    "young",
+    "gloves",
+    "tail"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of food"
+}

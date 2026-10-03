@@ -1,0 +1,21 @@
+{
+  "file": "fairy_00542.png",
+  "type": "fairy",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "detailed_pixel",
+  "source": "game_original",
+  "pose": "back_view",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "lightning",
+    "boots",
+    "muscular",
+    "glowing_eyes"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of fairy"
+}

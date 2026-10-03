@@ -1,0 +1,21 @@
+{
+  "file": "bard_01268.png",
+  "type": "bard",
+  "gender": "male",
+  "race": "cyborg",
+  "style": "cartoon",
+  "source": "post_apocalyptic",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "sword",
+    "axe",
+    "gloves",
+    "slim"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of bard"
+}

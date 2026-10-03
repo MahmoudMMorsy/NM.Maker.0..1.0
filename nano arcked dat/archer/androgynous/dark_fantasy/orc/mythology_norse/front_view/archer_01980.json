@@ -1,0 +1,21 @@
+{
+  "file": "archer_01980.png",
+  "type": "archer",
+  "gender": "androgynous",
+  "race": "orc",
+  "style": "dark_fantasy",
+  "source": "mythology_norse",
+  "pose": "front_view",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "young",
+    "fire",
+    "horns",
+    "dual_wield"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of archer"
+}

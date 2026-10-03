@@ -1,0 +1,21 @@
+{
+  "file": "alien_00303.png",
+  "type": "alien",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "dark_fantasy",
+  "source": "horror",
+  "pose": "running",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "sword",
+    "old",
+    "armor",
+    "horns"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of alien"
+}

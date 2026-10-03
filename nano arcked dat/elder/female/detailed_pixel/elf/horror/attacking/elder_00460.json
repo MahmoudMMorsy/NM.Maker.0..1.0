@@ -1,0 +1,21 @@
+{
+  "file": "elder_00460.png",
+  "type": "elder",
+  "gender": "female",
+  "race": "elf",
+  "style": "detailed_pixel",
+  "source": "horror",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "horns",
+    "old",
+    "sword",
+    "helmet"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of elder"
+}

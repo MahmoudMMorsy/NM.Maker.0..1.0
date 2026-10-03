@@ -1,0 +1,21 @@
+{
+  "file": "troll_00440.png",
+  "type": "troll",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "anime_pixel",
+  "source": "rpg_fantasy",
+  "pose": "back_view",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "sword",
+    "axe",
+    "ice",
+    "fire"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of troll"
+}

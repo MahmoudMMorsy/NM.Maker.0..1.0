@@ -1,0 +1,21 @@
+{
+  "file": "giant_01804.png",
+  "type": "giant",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "retro_16bit",
+  "source": "cartoon_western",
+  "pose": "action",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "boots",
+    "axe",
+    "staff",
+    "old"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of giant"
+}

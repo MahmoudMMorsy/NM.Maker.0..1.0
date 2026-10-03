@@ -1,0 +1,21 @@
+{
+  "file": "rogue_02370.png",
+  "type": "rogue",
+  "gender": "male",
+  "race": "animal_like",
+  "style": "dark_fantasy",
+  "source": "oc_original",
+  "pose": "idle",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "boots",
+    "shield",
+    "wings",
+    "staff"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of rogue"
+}

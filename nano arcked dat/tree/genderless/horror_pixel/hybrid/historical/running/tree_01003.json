@@ -1,0 +1,21 @@
+{
+  "file": "tree_01003.png",
+  "type": "tree",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "horror_pixel",
+  "source": "historical",
+  "pose": "running",
+  "colors": [
+    "silver",
+    "red"
+  ],
+  "tags": [
+    "ice",
+    "sword",
+    "tail",
+    "dual_wield"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of tree"
+}

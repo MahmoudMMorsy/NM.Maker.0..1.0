@@ -1,0 +1,21 @@
+{
+  "file": "gun_02071.png",
+  "type": "gun",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "horror_pixel",
+  "source": "movie",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "bow",
+    "helmet",
+    "axe",
+    "magic_circle"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of gun"
+}

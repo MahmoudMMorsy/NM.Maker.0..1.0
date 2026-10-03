@@ -1,0 +1,21 @@
+{
+  "file": "paladin_00435.png",
+  "type": "paladin",
+  "gender": "androgynous",
+  "race": "dwarf",
+  "style": "detailed_pixel",
+  "source": "anime_series",
+  "pose": "flying",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "old",
+    "robe",
+    "cape",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of paladin"
+}

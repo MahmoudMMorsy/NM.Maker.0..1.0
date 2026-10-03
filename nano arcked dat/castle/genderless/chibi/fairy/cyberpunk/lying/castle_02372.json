@@ -1,0 +1,21 @@
+{
+  "file": "castle_02372.png",
+  "type": "castle",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "chibi",
+  "source": "cyberpunk",
+  "pose": "lying",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "young",
+    "dual_wield",
+    "ice",
+    "horns"
+  ],
+  "resolution": "32x32",
+  "notes": "chibi pixel art asset of castle"
+}

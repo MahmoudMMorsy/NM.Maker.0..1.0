@@ -1,0 +1,21 @@
+{
+  "file": "giant_00937.png",
+  "type": "giant",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "anime_pixel",
+  "source": "cartoon_western",
+  "pose": "running",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "wings",
+    "potion",
+    "helmet",
+    "ice"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of giant"
+}

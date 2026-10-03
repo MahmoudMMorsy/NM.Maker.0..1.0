@@ -1,0 +1,21 @@
+{
+  "file": "vampire_02052.png",
+  "type": "vampire",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "detailed_pixel",
+  "source": "cyberpunk",
+  "pose": "flying",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "muscular",
+    "old",
+    "cape",
+    "armor"
+  ],
+  "resolution": "128x128",
+  "notes": "detailed_pixel pixel art asset of vampire"
+}

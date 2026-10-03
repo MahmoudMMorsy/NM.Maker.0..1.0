@@ -1,0 +1,21 @@
+{
+  "file": "vampire_00439.png",
+  "type": "vampire",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "dark_fantasy",
+  "source": "steampunk",
+  "pose": "side_view",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "horns",
+    "cape",
+    "sword",
+    "armor"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of vampire"
+}

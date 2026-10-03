@@ -1,0 +1,21 @@
+{
+  "file": "armor_00207.png",
+  "type": "armor",
+  "gender": "genderless",
+  "race": "human",
+  "style": "realistic_pixel",
+  "source": "horror",
+  "pose": "full_body",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "old",
+    "fire",
+    "sword",
+    "lightning"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of armor"
+}

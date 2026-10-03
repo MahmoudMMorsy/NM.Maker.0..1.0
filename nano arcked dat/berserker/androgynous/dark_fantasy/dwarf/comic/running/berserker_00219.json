@@ -1,0 +1,21 @@
+{
+  "file": "berserker_00219.png",
+  "type": "berserker",
+  "gender": "androgynous",
+  "race": "dwarf",
+  "style": "dark_fantasy",
+  "source": "comic",
+  "pose": "running",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "axe",
+    "robe",
+    "staff",
+    "gloves"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of berserker"
+}

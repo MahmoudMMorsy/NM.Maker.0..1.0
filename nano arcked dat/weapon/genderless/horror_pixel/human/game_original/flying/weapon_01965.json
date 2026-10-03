@@ -1,0 +1,21 @@
+{
+  "file": "weapon_01965.png",
+  "type": "weapon",
+  "gender": "genderless",
+  "race": "human",
+  "style": "horror_pixel",
+  "source": "game_original",
+  "pose": "flying",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "fire",
+    "axe",
+    "cape",
+    "horns"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of weapon"
+}

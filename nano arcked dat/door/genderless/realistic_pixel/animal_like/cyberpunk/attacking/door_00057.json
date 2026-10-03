@@ -1,0 +1,21 @@
+{
+  "file": "door_00057.png",
+  "type": "door",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "realistic_pixel",
+  "source": "cyberpunk",
+  "pose": "attacking",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "shield",
+    "lightning",
+    "wings",
+    "armor"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of door"
+}

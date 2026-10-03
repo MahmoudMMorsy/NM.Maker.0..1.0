@@ -1,0 +1,21 @@
+{
+  "file": "monk_00264.png",
+  "type": "monk",
+  "gender": "male",
+  "race": "robot",
+  "style": "retro_8bit",
+  "source": "horror",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "ice",
+    "lightning",
+    "magic_circle",
+    "old"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of monk"
+}

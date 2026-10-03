@@ -1,0 +1,21 @@
+{
+  "file": "food_01785.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "cartoon",
+  "source": "dark_fantasy",
+  "pose": "front_view",
+  "colors": [
+    "red",
+    "silver"
+  ],
+  "tags": [
+    "tail",
+    "cape",
+    "ice",
+    "bow"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of food"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "dwarf_01786.png",
+  "type": "dwarf",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "chibi",
+  "source": "mythology_egypt",
+  "pose": "idle",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "horns",
+    "shield",
+    "dual_wield",
+    "old"
+  ],
+  "resolution": "32x32",
+  "notes": "chibi pixel art asset of dwarf"
+}

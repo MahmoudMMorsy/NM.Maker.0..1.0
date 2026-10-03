@@ -1,0 +1,21 @@
+{
+  "file": "samurai_00185.png",
+  "type": "samurai",
+  "gender": "female",
+  "race": "giant",
+  "style": "realistic_pixel",
+  "source": "cyberpunk",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "fire",
+    "helmet",
+    "potion",
+    "tail"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of samurai"
+}

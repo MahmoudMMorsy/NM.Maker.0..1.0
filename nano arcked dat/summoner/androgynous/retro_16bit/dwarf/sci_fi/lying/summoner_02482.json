@@ -1,0 +1,21 @@
+{
+  "file": "summoner_02482.png",
+  "type": "summoner",
+  "gender": "androgynous",
+  "race": "dwarf",
+  "style": "retro_16bit",
+  "source": "sci_fi",
+  "pose": "lying",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "gloves",
+    "glowing_eyes",
+    "boots",
+    "slim"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of summoner"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "gladiator_01348.png",
+  "type": "gladiator",
+  "gender": "female",
+  "race": "robot",
+  "style": "cartoon",
+  "source": "medieval",
+  "pose": "side_view",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "gloves",
+    "sword",
+    "potion",
+    "muscular"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of gladiator"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "golem_01459.png",
+  "type": "golem",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "cartoon",
+  "source": "medieval",
+  "pose": "casting",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "slim",
+    "fire",
+    "dual_wield",
+    "axe"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of golem"
+}

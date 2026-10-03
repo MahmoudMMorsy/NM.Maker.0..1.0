@@ -1,0 +1,21 @@
+{
+  "file": "blacksmith_00195.png",
+  "type": "blacksmith",
+  "gender": "female",
+  "race": "fairy",
+  "style": "retro_16bit",
+  "source": "mythology_other",
+  "pose": "side_view",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "wings",
+    "young",
+    "slim",
+    "robe"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of blacksmith"
+}

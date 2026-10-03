@@ -1,0 +1,21 @@
+{
+  "file": "mecha_01551.png",
+  "type": "mecha",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "chibi",
+  "source": "rpg_fantasy",
+  "pose": "portrait",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "tail",
+    "horns",
+    "boots",
+    "helmet"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of mecha"
+}

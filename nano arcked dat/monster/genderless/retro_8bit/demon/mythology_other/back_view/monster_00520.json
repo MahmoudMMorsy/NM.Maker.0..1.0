@@ -1,0 +1,21 @@
+{
+  "file": "monster_00520.png",
+  "type": "monster",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "retro_8bit",
+  "source": "mythology_other",
+  "pose": "back_view",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "bow",
+    "staff",
+    "fire",
+    "magic_circle"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of monster"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "plant_00620.png",
+  "type": "plant",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "clean_pixel",
+  "source": "rpg_fantasy",
+  "pose": "back_view",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "armor",
+    "helmet",
+    "tail",
+    "slim"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of plant"
+}

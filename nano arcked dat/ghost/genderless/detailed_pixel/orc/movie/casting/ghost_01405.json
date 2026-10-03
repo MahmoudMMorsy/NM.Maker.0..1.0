@@ -1,0 +1,21 @@
+{
+  "file": "ghost_01405.png",
+  "type": "ghost",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "detailed_pixel",
+  "source": "movie",
+  "pose": "casting",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "staff",
+    "robe",
+    "young",
+    "wings"
+  ],
+  "resolution": "128x128",
+  "notes": "detailed_pixel pixel art asset of ghost"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "angel_02476.png",
+  "type": "angel",
+  "gender": "genderless",
+  "race": "giant",
+  "style": "realistic_pixel",
+  "source": "horror",
+  "pose": "lying",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "robe",
+    "magic_circle",
+    "fire"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of angel"
+}

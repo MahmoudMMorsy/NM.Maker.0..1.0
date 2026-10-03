@@ -1,0 +1,21 @@
+{
+  "file": "dwarf_01330.png",
+  "type": "dwarf",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "dark_fantasy",
+  "source": "mythology_greek",
+  "pose": "full_body",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "dual_wield",
+    "helmet",
+    "bow",
+    "robe"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of dwarf"
+}

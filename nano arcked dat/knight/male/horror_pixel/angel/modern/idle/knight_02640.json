@@ -1,0 +1,21 @@
+{
+  "file": "knight_02640.png",
+  "type": "knight",
+  "gender": "male",
+  "race": "angel",
+  "style": "horror_pixel",
+  "source": "modern",
+  "pose": "idle",
+  "colors": [
+    "purple",
+    "blue"
+  ],
+  "tags": [
+    "gloves",
+    "old",
+    "horns",
+    "ice"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of knight"
+}

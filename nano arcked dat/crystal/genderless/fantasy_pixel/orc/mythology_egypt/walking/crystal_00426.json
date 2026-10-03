@@ -1,0 +1,21 @@
+{
+  "file": "crystal_00426.png",
+  "type": "crystal",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "fantasy_pixel",
+  "source": "mythology_egypt",
+  "pose": "walking",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "shield",
+    "glowing_eyes",
+    "cape",
+    "slim"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of crystal"
+}

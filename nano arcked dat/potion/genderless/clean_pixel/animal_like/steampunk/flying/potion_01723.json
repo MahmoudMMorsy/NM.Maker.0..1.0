@@ -1,0 +1,21 @@
+{
+  "file": "potion_01723.png",
+  "type": "potion",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "clean_pixel",
+  "source": "steampunk",
+  "pose": "flying",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "armor",
+    "boots",
+    "fire",
+    "slim"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of potion"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "civilian_02631.png",
+  "type": "civilian",
+  "gender": "female",
+  "race": "dwarf",
+  "style": "retro_16bit",
+  "source": "horror",
+  "pose": "side_view",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "bow",
+    "tail",
+    "lightning",
+    "fire"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of civilian"
+}

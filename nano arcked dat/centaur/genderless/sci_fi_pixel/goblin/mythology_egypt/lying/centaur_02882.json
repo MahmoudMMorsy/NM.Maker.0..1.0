@@ -1,0 +1,21 @@
+{
+  "file": "centaur_02882.png",
+  "type": "centaur",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "sci_fi_pixel",
+  "source": "mythology_egypt",
+  "pose": "lying",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "cape",
+    "dual_wield",
+    "sword",
+    "lightning"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of centaur"
+}

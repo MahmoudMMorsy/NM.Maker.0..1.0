@@ -1,0 +1,21 @@
+{
+  "file": "mermaid_00035.png",
+  "type": "mermaid",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "dark_fantasy",
+  "source": "anime_series",
+  "pose": "portrait",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "fire",
+    "axe",
+    "wings",
+    "potion"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of mermaid"
+}

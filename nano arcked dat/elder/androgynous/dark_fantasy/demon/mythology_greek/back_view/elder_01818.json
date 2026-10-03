@@ -1,0 +1,21 @@
+{
+  "file": "elder_01818.png",
+  "type": "elder",
+  "gender": "androgynous",
+  "race": "demon",
+  "style": "dark_fantasy",
+  "source": "mythology_greek",
+  "pose": "back_view",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "fire",
+    "glowing_eyes",
+    "dual_wield",
+    "young"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of elder"
+}

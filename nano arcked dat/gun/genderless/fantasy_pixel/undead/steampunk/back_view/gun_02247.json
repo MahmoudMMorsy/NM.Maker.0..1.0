@@ -1,0 +1,21 @@
+{
+  "file": "gun_02247.png",
+  "type": "gun",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "fantasy_pixel",
+  "source": "steampunk",
+  "pose": "back_view",
+  "colors": [
+    "red",
+    "green"
+  ],
+  "tags": [
+    "potion",
+    "fire",
+    "staff",
+    "glowing_eyes"
+  ],
+  "resolution": "32x32",
+  "notes": "fantasy_pixel pixel art asset of gun"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "sword_01553.png",
+  "type": "sword",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "cartoon",
+  "source": "dark_fantasy",
+  "pose": "back_view",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "magic_circle",
+    "shield",
+    "sword",
+    "muscular"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of sword"
+}

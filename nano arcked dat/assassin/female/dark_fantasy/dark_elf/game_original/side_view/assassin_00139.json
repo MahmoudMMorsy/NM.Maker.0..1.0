@@ -1,0 +1,21 @@
+{
+  "file": "assassin_00139.png",
+  "type": "assassin",
+  "gender": "female",
+  "race": "dark_elf",
+  "style": "dark_fantasy",
+  "source": "game_original",
+  "pose": "side_view",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "old",
+    "ice",
+    "axe",
+    "lightning"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of assassin"
+}

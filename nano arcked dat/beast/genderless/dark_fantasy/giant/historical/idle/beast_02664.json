@@ -1,0 +1,21 @@
+{
+  "file": "beast_02664.png",
+  "type": "beast",
+  "gender": "genderless",
+  "race": "giant",
+  "style": "dark_fantasy",
+  "source": "historical",
+  "pose": "idle",
+  "colors": [
+    "purple",
+    "blue"
+  ],
+  "tags": [
+    "potion",
+    "shield",
+    "armor",
+    "dual_wield"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of beast"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "monk_02992.png",
+  "type": "monk",
+  "gender": "male",
+  "race": "human",
+  "style": "retro_16bit",
+  "source": "movie",
+  "pose": "side_view",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "horns",
+    "sword",
+    "staff",
+    "bow"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of monk"
+}

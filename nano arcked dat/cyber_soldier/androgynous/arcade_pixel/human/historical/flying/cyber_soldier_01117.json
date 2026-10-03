@@ -1,0 +1,21 @@
+{
+  "file": "cyber_soldier_01117.png",
+  "type": "cyber_soldier",
+  "gender": "androgynous",
+  "race": "human",
+  "style": "arcade_pixel",
+  "source": "historical",
+  "pose": "flying",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "gloves",
+    "wings",
+    "muscular",
+    "helmet"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of cyber_soldier"
+}

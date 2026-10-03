@@ -1,0 +1,21 @@
+{
+  "file": "golem_01852.png",
+  "type": "golem",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "fantasy_pixel",
+  "source": "mythology_norse",
+  "pose": "side_view",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "gloves",
+    "young",
+    "bow",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of golem"
+}

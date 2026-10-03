@@ -1,0 +1,21 @@
+{
+  "file": "staff_01500.png",
+  "type": "staff",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "sci_fi_pixel",
+  "source": "anime_series",
+  "pose": "idle",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "horns",
+    "bow",
+    "boots",
+    "dual_wield"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of staff"
+}

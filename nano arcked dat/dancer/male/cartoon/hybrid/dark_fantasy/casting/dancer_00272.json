@@ -1,0 +1,21 @@
+{
+  "file": "dancer_00272.png",
+  "type": "dancer",
+  "gender": "male",
+  "race": "hybrid",
+  "style": "cartoon",
+  "source": "dark_fantasy",
+  "pose": "casting",
+  "colors": [
+    "silver",
+    "red"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "cape",
+    "ice",
+    "young"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of dancer"
+}

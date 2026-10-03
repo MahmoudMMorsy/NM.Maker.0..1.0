@@ -1,0 +1,21 @@
+{
+  "file": "gun_02625.png",
+  "type": "gun",
+  "gender": "genderless",
+  "race": "giant",
+  "style": "realistic_pixel",
+  "source": "mythology_egypt",
+  "pose": "portrait",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "helmet",
+    "armor",
+    "boots"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of gun"
+}

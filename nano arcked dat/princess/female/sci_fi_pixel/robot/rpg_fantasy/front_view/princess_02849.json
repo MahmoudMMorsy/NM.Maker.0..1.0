@@ -1,0 +1,21 @@
+{
+  "file": "princess_02849.png",
+  "type": "princess",
+  "gender": "female",
+  "race": "robot",
+  "style": "sci_fi_pixel",
+  "source": "rpg_fantasy",
+  "pose": "front_view",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "slim",
+    "potion",
+    "muscular",
+    "magic_circle"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of princess"
+}

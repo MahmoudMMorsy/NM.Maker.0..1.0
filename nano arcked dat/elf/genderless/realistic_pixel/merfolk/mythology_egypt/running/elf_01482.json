@@ -1,0 +1,21 @@
+{
+  "file": "elf_01482.png",
+  "type": "elf",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "realistic_pixel",
+  "source": "mythology_egypt",
+  "pose": "running",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "lightning",
+    "robe",
+    "shield",
+    "young"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of elf"
+}

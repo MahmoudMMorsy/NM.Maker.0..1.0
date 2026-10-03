@@ -1,0 +1,21 @@
+{
+  "file": "elder_00837.png",
+  "type": "elder",
+  "gender": "androgynous",
+  "race": "robot",
+  "style": "cartoon",
+  "source": "mythology_greek",
+  "pose": "attacking",
+  "colors": [
+    "purple",
+    "blue"
+  ],
+  "tags": [
+    "gloves",
+    "robe",
+    "staff",
+    "old"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of elder"
+}

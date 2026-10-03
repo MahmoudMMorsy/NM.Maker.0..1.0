@@ -1,0 +1,21 @@
+{
+  "file": "queen_02302.png",
+  "type": "queen",
+  "gender": "male",
+  "race": "high_elf",
+  "style": "sci_fi_pixel",
+  "source": "dark_fantasy",
+  "pose": "side_view",
+  "colors": [
+    "silver",
+    "red"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "dual_wield",
+    "axe",
+    "sword"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of queen"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "paladin_00129.png",
+  "type": "paladin",
+  "gender": "male",
+  "race": "dragonkin",
+  "style": "clean_pixel",
+  "source": "modern",
+  "pose": "walking",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "old",
+    "sword",
+    "cape",
+    "staff"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of paladin"
+}

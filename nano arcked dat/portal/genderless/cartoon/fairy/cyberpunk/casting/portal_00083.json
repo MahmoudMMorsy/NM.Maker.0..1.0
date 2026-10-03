@@ -1,0 +1,21 @@
+{
+  "file": "portal_00083.png",
+  "type": "portal",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "cartoon",
+  "source": "cyberpunk",
+  "pose": "casting",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "helmet",
+    "armor",
+    "boots",
+    "robe"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of portal"
+}

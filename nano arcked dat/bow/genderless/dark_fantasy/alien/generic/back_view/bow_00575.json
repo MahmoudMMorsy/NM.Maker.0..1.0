@@ -1,0 +1,21 @@
+{
+  "file": "bow_00575.png",
+  "type": "bow",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "dark_fantasy",
+  "source": "generic",
+  "pose": "back_view",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "robe",
+    "armor",
+    "slim",
+    "glowing_eyes"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of bow"
+}

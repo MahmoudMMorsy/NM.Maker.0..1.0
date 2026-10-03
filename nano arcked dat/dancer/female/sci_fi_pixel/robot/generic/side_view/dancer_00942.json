@@ -1,0 +1,21 @@
+{
+  "file": "dancer_00942.png",
+  "type": "dancer",
+  "gender": "female",
+  "race": "robot",
+  "style": "sci_fi_pixel",
+  "source": "generic",
+  "pose": "side_view",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "horns",
+    "wings",
+    "helmet",
+    "old"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of dancer"
+}

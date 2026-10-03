@@ -1,0 +1,21 @@
+{
+  "file": "cyborg_01990.png",
+  "type": "cyborg",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "retro_16bit",
+  "source": "game_original",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "boots",
+    "robe",
+    "magic_circle",
+    "cape"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of cyborg"
+}

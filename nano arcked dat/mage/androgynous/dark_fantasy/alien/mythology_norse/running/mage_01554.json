@@ -1,0 +1,21 @@
+{
+  "file": "mage_01554.png",
+  "type": "mage",
+  "gender": "androgynous",
+  "race": "alien",
+  "style": "dark_fantasy",
+  "source": "mythology_norse",
+  "pose": "running",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "tail",
+    "fire",
+    "staff",
+    "gloves"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of mage"
+}

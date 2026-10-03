@@ -1,0 +1,21 @@
+{
+  "file": "bard_02299.png",
+  "type": "bard",
+  "gender": "male",
+  "race": "troll",
+  "style": "cartoon",
+  "source": "dark_fantasy",
+  "pose": "flying",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "magic_circle",
+    "potion",
+    "gloves",
+    "staff"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of bard"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "zombie_00963.png",
+  "type": "zombie",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "sci_fi_pixel",
+  "source": "medieval",
+  "pose": "action",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "wings",
+    "boots",
+    "muscular",
+    "potion"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of zombie"
+}

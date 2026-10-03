@@ -1,0 +1,21 @@
+{
+  "file": "orc_01002.png",
+  "type": "orc",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "anime_pixel",
+  "source": "historical",
+  "pose": "flying",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "cape",
+    "potion",
+    "gloves"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of orc"
+}

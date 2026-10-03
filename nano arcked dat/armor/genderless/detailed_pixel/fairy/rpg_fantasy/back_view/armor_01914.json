@@ -1,0 +1,21 @@
+{
+  "file": "armor_01914.png",
+  "type": "armor",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "detailed_pixel",
+  "source": "rpg_fantasy",
+  "pose": "back_view",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "axe",
+    "helmet",
+    "lightning",
+    "robe"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of armor"
+}

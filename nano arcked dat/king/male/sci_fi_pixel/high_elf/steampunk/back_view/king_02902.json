@@ -1,0 +1,21 @@
+{
+  "file": "king_02902.png",
+  "type": "king",
+  "gender": "male",
+  "race": "high_elf",
+  "style": "sci_fi_pixel",
+  "source": "steampunk",
+  "pose": "back_view",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "shield",
+    "slim",
+    "young",
+    "potion"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of king"
+}

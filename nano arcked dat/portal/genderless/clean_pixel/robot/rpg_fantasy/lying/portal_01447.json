@@ -1,0 +1,21 @@
+{
+  "file": "portal_01447.png",
+  "type": "portal",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "clean_pixel",
+  "source": "rpg_fantasy",
+  "pose": "lying",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "robe",
+    "helmet",
+    "slim"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of portal"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "fairy_02488.png",
+  "type": "fairy",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "horror_pixel",
+  "source": "mythology_norse",
+  "pose": "casting",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "bow",
+    "armor",
+    "staff",
+    "shield"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of fairy"
+}

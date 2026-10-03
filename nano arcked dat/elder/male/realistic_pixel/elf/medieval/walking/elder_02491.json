@@ -1,0 +1,21 @@
+{
+  "file": "elder_02491.png",
+  "type": "elder",
+  "gender": "male",
+  "race": "elf",
+  "style": "realistic_pixel",
+  "source": "medieval",
+  "pose": "walking",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "ice",
+    "muscular",
+    "glowing_eyes",
+    "gloves"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of elder"
+}

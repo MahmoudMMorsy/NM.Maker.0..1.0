@@ -1,0 +1,21 @@
+{
+  "file": "witch_02169.png",
+  "type": "witch",
+  "gender": "male",
+  "race": "demon",
+  "style": "anime_pixel",
+  "source": "dark_fantasy",
+  "pose": "full_body",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "tail",
+    "ice",
+    "boots",
+    "young"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of witch"
+}

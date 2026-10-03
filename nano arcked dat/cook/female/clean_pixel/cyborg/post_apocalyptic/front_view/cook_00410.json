@@ -1,0 +1,21 @@
+{
+  "file": "cook_00410.png",
+  "type": "cook",
+  "gender": "female",
+  "race": "cyborg",
+  "style": "clean_pixel",
+  "source": "post_apocalyptic",
+  "pose": "front_view",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "boots",
+    "slim",
+    "ice",
+    "staff"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of cook"
+}

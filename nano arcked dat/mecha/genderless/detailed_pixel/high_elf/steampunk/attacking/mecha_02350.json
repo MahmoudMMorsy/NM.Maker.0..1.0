@@ -1,0 +1,21 @@
+{
+  "file": "mecha_02350.png",
+  "type": "mecha",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "detailed_pixel",
+  "source": "steampunk",
+  "pose": "attacking",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "armor",
+    "fire",
+    "potion",
+    "bow"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of mecha"
+}

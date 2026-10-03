@@ -1,0 +1,21 @@
+{
+  "file": "centaur_00122.png",
+  "type": "centaur",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "sci_fi_pixel",
+  "source": "movie",
+  "pose": "casting",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "gloves",
+    "cape",
+    "dual_wield",
+    "robe"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of centaur"
+}

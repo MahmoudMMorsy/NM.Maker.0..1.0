@@ -1,0 +1,21 @@
+{
+  "file": "spaceship_02683.png",
+  "type": "spaceship",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "clean_pixel",
+  "source": "dark_fantasy",
+  "pose": "side_view",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "young",
+    "gloves",
+    "ice",
+    "helmet"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of spaceship"
+}

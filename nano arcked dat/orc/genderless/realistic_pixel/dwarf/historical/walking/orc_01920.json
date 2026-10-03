@@ -1,0 +1,21 @@
+{
+  "file": "orc_01920.png",
+  "type": "orc",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "realistic_pixel",
+  "source": "historical",
+  "pose": "walking",
+  "colors": [
+    "purple",
+    "blue"
+  ],
+  "tags": [
+    "tail",
+    "boots",
+    "old",
+    "cape"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of orc"
+}

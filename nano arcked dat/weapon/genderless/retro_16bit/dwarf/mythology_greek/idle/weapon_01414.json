@@ -1,0 +1,21 @@
+{
+  "file": "weapon_01414.png",
+  "type": "weapon",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "retro_16bit",
+  "source": "mythology_greek",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "lightning",
+    "armor",
+    "axe",
+    "gloves"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of weapon"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "android_01589.png",
+  "type": "android",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "fantasy_pixel",
+  "source": "cyberpunk",
+  "pose": "portrait",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "dual_wield",
+    "potion",
+    "staff",
+    "shield"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of android"
+}

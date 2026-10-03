@@ -1,0 +1,21 @@
+{
+  "file": "orc_02032.png",
+  "type": "orc",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "fantasy_pixel",
+  "source": "game_original",
+  "pose": "portrait",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "robe",
+    "muscular",
+    "dual_wield",
+    "staff"
+  ],
+  "resolution": "32x32",
+  "notes": "fantasy_pixel pixel art asset of orc"
+}

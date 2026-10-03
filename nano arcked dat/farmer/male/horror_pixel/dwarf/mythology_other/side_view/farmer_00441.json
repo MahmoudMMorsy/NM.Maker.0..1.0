@@ -1,0 +1,21 @@
+{
+  "file": "farmer_00441.png",
+  "type": "farmer",
+  "gender": "male",
+  "race": "dwarf",
+  "style": "horror_pixel",
+  "source": "mythology_other",
+  "pose": "side_view",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "young",
+    "glowing_eyes",
+    "robe",
+    "cape"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of farmer"
+}

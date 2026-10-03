@@ -1,0 +1,21 @@
+{
+  "file": "angel_00103.png",
+  "type": "angel",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "fantasy_pixel",
+  "source": "mythology_other",
+  "pose": "idle",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "magic_circle",
+    "robe",
+    "cape",
+    "axe"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of angel"
+}

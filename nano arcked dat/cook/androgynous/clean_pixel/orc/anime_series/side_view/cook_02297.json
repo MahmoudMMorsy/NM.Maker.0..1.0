@@ -1,0 +1,21 @@
+{
+  "file": "cook_02297.png",
+  "type": "cook",
+  "gender": "androgynous",
+  "race": "orc",
+  "style": "clean_pixel",
+  "source": "anime_series",
+  "pose": "side_view",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "helmet",
+    "cape",
+    "armor",
+    "potion"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of cook"
+}

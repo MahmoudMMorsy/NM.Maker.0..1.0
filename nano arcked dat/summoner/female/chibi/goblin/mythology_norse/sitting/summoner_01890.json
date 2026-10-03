@@ -1,0 +1,21 @@
+{
+  "file": "summoner_01890.png",
+  "type": "summoner",
+  "gender": "female",
+  "race": "goblin",
+  "style": "chibi",
+  "source": "mythology_norse",
+  "pose": "sitting",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "helmet",
+    "robe",
+    "horns",
+    "fire"
+  ],
+  "resolution": "32x32",
+  "notes": "chibi pixel art asset of summoner"
+}

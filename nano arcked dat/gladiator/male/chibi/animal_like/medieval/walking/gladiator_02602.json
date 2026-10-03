@@ -1,0 +1,21 @@
+{
+  "file": "gladiator_02602.png",
+  "type": "gladiator",
+  "gender": "male",
+  "race": "animal_like",
+  "style": "chibi",
+  "source": "medieval",
+  "pose": "walking",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "fire",
+    "magic_circle",
+    "ice",
+    "lightning"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of gladiator"
+}

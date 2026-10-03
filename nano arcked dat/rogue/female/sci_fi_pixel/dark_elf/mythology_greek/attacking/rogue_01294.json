@@ -1,0 +1,21 @@
+{
+  "file": "rogue_01294.png",
+  "type": "rogue",
+  "gender": "female",
+  "race": "dark_elf",
+  "style": "sci_fi_pixel",
+  "source": "mythology_greek",
+  "pose": "attacking",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "helmet",
+    "glowing_eyes",
+    "young",
+    "sword"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of rogue"
+}

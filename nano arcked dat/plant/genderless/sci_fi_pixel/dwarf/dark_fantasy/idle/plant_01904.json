@@ -1,0 +1,21 @@
+{
+  "file": "plant_01904.png",
+  "type": "plant",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "sci_fi_pixel",
+  "source": "dark_fantasy",
+  "pose": "idle",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "armor",
+    "tail",
+    "axe",
+    "lightning"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of plant"
+}

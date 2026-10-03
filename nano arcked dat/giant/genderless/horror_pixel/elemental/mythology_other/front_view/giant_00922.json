@@ -1,0 +1,21 @@
+{
+  "file": "giant_00922.png",
+  "type": "giant",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "horror_pixel",
+  "source": "mythology_other",
+  "pose": "front_view",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "helmet",
+    "wings",
+    "boots",
+    "armor"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of giant"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "minotaur_00001.png",
+  "type": "minotaur",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "sci_fi_pixel",
+  "source": "generic",
+  "pose": "front_view",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "lightning",
+    "boots",
+    "tail",
+    "staff"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of minotaur"
+}

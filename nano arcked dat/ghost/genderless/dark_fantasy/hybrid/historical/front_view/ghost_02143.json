@@ -1,0 +1,21 @@
+{
+  "file": "ghost_02143.png",
+  "type": "ghost",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "dark_fantasy",
+  "source": "historical",
+  "pose": "front_view",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "lightning",
+    "cape",
+    "axe",
+    "muscular"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of ghost"
+}

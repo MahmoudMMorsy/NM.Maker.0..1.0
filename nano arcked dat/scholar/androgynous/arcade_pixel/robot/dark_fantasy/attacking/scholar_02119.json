@@ -1,0 +1,21 @@
+{
+  "file": "scholar_02119.png",
+  "type": "scholar",
+  "gender": "androgynous",
+  "race": "robot",
+  "style": "arcade_pixel",
+  "source": "dark_fantasy",
+  "pose": "attacking",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "staff",
+    "glowing_eyes",
+    "slim",
+    "tail"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of scholar"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "assassin_01533.png",
+  "type": "assassin",
+  "gender": "male",
+  "race": "fairy",
+  "style": "detailed_pixel",
+  "source": "generic",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "lightning",
+    "shield",
+    "wings",
+    "boots"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of assassin"
+}

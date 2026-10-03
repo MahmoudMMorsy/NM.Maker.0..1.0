@@ -1,0 +1,21 @@
+{
+  "file": "child_02189.png",
+  "type": "child",
+  "gender": "androgynous",
+  "race": "goblin",
+  "style": "clean_pixel",
+  "source": "comic",
+  "pose": "action",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "shield",
+    "wings",
+    "fire",
+    "bow"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of child"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "civilian_02448.png",
+  "type": "civilian",
+  "gender": "male",
+  "race": "dragonkin",
+  "style": "detailed_pixel",
+  "source": "post_apocalyptic",
+  "pose": "full_body",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "slim",
+    "muscular",
+    "tail",
+    "wings"
+  ],
+  "resolution": "128x128",
+  "notes": "detailed_pixel pixel art asset of civilian"
+}

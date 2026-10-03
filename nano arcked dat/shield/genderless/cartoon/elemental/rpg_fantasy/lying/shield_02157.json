@@ -1,0 +1,21 @@
+{
+  "file": "shield_02157.png",
+  "type": "shield",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "cartoon",
+  "source": "rpg_fantasy",
+  "pose": "lying",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "staff",
+    "potion",
+    "glowing_eyes",
+    "axe"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of shield"
+}

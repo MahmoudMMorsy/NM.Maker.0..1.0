@@ -1,0 +1,21 @@
+{
+  "file": "cyber_soldier_02812.png",
+  "type": "cyber_soldier",
+  "gender": "male",
+  "race": "beastkin",
+  "style": "horror_pixel",
+  "source": "cyberpunk",
+  "pose": "full_body",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "boots",
+    "wings",
+    "cape",
+    "potion"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of cyber_soldier"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "mecha_01333.png",
+  "type": "mecha",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "fantasy_pixel",
+  "source": "rpg_fantasy",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "cape",
+    "staff",
+    "wings",
+    "glowing_eyes"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of mecha"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "thief_01048.png",
+  "type": "thief",
+  "gender": "androgynous",
+  "race": "fairy",
+  "style": "sci_fi_pixel",
+  "source": "oc_original",
+  "pose": "flying",
+  "colors": [
+    "red",
+    "green"
+  ],
+  "tags": [
+    "slim",
+    "potion",
+    "fire",
+    "lightning"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of thief"
+}

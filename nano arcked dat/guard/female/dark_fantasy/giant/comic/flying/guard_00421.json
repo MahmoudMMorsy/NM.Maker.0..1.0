@@ -1,0 +1,21 @@
+{
+  "file": "guard_00421.png",
+  "type": "guard",
+  "gender": "female",
+  "race": "giant",
+  "style": "dark_fantasy",
+  "source": "comic",
+  "pose": "flying",
+  "colors": [
+    "purple",
+    "red"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "magic_circle",
+    "sword",
+    "old"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of guard"
+}

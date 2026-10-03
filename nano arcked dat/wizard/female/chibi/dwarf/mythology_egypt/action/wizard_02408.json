@@ -1,0 +1,21 @@
+{
+  "file": "wizard_02408.png",
+  "type": "wizard",
+  "gender": "female",
+  "race": "dwarf",
+  "style": "chibi",
+  "source": "mythology_egypt",
+  "pose": "action",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "old",
+    "fire",
+    "horns",
+    "dual_wield"
+  ],
+  "resolution": "32x32",
+  "notes": "chibi pixel art asset of wizard"
+}

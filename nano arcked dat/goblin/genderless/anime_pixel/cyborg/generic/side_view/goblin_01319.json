@@ -1,0 +1,21 @@
+{
+  "file": "goblin_01319.png",
+  "type": "goblin",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "anime_pixel",
+  "source": "generic",
+  "pose": "side_view",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "armor",
+    "robe",
+    "slim",
+    "fire"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of goblin"
+}

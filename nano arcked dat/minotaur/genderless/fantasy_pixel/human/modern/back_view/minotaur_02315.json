@@ -1,0 +1,21 @@
+{
+  "file": "minotaur_02315.png",
+  "type": "minotaur",
+  "gender": "genderless",
+  "race": "human",
+  "style": "fantasy_pixel",
+  "source": "modern",
+  "pose": "back_view",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "gloves",
+    "shield",
+    "muscular",
+    "potion"
+  ],
+  "resolution": "32x32",
+  "notes": "fantasy_pixel pixel art asset of minotaur"
+}

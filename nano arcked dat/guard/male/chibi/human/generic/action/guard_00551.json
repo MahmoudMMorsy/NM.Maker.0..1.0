@@ -1,0 +1,21 @@
+{
+  "file": "guard_00551.png",
+  "type": "guard",
+  "gender": "male",
+  "race": "human",
+  "style": "chibi",
+  "source": "generic",
+  "pose": "action",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "magic_circle",
+    "young",
+    "wings",
+    "old"
+  ],
+  "resolution": "32x32",
+  "notes": "chibi pixel art asset of guard"
+}

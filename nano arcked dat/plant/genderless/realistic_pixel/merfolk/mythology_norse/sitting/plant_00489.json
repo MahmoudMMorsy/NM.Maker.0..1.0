@@ -1,0 +1,21 @@
+{
+  "file": "plant_00489.png",
+  "type": "plant",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "realistic_pixel",
+  "source": "mythology_norse",
+  "pose": "sitting",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "horns",
+    "old",
+    "helmet",
+    "muscular"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of plant"
+}

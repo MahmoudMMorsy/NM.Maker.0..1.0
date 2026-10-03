@@ -1,0 +1,21 @@
+{
+  "file": "sword_02760.png",
+  "type": "sword",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "realistic_pixel",
+  "source": "mythology_greek",
+  "pose": "attacking",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "fire",
+    "boots",
+    "young",
+    "axe"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of sword"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "armor_02272.png",
+  "type": "armor",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "sci_fi_pixel",
+  "source": "dark_fantasy",
+  "pose": "flying",
+  "colors": [
+    "red",
+    "green"
+  ],
+  "tags": [
+    "shield",
+    "robe",
+    "horns",
+    "gloves"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of armor"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "child_00308.png",
+  "type": "child",
+  "gender": "androgynous",
+  "race": "angel",
+  "style": "anime_pixel",
+  "source": "dark_fantasy",
+  "pose": "front_view",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "ice",
+    "cape",
+    "slim",
+    "old"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of child"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "bard_02364.png",
+  "type": "bard",
+  "gender": "androgynous",
+  "race": "beastkin",
+  "style": "cartoon",
+  "source": "sci_fi",
+  "pose": "sitting",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "sword",
+    "bow",
+    "old",
+    "tail"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of bard"
+}

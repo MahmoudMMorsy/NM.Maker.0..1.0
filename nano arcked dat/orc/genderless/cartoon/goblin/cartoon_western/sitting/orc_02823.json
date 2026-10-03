@@ -1,0 +1,21 @@
+{
+  "file": "orc_02823.png",
+  "type": "orc",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "cartoon",
+  "source": "cartoon_western",
+  "pose": "sitting",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "bow",
+    "shield",
+    "glowing_eyes",
+    "wings"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of orc"
+}

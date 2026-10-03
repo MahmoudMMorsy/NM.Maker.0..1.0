@@ -1,0 +1,21 @@
+{
+  "file": "chest_00094.png",
+  "type": "chest",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "sci_fi_pixel",
+  "source": "generic",
+  "pose": "front_view",
+  "colors": [
+    "silver",
+    "red"
+  ],
+  "tags": [
+    "lightning",
+    "young",
+    "ice",
+    "gloves"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of chest"
+}

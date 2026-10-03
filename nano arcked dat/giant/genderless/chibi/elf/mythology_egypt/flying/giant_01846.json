@@ -1,0 +1,21 @@
+{
+  "file": "giant_01846.png",
+  "type": "giant",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "chibi",
+  "source": "mythology_egypt",
+  "pose": "flying",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "sword",
+    "fire",
+    "tail",
+    "cape"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of giant"
+}

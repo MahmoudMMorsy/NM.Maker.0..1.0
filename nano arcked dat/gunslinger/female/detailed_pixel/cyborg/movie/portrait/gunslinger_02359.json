@@ -1,0 +1,21 @@
+{
+  "file": "gunslinger_02359.png",
+  "type": "gunslinger",
+  "gender": "female",
+  "race": "cyborg",
+  "style": "detailed_pixel",
+  "source": "movie",
+  "pose": "portrait",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "staff",
+    "horns",
+    "armor",
+    "glowing_eyes"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of gunslinger"
+}

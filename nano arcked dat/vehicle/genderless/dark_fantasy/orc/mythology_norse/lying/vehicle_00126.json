@@ -1,0 +1,21 @@
+{
+  "file": "vehicle_00126.png",
+  "type": "vehicle",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "dark_fantasy",
+  "source": "mythology_norse",
+  "pose": "lying",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "magic_circle",
+    "sword",
+    "axe",
+    "muscular"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of vehicle"
+}

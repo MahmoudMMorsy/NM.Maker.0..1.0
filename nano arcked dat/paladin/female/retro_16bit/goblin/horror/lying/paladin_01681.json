@@ -1,0 +1,21 @@
+{
+  "file": "paladin_01681.png",
+  "type": "paladin",
+  "gender": "female",
+  "race": "goblin",
+  "style": "retro_16bit",
+  "source": "horror",
+  "pose": "lying",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "wings",
+    "old",
+    "cape",
+    "young"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of paladin"
+}

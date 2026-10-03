@@ -1,0 +1,21 @@
+{
+  "file": "bard_01139.png",
+  "type": "bard",
+  "gender": "androgynous",
+  "race": "goblin",
+  "style": "clean_pixel",
+  "source": "post_apocalyptic",
+  "pose": "side_view",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "magic_circle",
+    "helmet",
+    "gloves",
+    "old"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of bard"
+}

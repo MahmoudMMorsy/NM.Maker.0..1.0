@@ -1,0 +1,21 @@
+{
+  "file": "blacksmith_00884.png",
+  "type": "blacksmith",
+  "gender": "female",
+  "race": "beastkin",
+  "style": "retro_16bit",
+  "source": "rpg_fantasy",
+  "pose": "attacking",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "dual_wield",
+    "sword",
+    "lightning",
+    "gloves"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of blacksmith"
+}

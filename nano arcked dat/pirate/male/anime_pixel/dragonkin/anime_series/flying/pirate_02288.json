@@ -1,0 +1,21 @@
+{
+  "file": "pirate_02288.png",
+  "type": "pirate",
+  "gender": "male",
+  "race": "dragonkin",
+  "style": "anime_pixel",
+  "source": "anime_series",
+  "pose": "flying",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "boots",
+    "glowing_eyes",
+    "bow",
+    "helmet"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of pirate"
+}

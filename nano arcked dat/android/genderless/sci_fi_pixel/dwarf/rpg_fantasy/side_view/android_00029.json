@@ -1,0 +1,21 @@
+{
+  "file": "android_00029.png",
+  "type": "android",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "sci_fi_pixel",
+  "source": "rpg_fantasy",
+  "pose": "side_view",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "dual_wield",
+    "fire",
+    "young"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of android"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "portal_00892.png",
+  "type": "portal",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "cartoon",
+  "source": "rpg_fantasy",
+  "pose": "attacking",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "dual_wield",
+    "horns",
+    "helmet",
+    "boots"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of portal"
+}

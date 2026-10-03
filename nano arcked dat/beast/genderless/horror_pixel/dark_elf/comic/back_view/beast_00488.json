@@ -1,0 +1,21 @@
+{
+  "file": "beast_00488.png",
+  "type": "beast",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "horror_pixel",
+  "source": "comic",
+  "pose": "back_view",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "tail",
+    "gloves",
+    "ice",
+    "robe"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of beast"
+}

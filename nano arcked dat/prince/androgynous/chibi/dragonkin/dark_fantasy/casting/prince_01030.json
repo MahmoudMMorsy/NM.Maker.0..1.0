@@ -1,0 +1,21 @@
+{
+  "file": "prince_01030.png",
+  "type": "prince",
+  "gender": "androgynous",
+  "race": "dragonkin",
+  "style": "chibi",
+  "source": "dark_fantasy",
+  "pose": "casting",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "fire",
+    "muscular",
+    "glowing_eyes",
+    "wings"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of prince"
+}

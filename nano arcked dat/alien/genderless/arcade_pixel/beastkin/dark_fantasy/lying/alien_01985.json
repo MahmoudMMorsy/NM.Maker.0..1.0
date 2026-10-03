@@ -1,0 +1,21 @@
+{
+  "file": "alien_01985.png",
+  "type": "alien",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "arcade_pixel",
+  "source": "dark_fantasy",
+  "pose": "lying",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "shield",
+    "robe",
+    "boots",
+    "axe"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of alien"
+}

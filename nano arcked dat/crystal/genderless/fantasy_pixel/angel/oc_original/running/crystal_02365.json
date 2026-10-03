@@ -1,0 +1,21 @@
+{
+  "file": "crystal_02365.png",
+  "type": "crystal",
+  "gender": "genderless",
+  "race": "angel",
+  "style": "fantasy_pixel",
+  "source": "oc_original",
+  "pose": "running",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "boots",
+    "cape",
+    "sword",
+    "dual_wield"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of crystal"
+}

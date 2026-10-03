@@ -1,0 +1,21 @@
+{
+  "file": "civilian_00933.png",
+  "type": "civilian",
+  "gender": "male",
+  "race": "animal_like",
+  "style": "fantasy_pixel",
+  "source": "dark_fantasy",
+  "pose": "sitting",
+  "colors": [
+    "purple",
+    "red"
+  ],
+  "tags": [
+    "slim",
+    "horns",
+    "sword",
+    "lightning"
+  ],
+  "resolution": "32x32",
+  "notes": "fantasy_pixel pixel art asset of civilian"
+}

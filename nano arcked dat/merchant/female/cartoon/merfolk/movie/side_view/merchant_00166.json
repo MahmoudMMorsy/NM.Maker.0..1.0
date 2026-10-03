@@ -1,0 +1,21 @@
+{
+  "file": "merchant_00166.png",
+  "type": "merchant",
+  "gender": "female",
+  "race": "merfolk",
+  "style": "cartoon",
+  "source": "movie",
+  "pose": "side_view",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "potion",
+    "muscular",
+    "gloves",
+    "armor"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of merchant"
+}

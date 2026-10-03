@@ -1,0 +1,21 @@
+{
+  "file": "staff_00269.png",
+  "type": "staff",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "retro_16bit",
+  "source": "oc_original",
+  "pose": "casting",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "slim",
+    "lightning",
+    "dual_wield",
+    "horns"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of staff"
+}

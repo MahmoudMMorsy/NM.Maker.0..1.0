@@ -1,0 +1,21 @@
+{
+  "file": "gun_01121.png",
+  "type": "gun",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "realistic_pixel",
+  "source": "mythology_greek",
+  "pose": "walking",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "sword",
+    "dual_wield",
+    "old",
+    "staff"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of gun"
+}

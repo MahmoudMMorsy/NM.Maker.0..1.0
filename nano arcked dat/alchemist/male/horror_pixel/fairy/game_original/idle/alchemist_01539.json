@@ -1,0 +1,21 @@
+{
+  "file": "alchemist_01539.png",
+  "type": "alchemist",
+  "gender": "male",
+  "race": "fairy",
+  "style": "horror_pixel",
+  "source": "game_original",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "staff",
+    "cape",
+    "potion",
+    "helmet"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of alchemist"
+}

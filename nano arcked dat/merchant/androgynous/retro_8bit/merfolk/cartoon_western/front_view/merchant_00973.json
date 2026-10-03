@@ -1,0 +1,21 @@
+{
+  "file": "merchant_00973.png",
+  "type": "merchant",
+  "gender": "androgynous",
+  "race": "merfolk",
+  "style": "retro_8bit",
+  "source": "cartoon_western",
+  "pose": "front_view",
+  "colors": [
+    "red",
+    "green"
+  ],
+  "tags": [
+    "horns",
+    "boots",
+    "helmet",
+    "wings"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of merchant"
+}

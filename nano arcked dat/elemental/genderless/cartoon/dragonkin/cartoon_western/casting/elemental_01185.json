@@ -1,0 +1,21 @@
+{
+  "file": "elemental_01185.png",
+  "type": "elemental",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "cartoon",
+  "source": "cartoon_western",
+  "pose": "casting",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "shield",
+    "potion",
+    "armor",
+    "robe"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of elemental"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "vampire_02888.png",
+  "type": "vampire",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "dark_fantasy",
+  "source": "historical",
+  "pose": "attacking",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "shield",
+    "bow",
+    "tail",
+    "boots"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of vampire"
+}

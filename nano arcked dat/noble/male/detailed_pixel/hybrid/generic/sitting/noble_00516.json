@@ -1,0 +1,21 @@
+{
+  "file": "noble_00516.png",
+  "type": "noble",
+  "gender": "male",
+  "race": "hybrid",
+  "style": "detailed_pixel",
+  "source": "generic",
+  "pose": "sitting",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "muscular",
+    "staff",
+    "magic_circle",
+    "robe"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of noble"
+}

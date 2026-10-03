@@ -1,0 +1,21 @@
+{
+  "file": "viking_02065.png",
+  "type": "viking",
+  "gender": "androgynous",
+  "race": "human",
+  "style": "clean_pixel",
+  "source": "mythology_norse",
+  "pose": "lying",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "young",
+    "robe",
+    "slim",
+    "ice"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of viking"
+}

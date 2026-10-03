@@ -1,0 +1,21 @@
+{
+  "file": "goblin_02285.png",
+  "type": "goblin",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "horror_pixel",
+  "source": "horror",
+  "pose": "back_view",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "tail",
+    "cape",
+    "young",
+    "robe"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of goblin"
+}

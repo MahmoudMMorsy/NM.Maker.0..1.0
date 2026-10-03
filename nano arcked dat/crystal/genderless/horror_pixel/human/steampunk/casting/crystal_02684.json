@@ -1,0 +1,21 @@
+{
+  "file": "crystal_02684.png",
+  "type": "crystal",
+  "gender": "genderless",
+  "race": "human",
+  "style": "horror_pixel",
+  "source": "steampunk",
+  "pose": "casting",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "horns",
+    "old",
+    "magic_circle",
+    "shield"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of crystal"
+}

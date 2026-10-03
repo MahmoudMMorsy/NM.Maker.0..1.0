@@ -1,0 +1,21 @@
+{
+  "file": "werewolf_01091.png",
+  "type": "werewolf",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "detailed_pixel",
+  "source": "mythology_egypt",
+  "pose": "lying",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "potion",
+    "sword",
+    "armor",
+    "fire"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of werewolf"
+}

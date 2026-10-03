@@ -1,0 +1,21 @@
+{
+  "file": "gun_01243.png",
+  "type": "gun",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "cartoon",
+  "source": "comic",
+  "pose": "front_view",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "lightning",
+    "axe",
+    "gloves",
+    "glowing_eyes"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of gun"
+}

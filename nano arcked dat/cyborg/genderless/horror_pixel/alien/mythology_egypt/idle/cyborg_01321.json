@@ -1,0 +1,21 @@
+{
+  "file": "cyborg_01321.png",
+  "type": "cyborg",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "horror_pixel",
+  "source": "mythology_egypt",
+  "pose": "idle",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "cape",
+    "potion",
+    "ice",
+    "shield"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of cyborg"
+}

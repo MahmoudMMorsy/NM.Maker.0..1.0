@@ -1,0 +1,21 @@
+{
+  "file": "building_01398.png",
+  "type": "building",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "retro_16bit",
+  "source": "cyberpunk",
+  "pose": "lying",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "young",
+    "potion",
+    "slim",
+    "wings"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of building"
+}

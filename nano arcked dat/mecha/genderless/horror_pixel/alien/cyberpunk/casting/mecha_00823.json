@@ -1,0 +1,21 @@
+{
+  "file": "mecha_00823.png",
+  "type": "mecha",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "horror_pixel",
+  "source": "cyberpunk",
+  "pose": "casting",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "lightning",
+    "muscular",
+    "tail",
+    "potion"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of mecha"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "elf_01153.png",
+  "type": "elf",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "cartoon",
+  "source": "mythology_greek",
+  "pose": "lying",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "lightning",
+    "muscular",
+    "armor",
+    "shield"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of elf"
+}

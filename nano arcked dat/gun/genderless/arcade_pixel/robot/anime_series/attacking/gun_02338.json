@@ -1,0 +1,21 @@
+{
+  "file": "gun_02338.png",
+  "type": "gun",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "arcade_pixel",
+  "source": "anime_series",
+  "pose": "attacking",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "robe",
+    "magic_circle",
+    "potion",
+    "fire"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of gun"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "orc_00431.png",
+  "type": "orc",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "retro_16bit",
+  "source": "sci_fi",
+  "pose": "front_view",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "axe",
+    "robe",
+    "magic_circle",
+    "fire"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of orc"
+}

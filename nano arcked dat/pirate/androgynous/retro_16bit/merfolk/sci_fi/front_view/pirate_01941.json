@@ -1,0 +1,21 @@
+{
+  "file": "pirate_01941.png",
+  "type": "pirate",
+  "gender": "androgynous",
+  "race": "merfolk",
+  "style": "retro_16bit",
+  "source": "sci_fi",
+  "pose": "front_view",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "lightning",
+    "tail",
+    "slim",
+    "fire"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of pirate"
+}

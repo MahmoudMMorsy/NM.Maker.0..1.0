@@ -1,0 +1,21 @@
+{
+  "file": "summoner_00965.png",
+  "type": "summoner",
+  "gender": "male",
+  "race": "elemental",
+  "style": "cartoon",
+  "source": "rpg_fantasy",
+  "pose": "lying",
+  "colors": [
+    "red",
+    "green"
+  ],
+  "tags": [
+    "boots",
+    "armor",
+    "ice",
+    "young"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of summoner"
+}

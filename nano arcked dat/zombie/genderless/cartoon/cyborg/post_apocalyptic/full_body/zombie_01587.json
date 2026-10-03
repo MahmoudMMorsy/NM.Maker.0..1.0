@@ -1,0 +1,21 @@
+{
+  "file": "zombie_01587.png",
+  "type": "zombie",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "cartoon",
+  "source": "post_apocalyptic",
+  "pose": "full_body",
+  "colors": [
+    "purple",
+    "blue"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "potion",
+    "gloves",
+    "robe"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of zombie"
+}

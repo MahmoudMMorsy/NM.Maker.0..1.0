@@ -1,0 +1,21 @@
+{
+  "file": "rogue_01963.png",
+  "type": "rogue",
+  "gender": "female",
+  "race": "orc",
+  "style": "dark_fantasy",
+  "source": "medieval",
+  "pose": "attacking",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "gloves",
+    "shield",
+    "axe",
+    "cape"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of rogue"
+}

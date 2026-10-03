@@ -1,0 +1,21 @@
+{
+  "file": "animal_02321.png",
+  "type": "animal",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "horror_pixel",
+  "source": "sci_fi",
+  "pose": "action",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "fire",
+    "sword",
+    "potion",
+    "muscular"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of animal"
+}

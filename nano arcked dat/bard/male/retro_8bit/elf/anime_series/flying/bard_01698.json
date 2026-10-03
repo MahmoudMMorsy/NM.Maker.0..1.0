@@ -1,0 +1,21 @@
+{
+  "file": "bard_01698.png",
+  "type": "bard",
+  "gender": "male",
+  "race": "elf",
+  "style": "retro_8bit",
+  "source": "anime_series",
+  "pose": "flying",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "armor",
+    "muscular",
+    "horns",
+    "robe"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_8bit pixel art asset of bard"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "elemental_02750.png",
+  "type": "elemental",
+  "gender": "genderless",
+  "race": "angel",
+  "style": "retro_8bit",
+  "source": "medieval",
+  "pose": "attacking",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "old",
+    "magic_circle",
+    "fire",
+    "dual_wield"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_8bit pixel art asset of elemental"
+}

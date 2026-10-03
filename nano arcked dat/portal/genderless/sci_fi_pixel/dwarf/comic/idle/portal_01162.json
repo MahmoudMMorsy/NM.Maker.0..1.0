@@ -1,0 +1,21 @@
+{
+  "file": "portal_01162.png",
+  "type": "portal",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "sci_fi_pixel",
+  "source": "comic",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "axe",
+    "fire",
+    "magic_circle",
+    "armor"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of portal"
+}

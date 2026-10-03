@@ -1,0 +1,21 @@
+{
+  "file": "minotaur_01757.png",
+  "type": "minotaur",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "anime_pixel",
+  "source": "game_original",
+  "pose": "portrait",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "sword",
+    "magic_circle",
+    "lightning",
+    "helmet"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of minotaur"
+}

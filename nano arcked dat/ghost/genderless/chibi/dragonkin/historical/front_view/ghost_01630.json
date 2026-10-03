@@ -1,0 +1,21 @@
+{
+  "file": "ghost_01630.png",
+  "type": "ghost",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "chibi",
+  "source": "historical",
+  "pose": "front_view",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "bow",
+    "fire",
+    "magic_circle",
+    "old"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of ghost"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "crystal_02459.png",
+  "type": "crystal",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "retro_8bit",
+  "source": "generic",
+  "pose": "front_view",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "cape",
+    "staff",
+    "dual_wield",
+    "young"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of crystal"
+}

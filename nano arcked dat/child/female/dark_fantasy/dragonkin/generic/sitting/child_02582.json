@@ -1,0 +1,21 @@
+{
+  "file": "child_02582.png",
+  "type": "child",
+  "gender": "female",
+  "race": "dragonkin",
+  "style": "dark_fantasy",
+  "source": "generic",
+  "pose": "sitting",
+  "colors": [
+    "red",
+    "green"
+  ],
+  "tags": [
+    "fire",
+    "shield",
+    "bow",
+    "magic_circle"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of child"
+}

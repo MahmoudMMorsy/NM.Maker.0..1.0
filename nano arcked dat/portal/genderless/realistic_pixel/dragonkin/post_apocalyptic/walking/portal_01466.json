@@ -1,0 +1,21 @@
+{
+  "file": "portal_01466.png",
+  "type": "portal",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "realistic_pixel",
+  "source": "post_apocalyptic",
+  "pose": "walking",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "slim",
+    "ice",
+    "cape",
+    "muscular"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of portal"
+}

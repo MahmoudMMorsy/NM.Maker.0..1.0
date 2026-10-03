@@ -1,0 +1,21 @@
+{
+  "file": "gun_00106.png",
+  "type": "gun",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "retro_8bit",
+  "source": "movie",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "tail",
+    "horns",
+    "staff",
+    "slim"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of gun"
+}

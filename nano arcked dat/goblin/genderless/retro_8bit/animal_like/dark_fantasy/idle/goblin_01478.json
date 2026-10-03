@@ -1,0 +1,21 @@
+{
+  "file": "goblin_01478.png",
+  "type": "goblin",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "retro_8bit",
+  "source": "dark_fantasy",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "cape",
+    "shield",
+    "potion",
+    "lightning"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of goblin"
+}

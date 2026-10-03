@@ -1,0 +1,21 @@
+{
+  "file": "demon_01316.png",
+  "type": "demon",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "retro_16bit",
+  "source": "anime_series",
+  "pose": "lying",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "magic_circle",
+    "glowing_eyes",
+    "dual_wield",
+    "wings"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of demon"
+}

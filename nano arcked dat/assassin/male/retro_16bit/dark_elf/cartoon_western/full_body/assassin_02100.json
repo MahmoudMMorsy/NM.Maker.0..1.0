@@ -1,0 +1,21 @@
+{
+  "file": "assassin_02100.png",
+  "type": "assassin",
+  "gender": "male",
+  "race": "dark_elf",
+  "style": "retro_16bit",
+  "source": "cartoon_western",
+  "pose": "full_body",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "fire",
+    "lightning",
+    "old",
+    "sword"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of assassin"
+}

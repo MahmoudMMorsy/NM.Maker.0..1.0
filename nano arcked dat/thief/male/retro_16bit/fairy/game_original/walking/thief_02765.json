@@ -1,0 +1,21 @@
+{
+  "file": "thief_02765.png",
+  "type": "thief",
+  "gender": "male",
+  "race": "fairy",
+  "style": "retro_16bit",
+  "source": "game_original",
+  "pose": "walking",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "sword",
+    "potion",
+    "boots",
+    "horns"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of thief"
+}

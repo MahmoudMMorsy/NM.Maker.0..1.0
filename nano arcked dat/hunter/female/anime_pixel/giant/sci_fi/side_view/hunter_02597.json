@@ -1,0 +1,21 @@
+{
+  "file": "hunter_02597.png",
+  "type": "hunter",
+  "gender": "female",
+  "race": "giant",
+  "style": "anime_pixel",
+  "source": "sci_fi",
+  "pose": "side_view",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "boots",
+    "bow",
+    "old",
+    "axe"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of hunter"
+}

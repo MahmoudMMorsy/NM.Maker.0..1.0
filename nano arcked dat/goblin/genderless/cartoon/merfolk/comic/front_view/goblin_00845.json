@@ -1,0 +1,21 @@
+{
+  "file": "goblin_00845.png",
+  "type": "goblin",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "cartoon",
+  "source": "comic",
+  "pose": "front_view",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "helmet",
+    "tail",
+    "muscular",
+    "sword"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of goblin"
+}

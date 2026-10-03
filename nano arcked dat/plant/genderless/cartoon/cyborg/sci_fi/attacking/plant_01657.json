@@ -1,0 +1,21 @@
+{
+  "file": "plant_01657.png",
+  "type": "plant",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "cartoon",
+  "source": "sci_fi",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "young",
+    "shield",
+    "cape",
+    "old"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of plant"
+}

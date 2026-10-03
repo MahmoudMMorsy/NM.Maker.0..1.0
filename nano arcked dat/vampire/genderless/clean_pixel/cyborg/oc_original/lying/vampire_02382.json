@@ -1,0 +1,21 @@
+{
+  "file": "vampire_02382.png",
+  "type": "vampire",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "clean_pixel",
+  "source": "oc_original",
+  "pose": "lying",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "axe",
+    "wings",
+    "lightning",
+    "fire"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of vampire"
+}

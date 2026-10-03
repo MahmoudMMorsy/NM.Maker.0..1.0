@@ -1,0 +1,21 @@
+{
+  "file": "summoner_00622.png",
+  "type": "summoner",
+  "gender": "androgynous",
+  "race": "dark_elf",
+  "style": "anime_pixel",
+  "source": "comic",
+  "pose": "back_view",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "helmet",
+    "wings",
+    "lightning",
+    "horns"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of summoner"
+}

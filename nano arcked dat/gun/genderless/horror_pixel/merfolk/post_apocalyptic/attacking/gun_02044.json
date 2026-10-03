@@ -1,0 +1,21 @@
+{
+  "file": "gun_02044.png",
+  "type": "gun",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "horror_pixel",
+  "source": "post_apocalyptic",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "young",
+    "helmet",
+    "glowing_eyes",
+    "cape"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of gun"
+}

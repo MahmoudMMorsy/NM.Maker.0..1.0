@@ -1,0 +1,21 @@
+{
+  "file": "werewolf_02738.png",
+  "type": "werewolf",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "dark_fantasy",
+  "source": "cartoon_western",
+  "pose": "side_view",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "lightning",
+    "muscular",
+    "sword",
+    "boots"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of werewolf"
+}

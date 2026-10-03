@@ -1,0 +1,21 @@
+{
+  "file": "rogue_02639.png",
+  "type": "rogue",
+  "gender": "male",
+  "race": "merfolk",
+  "style": "clean_pixel",
+  "source": "dark_fantasy",
+  "pose": "full_body",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "horns",
+    "old",
+    "magic_circle",
+    "sword"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of rogue"
+}

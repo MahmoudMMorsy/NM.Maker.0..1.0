@@ -1,0 +1,21 @@
+{
+  "file": "witch_01988.png",
+  "type": "witch",
+  "gender": "androgynous",
+  "race": "troll",
+  "style": "horror_pixel",
+  "source": "game_original",
+  "pose": "flying",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "old",
+    "muscular",
+    "glowing_eyes",
+    "bow"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of witch"
+}

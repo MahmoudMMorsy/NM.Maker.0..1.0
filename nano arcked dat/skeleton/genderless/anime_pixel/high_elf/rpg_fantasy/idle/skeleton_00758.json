@@ -1,0 +1,21 @@
+{
+  "file": "skeleton_00758.png",
+  "type": "skeleton",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "anime_pixel",
+  "source": "rpg_fantasy",
+  "pose": "idle",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "magic_circle",
+    "potion",
+    "tail",
+    "sword"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of skeleton"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "thief_01442.png",
+  "type": "thief",
+  "gender": "female",
+  "race": "dwarf",
+  "style": "arcade_pixel",
+  "source": "dark_fantasy",
+  "pose": "action",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "axe",
+    "gloves",
+    "horns",
+    "glowing_eyes"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of thief"
+}

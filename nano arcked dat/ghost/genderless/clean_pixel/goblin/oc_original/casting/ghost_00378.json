@@ -1,0 +1,21 @@
+{
+  "file": "ghost_00378.png",
+  "type": "ghost",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "clean_pixel",
+  "source": "oc_original",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "young",
+    "wings",
+    "muscular",
+    "cape"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of ghost"
+}

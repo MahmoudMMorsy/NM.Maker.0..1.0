@@ -1,0 +1,21 @@
+{
+  "file": "helmet_00145.png",
+  "type": "helmet",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "chibi",
+  "source": "mythology_other",
+  "pose": "action",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "sword",
+    "bow",
+    "fire",
+    "young"
+  ],
+  "resolution": "32x32",
+  "notes": "chibi pixel art asset of helmet"
+}

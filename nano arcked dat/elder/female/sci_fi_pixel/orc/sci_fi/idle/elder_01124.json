@@ -1,0 +1,21 @@
+{
+  "file": "elder_01124.png",
+  "type": "elder",
+  "gender": "female",
+  "race": "orc",
+  "style": "sci_fi_pixel",
+  "source": "sci_fi",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "lightning",
+    "shield",
+    "wings",
+    "cape"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of elder"
+}

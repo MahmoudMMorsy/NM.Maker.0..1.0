@@ -1,0 +1,21 @@
+{
+  "file": "armor_00875.png",
+  "type": "armor",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "cartoon",
+  "source": "mythology_other",
+  "pose": "portrait",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "magic_circle",
+    "glowing_eyes",
+    "tail",
+    "horns"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of armor"
+}

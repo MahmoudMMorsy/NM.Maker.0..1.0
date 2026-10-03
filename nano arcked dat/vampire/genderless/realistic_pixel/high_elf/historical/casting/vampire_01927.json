@@ -1,0 +1,21 @@
+{
+  "file": "vampire_01927.png",
+  "type": "vampire",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "realistic_pixel",
+  "source": "historical",
+  "pose": "casting",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "bow",
+    "dual_wield",
+    "shield",
+    "helmet"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of vampire"
+}

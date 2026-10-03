@@ -1,0 +1,21 @@
+{
+  "file": "food_02881.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "dark_fantasy",
+  "source": "generic",
+  "pose": "walking",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "lightning",
+    "shield",
+    "magic_circle",
+    "tail"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of food"
+}

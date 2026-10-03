@@ -1,0 +1,21 @@
+{
+  "file": "skeleton_01788.png",
+  "type": "skeleton",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "anime_pixel",
+  "source": "anime_series",
+  "pose": "attacking",
+  "colors": [
+    "purple",
+    "blue"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "staff",
+    "horns",
+    "slim"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of skeleton"
+}

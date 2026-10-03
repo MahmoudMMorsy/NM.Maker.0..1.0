@@ -1,0 +1,21 @@
+{
+  "file": "giant_02047.png",
+  "type": "giant",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "clean_pixel",
+  "source": "cyberpunk",
+  "pose": "back_view",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "gloves",
+    "fire",
+    "ice",
+    "cape"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of giant"
+}

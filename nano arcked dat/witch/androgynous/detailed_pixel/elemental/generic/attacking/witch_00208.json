@@ -1,0 +1,21 @@
+{
+  "file": "witch_00208.png",
+  "type": "witch",
+  "gender": "androgynous",
+  "race": "elemental",
+  "style": "detailed_pixel",
+  "source": "generic",
+  "pose": "attacking",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "young",
+    "wings",
+    "fire",
+    "armor"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of witch"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "rock_00495.png",
+  "type": "rock",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "chibi",
+  "source": "rpg_fantasy",
+  "pose": "back_view",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "sword",
+    "robe",
+    "boots",
+    "cape"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of rock"
+}

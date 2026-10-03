@@ -1,0 +1,21 @@
+{
+  "file": "potion_01971.png",
+  "type": "potion",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "chibi",
+  "source": "post_apocalyptic",
+  "pose": "casting",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "staff",
+    "slim",
+    "horns",
+    "robe"
+  ],
+  "resolution": "32x32",
+  "notes": "chibi pixel art asset of potion"
+}

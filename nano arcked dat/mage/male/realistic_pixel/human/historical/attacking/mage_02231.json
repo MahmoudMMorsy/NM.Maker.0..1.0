@@ -1,0 +1,21 @@
+{
+  "file": "mage_02231.png",
+  "type": "mage",
+  "gender": "male",
+  "race": "human",
+  "style": "realistic_pixel",
+  "source": "historical",
+  "pose": "attacking",
+  "colors": [
+    "purple",
+    "blue"
+  ],
+  "tags": [
+    "gloves",
+    "fire",
+    "staff",
+    "magic_circle"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of mage"
+}

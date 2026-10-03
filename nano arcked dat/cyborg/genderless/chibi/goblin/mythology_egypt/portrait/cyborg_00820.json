@@ -1,0 +1,21 @@
+{
+  "file": "cyborg_00820.png",
+  "type": "cyborg",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "chibi",
+  "source": "mythology_egypt",
+  "pose": "portrait",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "robe",
+    "dual_wield",
+    "shield",
+    "young"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of cyborg"
+}

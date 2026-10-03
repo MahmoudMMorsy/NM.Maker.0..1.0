@@ -1,0 +1,21 @@
+{
+  "file": "alchemist_00333.png",
+  "type": "alchemist",
+  "gender": "male",
+  "race": "animal_like",
+  "style": "fantasy_pixel",
+  "source": "comic",
+  "pose": "side_view",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "tail",
+    "slim",
+    "helmet"
+  ],
+  "resolution": "32x32",
+  "notes": "fantasy_pixel pixel art asset of alchemist"
+}

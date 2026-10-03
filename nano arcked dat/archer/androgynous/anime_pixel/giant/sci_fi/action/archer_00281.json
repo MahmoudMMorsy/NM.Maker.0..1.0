@@ -1,0 +1,21 @@
+{
+  "file": "archer_00281.png",
+  "type": "archer",
+  "gender": "androgynous",
+  "race": "giant",
+  "style": "anime_pixel",
+  "source": "sci_fi",
+  "pose": "action",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "bow",
+    "young",
+    "sword",
+    "dual_wield"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of archer"
+}

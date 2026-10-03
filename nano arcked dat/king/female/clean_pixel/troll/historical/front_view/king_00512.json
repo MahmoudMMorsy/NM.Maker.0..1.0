@@ -1,0 +1,21 @@
+{
+  "file": "king_00512.png",
+  "type": "king",
+  "gender": "female",
+  "race": "troll",
+  "style": "clean_pixel",
+  "source": "historical",
+  "pose": "front_view",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "ice",
+    "magic_circle",
+    "sword",
+    "shield"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of king"
+}

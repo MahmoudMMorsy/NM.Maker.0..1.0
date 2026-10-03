@@ -1,0 +1,21 @@
+{
+  "file": "mage_01541.png",
+  "type": "mage",
+  "gender": "female",
+  "race": "giant",
+  "style": "retro_8bit",
+  "source": "oc_original",
+  "pose": "back_view",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "robe",
+    "tail",
+    "fire",
+    "ice"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_8bit pixel art asset of mage"
+}

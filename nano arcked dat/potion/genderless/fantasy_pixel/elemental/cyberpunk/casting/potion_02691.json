@@ -1,0 +1,21 @@
+{
+  "file": "potion_02691.png",
+  "type": "potion",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "fantasy_pixel",
+  "source": "cyberpunk",
+  "pose": "casting",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "axe",
+    "fire",
+    "potion",
+    "muscular"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of potion"
+}

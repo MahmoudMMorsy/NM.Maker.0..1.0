@@ -1,0 +1,21 @@
+{
+  "file": "princess_01219.png",
+  "type": "princess",
+  "gender": "androgynous",
+  "race": "angel",
+  "style": "horror_pixel",
+  "source": "dark_fantasy",
+  "pose": "portrait",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "old",
+    "glowing_eyes",
+    "young",
+    "bow"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of princess"
+}

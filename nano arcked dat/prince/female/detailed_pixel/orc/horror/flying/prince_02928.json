@@ -1,0 +1,21 @@
+{
+  "file": "prince_02928.png",
+  "type": "prince",
+  "gender": "female",
+  "race": "orc",
+  "style": "detailed_pixel",
+  "source": "horror",
+  "pose": "flying",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "wings",
+    "glowing_eyes",
+    "magic_circle",
+    "cape"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of prince"
+}

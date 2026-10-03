@@ -1,0 +1,21 @@
+{
+  "file": "food_02950.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "dark_fantasy",
+  "source": "mythology_other",
+  "pose": "sitting",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "ice",
+    "magic_circle",
+    "cape",
+    "sword"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of food"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "elemental_02180.png",
+  "type": "elemental",
+  "gender": "genderless",
+  "race": "human",
+  "style": "clean_pixel",
+  "source": "movie",
+  "pose": "walking",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "bow",
+    "muscular",
+    "young",
+    "potion"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of elemental"
+}

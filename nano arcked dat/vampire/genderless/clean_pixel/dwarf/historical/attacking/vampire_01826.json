@@ -1,0 +1,21 @@
+{
+  "file": "vampire_01826.png",
+  "type": "vampire",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "clean_pixel",
+  "source": "historical",
+  "pose": "attacking",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "sword",
+    "old",
+    "horns",
+    "robe"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of vampire"
+}

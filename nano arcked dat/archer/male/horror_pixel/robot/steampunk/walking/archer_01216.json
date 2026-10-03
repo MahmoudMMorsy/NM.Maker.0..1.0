@@ -1,0 +1,21 @@
+{
+  "file": "archer_01216.png",
+  "type": "archer",
+  "gender": "male",
+  "race": "robot",
+  "style": "horror_pixel",
+  "source": "steampunk",
+  "pose": "walking",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "muscular",
+    "tail",
+    "magic_circle",
+    "robe"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of archer"
+}

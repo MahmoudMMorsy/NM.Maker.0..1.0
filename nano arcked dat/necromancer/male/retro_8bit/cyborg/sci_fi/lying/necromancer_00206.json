@@ -1,0 +1,21 @@
+{
+  "file": "necromancer_00206.png",
+  "type": "necromancer",
+  "gender": "male",
+  "race": "cyborg",
+  "style": "retro_8bit",
+  "source": "sci_fi",
+  "pose": "lying",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "cape",
+    "helmet",
+    "sword",
+    "boots"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of necromancer"
+}

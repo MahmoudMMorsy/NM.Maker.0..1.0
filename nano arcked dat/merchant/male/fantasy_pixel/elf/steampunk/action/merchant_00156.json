@@ -1,0 +1,21 @@
+{
+  "file": "merchant_00156.png",
+  "type": "merchant",
+  "gender": "male",
+  "race": "elf",
+  "style": "fantasy_pixel",
+  "source": "steampunk",
+  "pose": "action",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "ice",
+    "wings",
+    "magic_circle",
+    "sword"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of merchant"
+}

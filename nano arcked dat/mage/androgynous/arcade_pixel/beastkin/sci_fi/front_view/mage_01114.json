@@ -1,0 +1,21 @@
+{
+  "file": "mage_01114.png",
+  "type": "mage",
+  "gender": "androgynous",
+  "race": "beastkin",
+  "style": "arcade_pixel",
+  "source": "sci_fi",
+  "pose": "front_view",
+  "colors": [
+    "red",
+    "green"
+  ],
+  "tags": [
+    "sword",
+    "magic_circle",
+    "tail",
+    "staff"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of mage"
+}

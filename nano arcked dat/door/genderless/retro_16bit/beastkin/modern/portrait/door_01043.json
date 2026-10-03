@@ -1,0 +1,21 @@
+{
+  "file": "door_01043.png",
+  "type": "door",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "retro_16bit",
+  "source": "modern",
+  "pose": "portrait",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "gloves",
+    "muscular",
+    "magic_circle",
+    "young"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of door"
+}

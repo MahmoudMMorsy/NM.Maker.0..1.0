@@ -1,0 +1,21 @@
+{
+  "file": "golem_00977.png",
+  "type": "golem",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "clean_pixel",
+  "source": "horror",
+  "pose": "action",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "armor",
+    "potion",
+    "bow",
+    "old"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of golem"
+}

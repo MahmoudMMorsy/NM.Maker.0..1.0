@@ -1,0 +1,21 @@
+{
+  "file": "cyber_soldier_01925.png",
+  "type": "cyber_soldier",
+  "gender": "male",
+  "race": "troll",
+  "style": "cartoon",
+  "source": "mythology_egypt",
+  "pose": "idle",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "magic_circle",
+    "gloves",
+    "boots",
+    "old"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of cyber_soldier"
+}

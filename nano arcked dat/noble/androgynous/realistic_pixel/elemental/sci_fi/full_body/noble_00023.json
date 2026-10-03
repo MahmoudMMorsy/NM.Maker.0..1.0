@@ -1,0 +1,21 @@
+{
+  "file": "noble_00023.png",
+  "type": "noble",
+  "gender": "androgynous",
+  "race": "elemental",
+  "style": "realistic_pixel",
+  "source": "sci_fi",
+  "pose": "full_body",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "axe",
+    "shield",
+    "old",
+    "magic_circle"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of noble"
+}

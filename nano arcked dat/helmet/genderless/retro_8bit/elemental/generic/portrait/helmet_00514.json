@@ -1,0 +1,21 @@
+{
+  "file": "helmet_00514.png",
+  "type": "helmet",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "retro_8bit",
+  "source": "generic",
+  "pose": "portrait",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "bow",
+    "wings",
+    "slim",
+    "young"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of helmet"
+}

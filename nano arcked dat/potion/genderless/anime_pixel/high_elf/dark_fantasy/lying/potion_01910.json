@@ -1,0 +1,21 @@
+{
+  "file": "potion_01910.png",
+  "type": "potion",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "anime_pixel",
+  "source": "dark_fantasy",
+  "pose": "lying",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "cape",
+    "horns",
+    "boots",
+    "dual_wield"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of potion"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "hunter_00929.png",
+  "type": "hunter",
+  "gender": "male",
+  "race": "demon",
+  "style": "realistic_pixel",
+  "source": "dark_fantasy",
+  "pose": "flying",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "wings",
+    "slim",
+    "horns",
+    "robe"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of hunter"
+}

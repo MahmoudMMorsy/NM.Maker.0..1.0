@@ -1,0 +1,21 @@
+{
+  "file": "angel_00946.png",
+  "type": "angel",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "cartoon",
+  "source": "dark_fantasy",
+  "pose": "front_view",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "axe",
+    "glowing_eyes",
+    "old",
+    "sword"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of angel"
+}

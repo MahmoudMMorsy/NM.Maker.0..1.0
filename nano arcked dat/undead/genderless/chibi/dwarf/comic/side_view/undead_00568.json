@@ -1,0 +1,21 @@
+{
+  "file": "undead_00568.png",
+  "type": "undead",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "chibi",
+  "source": "comic",
+  "pose": "side_view",
+  "colors": [
+    "red",
+    "silver"
+  ],
+  "tags": [
+    "axe",
+    "tail",
+    "armor",
+    "bow"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of undead"
+}

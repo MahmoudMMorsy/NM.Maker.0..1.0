@@ -1,0 +1,21 @@
+{
+  "file": "cyborg_02792.png",
+  "type": "cyborg",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "detailed_pixel",
+  "source": "mythology_greek",
+  "pose": "front_view",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "gloves",
+    "potion",
+    "staff",
+    "shield"
+  ],
+  "resolution": "128x128",
+  "notes": "detailed_pixel pixel art asset of cyborg"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "soldier_01701.png",
+  "type": "soldier",
+  "gender": "female",
+  "race": "dark_elf",
+  "style": "sci_fi_pixel",
+  "source": "horror",
+  "pose": "action",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "muscular",
+    "helmet",
+    "robe",
+    "glowing_eyes"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of soldier"
+}

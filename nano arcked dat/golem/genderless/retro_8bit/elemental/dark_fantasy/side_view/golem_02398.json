@@ -1,0 +1,21 @@
+{
+  "file": "golem_02398.png",
+  "type": "golem",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "retro_8bit",
+  "source": "dark_fantasy",
+  "pose": "side_view",
+  "colors": [
+    "red",
+    "green"
+  ],
+  "tags": [
+    "dual_wield",
+    "ice",
+    "wings",
+    "gloves"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of golem"
+}

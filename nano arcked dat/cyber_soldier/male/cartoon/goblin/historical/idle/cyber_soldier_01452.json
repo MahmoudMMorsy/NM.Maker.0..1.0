@@ -1,0 +1,21 @@
+{
+  "file": "cyber_soldier_01452.png",
+  "type": "cyber_soldier",
+  "gender": "male",
+  "race": "goblin",
+  "style": "cartoon",
+  "source": "historical",
+  "pose": "idle",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "helmet",
+    "bow",
+    "slim",
+    "sword"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of cyber_soldier"
+}

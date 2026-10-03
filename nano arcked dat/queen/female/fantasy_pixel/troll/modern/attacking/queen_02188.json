@@ -1,0 +1,21 @@
+{
+  "file": "queen_02188.png",
+  "type": "queen",
+  "gender": "female",
+  "race": "troll",
+  "style": "fantasy_pixel",
+  "source": "modern",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "old",
+    "slim",
+    "gloves",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "fantasy_pixel pixel art asset of queen"
+}

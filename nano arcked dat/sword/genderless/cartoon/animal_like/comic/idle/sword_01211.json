@@ -1,0 +1,21 @@
+{
+  "file": "sword_01211.png",
+  "type": "sword",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "cartoon",
+  "source": "comic",
+  "pose": "idle",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "tail",
+    "horns",
+    "magic_circle",
+    "slim"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of sword"
+}

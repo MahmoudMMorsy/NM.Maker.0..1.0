@@ -1,0 +1,21 @@
+{
+  "file": "farmer_02481.png",
+  "type": "farmer",
+  "gender": "androgynous",
+  "race": "goblin",
+  "style": "fantasy_pixel",
+  "source": "mythology_greek",
+  "pose": "casting",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "robe",
+    "slim",
+    "shield",
+    "ice"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of farmer"
+}

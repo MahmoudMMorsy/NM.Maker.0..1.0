@@ -1,0 +1,21 @@
+{
+  "file": "gunslinger_02164.png",
+  "type": "gunslinger",
+  "gender": "male",
+  "race": "elemental",
+  "style": "retro_16bit",
+  "source": "modern",
+  "pose": "idle",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "cape",
+    "dual_wield",
+    "old",
+    "lightning"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of gunslinger"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "hunter_02362.png",
+  "type": "hunter",
+  "gender": "female",
+  "race": "robot",
+  "style": "dark_fantasy",
+  "source": "mythology_egypt",
+  "pose": "attacking",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "muscular",
+    "magic_circle",
+    "armor",
+    "shield"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of hunter"
+}

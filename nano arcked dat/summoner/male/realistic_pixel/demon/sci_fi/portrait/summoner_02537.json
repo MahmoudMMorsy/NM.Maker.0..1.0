@@ -1,0 +1,21 @@
+{
+  "file": "summoner_02537.png",
+  "type": "summoner",
+  "gender": "male",
+  "race": "demon",
+  "style": "realistic_pixel",
+  "source": "sci_fi",
+  "pose": "portrait",
+  "colors": [
+    "purple",
+    "red"
+  ],
+  "tags": [
+    "boots",
+    "dual_wield",
+    "axe",
+    "cape"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of summoner"
+}

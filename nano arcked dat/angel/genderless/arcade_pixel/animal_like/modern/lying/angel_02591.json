@@ -1,0 +1,21 @@
+{
+  "file": "angel_02591.png",
+  "type": "angel",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "arcade_pixel",
+  "source": "modern",
+  "pose": "lying",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "shield",
+    "fire",
+    "lightning",
+    "bow"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of angel"
+}

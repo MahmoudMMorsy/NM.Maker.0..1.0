@@ -1,0 +1,21 @@
+{
+  "file": "thief_01558.png",
+  "type": "thief",
+  "gender": "male",
+  "race": "angel",
+  "style": "arcade_pixel",
+  "source": "post_apocalyptic",
+  "pose": "back_view",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "tail",
+    "young",
+    "sword",
+    "horns"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of thief"
+}

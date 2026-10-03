@@ -1,0 +1,21 @@
+{
+  "file": "elemental_01798.png",
+  "type": "elemental",
+  "gender": "genderless",
+  "race": "giant",
+  "style": "anime_pixel",
+  "source": "cyberpunk",
+  "pose": "lying",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "shield",
+    "axe",
+    "young",
+    "magic_circle"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of elemental"
+}

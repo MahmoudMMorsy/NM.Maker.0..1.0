@@ -1,0 +1,21 @@
+{
+  "file": "thief_02542.png",
+  "type": "thief",
+  "gender": "male",
+  "race": "cyborg",
+  "style": "arcade_pixel",
+  "source": "modern",
+  "pose": "running",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "sword",
+    "axe",
+    "boots",
+    "armor"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of thief"
+}

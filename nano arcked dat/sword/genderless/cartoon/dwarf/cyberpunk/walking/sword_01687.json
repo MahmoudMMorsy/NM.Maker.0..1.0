@@ -1,0 +1,21 @@
+{
+  "file": "sword_01687.png",
+  "type": "sword",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "cartoon",
+  "source": "cyberpunk",
+  "pose": "walking",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "armor",
+    "tail",
+    "ice",
+    "lightning"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of sword"
+}

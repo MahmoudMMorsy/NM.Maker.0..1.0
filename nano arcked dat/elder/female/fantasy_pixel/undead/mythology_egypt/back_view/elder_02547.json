@@ -1,0 +1,21 @@
+{
+  "file": "elder_02547.png",
+  "type": "elder",
+  "gender": "female",
+  "race": "undead",
+  "style": "fantasy_pixel",
+  "source": "mythology_egypt",
+  "pose": "back_view",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "dual_wield",
+    "tail",
+    "sword",
+    "wings"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of elder"
+}

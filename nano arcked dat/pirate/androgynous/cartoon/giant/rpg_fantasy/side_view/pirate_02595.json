@@ -1,0 +1,21 @@
+{
+  "file": "pirate_02595.png",
+  "type": "pirate",
+  "gender": "androgynous",
+  "race": "giant",
+  "style": "cartoon",
+  "source": "rpg_fantasy",
+  "pose": "side_view",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "helmet",
+    "horns",
+    "axe"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of pirate"
+}

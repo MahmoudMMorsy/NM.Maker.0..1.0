@@ -1,0 +1,21 @@
+{
+  "file": "staff_01697.png",
+  "type": "staff",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "retro_16bit",
+  "source": "horror",
+  "pose": "back_view",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "sword",
+    "gloves",
+    "potion",
+    "wings"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of staff"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "wizard_00193.png",
+  "type": "wizard",
+  "gender": "female",
+  "race": "fairy",
+  "style": "retro_16bit",
+  "source": "movie",
+  "pose": "lying",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "tail",
+    "shield",
+    "young",
+    "staff"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of wizard"
+}

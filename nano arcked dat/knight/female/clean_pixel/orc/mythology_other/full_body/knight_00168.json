@@ -1,0 +1,21 @@
+{
+  "file": "knight_00168.png",
+  "type": "knight",
+  "gender": "female",
+  "race": "orc",
+  "style": "clean_pixel",
+  "source": "mythology_other",
+  "pose": "full_body",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "magic_circle",
+    "cape",
+    "dual_wield",
+    "shield"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of knight"
+}

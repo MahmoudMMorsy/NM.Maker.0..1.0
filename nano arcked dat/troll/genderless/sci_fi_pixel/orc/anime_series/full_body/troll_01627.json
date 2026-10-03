@@ -1,0 +1,21 @@
+{
+  "file": "troll_01627.png",
+  "type": "troll",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "sci_fi_pixel",
+  "source": "anime_series",
+  "pose": "full_body",
+  "colors": [
+    "silver",
+    "red"
+  ],
+  "tags": [
+    "axe",
+    "wings",
+    "lightning",
+    "armor"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of troll"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "child_00124.png",
+  "type": "child",
+  "gender": "female",
+  "race": "dark_elf",
+  "style": "anime_pixel",
+  "source": "horror",
+  "pose": "portrait",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "gloves",
+    "boots",
+    "lightning",
+    "glowing_eyes"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of child"
+}

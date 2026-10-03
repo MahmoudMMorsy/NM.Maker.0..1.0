@@ -1,0 +1,21 @@
+{
+  "file": "castle_02623.png",
+  "type": "castle",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "clean_pixel",
+  "source": "mythology_norse",
+  "pose": "walking",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "potion",
+    "robe",
+    "helmet",
+    "magic_circle"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of castle"
+}

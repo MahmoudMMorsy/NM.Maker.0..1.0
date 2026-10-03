@@ -1,0 +1,21 @@
+{
+  "file": "blacksmith_02434.png",
+  "type": "blacksmith",
+  "gender": "female",
+  "race": "hybrid",
+  "style": "anime_pixel",
+  "source": "cyberpunk",
+  "pose": "portrait",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "muscular",
+    "gloves",
+    "robe",
+    "slim"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of blacksmith"
+}

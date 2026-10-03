@@ -1,0 +1,21 @@
+{
+  "file": "paladin_00075.png",
+  "type": "paladin",
+  "gender": "female",
+  "race": "merfolk",
+  "style": "realistic_pixel",
+  "source": "historical",
+  "pose": "running",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "axe",
+    "wings",
+    "armor",
+    "old"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of paladin"
+}

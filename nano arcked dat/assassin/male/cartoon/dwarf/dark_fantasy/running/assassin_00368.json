@@ -1,0 +1,21 @@
+{
+  "file": "assassin_00368.png",
+  "type": "assassin",
+  "gender": "male",
+  "race": "dwarf",
+  "style": "cartoon",
+  "source": "dark_fantasy",
+  "pose": "running",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "helmet",
+    "bow",
+    "lightning",
+    "robe"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of assassin"
+}

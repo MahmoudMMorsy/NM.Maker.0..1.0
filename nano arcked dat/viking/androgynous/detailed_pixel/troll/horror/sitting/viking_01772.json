@@ -1,0 +1,21 @@
+{
+  "file": "viking_01772.png",
+  "type": "viking",
+  "gender": "androgynous",
+  "race": "troll",
+  "style": "detailed_pixel",
+  "source": "horror",
+  "pose": "sitting",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "dual_wield",
+    "fire",
+    "gloves",
+    "robe"
+  ],
+  "resolution": "128x128",
+  "notes": "detailed_pixel pixel art asset of viking"
+}

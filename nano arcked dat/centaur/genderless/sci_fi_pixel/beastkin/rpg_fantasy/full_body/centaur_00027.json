@@ -1,0 +1,21 @@
+{
+  "file": "centaur_00027.png",
+  "type": "centaur",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "sci_fi_pixel",
+  "source": "rpg_fantasy",
+  "pose": "full_body",
+  "colors": [
+    "silver",
+    "red"
+  ],
+  "tags": [
+    "gloves",
+    "wings",
+    "glowing_eyes",
+    "cape"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of centaur"
+}

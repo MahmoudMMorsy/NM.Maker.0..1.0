@@ -1,0 +1,21 @@
+{
+  "file": "centaur_02540.png",
+  "type": "centaur",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "dark_fantasy",
+  "source": "horror",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "cape",
+    "potion",
+    "muscular",
+    "glowing_eyes"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of centaur"
+}

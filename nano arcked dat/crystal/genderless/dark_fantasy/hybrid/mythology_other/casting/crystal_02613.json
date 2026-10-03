@@ -1,0 +1,21 @@
+{
+  "file": "crystal_02613.png",
+  "type": "crystal",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "dark_fantasy",
+  "source": "mythology_other",
+  "pose": "casting",
+  "colors": [
+    "red",
+    "silver"
+  ],
+  "tags": [
+    "dual_wield",
+    "robe",
+    "ice",
+    "potion"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of crystal"
+}

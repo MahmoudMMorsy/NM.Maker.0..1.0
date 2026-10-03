@@ -1,0 +1,21 @@
+{
+  "file": "rogue_01352.png",
+  "type": "rogue",
+  "gender": "female",
+  "race": "merfolk",
+  "style": "anime_pixel",
+  "source": "anime_series",
+  "pose": "walking",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "tail",
+    "boots",
+    "staff",
+    "potion"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of rogue"
+}

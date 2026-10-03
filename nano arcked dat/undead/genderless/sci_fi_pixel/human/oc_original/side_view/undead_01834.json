@@ -1,0 +1,21 @@
+{
+  "file": "undead_01834.png",
+  "type": "undead",
+  "gender": "genderless",
+  "race": "human",
+  "style": "sci_fi_pixel",
+  "source": "oc_original",
+  "pose": "side_view",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "boots",
+    "wings",
+    "sword",
+    "fire"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of undead"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "orc_02429.png",
+  "type": "orc",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "clean_pixel",
+  "source": "horror",
+  "pose": "lying",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "ice",
+    "gloves",
+    "robe",
+    "potion"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of orc"
+}

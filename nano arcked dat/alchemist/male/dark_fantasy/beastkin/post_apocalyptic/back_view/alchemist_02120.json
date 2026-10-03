@@ -1,0 +1,21 @@
+{
+  "file": "alchemist_02120.png",
+  "type": "alchemist",
+  "gender": "male",
+  "race": "beastkin",
+  "style": "dark_fantasy",
+  "source": "post_apocalyptic",
+  "pose": "back_view",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "armor",
+    "shield",
+    "robe",
+    "magic_circle"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of alchemist"
+}

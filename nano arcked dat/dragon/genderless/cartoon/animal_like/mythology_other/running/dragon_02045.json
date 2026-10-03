@@ -1,0 +1,21 @@
+{
+  "file": "dragon_02045.png",
+  "type": "dragon",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "cartoon",
+  "source": "mythology_other",
+  "pose": "running",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "axe",
+    "armor",
+    "horns",
+    "bow"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of dragon"
+}

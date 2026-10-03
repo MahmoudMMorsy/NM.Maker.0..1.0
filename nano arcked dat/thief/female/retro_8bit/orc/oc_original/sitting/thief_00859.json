@@ -1,0 +1,21 @@
+{
+  "file": "thief_00859.png",
+  "type": "thief",
+  "gender": "female",
+  "race": "orc",
+  "style": "retro_8bit",
+  "source": "oc_original",
+  "pose": "sitting",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "boots",
+    "wings",
+    "helmet",
+    "horns"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of thief"
+}

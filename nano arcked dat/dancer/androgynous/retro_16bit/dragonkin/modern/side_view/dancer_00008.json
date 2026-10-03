@@ -1,0 +1,21 @@
+{
+  "file": "dancer_00008.png",
+  "type": "dancer",
+  "gender": "androgynous",
+  "race": "dragonkin",
+  "style": "retro_16bit",
+  "source": "modern",
+  "pose": "side_view",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "lightning",
+    "magic_circle",
+    "ice",
+    "bow"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of dancer"
+}

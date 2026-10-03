@@ -1,0 +1,21 @@
+{
+  "file": "dancer_01805.png",
+  "type": "dancer",
+  "gender": "female",
+  "race": "demon",
+  "style": "anime_pixel",
+  "source": "medieval",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "robe",
+    "old",
+    "axe",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of dancer"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "werewolf_01344.png",
+  "type": "werewolf",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "dark_fantasy",
+  "source": "cartoon_western",
+  "pose": "walking",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "boots",
+    "fire",
+    "horns"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of werewolf"
+}

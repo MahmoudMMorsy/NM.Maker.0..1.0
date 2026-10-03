@@ -1,0 +1,21 @@
+{
+  "file": "crystal_02753.png",
+  "type": "crystal",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "dark_fantasy",
+  "source": "game_original",
+  "pose": "walking",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "tail",
+    "young",
+    "sword"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of crystal"
+}

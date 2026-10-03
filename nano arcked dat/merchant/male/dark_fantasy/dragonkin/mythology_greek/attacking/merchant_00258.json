@@ -1,0 +1,21 @@
+{
+  "file": "merchant_00258.png",
+  "type": "merchant",
+  "gender": "male",
+  "race": "dragonkin",
+  "style": "dark_fantasy",
+  "source": "mythology_greek",
+  "pose": "attacking",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "sword",
+    "potion",
+    "axe",
+    "gloves"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of merchant"
+}

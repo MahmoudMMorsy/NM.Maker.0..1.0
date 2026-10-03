@@ -1,0 +1,21 @@
+{
+  "file": "tree_00231.png",
+  "type": "tree",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "fantasy_pixel",
+  "source": "historical",
+  "pose": "lying",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "wings",
+    "bow",
+    "young",
+    "sword"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of tree"
+}

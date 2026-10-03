@@ -1,0 +1,21 @@
+{
+  "file": "vehicle_02054.png",
+  "type": "vehicle",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "fantasy_pixel",
+  "source": "medieval",
+  "pose": "back_view",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "helmet",
+    "dual_wield",
+    "gloves",
+    "horns"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of vehicle"
+}

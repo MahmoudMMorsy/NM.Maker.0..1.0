@@ -1,0 +1,21 @@
+{
+  "file": "bow_01594.png",
+  "type": "bow",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "retro_8bit",
+  "source": "oc_original",
+  "pose": "back_view",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "slim",
+    "axe",
+    "staff",
+    "sword"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of bow"
+}

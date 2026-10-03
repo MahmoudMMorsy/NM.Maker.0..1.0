@@ -1,0 +1,21 @@
+{
+  "file": "thief_02053.png",
+  "type": "thief",
+  "gender": "androgynous",
+  "race": "cyborg",
+  "style": "cartoon",
+  "source": "modern",
+  "pose": "flying",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "sword",
+    "potion",
+    "fire",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of thief"
+}

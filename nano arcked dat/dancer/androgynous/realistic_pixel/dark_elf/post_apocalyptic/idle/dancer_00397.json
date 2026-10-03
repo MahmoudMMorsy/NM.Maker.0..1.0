@@ -1,0 +1,21 @@
+{
+  "file": "dancer_00397.png",
+  "type": "dancer",
+  "gender": "androgynous",
+  "race": "dark_elf",
+  "style": "realistic_pixel",
+  "source": "post_apocalyptic",
+  "pose": "idle",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "horns",
+    "bow",
+    "glowing_eyes",
+    "boots"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of dancer"
+}

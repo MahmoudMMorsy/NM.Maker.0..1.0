@@ -1,0 +1,21 @@
+{
+  "file": "centaur_00897.png",
+  "type": "centaur",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "dark_fantasy",
+  "source": "mythology_greek",
+  "pose": "full_body",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "old",
+    "muscular",
+    "dual_wield",
+    "boots"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of centaur"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "elder_02720.png",
+  "type": "elder",
+  "gender": "male",
+  "race": "fairy",
+  "style": "detailed_pixel",
+  "source": "sci_fi",
+  "pose": "back_view",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "tail",
+    "potion",
+    "slim",
+    "fire"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of elder"
+}

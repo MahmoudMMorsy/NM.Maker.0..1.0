@@ -1,0 +1,21 @@
+{
+  "file": "monster_01953.png",
+  "type": "monster",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "horror_pixel",
+  "source": "historical",
+  "pose": "portrait",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "wings",
+    "axe",
+    "staff",
+    "old"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of monster"
+}

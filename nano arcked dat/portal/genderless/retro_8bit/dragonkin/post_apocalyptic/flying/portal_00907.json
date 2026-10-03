@@ -1,0 +1,21 @@
+{
+  "file": "portal_00907.png",
+  "type": "portal",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "retro_8bit",
+  "source": "post_apocalyptic",
+  "pose": "flying",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "slim",
+    "helmet",
+    "muscular",
+    "armor"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of portal"
+}

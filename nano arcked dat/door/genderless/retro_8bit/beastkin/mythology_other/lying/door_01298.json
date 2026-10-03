@@ -1,0 +1,21 @@
+{
+  "file": "door_01298.png",
+  "type": "door",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "retro_8bit",
+  "source": "mythology_other",
+  "pose": "lying",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "staff",
+    "young",
+    "axe",
+    "old"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of door"
+}

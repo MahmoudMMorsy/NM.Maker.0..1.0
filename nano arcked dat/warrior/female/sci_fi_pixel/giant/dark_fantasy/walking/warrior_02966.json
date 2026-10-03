@@ -1,0 +1,21 @@
+{
+  "file": "warrior_02966.png",
+  "type": "warrior",
+  "gender": "female",
+  "race": "giant",
+  "style": "sci_fi_pixel",
+  "source": "dark_fantasy",
+  "pose": "walking",
+  "colors": [
+    "red",
+    "silver"
+  ],
+  "tags": [
+    "cape",
+    "potion",
+    "horns",
+    "axe"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of warrior"
+}

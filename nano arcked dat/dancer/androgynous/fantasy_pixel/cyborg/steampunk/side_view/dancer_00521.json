@@ -1,0 +1,21 @@
+{
+  "file": "dancer_00521.png",
+  "type": "dancer",
+  "gender": "androgynous",
+  "race": "cyborg",
+  "style": "fantasy_pixel",
+  "source": "steampunk",
+  "pose": "side_view",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "staff",
+    "axe",
+    "old",
+    "tail"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of dancer"
+}

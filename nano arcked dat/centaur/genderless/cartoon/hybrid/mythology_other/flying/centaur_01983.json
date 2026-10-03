@@ -1,0 +1,21 @@
+{
+  "file": "centaur_01983.png",
+  "type": "centaur",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "cartoon",
+  "source": "mythology_other",
+  "pose": "flying",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "horns",
+    "dual_wield",
+    "robe",
+    "old"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of centaur"
+}

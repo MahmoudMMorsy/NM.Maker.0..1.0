@@ -1,0 +1,21 @@
+{
+  "file": "cyber_soldier_00692.png",
+  "type": "cyber_soldier",
+  "gender": "male",
+  "race": "dragonkin",
+  "style": "dark_fantasy",
+  "source": "mythology_greek",
+  "pose": "lying",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "potion",
+    "sword",
+    "staff",
+    "young"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of cyber_soldier"
+}

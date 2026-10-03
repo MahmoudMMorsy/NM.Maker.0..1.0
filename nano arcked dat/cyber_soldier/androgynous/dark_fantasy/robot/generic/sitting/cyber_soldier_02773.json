@@ -1,0 +1,21 @@
+{
+  "file": "cyber_soldier_02773.png",
+  "type": "cyber_soldier",
+  "gender": "androgynous",
+  "race": "robot",
+  "style": "dark_fantasy",
+  "source": "generic",
+  "pose": "sitting",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "old",
+    "dual_wield",
+    "staff",
+    "armor"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of cyber_soldier"
+}

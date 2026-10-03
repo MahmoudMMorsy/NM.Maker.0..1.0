@@ -1,0 +1,21 @@
+{
+  "file": "chest_01976.png",
+  "type": "chest",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "clean_pixel",
+  "source": "steampunk",
+  "pose": "back_view",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "potion",
+    "axe",
+    "old",
+    "tail"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of chest"
+}

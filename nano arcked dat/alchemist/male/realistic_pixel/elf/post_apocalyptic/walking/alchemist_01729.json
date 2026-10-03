@@ -1,0 +1,21 @@
+{
+  "file": "alchemist_01729.png",
+  "type": "alchemist",
+  "gender": "male",
+  "race": "elf",
+  "style": "realistic_pixel",
+  "source": "post_apocalyptic",
+  "pose": "walking",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "staff",
+    "bow",
+    "sword",
+    "wings"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of alchemist"
+}

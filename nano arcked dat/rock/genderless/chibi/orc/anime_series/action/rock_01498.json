@@ -1,0 +1,21 @@
+{
+  "file": "rock_01498.png",
+  "type": "rock",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "chibi",
+  "source": "anime_series",
+  "pose": "action",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "muscular",
+    "boots",
+    "gloves",
+    "armor"
+  ],
+  "resolution": "32x32",
+  "notes": "chibi pixel art asset of rock"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "weapon_01169.png",
+  "type": "weapon",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "realistic_pixel",
+  "source": "modern",
+  "pose": "idle",
+  "colors": [
+    "purple",
+    "blue"
+  ],
+  "tags": [
+    "lightning",
+    "armor",
+    "staff",
+    "axe"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of weapon"
+}

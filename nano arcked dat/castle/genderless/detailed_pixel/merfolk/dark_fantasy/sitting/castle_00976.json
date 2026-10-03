@@ -1,0 +1,21 @@
+{
+  "file": "castle_00976.png",
+  "type": "castle",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "detailed_pixel",
+  "source": "dark_fantasy",
+  "pose": "sitting",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "bow",
+    "axe",
+    "cape",
+    "old"
+  ],
+  "resolution": "128x128",
+  "notes": "detailed_pixel pixel art asset of castle"
+}

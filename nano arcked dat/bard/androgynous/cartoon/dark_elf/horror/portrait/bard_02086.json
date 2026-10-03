@@ -1,0 +1,21 @@
+{
+  "file": "bard_02086.png",
+  "type": "bard",
+  "gender": "androgynous",
+  "race": "dark_elf",
+  "style": "cartoon",
+  "source": "horror",
+  "pose": "portrait",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "lightning",
+    "gloves",
+    "axe"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of bard"
+}

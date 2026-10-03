@@ -1,0 +1,21 @@
+{
+  "file": "assassin_01232.png",
+  "type": "assassin",
+  "gender": "male",
+  "race": "cyborg",
+  "style": "retro_8bit",
+  "source": "sci_fi",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "bow",
+    "magic_circle",
+    "ice",
+    "sword"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of assassin"
+}

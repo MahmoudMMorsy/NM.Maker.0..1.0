@@ -1,0 +1,21 @@
+{
+  "file": "ninja_01777.png",
+  "type": "ninja",
+  "gender": "androgynous",
+  "race": "troll",
+  "style": "clean_pixel",
+  "source": "comic",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "slim",
+    "armor",
+    "bow",
+    "axe"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of ninja"
+}

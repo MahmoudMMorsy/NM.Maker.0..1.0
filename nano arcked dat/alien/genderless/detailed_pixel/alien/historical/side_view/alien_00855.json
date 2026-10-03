@@ -1,0 +1,21 @@
+{
+  "file": "alien_00855.png",
+  "type": "alien",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "detailed_pixel",
+  "source": "historical",
+  "pose": "side_view",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "old",
+    "slim",
+    "magic_circle",
+    "tail"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of alien"
+}

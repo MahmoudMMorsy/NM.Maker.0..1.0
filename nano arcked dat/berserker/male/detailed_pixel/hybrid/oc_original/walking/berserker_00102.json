@@ -1,0 +1,21 @@
+{
+  "file": "berserker_00102.png",
+  "type": "berserker",
+  "gender": "male",
+  "race": "hybrid",
+  "style": "detailed_pixel",
+  "source": "oc_original",
+  "pose": "walking",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "shield",
+    "gloves",
+    "muscular",
+    "helmet"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of berserker"
+}

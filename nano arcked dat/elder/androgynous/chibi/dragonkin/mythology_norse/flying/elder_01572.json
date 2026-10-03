@@ -1,0 +1,21 @@
+{
+  "file": "elder_01572.png",
+  "type": "elder",
+  "gender": "androgynous",
+  "race": "dragonkin",
+  "style": "chibi",
+  "source": "mythology_norse",
+  "pose": "flying",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "young",
+    "glowing_eyes",
+    "axe",
+    "shield"
+  ],
+  "resolution": "32x32",
+  "notes": "chibi pixel art asset of elder"
+}

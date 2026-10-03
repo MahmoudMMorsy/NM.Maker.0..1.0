@@ -1,0 +1,21 @@
+{
+  "file": "elemental_00576.png",
+  "type": "elemental",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "anime_pixel",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "silver",
+    "red"
+  ],
+  "tags": [
+    "helmet",
+    "wings",
+    "old",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of elemental"
+}

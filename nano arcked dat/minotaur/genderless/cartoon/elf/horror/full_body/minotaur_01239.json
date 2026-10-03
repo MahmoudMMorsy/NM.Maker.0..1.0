@@ -1,0 +1,21 @@
+{
+  "file": "minotaur_01239.png",
+  "type": "minotaur",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "cartoon",
+  "source": "horror",
+  "pose": "full_body",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "ice",
+    "magic_circle",
+    "axe",
+    "wings"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of minotaur"
+}

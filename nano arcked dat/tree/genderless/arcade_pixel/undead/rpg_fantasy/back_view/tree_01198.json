@@ -1,0 +1,21 @@
+{
+  "file": "tree_01198.png",
+  "type": "tree",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "arcade_pixel",
+  "source": "rpg_fantasy",
+  "pose": "back_view",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "boots",
+    "old",
+    "armor",
+    "dual_wield"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of tree"
+}

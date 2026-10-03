@@ -1,0 +1,21 @@
+{
+  "file": "monk_02233.png",
+  "type": "monk",
+  "gender": "female",
+  "race": "robot",
+  "style": "cartoon",
+  "source": "mythology_egypt",
+  "pose": "lying",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "boots",
+    "helmet",
+    "ice",
+    "armor"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of monk"
+}

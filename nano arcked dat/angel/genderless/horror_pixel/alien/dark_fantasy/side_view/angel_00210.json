@@ -1,0 +1,21 @@
+{
+  "file": "angel_00210.png",
+  "type": "angel",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "horror_pixel",
+  "source": "dark_fantasy",
+  "pose": "side_view",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "young",
+    "axe",
+    "armor",
+    "wings"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of angel"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "civilian_01108.png",
+  "type": "civilian",
+  "gender": "androgynous",
+  "race": "orc",
+  "style": "sci_fi_pixel",
+  "source": "movie",
+  "pose": "lying",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "magic_circle",
+    "fire",
+    "helmet",
+    "wings"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of civilian"
+}

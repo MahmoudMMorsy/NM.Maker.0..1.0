@@ -1,0 +1,21 @@
+{
+  "file": "blacksmith_01562.png",
+  "type": "blacksmith",
+  "gender": "androgynous",
+  "race": "troll",
+  "style": "retro_16bit",
+  "source": "medieval",
+  "pose": "walking",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "fire",
+    "gloves",
+    "shield",
+    "magic_circle"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of blacksmith"
+}

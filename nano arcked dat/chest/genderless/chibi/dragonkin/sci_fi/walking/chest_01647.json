@@ -1,0 +1,21 @@
+{
+  "file": "chest_01647.png",
+  "type": "chest",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "chibi",
+  "source": "sci_fi",
+  "pose": "walking",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "wings",
+    "fire",
+    "potion"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of chest"
+}

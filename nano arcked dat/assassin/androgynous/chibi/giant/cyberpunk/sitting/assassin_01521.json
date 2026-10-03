@@ -1,0 +1,21 @@
+{
+  "file": "assassin_01521.png",
+  "type": "assassin",
+  "gender": "androgynous",
+  "race": "giant",
+  "style": "chibi",
+  "source": "cyberpunk",
+  "pose": "sitting",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "magic_circle",
+    "horns",
+    "bow",
+    "glowing_eyes"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of assassin"
+}

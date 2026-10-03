@@ -1,0 +1,21 @@
+{
+  "file": "chest_02494.png",
+  "type": "chest",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "anime_pixel",
+  "source": "oc_original",
+  "pose": "sitting",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "muscular",
+    "wings",
+    "armor",
+    "sword"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of chest"
+}

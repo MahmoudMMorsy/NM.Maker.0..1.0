@@ -1,0 +1,21 @@
+{
+  "file": "scholar_00005.png",
+  "type": "scholar",
+  "gender": "male",
+  "race": "goblin",
+  "style": "chibi",
+  "source": "dark_fantasy",
+  "pose": "attacking",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "muscular",
+    "old",
+    "axe",
+    "bow"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of scholar"
+}

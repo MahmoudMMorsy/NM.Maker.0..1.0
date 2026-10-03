@@ -1,0 +1,21 @@
+{
+  "file": "farmer_00525.png",
+  "type": "farmer",
+  "gender": "female",
+  "race": "orc",
+  "style": "cartoon",
+  "source": "modern",
+  "pose": "idle",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "ice",
+    "shield",
+    "sword",
+    "lightning"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of farmer"
+}

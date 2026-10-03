@@ -1,0 +1,21 @@
+{
+  "file": "elemental_02334.png",
+  "type": "elemental",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "fantasy_pixel",
+  "source": "sci_fi",
+  "pose": "back_view",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "armor",
+    "axe",
+    "old",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of elemental"
+}

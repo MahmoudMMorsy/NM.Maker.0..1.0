@@ -1,0 +1,21 @@
+{
+  "file": "thief_00666.png",
+  "type": "thief",
+  "gender": "female",
+  "race": "undead",
+  "style": "horror_pixel",
+  "source": "oc_original",
+  "pose": "sitting",
+  "colors": [
+    "purple",
+    "blue"
+  ],
+  "tags": [
+    "magic_circle",
+    "sword",
+    "dual_wield",
+    "staff"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of thief"
+}

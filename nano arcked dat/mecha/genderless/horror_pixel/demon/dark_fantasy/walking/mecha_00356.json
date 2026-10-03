@@ -1,0 +1,21 @@
+{
+  "file": "mecha_00356.png",
+  "type": "mecha",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "horror_pixel",
+  "source": "dark_fantasy",
+  "pose": "walking",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "sword",
+    "old",
+    "helmet",
+    "wings"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of mecha"
+}

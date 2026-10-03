@@ -1,0 +1,21 @@
+{
+  "file": "viking_01979.png",
+  "type": "viking",
+  "gender": "female",
+  "race": "robot",
+  "style": "sci_fi_pixel",
+  "source": "game_original",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "sword",
+    "armor",
+    "old"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of viking"
+}

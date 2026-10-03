@@ -1,0 +1,21 @@
+{
+  "file": "wizard_01581.png",
+  "type": "wizard",
+  "gender": "androgynous",
+  "race": "high_elf",
+  "style": "anime_pixel",
+  "source": "historical",
+  "pose": "idle",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "potion",
+    "shield",
+    "slim",
+    "sword"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of wizard"
+}

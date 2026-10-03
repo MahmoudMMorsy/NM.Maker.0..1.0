@@ -1,0 +1,21 @@
+{
+  "file": "helmet_01111.png",
+  "type": "helmet",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "retro_16bit",
+  "source": "mythology_other",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "staff",
+    "robe",
+    "armor",
+    "sword"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of helmet"
+}

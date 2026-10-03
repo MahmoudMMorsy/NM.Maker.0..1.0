@@ -1,0 +1,21 @@
+{
+  "file": "android_01460.png",
+  "type": "android",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "anime_pixel",
+  "source": "oc_original",
+  "pose": "front_view",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "bow",
+    "axe",
+    "ice",
+    "gloves"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of android"
+}

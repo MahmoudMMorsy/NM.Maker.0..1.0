@@ -1,0 +1,21 @@
+{
+  "file": "demon_01915.png",
+  "type": "demon",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "cartoon",
+  "source": "game_original",
+  "pose": "walking",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "bow",
+    "robe",
+    "slim",
+    "old"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of demon"
+}

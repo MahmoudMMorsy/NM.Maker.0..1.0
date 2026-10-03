@@ -1,0 +1,21 @@
+{
+  "file": "cook_00923.png",
+  "type": "cook",
+  "gender": "male",
+  "race": "fairy",
+  "style": "retro_8bit",
+  "source": "mythology_greek",
+  "pose": "attacking",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "cape",
+    "lightning",
+    "ice",
+    "wings"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of cook"
+}

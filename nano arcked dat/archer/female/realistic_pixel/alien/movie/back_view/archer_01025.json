@@ -1,0 +1,21 @@
+{
+  "file": "archer_01025.png",
+  "type": "archer",
+  "gender": "female",
+  "race": "alien",
+  "style": "realistic_pixel",
+  "source": "movie",
+  "pose": "back_view",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "muscular",
+    "shield",
+    "horns",
+    "cape"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of archer"
+}

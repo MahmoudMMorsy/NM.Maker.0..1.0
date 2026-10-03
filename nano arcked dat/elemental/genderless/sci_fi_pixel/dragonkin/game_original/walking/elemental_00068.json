@@ -1,0 +1,21 @@
+{
+  "file": "elemental_00068.png",
+  "type": "elemental",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "sci_fi_pixel",
+  "source": "game_original",
+  "pose": "walking",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "sword",
+    "old",
+    "bow",
+    "robe"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of elemental"
+}

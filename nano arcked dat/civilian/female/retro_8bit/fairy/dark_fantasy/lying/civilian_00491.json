@@ -1,0 +1,21 @@
+{
+  "file": "civilian_00491.png",
+  "type": "civilian",
+  "gender": "female",
+  "race": "fairy",
+  "style": "retro_8bit",
+  "source": "dark_fantasy",
+  "pose": "lying",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "fire",
+    "tail",
+    "sword",
+    "lightning"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of civilian"
+}

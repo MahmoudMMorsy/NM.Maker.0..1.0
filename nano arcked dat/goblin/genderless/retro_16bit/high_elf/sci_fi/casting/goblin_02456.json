@@ -1,0 +1,21 @@
+{
+  "file": "goblin_02456.png",
+  "type": "goblin",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "retro_16bit",
+  "source": "sci_fi",
+  "pose": "casting",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "potion",
+    "ice",
+    "bow",
+    "wings"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of goblin"
+}

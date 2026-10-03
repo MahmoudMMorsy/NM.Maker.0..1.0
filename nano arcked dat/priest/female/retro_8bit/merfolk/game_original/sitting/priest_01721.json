@@ -1,0 +1,21 @@
+{
+  "file": "priest_01721.png",
+  "type": "priest",
+  "gender": "female",
+  "race": "merfolk",
+  "style": "retro_8bit",
+  "source": "game_original",
+  "pose": "sitting",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "lightning",
+    "ice",
+    "slim",
+    "gloves"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of priest"
+}

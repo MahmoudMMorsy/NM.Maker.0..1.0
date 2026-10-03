@@ -1,0 +1,21 @@
+{
+  "file": "food_01062.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "dark_fantasy",
+  "source": "mythology_greek",
+  "pose": "action",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "boots",
+    "muscular",
+    "staff",
+    "helmet"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of food"
+}

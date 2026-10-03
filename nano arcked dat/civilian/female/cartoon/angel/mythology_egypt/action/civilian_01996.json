@@ -1,0 +1,21 @@
+{
+  "file": "civilian_01996.png",
+  "type": "civilian",
+  "gender": "female",
+  "race": "angel",
+  "style": "cartoon",
+  "source": "mythology_egypt",
+  "pose": "action",
+  "colors": [
+    "purple",
+    "red"
+  ],
+  "tags": [
+    "bow",
+    "gloves",
+    "slim",
+    "shield"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of civilian"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "castle_02256.png",
+  "type": "castle",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "sci_fi_pixel",
+  "source": "cartoon_western",
+  "pose": "full_body",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "fire",
+    "armor",
+    "young",
+    "sword"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of castle"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "guard_02487.png",
+  "type": "guard",
+  "gender": "female",
+  "race": "fairy",
+  "style": "retro_16bit",
+  "source": "anime_series",
+  "pose": "side_view",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "dual_wield",
+    "fire",
+    "sword",
+    "armor"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of guard"
+}

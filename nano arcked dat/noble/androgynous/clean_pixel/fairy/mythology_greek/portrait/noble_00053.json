@@ -1,0 +1,21 @@
+{
+  "file": "noble_00053.png",
+  "type": "noble",
+  "gender": "androgynous",
+  "race": "fairy",
+  "style": "clean_pixel",
+  "source": "mythology_greek",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "wings",
+    "staff",
+    "boots",
+    "muscular"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of noble"
+}

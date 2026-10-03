@@ -1,0 +1,21 @@
+{
+  "file": "hunter_00324.png",
+  "type": "hunter",
+  "gender": "female",
+  "race": "giant",
+  "style": "horror_pixel",
+  "source": "mythology_egypt",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "slim",
+    "axe",
+    "staff",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of hunter"
+}

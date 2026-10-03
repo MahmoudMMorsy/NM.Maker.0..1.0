@@ -1,0 +1,21 @@
+{
+  "file": "weapon_02096.png",
+  "type": "weapon",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "detailed_pixel",
+  "source": "generic",
+  "pose": "attacking",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "magic_circle",
+    "muscular",
+    "helmet",
+    "fire"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of weapon"
+}

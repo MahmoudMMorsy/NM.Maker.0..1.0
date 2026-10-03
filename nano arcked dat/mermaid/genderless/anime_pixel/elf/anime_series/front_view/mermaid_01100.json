@@ -1,0 +1,21 @@
+{
+  "file": "mermaid_01100.png",
+  "type": "mermaid",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "anime_pixel",
+  "source": "anime_series",
+  "pose": "front_view",
+  "colors": [
+    "silver",
+    "red"
+  ],
+  "tags": [
+    "gloves",
+    "armor",
+    "glowing_eyes",
+    "shield"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of mermaid"
+}

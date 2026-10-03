@@ -1,0 +1,21 @@
+{
+  "file": "staff_00259.png",
+  "type": "staff",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "anime_pixel",
+  "source": "rpg_fantasy",
+  "pose": "flying",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "boots",
+    "axe",
+    "magic_circle",
+    "cape"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of staff"
+}

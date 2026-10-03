@@ -1,0 +1,21 @@
+{
+  "file": "paladin_01296.png",
+  "type": "paladin",
+  "gender": "male",
+  "race": "dwarf",
+  "style": "sci_fi_pixel",
+  "source": "oc_original",
+  "pose": "side_view",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "tail",
+    "muscular",
+    "shield",
+    "armor"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of paladin"
+}

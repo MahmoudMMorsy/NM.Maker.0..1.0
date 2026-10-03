@@ -1,0 +1,21 @@
+{
+  "file": "chest_00348.png",
+  "type": "chest",
+  "gender": "genderless",
+  "race": "giant",
+  "style": "anime_pixel",
+  "source": "mythology_greek",
+  "pose": "flying",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "armor",
+    "helmet",
+    "dual_wield",
+    "axe"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of chest"
+}

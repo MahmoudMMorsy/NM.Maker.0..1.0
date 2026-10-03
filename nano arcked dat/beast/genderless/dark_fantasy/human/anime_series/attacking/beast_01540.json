@@ -1,0 +1,21 @@
+{
+  "file": "beast_01540.png",
+  "type": "beast",
+  "gender": "genderless",
+  "race": "human",
+  "style": "dark_fantasy",
+  "source": "anime_series",
+  "pose": "attacking",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "robe",
+    "helmet",
+    "slim",
+    "sword"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of beast"
+}

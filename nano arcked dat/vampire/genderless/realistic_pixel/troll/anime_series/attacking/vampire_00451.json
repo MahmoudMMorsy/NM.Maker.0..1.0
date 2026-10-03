@@ -1,0 +1,21 @@
+{
+  "file": "vampire_00451.png",
+  "type": "vampire",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "realistic_pixel",
+  "source": "anime_series",
+  "pose": "attacking",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "old",
+    "magic_circle",
+    "gloves",
+    "muscular"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of vampire"
+}

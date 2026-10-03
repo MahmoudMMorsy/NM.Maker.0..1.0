@@ -1,0 +1,21 @@
+{
+  "file": "dancer_01503.png",
+  "type": "dancer",
+  "gender": "androgynous",
+  "race": "giant",
+  "style": "realistic_pixel",
+  "source": "mythology_other",
+  "pose": "walking",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "robe",
+    "horns",
+    "ice",
+    "muscular"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of dancer"
+}

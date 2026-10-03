@@ -1,0 +1,21 @@
+{
+  "file": "beast_00851.png",
+  "type": "beast",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "chibi",
+  "source": "mythology_other",
+  "pose": "front_view",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "potion",
+    "bow",
+    "ice",
+    "tail"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of beast"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "centaur_02588.png",
+  "type": "centaur",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "dark_fantasy",
+  "source": "mythology_other",
+  "pose": "flying",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "sword",
+    "armor",
+    "slim",
+    "gloves"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of centaur"
+}

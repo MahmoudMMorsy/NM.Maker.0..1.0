@@ -1,0 +1,21 @@
+{
+  "file": "noble_00183.png",
+  "type": "noble",
+  "gender": "female",
+  "race": "hybrid",
+  "style": "retro_8bit",
+  "source": "steampunk",
+  "pose": "walking",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "potion",
+    "helmet",
+    "staff",
+    "horns"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of noble"
+}

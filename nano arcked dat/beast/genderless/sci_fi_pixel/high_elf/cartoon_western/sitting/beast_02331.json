@@ -1,0 +1,21 @@
+{
+  "file": "beast_02331.png",
+  "type": "beast",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "sci_fi_pixel",
+  "source": "cartoon_western",
+  "pose": "sitting",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "helmet",
+    "fire",
+    "tail",
+    "magic_circle"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of beast"
+}

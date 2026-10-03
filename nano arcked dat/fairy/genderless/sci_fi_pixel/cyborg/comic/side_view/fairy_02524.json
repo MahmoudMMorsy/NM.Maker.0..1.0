@@ -1,0 +1,21 @@
+{
+  "file": "fairy_02524.png",
+  "type": "fairy",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "sci_fi_pixel",
+  "source": "comic",
+  "pose": "side_view",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "slim",
+    "tail",
+    "dual_wield",
+    "magic_circle"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of fairy"
+}

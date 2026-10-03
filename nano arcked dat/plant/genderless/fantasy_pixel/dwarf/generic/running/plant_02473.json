@@ -1,0 +1,21 @@
+{
+  "file": "plant_02473.png",
+  "type": "plant",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "fantasy_pixel",
+  "source": "generic",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "old",
+    "fire",
+    "magic_circle",
+    "gloves"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of plant"
+}

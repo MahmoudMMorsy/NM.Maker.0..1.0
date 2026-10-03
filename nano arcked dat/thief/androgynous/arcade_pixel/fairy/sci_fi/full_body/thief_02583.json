@@ -1,0 +1,21 @@
+{
+  "file": "thief_02583.png",
+  "type": "thief",
+  "gender": "androgynous",
+  "race": "fairy",
+  "style": "arcade_pixel",
+  "source": "sci_fi",
+  "pose": "full_body",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "wings",
+    "shield",
+    "axe",
+    "boots"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of thief"
+}

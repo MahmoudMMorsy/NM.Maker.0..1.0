@@ -1,0 +1,21 @@
+{
+  "file": "merchant_00341.png",
+  "type": "merchant",
+  "gender": "female",
+  "race": "cyborg",
+  "style": "horror_pixel",
+  "source": "mythology_egypt",
+  "pose": "action",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "magic_circle",
+    "boots",
+    "fire",
+    "bow"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of merchant"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "armor_00546.png",
+  "type": "armor",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "retro_16bit",
+  "source": "horror",
+  "pose": "attacking",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "tail",
+    "robe",
+    "ice",
+    "horns"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of armor"
+}

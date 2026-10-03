@@ -1,0 +1,21 @@
+{
+  "file": "gladiator_00638.png",
+  "type": "gladiator",
+  "gender": "male",
+  "race": "angel",
+  "style": "anime_pixel",
+  "source": "mythology_greek",
+  "pose": "back_view",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "shield",
+    "axe",
+    "slim",
+    "fire"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of gladiator"
+}

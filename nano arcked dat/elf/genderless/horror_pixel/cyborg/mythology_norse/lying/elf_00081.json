@@ -1,0 +1,21 @@
+{
+  "file": "elf_00081.png",
+  "type": "elf",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "horror_pixel",
+  "source": "mythology_norse",
+  "pose": "lying",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "ice",
+    "staff",
+    "old",
+    "dual_wield"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of elf"
+}

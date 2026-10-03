@@ -1,0 +1,21 @@
+{
+  "file": "robot_00572.png",
+  "type": "robot",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "arcade_pixel",
+  "source": "sci_fi",
+  "pose": "front_view",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "old",
+    "wings",
+    "young",
+    "staff"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of robot"
+}

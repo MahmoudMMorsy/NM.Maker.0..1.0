@@ -1,0 +1,21 @@
+{
+  "file": "bow_00677.png",
+  "type": "bow",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "retro_16bit",
+  "source": "game_original",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "boots",
+    "old",
+    "slim",
+    "glowing_eyes"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of bow"
+}

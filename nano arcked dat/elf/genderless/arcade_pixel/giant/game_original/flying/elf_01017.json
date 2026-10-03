@@ -1,0 +1,21 @@
+{
+  "file": "elf_01017.png",
+  "type": "elf",
+  "gender": "genderless",
+  "race": "giant",
+  "style": "arcade_pixel",
+  "source": "game_original",
+  "pose": "flying",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "young",
+    "potion",
+    "gloves",
+    "shield"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of elf"
+}

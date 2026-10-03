@@ -1,0 +1,21 @@
+{
+  "file": "minotaur_00744.png",
+  "type": "minotaur",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "clean_pixel",
+  "source": "historical",
+  "pose": "sitting",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "gloves",
+    "glowing_eyes",
+    "muscular",
+    "axe"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of minotaur"
+}

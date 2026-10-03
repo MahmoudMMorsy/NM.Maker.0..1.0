@@ -1,0 +1,21 @@
+{
+  "file": "wizard_01176.png",
+  "type": "wizard",
+  "gender": "female",
+  "race": "cyborg",
+  "style": "chibi",
+  "source": "rpg_fantasy",
+  "pose": "casting",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "lightning",
+    "glowing_eyes",
+    "dual_wield",
+    "boots"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of wizard"
+}

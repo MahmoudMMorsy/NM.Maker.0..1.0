@@ -1,0 +1,21 @@
+{
+  "file": "scholar_02673.png",
+  "type": "scholar",
+  "gender": "male",
+  "race": "angel",
+  "style": "realistic_pixel",
+  "source": "movie",
+  "pose": "full_body",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "young",
+    "dual_wield",
+    "slim",
+    "wings"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of scholar"
+}

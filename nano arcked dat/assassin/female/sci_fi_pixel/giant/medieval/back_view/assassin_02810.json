@@ -1,0 +1,21 @@
+{
+  "file": "assassin_02810.png",
+  "type": "assassin",
+  "gender": "female",
+  "race": "giant",
+  "style": "sci_fi_pixel",
+  "source": "medieval",
+  "pose": "back_view",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "sword",
+    "helmet",
+    "old",
+    "armor"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of assassin"
+}

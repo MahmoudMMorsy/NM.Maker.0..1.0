@@ -1,0 +1,21 @@
+{
+  "file": "viking_00609.png",
+  "type": "viking",
+  "gender": "male",
+  "race": "demon",
+  "style": "retro_16bit",
+  "source": "oc_original",
+  "pose": "casting",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "slim",
+    "armor",
+    "horns",
+    "potion"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of viking"
+}

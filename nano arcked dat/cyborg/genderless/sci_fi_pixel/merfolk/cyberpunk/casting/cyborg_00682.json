@@ -1,0 +1,21 @@
+{
+  "file": "cyborg_00682.png",
+  "type": "cyborg",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "sci_fi_pixel",
+  "source": "cyberpunk",
+  "pose": "casting",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "potion",
+    "horns",
+    "dual_wield",
+    "gloves"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of cyborg"
+}

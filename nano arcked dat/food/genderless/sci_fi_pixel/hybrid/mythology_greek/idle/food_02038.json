@@ -1,0 +1,21 @@
+{
+  "file": "food_02038.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "sci_fi_pixel",
+  "source": "mythology_greek",
+  "pose": "idle",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "sword",
+    "bow",
+    "ice",
+    "fire"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of food"
+}

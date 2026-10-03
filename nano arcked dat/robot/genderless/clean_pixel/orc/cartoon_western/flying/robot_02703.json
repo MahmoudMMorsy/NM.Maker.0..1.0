@@ -1,0 +1,21 @@
+{
+  "file": "robot_02703.png",
+  "type": "robot",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "clean_pixel",
+  "source": "cartoon_western",
+  "pose": "flying",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "slim",
+    "boots",
+    "staff",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of robot"
+}

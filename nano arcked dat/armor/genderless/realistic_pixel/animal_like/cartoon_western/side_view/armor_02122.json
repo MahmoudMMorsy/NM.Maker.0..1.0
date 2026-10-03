@@ -1,0 +1,21 @@
+{
+  "file": "armor_02122.png",
+  "type": "armor",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "realistic_pixel",
+  "source": "cartoon_western",
+  "pose": "side_view",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "tail",
+    "bow",
+    "young",
+    "dual_wield"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of armor"
+}

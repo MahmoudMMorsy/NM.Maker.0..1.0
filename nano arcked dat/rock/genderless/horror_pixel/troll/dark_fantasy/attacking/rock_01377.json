@@ -1,0 +1,21 @@
+{
+  "file": "rock_01377.png",
+  "type": "rock",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "horror_pixel",
+  "source": "dark_fantasy",
+  "pose": "attacking",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "boots",
+    "wings",
+    "gloves",
+    "potion"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of rock"
+}

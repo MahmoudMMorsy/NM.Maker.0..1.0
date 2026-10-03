@@ -1,0 +1,21 @@
+{
+  "file": "ninja_01850.png",
+  "type": "ninja",
+  "gender": "male",
+  "race": "elf",
+  "style": "arcade_pixel",
+  "source": "mythology_egypt",
+  "pose": "front_view",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "boots",
+    "old",
+    "armor",
+    "gloves"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of ninja"
+}

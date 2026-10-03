@@ -1,0 +1,21 @@
+{
+  "file": "plant_01248.png",
+  "type": "plant",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "retro_16bit",
+  "source": "cartoon_western",
+  "pose": "running",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "shield",
+    "staff",
+    "armor",
+    "fire"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of plant"
+}

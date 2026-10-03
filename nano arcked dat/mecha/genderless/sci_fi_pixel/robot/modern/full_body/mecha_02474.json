@@ -1,0 +1,21 @@
+{
+  "file": "mecha_02474.png",
+  "type": "mecha",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "sci_fi_pixel",
+  "source": "modern",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "cape",
+    "muscular",
+    "old",
+    "tail"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of mecha"
+}

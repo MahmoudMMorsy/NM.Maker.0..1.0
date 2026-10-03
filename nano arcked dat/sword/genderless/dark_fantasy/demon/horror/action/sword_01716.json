@@ -1,0 +1,21 @@
+{
+  "file": "sword_01716.png",
+  "type": "sword",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "dark_fantasy",
+  "source": "horror",
+  "pose": "action",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "staff",
+    "helmet",
+    "armor",
+    "gloves"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of sword"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "rock_02317.png",
+  "type": "rock",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "fantasy_pixel",
+  "source": "cyberpunk",
+  "pose": "flying",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "armor",
+    "wings",
+    "old"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of rock"
+}

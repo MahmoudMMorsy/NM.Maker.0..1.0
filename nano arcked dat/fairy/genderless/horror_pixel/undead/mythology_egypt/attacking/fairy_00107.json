@@ -1,0 +1,21 @@
+{
+  "file": "fairy_00107.png",
+  "type": "fairy",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "horror_pixel",
+  "source": "mythology_egypt",
+  "pose": "attacking",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "potion",
+    "muscular",
+    "magic_circle",
+    "glowing_eyes"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of fairy"
+}

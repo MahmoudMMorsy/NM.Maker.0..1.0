@@ -1,0 +1,21 @@
+{
+  "file": "minotaur_01817.png",
+  "type": "minotaur",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "cartoon",
+  "source": "game_original",
+  "pose": "walking",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "fire",
+    "gloves",
+    "helmet",
+    "cape"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of minotaur"
+}

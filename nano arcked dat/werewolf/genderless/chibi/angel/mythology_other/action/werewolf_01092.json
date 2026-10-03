@@ -1,0 +1,21 @@
+{
+  "file": "werewolf_01092.png",
+  "type": "werewolf",
+  "gender": "genderless",
+  "race": "angel",
+  "style": "chibi",
+  "source": "mythology_other",
+  "pose": "action",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "ice",
+    "cape",
+    "bow",
+    "potion"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of werewolf"
+}

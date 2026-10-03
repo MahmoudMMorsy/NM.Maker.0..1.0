@@ -1,0 +1,21 @@
+{
+  "file": "gladiator_02393.png",
+  "type": "gladiator",
+  "gender": "androgynous",
+  "race": "fairy",
+  "style": "horror_pixel",
+  "source": "mythology_greek",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "wings",
+    "fire",
+    "old",
+    "muscular"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of gladiator"
+}

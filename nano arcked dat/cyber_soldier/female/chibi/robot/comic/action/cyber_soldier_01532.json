@@ -1,0 +1,21 @@
+{
+  "file": "cyber_soldier_01532.png",
+  "type": "cyber_soldier",
+  "gender": "female",
+  "race": "robot",
+  "style": "chibi",
+  "source": "comic",
+  "pose": "action",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "boots",
+    "sword",
+    "dual_wield",
+    "wings"
+  ],
+  "resolution": "32x32",
+  "notes": "chibi pixel art asset of cyber_soldier"
+}

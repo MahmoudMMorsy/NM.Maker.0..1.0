@@ -1,0 +1,21 @@
+{
+  "file": "vampire_01626.png",
+  "type": "vampire",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "arcade_pixel",
+  "source": "comic",
+  "pose": "running",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "bow",
+    "cape",
+    "staff",
+    "potion"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of vampire"
+}

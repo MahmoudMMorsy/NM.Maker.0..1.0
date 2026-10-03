@@ -1,0 +1,21 @@
+{
+  "file": "bard_01842.png",
+  "type": "bard",
+  "gender": "androgynous",
+  "race": "undead",
+  "style": "chibi",
+  "source": "cyberpunk",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "boots",
+    "young",
+    "horns",
+    "tail"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of bard"
+}

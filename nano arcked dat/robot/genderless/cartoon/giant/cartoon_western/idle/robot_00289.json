@@ -1,0 +1,21 @@
+{
+  "file": "robot_00289.png",
+  "type": "robot",
+  "gender": "genderless",
+  "race": "giant",
+  "style": "cartoon",
+  "source": "cartoon_western",
+  "pose": "idle",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "bow",
+    "dual_wield",
+    "staff",
+    "slim"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of robot"
+}

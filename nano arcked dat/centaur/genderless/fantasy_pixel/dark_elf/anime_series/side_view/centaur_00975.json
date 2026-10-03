@@ -1,0 +1,21 @@
+{
+  "file": "centaur_00975.png",
+  "type": "centaur",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "fantasy_pixel",
+  "source": "anime_series",
+  "pose": "side_view",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "magic_circle",
+    "fire",
+    "lightning",
+    "glowing_eyes"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of centaur"
+}

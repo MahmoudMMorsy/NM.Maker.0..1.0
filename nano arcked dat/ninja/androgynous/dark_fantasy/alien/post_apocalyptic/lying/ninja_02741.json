@@ -1,0 +1,21 @@
+{
+  "file": "ninja_02741.png",
+  "type": "ninja",
+  "gender": "androgynous",
+  "race": "alien",
+  "style": "dark_fantasy",
+  "source": "post_apocalyptic",
+  "pose": "lying",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "helmet",
+    "horns",
+    "muscular",
+    "wings"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of ninja"
+}

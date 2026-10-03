@@ -1,0 +1,21 @@
+{
+  "file": "beast_00483.png",
+  "type": "beast",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "arcade_pixel",
+  "source": "cyberpunk",
+  "pose": "idle",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "lightning",
+    "shield",
+    "tail",
+    "dual_wield"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of beast"
+}

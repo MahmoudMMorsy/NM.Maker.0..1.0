@@ -1,0 +1,21 @@
+{
+  "file": "mage_01427.png",
+  "type": "mage",
+  "gender": "female",
+  "race": "goblin",
+  "style": "sci_fi_pixel",
+  "source": "historical",
+  "pose": "running",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "axe",
+    "staff",
+    "boots"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of mage"
+}

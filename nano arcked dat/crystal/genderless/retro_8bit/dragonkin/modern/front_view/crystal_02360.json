@@ -1,0 +1,21 @@
+{
+  "file": "crystal_02360.png",
+  "type": "crystal",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "retro_8bit",
+  "source": "modern",
+  "pose": "front_view",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "ice",
+    "dual_wield",
+    "armor",
+    "lightning"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_8bit pixel art asset of crystal"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "elf_02222.png",
+  "type": "elf",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "retro_16bit",
+  "source": "cyberpunk",
+  "pose": "flying",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "potion",
+    "muscular",
+    "gloves",
+    "magic_circle"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of elf"
+}

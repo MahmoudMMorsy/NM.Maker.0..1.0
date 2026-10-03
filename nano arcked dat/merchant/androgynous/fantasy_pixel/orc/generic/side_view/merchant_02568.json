@@ -1,0 +1,21 @@
+{
+  "file": "merchant_02568.png",
+  "type": "merchant",
+  "gender": "androgynous",
+  "race": "orc",
+  "style": "fantasy_pixel",
+  "source": "generic",
+  "pose": "side_view",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "potion",
+    "lightning",
+    "muscular",
+    "young"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of merchant"
+}

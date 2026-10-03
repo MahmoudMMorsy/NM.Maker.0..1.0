@@ -1,0 +1,21 @@
+{
+  "file": "werewolf_02642.png",
+  "type": "werewolf",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "sci_fi_pixel",
+  "source": "sci_fi",
+  "pose": "full_body",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "cape",
+    "armor",
+    "old",
+    "magic_circle"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of werewolf"
+}

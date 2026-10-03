@@ -1,0 +1,21 @@
+{
+  "file": "undead_00205.png",
+  "type": "undead",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "fantasy_pixel",
+  "source": "medieval",
+  "pose": "attacking",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "old",
+    "helmet",
+    "staff",
+    "dual_wield"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of undead"
+}

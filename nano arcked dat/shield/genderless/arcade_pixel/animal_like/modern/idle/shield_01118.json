@@ -1,0 +1,21 @@
+{
+  "file": "shield_01118.png",
+  "type": "shield",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "arcade_pixel",
+  "source": "modern",
+  "pose": "idle",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "robe",
+    "glowing_eyes",
+    "young",
+    "cape"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of shield"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "fairy_02229.png",
+  "type": "fairy",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "retro_16bit",
+  "source": "anime_series",
+  "pose": "side_view",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "lightning",
+    "helmet",
+    "robe",
+    "armor"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of fairy"
+}

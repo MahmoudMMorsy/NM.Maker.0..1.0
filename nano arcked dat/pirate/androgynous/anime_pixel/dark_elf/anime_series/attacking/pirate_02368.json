@@ -1,0 +1,21 @@
+{
+  "file": "pirate_02368.png",
+  "type": "pirate",
+  "gender": "androgynous",
+  "race": "dark_elf",
+  "style": "anime_pixel",
+  "source": "anime_series",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "helmet",
+    "slim",
+    "armor",
+    "lightning"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of pirate"
+}

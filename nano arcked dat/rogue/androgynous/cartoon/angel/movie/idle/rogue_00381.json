@@ -1,0 +1,21 @@
+{
+  "file": "rogue_00381.png",
+  "type": "rogue",
+  "gender": "androgynous",
+  "race": "angel",
+  "style": "cartoon",
+  "source": "movie",
+  "pose": "idle",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "young",
+    "armor",
+    "gloves",
+    "dual_wield"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of rogue"
+}

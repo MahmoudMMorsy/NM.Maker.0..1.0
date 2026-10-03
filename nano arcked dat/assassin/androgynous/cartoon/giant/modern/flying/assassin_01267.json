@@ -1,0 +1,21 @@
+{
+  "file": "assassin_01267.png",
+  "type": "assassin",
+  "gender": "androgynous",
+  "race": "giant",
+  "style": "cartoon",
+  "source": "modern",
+  "pose": "flying",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "potion",
+    "glowing_eyes",
+    "fire",
+    "wings"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of assassin"
+}

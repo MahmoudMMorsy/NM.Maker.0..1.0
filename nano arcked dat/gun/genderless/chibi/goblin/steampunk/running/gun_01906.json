@@ -1,0 +1,21 @@
+{
+  "file": "gun_01906.png",
+  "type": "gun",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "chibi",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "slim",
+    "old",
+    "wings",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "chibi pixel art asset of gun"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "monk_02163.png",
+  "type": "monk",
+  "gender": "male",
+  "race": "dark_elf",
+  "style": "clean_pixel",
+  "source": "sci_fi",
+  "pose": "sitting",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "young",
+    "ice",
+    "tail",
+    "muscular"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of monk"
+}

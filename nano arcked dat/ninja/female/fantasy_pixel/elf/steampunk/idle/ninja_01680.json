@@ -1,0 +1,21 @@
+{
+  "file": "ninja_01680.png",
+  "type": "ninja",
+  "gender": "female",
+  "race": "elf",
+  "style": "fantasy_pixel",
+  "source": "steampunk",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "boots",
+    "armor",
+    "horns",
+    "dual_wield"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of ninja"
+}

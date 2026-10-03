@@ -1,0 +1,21 @@
+{
+  "file": "fairy_02216.png",
+  "type": "fairy",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "horror_pixel",
+  "source": "historical",
+  "pose": "sitting",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "shield",
+    "robe",
+    "lightning",
+    "gloves"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of fairy"
+}

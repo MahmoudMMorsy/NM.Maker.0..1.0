@@ -1,0 +1,21 @@
+{
+  "file": "archer_00633.png",
+  "type": "archer",
+  "gender": "female",
+  "race": "alien",
+  "style": "sci_fi_pixel",
+  "source": "cartoon_western",
+  "pose": "back_view",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "ice",
+    "slim",
+    "staff",
+    "sword"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of archer"
+}

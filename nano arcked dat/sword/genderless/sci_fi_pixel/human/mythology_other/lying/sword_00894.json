@@ -1,0 +1,21 @@
+{
+  "file": "sword_00894.png",
+  "type": "sword",
+  "gender": "genderless",
+  "race": "human",
+  "style": "sci_fi_pixel",
+  "source": "mythology_other",
+  "pose": "lying",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "armor",
+    "cape",
+    "wings",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of sword"
+}

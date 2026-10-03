@@ -1,0 +1,21 @@
+{
+  "file": "food_02389.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "fantasy_pixel",
+  "source": "comic",
+  "pose": "back_view",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "young",
+    "gloves",
+    "cape",
+    "lightning"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of food"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "necromancer_00125.png",
+  "type": "necromancer",
+  "gender": "female",
+  "race": "hybrid",
+  "style": "anime_pixel",
+  "source": "historical",
+  "pose": "back_view",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "wings",
+    "boots",
+    "dual_wield",
+    "tail"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of necromancer"
+}

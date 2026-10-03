@@ -1,0 +1,21 @@
+{
+  "file": "ghost_01141.png",
+  "type": "ghost",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "cartoon",
+  "source": "medieval",
+  "pose": "full_body",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "shield",
+    "lightning",
+    "glowing_eyes",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of ghost"
+}

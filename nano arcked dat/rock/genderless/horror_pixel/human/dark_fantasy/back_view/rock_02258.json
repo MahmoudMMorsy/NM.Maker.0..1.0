@@ -1,0 +1,21 @@
+{
+  "file": "rock_02258.png",
+  "type": "rock",
+  "gender": "genderless",
+  "race": "human",
+  "style": "horror_pixel",
+  "source": "dark_fantasy",
+  "pose": "back_view",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "ice",
+    "helmet",
+    "sword",
+    "slim"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of rock"
+}

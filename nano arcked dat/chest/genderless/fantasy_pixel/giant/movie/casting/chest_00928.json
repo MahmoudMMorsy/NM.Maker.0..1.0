@@ -1,0 +1,21 @@
+{
+  "file": "chest_00928.png",
+  "type": "chest",
+  "gender": "genderless",
+  "race": "giant",
+  "style": "fantasy_pixel",
+  "source": "movie",
+  "pose": "casting",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "slim",
+    "bow",
+    "armor",
+    "axe"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of chest"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "demon_00632.png",
+  "type": "demon",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "anime_pixel",
+  "source": "dark_fantasy",
+  "pose": "front_view",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "wings",
+    "lightning",
+    "gloves"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of demon"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "dancer_01584.png",
+  "type": "dancer",
+  "gender": "male",
+  "race": "dwarf",
+  "style": "retro_8bit",
+  "source": "anime_series",
+  "pose": "casting",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "old",
+    "dual_wield",
+    "sword",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of dancer"
+}

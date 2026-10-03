@@ -1,0 +1,21 @@
+{
+  "file": "king_02296.png",
+  "type": "king",
+  "gender": "male",
+  "race": "animal_like",
+  "style": "retro_8bit",
+  "source": "modern",
+  "pose": "sitting",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "lightning",
+    "slim",
+    "dual_wield",
+    "sword"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of king"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "portal_02468.png",
+  "type": "portal",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "arcade_pixel",
+  "source": "historical",
+  "pose": "sitting",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "axe",
+    "young",
+    "staff",
+    "bow"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of portal"
+}

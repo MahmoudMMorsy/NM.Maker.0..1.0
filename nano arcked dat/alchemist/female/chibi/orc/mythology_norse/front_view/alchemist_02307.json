@@ -1,0 +1,21 @@
+{
+  "file": "alchemist_02307.png",
+  "type": "alchemist",
+  "gender": "female",
+  "race": "orc",
+  "style": "chibi",
+  "source": "mythology_norse",
+  "pose": "front_view",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "horns",
+    "muscular",
+    "armor",
+    "slim"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of alchemist"
+}

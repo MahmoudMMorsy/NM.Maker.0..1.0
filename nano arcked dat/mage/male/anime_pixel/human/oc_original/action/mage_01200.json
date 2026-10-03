@@ -1,0 +1,21 @@
+{
+  "file": "mage_01200.png",
+  "type": "mage",
+  "gender": "male",
+  "race": "human",
+  "style": "anime_pixel",
+  "source": "oc_original",
+  "pose": "action",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "shield",
+    "boots",
+    "helmet",
+    "old"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of mage"
+}

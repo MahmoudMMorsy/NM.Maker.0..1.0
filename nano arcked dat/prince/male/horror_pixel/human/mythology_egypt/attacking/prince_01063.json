@@ -1,0 +1,21 @@
+{
+  "file": "prince_01063.png",
+  "type": "prince",
+  "gender": "male",
+  "race": "human",
+  "style": "horror_pixel",
+  "source": "mythology_egypt",
+  "pose": "attacking",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "sword",
+    "helmet",
+    "young",
+    "gloves"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of prince"
+}

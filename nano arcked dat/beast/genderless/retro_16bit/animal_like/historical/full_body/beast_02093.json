@@ -1,0 +1,21 @@
+{
+  "file": "beast_02093.png",
+  "type": "beast",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "retro_16bit",
+  "source": "historical",
+  "pose": "full_body",
+  "colors": [
+    "purple",
+    "blue"
+  ],
+  "tags": [
+    "gloves",
+    "axe",
+    "tail",
+    "sword"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of beast"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "warrior_01252.png",
+  "type": "warrior",
+  "gender": "female",
+  "race": "cyborg",
+  "style": "retro_16bit",
+  "source": "movie",
+  "pose": "running",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "slim",
+    "dual_wield",
+    "cape",
+    "glowing_eyes"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of warrior"
+}

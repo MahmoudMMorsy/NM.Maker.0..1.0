@@ -1,0 +1,21 @@
+{
+  "file": "prince_02527.png",
+  "type": "prince",
+  "gender": "androgynous",
+  "race": "orc",
+  "style": "cartoon",
+  "source": "mythology_greek",
+  "pose": "casting",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "bow",
+    "shield",
+    "magic_circle",
+    "dual_wield"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of prince"
+}

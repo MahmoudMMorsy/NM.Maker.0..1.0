@@ -1,0 +1,21 @@
+{
+  "file": "zombie_01397.png",
+  "type": "zombie",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "dark_fantasy",
+  "source": "mythology_norse",
+  "pose": "idle",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "old",
+    "axe",
+    "boots",
+    "sword"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of zombie"
+}

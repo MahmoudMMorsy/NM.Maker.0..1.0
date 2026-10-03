@@ -1,0 +1,21 @@
+{
+  "file": "goblin_02806.png",
+  "type": "goblin",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "dark_fantasy",
+  "source": "historical",
+  "pose": "back_view",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "armor",
+    "boots",
+    "ice",
+    "cape"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of goblin"
+}

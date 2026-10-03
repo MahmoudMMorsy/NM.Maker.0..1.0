@@ -1,0 +1,21 @@
+{
+  "file": "child_02913.png",
+  "type": "child",
+  "gender": "androgynous",
+  "race": "angel",
+  "style": "retro_16bit",
+  "source": "mythology_norse",
+  "pose": "walking",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "dual_wield",
+    "shield",
+    "staff",
+    "ice"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of child"
+}

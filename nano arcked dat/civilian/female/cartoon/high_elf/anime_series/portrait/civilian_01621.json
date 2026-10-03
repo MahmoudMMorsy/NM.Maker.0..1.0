@@ -1,0 +1,21 @@
+{
+  "file": "civilian_01621.png",
+  "type": "civilian",
+  "gender": "female",
+  "race": "high_elf",
+  "style": "cartoon",
+  "source": "anime_series",
+  "pose": "portrait",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "old",
+    "robe",
+    "young",
+    "fire"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of civilian"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "hunter_01718.png",
+  "type": "hunter",
+  "gender": "male",
+  "race": "goblin",
+  "style": "detailed_pixel",
+  "source": "oc_original",
+  "pose": "side_view",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "slim",
+    "dual_wield",
+    "muscular"
+  ],
+  "resolution": "128x128",
+  "notes": "detailed_pixel pixel art asset of hunter"
+}

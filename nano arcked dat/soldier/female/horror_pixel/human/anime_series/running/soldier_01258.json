@@ -1,0 +1,21 @@
+{
+  "file": "soldier_01258.png",
+  "type": "soldier",
+  "gender": "female",
+  "race": "human",
+  "style": "horror_pixel",
+  "source": "anime_series",
+  "pose": "running",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "bow",
+    "axe",
+    "shield",
+    "wings"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of soldier"
+}

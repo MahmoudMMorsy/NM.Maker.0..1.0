@@ -1,0 +1,21 @@
+{
+  "file": "cyborg_00415.png",
+  "type": "cyborg",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "detailed_pixel",
+  "source": "rpg_fantasy",
+  "pose": "full_body",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "ice",
+    "bow",
+    "dual_wield",
+    "staff"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of cyborg"
+}

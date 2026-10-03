@@ -1,0 +1,21 @@
+{
+  "file": "princess_02871.png",
+  "type": "princess",
+  "gender": "androgynous",
+  "race": "merfolk",
+  "style": "detailed_pixel",
+  "source": "modern",
+  "pose": "attacking",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "ice",
+    "magic_circle",
+    "axe",
+    "wings"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of princess"
+}

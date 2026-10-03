@@ -1,0 +1,21 @@
+{
+  "file": "summoner_02025.png",
+  "type": "summoner",
+  "gender": "female",
+  "race": "demon",
+  "style": "arcade_pixel",
+  "source": "mythology_egypt",
+  "pose": "attacking",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "helmet",
+    "armor",
+    "staff",
+    "lightning"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of summoner"
+}

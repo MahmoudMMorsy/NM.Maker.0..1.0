@@ -1,0 +1,21 @@
+{
+  "file": "prince_01253.png",
+  "type": "prince",
+  "gender": "male",
+  "race": "elf",
+  "style": "fantasy_pixel",
+  "source": "oc_original",
+  "pose": "casting",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "helmet",
+    "gloves",
+    "sword",
+    "old"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of prince"
+}

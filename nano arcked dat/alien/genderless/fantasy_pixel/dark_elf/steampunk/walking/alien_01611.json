@@ -1,0 +1,21 @@
+{
+  "file": "alien_01611.png",
+  "type": "alien",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "fantasy_pixel",
+  "source": "steampunk",
+  "pose": "walking",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "ice",
+    "muscular",
+    "boots",
+    "dual_wield"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of alien"
+}

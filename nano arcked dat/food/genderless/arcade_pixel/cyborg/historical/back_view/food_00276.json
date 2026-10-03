@@ -1,0 +1,21 @@
+{
+  "file": "food_00276.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "arcade_pixel",
+  "source": "historical",
+  "pose": "back_view",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "young",
+    "helmet",
+    "tail",
+    "muscular"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of food"
+}

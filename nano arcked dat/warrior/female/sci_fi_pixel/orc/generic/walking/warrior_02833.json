@@ -1,0 +1,21 @@
+{
+  "file": "warrior_02833.png",
+  "type": "warrior",
+  "gender": "female",
+  "race": "orc",
+  "style": "sci_fi_pixel",
+  "source": "generic",
+  "pose": "walking",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "gloves",
+    "fire",
+    "young",
+    "sword"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of warrior"
+}

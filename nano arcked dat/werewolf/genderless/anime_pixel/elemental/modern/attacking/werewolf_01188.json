@@ -1,0 +1,21 @@
+{
+  "file": "werewolf_01188.png",
+  "type": "werewolf",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "anime_pixel",
+  "source": "modern",
+  "pose": "attacking",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "old",
+    "dual_wield",
+    "muscular",
+    "wings"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of werewolf"
+}

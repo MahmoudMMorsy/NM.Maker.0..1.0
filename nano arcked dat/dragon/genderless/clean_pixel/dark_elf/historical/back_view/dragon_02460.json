@@ -1,0 +1,21 @@
+{
+  "file": "dragon_02460.png",
+  "type": "dragon",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "clean_pixel",
+  "source": "historical",
+  "pose": "back_view",
+  "colors": [
+    "silver",
+    "red"
+  ],
+  "tags": [
+    "young",
+    "old",
+    "axe",
+    "helmet"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of dragon"
+}

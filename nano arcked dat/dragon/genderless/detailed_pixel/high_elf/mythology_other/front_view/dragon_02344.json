@@ -1,0 +1,21 @@
+{
+  "file": "dragon_02344.png",
+  "type": "dragon",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "detailed_pixel",
+  "source": "mythology_other",
+  "pose": "front_view",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "ice",
+    "fire",
+    "axe",
+    "potion"
+  ],
+  "resolution": "128x128",
+  "notes": "detailed_pixel pixel art asset of dragon"
+}

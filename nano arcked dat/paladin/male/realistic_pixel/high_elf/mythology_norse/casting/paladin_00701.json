@@ -1,0 +1,21 @@
+{
+  "file": "paladin_00701.png",
+  "type": "paladin",
+  "gender": "male",
+  "race": "high_elf",
+  "style": "realistic_pixel",
+  "source": "mythology_norse",
+  "pose": "casting",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "old",
+    "ice",
+    "helmet",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of paladin"
+}

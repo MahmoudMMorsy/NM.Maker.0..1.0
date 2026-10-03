@@ -1,0 +1,21 @@
+{
+  "file": "blacksmith_02938.png",
+  "type": "blacksmith",
+  "gender": "androgynous",
+  "race": "dark_elf",
+  "style": "dark_fantasy",
+  "source": "anime_series",
+  "pose": "running",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "armor",
+    "bow",
+    "sword",
+    "cape"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of blacksmith"
+}

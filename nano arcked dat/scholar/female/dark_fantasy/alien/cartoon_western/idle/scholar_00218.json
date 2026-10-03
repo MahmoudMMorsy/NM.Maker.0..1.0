@@ -1,0 +1,21 @@
+{
+  "file": "scholar_00218.png",
+  "type": "scholar",
+  "gender": "female",
+  "race": "alien",
+  "style": "dark_fantasy",
+  "source": "cartoon_western",
+  "pose": "idle",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "gloves",
+    "horns",
+    "armor"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of scholar"
+}

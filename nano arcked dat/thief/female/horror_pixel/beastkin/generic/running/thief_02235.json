@@ -1,0 +1,21 @@
+{
+  "file": "thief_02235.png",
+  "type": "thief",
+  "gender": "female",
+  "race": "beastkin",
+  "style": "horror_pixel",
+  "source": "generic",
+  "pose": "running",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "slim",
+    "magic_circle",
+    "potion",
+    "tail"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of thief"
+}

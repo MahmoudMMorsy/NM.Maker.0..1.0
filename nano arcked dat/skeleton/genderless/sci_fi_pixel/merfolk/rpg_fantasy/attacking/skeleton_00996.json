@@ -1,0 +1,21 @@
+{
+  "file": "skeleton_00996.png",
+  "type": "skeleton",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "sci_fi_pixel",
+  "source": "rpg_fantasy",
+  "pose": "attacking",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "slim",
+    "muscular",
+    "glowing_eyes",
+    "robe"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of skeleton"
+}

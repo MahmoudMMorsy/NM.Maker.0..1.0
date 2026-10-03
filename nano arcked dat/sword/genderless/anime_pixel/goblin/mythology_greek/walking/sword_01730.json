@@ -1,0 +1,21 @@
+{
+  "file": "sword_01730.png",
+  "type": "sword",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "anime_pixel",
+  "source": "mythology_greek",
+  "pose": "walking",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "wings",
+    "bow",
+    "robe",
+    "slim"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of sword"
+}

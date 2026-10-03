@@ -1,0 +1,21 @@
+{
+  "file": "vehicle_01244.png",
+  "type": "vehicle",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "horror_pixel",
+  "source": "post_apocalyptic",
+  "pose": "side_view",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "slim",
+    "magic_circle",
+    "ice",
+    "tail"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of vehicle"
+}

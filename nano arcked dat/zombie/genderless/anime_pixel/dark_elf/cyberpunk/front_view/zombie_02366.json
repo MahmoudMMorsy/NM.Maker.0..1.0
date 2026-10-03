@@ -1,0 +1,21 @@
+{
+  "file": "zombie_02366.png",
+  "type": "zombie",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "anime_pixel",
+  "source": "cyberpunk",
+  "pose": "front_view",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "magic_circle",
+    "glowing_eyes",
+    "armor",
+    "bow"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of zombie"
+}

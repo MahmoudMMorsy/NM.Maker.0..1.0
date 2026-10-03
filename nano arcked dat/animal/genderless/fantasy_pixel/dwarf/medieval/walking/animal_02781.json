@@ -1,0 +1,21 @@
+{
+  "file": "animal_02781.png",
+  "type": "animal",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "fantasy_pixel",
+  "source": "medieval",
+  "pose": "walking",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "young",
+    "old",
+    "dual_wield",
+    "cape"
+  ],
+  "resolution": "32x32",
+  "notes": "fantasy_pixel pixel art asset of animal"
+}

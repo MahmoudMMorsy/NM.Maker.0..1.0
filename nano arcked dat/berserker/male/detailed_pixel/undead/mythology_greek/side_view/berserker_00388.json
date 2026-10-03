@@ -1,0 +1,21 @@
+{
+  "file": "berserker_00388.png",
+  "type": "berserker",
+  "gender": "male",
+  "race": "undead",
+  "style": "detailed_pixel",
+  "source": "mythology_greek",
+  "pose": "side_view",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "ice",
+    "lightning",
+    "helmet",
+    "sword"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of berserker"
+}

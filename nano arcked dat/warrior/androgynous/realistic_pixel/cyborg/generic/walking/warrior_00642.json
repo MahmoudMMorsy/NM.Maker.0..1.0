@@ -1,0 +1,21 @@
+{
+  "file": "warrior_00642.png",
+  "type": "warrior",
+  "gender": "androgynous",
+  "race": "cyborg",
+  "style": "realistic_pixel",
+  "source": "generic",
+  "pose": "walking",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "dual_wield",
+    "old",
+    "wings",
+    "helmet"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of warrior"
+}

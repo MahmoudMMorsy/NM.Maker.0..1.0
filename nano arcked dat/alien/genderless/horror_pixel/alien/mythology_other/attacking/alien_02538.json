@@ -1,0 +1,21 @@
+{
+  "file": "alien_02538.png",
+  "type": "alien",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "horror_pixel",
+  "source": "mythology_other",
+  "pose": "attacking",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "tail",
+    "helmet",
+    "cape",
+    "axe"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of alien"
+}

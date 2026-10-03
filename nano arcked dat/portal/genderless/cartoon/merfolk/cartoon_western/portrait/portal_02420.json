@@ -1,0 +1,21 @@
+{
+  "file": "portal_02420.png",
+  "type": "portal",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "cartoon",
+  "source": "cartoon_western",
+  "pose": "portrait",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "slim",
+    "fire",
+    "magic_circle",
+    "sword"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of portal"
+}

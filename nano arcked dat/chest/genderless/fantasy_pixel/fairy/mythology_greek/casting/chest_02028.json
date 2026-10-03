@@ -1,0 +1,21 @@
+{
+  "file": "chest_02028.png",
+  "type": "chest",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "fantasy_pixel",
+  "source": "mythology_greek",
+  "pose": "casting",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "ice",
+    "sword",
+    "lightning",
+    "wings"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of chest"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "hunter_00058.png",
+  "type": "hunter",
+  "gender": "male",
+  "race": "high_elf",
+  "style": "horror_pixel",
+  "source": "oc_original",
+  "pose": "lying",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "horns",
+    "ice",
+    "dual_wield",
+    "slim"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of hunter"
+}

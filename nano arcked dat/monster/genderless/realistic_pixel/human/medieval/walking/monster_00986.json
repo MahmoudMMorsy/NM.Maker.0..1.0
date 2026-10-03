@@ -1,0 +1,21 @@
+{
+  "file": "monster_00986.png",
+  "type": "monster",
+  "gender": "genderless",
+  "race": "human",
+  "style": "realistic_pixel",
+  "source": "medieval",
+  "pose": "walking",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "tail",
+    "boots",
+    "lightning",
+    "fire"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of monster"
+}

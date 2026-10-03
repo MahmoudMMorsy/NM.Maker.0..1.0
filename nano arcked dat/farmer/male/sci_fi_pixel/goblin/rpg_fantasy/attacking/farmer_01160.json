@@ -1,0 +1,21 @@
+{
+  "file": "farmer_01160.png",
+  "type": "farmer",
+  "gender": "male",
+  "race": "goblin",
+  "style": "sci_fi_pixel",
+  "source": "rpg_fantasy",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "bow",
+    "magic_circle",
+    "fire",
+    "armor"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of farmer"
+}

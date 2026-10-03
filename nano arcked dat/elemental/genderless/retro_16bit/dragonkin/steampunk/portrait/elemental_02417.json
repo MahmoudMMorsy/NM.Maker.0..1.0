@@ -1,0 +1,21 @@
+{
+  "file": "elemental_02417.png",
+  "type": "elemental",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "retro_16bit",
+  "source": "steampunk",
+  "pose": "portrait",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "potion",
+    "gloves",
+    "bow",
+    "cape"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of elemental"
+}

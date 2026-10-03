@@ -1,0 +1,21 @@
+{
+  "file": "summoner_02383.png",
+  "type": "summoner",
+  "gender": "male",
+  "race": "cyborg",
+  "style": "anime_pixel",
+  "source": "comic",
+  "pose": "portrait",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "lightning",
+    "fire",
+    "helmet",
+    "slim"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of summoner"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "archer_02248.png",
+  "type": "archer",
+  "gender": "female",
+  "race": "dragonkin",
+  "style": "fantasy_pixel",
+  "source": "generic",
+  "pose": "action",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "cape",
+    "helmet",
+    "old",
+    "glowing_eyes"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of archer"
+}

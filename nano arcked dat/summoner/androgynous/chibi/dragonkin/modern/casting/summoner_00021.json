@@ -1,0 +1,21 @@
+{
+  "file": "summoner_00021.png",
+  "type": "summoner",
+  "gender": "androgynous",
+  "race": "dragonkin",
+  "style": "chibi",
+  "source": "modern",
+  "pose": "casting",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "sword",
+    "boots",
+    "old",
+    "potion"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of summoner"
+}

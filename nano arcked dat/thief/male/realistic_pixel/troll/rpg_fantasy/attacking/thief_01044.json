@@ -1,0 +1,21 @@
+{
+  "file": "thief_01044.png",
+  "type": "thief",
+  "gender": "male",
+  "race": "troll",
+  "style": "realistic_pixel",
+  "source": "rpg_fantasy",
+  "pose": "attacking",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "bow",
+    "robe",
+    "glowing_eyes",
+    "young"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of thief"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "beast_01347.png",
+  "type": "beast",
+  "gender": "genderless",
+  "race": "human",
+  "style": "clean_pixel",
+  "source": "cartoon_western",
+  "pose": "full_body",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "lightning",
+    "axe",
+    "cape",
+    "staff"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of beast"
+}

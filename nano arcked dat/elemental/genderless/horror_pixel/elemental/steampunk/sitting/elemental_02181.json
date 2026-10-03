@@ -1,0 +1,21 @@
+{
+  "file": "elemental_02181.png",
+  "type": "elemental",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "horror_pixel",
+  "source": "steampunk",
+  "pose": "sitting",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "fire",
+    "potion",
+    "glowing_eyes",
+    "shield"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of elemental"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "hunter_02125.png",
+  "type": "hunter",
+  "gender": "male",
+  "race": "high_elf",
+  "style": "retro_8bit",
+  "source": "mythology_norse",
+  "pose": "walking",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "boots",
+    "cape",
+    "wings",
+    "armor"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of hunter"
+}

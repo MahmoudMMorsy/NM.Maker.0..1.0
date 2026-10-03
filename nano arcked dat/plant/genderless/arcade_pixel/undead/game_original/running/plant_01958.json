@@ -1,0 +1,21 @@
+{
+  "file": "plant_01958.png",
+  "type": "plant",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "arcade_pixel",
+  "source": "game_original",
+  "pose": "running",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "horns",
+    "fire",
+    "potion",
+    "shield"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of plant"
+}

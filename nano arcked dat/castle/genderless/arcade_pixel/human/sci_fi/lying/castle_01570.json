@@ -1,0 +1,21 @@
+{
+  "file": "castle_01570.png",
+  "type": "castle",
+  "gender": "genderless",
+  "race": "human",
+  "style": "arcade_pixel",
+  "source": "sci_fi",
+  "pose": "lying",
+  "colors": [
+    "purple",
+    "red"
+  ],
+  "tags": [
+    "gloves",
+    "sword",
+    "boots",
+    "dual_wield"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of castle"
+}

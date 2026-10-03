@@ -1,0 +1,21 @@
+{
+  "file": "thief_02159.png",
+  "type": "thief",
+  "gender": "male",
+  "race": "elf",
+  "style": "anime_pixel",
+  "source": "steampunk",
+  "pose": "walking",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "boots",
+    "robe",
+    "potion",
+    "muscular"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of thief"
+}

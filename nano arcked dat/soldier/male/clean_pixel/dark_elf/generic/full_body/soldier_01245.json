@@ -1,0 +1,21 @@
+{
+  "file": "soldier_01245.png",
+  "type": "soldier",
+  "gender": "male",
+  "race": "dark_elf",
+  "style": "clean_pixel",
+  "source": "generic",
+  "pose": "full_body",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "sword",
+    "shield",
+    "wings",
+    "magic_circle"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of soldier"
+}

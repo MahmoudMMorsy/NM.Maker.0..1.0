@@ -1,0 +1,21 @@
+{
+  "file": "dancer_02343.png",
+  "type": "dancer",
+  "gender": "male",
+  "race": "cyborg",
+  "style": "anime_pixel",
+  "source": "horror",
+  "pose": "back_view",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "robe",
+    "magic_circle",
+    "bow"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of dancer"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "elf_00160.png",
+  "type": "elf",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "retro_8bit",
+  "source": "mythology_norse",
+  "pose": "idle",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "magic_circle",
+    "horns",
+    "staff",
+    "gloves"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_8bit pixel art asset of elf"
+}

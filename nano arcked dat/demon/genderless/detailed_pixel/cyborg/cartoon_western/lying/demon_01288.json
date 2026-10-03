@@ -1,0 +1,21 @@
+{
+  "file": "demon_01288.png",
+  "type": "demon",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "detailed_pixel",
+  "source": "cartoon_western",
+  "pose": "lying",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "boots",
+    "glowing_eyes",
+    "shield",
+    "gloves"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of demon"
+}

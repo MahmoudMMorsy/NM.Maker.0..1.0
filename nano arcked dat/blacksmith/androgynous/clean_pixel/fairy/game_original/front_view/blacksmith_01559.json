@@ -1,0 +1,21 @@
+{
+  "file": "blacksmith_01559.png",
+  "type": "blacksmith",
+  "gender": "androgynous",
+  "race": "fairy",
+  "style": "clean_pixel",
+  "source": "game_original",
+  "pose": "front_view",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "helmet",
+    "wings",
+    "dual_wield"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of blacksmith"
+}

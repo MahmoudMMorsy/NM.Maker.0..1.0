@@ -1,0 +1,21 @@
+{
+  "file": "viking_02033.png",
+  "type": "viking",
+  "gender": "male",
+  "race": "high_elf",
+  "style": "retro_8bit",
+  "source": "steampunk",
+  "pose": "front_view",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "ice",
+    "magic_circle",
+    "old",
+    "helmet"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of viking"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "staff_00999.png",
+  "type": "staff",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "sci_fi_pixel",
+  "source": "historical",
+  "pose": "portrait",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "staff",
+    "old",
+    "gloves",
+    "fire"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of staff"
+}

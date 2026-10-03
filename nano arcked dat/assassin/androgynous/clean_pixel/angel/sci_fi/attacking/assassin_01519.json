@@ -1,0 +1,21 @@
+{
+  "file": "assassin_01519.png",
+  "type": "assassin",
+  "gender": "androgynous",
+  "race": "angel",
+  "style": "clean_pixel",
+  "source": "sci_fi",
+  "pose": "attacking",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "boots",
+    "young",
+    "slim",
+    "tail"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of assassin"
+}

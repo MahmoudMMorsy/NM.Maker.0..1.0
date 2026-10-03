@@ -1,0 +1,21 @@
+{
+  "file": "vehicle_01168.png",
+  "type": "vehicle",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "cartoon",
+  "source": "modern",
+  "pose": "walking",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "young",
+    "tail",
+    "boots",
+    "sword"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of vehicle"
+}

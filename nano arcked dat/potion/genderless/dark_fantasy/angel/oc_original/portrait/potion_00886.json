@@ -1,0 +1,21 @@
+{
+  "file": "potion_00886.png",
+  "type": "potion",
+  "gender": "genderless",
+  "race": "angel",
+  "style": "dark_fantasy",
+  "source": "oc_original",
+  "pose": "portrait",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "bow",
+    "axe",
+    "old",
+    "wings"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of potion"
+}

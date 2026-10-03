@@ -1,0 +1,21 @@
+{
+  "file": "food_01857.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "arcade_pixel",
+  "source": "dark_fantasy",
+  "pose": "front_view",
+  "colors": [
+    "red",
+    "green"
+  ],
+  "tags": [
+    "young",
+    "magic_circle",
+    "shield",
+    "horns"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of food"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "vampire_01651.png",
+  "type": "vampire",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "retro_8bit",
+  "source": "horror",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "robe",
+    "armor",
+    "helmet",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of vampire"
+}

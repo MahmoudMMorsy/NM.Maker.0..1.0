@@ -1,0 +1,21 @@
+{
+  "file": "dragon_00781.png",
+  "type": "dragon",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "dark_fantasy",
+  "source": "generic",
+  "pose": "full_body",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "bow",
+    "gloves",
+    "muscular",
+    "wings"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of dragon"
+}

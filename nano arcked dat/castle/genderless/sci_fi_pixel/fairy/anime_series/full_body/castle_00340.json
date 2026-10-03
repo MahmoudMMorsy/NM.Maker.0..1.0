@@ -1,0 +1,21 @@
+{
+  "file": "castle_00340.png",
+  "type": "castle",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "sci_fi_pixel",
+  "source": "anime_series",
+  "pose": "full_body",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "old",
+    "bow",
+    "robe",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of castle"
+}

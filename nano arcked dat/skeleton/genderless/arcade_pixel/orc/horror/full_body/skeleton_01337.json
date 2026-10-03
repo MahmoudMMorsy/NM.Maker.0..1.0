@@ -1,0 +1,21 @@
+{
+  "file": "skeleton_01337.png",
+  "type": "skeleton",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "arcade_pixel",
+  "source": "horror",
+  "pose": "full_body",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "robe",
+    "dual_wield",
+    "lightning",
+    "gloves"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of skeleton"
+}

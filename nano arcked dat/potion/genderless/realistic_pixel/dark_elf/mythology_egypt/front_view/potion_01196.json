@@ -1,0 +1,21 @@
+{
+  "file": "potion_01196.png",
+  "type": "potion",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "realistic_pixel",
+  "source": "mythology_egypt",
+  "pose": "front_view",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "magic_circle",
+    "armor",
+    "tail",
+    "axe"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of potion"
+}

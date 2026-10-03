@@ -1,0 +1,21 @@
+{
+  "file": "cyborg_02688.png",
+  "type": "cyborg",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "cartoon",
+  "source": "movie",
+  "pose": "walking",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "axe",
+    "robe",
+    "sword",
+    "dual_wield"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of cyborg"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "berserker_02728.png",
+  "type": "berserker",
+  "gender": "androgynous",
+  "race": "dwarf",
+  "style": "fantasy_pixel",
+  "source": "cyberpunk",
+  "pose": "back_view",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "armor",
+    "helmet",
+    "muscular",
+    "young"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of berserker"
+}

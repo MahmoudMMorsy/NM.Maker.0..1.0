@@ -1,0 +1,21 @@
+{
+  "file": "skeleton_00273.png",
+  "type": "skeleton",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "anime_pixel",
+  "source": "historical",
+  "pose": "lying",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "robe",
+    "muscular",
+    "tail",
+    "sword"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of skeleton"
+}

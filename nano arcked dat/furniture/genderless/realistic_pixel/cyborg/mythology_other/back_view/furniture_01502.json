@@ -1,0 +1,21 @@
+{
+  "file": "furniture_01502.png",
+  "type": "furniture",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "realistic_pixel",
+  "source": "mythology_other",
+  "pose": "back_view",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "armor",
+    "potion",
+    "ice",
+    "sword"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of furniture"
+}

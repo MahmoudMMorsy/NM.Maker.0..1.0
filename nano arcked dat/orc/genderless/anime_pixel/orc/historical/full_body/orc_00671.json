@@ -1,0 +1,21 @@
+{
+  "file": "orc_00671.png",
+  "type": "orc",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "anime_pixel",
+  "source": "historical",
+  "pose": "full_body",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "old",
+    "sword",
+    "potion",
+    "horns"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of orc"
+}

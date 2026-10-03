@@ -1,0 +1,21 @@
+{
+  "file": "mermaid_02610.png",
+  "type": "mermaid",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "retro_16bit",
+  "source": "horror",
+  "pose": "back_view",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "cape",
+    "tail",
+    "staff",
+    "robe"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of mermaid"
+}

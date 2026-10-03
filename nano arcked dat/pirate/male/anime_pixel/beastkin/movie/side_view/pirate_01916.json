@@ -1,0 +1,21 @@
+{
+  "file": "pirate_01916.png",
+  "type": "pirate",
+  "gender": "male",
+  "race": "beastkin",
+  "style": "anime_pixel",
+  "source": "movie",
+  "pose": "side_view",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "robe",
+    "axe",
+    "horns",
+    "bow"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of pirate"
+}

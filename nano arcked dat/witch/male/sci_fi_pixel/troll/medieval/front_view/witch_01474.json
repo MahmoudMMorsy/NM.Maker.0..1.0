@@ -1,0 +1,21 @@
+{
+  "file": "witch_01474.png",
+  "type": "witch",
+  "gender": "male",
+  "race": "troll",
+  "style": "sci_fi_pixel",
+  "source": "medieval",
+  "pose": "front_view",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "potion",
+    "muscular",
+    "magic_circle",
+    "ice"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of witch"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "samurai_00064.png",
+  "type": "samurai",
+  "gender": "male",
+  "race": "elf",
+  "style": "dark_fantasy",
+  "source": "anime_series",
+  "pose": "action",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "magic_circle",
+    "glowing_eyes",
+    "boots",
+    "horns"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of samurai"
+}

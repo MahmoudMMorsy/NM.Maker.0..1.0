@@ -1,0 +1,21 @@
+{
+  "file": "minotaur_00055.png",
+  "type": "minotaur",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "dark_fantasy",
+  "source": "oc_original",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "potion",
+    "gloves",
+    "wings",
+    "sword"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of minotaur"
+}

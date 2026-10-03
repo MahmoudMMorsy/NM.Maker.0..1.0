@@ -1,0 +1,21 @@
+{
+  "file": "farmer_00628.png",
+  "type": "farmer",
+  "gender": "female",
+  "race": "human",
+  "style": "sci_fi_pixel",
+  "source": "dark_fantasy",
+  "pose": "front_view",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "tail",
+    "slim",
+    "ice",
+    "cape"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of farmer"
+}

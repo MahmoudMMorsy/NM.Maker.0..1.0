@@ -1,0 +1,21 @@
+{
+  "file": "merchant_01090.png",
+  "type": "merchant",
+  "gender": "female",
+  "race": "beastkin",
+  "style": "realistic_pixel",
+  "source": "mythology_other",
+  "pose": "front_view",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "magic_circle",
+    "dual_wield",
+    "wings",
+    "armor"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of merchant"
+}

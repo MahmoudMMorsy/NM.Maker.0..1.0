@@ -1,0 +1,21 @@
+{
+  "file": "angel_02212.png",
+  "type": "angel",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "anime_pixel",
+  "source": "oc_original",
+  "pose": "flying",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "tail",
+    "horns",
+    "shield",
+    "staff"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of angel"
+}

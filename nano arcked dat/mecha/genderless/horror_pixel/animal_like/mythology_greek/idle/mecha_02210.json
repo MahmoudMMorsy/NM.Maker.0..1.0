@@ -1,0 +1,21 @@
+{
+  "file": "mecha_02210.png",
+  "type": "mecha",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "horror_pixel",
+  "source": "mythology_greek",
+  "pose": "idle",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "slim",
+    "boots",
+    "wings",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of mecha"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "alchemist_02269.png",
+  "type": "alchemist",
+  "gender": "male",
+  "race": "demon",
+  "style": "chibi",
+  "source": "rpg_fantasy",
+  "pose": "full_body",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "fire",
+    "young",
+    "cape",
+    "potion"
+  ],
+  "resolution": "32x32",
+  "notes": "chibi pixel art asset of alchemist"
+}

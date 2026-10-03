@@ -1,0 +1,21 @@
+{
+  "file": "zombie_01203.png",
+  "type": "zombie",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "realistic_pixel",
+  "source": "medieval",
+  "pose": "portrait",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "shield",
+    "glowing_eyes",
+    "gloves",
+    "wings"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of zombie"
+}

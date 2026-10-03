@@ -1,0 +1,21 @@
+{
+  "file": "troll_02081.png",
+  "type": "troll",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "horror_pixel",
+  "source": "mythology_egypt",
+  "pose": "idle",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "young",
+    "axe",
+    "cape",
+    "tail"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of troll"
+}

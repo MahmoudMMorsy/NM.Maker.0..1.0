@@ -1,0 +1,21 @@
+{
+  "file": "spaceship_00155.png",
+  "type": "spaceship",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "sci_fi_pixel",
+  "source": "game_original",
+  "pose": "front_view",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "young",
+    "horns",
+    "fire",
+    "bow"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of spaceship"
+}

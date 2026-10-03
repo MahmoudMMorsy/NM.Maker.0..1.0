@@ -1,0 +1,21 @@
+{
+  "file": "rogue_00407.png",
+  "type": "rogue",
+  "gender": "female",
+  "race": "animal_like",
+  "style": "chibi",
+  "source": "anime_series",
+  "pose": "sitting",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "magic_circle",
+    "ice",
+    "wings",
+    "helmet"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of rogue"
+}

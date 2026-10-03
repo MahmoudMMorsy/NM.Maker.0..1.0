@@ -1,0 +1,21 @@
+{
+  "file": "door_01403.png",
+  "type": "door",
+  "gender": "genderless",
+  "race": "angel",
+  "style": "horror_pixel",
+  "source": "game_original",
+  "pose": "idle",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "gloves",
+    "potion",
+    "helmet",
+    "glowing_eyes"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of door"
+}

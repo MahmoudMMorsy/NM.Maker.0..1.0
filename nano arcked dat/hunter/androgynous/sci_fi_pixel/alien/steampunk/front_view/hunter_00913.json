@@ -1,0 +1,21 @@
+{
+  "file": "hunter_00913.png",
+  "type": "hunter",
+  "gender": "androgynous",
+  "race": "alien",
+  "style": "sci_fi_pixel",
+  "source": "steampunk",
+  "pose": "front_view",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "muscular",
+    "staff",
+    "armor",
+    "helmet"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of hunter"
+}

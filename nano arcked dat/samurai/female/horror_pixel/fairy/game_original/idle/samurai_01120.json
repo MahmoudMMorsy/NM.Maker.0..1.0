@@ -1,0 +1,21 @@
+{
+  "file": "samurai_01120.png",
+  "type": "samurai",
+  "gender": "female",
+  "race": "fairy",
+  "style": "horror_pixel",
+  "source": "game_original",
+  "pose": "idle",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "cape",
+    "axe",
+    "armor",
+    "gloves"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of samurai"
+}

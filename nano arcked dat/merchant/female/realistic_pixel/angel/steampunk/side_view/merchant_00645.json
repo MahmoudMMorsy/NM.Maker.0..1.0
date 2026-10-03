@@ -1,0 +1,21 @@
+{
+  "file": "merchant_00645.png",
+  "type": "merchant",
+  "gender": "female",
+  "race": "angel",
+  "style": "realistic_pixel",
+  "source": "steampunk",
+  "pose": "side_view",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "muscular",
+    "fire",
+    "boots",
+    "dual_wield"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of merchant"
+}

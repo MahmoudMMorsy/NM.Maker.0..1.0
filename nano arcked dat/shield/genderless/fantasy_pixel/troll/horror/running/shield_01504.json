@@ -1,0 +1,21 @@
+{
+  "file": "shield_01504.png",
+  "type": "shield",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "fantasy_pixel",
+  "source": "horror",
+  "pose": "running",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "young",
+    "sword",
+    "boots",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "fantasy_pixel pixel art asset of shield"
+}

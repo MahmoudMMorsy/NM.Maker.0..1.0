@@ -1,0 +1,21 @@
+{
+  "file": "necromancer_02154.png",
+  "type": "necromancer",
+  "gender": "female",
+  "race": "angel",
+  "style": "anime_pixel",
+  "source": "horror",
+  "pose": "idle",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "boots",
+    "wings",
+    "gloves",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of necromancer"
+}

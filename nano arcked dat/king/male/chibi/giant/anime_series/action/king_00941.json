@@ -1,0 +1,21 @@
+{
+  "file": "king_00941.png",
+  "type": "king",
+  "gender": "male",
+  "race": "giant",
+  "style": "chibi",
+  "source": "anime_series",
+  "pose": "action",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "armor",
+    "helmet",
+    "magic_circle",
+    "boots"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of king"
+}

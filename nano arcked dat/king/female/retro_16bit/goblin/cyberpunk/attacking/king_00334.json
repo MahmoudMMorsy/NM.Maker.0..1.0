@@ -1,0 +1,21 @@
+{
+  "file": "king_00334.png",
+  "type": "king",
+  "gender": "female",
+  "race": "goblin",
+  "style": "retro_16bit",
+  "source": "cyberpunk",
+  "pose": "attacking",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "robe",
+    "slim",
+    "fire",
+    "armor"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of king"
+}

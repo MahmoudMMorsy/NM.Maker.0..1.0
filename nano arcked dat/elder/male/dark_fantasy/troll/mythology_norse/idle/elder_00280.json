@@ -1,0 +1,21 @@
+{
+  "file": "elder_00280.png",
+  "type": "elder",
+  "gender": "male",
+  "race": "troll",
+  "style": "dark_fantasy",
+  "source": "mythology_norse",
+  "pose": "idle",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "cape",
+    "bow",
+    "old",
+    "wings"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of elder"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "fairy_01085.png",
+  "type": "fairy",
+  "gender": "genderless",
+  "race": "giant",
+  "style": "retro_8bit",
+  "source": "oc_original",
+  "pose": "full_body",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "lightning",
+    "boots",
+    "old",
+    "bow"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of fairy"
+}

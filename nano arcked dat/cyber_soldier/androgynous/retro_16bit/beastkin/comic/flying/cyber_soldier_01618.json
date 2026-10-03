@@ -1,0 +1,21 @@
+{
+  "file": "cyber_soldier_01618.png",
+  "type": "cyber_soldier",
+  "gender": "androgynous",
+  "race": "beastkin",
+  "style": "retro_16bit",
+  "source": "comic",
+  "pose": "flying",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "muscular",
+    "staff",
+    "robe",
+    "horns"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of cyber_soldier"
+}

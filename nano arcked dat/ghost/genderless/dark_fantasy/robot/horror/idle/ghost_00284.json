@@ -1,0 +1,21 @@
+{
+  "file": "ghost_00284.png",
+  "type": "ghost",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "dark_fantasy",
+  "source": "horror",
+  "pose": "idle",
+  "colors": [
+    "red",
+    "silver"
+  ],
+  "tags": [
+    "boots",
+    "slim",
+    "armor",
+    "old"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of ghost"
+}

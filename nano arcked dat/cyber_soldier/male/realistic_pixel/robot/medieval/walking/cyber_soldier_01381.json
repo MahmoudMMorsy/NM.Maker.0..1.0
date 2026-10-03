@@ -1,0 +1,21 @@
+{
+  "file": "cyber_soldier_01381.png",
+  "type": "cyber_soldier",
+  "gender": "male",
+  "race": "robot",
+  "style": "realistic_pixel",
+  "source": "medieval",
+  "pose": "walking",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "boots",
+    "gloves",
+    "ice",
+    "young"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of cyber_soldier"
+}

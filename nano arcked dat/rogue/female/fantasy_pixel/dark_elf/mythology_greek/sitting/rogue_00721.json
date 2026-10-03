@@ -1,0 +1,21 @@
+{
+  "file": "rogue_00721.png",
+  "type": "rogue",
+  "gender": "female",
+  "race": "dark_elf",
+  "style": "fantasy_pixel",
+  "source": "mythology_greek",
+  "pose": "sitting",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "shield",
+    "wings",
+    "magic_circle",
+    "young"
+  ],
+  "resolution": "32x32",
+  "notes": "fantasy_pixel pixel art asset of rogue"
+}

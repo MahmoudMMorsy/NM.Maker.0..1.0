@@ -1,0 +1,21 @@
+{
+  "file": "alien_00814.png",
+  "type": "alien",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "realistic_pixel",
+  "source": "rpg_fantasy",
+  "pose": "full_body",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "ice",
+    "fire",
+    "wings",
+    "young"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of alien"
+}

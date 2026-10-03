@@ -1,0 +1,21 @@
+{
+  "file": "witch_02453.png",
+  "type": "witch",
+  "gender": "male",
+  "race": "elemental",
+  "style": "retro_8bit",
+  "source": "comic",
+  "pose": "casting",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "cape",
+    "boots",
+    "wings",
+    "shield"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of witch"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "building_02145.png",
+  "type": "building",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "retro_8bit",
+  "source": "movie",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "old",
+    "horns",
+    "young",
+    "slim"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of building"
+}

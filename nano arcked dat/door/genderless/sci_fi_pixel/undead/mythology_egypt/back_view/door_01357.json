@@ -1,0 +1,21 @@
+{
+  "file": "door_01357.png",
+  "type": "door",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "sci_fi_pixel",
+  "source": "mythology_egypt",
+  "pose": "back_view",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "shield",
+    "fire",
+    "tail",
+    "dual_wield"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of door"
+}

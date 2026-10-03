@@ -1,0 +1,21 @@
+{
+  "file": "furniture_00492.png",
+  "type": "furniture",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "arcade_pixel",
+  "source": "mythology_greek",
+  "pose": "back_view",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "shield",
+    "horns",
+    "axe",
+    "potion"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of furniture"
+}

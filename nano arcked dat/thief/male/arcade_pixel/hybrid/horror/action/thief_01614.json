@@ -1,0 +1,21 @@
+{
+  "file": "thief_01614.png",
+  "type": "thief",
+  "gender": "male",
+  "race": "hybrid",
+  "style": "arcade_pixel",
+  "source": "horror",
+  "pose": "action",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "boots",
+    "ice",
+    "muscular",
+    "fire"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of thief"
+}

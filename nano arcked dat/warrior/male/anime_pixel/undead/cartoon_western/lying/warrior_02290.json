@@ -1,0 +1,21 @@
+{
+  "file": "warrior_02290.png",
+  "type": "warrior",
+  "gender": "male",
+  "race": "undead",
+  "style": "anime_pixel",
+  "source": "cartoon_western",
+  "pose": "lying",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "old",
+    "cape",
+    "dual_wield",
+    "staff"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of warrior"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "dragon_00532.png",
+  "type": "dragon",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "anime_pixel",
+  "source": "cartoon_western",
+  "pose": "lying",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "staff",
+    "shield",
+    "gloves",
+    "old"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of dragon"
+}

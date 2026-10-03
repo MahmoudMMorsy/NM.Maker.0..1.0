@@ -1,0 +1,21 @@
+{
+  "file": "crystal_02376.png",
+  "type": "crystal",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "retro_16bit",
+  "source": "cartoon_western",
+  "pose": "attacking",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "bow",
+    "staff",
+    "shield",
+    "glowing_eyes"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of crystal"
+}

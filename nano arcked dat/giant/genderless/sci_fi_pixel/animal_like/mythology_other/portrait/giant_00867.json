@@ -1,0 +1,21 @@
+{
+  "file": "giant_00867.png",
+  "type": "giant",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "sci_fi_pixel",
+  "source": "mythology_other",
+  "pose": "portrait",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "dual_wield",
+    "cape",
+    "shield",
+    "horns"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of giant"
+}

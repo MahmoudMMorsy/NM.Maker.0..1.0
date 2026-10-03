@@ -1,0 +1,21 @@
+{
+  "file": "farmer_02228.png",
+  "type": "farmer",
+  "gender": "female",
+  "race": "angel",
+  "style": "dark_fantasy",
+  "source": "movie",
+  "pose": "flying",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "armor",
+    "shield",
+    "helmet",
+    "wings"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of farmer"
+}

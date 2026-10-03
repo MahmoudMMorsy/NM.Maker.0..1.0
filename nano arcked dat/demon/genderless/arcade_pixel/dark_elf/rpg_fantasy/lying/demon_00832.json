@@ -1,0 +1,21 @@
+{
+  "file": "demon_00832.png",
+  "type": "demon",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "arcade_pixel",
+  "source": "rpg_fantasy",
+  "pose": "lying",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "young",
+    "glowing_eyes",
+    "old",
+    "shield"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of demon"
+}

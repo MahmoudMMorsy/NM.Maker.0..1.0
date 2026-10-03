@@ -1,0 +1,21 @@
+{
+  "file": "sword_02276.png",
+  "type": "sword",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "sci_fi_pixel",
+  "source": "mythology_greek",
+  "pose": "action",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "fire",
+    "muscular",
+    "armor",
+    "slim"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of sword"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "wizard_02798.png",
+  "type": "wizard",
+  "gender": "female",
+  "race": "elemental",
+  "style": "anime_pixel",
+  "source": "mythology_egypt",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "gloves",
+    "dual_wield",
+    "wings",
+    "robe"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of wizard"
+}

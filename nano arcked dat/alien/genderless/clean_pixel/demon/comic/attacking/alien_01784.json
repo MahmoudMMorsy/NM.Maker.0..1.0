@@ -1,0 +1,21 @@
+{
+  "file": "alien_01784.png",
+  "type": "alien",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "clean_pixel",
+  "source": "comic",
+  "pose": "attacking",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "wings",
+    "muscular",
+    "shield",
+    "gloves"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of alien"
+}

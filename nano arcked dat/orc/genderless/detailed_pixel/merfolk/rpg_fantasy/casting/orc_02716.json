@@ -1,0 +1,21 @@
+{
+  "file": "orc_02716.png",
+  "type": "orc",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "detailed_pixel",
+  "source": "rpg_fantasy",
+  "pose": "casting",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "staff",
+    "old",
+    "young",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of orc"
+}

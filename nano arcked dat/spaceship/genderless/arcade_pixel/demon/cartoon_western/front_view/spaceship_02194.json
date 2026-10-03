@@ -1,0 +1,21 @@
+{
+  "file": "spaceship_02194.png",
+  "type": "spaceship",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "arcade_pixel",
+  "source": "cartoon_western",
+  "pose": "front_view",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "gloves",
+    "helmet",
+    "sword",
+    "wings"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of spaceship"
+}

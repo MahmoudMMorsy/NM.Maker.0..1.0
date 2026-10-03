@@ -1,0 +1,21 @@
+{
+  "file": "paladin_02367.png",
+  "type": "paladin",
+  "gender": "androgynous",
+  "race": "undead",
+  "style": "dark_fantasy",
+  "source": "dark_fantasy",
+  "pose": "side_view",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "sword",
+    "wings",
+    "dual_wield",
+    "cape"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of paladin"
+}

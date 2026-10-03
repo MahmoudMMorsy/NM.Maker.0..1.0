@@ -1,0 +1,21 @@
+{
+  "file": "thief_02445.png",
+  "type": "thief",
+  "gender": "androgynous",
+  "race": "elemental",
+  "style": "retro_16bit",
+  "source": "horror",
+  "pose": "sitting",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "shield",
+    "dual_wield",
+    "boots",
+    "lightning"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of thief"
+}

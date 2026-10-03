@@ -1,0 +1,21 @@
+{
+  "file": "tree_02516.png",
+  "type": "tree",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "sci_fi_pixel",
+  "source": "oc_original",
+  "pose": "side_view",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "axe",
+    "staff",
+    "glowing_eyes",
+    "young"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of tree"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "cook_00343.png",
+  "type": "cook",
+  "gender": "male",
+  "race": "goblin",
+  "style": "arcade_pixel",
+  "source": "mythology_other",
+  "pose": "running",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "wings",
+    "axe",
+    "dual_wield",
+    "fire"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of cook"
+}

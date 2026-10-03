@@ -1,0 +1,21 @@
+{
+  "file": "orc_00728.png",
+  "type": "orc",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "dark_fantasy",
+  "source": "anime_series",
+  "pose": "front_view",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "horns",
+    "magic_circle",
+    "gloves",
+    "cape"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of orc"
+}

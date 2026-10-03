@@ -1,0 +1,21 @@
+{
+  "file": "cyber_soldier_02644.png",
+  "type": "cyber_soldier",
+  "gender": "androgynous",
+  "race": "goblin",
+  "style": "retro_8bit",
+  "source": "generic",
+  "pose": "attacking",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "magic_circle",
+    "wings",
+    "muscular",
+    "fire"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of cyber_soldier"
+}

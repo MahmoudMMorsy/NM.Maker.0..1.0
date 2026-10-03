@@ -1,0 +1,21 @@
+{
+  "file": "building_00908.png",
+  "type": "building",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "sci_fi_pixel",
+  "source": "comic",
+  "pose": "lying",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "sword",
+    "boots",
+    "wings",
+    "lightning"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of building"
+}

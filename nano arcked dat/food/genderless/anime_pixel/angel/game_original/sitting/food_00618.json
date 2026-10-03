@@ -1,0 +1,21 @@
+{
+  "file": "food_00618.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "angel",
+  "style": "anime_pixel",
+  "source": "game_original",
+  "pose": "sitting",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "lightning",
+    "axe",
+    "potion",
+    "shield"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of food"
+}

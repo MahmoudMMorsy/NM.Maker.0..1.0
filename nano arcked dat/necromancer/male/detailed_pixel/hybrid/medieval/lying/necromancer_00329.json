@@ -1,0 +1,21 @@
+{
+  "file": "necromancer_00329.png",
+  "type": "necromancer",
+  "gender": "male",
+  "race": "hybrid",
+  "style": "detailed_pixel",
+  "source": "medieval",
+  "pose": "lying",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "sword",
+    "lightning",
+    "muscular",
+    "potion"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of necromancer"
+}

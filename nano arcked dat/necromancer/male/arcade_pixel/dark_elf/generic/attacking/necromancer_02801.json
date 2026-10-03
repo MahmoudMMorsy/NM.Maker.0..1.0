@@ -1,0 +1,21 @@
+{
+  "file": "necromancer_02801.png",
+  "type": "necromancer",
+  "gender": "male",
+  "race": "dark_elf",
+  "style": "arcade_pixel",
+  "source": "generic",
+  "pose": "attacking",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "magic_circle",
+    "old",
+    "armor",
+    "boots"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of necromancer"
+}

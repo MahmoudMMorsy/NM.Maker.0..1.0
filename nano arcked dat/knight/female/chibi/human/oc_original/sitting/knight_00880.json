@@ -1,0 +1,21 @@
+{
+  "file": "knight_00880.png",
+  "type": "knight",
+  "gender": "female",
+  "race": "human",
+  "style": "chibi",
+  "source": "oc_original",
+  "pose": "sitting",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "boots",
+    "potion",
+    "staff",
+    "sword"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of knight"
+}

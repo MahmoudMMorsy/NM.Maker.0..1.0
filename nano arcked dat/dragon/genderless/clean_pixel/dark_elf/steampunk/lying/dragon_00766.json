@@ -1,0 +1,21 @@
+{
+  "file": "dragon_00766.png",
+  "type": "dragon",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "clean_pixel",
+  "source": "steampunk",
+  "pose": "lying",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "gloves",
+    "muscular",
+    "axe",
+    "robe"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of dragon"
+}

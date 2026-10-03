@@ -1,0 +1,21 @@
+{
+  "file": "alien_00566.png",
+  "type": "alien",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "retro_8bit",
+  "source": "dark_fantasy",
+  "pose": "walking",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "axe",
+    "dual_wield",
+    "slim",
+    "staff"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of alien"
+}

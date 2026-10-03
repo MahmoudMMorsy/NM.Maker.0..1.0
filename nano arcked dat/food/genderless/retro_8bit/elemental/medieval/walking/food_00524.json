@@ -1,0 +1,21 @@
+{
+  "file": "food_00524.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "retro_8bit",
+  "source": "medieval",
+  "pose": "walking",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "wings",
+    "sword",
+    "ice",
+    "dual_wield"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of food"
+}

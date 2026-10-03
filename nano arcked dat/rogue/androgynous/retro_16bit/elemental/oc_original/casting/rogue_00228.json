@@ -1,0 +1,21 @@
+{
+  "file": "rogue_00228.png",
+  "type": "rogue",
+  "gender": "androgynous",
+  "race": "elemental",
+  "style": "retro_16bit",
+  "source": "oc_original",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "red"
+  ],
+  "tags": [
+    "axe",
+    "dual_wield",
+    "armor",
+    "fire"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of rogue"
+}

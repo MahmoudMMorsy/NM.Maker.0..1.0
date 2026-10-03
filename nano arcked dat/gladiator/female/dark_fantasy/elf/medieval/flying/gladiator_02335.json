@@ -1,0 +1,21 @@
+{
+  "file": "gladiator_02335.png",
+  "type": "gladiator",
+  "gender": "female",
+  "race": "elf",
+  "style": "dark_fantasy",
+  "source": "medieval",
+  "pose": "flying",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "staff",
+    "lightning",
+    "glowing_eyes",
+    "bow"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of gladiator"
+}

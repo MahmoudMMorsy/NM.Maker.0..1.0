@@ -1,0 +1,21 @@
+{
+  "file": "bard_00234.png",
+  "type": "bard",
+  "gender": "androgynous",
+  "race": "human",
+  "style": "arcade_pixel",
+  "source": "cartoon_western",
+  "pose": "side_view",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "bow",
+    "cape",
+    "fire",
+    "old"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of bard"
+}

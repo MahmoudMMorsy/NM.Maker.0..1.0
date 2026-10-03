@@ -1,0 +1,21 @@
+{
+  "file": "hunter_02848.png",
+  "type": "hunter",
+  "gender": "female",
+  "race": "angel",
+  "style": "sci_fi_pixel",
+  "source": "post_apocalyptic",
+  "pose": "full_body",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "shield",
+    "potion",
+    "gloves",
+    "armor"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of hunter"
+}

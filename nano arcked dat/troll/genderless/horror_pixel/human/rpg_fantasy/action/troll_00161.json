@@ -1,0 +1,21 @@
+{
+  "file": "troll_00161.png",
+  "type": "troll",
+  "gender": "genderless",
+  "race": "human",
+  "style": "horror_pixel",
+  "source": "rpg_fantasy",
+  "pose": "action",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "wings",
+    "muscular",
+    "shield",
+    "fire"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of troll"
+}

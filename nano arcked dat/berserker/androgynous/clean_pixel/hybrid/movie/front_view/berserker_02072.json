@@ -1,0 +1,21 @@
+{
+  "file": "berserker_02072.png",
+  "type": "berserker",
+  "gender": "androgynous",
+  "race": "hybrid",
+  "style": "clean_pixel",
+  "source": "movie",
+  "pose": "front_view",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "potion",
+    "old",
+    "tail",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of berserker"
+}

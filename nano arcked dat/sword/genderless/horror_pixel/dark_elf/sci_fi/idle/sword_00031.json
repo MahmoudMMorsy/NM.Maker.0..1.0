@@ -1,0 +1,21 @@
+{
+  "file": "sword_00031.png",
+  "type": "sword",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "horror_pixel",
+  "source": "sci_fi",
+  "pose": "idle",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "potion",
+    "helmet",
+    "wings",
+    "horns"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of sword"
+}

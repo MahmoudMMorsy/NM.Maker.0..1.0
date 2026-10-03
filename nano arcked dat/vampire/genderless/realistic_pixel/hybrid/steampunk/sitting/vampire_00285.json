@@ -1,0 +1,21 @@
+{
+  "file": "vampire_00285.png",
+  "type": "vampire",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "realistic_pixel",
+  "source": "steampunk",
+  "pose": "sitting",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "slim",
+    "wings",
+    "helmet",
+    "old"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of vampire"
+}

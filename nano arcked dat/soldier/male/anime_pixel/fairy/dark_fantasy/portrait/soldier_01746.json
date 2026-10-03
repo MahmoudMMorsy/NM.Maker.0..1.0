@@ -1,0 +1,21 @@
+{
+  "file": "soldier_01746.png",
+  "type": "soldier",
+  "gender": "male",
+  "race": "fairy",
+  "style": "anime_pixel",
+  "source": "dark_fantasy",
+  "pose": "portrait",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "cape",
+    "fire",
+    "potion",
+    "bow"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of soldier"
+}

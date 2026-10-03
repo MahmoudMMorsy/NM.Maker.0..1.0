@@ -1,0 +1,21 @@
+{
+  "file": "vampire_00507.png",
+  "type": "vampire",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "dark_fantasy",
+  "source": "anime_series",
+  "pose": "lying",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "gloves",
+    "potion",
+    "lightning",
+    "glowing_eyes"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of vampire"
+}

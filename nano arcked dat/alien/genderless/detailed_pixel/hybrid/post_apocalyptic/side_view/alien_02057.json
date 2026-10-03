@@ -1,0 +1,21 @@
+{
+  "file": "alien_02057.png",
+  "type": "alien",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "detailed_pixel",
+  "source": "post_apocalyptic",
+  "pose": "side_view",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "potion",
+    "magic_circle",
+    "dual_wield",
+    "wings"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of alien"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "angel_02168.png",
+  "type": "angel",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "clean_pixel",
+  "source": "comic",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "helmet",
+    "horns",
+    "shield",
+    "tail"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of angel"
+}

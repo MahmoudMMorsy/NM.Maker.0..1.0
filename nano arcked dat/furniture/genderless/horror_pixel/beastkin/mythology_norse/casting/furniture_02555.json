@@ -1,0 +1,21 @@
+{
+  "file": "furniture_02555.png",
+  "type": "furniture",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "horror_pixel",
+  "source": "mythology_norse",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "blue"
+  ],
+  "tags": [
+    "sword",
+    "horns",
+    "shield",
+    "fire"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of furniture"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "door_01080.png",
+  "type": "door",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "arcade_pixel",
+  "source": "medieval",
+  "pose": "flying",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "ice",
+    "young",
+    "shield",
+    "robe"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of door"
+}

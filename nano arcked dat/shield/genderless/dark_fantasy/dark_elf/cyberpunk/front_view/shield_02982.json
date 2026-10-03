@@ -1,0 +1,21 @@
+{
+  "file": "shield_02982.png",
+  "type": "shield",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "dark_fantasy",
+  "source": "cyberpunk",
+  "pose": "front_view",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "fire",
+    "muscular",
+    "staff",
+    "wings"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of shield"
+}

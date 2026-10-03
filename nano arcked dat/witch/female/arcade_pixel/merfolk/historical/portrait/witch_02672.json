@@ -1,0 +1,21 @@
+{
+  "file": "witch_02672.png",
+  "type": "witch",
+  "gender": "female",
+  "race": "merfolk",
+  "style": "arcade_pixel",
+  "source": "historical",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "armor",
+    "ice",
+    "tail",
+    "wings"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of witch"
+}

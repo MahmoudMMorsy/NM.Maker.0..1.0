@@ -1,0 +1,21 @@
+{
+  "file": "civilian_00355.png",
+  "type": "civilian",
+  "gender": "male",
+  "race": "dwarf",
+  "style": "fantasy_pixel",
+  "source": "steampunk",
+  "pose": "idle",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "armor",
+    "ice",
+    "dual_wield",
+    "slim"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of civilian"
+}

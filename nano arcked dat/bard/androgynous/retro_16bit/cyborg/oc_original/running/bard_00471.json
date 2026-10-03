@@ -1,0 +1,21 @@
+{
+  "file": "bard_00471.png",
+  "type": "bard",
+  "gender": "androgynous",
+  "race": "cyborg",
+  "style": "retro_16bit",
+  "source": "oc_original",
+  "pose": "running",
+  "colors": [
+    "purple",
+    "red"
+  ],
+  "tags": [
+    "boots",
+    "gloves",
+    "staff",
+    "lightning"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of bard"
+}

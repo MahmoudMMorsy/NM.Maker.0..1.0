@@ -1,0 +1,21 @@
+{
+  "file": "priest_02593.png",
+  "type": "priest",
+  "gender": "male",
+  "race": "dark_elf",
+  "style": "cartoon",
+  "source": "sci_fi",
+  "pose": "front_view",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "sword",
+    "boots",
+    "glowing_eyes",
+    "wings"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of priest"
+}

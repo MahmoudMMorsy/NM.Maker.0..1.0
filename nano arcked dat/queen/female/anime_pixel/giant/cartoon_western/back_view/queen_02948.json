@@ -1,0 +1,21 @@
+{
+  "file": "queen_02948.png",
+  "type": "queen",
+  "gender": "female",
+  "race": "giant",
+  "style": "anime_pixel",
+  "source": "cartoon_western",
+  "pose": "back_view",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "tail",
+    "armor",
+    "young",
+    "muscular"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of queen"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "king_02495.png",
+  "type": "king",
+  "gender": "female",
+  "race": "elf",
+  "style": "horror_pixel",
+  "source": "steampunk",
+  "pose": "side_view",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "robe",
+    "wings",
+    "sword",
+    "staff"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of king"
+}

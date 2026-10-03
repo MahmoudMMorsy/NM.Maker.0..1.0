@@ -1,0 +1,21 @@
+{
+  "file": "goblin_00336.png",
+  "type": "goblin",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "retro_8bit",
+  "source": "sci_fi",
+  "pose": "full_body",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "potion",
+    "tail",
+    "lightning",
+    "dual_wield"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_8bit pixel art asset of goblin"
+}

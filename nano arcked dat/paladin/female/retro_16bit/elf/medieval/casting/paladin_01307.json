@@ -1,0 +1,21 @@
+{
+  "file": "paladin_01307.png",
+  "type": "paladin",
+  "gender": "female",
+  "race": "elf",
+  "style": "retro_16bit",
+  "source": "medieval",
+  "pose": "casting",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "sword",
+    "young",
+    "glowing_eyes",
+    "bow"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of paladin"
+}

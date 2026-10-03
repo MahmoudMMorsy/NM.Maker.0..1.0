@@ -1,0 +1,21 @@
+{
+  "file": "staff_00054.png",
+  "type": "staff",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "horror_pixel",
+  "source": "dark_fantasy",
+  "pose": "full_body",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "gloves",
+    "dual_wield",
+    "young",
+    "tail"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of staff"
+}

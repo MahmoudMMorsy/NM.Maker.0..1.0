@@ -1,0 +1,21 @@
+{
+  "file": "werewolf_02250.png",
+  "type": "werewolf",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "sci_fi_pixel",
+  "source": "generic",
+  "pose": "action",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "staff",
+    "old",
+    "dual_wield",
+    "horns"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of werewolf"
+}

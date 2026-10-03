@@ -1,0 +1,21 @@
+{
+  "file": "troll_01629.png",
+  "type": "troll",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "fantasy_pixel",
+  "source": "historical",
+  "pose": "portrait",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "slim",
+    "old",
+    "magic_circle"
+  ],
+  "resolution": "32x32",
+  "notes": "fantasy_pixel pixel art asset of troll"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "tree_01600.png",
+  "type": "tree",
+  "gender": "genderless",
+  "race": "human",
+  "style": "dark_fantasy",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "silver",
+    "red"
+  ],
+  "tags": [
+    "old",
+    "potion",
+    "ice",
+    "bow"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of tree"
+}

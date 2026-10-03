@@ -1,0 +1,21 @@
+{
+  "file": "thief_01705.png",
+  "type": "thief",
+  "gender": "male",
+  "race": "giant",
+  "style": "cartoon",
+  "source": "sci_fi",
+  "pose": "sitting",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "horns",
+    "dual_wield",
+    "helmet",
+    "cape"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of thief"
+}

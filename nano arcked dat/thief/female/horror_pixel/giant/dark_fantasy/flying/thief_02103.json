@@ -1,0 +1,21 @@
+{
+  "file": "thief_02103.png",
+  "type": "thief",
+  "gender": "female",
+  "race": "giant",
+  "style": "horror_pixel",
+  "source": "dark_fantasy",
+  "pose": "flying",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "slim",
+    "gloves",
+    "young",
+    "dual_wield"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of thief"
+}

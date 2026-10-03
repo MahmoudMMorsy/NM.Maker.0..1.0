@@ -1,0 +1,21 @@
+{
+  "file": "demon_01977.png",
+  "type": "demon",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "anime_pixel",
+  "source": "historical",
+  "pose": "full_body",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "bow",
+    "muscular",
+    "staff",
+    "dual_wield"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of demon"
+}

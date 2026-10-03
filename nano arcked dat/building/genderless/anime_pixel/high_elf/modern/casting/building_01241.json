@@ -1,0 +1,21 @@
+{
+  "file": "building_01241.png",
+  "type": "building",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "anime_pixel",
+  "source": "modern",
+  "pose": "casting",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "fire",
+    "tail",
+    "armor",
+    "cape"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of building"
+}

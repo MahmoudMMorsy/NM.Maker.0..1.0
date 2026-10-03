@@ -1,0 +1,21 @@
+{
+  "file": "civilian_00535.png",
+  "type": "civilian",
+  "gender": "female",
+  "race": "animal_like",
+  "style": "clean_pixel",
+  "source": "movie",
+  "pose": "front_view",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "staff",
+    "boots",
+    "glowing_eyes",
+    "young"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of civilian"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "monk_02891.png",
+  "type": "monk",
+  "gender": "female",
+  "race": "human",
+  "style": "detailed_pixel",
+  "source": "mythology_egypt",
+  "pose": "side_view",
+  "colors": [
+    "red",
+    "green"
+  ],
+  "tags": [
+    "axe",
+    "muscular",
+    "wings",
+    "slim"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of monk"
+}

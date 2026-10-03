@@ -1,0 +1,21 @@
+{
+  "file": "cyber_soldier_01429.png",
+  "type": "cyber_soldier",
+  "gender": "female",
+  "race": "dark_elf",
+  "style": "retro_16bit",
+  "source": "horror",
+  "pose": "flying",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "young",
+    "glowing_eyes",
+    "armor",
+    "staff"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of cyber_soldier"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "berserker_02357.png",
+  "type": "berserker",
+  "gender": "androgynous",
+  "race": "angel",
+  "style": "retro_8bit",
+  "source": "generic",
+  "pose": "back_view",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "potion",
+    "bow",
+    "fire",
+    "wings"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of berserker"
+}

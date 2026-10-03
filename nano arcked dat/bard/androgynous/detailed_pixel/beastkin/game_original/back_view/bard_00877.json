@@ -1,0 +1,21 @@
+{
+  "file": "bard_00877.png",
+  "type": "bard",
+  "gender": "androgynous",
+  "race": "beastkin",
+  "style": "detailed_pixel",
+  "source": "game_original",
+  "pose": "back_view",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "shield",
+    "robe",
+    "young",
+    "cape"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of bard"
+}

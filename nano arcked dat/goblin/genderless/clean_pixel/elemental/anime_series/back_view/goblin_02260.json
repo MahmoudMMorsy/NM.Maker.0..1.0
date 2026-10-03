@@ -1,0 +1,21 @@
+{
+  "file": "goblin_02260.png",
+  "type": "goblin",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "clean_pixel",
+  "source": "anime_series",
+  "pose": "back_view",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "slim",
+    "ice",
+    "dual_wield",
+    "fire"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of goblin"
+}

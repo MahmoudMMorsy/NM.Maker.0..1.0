@@ -1,0 +1,21 @@
+{
+  "file": "troll_00888.png",
+  "type": "troll",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "realistic_pixel",
+  "source": "steampunk",
+  "pose": "side_view",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "old",
+    "fire",
+    "lightning",
+    "armor"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of troll"
+}

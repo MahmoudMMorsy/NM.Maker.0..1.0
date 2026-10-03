@@ -1,0 +1,21 @@
+{
+  "file": "chest_00556.png",
+  "type": "chest",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "anime_pixel",
+  "source": "mythology_other",
+  "pose": "portrait",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "robe",
+    "tail",
+    "armor",
+    "helmet"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of chest"
+}

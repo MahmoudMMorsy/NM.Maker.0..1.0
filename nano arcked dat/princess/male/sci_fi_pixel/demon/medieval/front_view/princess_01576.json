@@ -1,0 +1,21 @@
+{
+  "file": "princess_01576.png",
+  "type": "princess",
+  "gender": "male",
+  "race": "demon",
+  "style": "sci_fi_pixel",
+  "source": "medieval",
+  "pose": "front_view",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "ice",
+    "armor",
+    "helmet",
+    "tail"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of princess"
+}

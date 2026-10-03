@@ -1,0 +1,21 @@
+{
+  "file": "potion_02832.png",
+  "type": "potion",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "anime_pixel",
+  "source": "rpg_fantasy",
+  "pose": "walking",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "slim",
+    "magic_circle",
+    "old",
+    "axe"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of potion"
+}

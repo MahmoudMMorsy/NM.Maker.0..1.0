@@ -1,0 +1,21 @@
+{
+  "file": "viking_00175.png",
+  "type": "viking",
+  "gender": "female",
+  "race": "dragonkin",
+  "style": "arcade_pixel",
+  "source": "historical",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "boots",
+    "cape",
+    "muscular",
+    "axe"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of viking"
+}

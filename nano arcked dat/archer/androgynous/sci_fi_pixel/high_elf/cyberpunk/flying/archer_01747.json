@@ -1,0 +1,21 @@
+{
+  "file": "archer_01747.png",
+  "type": "archer",
+  "gender": "androgynous",
+  "race": "high_elf",
+  "style": "sci_fi_pixel",
+  "source": "cyberpunk",
+  "pose": "flying",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "helmet",
+    "wings",
+    "boots",
+    "shield"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of archer"
+}

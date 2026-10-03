@@ -1,0 +1,21 @@
+{
+  "file": "berserker_00444.png",
+  "type": "berserker",
+  "gender": "female",
+  "race": "dwarf",
+  "style": "horror_pixel",
+  "source": "anime_series",
+  "pose": "back_view",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "slim",
+    "dual_wield",
+    "old",
+    "gloves"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of berserker"
+}

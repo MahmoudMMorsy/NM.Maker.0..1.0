@@ -1,0 +1,21 @@
+{
+  "file": "hunter_02838.png",
+  "type": "hunter",
+  "gender": "female",
+  "race": "goblin",
+  "style": "arcade_pixel",
+  "source": "mythology_other",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "muscular",
+    "slim",
+    "wings",
+    "gloves"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of hunter"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "vehicle_02329.png",
+  "type": "vehicle",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "fantasy_pixel",
+  "source": "rpg_fantasy",
+  "pose": "flying",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "young",
+    "shield",
+    "dual_wield",
+    "ice"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of vehicle"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "paladin_01385.png",
+  "type": "paladin",
+  "gender": "female",
+  "race": "human",
+  "style": "cartoon",
+  "source": "medieval",
+  "pose": "flying",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "muscular",
+    "helmet",
+    "bow",
+    "slim"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of paladin"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "cyborg_01886.png",
+  "type": "cyborg",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "dark_fantasy",
+  "source": "steampunk",
+  "pose": "action",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "potion",
+    "young",
+    "lightning",
+    "armor"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of cyborg"
+}

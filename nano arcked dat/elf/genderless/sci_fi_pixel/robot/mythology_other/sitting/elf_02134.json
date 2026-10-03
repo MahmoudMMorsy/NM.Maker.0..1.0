@@ -1,0 +1,21 @@
+{
+  "file": "elf_02134.png",
+  "type": "elf",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "sci_fi_pixel",
+  "source": "mythology_other",
+  "pose": "sitting",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "fire",
+    "gloves",
+    "axe",
+    "robe"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of elf"
+}

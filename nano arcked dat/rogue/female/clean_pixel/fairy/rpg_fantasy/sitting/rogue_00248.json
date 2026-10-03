@@ -1,0 +1,21 @@
+{
+  "file": "rogue_00248.png",
+  "type": "rogue",
+  "gender": "female",
+  "race": "fairy",
+  "style": "clean_pixel",
+  "source": "rpg_fantasy",
+  "pose": "sitting",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "axe",
+    "armor",
+    "muscular",
+    "potion"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of rogue"
+}

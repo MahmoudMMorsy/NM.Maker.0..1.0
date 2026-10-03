@@ -1,0 +1,21 @@
+{
+  "file": "castle_02113.png",
+  "type": "castle",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "arcade_pixel",
+  "source": "game_original",
+  "pose": "side_view",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "potion",
+    "sword",
+    "slim",
+    "young"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of castle"
+}

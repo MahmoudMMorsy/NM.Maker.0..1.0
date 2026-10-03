@@ -1,0 +1,21 @@
+{
+  "file": "minotaur_00270.png",
+  "type": "minotaur",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "detailed_pixel",
+  "source": "cartoon_western",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "ice",
+    "tail",
+    "fire",
+    "potion"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of minotaur"
+}

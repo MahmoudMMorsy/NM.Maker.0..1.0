@@ -1,0 +1,21 @@
+{
+  "file": "viking_01546.png",
+  "type": "viking",
+  "gender": "male",
+  "race": "giant",
+  "style": "retro_8bit",
+  "source": "horror",
+  "pose": "full_body",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "cape",
+    "fire",
+    "gloves",
+    "helmet"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_8bit pixel art asset of viking"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "dancer_02857.png",
+  "type": "dancer",
+  "gender": "female",
+  "race": "elf",
+  "style": "dark_fantasy",
+  "source": "horror",
+  "pose": "running",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "magic_circle",
+    "horns",
+    "tail",
+    "dual_wield"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of dancer"
+}

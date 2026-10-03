@@ -1,0 +1,21 @@
+{
+  "file": "portal_01489.png",
+  "type": "portal",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "chibi",
+  "source": "cartoon_western",
+  "pose": "flying",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "shield",
+    "old",
+    "cape",
+    "wings"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of portal"
+}

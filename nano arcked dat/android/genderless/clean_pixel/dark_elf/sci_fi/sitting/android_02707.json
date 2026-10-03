@@ -1,0 +1,21 @@
+{
+  "file": "android_02707.png",
+  "type": "android",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "clean_pixel",
+  "source": "sci_fi",
+  "pose": "sitting",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "muscular",
+    "dual_wield",
+    "fire"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of android"
+}

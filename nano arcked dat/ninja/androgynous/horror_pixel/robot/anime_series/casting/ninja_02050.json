@@ -1,0 +1,21 @@
+{
+  "file": "ninja_02050.png",
+  "type": "ninja",
+  "gender": "androgynous",
+  "race": "robot",
+  "style": "horror_pixel",
+  "source": "anime_series",
+  "pose": "casting",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "fire",
+    "tail",
+    "potion",
+    "axe"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of ninja"
+}

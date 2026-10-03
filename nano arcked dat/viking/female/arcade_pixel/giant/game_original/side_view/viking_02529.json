@@ -1,0 +1,21 @@
+{
+  "file": "viking_02529.png",
+  "type": "viking",
+  "gender": "female",
+  "race": "giant",
+  "style": "arcade_pixel",
+  "source": "game_original",
+  "pose": "side_view",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "young",
+    "magic_circle",
+    "bow",
+    "shield"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of viking"
+}

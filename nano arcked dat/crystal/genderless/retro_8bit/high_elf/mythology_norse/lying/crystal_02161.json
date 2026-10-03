@@ -1,0 +1,21 @@
+{
+  "file": "crystal_02161.png",
+  "type": "crystal",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "retro_8bit",
+  "source": "mythology_norse",
+  "pose": "lying",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "lightning",
+    "horns",
+    "slim",
+    "fire"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of crystal"
+}

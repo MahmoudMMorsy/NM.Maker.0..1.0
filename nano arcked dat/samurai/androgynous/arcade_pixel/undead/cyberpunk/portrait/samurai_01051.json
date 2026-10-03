@@ -1,0 +1,21 @@
+{
+  "file": "samurai_01051.png",
+  "type": "samurai",
+  "gender": "androgynous",
+  "race": "undead",
+  "style": "arcade_pixel",
+  "source": "cyberpunk",
+  "pose": "portrait",
+  "colors": [
+    "purple",
+    "blue"
+  ],
+  "tags": [
+    "horns",
+    "wings",
+    "cape",
+    "shield"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of samurai"
+}

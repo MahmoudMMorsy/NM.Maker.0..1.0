@@ -1,0 +1,21 @@
+{
+  "file": "chest_01005.png",
+  "type": "chest",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "horror_pixel",
+  "source": "modern",
+  "pose": "back_view",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "sword",
+    "helmet",
+    "gloves"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of chest"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "ghost_01463.png",
+  "type": "ghost",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "sci_fi_pixel",
+  "source": "steampunk",
+  "pose": "back_view",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "tail",
+    "young",
+    "horns",
+    "armor"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of ghost"
+}

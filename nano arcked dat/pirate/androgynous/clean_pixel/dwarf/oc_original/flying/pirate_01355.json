@@ -1,0 +1,21 @@
+{
+  "file": "pirate_01355.png",
+  "type": "pirate",
+  "gender": "androgynous",
+  "race": "dwarf",
+  "style": "clean_pixel",
+  "source": "oc_original",
+  "pose": "flying",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "gloves",
+    "wings",
+    "ice",
+    "boots"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of pirate"
+}

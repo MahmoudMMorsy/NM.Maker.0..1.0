@@ -1,0 +1,21 @@
+{
+  "file": "dancer_02022.png",
+  "type": "dancer",
+  "gender": "female",
+  "race": "hybrid",
+  "style": "horror_pixel",
+  "source": "generic",
+  "pose": "portrait",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "tail",
+    "sword",
+    "boots",
+    "magic_circle"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of dancer"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "weapon_00493.png",
+  "type": "weapon",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "clean_pixel",
+  "source": "medieval",
+  "pose": "walking",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "sword",
+    "gloves",
+    "armor",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of weapon"
+}

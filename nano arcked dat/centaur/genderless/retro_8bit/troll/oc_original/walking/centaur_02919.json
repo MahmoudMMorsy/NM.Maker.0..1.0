@@ -1,0 +1,21 @@
+{
+  "file": "centaur_02919.png",
+  "type": "centaur",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "retro_8bit",
+  "source": "oc_original",
+  "pose": "walking",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "potion",
+    "glowing_eyes",
+    "horns",
+    "armor"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of centaur"
+}

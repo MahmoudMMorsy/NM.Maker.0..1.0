@@ -1,0 +1,21 @@
+{
+  "file": "alchemist_00420.png",
+  "type": "alchemist",
+  "gender": "androgynous",
+  "race": "goblin",
+  "style": "fantasy_pixel",
+  "source": "historical",
+  "pose": "portrait",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "bow",
+    "gloves",
+    "robe",
+    "young"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of alchemist"
+}

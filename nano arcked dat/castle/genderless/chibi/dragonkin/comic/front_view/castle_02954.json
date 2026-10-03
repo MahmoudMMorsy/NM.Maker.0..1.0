@@ -1,0 +1,21 @@
+{
+  "file": "castle_02954.png",
+  "type": "castle",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "chibi",
+  "source": "comic",
+  "pose": "front_view",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "young",
+    "robe",
+    "fire",
+    "boots"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of castle"
+}

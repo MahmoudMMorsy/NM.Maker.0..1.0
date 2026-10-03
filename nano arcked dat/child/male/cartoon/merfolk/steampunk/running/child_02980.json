@@ -1,0 +1,21 @@
+{
+  "file": "child_02980.png",
+  "type": "child",
+  "gender": "male",
+  "race": "merfolk",
+  "style": "cartoon",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "armor",
+    "young",
+    "ice",
+    "horns"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of child"
+}

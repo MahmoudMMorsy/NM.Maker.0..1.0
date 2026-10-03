@@ -1,0 +1,21 @@
+{
+  "file": "blacksmith_02226.png",
+  "type": "blacksmith",
+  "gender": "male",
+  "race": "giant",
+  "style": "horror_pixel",
+  "source": "medieval",
+  "pose": "action",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "gloves",
+    "dual_wield",
+    "slim"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of blacksmith"
+}

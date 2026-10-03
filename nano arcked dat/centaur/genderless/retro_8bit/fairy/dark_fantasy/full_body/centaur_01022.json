@@ -1,0 +1,21 @@
+{
+  "file": "centaur_01022.png",
+  "type": "centaur",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "retro_8bit",
+  "source": "dark_fantasy",
+  "pose": "full_body",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "tail",
+    "cape",
+    "sword",
+    "fire"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_8bit pixel art asset of centaur"
+}

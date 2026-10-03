@@ -1,0 +1,21 @@
+{
+  "file": "assassin_02171.png",
+  "type": "assassin",
+  "gender": "female",
+  "race": "dwarf",
+  "style": "anime_pixel",
+  "source": "rpg_fantasy",
+  "pose": "running",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "gloves",
+    "axe",
+    "armor",
+    "young"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of assassin"
+}

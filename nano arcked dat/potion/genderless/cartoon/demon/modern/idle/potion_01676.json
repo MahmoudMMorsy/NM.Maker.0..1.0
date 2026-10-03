@@ -1,0 +1,21 @@
+{
+  "file": "potion_01676.png",
+  "type": "potion",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "cartoon",
+  "source": "modern",
+  "pose": "idle",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "tail",
+    "potion",
+    "ice",
+    "gloves"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of potion"
+}

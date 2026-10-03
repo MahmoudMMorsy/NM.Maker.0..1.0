@@ -1,0 +1,21 @@
+{
+  "file": "zombie_01191.png",
+  "type": "zombie",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "sci_fi_pixel",
+  "source": "sci_fi",
+  "pose": "walking",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "gloves",
+    "bow",
+    "ice",
+    "young"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of zombie"
+}

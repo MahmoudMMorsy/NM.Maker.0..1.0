@@ -1,0 +1,21 @@
+{
+  "file": "priest_01411.png",
+  "type": "priest",
+  "gender": "female",
+  "race": "animal_like",
+  "style": "clean_pixel",
+  "source": "movie",
+  "pose": "sitting",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "fire",
+    "ice",
+    "axe",
+    "armor"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of priest"
+}

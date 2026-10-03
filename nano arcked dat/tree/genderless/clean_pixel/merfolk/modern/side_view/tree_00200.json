@@ -1,0 +1,21 @@
+{
+  "file": "tree_00200.png",
+  "type": "tree",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "clean_pixel",
+  "source": "modern",
+  "pose": "side_view",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "muscular",
+    "gloves",
+    "tail",
+    "fire"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of tree"
+}

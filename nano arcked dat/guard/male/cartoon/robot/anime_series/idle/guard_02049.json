@@ -1,0 +1,21 @@
+{
+  "file": "guard_02049.png",
+  "type": "guard",
+  "gender": "male",
+  "race": "robot",
+  "style": "cartoon",
+  "source": "anime_series",
+  "pose": "idle",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "armor",
+    "horns",
+    "tail",
+    "robe"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of guard"
+}

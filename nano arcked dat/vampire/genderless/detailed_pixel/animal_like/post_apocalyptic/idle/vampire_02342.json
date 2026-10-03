@@ -1,0 +1,21 @@
+{
+  "file": "vampire_02342.png",
+  "type": "vampire",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "detailed_pixel",
+  "source": "post_apocalyptic",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "gloves",
+    "lightning",
+    "potion",
+    "horns"
+  ],
+  "resolution": "128x128",
+  "notes": "detailed_pixel pixel art asset of vampire"
+}

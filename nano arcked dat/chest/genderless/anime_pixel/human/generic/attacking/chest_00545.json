@@ -1,0 +1,21 @@
+{
+  "file": "chest_00545.png",
+  "type": "chest",
+  "gender": "genderless",
+  "race": "human",
+  "style": "anime_pixel",
+  "source": "generic",
+  "pose": "attacking",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "muscular",
+    "horns",
+    "slim",
+    "robe"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of chest"
+}

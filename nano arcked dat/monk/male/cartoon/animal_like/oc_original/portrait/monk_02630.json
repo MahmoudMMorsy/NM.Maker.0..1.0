@@ -1,0 +1,21 @@
+{
+  "file": "monk_02630.png",
+  "type": "monk",
+  "gender": "male",
+  "race": "animal_like",
+  "style": "cartoon",
+  "source": "oc_original",
+  "pose": "portrait",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "sword",
+    "young",
+    "axe",
+    "dual_wield"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of monk"
+}

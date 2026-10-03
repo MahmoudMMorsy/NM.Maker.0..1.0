@@ -1,0 +1,21 @@
+{
+  "file": "tree_02585.png",
+  "type": "tree",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "cartoon",
+  "source": "rpg_fantasy",
+  "pose": "sitting",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "muscular",
+    "dual_wield",
+    "ice",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of tree"
+}

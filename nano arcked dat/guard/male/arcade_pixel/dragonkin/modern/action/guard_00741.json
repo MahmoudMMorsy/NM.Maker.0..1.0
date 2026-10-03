@@ -1,0 +1,21 @@
+{
+  "file": "guard_00741.png",
+  "type": "guard",
+  "gender": "male",
+  "race": "dragonkin",
+  "style": "arcade_pixel",
+  "source": "modern",
+  "pose": "action",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "boots",
+    "horns",
+    "young",
+    "old"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of guard"
+}

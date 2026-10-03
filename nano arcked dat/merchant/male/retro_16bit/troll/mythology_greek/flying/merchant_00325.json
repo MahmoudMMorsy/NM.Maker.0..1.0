@@ -1,0 +1,21 @@
+{
+  "file": "merchant_00325.png",
+  "type": "merchant",
+  "gender": "male",
+  "race": "troll",
+  "style": "retro_16bit",
+  "source": "mythology_greek",
+  "pose": "flying",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "robe",
+    "lightning",
+    "boots",
+    "wings"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of merchant"
+}

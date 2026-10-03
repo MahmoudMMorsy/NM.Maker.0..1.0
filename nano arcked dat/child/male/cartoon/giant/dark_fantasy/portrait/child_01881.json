@@ -1,0 +1,21 @@
+{
+  "file": "child_01881.png",
+  "type": "child",
+  "gender": "male",
+  "race": "giant",
+  "style": "cartoon",
+  "source": "dark_fantasy",
+  "pose": "portrait",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "armor",
+    "slim",
+    "lightning",
+    "sword"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of child"
+}

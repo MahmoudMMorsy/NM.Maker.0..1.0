@@ -1,0 +1,21 @@
+{
+  "file": "king_00606.png",
+  "type": "king",
+  "gender": "male",
+  "race": "alien",
+  "style": "arcade_pixel",
+  "source": "post_apocalyptic",
+  "pose": "lying",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "horns",
+    "dual_wield",
+    "old",
+    "cape"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of king"
+}

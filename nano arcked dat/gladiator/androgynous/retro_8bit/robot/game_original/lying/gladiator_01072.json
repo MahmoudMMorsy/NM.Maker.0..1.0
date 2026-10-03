@@ -1,0 +1,21 @@
+{
+  "file": "gladiator_01072.png",
+  "type": "gladiator",
+  "gender": "androgynous",
+  "race": "robot",
+  "style": "retro_8bit",
+  "source": "game_original",
+  "pose": "lying",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "staff",
+    "fire",
+    "boots",
+    "gloves"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_8bit pixel art asset of gladiator"
+}

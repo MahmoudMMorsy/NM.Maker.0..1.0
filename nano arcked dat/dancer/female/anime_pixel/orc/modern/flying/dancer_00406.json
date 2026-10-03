@@ -1,0 +1,21 @@
+{
+  "file": "dancer_00406.png",
+  "type": "dancer",
+  "gender": "female",
+  "race": "orc",
+  "style": "anime_pixel",
+  "source": "modern",
+  "pose": "flying",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "old",
+    "shield",
+    "robe",
+    "slim"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of dancer"
+}

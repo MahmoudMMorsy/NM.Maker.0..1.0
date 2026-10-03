@@ -1,0 +1,21 @@
+{
+  "file": "giant_02686.png",
+  "type": "giant",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "clean_pixel",
+  "source": "mythology_greek",
+  "pose": "full_body",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "sword",
+    "potion",
+    "gloves",
+    "muscular"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of giant"
+}

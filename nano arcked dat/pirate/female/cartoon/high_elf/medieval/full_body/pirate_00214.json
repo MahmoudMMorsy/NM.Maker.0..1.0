@@ -1,0 +1,21 @@
+{
+  "file": "pirate_00214.png",
+  "type": "pirate",
+  "gender": "female",
+  "race": "high_elf",
+  "style": "cartoon",
+  "source": "medieval",
+  "pose": "full_body",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "ice",
+    "muscular",
+    "potion",
+    "lightning"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of pirate"
+}

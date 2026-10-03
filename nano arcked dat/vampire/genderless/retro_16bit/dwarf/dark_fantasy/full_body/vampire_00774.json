@@ -1,0 +1,21 @@
+{
+  "file": "vampire_00774.png",
+  "type": "vampire",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "retro_16bit",
+  "source": "dark_fantasy",
+  "pose": "full_body",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "cape",
+    "armor",
+    "boots",
+    "staff"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of vampire"
+}

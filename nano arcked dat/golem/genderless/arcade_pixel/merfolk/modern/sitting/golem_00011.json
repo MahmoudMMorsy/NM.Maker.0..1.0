@@ -1,0 +1,21 @@
+{
+  "file": "golem_00011.png",
+  "type": "golem",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "arcade_pixel",
+  "source": "modern",
+  "pose": "sitting",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "bow",
+    "magic_circle",
+    "muscular",
+    "boots"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of golem"
+}

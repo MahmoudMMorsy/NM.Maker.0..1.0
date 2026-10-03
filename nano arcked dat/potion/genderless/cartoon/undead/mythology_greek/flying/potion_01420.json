@@ -1,0 +1,21 @@
+{
+  "file": "potion_01420.png",
+  "type": "potion",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "cartoon",
+  "source": "mythology_greek",
+  "pose": "flying",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "robe",
+    "sword",
+    "magic_circle",
+    "bow"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of potion"
+}

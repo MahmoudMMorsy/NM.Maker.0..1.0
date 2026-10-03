@@ -1,0 +1,21 @@
+{
+  "file": "beast_00393.png",
+  "type": "beast",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "dark_fantasy",
+  "source": "mythology_norse",
+  "pose": "walking",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "cape",
+    "axe",
+    "glowing_eyes",
+    "armor"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of beast"
+}

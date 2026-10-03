@@ -1,0 +1,21 @@
+{
+  "file": "samurai_00060.png",
+  "type": "samurai",
+  "gender": "androgynous",
+  "race": "alien",
+  "style": "realistic_pixel",
+  "source": "cyberpunk",
+  "pose": "attacking",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "staff",
+    "robe",
+    "muscular",
+    "helmet"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of samurai"
+}

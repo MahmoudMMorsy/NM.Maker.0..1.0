@@ -1,0 +1,21 @@
+{
+  "file": "samurai_01708.png",
+  "type": "samurai",
+  "gender": "male",
+  "race": "goblin",
+  "style": "anime_pixel",
+  "source": "dark_fantasy",
+  "pose": "walking",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "wings",
+    "horns",
+    "lightning",
+    "old"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of samurai"
+}

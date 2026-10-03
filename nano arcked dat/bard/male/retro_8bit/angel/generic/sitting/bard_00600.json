@@ -1,0 +1,21 @@
+{
+  "file": "bard_00600.png",
+  "type": "bard",
+  "gender": "male",
+  "race": "angel",
+  "style": "retro_8bit",
+  "source": "generic",
+  "pose": "sitting",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "old",
+    "potion",
+    "gloves",
+    "helmet"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_8bit pixel art asset of bard"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "prince_01272.png",
+  "type": "prince",
+  "gender": "male",
+  "race": "alien",
+  "style": "realistic_pixel",
+  "source": "dark_fantasy",
+  "pose": "casting",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "wings",
+    "armor",
+    "sword"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of prince"
+}

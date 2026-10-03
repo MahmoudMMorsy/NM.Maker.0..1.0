@@ -1,0 +1,21 @@
+{
+  "file": "helmet_02778.png",
+  "type": "helmet",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "detailed_pixel",
+  "source": "generic",
+  "pose": "sitting",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "slim",
+    "wings",
+    "magic_circle",
+    "axe"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of helmet"
+}

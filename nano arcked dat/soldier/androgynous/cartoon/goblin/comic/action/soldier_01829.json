@@ -1,0 +1,21 @@
+{
+  "file": "soldier_01829.png",
+  "type": "soldier",
+  "gender": "androgynous",
+  "race": "goblin",
+  "style": "cartoon",
+  "source": "comic",
+  "pose": "action",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "tail",
+    "dual_wield",
+    "wings",
+    "muscular"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of soldier"
+}

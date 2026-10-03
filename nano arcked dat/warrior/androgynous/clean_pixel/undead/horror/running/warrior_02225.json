@@ -1,0 +1,21 @@
+{
+  "file": "warrior_02225.png",
+  "type": "warrior",
+  "gender": "androgynous",
+  "race": "undead",
+  "style": "clean_pixel",
+  "source": "horror",
+  "pose": "running",
+  "colors": [
+    "purple",
+    "red"
+  ],
+  "tags": [
+    "staff",
+    "glowing_eyes",
+    "dual_wield",
+    "bow"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of warrior"
+}

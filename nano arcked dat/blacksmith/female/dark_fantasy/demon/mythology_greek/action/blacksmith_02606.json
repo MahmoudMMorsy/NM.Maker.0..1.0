@@ -1,0 +1,21 @@
+{
+  "file": "blacksmith_02606.png",
+  "type": "blacksmith",
+  "gender": "female",
+  "race": "demon",
+  "style": "dark_fantasy",
+  "source": "mythology_greek",
+  "pose": "action",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "bow",
+    "axe",
+    "fire",
+    "slim"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of blacksmith"
+}

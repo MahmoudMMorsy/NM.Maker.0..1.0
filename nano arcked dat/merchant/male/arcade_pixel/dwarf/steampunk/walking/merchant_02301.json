@@ -1,0 +1,21 @@
+{
+  "file": "merchant_02301.png",
+  "type": "merchant",
+  "gender": "male",
+  "race": "dwarf",
+  "style": "arcade_pixel",
+  "source": "steampunk",
+  "pose": "walking",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "sword",
+    "boots",
+    "lightning",
+    "young"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of merchant"
+}

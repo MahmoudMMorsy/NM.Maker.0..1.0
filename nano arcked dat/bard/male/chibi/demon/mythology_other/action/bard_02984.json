@@ -1,0 +1,21 @@
+{
+  "file": "bard_02984.png",
+  "type": "bard",
+  "gender": "male",
+  "race": "demon",
+  "style": "chibi",
+  "source": "mythology_other",
+  "pose": "action",
+  "colors": [
+    "silver",
+    "red"
+  ],
+  "tags": [
+    "muscular",
+    "dual_wield",
+    "helmet",
+    "armor"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of bard"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "alien_00384.png",
+  "type": "alien",
+  "gender": "genderless",
+  "race": "angel",
+  "style": "fantasy_pixel",
+  "source": "comic",
+  "pose": "walking",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "muscular",
+    "dual_wield",
+    "slim",
+    "wings"
+  ],
+  "resolution": "32x32",
+  "notes": "fantasy_pixel pixel art asset of alien"
+}

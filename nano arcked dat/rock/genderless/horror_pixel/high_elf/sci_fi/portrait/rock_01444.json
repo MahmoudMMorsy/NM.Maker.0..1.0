@@ -1,0 +1,21 @@
+{
+  "file": "rock_01444.png",
+  "type": "rock",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "horror_pixel",
+  "source": "sci_fi",
+  "pose": "portrait",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "fire",
+    "cape",
+    "staff",
+    "slim"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of rock"
+}

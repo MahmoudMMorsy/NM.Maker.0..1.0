@@ -1,0 +1,21 @@
+{
+  "file": "archer_02551.png",
+  "type": "archer",
+  "gender": "androgynous",
+  "race": "dark_elf",
+  "style": "arcade_pixel",
+  "source": "cyberpunk",
+  "pose": "front_view",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "boots",
+    "bow",
+    "lightning"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of archer"
+}

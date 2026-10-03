@@ -1,0 +1,21 @@
+{
+  "file": "fairy_00024.png",
+  "type": "fairy",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "arcade_pixel",
+  "source": "post_apocalyptic",
+  "pose": "full_body",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "tail",
+    "old",
+    "horns",
+    "wings"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of fairy"
+}

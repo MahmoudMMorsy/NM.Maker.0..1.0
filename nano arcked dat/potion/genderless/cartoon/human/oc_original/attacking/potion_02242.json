@@ -1,0 +1,21 @@
+{
+  "file": "potion_02242.png",
+  "type": "potion",
+  "gender": "genderless",
+  "race": "human",
+  "style": "cartoon",
+  "source": "oc_original",
+  "pose": "attacking",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "shield",
+    "ice",
+    "sword",
+    "robe"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of potion"
+}

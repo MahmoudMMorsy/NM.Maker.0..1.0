@@ -1,0 +1,21 @@
+{
+  "file": "rock_00768.png",
+  "type": "rock",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "arcade_pixel",
+  "source": "mythology_egypt",
+  "pose": "front_view",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "staff",
+    "gloves",
+    "glowing_eyes",
+    "potion"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of rock"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "vampire_02147.png",
+  "type": "vampire",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "retro_16bit",
+  "source": "historical",
+  "pose": "portrait",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "robe",
+    "old",
+    "slim",
+    "magic_circle"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of vampire"
+}

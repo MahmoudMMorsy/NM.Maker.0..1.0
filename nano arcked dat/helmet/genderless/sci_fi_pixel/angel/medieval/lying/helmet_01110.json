@@ -1,0 +1,21 @@
+{
+  "file": "helmet_01110.png",
+  "type": "helmet",
+  "gender": "genderless",
+  "race": "angel",
+  "style": "sci_fi_pixel",
+  "source": "medieval",
+  "pose": "lying",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "potion",
+    "magic_circle",
+    "glowing_eyes",
+    "ice"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of helmet"
+}

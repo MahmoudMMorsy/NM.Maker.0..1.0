@@ -1,0 +1,21 @@
+{
+  "file": "soldier_00970.png",
+  "type": "soldier",
+  "gender": "androgynous",
+  "race": "robot",
+  "style": "horror_pixel",
+  "source": "oc_original",
+  "pose": "side_view",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "young",
+    "horns",
+    "dual_wield",
+    "cape"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of soldier"
+}

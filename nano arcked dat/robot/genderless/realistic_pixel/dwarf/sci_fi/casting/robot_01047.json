@@ -1,0 +1,21 @@
+{
+  "file": "robot_01047.png",
+  "type": "robot",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "realistic_pixel",
+  "source": "sci_fi",
+  "pose": "casting",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "old",
+    "boots",
+    "shield",
+    "glowing_eyes"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of robot"
+}

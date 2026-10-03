@@ -1,0 +1,21 @@
+{
+  "file": "vehicle_00653.png",
+  "type": "vehicle",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "retro_8bit",
+  "source": "rpg_fantasy",
+  "pose": "side_view",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "bow",
+    "sword",
+    "staff",
+    "glowing_eyes"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_8bit pixel art asset of vehicle"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "tree_02328.png",
+  "type": "tree",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "retro_16bit",
+  "source": "post_apocalyptic",
+  "pose": "attacking",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "armor",
+    "cape",
+    "staff",
+    "sword"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of tree"
+}

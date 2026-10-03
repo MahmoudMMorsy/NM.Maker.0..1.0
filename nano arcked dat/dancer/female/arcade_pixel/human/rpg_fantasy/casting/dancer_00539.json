@@ -1,0 +1,21 @@
+{
+  "file": "dancer_00539.png",
+  "type": "dancer",
+  "gender": "female",
+  "race": "human",
+  "style": "arcade_pixel",
+  "source": "rpg_fantasy",
+  "pose": "casting",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "lightning",
+    "slim",
+    "robe",
+    "helmet"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of dancer"
+}

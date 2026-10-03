@@ -1,0 +1,21 @@
+{
+  "file": "alien_00226.png",
+  "type": "alien",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "fantasy_pixel",
+  "source": "mythology_greek",
+  "pose": "attacking",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "staff",
+    "gloves",
+    "magic_circle",
+    "fire"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of alien"
+}

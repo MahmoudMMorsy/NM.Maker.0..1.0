@@ -1,0 +1,21 @@
+{
+  "file": "robot_02039.png",
+  "type": "robot",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "dark_fantasy",
+  "source": "steampunk",
+  "pose": "lying",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "magic_circle",
+    "potion",
+    "sword",
+    "tail"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of robot"
+}

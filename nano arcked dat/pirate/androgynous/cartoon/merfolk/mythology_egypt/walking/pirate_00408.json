@@ -1,0 +1,21 @@
+{
+  "file": "pirate_00408.png",
+  "type": "pirate",
+  "gender": "androgynous",
+  "race": "merfolk",
+  "style": "cartoon",
+  "source": "mythology_egypt",
+  "pose": "walking",
+  "colors": [
+    "purple",
+    "blue"
+  ],
+  "tags": [
+    "tail",
+    "staff",
+    "old",
+    "boots"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of pirate"
+}

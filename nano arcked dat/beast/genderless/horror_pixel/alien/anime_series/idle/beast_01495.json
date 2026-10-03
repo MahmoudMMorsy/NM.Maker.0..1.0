@@ -1,0 +1,21 @@
+{
+  "file": "beast_01495.png",
+  "type": "beast",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "horror_pixel",
+  "source": "anime_series",
+  "pose": "idle",
+  "colors": [
+    "green",
+    "blue"
+  ],
+  "tags": [
+    "robe",
+    "boots",
+    "armor",
+    "sword"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of beast"
+}

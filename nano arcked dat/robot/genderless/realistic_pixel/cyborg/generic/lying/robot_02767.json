@@ -1,0 +1,21 @@
+{
+  "file": "robot_02767.png",
+  "type": "robot",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "realistic_pixel",
+  "source": "generic",
+  "pose": "lying",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "wings",
+    "glowing_eyes",
+    "bow",
+    "muscular"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of robot"
+}

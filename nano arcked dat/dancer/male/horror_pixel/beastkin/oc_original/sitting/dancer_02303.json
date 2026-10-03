@@ -1,0 +1,21 @@
+{
+  "file": "dancer_02303.png",
+  "type": "dancer",
+  "gender": "male",
+  "race": "beastkin",
+  "style": "horror_pixel",
+  "source": "oc_original",
+  "pose": "sitting",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "old",
+    "muscular",
+    "slim",
+    "bow"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of dancer"
+}

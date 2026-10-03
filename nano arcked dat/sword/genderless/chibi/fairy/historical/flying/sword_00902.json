@@ -1,0 +1,21 @@
+{
+  "file": "sword_00902.png",
+  "type": "sword",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "chibi",
+  "source": "historical",
+  "pose": "flying",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "lightning",
+    "sword",
+    "tail",
+    "potion"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of sword"
+}

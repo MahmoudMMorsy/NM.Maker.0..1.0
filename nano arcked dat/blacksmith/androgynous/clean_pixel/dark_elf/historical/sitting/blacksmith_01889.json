@@ -1,0 +1,21 @@
+{
+  "file": "blacksmith_01889.png",
+  "type": "blacksmith",
+  "gender": "androgynous",
+  "race": "dark_elf",
+  "style": "clean_pixel",
+  "source": "historical",
+  "pose": "sitting",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "wings",
+    "gloves",
+    "shield",
+    "helmet"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of blacksmith"
+}

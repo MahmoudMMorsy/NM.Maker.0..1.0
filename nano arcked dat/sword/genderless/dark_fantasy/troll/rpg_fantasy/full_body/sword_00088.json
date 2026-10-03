@@ -1,0 +1,21 @@
+{
+  "file": "sword_00088.png",
+  "type": "sword",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "dark_fantasy",
+  "source": "rpg_fantasy",
+  "pose": "full_body",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "muscular",
+    "slim",
+    "tail",
+    "sword"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of sword"
+}

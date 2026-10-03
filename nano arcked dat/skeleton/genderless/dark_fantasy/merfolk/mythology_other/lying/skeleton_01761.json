@@ -1,0 +1,21 @@
+{
+  "file": "skeleton_01761.png",
+  "type": "skeleton",
+  "gender": "genderless",
+  "race": "merfolk",
+  "style": "dark_fantasy",
+  "source": "mythology_other",
+  "pose": "lying",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "axe",
+    "potion",
+    "sword",
+    "young"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of skeleton"
+}

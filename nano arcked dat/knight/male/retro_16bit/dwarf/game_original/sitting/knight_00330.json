@@ -1,0 +1,21 @@
+{
+  "file": "knight_00330.png",
+  "type": "knight",
+  "gender": "male",
+  "race": "dwarf",
+  "style": "retro_16bit",
+  "source": "game_original",
+  "pose": "sitting",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "boots",
+    "young",
+    "staff",
+    "gloves"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of knight"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "gunslinger_00292.png",
+  "type": "gunslinger",
+  "gender": "female",
+  "race": "undead",
+  "style": "sci_fi_pixel",
+  "source": "game_original",
+  "pose": "full_body",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "sword",
+    "gloves",
+    "fire",
+    "tail"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of gunslinger"
+}

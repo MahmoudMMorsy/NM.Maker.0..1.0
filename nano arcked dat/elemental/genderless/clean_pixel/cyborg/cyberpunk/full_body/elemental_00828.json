@@ -1,0 +1,21 @@
+{
+  "file": "elemental_00828.png",
+  "type": "elemental",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "clean_pixel",
+  "source": "cyberpunk",
+  "pose": "full_body",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "young",
+    "slim",
+    "wings",
+    "shield"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of elemental"
+}

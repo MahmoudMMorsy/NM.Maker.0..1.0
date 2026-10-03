@@ -1,0 +1,21 @@
+{
+  "file": "gun_01873.png",
+  "type": "gun",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "horror_pixel",
+  "source": "medieval",
+  "pose": "back_view",
+  "colors": [
+    "gold",
+    "green"
+  ],
+  "tags": [
+    "boots",
+    "slim",
+    "staff",
+    "young"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of gun"
+}

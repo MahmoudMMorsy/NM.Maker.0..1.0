@@ -1,0 +1,21 @@
+{
+  "file": "food_02345.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "horror_pixel",
+  "source": "comic",
+  "pose": "running",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "robe",
+    "tail",
+    "helmet",
+    "potion"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of food"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "mermaid_02651.png",
+  "type": "mermaid",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "fantasy_pixel",
+  "source": "generic",
+  "pose": "front_view",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "helmet",
+    "slim",
+    "lightning",
+    "fire"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of mermaid"
+}

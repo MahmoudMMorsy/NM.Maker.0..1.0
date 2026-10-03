@@ -1,0 +1,21 @@
+{
+  "file": "king_02868.png",
+  "type": "king",
+  "gender": "male",
+  "race": "demon",
+  "style": "sci_fi_pixel",
+  "source": "dark_fantasy",
+  "pose": "casting",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "fire",
+    "tail",
+    "axe",
+    "slim"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of king"
+}

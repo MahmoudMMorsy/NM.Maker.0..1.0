@@ -1,0 +1,21 @@
+{
+  "file": "ghost_01528.png",
+  "type": "ghost",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "arcade_pixel",
+  "source": "dark_fantasy",
+  "pose": "walking",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "horns",
+    "dual_wield",
+    "shield"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of ghost"
+}

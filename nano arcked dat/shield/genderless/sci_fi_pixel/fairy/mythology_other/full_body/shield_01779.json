@@ -1,0 +1,21 @@
+{
+  "file": "shield_01779.png",
+  "type": "shield",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "sci_fi_pixel",
+  "source": "mythology_other",
+  "pose": "full_body",
+  "colors": [
+    "purple",
+    "red"
+  ],
+  "tags": [
+    "wings",
+    "lightning",
+    "armor",
+    "sword"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of shield"
+}

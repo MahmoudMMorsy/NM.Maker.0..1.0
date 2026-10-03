@@ -1,0 +1,21 @@
+{
+  "file": "noble_00470.png",
+  "type": "noble",
+  "gender": "androgynous",
+  "race": "beastkin",
+  "style": "realistic_pixel",
+  "source": "sci_fi",
+  "pose": "attacking",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "tail",
+    "axe",
+    "fire",
+    "lightning"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of noble"
+}

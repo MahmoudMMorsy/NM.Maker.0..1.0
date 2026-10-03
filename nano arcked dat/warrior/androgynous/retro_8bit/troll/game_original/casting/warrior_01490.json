@@ -1,0 +1,21 @@
+{
+  "file": "warrior_01490.png",
+  "type": "warrior",
+  "gender": "androgynous",
+  "race": "troll",
+  "style": "retro_8bit",
+  "source": "game_original",
+  "pose": "casting",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "robe",
+    "axe",
+    "horns",
+    "staff"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of warrior"
+}

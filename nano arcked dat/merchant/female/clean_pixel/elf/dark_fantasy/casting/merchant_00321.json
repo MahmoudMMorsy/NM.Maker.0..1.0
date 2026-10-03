@@ -1,0 +1,21 @@
+{
+  "file": "merchant_00321.png",
+  "type": "merchant",
+  "gender": "female",
+  "race": "elf",
+  "style": "clean_pixel",
+  "source": "dark_fantasy",
+  "pose": "casting",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "young",
+    "ice",
+    "wings",
+    "fire"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of merchant"
+}

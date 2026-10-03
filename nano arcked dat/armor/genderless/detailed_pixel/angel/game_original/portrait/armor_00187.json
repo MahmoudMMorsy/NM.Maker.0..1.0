@@ -1,0 +1,21 @@
+{
+  "file": "armor_00187.png",
+  "type": "armor",
+  "gender": "genderless",
+  "race": "angel",
+  "style": "detailed_pixel",
+  "source": "game_original",
+  "pose": "portrait",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "bow",
+    "wings",
+    "fire",
+    "glowing_eyes"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of armor"
+}

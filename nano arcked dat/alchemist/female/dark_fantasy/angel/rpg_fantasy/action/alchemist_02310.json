@@ -1,0 +1,21 @@
+{
+  "file": "alchemist_02310.png",
+  "type": "alchemist",
+  "gender": "female",
+  "race": "angel",
+  "style": "dark_fantasy",
+  "source": "rpg_fantasy",
+  "pose": "action",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "old",
+    "shield",
+    "sword",
+    "young"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of alchemist"
+}

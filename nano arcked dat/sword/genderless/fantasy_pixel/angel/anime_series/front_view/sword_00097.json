@@ -1,0 +1,21 @@
+{
+  "file": "sword_00097.png",
+  "type": "sword",
+  "gender": "genderless",
+  "race": "angel",
+  "style": "fantasy_pixel",
+  "source": "anime_series",
+  "pose": "front_view",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "horns",
+    "muscular",
+    "magic_circle",
+    "ice"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of sword"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "skeleton_01724.png",
+  "type": "skeleton",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "sci_fi_pixel",
+  "source": "mythology_egypt",
+  "pose": "side_view",
+  "colors": [
+    "red",
+    "silver"
+  ],
+  "tags": [
+    "potion",
+    "robe",
+    "boots",
+    "helmet"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of skeleton"
+}

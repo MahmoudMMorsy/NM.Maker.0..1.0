@@ -1,0 +1,21 @@
+{
+  "file": "rock_02497.png",
+  "type": "rock",
+  "gender": "genderless",
+  "race": "angel",
+  "style": "clean_pixel",
+  "source": "cartoon_western",
+  "pose": "attacking",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "potion",
+    "boots",
+    "tail",
+    "old"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of rock"
+}

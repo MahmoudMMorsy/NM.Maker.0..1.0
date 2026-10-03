@@ -1,0 +1,21 @@
+{
+  "file": "ghost_00610.png",
+  "type": "ghost",
+  "gender": "genderless",
+  "race": "giant",
+  "style": "retro_8bit",
+  "source": "mythology_norse",
+  "pose": "front_view",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "dual_wield",
+    "sword",
+    "robe",
+    "young"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of ghost"
+}

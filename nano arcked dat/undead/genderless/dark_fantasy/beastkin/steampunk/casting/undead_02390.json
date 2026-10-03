@@ -1,0 +1,21 @@
+{
+  "file": "undead_02390.png",
+  "type": "undead",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "dark_fantasy",
+  "source": "steampunk",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "shield",
+    "old",
+    "muscular",
+    "sword"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of undead"
+}

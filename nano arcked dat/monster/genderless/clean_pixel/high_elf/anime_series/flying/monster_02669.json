@@ -1,0 +1,21 @@
+{
+  "file": "monster_02669.png",
+  "type": "monster",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "clean_pixel",
+  "source": "anime_series",
+  "pose": "flying",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "magic_circle",
+    "wings",
+    "bow",
+    "staff"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of monster"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "armor_00926.png",
+  "type": "armor",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "anime_pixel",
+  "source": "comic",
+  "pose": "action",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "fire",
+    "staff",
+    "boots",
+    "potion"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of armor"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "armor_02843.png",
+  "type": "armor",
+  "gender": "genderless",
+  "race": "angel",
+  "style": "clean_pixel",
+  "source": "steampunk",
+  "pose": "attacking",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "armor",
+    "bow",
+    "old",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of armor"
+}

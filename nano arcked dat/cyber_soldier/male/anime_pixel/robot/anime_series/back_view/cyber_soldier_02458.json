@@ -1,0 +1,21 @@
+{
+  "file": "cyber_soldier_02458.png",
+  "type": "cyber_soldier",
+  "gender": "male",
+  "race": "robot",
+  "style": "anime_pixel",
+  "source": "anime_series",
+  "pose": "back_view",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "axe",
+    "shield",
+    "sword",
+    "tail"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of cyber_soldier"
+}

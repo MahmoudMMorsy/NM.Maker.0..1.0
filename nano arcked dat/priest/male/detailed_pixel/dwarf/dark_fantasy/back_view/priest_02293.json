@@ -1,0 +1,21 @@
+{
+  "file": "priest_02293.png",
+  "type": "priest",
+  "gender": "male",
+  "race": "dwarf",
+  "style": "detailed_pixel",
+  "source": "dark_fantasy",
+  "pose": "back_view",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "old",
+    "bow",
+    "fire",
+    "wings"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of priest"
+}

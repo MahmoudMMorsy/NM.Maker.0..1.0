@@ -1,0 +1,21 @@
+{
+  "file": "undead_02006.png",
+  "type": "undead",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "realistic_pixel",
+  "source": "modern",
+  "pose": "attacking",
+  "colors": [
+    "purple",
+    "blue"
+  ],
+  "tags": [
+    "magic_circle",
+    "lightning",
+    "axe",
+    "muscular"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of undead"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "merchant_00955.png",
+  "type": "merchant",
+  "gender": "female",
+  "race": "cyborg",
+  "style": "dark_fantasy",
+  "source": "mythology_norse",
+  "pose": "sitting",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "armor",
+    "bow",
+    "helmet",
+    "wings"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of merchant"
+}

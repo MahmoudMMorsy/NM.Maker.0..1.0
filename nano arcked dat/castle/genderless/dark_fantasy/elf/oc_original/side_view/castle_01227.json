@@ -1,0 +1,21 @@
+{
+  "file": "castle_01227.png",
+  "type": "castle",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "dark_fantasy",
+  "source": "oc_original",
+  "pose": "side_view",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "lightning",
+    "wings",
+    "sword",
+    "shield"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of castle"
+}

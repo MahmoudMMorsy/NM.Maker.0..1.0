@@ -1,0 +1,21 @@
+{
+  "file": "robot_02811.png",
+  "type": "robot",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "fantasy_pixel",
+  "source": "post_apocalyptic",
+  "pose": "sitting",
+  "colors": [
+    "silver",
+    "red"
+  ],
+  "tags": [
+    "boots",
+    "lightning",
+    "magic_circle",
+    "helmet"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of robot"
+}

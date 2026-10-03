@@ -1,0 +1,21 @@
+{
+  "file": "cyber_soldier_00743.png",
+  "type": "cyber_soldier",
+  "gender": "male",
+  "race": "alien",
+  "style": "horror_pixel",
+  "source": "movie",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "bow",
+    "fire",
+    "staff",
+    "muscular"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of cyber_soldier"
+}

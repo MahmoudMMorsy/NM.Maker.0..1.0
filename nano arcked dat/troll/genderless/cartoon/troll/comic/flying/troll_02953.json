@@ -1,0 +1,21 @@
+{
+  "file": "troll_02953.png",
+  "type": "troll",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "cartoon",
+  "source": "comic",
+  "pose": "flying",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "slim",
+    "dual_wield",
+    "potion",
+    "armor"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of troll"
+}

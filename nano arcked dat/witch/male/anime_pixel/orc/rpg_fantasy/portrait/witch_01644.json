@@ -1,0 +1,21 @@
+{
+  "file": "witch_01644.png",
+  "type": "witch",
+  "gender": "male",
+  "race": "orc",
+  "style": "anime_pixel",
+  "source": "rpg_fantasy",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "boots",
+    "glowing_eyes",
+    "fire",
+    "dual_wield"
+  ],
+  "resolution": "64x64",
+  "notes": "anime_pixel pixel art asset of witch"
+}

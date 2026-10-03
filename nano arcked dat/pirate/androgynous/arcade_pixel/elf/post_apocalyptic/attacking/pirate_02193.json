@@ -1,0 +1,21 @@
+{
+  "file": "pirate_02193.png",
+  "type": "pirate",
+  "gender": "androgynous",
+  "race": "elf",
+  "style": "arcade_pixel",
+  "source": "post_apocalyptic",
+  "pose": "attacking",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "fire",
+    "glowing_eyes",
+    "slim",
+    "staff"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of pirate"
+}

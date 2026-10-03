@@ -1,0 +1,21 @@
+{
+  "file": "bow_01423.png",
+  "type": "bow",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "retro_16bit",
+  "source": "mythology_norse",
+  "pose": "back_view",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "ice",
+    "bow",
+    "gloves",
+    "staff"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of bow"
+}

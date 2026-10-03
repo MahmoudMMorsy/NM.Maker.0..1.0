@@ -1,0 +1,21 @@
+{
+  "file": "farmer_01838.png",
+  "type": "farmer",
+  "gender": "female",
+  "race": "dragonkin",
+  "style": "retro_8bit",
+  "source": "game_original",
+  "pose": "front_view",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "armor",
+    "helmet",
+    "tail",
+    "boots"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of farmer"
+}

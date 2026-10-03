@@ -1,0 +1,21 @@
+{
+  "file": "dancer_00395.png",
+  "type": "dancer",
+  "gender": "female",
+  "race": "alien",
+  "style": "clean_pixel",
+  "source": "mythology_other",
+  "pose": "sitting",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "axe",
+    "horns",
+    "staff",
+    "fire"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of dancer"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "monk_01093.png",
+  "type": "monk",
+  "gender": "female",
+  "race": "angel",
+  "style": "fantasy_pixel",
+  "source": "modern",
+  "pose": "side_view",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "potion",
+    "dual_wield",
+    "horns",
+    "bow"
+  ],
+  "resolution": "32x32",
+  "notes": "fantasy_pixel pixel art asset of monk"
+}

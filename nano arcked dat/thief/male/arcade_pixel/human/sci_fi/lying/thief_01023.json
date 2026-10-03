@@ -1,0 +1,21 @@
+{
+  "file": "thief_01023.png",
+  "type": "thief",
+  "gender": "male",
+  "race": "human",
+  "style": "arcade_pixel",
+  "source": "sci_fi",
+  "pose": "lying",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "sword",
+    "staff",
+    "muscular",
+    "cape"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of thief"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "animal_00655.png",
+  "type": "animal",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "detailed_pixel",
+  "source": "anime_series",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "tail",
+    "muscular",
+    "gloves",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of animal"
+}

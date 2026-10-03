@@ -1,0 +1,21 @@
+{
+  "file": "zombie_01656.png",
+  "type": "zombie",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "retro_8bit",
+  "source": "post_apocalyptic",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "cape",
+    "axe",
+    "old",
+    "tail"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of zombie"
+}

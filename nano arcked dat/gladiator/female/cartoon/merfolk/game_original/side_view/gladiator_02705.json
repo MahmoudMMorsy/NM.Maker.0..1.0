@@ -1,0 +1,21 @@
+{
+  "file": "gladiator_02705.png",
+  "type": "gladiator",
+  "gender": "female",
+  "race": "merfolk",
+  "style": "cartoon",
+  "source": "game_original",
+  "pose": "side_view",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "armor",
+    "bow",
+    "muscular",
+    "potion"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of gladiator"
+}

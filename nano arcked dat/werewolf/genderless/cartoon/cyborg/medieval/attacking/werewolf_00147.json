@@ -1,0 +1,21 @@
+{
+  "file": "werewolf_00147.png",
+  "type": "werewolf",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "cartoon",
+  "source": "medieval",
+  "pose": "attacking",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "dual_wield",
+    "glowing_eyes",
+    "shield",
+    "potion"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of werewolf"
+}

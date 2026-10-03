@@ -1,0 +1,21 @@
+{
+  "file": "troll_01418.png",
+  "type": "troll",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "dark_fantasy",
+  "source": "cartoon_western",
+  "pose": "running",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "gloves",
+    "axe",
+    "staff",
+    "bow"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of troll"
+}

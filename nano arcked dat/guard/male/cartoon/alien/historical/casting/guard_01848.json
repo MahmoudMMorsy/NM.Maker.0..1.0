@@ -1,0 +1,21 @@
+{
+  "file": "guard_01848.png",
+  "type": "guard",
+  "gender": "male",
+  "race": "alien",
+  "style": "cartoon",
+  "source": "historical",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "cape",
+    "young",
+    "slim",
+    "axe"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of guard"
+}

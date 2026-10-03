@@ -1,0 +1,21 @@
+{
+  "file": "merchant_02636.png",
+  "type": "merchant",
+  "gender": "male",
+  "race": "cyborg",
+  "style": "fantasy_pixel",
+  "source": "horror",
+  "pose": "idle",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "slim",
+    "armor",
+    "sword",
+    "shield"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of merchant"
+}

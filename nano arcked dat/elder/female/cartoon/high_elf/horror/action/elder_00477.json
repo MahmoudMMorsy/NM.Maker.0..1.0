@@ -1,0 +1,21 @@
+{
+  "file": "elder_00477.png",
+  "type": "elder",
+  "gender": "female",
+  "race": "high_elf",
+  "style": "cartoon",
+  "source": "horror",
+  "pose": "action",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "shield",
+    "tail",
+    "bow",
+    "cape"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of elder"
+}

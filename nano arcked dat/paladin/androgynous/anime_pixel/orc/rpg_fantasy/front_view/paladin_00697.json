@@ -1,0 +1,21 @@
+{
+  "file": "paladin_00697.png",
+  "type": "paladin",
+  "gender": "androgynous",
+  "race": "orc",
+  "style": "anime_pixel",
+  "source": "rpg_fantasy",
+  "pose": "front_view",
+  "colors": [
+    "red",
+    "silver"
+  ],
+  "tags": [
+    "young",
+    "glowing_eyes",
+    "potion",
+    "armor"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of paladin"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "staff_00360.png",
+  "type": "staff",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "retro_16bit",
+  "source": "cartoon_western",
+  "pose": "casting",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "potion",
+    "staff",
+    "ice",
+    "lightning"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of staff"
+}

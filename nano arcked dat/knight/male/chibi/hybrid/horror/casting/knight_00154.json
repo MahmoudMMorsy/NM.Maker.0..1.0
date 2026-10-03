@@ -1,0 +1,21 @@
+{
+  "file": "knight_00154.png",
+  "type": "knight",
+  "gender": "male",
+  "race": "hybrid",
+  "style": "chibi",
+  "source": "horror",
+  "pose": "casting",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "magic_circle",
+    "helmet",
+    "tail",
+    "armor"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of knight"
+}

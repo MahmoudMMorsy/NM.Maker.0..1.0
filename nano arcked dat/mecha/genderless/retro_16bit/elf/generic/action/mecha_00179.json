@@ -1,0 +1,21 @@
+{
+  "file": "mecha_00179.png",
+  "type": "mecha",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "retro_16bit",
+  "source": "generic",
+  "pose": "action",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "staff",
+    "gloves",
+    "magic_circle",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of mecha"
+}

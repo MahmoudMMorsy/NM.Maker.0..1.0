@@ -1,0 +1,21 @@
+{
+  "file": "tree_01836.png",
+  "type": "tree",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "sci_fi_pixel",
+  "source": "cartoon_western",
+  "pose": "action",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "sword",
+    "ice",
+    "old",
+    "glowing_eyes"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of tree"
+}

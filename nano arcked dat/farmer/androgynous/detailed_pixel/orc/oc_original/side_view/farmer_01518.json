@@ -1,0 +1,21 @@
+{
+  "file": "farmer_01518.png",
+  "type": "farmer",
+  "gender": "androgynous",
+  "race": "orc",
+  "style": "detailed_pixel",
+  "source": "oc_original",
+  "pose": "side_view",
+  "colors": [
+    "red",
+    "silver"
+  ],
+  "tags": [
+    "axe",
+    "helmet",
+    "cape",
+    "boots"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of farmer"
+}

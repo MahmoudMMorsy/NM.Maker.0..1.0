@@ -1,0 +1,21 @@
+{
+  "file": "queen_00006.png",
+  "type": "queen",
+  "gender": "androgynous",
+  "race": "fairy",
+  "style": "arcade_pixel",
+  "source": "modern",
+  "pose": "back_view",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "cape",
+    "dual_wield",
+    "muscular",
+    "staff"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of queen"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "giant_02014.png",
+  "type": "giant",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "retro_16bit",
+  "source": "mythology_norse",
+  "pose": "idle",
+  "colors": [
+    "purple",
+    "blue"
+  ],
+  "tags": [
+    "wings",
+    "lightning",
+    "dual_wield",
+    "horns"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of giant"
+}

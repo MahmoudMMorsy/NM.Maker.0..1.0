@@ -1,0 +1,21 @@
+{
+  "file": "spaceship_02956.png",
+  "type": "spaceship",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "sci_fi_pixel",
+  "source": "mythology_egypt",
+  "pose": "back_view",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "horns",
+    "armor",
+    "helmet",
+    "glowing_eyes"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of spaceship"
+}

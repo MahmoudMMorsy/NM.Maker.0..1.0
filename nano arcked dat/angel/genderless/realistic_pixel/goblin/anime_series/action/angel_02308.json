@@ -1,0 +1,21 @@
+{
+  "file": "angel_02308.png",
+  "type": "angel",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "realistic_pixel",
+  "source": "anime_series",
+  "pose": "action",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "bow",
+    "ice",
+    "fire",
+    "magic_circle"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of angel"
+}

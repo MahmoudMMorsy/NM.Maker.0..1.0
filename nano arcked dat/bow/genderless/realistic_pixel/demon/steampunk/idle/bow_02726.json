@@ -1,0 +1,21 @@
+{
+  "file": "bow_02726.png",
+  "type": "bow",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "realistic_pixel",
+  "source": "steampunk",
+  "pose": "idle",
+  "colors": [
+    "silver",
+    "red"
+  ],
+  "tags": [
+    "ice",
+    "dual_wield",
+    "lightning",
+    "axe"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of bow"
+}

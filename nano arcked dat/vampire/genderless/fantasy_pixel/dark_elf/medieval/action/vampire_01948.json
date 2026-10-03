@@ -1,0 +1,21 @@
+{
+  "file": "vampire_01948.png",
+  "type": "vampire",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "fantasy_pixel",
+  "source": "medieval",
+  "pose": "action",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "helmet",
+    "boots",
+    "young",
+    "sword"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of vampire"
+}

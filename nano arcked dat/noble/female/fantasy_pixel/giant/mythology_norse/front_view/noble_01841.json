@@ -1,0 +1,21 @@
+{
+  "file": "noble_01841.png",
+  "type": "noble",
+  "gender": "female",
+  "race": "giant",
+  "style": "fantasy_pixel",
+  "source": "mythology_norse",
+  "pose": "front_view",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "tail",
+    "horns",
+    "boots",
+    "cape"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of noble"
+}

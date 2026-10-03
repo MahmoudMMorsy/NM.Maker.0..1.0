@@ -1,0 +1,21 @@
+{
+  "file": "gun_00705.png",
+  "type": "gun",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "realistic_pixel",
+  "source": "modern",
+  "pose": "sitting",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "old",
+    "wings",
+    "potion",
+    "muscular"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of gun"
+}

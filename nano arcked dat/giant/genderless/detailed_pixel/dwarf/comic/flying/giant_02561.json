@@ -1,0 +1,21 @@
+{
+  "file": "giant_02561.png",
+  "type": "giant",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "detailed_pixel",
+  "source": "comic",
+  "pose": "flying",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "robe",
+    "sword",
+    "magic_circle",
+    "lightning"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of giant"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "noble_01362.png",
+  "type": "noble",
+  "gender": "male",
+  "race": "robot",
+  "style": "retro_8bit",
+  "source": "horror",
+  "pose": "side_view",
+  "colors": [
+    "red",
+    "silver"
+  ],
+  "tags": [
+    "fire",
+    "ice",
+    "potion",
+    "magic_circle"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_8bit pixel art asset of noble"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "farmer_00796.png",
+  "type": "farmer",
+  "gender": "male",
+  "race": "dragonkin",
+  "style": "fantasy_pixel",
+  "source": "sci_fi",
+  "pose": "front_view",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "shield",
+    "wings",
+    "tail",
+    "sword"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of farmer"
+}

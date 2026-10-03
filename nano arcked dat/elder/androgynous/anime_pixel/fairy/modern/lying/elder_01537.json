@@ -1,0 +1,21 @@
+{
+  "file": "elder_01537.png",
+  "type": "elder",
+  "gender": "androgynous",
+  "race": "fairy",
+  "style": "anime_pixel",
+  "source": "modern",
+  "pose": "lying",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "potion",
+    "muscular",
+    "staff",
+    "bow"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of elder"
+}

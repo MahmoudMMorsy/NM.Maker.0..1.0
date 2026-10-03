@@ -1,0 +1,21 @@
+{
+  "file": "skeleton_00504.png",
+  "type": "skeleton",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "fantasy_pixel",
+  "source": "cyberpunk",
+  "pose": "walking",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "bow",
+    "lightning",
+    "cape",
+    "boots"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of skeleton"
+}

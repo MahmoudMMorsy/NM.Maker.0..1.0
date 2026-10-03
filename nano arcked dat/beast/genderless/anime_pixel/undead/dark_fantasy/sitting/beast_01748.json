@@ -1,0 +1,21 @@
+{
+  "file": "beast_01748.png",
+  "type": "beast",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "anime_pixel",
+  "source": "dark_fantasy",
+  "pose": "sitting",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "tail",
+    "bow",
+    "horns",
+    "staff"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of beast"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "alien_01743.png",
+  "type": "alien",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "detailed_pixel",
+  "source": "comic",
+  "pose": "sitting",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "young",
+    "slim",
+    "staff",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of alien"
+}

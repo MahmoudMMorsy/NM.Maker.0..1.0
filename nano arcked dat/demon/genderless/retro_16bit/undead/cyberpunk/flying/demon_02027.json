@@ -1,0 +1,21 @@
+{
+  "file": "demon_02027.png",
+  "type": "demon",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "retro_16bit",
+  "source": "cyberpunk",
+  "pose": "flying",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "cape",
+    "armor",
+    "slim",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of demon"
+}

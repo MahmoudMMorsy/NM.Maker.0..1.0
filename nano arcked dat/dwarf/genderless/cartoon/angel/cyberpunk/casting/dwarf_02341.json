@@ -1,0 +1,21 @@
+{
+  "file": "dwarf_02341.png",
+  "type": "dwarf",
+  "gender": "genderless",
+  "race": "angel",
+  "style": "cartoon",
+  "source": "cyberpunk",
+  "pose": "casting",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "robe",
+    "staff",
+    "slim",
+    "tail"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of dwarf"
+}

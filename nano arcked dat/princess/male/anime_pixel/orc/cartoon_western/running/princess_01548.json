@@ -1,0 +1,21 @@
+{
+  "file": "princess_01548.png",
+  "type": "princess",
+  "gender": "male",
+  "race": "orc",
+  "style": "anime_pixel",
+  "source": "cartoon_western",
+  "pose": "running",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "horns",
+    "wings",
+    "muscular",
+    "helmet"
+  ],
+  "resolution": "32x32",
+  "notes": "anime_pixel pixel art asset of princess"
+}

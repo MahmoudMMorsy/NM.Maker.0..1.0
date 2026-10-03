@@ -1,0 +1,21 @@
+{
+  "file": "witch_01499.png",
+  "type": "witch",
+  "gender": "male",
+  "race": "cyborg",
+  "style": "sci_fi_pixel",
+  "source": "historical",
+  "pose": "back_view",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "ice",
+    "young",
+    "staff",
+    "wings"
+  ],
+  "resolution": "128x128",
+  "notes": "sci_fi_pixel pixel art asset of witch"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "beast_02187.png",
+  "type": "beast",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "realistic_pixel",
+  "source": "medieval",
+  "pose": "running",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "horns",
+    "old",
+    "fire",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of beast"
+}

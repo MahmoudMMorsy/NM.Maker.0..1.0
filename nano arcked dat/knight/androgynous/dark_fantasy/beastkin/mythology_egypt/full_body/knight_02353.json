@@ -1,0 +1,21 @@
+{
+  "file": "knight_02353.png",
+  "type": "knight",
+  "gender": "androgynous",
+  "race": "beastkin",
+  "style": "dark_fantasy",
+  "source": "mythology_egypt",
+  "pose": "full_body",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "potion",
+    "armor",
+    "gloves",
+    "tail"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of knight"
+}

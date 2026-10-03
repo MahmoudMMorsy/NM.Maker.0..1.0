@@ -1,0 +1,21 @@
+{
+  "file": "thief_01069.png",
+  "type": "thief",
+  "gender": "female",
+  "race": "dwarf",
+  "style": "realistic_pixel",
+  "source": "rpg_fantasy",
+  "pose": "sitting",
+  "colors": [
+    "red",
+    "green"
+  ],
+  "tags": [
+    "armor",
+    "dual_wield",
+    "wings",
+    "young"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of thief"
+}

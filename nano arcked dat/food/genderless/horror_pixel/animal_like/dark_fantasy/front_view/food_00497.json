@@ -1,0 +1,21 @@
+{
+  "file": "food_00497.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "horror_pixel",
+  "source": "dark_fantasy",
+  "pose": "front_view",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "bow",
+    "sword",
+    "old",
+    "ice"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of food"
+}

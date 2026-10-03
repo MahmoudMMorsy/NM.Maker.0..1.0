@@ -1,0 +1,21 @@
+{
+  "file": "witch_01935.png",
+  "type": "witch",
+  "gender": "androgynous",
+  "race": "dark_elf",
+  "style": "detailed_pixel",
+  "source": "horror",
+  "pose": "lying",
+  "colors": [
+    "red",
+    "silver"
+  ],
+  "tags": [
+    "helmet",
+    "robe",
+    "muscular",
+    "potion"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of witch"
+}

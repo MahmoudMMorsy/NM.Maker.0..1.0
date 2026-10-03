@@ -1,0 +1,21 @@
+{
+  "file": "dragon_02611.png",
+  "type": "dragon",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "cartoon",
+  "source": "dark_fantasy",
+  "pose": "walking",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "dual_wield",
+    "sword",
+    "boots",
+    "lightning"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of dragon"
+}

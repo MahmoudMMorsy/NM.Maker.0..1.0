@@ -1,0 +1,21 @@
+{
+  "file": "thief_00315.png",
+  "type": "thief",
+  "gender": "female",
+  "race": "beastkin",
+  "style": "anime_pixel",
+  "source": "oc_original",
+  "pose": "front_view",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "wings",
+    "axe",
+    "dual_wield",
+    "armor"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of thief"
+}

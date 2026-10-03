@@ -1,0 +1,21 @@
+{
+  "file": "potion_02761.png",
+  "type": "potion",
+  "gender": "genderless",
+  "race": "giant",
+  "style": "cartoon",
+  "source": "post_apocalyptic",
+  "pose": "casting",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "old",
+    "potion",
+    "dual_wield",
+    "lightning"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of potion"
+}

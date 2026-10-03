@@ -1,0 +1,21 @@
+{
+  "file": "ninja_01640.png",
+  "type": "ninja",
+  "gender": "androgynous",
+  "race": "alien",
+  "style": "cartoon",
+  "source": "mythology_other",
+  "pose": "flying",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "robe",
+    "horns",
+    "tail",
+    "armor"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of ninja"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "witch_00840.png",
+  "type": "witch",
+  "gender": "female",
+  "race": "cyborg",
+  "style": "chibi",
+  "source": "mythology_egypt",
+  "pose": "portrait",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "cape",
+    "glowing_eyes",
+    "fire",
+    "shield"
+  ],
+  "resolution": "32x32",
+  "notes": "chibi pixel art asset of witch"
+}

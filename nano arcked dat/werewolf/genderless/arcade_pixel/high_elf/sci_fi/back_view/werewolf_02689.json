@@ -1,0 +1,21 @@
+{
+  "file": "werewolf_02689.png",
+  "type": "werewolf",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "arcade_pixel",
+  "source": "sci_fi",
+  "pose": "back_view",
+  "colors": [
+    "purple",
+    "red"
+  ],
+  "tags": [
+    "ice",
+    "slim",
+    "potion",
+    "robe"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of werewolf"
+}

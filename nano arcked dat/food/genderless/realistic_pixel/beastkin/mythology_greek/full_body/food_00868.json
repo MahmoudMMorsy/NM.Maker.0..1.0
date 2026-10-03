@@ -1,0 +1,21 @@
+{
+  "file": "food_00868.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "realistic_pixel",
+  "source": "mythology_greek",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "bow",
+    "potion",
+    "slim",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of food"
+}

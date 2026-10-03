@@ -1,0 +1,21 @@
+{
+  "file": "rogue_02802.png",
+  "type": "rogue",
+  "gender": "androgynous",
+  "race": "fairy",
+  "style": "cartoon",
+  "source": "game_original",
+  "pose": "sitting",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "cape",
+    "slim",
+    "magic_circle",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of rogue"
+}

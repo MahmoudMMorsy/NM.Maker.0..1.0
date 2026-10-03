@@ -1,0 +1,21 @@
+{
+  "file": "robot_00224.png",
+  "type": "robot",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "anime_pixel",
+  "source": "mythology_other",
+  "pose": "walking",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "magic_circle",
+    "young",
+    "horns"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of robot"
+}

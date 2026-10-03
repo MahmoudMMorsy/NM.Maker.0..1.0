@@ -1,0 +1,21 @@
+{
+  "file": "cook_00159.png",
+  "type": "cook",
+  "gender": "female",
+  "race": "troll",
+  "style": "fantasy_pixel",
+  "source": "cartoon_western",
+  "pose": "front_view",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "axe",
+    "slim",
+    "armor",
+    "magic_circle"
+  ],
+  "resolution": "32x32",
+  "notes": "fantasy_pixel pixel art asset of cook"
+}

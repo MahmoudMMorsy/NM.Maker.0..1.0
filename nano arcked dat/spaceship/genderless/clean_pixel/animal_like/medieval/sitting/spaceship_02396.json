@@ -1,0 +1,21 @@
+{
+  "file": "spaceship_02396.png",
+  "type": "spaceship",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "clean_pixel",
+  "source": "medieval",
+  "pose": "sitting",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "dual_wield",
+    "helmet",
+    "old",
+    "robe"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of spaceship"
+}

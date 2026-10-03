@@ -1,0 +1,21 @@
+{
+  "file": "chest_01136.png",
+  "type": "chest",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "chibi",
+  "source": "dark_fantasy",
+  "pose": "sitting",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "young",
+    "staff",
+    "bow"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of chest"
+}

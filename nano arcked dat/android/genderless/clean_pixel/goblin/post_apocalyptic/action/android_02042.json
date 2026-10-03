@@ -1,0 +1,21 @@
+{
+  "file": "android_02042.png",
+  "type": "android",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "clean_pixel",
+  "source": "post_apocalyptic",
+  "pose": "action",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "helmet",
+    "axe",
+    "gloves",
+    "cape"
+  ],
+  "resolution": "128x128",
+  "notes": "clean_pixel pixel art asset of android"
+}

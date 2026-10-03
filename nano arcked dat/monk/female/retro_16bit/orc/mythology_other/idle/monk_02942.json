@@ -1,0 +1,21 @@
+{
+  "file": "monk_02942.png",
+  "type": "monk",
+  "gender": "female",
+  "race": "orc",
+  "style": "retro_16bit",
+  "source": "mythology_other",
+  "pose": "idle",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "magic_circle",
+    "tail",
+    "helmet",
+    "armor"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of monk"
+}

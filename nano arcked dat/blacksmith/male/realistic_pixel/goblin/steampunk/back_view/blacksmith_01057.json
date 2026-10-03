@@ -1,0 +1,21 @@
+{
+  "file": "blacksmith_01057.png",
+  "type": "blacksmith",
+  "gender": "male",
+  "race": "goblin",
+  "style": "realistic_pixel",
+  "source": "steampunk",
+  "pose": "back_view",
+  "colors": [
+    "red",
+    "silver"
+  ],
+  "tags": [
+    "boots",
+    "horns",
+    "tail",
+    "helmet"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of blacksmith"
+}

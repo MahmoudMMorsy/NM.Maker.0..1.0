@@ -1,0 +1,21 @@
+{
+  "file": "civilian_01710.png",
+  "type": "civilian",
+  "gender": "androgynous",
+  "race": "dwarf",
+  "style": "fantasy_pixel",
+  "source": "cyberpunk",
+  "pose": "full_body",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "dual_wield",
+    "bow",
+    "shield",
+    "young"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of civilian"
+}

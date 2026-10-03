@@ -1,0 +1,21 @@
+{
+  "file": "summoner_00070.png",
+  "type": "summoner",
+  "gender": "male",
+  "race": "dark_elf",
+  "style": "chibi",
+  "source": "sci_fi",
+  "pose": "back_view",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "potion",
+    "shield",
+    "lightning",
+    "old"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of summoner"
+}

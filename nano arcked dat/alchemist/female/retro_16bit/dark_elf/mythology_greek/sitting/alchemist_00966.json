@@ -1,0 +1,21 @@
+{
+  "file": "alchemist_00966.png",
+  "type": "alchemist",
+  "gender": "female",
+  "race": "dark_elf",
+  "style": "retro_16bit",
+  "source": "mythology_greek",
+  "pose": "sitting",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "armor",
+    "slim",
+    "gloves",
+    "muscular"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of alchemist"
+}

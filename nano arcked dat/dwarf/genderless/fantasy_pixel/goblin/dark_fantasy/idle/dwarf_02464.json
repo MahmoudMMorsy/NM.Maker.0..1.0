@@ -1,0 +1,21 @@
+{
+  "file": "dwarf_02464.png",
+  "type": "dwarf",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "fantasy_pixel",
+  "source": "dark_fantasy",
+  "pose": "idle",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "armor",
+    "shield",
+    "staff",
+    "dual_wield"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of dwarf"
+}

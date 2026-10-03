@@ -1,0 +1,21 @@
+{
+  "file": "elder_02596.png",
+  "type": "elder",
+  "gender": "androgynous",
+  "race": "giant",
+  "style": "fantasy_pixel",
+  "source": "mythology_greek",
+  "pose": "front_view",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "boots",
+    "slim",
+    "tail",
+    "glowing_eyes"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of elder"
+}

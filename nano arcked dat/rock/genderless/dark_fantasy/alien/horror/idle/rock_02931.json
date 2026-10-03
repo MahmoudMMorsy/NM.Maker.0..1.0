@@ -1,0 +1,21 @@
+{
+  "file": "rock_02931.png",
+  "type": "rock",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "dark_fantasy",
+  "source": "horror",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "cape",
+    "armor",
+    "bow",
+    "lightning"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of rock"
+}

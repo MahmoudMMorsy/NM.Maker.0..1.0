@@ -1,0 +1,21 @@
+{
+  "file": "mermaid_01438.png",
+  "type": "mermaid",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "arcade_pixel",
+  "source": "modern",
+  "pose": "front_view",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "boots",
+    "muscular",
+    "lightning",
+    "robe"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of mermaid"
+}

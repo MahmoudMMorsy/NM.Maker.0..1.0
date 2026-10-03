@@ -1,0 +1,21 @@
+{
+  "file": "king_01259.png",
+  "type": "king",
+  "gender": "female",
+  "race": "beastkin",
+  "style": "realistic_pixel",
+  "source": "mythology_other",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "armor",
+    "cape",
+    "axe",
+    "horns"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of king"
+}

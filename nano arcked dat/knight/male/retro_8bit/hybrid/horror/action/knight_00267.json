@@ -1,0 +1,21 @@
+{
+  "file": "knight_00267.png",
+  "type": "knight",
+  "gender": "male",
+  "race": "hybrid",
+  "style": "retro_8bit",
+  "source": "horror",
+  "pose": "action",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "boots",
+    "muscular",
+    "shield",
+    "sword"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of knight"
+}

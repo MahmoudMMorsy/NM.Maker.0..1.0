@@ -1,0 +1,21 @@
+{
+  "file": "castle_00309.png",
+  "type": "castle",
+  "gender": "genderless",
+  "race": "dark_elf",
+  "style": "dark_fantasy",
+  "source": "sci_fi",
+  "pose": "attacking",
+  "colors": [
+    "red",
+    "silver"
+  ],
+  "tags": [
+    "gloves",
+    "fire",
+    "robe",
+    "axe"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of castle"
+}

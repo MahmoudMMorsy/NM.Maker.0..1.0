@@ -1,0 +1,21 @@
+{
+  "file": "berserker_01439.png",
+  "type": "berserker",
+  "gender": "androgynous",
+  "race": "dragonkin",
+  "style": "realistic_pixel",
+  "source": "comic",
+  "pose": "portrait",
+  "colors": [
+    "silver",
+    "red"
+  ],
+  "tags": [
+    "wings",
+    "young",
+    "ice",
+    "helmet"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of berserker"
+}

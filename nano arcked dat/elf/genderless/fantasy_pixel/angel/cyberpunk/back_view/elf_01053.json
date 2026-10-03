@@ -1,0 +1,21 @@
+{
+  "file": "elf_01053.png",
+  "type": "elf",
+  "gender": "genderless",
+  "race": "angel",
+  "style": "fantasy_pixel",
+  "source": "cyberpunk",
+  "pose": "back_view",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "armor",
+    "young",
+    "shield",
+    "tail"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of elf"
+}

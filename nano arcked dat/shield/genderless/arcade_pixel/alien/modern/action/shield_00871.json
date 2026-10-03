@@ -1,0 +1,21 @@
+{
+  "file": "shield_00871.png",
+  "type": "shield",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "arcade_pixel",
+  "source": "modern",
+  "pose": "action",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "ice",
+    "armor",
+    "potion",
+    "glowing_eyes"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of shield"
+}

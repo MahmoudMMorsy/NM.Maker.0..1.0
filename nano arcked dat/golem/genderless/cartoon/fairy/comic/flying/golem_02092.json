@@ -1,0 +1,21 @@
+{
+  "file": "golem_02092.png",
+  "type": "golem",
+  "gender": "genderless",
+  "race": "fairy",
+  "style": "cartoon",
+  "source": "comic",
+  "pose": "flying",
+  "colors": [
+    "purple",
+    "silver"
+  ],
+  "tags": [
+    "shield",
+    "wings",
+    "gloves",
+    "magic_circle"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of golem"
+}

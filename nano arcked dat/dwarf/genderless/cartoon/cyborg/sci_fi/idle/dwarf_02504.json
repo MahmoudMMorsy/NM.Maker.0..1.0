@@ -1,0 +1,21 @@
+{
+  "file": "dwarf_02504.png",
+  "type": "dwarf",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "cartoon",
+  "source": "sci_fi",
+  "pose": "idle",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "young",
+    "wings",
+    "helmet",
+    "muscular"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of dwarf"
+}

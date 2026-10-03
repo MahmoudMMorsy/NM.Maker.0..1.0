@@ -1,0 +1,21 @@
+{
+  "file": "bard_00614.png",
+  "type": "bard",
+  "gender": "male",
+  "race": "goblin",
+  "style": "realistic_pixel",
+  "source": "anime_series",
+  "pose": "attacking",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "fire",
+    "ice",
+    "helmet",
+    "young"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of bard"
+}

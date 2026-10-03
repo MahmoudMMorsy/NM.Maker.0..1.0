@@ -1,0 +1,21 @@
+{
+  "file": "vehicle_01276.png",
+  "type": "vehicle",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "arcade_pixel",
+  "source": "rpg_fantasy",
+  "pose": "portrait",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "old",
+    "wings",
+    "fire",
+    "tail"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of vehicle"
+}

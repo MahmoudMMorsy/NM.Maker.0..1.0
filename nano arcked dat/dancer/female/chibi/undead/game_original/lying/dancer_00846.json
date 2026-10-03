@@ -1,0 +1,21 @@
+{
+  "file": "dancer_00846.png",
+  "type": "dancer",
+  "gender": "female",
+  "race": "undead",
+  "style": "chibi",
+  "source": "game_original",
+  "pose": "lying",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "lightning",
+    "old",
+    "tail",
+    "bow"
+  ],
+  "resolution": "32x32",
+  "notes": "chibi pixel art asset of dancer"
+}

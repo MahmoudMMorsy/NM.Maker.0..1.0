@@ -1,0 +1,21 @@
+{
+  "file": "hunter_01230.png",
+  "type": "hunter",
+  "gender": "androgynous",
+  "race": "alien",
+  "style": "realistic_pixel",
+  "source": "oc_original",
+  "pose": "back_view",
+  "colors": [
+    "silver",
+    "blue"
+  ],
+  "tags": [
+    "wings",
+    "old",
+    "gloves",
+    "axe"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of hunter"
+}

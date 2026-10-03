@@ -1,0 +1,21 @@
+{
+  "file": "elemental_00313.png",
+  "type": "elemental",
+  "gender": "genderless",
+  "race": "angel",
+  "style": "dark_fantasy",
+  "source": "game_original",
+  "pose": "full_body",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "helmet",
+    "wings",
+    "bow",
+    "armor"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of elemental"
+}

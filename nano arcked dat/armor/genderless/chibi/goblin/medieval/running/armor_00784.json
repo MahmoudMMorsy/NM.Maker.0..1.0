@@ -1,0 +1,21 @@
+{
+  "file": "armor_00784.png",
+  "type": "armor",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "chibi",
+  "source": "medieval",
+  "pose": "running",
+  "colors": [
+    "blue",
+    "black"
+  ],
+  "tags": [
+    "shield",
+    "slim",
+    "sword",
+    "dual_wield"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of armor"
+}

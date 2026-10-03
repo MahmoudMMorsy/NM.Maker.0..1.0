@@ -1,0 +1,21 @@
+{
+  "file": "prince_01033.png",
+  "type": "prince",
+  "gender": "female",
+  "race": "elf",
+  "style": "retro_8bit",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "fire",
+    "old",
+    "shield",
+    "gloves"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of prince"
+}

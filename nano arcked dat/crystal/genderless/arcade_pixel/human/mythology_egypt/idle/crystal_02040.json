@@ -1,0 +1,21 @@
+{
+  "file": "crystal_02040.png",
+  "type": "crystal",
+  "gender": "genderless",
+  "race": "human",
+  "style": "arcade_pixel",
+  "source": "mythology_egypt",
+  "pose": "idle",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "robe",
+    "staff",
+    "slim",
+    "dual_wield"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of crystal"
+}

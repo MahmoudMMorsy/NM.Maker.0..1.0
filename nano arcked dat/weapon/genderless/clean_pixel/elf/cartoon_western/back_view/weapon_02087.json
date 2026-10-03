@@ -1,0 +1,21 @@
+{
+  "file": "weapon_02087.png",
+  "type": "weapon",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "clean_pixel",
+  "source": "cartoon_western",
+  "pose": "back_view",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "young",
+    "horns",
+    "slim",
+    "fire"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of weapon"
+}

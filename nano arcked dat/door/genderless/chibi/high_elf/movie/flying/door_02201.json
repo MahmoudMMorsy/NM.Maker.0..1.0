@@ -1,0 +1,21 @@
+{
+  "file": "door_02201.png",
+  "type": "door",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "chibi",
+  "source": "movie",
+  "pose": "flying",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "tail",
+    "potion",
+    "slim",
+    "magic_circle"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of door"
+}

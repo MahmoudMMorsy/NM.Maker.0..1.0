@@ -1,0 +1,21 @@
+{
+  "file": "soldier_02062.png",
+  "type": "soldier",
+  "gender": "androgynous",
+  "race": "beastkin",
+  "style": "clean_pixel",
+  "source": "movie",
+  "pose": "running",
+  "colors": [
+    "blue",
+    "green"
+  ],
+  "tags": [
+    "dual_wield",
+    "lightning",
+    "potion",
+    "young"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of soldier"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "blacksmith_00065.png",
+  "type": "blacksmith",
+  "gender": "male",
+  "race": "goblin",
+  "style": "realistic_pixel",
+  "source": "movie",
+  "pose": "back_view",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "horns",
+    "staff",
+    "magic_circle",
+    "young"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of blacksmith"
+}

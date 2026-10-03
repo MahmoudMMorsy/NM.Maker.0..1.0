@@ -1,0 +1,21 @@
+{
+  "file": "mecha_00158.png",
+  "type": "mecha",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "cartoon",
+  "source": "mythology_greek",
+  "pose": "lying",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "fire",
+    "staff",
+    "tail",
+    "axe"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of mecha"
+}

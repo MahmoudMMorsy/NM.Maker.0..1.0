@@ -1,0 +1,21 @@
+{
+  "file": "elf_02355.png",
+  "type": "elf",
+  "gender": "genderless",
+  "race": "angel",
+  "style": "detailed_pixel",
+  "source": "post_apocalyptic",
+  "pose": "front_view",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "bow",
+    "tail",
+    "shield",
+    "glowing_eyes"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of elf"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "cook_00042.png",
+  "type": "cook",
+  "gender": "androgynous",
+  "race": "dragonkin",
+  "style": "retro_16bit",
+  "source": "anime_series",
+  "pose": "attacking",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "cape",
+    "axe",
+    "sword",
+    "tail"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_16bit pixel art asset of cook"
+}

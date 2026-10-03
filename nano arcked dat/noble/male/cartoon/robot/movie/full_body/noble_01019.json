@@ -1,0 +1,21 @@
+{
+  "file": "noble_01019.png",
+  "type": "noble",
+  "gender": "male",
+  "race": "robot",
+  "style": "cartoon",
+  "source": "movie",
+  "pose": "full_body",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "fire",
+    "gloves",
+    "staff",
+    "boots"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of noble"
+}

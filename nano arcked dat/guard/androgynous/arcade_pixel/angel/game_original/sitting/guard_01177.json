@@ -1,0 +1,21 @@
+{
+  "file": "guard_01177.png",
+  "type": "guard",
+  "gender": "androgynous",
+  "race": "angel",
+  "style": "arcade_pixel",
+  "source": "game_original",
+  "pose": "sitting",
+  "colors": [
+    "red",
+    "silver"
+  ],
+  "tags": [
+    "helmet",
+    "wings",
+    "potion",
+    "axe"
+  ],
+  "resolution": "64x64",
+  "notes": "arcade_pixel pixel art asset of guard"
+}

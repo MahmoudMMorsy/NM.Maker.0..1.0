@@ -1,0 +1,21 @@
+{
+  "file": "cook_01801.png",
+  "type": "cook",
+  "gender": "androgynous",
+  "race": "hybrid",
+  "style": "retro_16bit",
+  "source": "sci_fi",
+  "pose": "action",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "potion",
+    "sword",
+    "lightning",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of cook"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "alchemist_01468.png",
+  "type": "alchemist",
+  "gender": "androgynous",
+  "race": "demon",
+  "style": "dark_fantasy",
+  "source": "mythology_egypt",
+  "pose": "attacking",
+  "colors": [
+    "purple",
+    "red"
+  ],
+  "tags": [
+    "robe",
+    "dual_wield",
+    "helmet",
+    "sword"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of alchemist"
+}

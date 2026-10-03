@@ -1,0 +1,21 @@
+{
+  "file": "animal_01135.png",
+  "type": "animal",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "clean_pixel",
+  "source": "modern",
+  "pose": "attacking",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "dual_wield",
+    "potion",
+    "wings",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of animal"
+}

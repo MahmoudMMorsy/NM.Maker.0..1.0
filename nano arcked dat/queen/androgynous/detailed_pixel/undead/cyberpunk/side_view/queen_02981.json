@@ -1,0 +1,21 @@
+{
+  "file": "queen_02981.png",
+  "type": "queen",
+  "gender": "androgynous",
+  "race": "undead",
+  "style": "detailed_pixel",
+  "source": "cyberpunk",
+  "pose": "side_view",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "wings",
+    "gloves",
+    "ice",
+    "tail"
+  ],
+  "resolution": "32x32",
+  "notes": "detailed_pixel pixel art asset of queen"
+}

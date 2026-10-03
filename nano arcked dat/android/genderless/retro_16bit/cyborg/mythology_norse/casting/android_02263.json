@@ -1,0 +1,21 @@
+{
+  "file": "android_02263.png",
+  "type": "android",
+  "gender": "genderless",
+  "race": "cyborg",
+  "style": "retro_16bit",
+  "source": "mythology_norse",
+  "pose": "casting",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "staff",
+    "horns",
+    "dual_wield",
+    "armor"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_16bit pixel art asset of android"
+}

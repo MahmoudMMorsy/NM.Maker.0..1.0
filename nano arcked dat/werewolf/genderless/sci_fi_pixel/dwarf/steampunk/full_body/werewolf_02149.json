@@ -1,0 +1,21 @@
+{
+  "file": "werewolf_02149.png",
+  "type": "werewolf",
+  "gender": "genderless",
+  "race": "dwarf",
+  "style": "sci_fi_pixel",
+  "source": "steampunk",
+  "pose": "full_body",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "horns",
+    "muscular",
+    "helmet",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of werewolf"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "spaceship_00812.png",
+  "type": "spaceship",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "dark_fantasy",
+  "source": "steampunk",
+  "pose": "flying",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "potion",
+    "horns",
+    "helmet",
+    "wings"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of spaceship"
+}

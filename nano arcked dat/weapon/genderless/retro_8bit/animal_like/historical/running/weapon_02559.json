@@ -1,0 +1,21 @@
+{
+  "file": "weapon_02559.png",
+  "type": "weapon",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "retro_8bit",
+  "source": "historical",
+  "pose": "running",
+  "colors": [
+    "green",
+    "red"
+  ],
+  "tags": [
+    "wings",
+    "ice",
+    "sword",
+    "magic_circle"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of weapon"
+}

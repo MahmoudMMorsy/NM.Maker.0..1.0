@@ -1,0 +1,21 @@
+{
+  "file": "centaur_02634.png",
+  "type": "centaur",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "horror_pixel",
+  "source": "cartoon_western",
+  "pose": "idle",
+  "colors": [
+    "red",
+    "green"
+  ],
+  "tags": [
+    "lightning",
+    "old",
+    "robe",
+    "armor"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of centaur"
+}

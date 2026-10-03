@@ -1,0 +1,21 @@
+{
+  "file": "mermaid_02569.png",
+  "type": "mermaid",
+  "gender": "genderless",
+  "race": "giant",
+  "style": "arcade_pixel",
+  "source": "mythology_other",
+  "pose": "walking",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "wings",
+    "potion",
+    "young",
+    "horns"
+  ],
+  "resolution": "32x32",
+  "notes": "arcade_pixel pixel art asset of mermaid"
+}

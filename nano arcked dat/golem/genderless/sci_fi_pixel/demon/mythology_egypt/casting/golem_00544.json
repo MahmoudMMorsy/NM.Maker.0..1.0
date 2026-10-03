@@ -1,0 +1,21 @@
+{
+  "file": "golem_00544.png",
+  "type": "golem",
+  "gender": "genderless",
+  "race": "demon",
+  "style": "sci_fi_pixel",
+  "source": "mythology_egypt",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "slim",
+    "ice",
+    "helmet",
+    "old"
+  ],
+  "resolution": "64x64",
+  "notes": "sci_fi_pixel pixel art asset of golem"
+}

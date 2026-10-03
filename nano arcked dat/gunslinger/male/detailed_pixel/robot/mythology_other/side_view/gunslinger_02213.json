@@ -1,0 +1,21 @@
+{
+  "file": "gunslinger_02213.png",
+  "type": "gunslinger",
+  "gender": "male",
+  "race": "robot",
+  "style": "detailed_pixel",
+  "source": "mythology_other",
+  "pose": "side_view",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "gloves",
+    "dual_wield",
+    "young",
+    "glowing_eyes"
+  ],
+  "resolution": "64x64",
+  "notes": "detailed_pixel pixel art asset of gunslinger"
+}

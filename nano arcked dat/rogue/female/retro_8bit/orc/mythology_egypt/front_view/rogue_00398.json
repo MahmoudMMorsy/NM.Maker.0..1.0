@@ -1,0 +1,21 @@
+{
+  "file": "rogue_00398.png",
+  "type": "rogue",
+  "gender": "female",
+  "race": "orc",
+  "style": "retro_8bit",
+  "source": "mythology_egypt",
+  "pose": "front_view",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "tail",
+    "ice",
+    "bow",
+    "staff"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of rogue"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "alchemist_00323.png",
+  "type": "alchemist",
+  "gender": "female",
+  "race": "hybrid",
+  "style": "realistic_pixel",
+  "source": "historical",
+  "pose": "sitting",
+  "colors": [
+    "gold",
+    "purple"
+  ],
+  "tags": [
+    "robe",
+    "armor",
+    "magic_circle",
+    "slim"
+  ],
+  "resolution": "128x128",
+  "notes": "realistic_pixel pixel art asset of alchemist"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "merchant_02220.png",
+  "type": "merchant",
+  "gender": "androgynous",
+  "race": "dragonkin",
+  "style": "dark_fantasy",
+  "source": "anime_series",
+  "pose": "portrait",
+  "colors": [
+    "red",
+    "silver"
+  ],
+  "tags": [
+    "sword",
+    "fire",
+    "magic_circle",
+    "gloves"
+  ],
+  "resolution": "128x128",
+  "notes": "dark_fantasy pixel art asset of merchant"
+}

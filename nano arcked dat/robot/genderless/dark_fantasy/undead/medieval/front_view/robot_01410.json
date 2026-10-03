@@ -1,0 +1,21 @@
+{
+  "file": "robot_01410.png",
+  "type": "robot",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "dark_fantasy",
+  "source": "medieval",
+  "pose": "front_view",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "muscular",
+    "potion",
+    "bow",
+    "gloves"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of robot"
+}

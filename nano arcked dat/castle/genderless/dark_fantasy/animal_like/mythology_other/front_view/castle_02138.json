@@ -1,0 +1,21 @@
+{
+  "file": "castle_02138.png",
+  "type": "castle",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "dark_fantasy",
+  "source": "mythology_other",
+  "pose": "front_view",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "muscular",
+    "robe",
+    "ice",
+    "staff"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of castle"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "animal_01998.png",
+  "type": "animal",
+  "gender": "genderless",
+  "race": "human",
+  "style": "dark_fantasy",
+  "source": "mythology_norse",
+  "pose": "side_view",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "gloves",
+    "magic_circle",
+    "bow",
+    "lightning"
+  ],
+  "resolution": "64x64",
+  "notes": "dark_fantasy pixel art asset of animal"
+}

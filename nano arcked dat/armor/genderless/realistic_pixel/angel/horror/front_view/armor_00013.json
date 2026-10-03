@@ -1,0 +1,21 @@
+{
+  "file": "armor_00013.png",
+  "type": "armor",
+  "gender": "genderless",
+  "race": "angel",
+  "style": "realistic_pixel",
+  "source": "horror",
+  "pose": "front_view",
+  "colors": [
+    "black",
+    "red"
+  ],
+  "tags": [
+    "old",
+    "cape",
+    "fire",
+    "glowing_eyes"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of armor"
+}

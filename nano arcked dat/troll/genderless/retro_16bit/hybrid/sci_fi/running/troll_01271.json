@@ -1,0 +1,21 @@
+{
+  "file": "troll_01271.png",
+  "type": "troll",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "retro_16bit",
+  "source": "sci_fi",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "blue"
+  ],
+  "tags": [
+    "slim",
+    "magic_circle",
+    "horns",
+    "ice"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of troll"
+}

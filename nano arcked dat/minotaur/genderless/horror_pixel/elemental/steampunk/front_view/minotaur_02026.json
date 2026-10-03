@@ -1,0 +1,21 @@
+{
+  "file": "minotaur_02026.png",
+  "type": "minotaur",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "horror_pixel",
+  "source": "steampunk",
+  "pose": "front_view",
+  "colors": [
+    "silver",
+    "black"
+  ],
+  "tags": [
+    "fire",
+    "glowing_eyes",
+    "horns",
+    "lightning"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of minotaur"
+}

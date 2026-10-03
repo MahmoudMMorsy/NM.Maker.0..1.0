@@ -1,0 +1,21 @@
+{
+  "file": "food_01827.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "retro_8bit",
+  "source": "dark_fantasy",
+  "pose": "portrait",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "old",
+    "axe",
+    "gloves",
+    "dual_wield"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of food"
+}

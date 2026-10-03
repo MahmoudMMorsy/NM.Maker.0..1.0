@@ -1,0 +1,21 @@
+{
+  "file": "portal_00776.png",
+  "type": "portal",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "horror_pixel",
+  "source": "cartoon_western",
+  "pose": "front_view",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "cape",
+    "horns",
+    "helmet",
+    "shield"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of portal"
+}

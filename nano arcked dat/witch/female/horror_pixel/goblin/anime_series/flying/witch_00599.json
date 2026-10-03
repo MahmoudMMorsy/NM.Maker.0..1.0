@@ -1,0 +1,21 @@
+{
+  "file": "witch_00599.png",
+  "type": "witch",
+  "gender": "female",
+  "race": "goblin",
+  "style": "horror_pixel",
+  "source": "anime_series",
+  "pose": "flying",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "fire",
+    "young",
+    "old",
+    "potion"
+  ],
+  "resolution": "32x32",
+  "notes": "horror_pixel pixel art asset of witch"
+}

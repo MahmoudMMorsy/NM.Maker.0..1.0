@@ -1,0 +1,21 @@
+{
+  "file": "robot_02139.png",
+  "type": "robot",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "dark_fantasy",
+  "source": "mythology_greek",
+  "pose": "full_body",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "axe",
+    "wings",
+    "gloves",
+    "cape"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of robot"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "undead_00217.png",
+  "type": "undead",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "anime_pixel",
+  "source": "game_original",
+  "pose": "sitting",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "cape",
+    "armor",
+    "fire",
+    "ice"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of undead"
+}

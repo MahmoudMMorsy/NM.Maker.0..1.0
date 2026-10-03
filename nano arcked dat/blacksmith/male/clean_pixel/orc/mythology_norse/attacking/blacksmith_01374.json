@@ -1,0 +1,21 @@
+{
+  "file": "blacksmith_01374.png",
+  "type": "blacksmith",
+  "gender": "male",
+  "race": "orc",
+  "style": "clean_pixel",
+  "source": "mythology_norse",
+  "pose": "attacking",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "young",
+    "armor",
+    "horns",
+    "slim"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of blacksmith"
+}

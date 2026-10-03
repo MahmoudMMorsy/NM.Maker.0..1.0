@@ -1,0 +1,21 @@
+{
+  "file": "werewolf_01075.png",
+  "type": "werewolf",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "cartoon",
+  "source": "historical",
+  "pose": "full_body",
+  "colors": [
+    "black",
+    "green"
+  ],
+  "tags": [
+    "gloves",
+    "slim",
+    "sword",
+    "potion"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of werewolf"
+}

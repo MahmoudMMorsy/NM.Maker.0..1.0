@@ -1,0 +1,21 @@
+{
+  "file": "mermaid_00128.png",
+  "type": "mermaid",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "clean_pixel",
+  "source": "horror",
+  "pose": "flying",
+  "colors": [
+    "gold",
+    "black"
+  ],
+  "tags": [
+    "axe",
+    "fire",
+    "staff",
+    "potion"
+  ],
+  "resolution": "32x32",
+  "notes": "clean_pixel pixel art asset of mermaid"
+}

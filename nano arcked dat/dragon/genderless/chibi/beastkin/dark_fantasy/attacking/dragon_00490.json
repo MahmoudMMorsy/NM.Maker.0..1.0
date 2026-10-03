@@ -1,0 +1,21 @@
+{
+  "file": "dragon_00490.png",
+  "type": "dragon",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "chibi",
+  "source": "dark_fantasy",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "slim",
+    "wings",
+    "fire",
+    "lightning"
+  ],
+  "resolution": "32x32",
+  "notes": "chibi pixel art asset of dragon"
+}

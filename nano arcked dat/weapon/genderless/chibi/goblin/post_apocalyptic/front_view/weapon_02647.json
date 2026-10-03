@@ -1,0 +1,21 @@
+{
+  "file": "weapon_02647.png",
+  "type": "weapon",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "chibi",
+  "source": "post_apocalyptic",
+  "pose": "front_view",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "potion",
+    "helmet",
+    "slim",
+    "gloves"
+  ],
+  "resolution": "64x64",
+  "notes": "chibi pixel art asset of weapon"
+}

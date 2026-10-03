@@ -1,0 +1,21 @@
+{
+  "file": "dragon_01796.png",
+  "type": "dragon",
+  "gender": "genderless",
+  "race": "beastkin",
+  "style": "fantasy_pixel",
+  "source": "horror",
+  "pose": "action",
+  "colors": [
+    "purple",
+    "green"
+  ],
+  "tags": [
+    "horns",
+    "axe",
+    "glowing_eyes",
+    "ice"
+  ],
+  "resolution": "128x128",
+  "notes": "fantasy_pixel pixel art asset of dragon"
+}

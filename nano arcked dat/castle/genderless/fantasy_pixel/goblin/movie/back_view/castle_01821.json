@@ -1,0 +1,21 @@
+{
+  "file": "castle_01821.png",
+  "type": "castle",
+  "gender": "genderless",
+  "race": "goblin",
+  "style": "fantasy_pixel",
+  "source": "movie",
+  "pose": "back_view",
+  "colors": [
+    "blue",
+    "gold"
+  ],
+  "tags": [
+    "lightning",
+    "ice",
+    "fire",
+    "axe"
+  ],
+  "resolution": "32x32",
+  "notes": "fantasy_pixel pixel art asset of castle"
+}

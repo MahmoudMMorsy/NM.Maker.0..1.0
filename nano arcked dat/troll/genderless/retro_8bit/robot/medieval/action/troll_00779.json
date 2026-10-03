@@ -1,0 +1,21 @@
+{
+  "file": "troll_00779.png",
+  "type": "troll",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "retro_8bit",
+  "source": "medieval",
+  "pose": "action",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "helmet",
+    "axe",
+    "lightning",
+    "robe"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of troll"
+}

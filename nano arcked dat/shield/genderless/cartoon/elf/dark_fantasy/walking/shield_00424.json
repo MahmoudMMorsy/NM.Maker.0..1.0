@@ -1,0 +1,21 @@
+{
+  "file": "shield_00424.png",
+  "type": "shield",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "cartoon",
+  "source": "dark_fantasy",
+  "pose": "walking",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "young",
+    "tail",
+    "wings",
+    "bow"
+  ],
+  "resolution": "32x32",
+  "notes": "cartoon pixel art asset of shield"
+}

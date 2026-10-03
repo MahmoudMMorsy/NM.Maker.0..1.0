@@ -1,0 +1,21 @@
+{
+  "file": "gun_02029.png",
+  "type": "gun",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "retro_8bit",
+  "source": "game_original",
+  "pose": "walking",
+  "colors": [
+    "silver",
+    "red"
+  ],
+  "tags": [
+    "gloves",
+    "ice",
+    "slim",
+    "dual_wield"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of gun"
+}

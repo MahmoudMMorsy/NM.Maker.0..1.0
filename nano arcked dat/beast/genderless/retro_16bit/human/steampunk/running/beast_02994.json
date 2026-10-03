@@ -1,0 +1,21 @@
+{
+  "file": "beast_02994.png",
+  "type": "beast",
+  "gender": "genderless",
+  "race": "human",
+  "style": "retro_16bit",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "staff",
+    "magic_circle",
+    "bow",
+    "dual_wield"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of beast"
+}

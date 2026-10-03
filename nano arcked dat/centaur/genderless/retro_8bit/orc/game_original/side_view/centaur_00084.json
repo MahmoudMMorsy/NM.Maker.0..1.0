@@ -1,0 +1,21 @@
+{
+  "file": "centaur_00084.png",
+  "type": "centaur",
+  "gender": "genderless",
+  "race": "orc",
+  "style": "retro_8bit",
+  "source": "game_original",
+  "pose": "side_view",
+  "colors": [
+    "silver",
+    "purple"
+  ],
+  "tags": [
+    "dual_wield",
+    "slim",
+    "horns",
+    "robe"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_8bit pixel art asset of centaur"
+}

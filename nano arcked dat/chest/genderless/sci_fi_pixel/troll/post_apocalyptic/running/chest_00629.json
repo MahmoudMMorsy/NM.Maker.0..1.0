@@ -1,0 +1,21 @@
+{
+  "file": "chest_00629.png",
+  "type": "chest",
+  "gender": "genderless",
+  "race": "troll",
+  "style": "sci_fi_pixel",
+  "source": "post_apocalyptic",
+  "pose": "running",
+  "colors": [
+    "black",
+    "gold"
+  ],
+  "tags": [
+    "boots",
+    "robe",
+    "dual_wield",
+    "armor"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of chest"
+}

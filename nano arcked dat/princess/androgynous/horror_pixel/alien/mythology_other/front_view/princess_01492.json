@@ -1,0 +1,21 @@
+{
+  "file": "princess_01492.png",
+  "type": "princess",
+  "gender": "androgynous",
+  "race": "alien",
+  "style": "horror_pixel",
+  "source": "mythology_other",
+  "pose": "front_view",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "staff",
+    "armor",
+    "dual_wield",
+    "muscular"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of princess"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "bard_00536.png",
+  "type": "bard",
+  "gender": "male",
+  "race": "dragonkin",
+  "style": "realistic_pixel",
+  "source": "mythology_egypt",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "green"
+  ],
+  "tags": [
+    "muscular",
+    "magic_circle",
+    "axe",
+    "bow"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of bard"
+}

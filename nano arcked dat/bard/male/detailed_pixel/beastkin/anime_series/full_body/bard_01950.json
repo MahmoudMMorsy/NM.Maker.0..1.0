@@ -1,0 +1,21 @@
+{
+  "file": "bard_01950.png",
+  "type": "bard",
+  "gender": "male",
+  "race": "beastkin",
+  "style": "detailed_pixel",
+  "source": "anime_series",
+  "pose": "full_body",
+  "colors": [
+    "silver",
+    "gold"
+  ],
+  "tags": [
+    "axe",
+    "fire",
+    "shield",
+    "armor"
+  ],
+  "resolution": "128x128",
+  "notes": "detailed_pixel pixel art asset of bard"
+}

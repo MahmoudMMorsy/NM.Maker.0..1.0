@@ -1,0 +1,21 @@
+{
+  "file": "child_02724.png",
+  "type": "child",
+  "gender": "male",
+  "race": "elf",
+  "style": "dark_fantasy",
+  "source": "sci_fi",
+  "pose": "side_view",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "staff",
+    "muscular",
+    "lightning",
+    "glowing_eyes"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of child"
+}

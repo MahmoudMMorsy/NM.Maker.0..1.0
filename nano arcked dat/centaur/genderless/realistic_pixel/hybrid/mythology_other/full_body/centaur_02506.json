@@ -1,0 +1,21 @@
+{
+  "file": "centaur_02506.png",
+  "type": "centaur",
+  "gender": "genderless",
+  "race": "hybrid",
+  "style": "realistic_pixel",
+  "source": "mythology_other",
+  "pose": "full_body",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "armor",
+    "staff",
+    "ice",
+    "slim"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of centaur"
+}

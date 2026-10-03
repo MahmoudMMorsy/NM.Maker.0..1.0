@@ -1,0 +1,21 @@
+{
+  "file": "fairy_02824.png",
+  "type": "fairy",
+  "gender": "genderless",
+  "race": "dragonkin",
+  "style": "arcade_pixel",
+  "source": "rpg_fantasy",
+  "pose": "action",
+  "colors": [
+    "green",
+    "silver"
+  ],
+  "tags": [
+    "potion",
+    "lightning",
+    "sword",
+    "cape"
+  ],
+  "resolution": "128x128",
+  "notes": "arcade_pixel pixel art asset of fairy"
+}

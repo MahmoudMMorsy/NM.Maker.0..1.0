@@ -1,0 +1,21 @@
+{
+  "file": "warrior_01375.png",
+  "type": "warrior",
+  "gender": "female",
+  "race": "elemental",
+  "style": "horror_pixel",
+  "source": "medieval",
+  "pose": "attacking",
+  "colors": [
+    "gold",
+    "silver"
+  ],
+  "tags": [
+    "armor",
+    "wings",
+    "boots",
+    "magic_circle"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of warrior"
+}

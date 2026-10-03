@@ -1,0 +1,21 @@
+{
+  "file": "knight_01229.png",
+  "type": "knight",
+  "gender": "androgynous",
+  "race": "human",
+  "style": "cartoon",
+  "source": "cartoon_western",
+  "pose": "flying",
+  "colors": [
+    "purple",
+    "black"
+  ],
+  "tags": [
+    "muscular",
+    "robe",
+    "wings",
+    "glowing_eyes"
+  ],
+  "resolution": "64x64",
+  "notes": "cartoon pixel art asset of knight"
+}

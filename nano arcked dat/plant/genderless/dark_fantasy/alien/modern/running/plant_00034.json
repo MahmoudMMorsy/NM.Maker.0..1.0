@@ -1,0 +1,21 @@
+{
+  "file": "plant_00034.png",
+  "type": "plant",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "dark_fantasy",
+  "source": "modern",
+  "pose": "running",
+  "colors": [
+    "red",
+    "blue"
+  ],
+  "tags": [
+    "lightning",
+    "tail",
+    "young",
+    "dual_wield"
+  ],
+  "resolution": "32x32",
+  "notes": "dark_fantasy pixel art asset of plant"
+}

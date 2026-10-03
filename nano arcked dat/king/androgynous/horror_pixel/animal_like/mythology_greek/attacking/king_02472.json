@@ -1,0 +1,21 @@
+{
+  "file": "king_02472.png",
+  "type": "king",
+  "gender": "androgynous",
+  "race": "animal_like",
+  "style": "horror_pixel",
+  "source": "mythology_greek",
+  "pose": "attacking",
+  "colors": [
+    "black",
+    "blue"
+  ],
+  "tags": [
+    "ice",
+    "armor",
+    "potion",
+    "axe"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of king"
+}

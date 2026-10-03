@@ -1,0 +1,21 @@
+{
+  "file": "dancer_00409.png",
+  "type": "dancer",
+  "gender": "androgynous",
+  "race": "elemental",
+  "style": "realistic_pixel",
+  "source": "historical",
+  "pose": "flying",
+  "colors": [
+    "black",
+    "purple"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "robe",
+    "young",
+    "axe"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of dancer"
+}

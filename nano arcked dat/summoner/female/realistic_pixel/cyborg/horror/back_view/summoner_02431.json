@@ -1,0 +1,21 @@
+{
+  "file": "summoner_02431.png",
+  "type": "summoner",
+  "gender": "female",
+  "race": "cyborg",
+  "style": "realistic_pixel",
+  "source": "horror",
+  "pose": "back_view",
+  "colors": [
+    "purple",
+    "red"
+  ],
+  "tags": [
+    "old",
+    "helmet",
+    "horns",
+    "young"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of summoner"
+}

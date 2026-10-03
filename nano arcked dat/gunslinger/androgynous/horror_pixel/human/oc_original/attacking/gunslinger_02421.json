@@ -1,0 +1,21 @@
+{
+  "file": "gunslinger_02421.png",
+  "type": "gunslinger",
+  "gender": "androgynous",
+  "race": "human",
+  "style": "horror_pixel",
+  "source": "oc_original",
+  "pose": "attacking",
+  "colors": [
+    "green",
+    "black"
+  ],
+  "tags": [
+    "axe",
+    "staff",
+    "boots",
+    "armor"
+  ],
+  "resolution": "64x64",
+  "notes": "horror_pixel pixel art asset of gunslinger"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "demon_01567.png",
+  "type": "demon",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "fantasy_pixel",
+  "source": "anime_series",
+  "pose": "action",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "staff",
+    "ice",
+    "axe",
+    "robe"
+  ],
+  "resolution": "64x64",
+  "notes": "fantasy_pixel pixel art asset of demon"
+}

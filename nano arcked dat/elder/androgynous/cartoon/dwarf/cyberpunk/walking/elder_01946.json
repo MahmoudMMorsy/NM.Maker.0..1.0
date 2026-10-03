@@ -1,0 +1,21 @@
+{
+  "file": "elder_01946.png",
+  "type": "elder",
+  "gender": "androgynous",
+  "race": "dwarf",
+  "style": "cartoon",
+  "source": "cyberpunk",
+  "pose": "walking",
+  "colors": [
+    "green",
+    "purple"
+  ],
+  "tags": [
+    "gloves",
+    "old",
+    "magic_circle",
+    "lightning"
+  ],
+  "resolution": "128x128",
+  "notes": "cartoon pixel art asset of elder"
+}

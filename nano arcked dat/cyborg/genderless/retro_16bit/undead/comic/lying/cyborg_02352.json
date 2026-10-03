@@ -1,0 +1,21 @@
+{
+  "file": "cyborg_02352.png",
+  "type": "cyborg",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "retro_16bit",
+  "source": "comic",
+  "pose": "lying",
+  "colors": [
+    "red",
+    "gold"
+  ],
+  "tags": [
+    "helmet",
+    "boots",
+    "dual_wield",
+    "bow"
+  ],
+  "resolution": "32x32",
+  "notes": "retro_16bit pixel art asset of cyborg"
+}

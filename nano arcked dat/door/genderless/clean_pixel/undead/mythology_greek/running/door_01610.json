@@ -1,0 +1,21 @@
+{
+  "file": "door_01610.png",
+  "type": "door",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "clean_pixel",
+  "source": "mythology_greek",
+  "pose": "running",
+  "colors": [
+    "blue",
+    "red"
+  ],
+  "tags": [
+    "axe",
+    "old",
+    "wings",
+    "boots"
+  ],
+  "resolution": "64x64",
+  "notes": "clean_pixel pixel art asset of door"
+}

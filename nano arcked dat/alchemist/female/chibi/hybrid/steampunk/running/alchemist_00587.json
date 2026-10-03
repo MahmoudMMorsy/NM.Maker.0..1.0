@@ -1,0 +1,21 @@
+{
+  "file": "alchemist_00587.png",
+  "type": "alchemist",
+  "gender": "female",
+  "race": "hybrid",
+  "style": "chibi",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "red",
+    "purple"
+  ],
+  "tags": [
+    "shield",
+    "helmet",
+    "horns",
+    "staff"
+  ],
+  "resolution": "128x128",
+  "notes": "chibi pixel art asset of alchemist"
+}

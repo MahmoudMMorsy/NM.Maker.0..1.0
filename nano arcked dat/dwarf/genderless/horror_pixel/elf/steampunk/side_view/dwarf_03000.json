@@ -1,0 +1,21 @@
+{
+  "file": "dwarf_03000.png",
+  "type": "dwarf",
+  "gender": "genderless",
+  "race": "elf",
+  "style": "horror_pixel",
+  "source": "steampunk",
+  "pose": "side_view",
+  "colors": [
+    "gold",
+    "red"
+  ],
+  "tags": [
+    "young",
+    "lightning",
+    "robe",
+    "slim"
+  ],
+  "resolution": "128x128",
+  "notes": "horror_pixel pixel art asset of dwarf"
+}

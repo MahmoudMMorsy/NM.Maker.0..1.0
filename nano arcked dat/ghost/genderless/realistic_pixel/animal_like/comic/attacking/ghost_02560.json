@@ -1,0 +1,21 @@
+{
+  "file": "ghost_02560.png",
+  "type": "ghost",
+  "gender": "genderless",
+  "race": "animal_like",
+  "style": "realistic_pixel",
+  "source": "comic",
+  "pose": "attacking",
+  "colors": [
+    "purple",
+    "gold"
+  ],
+  "tags": [
+    "dual_wield",
+    "tail",
+    "glowing_eyes",
+    "staff"
+  ],
+  "resolution": "64x64",
+  "notes": "realistic_pixel pixel art asset of ghost"
+}

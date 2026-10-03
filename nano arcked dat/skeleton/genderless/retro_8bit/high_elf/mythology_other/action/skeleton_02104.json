@@ -1,0 +1,21 @@
+{
+  "file": "skeleton_02104.png",
+  "type": "skeleton",
+  "gender": "genderless",
+  "race": "high_elf",
+  "style": "retro_8bit",
+  "source": "mythology_other",
+  "pose": "action",
+  "colors": [
+    "blue",
+    "silver"
+  ],
+  "tags": [
+    "horns",
+    "cape",
+    "gloves",
+    "wings"
+  ],
+  "resolution": "128x128",
+  "notes": "retro_8bit pixel art asset of skeleton"
+}

@@ -1,0 +1,21 @@
+{
+  "file": "armor_02422.png",
+  "type": "armor",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "retro_8bit",
+  "source": "movie",
+  "pose": "action",
+  "colors": [
+    "red",
+    "green"
+  ],
+  "tags": [
+    "glowing_eyes",
+    "staff",
+    "old",
+    "fire"
+  ],
+  "resolution": "64x64",
+  "notes": "retro_8bit pixel art asset of armor"
+}

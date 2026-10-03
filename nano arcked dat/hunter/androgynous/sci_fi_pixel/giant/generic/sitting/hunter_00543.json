@@ -1,0 +1,21 @@
+{
+  "file": "hunter_00543.png",
+  "type": "hunter",
+  "gender": "androgynous",
+  "race": "giant",
+  "style": "sci_fi_pixel",
+  "source": "generic",
+  "pose": "sitting",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "dual_wield",
+    "young",
+    "tail",
+    "old"
+  ],
+  "resolution": "32x32",
+  "notes": "sci_fi_pixel pixel art asset of hunter"
+}

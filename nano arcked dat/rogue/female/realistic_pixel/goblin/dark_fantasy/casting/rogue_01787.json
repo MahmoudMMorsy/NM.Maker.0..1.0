@@ -1,0 +1,21 @@
+{
+  "file": "rogue_01787.png",
+  "type": "rogue",
+  "gender": "female",
+  "race": "goblin",
+  "style": "realistic_pixel",
+  "source": "dark_fantasy",
+  "pose": "casting",
+  "colors": [
+    "blue",
+    "purple"
+  ],
+  "tags": [
+    "fire",
+    "slim",
+    "gloves",
+    "tail"
+  ],
+  "resolution": "32x32",
+  "notes": "realistic_pixel pixel art asset of rogue"
+}

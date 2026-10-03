@@ -1,0 +1,21 @@
+{
+  "file": "cyborg_01386.png",
+  "type": "cyborg",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "anime_pixel",
+  "source": "mythology_egypt",
+  "pose": "running",
+  "colors": [
+    "purple",
+    "red"
+  ],
+  "tags": [
+    "slim",
+    "young",
+    "dual_wield",
+    "sword"
+  ],
+  "resolution": "128x128",
+  "notes": "anime_pixel pixel art asset of cyborg"
+}
