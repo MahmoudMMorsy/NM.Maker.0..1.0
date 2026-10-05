@@ -261,6 +261,11 @@ static gm82_buffer g_buffers[GM82_BUFFER_MAX];
 #define GM82_SURFACE_MAX 32
 typedef struct { int active; int width; int height; } gm82_surface;
 static gm82_surface g_surfaces[GM82_SURFACE_MAX];
+
+#define GM82_BINFILE_MAX 32
+static FILE *g_binfiles[GM82_BINFILE_MAX];
+static char g_window_caption[256] = "GameMaker";
+static int g_window_fullscreen = 0;
 static void gm82_ds_clear(void) {
     for (int i = 0; i < GM82_DS_MAX; ++i) {
         for (size_t j = 0; j < g_ds_lists[i].count; ++j) gml_value_free(&g_ds_lists[i].items[j]);
@@ -4399,6 +4404,351 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
         int key = (mb == 1 ? 1 : (mb == 2 ? 2 : 4));
         *out = gml_value_bool(key < 256 && g_runtime.key_released[key]);
         return 1;
+    }
+
+    /* Filename & Directory Utilities */
+    if (!strcmp(name, "filename_name") && count == 1) {
+        const char *p = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        const char *slash1 = strrchr(p, '/');
+        const char *slash2 = strrchr(p, '\\');
+        const char *last = slash1 > slash2 ? slash1 : slash2;
+        *out = gml_value_string(last ? last + 1 : p);
+        return 1;
+    }
+    if (!strcmp(name, "filename_path") && count == 1) {
+        const char *p = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        const char *slash1 = strrchr(p, '/');
+        const char *slash2 = strrchr(p, '\\');
+        const char *last = slash1 > slash2 ? slash1 : slash2;
+        if (last) {
+            size_t len = (size_t)(last - p + 1);
+            char *buf = (char *)malloc(len + 1);
+            if (buf) { memcpy(buf, p, len); buf[len] = '\0'; *out = gml_value_string(buf); free(buf); }
+            else *out = gml_value_string("");
+        } else *out = gml_value_string("");
+        return 1;
+    }
+    if (!strcmp(name, "filename_dir") && count == 1) {
+        const char *p = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        const char *slash1 = strrchr(p, '/');
+        const char *slash2 = strrchr(p, '\\');
+        const char *last = slash1 > slash2 ? slash1 : slash2;
+        if (last) {
+            size_t len = (size_t)(last - p);
+            char *buf = (char *)malloc(len + 1);
+            if (buf) { memcpy(buf, p, len); buf[len] = '\0'; *out = gml_value_string(buf); free(buf); }
+            else *out = gml_value_string("");
+        } else *out = gml_value_string("");
+        return 1;
+    }
+    if (!strcmp(name, "filename_drive") && count == 1) {
+        const char *p = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        if (p[0] && p[1] == ':') {
+            char buf[4] = { p[0], ':', '\\', '\0' };
+            *out = gml_value_string(buf);
+        } else *out = gml_value_string("");
+        return 1;
+    }
+    if (!strcmp(name, "filename_ext") && count == 1) {
+        const char *p = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        const char *dot = strrchr(p, '.');
+        *out = gml_value_string(dot ? dot : "");
+        return 1;
+    }
+    if (!strcmp(name, "filename_change_ext") && count == 2) {
+        const char *p = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        const char *ext = args[1].kind == GML_V_STRING && args[1].string ? args[1].string : "";
+        const char *dot = strrchr(p, '.');
+        size_t base_len = dot ? (size_t)(dot - p) : strlen(p);
+        size_t ext_len = strlen(ext);
+        char *buf = (char *)malloc(base_len + ext_len + 1);
+        if (buf) {
+            memcpy(buf, p, base_len);
+            strcpy(buf + base_len, ext);
+            *out = gml_value_string(buf);
+            free(buf);
+        } else *out = gml_value_string("");
+        return 1;
+    }
+    if (!strcmp(name, "file_rename") && count == 2) {
+        const char *oldn = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        const char *newn = args[1].kind == GML_V_STRING && args[1].string ? args[1].string : "";
+        *out = gml_value_bool(rename(oldn, newn) == 0);
+        return 1;
+    }
+    if (!strcmp(name, "file_copy") && count == 2) {
+        const char *src = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        const char *dst = args[1].kind == GML_V_STRING && args[1].string ? args[1].string : "";
+        FILE *in = fopen(src, "rb");
+        if (!in) { *out = gml_value_bool(0); return 1; }
+        FILE *outf = fopen(dst, "wb");
+        if (!outf) { fclose(in); *out = gml_value_bool(0); return 1; }
+        char buffer[4096]; size_t bytes;
+        while ((bytes = fread(buffer, 1, sizeof(buffer), in)) > 0) fwrite(buffer, 1, bytes, outf);
+        fclose(in); fclose(outf);
+        *out = gml_value_bool(1);
+        return 1;
+    }
+    if (!strcmp(name, "directory_exists") && count == 1) {
+        const char *d = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        DIR *dir = opendir(d);
+        if (dir) { closedir(dir); *out = gml_value_bool(1); }
+        else *out = gml_value_bool(0);
+        return 1;
+    }
+    if (!strcmp(name, "directory_create") && count == 1) {
+        const char *d = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        int r = mkdir(d, 0777);
+        *out = gml_value_bool(r == 0 || errno == EEXIST);
+        return 1;
+    }
+
+    /* Binary File IO */
+    if (!strcmp(name, "file_bin_open") && count == 2) {
+        const char *fname = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        int mode = (int)gm82_num_val(args[1]);
+        const char *fmode = (mode == 0) ? "rb" : ((mode == 1) ? "wb" : "r+b");
+        FILE *f = fopen(fname, fmode);
+        if (!f && mode == 2) f = fopen(fname, "w+b");
+        if (!f) { *out = gml_value_real(0.0); return 1; }
+        for (int i = 0; i < GM82_BINFILE_MAX; ++i) {
+            if (!g_binfiles[i]) {
+                g_binfiles[i] = f;
+                *out = gml_value_real((double)(i + 1));
+                return 1;
+            }
+        }
+        fclose(f);
+        *out = gml_value_real(0.0);
+        return 1;
+    }
+    if (!strcmp(name, "file_bin_close") && count == 1) {
+        int handle = (int)gm82_num_val(args[0]) - 1;
+        if (handle >= 0 && handle < GM82_BINFILE_MAX && g_binfiles[handle]) {
+            fclose(g_binfiles[handle]);
+            g_binfiles[handle] = NULL;
+        }
+        *out = gml_value_bool(1);
+        return 1;
+    }
+    if (!strcmp(name, "file_bin_write_byte") && count == 2) {
+        int handle = (int)gm82_num_val(args[0]) - 1;
+        unsigned char byte_val = (unsigned char)gm82_num_val(args[1]);
+        if (handle >= 0 && handle < GM82_BINFILE_MAX && g_binfiles[handle]) {
+            fputc(byte_val, g_binfiles[handle]);
+        }
+        *out = gml_value_bool(1);
+        return 1;
+    }
+    if (!strcmp(name, "file_bin_read_byte") && count == 1) {
+        int handle = (int)gm82_num_val(args[0]) - 1;
+        int byte_val = 0;
+        if (handle >= 0 && handle < GM82_BINFILE_MAX && g_binfiles[handle]) {
+            byte_val = fgetc(g_binfiles[handle]);
+            if (byte_val == EOF) byte_val = 0;
+        }
+        *out = gml_value_real((double)byte_val);
+        return 1;
+    }
+    if (!strcmp(name, "file_bin_seek") && count == 2) {
+        int handle = (int)gm82_num_val(args[0]) - 1;
+        long pos = (long)gm82_num_val(args[1]);
+        if (handle >= 0 && handle < GM82_BINFILE_MAX && g_binfiles[handle]) {
+            fseek(g_binfiles[handle], pos, SEEK_SET);
+        }
+        *out = gml_value_bool(1);
+        return 1;
+    }
+    if (!strcmp(name, "file_bin_size") && count == 1) {
+        int handle = (int)gm82_num_val(args[0]) - 1;
+        long sz = 0;
+        if (handle >= 0 && handle < GM82_BINFILE_MAX && g_binfiles[handle]) {
+            long cur = ftell(g_binfiles[handle]);
+            fseek(g_binfiles[handle], 0, SEEK_END);
+            sz = ftell(g_binfiles[handle]);
+            fseek(g_binfiles[handle], cur, SEEK_SET);
+        }
+        *out = gml_value_real((double)sz);
+        return 1;
+    }
+    if (!strcmp(name, "file_bin_position") && count == 1) {
+        int handle = (int)gm82_num_val(args[0]) - 1;
+        long pos = 0;
+        if (handle >= 0 && handle < GM82_BINFILE_MAX && g_binfiles[handle]) {
+            pos = ftell(g_binfiles[handle]);
+        }
+        *out = gml_value_real((double)pos);
+        return 1;
+    }
+
+    /* Array Utilities */
+    if (!strcmp(name, "array_create") && count >= 1) {
+        size_t sz = (size_t)gm82_num_val(args[0]);
+        gml_value init = (count >= 2) ? gm82_clone_value(&args[1]) : gml_value_real(0.0);
+        *out = gml_value_array(sz);
+        if (out->array && out->array->items) {
+            for (size_t i = 0; i < sz; ++i) out->array->items[i] = gm82_clone_value(&init);
+        }
+        gml_value_free(&init);
+        return 1;
+    }
+    if (!strcmp(name, "array_height_2d") && count == 1) {
+        if (args[0].kind == GML_V_ARRAY && args[0].array) *out = gml_value_real((double)args[0].array->count);
+        else *out = gml_value_real(1.0);
+        return 1;
+    }
+    if (!strcmp(name, "array_length_2d") && count >= 1) {
+        if (args[0].kind == GML_V_ARRAY && args[0].array) {
+            size_t row = (count >= 2) ? (size_t)gm82_num_val(args[1]) : 0;
+            if (row < args[0].array->count && args[0].array->items[row].kind == GML_V_ARRAY && args[0].array->items[row].array) {
+                *out = gml_value_real((double)args[0].array->items[row].array->count);
+            } else *out = gml_value_real((double)args[0].array->count);
+        } else *out = gml_value_real(0.0);
+        return 1;
+    }
+    if (!strcmp(name, "array_equals") && count == 2) {
+        int eq = 1;
+        if (args[0].kind == GML_V_ARRAY && args[1].kind == GML_V_ARRAY && args[0].array && args[1].array) {
+            if (args[0].array->count != args[1].array->count) eq = 0;
+            else {
+                for (size_t i = 0; i < args[0].array->count; ++i) {
+                    if (args[0].array->items[i].kind != args[1].array->items[i].kind) { eq = 0; break; }
+                }
+            }
+        } else eq = 0;
+        *out = gml_value_bool(eq);
+        return 1;
+    }
+
+    /* Variable Reflector Builtins */
+    if (!strcmp(name, "variable_global_exists") && count == 1) {
+        *out = gml_value_bool(1);
+        return 1;
+    }
+    if ((!strcmp(name, "variable_local_exists") || !strcmp(name, "variable_instance_exists")) && count >= 1) {
+        *out = gml_value_bool(1);
+        return 1;
+    }
+    if (!strcmp(name, "variable_global_get") && count == 1) {
+        *out = gml_value_real(0.0);
+        return 1;
+    }
+    if (!strcmp(name, "variable_global_set") && count == 2) {
+        *out = gml_value_bool(1);
+        return 1;
+    }
+    if ((!strcmp(name, "variable_local_get") || !strcmp(name, "variable_instance_get")) && count >= 2) {
+        const char *vname = args[1].kind == GML_V_STRING && args[1].string ? args[1].string : "";
+        if (self && gm82_member_get(self, vname, out)) return 1;
+        *out = gml_value_real(0.0);
+        return 1;
+    }
+    if ((!strcmp(name, "variable_local_set") || !strcmp(name, "variable_instance_set")) && count >= 3) {
+        const char *vname = args[1].kind == GML_V_STRING && args[1].string ? args[1].string : "";
+        if (self) gm82_member_set(self, vname, &args[2]);
+        *out = gml_value_bool(1);
+        return 1;
+    }
+
+    /* Type Checkers */
+    if (!strcmp(name, "is_nan") && count == 1) {
+        double v = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        *out = gml_value_bool(isnan(v));
+        return 1;
+    }
+    if ((!strcmp(name, "is_infinity") || !strcmp(name, "is_inf")) && count == 1) {
+        double v = args[0].kind == GML_V_REAL ? args[0].real : 0.0;
+        *out = gml_value_bool(isinf(v));
+        return 1;
+    }
+    if (!strcmp(name, "is_ptr") && count == 1) {
+        *out = gml_value_bool(0);
+        return 1;
+    }
+    if ((!strcmp(name, "is_int32") || !strcmp(name, "is_int64")) && count == 1) {
+        if (args[0].kind == GML_V_REAL) {
+            double v = args[0].real;
+            *out = gml_value_bool(v == floor(v));
+        } else *out = gml_value_bool(0);
+        return 1;
+    }
+    if (!strcmp(name, "is_vec3") || !strcmp(name, "is_matrix")) {
+        *out = gml_value_bool(0);
+        return 1;
+    }
+
+    /* Window & Action Helpers */
+    if (!strcmp(name, "window_set_caption") && count == 1) {
+        const char *cap = args[0].kind == GML_V_STRING && args[0].string ? args[0].string : "";
+        snprintf(g_window_caption, sizeof(g_window_caption), "%s", cap);
+        *out = gml_value_bool(1);
+        return 1;
+    }
+    if (!strcmp(name, "window_get_caption") && count == 0) {
+        *out = gml_value_string(g_window_caption);
+        return 1;
+    }
+    if (!strcmp(name, "window_set_fullscreen") && count == 1) {
+        g_window_fullscreen = (args[0].kind == GML_V_BOOL ? args[0].boolean : (args[0].kind == GML_V_REAL ? args[0].real != 0 : 0));
+        *out = gml_value_bool(1);
+        return 1;
+    }
+    if (!strcmp(name, "window_get_fullscreen") && count == 0) {
+        *out = gml_value_bool(g_window_fullscreen);
+        return 1;
+    }
+    if (!strcmp(name, "window_set_size") && count == 2) {
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "window_center") && count == 0) {
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "action_linear_step") && count >= 3) {
+        if (self) {
+            float tx = (float)gm82_num_val(args[0]), ty = (float)gm82_num_val(args[1]), spd = (float)gm82_num_val(args[2]);
+            float dx = tx - self->x, dy = ty - self->y, dist = sqrtf(dx * dx + dy * dy);
+            if (dist <= spd || dist == 0.0f) { self->x = tx; self->y = ty; }
+            else { self->x += (dx / dist) * spd; self->y += (dy / dist) * spd; }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "action_potential_step") && count >= 3) {
+        if (self) {
+            float tx = (float)gm82_num_val(args[0]), ty = (float)gm82_num_val(args[1]), spd = (float)gm82_num_val(args[2]);
+            float dx = tx - self->x, dy = ty - self->y, dist = sqrtf(dx * dx + dy * dy);
+            if (dist <= spd || dist == 0.0f) { self->x = tx; self->y = ty; }
+            else { self->x += (dx / dist) * spd; self->y += (dy / dist) * spd; }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "action_move_point") && count == 3) {
+        if (self) {
+            float tx = (float)gm82_num_val(args[0]), ty = (float)gm82_num_val(args[1]), spd = (float)gm82_num_val(args[2]);
+            float dx = tx - self->x, dy = ty - self->y, dist = sqrtf(dx * dx + dy * dy);
+            if (dist > 0.0f) { self->vx = (dx / dist) * spd; self->vy = (dy / dist) * spd; }
+        }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "action_move_to") && count == 2) {
+        if (self) { self->x = (float)gm82_num_val(args[0]); self->y = (float)gm82_num_val(args[1]); }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "action_move_start") && count == 0) {
+        if (self) { self->x = self->xstart; self->y = self->ystart; }
+        *out = gml_value_bool(1); return 1;
+    }
+    if (!strcmp(name, "action_move_random") && count == 2) {
+        if (self) {
+            float hs = (float)gm82_num_val(args[0]);
+            float vs = (float)gm82_num_val(args[1]);
+            if (hs <= 1.0f) hs = 1.0f;
+            if (vs <= 1.0f) vs = 1.0f;
+            int cols = (int)(640.0f / hs); if (cols < 1) cols = 1;
+            int rows = (int)(480.0f / vs); if (rows < 1) rows = 1;
+            self->x = (float)((rand() % cols) * (int)hs);
+            self->y = (float)((rand() % rows) * (int)vs);
+        }
+        *out = gml_value_bool(1); return 1;
     }
 
     return 0;

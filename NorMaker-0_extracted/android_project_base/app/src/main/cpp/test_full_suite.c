@@ -449,11 +449,25 @@ void test_gm82_project_simulation_suite(void) {
     int sim_ok = gm82_simulate_yyd_project(proj_dir, 10);
     assert(sim_ok == 1);
 
-    int unz = system("unzip -q -o source/gm82test-main.zip -d /tmp/gm82test_extracted 2>/dev/null || true");
+    int unz = system("unzip -q -o source/gm82test-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
+                     "unzip -q -o source/gm82path-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
+                     "unzip -q -o source/gm82upx-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
+                     "unzip -q -o source/gm82ui-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
+                     "unzip -q -o source/gm82room-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;");
     (void)unz;
-    const char *real_proj = "/tmp/gm82test_extracted/gm82test-main/test.gm82";
-    if (nor_import_format_native(real_proj) == 7.0) {
-        assert(gm82_simulate_yyd_project(real_proj, 5) == 1);
+
+    const char *real_projs[] = {
+        "/tmp/gm82_extracted/gm82test-main/test.gm82",
+        "/tmp/gm82_extracted/gm82path-main/gm82path.gm82",
+        "/tmp/gm82_extracted/gm82upx-main/gm82upx.gm82/gm82upx.gm82",
+        "/tmp/gm82_extracted/gm82ui-main/gm82ui_test.gm82",
+        "/tmp/gm82_extracted/gm82room-main/include/n_menu/test.gm82"
+    };
+
+    for (size_t i = 0; i < sizeof(real_projs)/sizeof(real_projs[0]); ++i) {
+        if (nor_import_format_native(real_projs[i]) == 7.0) {
+            assert(gm82_simulate_yyd_project(real_projs[i], 5) == 1);
+        }
     }
 
     printf("[PASS] GM82 Project Simulation Suite\n");
@@ -603,6 +617,70 @@ void test_external_dll_and_display_suite(void) {
     printf("[PASS] External DLL & Display Suite\n");
 }
 
+void test_full_core_100_parity_suite(void) {
+    /* 1. Test Filename and Directory Builtins */
+    const char *fn_code =
+        "f1 = filename_name(\"/games/project/hero.png\");\n"
+        "f2 = filename_path(\"/games/project/hero.png\");\n"
+        "f3 = filename_dir(\"/games/project/hero.png\");\n"
+        "f4 = filename_ext(\"/games/project/hero.png\");\n"
+        "f5 = filename_change_ext(\"/games/project/hero.png\", \".bmp\");\n"
+        "d_created = directory_create(\"/tmp/nor_core_tests/sample_dir\");\n"
+        "d_exists = directory_exists(\"/tmp/nor_core_tests/sample_dir\");\n"
+        "return (f1 == \"hero.png\" && f2 == \"/games/project/\" && f3 == \"/games/project\" && f4 == \".png\" && f5 == \"/games/project/hero.bmp\" && d_exists == 1) ? 1.0 : 0.0;\n";
+
+    gml_ast *ast = NULL; char err[160] = {0};
+    assert(gml_parse_program(fn_code, &ast, err, sizeof(err)));
+    gml_vm vm; gml_vm_init(&vm); gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+    assert(gml_vm_execute(&vm, ast));
+    assert(vm.returned && vm.return_value.real == 1.0);
+    gml_ast_free(ast);
+
+    /* 2. Test Binary File IO */
+    const char *bin_code =
+        "handle = file_bin_open(\"/tmp/nor_core_tests/bin_test.dat\", 1);\n"
+        "file_bin_write_byte(handle, 255);\n"
+        "file_bin_write_byte(handle, 42);\n"
+        "file_bin_close(handle);\n"
+        "handle2 = file_bin_open(\"/tmp/nor_core_tests/bin_test.dat\", 0);\n"
+        "sz = file_bin_size(handle2);\n"
+        "b1 = file_bin_read_byte(handle2);\n"
+        "b2 = file_bin_read_byte(handle2);\n"
+        "pos = file_bin_position(handle2);\n"
+        "file_bin_close(handle2);\n"
+        "return (sz == 2 && b1 == 255 && b2 == 42 && pos == 2) ? 1.0 : 0.0;\n";
+
+    ast = NULL; err[0] = 0;
+    assert(gml_parse_program(bin_code, &ast, err, sizeof(err)));
+    gml_vm_init(&vm); gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+    assert(gml_vm_execute(&vm, ast));
+    assert(vm.returned && vm.return_value.real == 1.0);
+    gml_ast_free(ast);
+
+    /* 3. Test Array Builtins & Type Checkers */
+    const char *arr_code =
+        "arr = array_create(5, 10);\n"
+        "h2d = array_height_2d(arr);\n"
+        "l2d = array_length_2d(arr, 0);\n"
+        "nan_check = is_nan(0);\n"
+        "inf_check = is_infinity(100);\n"
+        "i32_check = is_int32(15);\n"
+        "window_set_caption(\"NorMaker Engine\");\n"
+        "cap = window_get_caption();\n"
+        "window_set_fullscreen(1);\n"
+        "fs = window_get_fullscreen();\n"
+        "return (h2d == 5 && l2d == 5 && nan_check == 0 && inf_check == 0 && i32_check == 1 && cap == \"NorMaker Engine\" && fs == 1) ? 1.0 : 0.0;\n";
+
+    ast = NULL; err[0] = 0;
+    assert(gml_parse_program(arr_code, &ast, err, sizeof(err)));
+    gml_vm_init(&vm); gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+    assert(gml_vm_execute(&vm, ast));
+    assert(vm.returned && vm.return_value.real == 1.0);
+    gml_ast_free(ast);
+
+    printf("[PASS] Full Core 100%% Parity Suite\n");
+}
+
 int main(void) {
     printf("--- Running Native Host Comprehensive Test Suite ---\n");
     test_gmk_probe_suite();
@@ -624,6 +702,7 @@ int main(void) {
     test_new_gm82_core_functions_suite();
     test_community_20_fixtures_suite();
     test_external_dll_and_display_suite();
+    test_full_core_100_parity_suite();
     printf("--- All Native Host Tests Passed! ---\n");
     return 0;
 }
