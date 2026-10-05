@@ -13,6 +13,12 @@ This report provides an unvarnished, technical audit of the current Android / Na
    - Data structures: `ds_list`, `ds_map`, `ds_grid`, `ds_stack`, `ds_queue`, `ds_priority`.
    - Math & Geometry builtins: Trigonometry, 2D/3D dot products (`dot_product`, `dot_product_3d`), normal products, `point_distance_3d`, `angle_difference`, `math_set_epsilon`, `math_get_epsilon`.
    - GM82 Extension helpers: `modwrap`, `smoothstep`, `approach`, `lerproach`, `point_in_circle`, `circle_in_circle`, `point_in_rectangle`, `rectangle_in_rectangle`, `point_in_triangle`, `pack_bools`, `unpack_bool`.
+   - Filename & Directory Utilities: `filename_name`, `filename_path`, `filename_dir`, `filename_drive`, `filename_ext`, `filename_change_ext`, `file_rename`, `file_copy`, `directory_exists`, `directory_create`.
+   - Binary File IO: `file_bin_open`, `file_bin_close`, `file_bin_write_byte`, `file_bin_read_byte`, `file_bin_seek`, `file_bin_size`, `file_bin_position`.
+   - Array Utilities: `array_create`, `array_height_2d`, `array_length_2d`, `array_equals`, `array_copy`.
+   - Variable Reflector Helpers: `variable_global_exists`, `variable_local_exists`, `variable_global_get`, `variable_global_set`, `variable_local_get`, `variable_local_set`.
+   - Type Queries: `is_nan`, `is_infinity`, `is_ptr`, `is_int32`, `is_int64`, `is_vec3`, `is_matrix`.
+   - Window & Motion Action Helpers: `window_set_caption`, `window_get_caption`, `window_set_fullscreen`, `window_get_fullscreen`, `action_linear_step`, `action_potential_step`, `action_move_point`, `action_move_to`, `action_move_start`, `action_move_random`.
 
 2. **Instance & Object Lifecycle:**
    - Object parent hierarchy resolution (`object_get_parent`, `object_set_parent`, `object_is_ancestor`).
@@ -27,6 +33,7 @@ This report provides an unvarnished, technical audit of the current Android / Na
    - Decompression streams using `zlib`.
    - Legacy GM4/GM5 uncompressed DIB bitmap decoder (`gm82_decode_dib_bitmap`).
    - Image RGBA decoding for sprites and tilesets.
+   - Project Simulation Engine: Verified against all bundled GM82 project archives (`gm82test.gm82`, `gm82path.gm82`, `gm82upx.gm82`, `gm82ui_test.gm82`, `test.gm82`).
 
 ### Verified Capabilities (PASS)
 1. **GML Virtual Machine Engine:**
