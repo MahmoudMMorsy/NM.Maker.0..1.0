@@ -1,4 +1,3 @@
-#include <jni.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,8 +11,56 @@
 #include <strings.h>
 
 #ifndef HOST_TEST_BUILD
+#include <jni.h>
 #include <android/bitmap.h>
 #else
+#ifndef JNIEXPORT
+#define JNIEXPORT
+#endif
+#ifndef JNICALL
+#define JNICALL
+#endif
+#ifndef JNI_TRUE
+#define JNI_TRUE 1
+#endif
+#ifndef JNI_FALSE
+#define JNI_FALSE 0
+#endif
+#ifndef JNI_ABORT
+#define JNI_ABORT 2
+#endif
+typedef const struct JNINativeInterface_ *JNIEnv;
+typedef void* jobject;
+typedef void* jclass;
+typedef void* jstring;
+typedef void* jarray;
+typedef void* jbyteArray;
+typedef void* jintArray;
+typedef void* jfloatArray;
+typedef double jdouble;
+typedef float jfloat;
+typedef int jint;
+typedef int jsize;
+typedef long long jlong;
+typedef unsigned char jboolean;
+typedef signed char jbyte;
+
+struct JNINativeInterface_ {
+    void *reserved0;
+    void *reserved1;
+    void *reserved2;
+    void *reserved3;
+    jbyte* (*GetByteArrayElements)(JNIEnv *, jbyteArray, jboolean *);
+    void (*ReleaseByteArrayElements)(JNIEnv *, jbyteArray, jbyte *, jint);
+    jsize (*GetArrayLength)(JNIEnv *, jarray);
+    const char* (*GetStringUTFChars)(JNIEnv *, jstring, jboolean *);
+    void (*ReleaseStringUTFChars)(JNIEnv *, jstring, const char *);
+    jstring (*NewStringUTF)(JNIEnv *, const char *);
+    void (*GetByteArrayRegion)(JNIEnv *, jbyteArray, jsize, jsize, jbyte *);
+    jboolean (*ExceptionCheck)(JNIEnv *);
+    void (*ExceptionClear)(JNIEnv *);
+};
+
 typedef struct {
     uint32_t width;
     uint32_t height;
