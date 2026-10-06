@@ -19,10 +19,10 @@
 # Agent State
 
 ## Summary
-The Native Host C Engine test suite (`test_full_suite.c`) and core validation contract executables pass 100% cleanly with 0 GCC warnings (`-Wall -Wextra -Wno-unused-parameter`). All 20 native test suites in `test_full_suite.c`, as well as `test_gmk_probe.c`, `test_gml_exec.c`, `test_gmx_export.c`, `gmk_probe_contract_test.c`, `gml_do_until_test.c`, `gml_invoke_test.c`, and `core_benchmark.c`, execute with 100% PASS on the native host. TypeScript compilation in `Nor-maker-7-main` passes with 0 errors.
+The Native Host C Engine test suite (`test_full_suite.c`) and core validation contract executables pass 100% cleanly with 0 GCC warnings (`-Wall -Wextra -Wno-unused-parameter`). All 20 native test suites in `test_full_suite.c` (including simulation of ALL 12 real GM82 projects, 20+ community fixtures, DIB bitmap decoder, resource queries, tile functions, D3D model functions, primitive constants, and Win32 extension stubs), as well as `test_gmk_probe.c`, `test_gml_exec.c`, `test_gmx_export.c`, `gmk_probe_contract_test.c`, `gml_do_until_test.c`, `gml_invoke_test.c`, and `core_benchmark.c`, execute with 100% PASS on the native host. TypeScript compilation in `Nor-maker-7-main` passes with 0 errors.
 
 ## Verified Test Metrics
-1. `/tmp/nor_core_tests/test_suite` -> PASS (20/20 test suites including 20+ community fixtures, real GM82 project archives simulation, DIB bitmap decoder, and Win32 extension stubs)
+1. `/tmp/nor_core_tests/test_suite` -> PASS (20/20 test suites including simulation of ALL 12 bundled GM82 projects, 20+ community fixtures, DIB bitmap decoder, resource query builtins, tile functions, D3D model functions, and Win32 extension stubs)
 2. `/tmp/nor_core_tests/test_gmk_probe` -> PASS
 3. `/tmp/nor_core_tests/test_gml_exec` -> PASS
 4. `/tmp/nor_core_tests/test_gmx_export` -> PASS

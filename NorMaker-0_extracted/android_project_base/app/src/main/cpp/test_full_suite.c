@@ -14,6 +14,7 @@ extern double nor_import_format_native(const char *path);
 extern int gm82_load_yyd_project(const char *dir_path);
 extern int gm82_simulate_yyd_project(const char *dir_path, int step_count);
 extern int gm82_native_call(void *userdata, const char *name, const gml_value *args, size_t count, gml_value *out);
+extern int gm82_resolve_name(void *userdata, const char *name, gml_value *out);
 
 void test_gmk_probe_suite(void) {
     uint8_t dummy[12] = {0x91, 0xd5, 0x12, 0x00, 0x20, 0x03, 0x00, 0x00, 0x7b, 0x00, 0x00, 0x00};
@@ -453,7 +454,12 @@ void test_gm82_project_simulation_suite(void) {
                      "unzip -q -o source/gm82path-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
                      "unzip -q -o source/gm82upx-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
                      "unzip -q -o source/gm82ui-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
-                     "unzip -q -o source/gm82room-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;");
+                     "unzip -q -o source/gm82room-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
+                     "unzip -q -o source/gm82mv-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
+                     "unzip -q -o source/gm82hub-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
+                     "unzip -q -o source/gm82angle-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
+                     "unzip -q -o source/gm82video-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
+                     "unzip -q -o source/DragonScript2-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;");
     (void)unz;
 
     const char *real_projs[] = {
@@ -461,11 +467,19 @@ void test_gm82_project_simulation_suite(void) {
         "/tmp/gm82_extracted/gm82path-main/gm82path.gm82",
         "/tmp/gm82_extracted/gm82upx-main/gm82upx.gm82/gm82upx.gm82",
         "/tmp/gm82_extracted/gm82ui-main/gm82ui_test.gm82",
-        "/tmp/gm82_extracted/gm82room-main/include/n_menu/test.gm82"
+        "/tmp/gm82_extracted/gm82room-main/include/n_menu/test.gm82",
+        "/tmp/gm82_extracted/gm82room-main/source",
+        "/tmp/gm82_extracted/gm82mv-main",
+        "/tmp/gm82_extracted/gm82hub-main/source",
+        "/tmp/gm82_extracted/gm82angle-main/anvil",
+        "/tmp/gm82_extracted/gm82video-main/player",
+        "/tmp/gm82_extracted/gm82video-main/encoder",
+        "/tmp/gm82_extracted/DragonScript2-main/source"
     };
 
     for (size_t i = 0; i < sizeof(real_projs)/sizeof(real_projs[0]); ++i) {
         if (nor_import_format_native(real_projs[i]) == 7.0) {
+            assert(gm82_load_yyd_project(real_projs[i]) == 1);
             assert(gm82_simulate_yyd_project(real_projs[i], 5) == 1);
         }
     }
@@ -674,6 +688,34 @@ void test_full_core_100_parity_suite(void) {
     ast = NULL; err[0] = 0;
     assert(gml_parse_program(arr_code, &ast, err, sizeof(err)));
     gml_vm_init(&vm); gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+    assert(gml_vm_execute(&vm, ast));
+    assert(vm.returned && vm.return_value.real == 1.0);
+    gml_ast_free(ast);
+
+    /* 4. Test Resources, Tile Functions, and D3D Model Builtins */
+    const char *res_code =
+        "sw = sprite_get_width(0);\n"
+        "sh = sprite_get_height(0);\n"
+        "se = sprite_exists(0);\n"
+        "bw = background_get_width(0);\n"
+        "fe = font_exists(0);\n"
+        "se_snd = sound_exists(0);\n"
+        "tid = tile_add(0, 0, 0, 32, 32, 0, 0, 1000);\n"
+        "td = tile_get_depth(tid);\n"
+        "tw = tile_get_width(tid);\n"
+        "tile_set_position(tid, 10, 20);\n"
+        "tile_delete(tid);\n"
+        "m = d3d_model_create();\n"
+        "d3d_model_primitive_begin(m, pr_trianglelist);\n"
+        "d3d_model_vertex_texture_color(m, 0, 0, 0, 0, 0, 16777215, 1);\n"
+        "d3d_model_primitive_end(m);\n"
+        "d3d_model_bake(m);\n"
+        "d3d_model_destroy(m);\n"
+        "return (sw == 32 && sh == 32 && se == 1 && bw == 640 && fe == 1 && se_snd == 1 && td == 10000 && tw == 32) ? 1.0 : 0.0;\n";
+
+    ast = NULL; err[0] = 0;
+    assert(gml_parse_program(res_code, &ast, err, sizeof(err)));
+    gml_vm_init(&vm); gml_vm_set_native_call(&vm, gm82_native_call, NULL); gml_vm_set_name_resolver(&vm, gm82_resolve_name, NULL);
     assert(gml_vm_execute(&vm, ast));
     assert(vm.returned && vm.return_value.real == 1.0);
     gml_ast_free(ast);

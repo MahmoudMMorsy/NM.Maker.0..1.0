@@ -636,6 +636,16 @@ int gm82_resolve_name(void *userdata, const char *name, gml_value *out) {
     if (!strcmp(name, "mouse_y")) { *out = gml_value_real(g_runtime.mouse_y); return 1; }
     if (!strcmp(name, "room_width")) { *out = gml_value_real(g_runtime.width > 0 ? g_runtime.width : 640); return 1; }
     if (!strcmp(name, "room_height")) { *out = gml_value_real(g_runtime.height > 0 ? g_runtime.height : 480); return 1; }
+    if (!strcmp(name, "pr_pointlist")) { *out = gml_value_real(1.0); return 1; }
+    if (!strcmp(name, "pr_linelist")) { *out = gml_value_real(2.0); return 1; }
+    if (!strcmp(name, "pr_linestrip")) { *out = gml_value_real(3.0); return 1; }
+    if (!strcmp(name, "pr_trianglelist")) { *out = gml_value_real(4.0); return 1; }
+    if (!strcmp(name, "pr_trianglestrip")) { *out = gml_value_real(5.0); return 1; }
+    if (!strcmp(name, "pr_trianglefan")) { *out = gml_value_real(6.0); return 1; }
+    if (!strcmp(name, "working_directory") || !strcmp(name, "program_directory") || !strcmp(name, "temp_directory")) {
+        *out = gml_value_string("."); return 1;
+    }
+    if (!strcmp(name, "game_id")) { *out = gml_value_real(100000.0); return 1; }
     for (int i = 0; i < g_object_name_count; ++i) {
         if (g_object_names[i].active && !strcmp(g_object_names[i].name, name)) {
             *out = gml_value_real((double)g_object_names[i].object_id);
@@ -4750,6 +4760,70 @@ static FILE *g_text_file_handles[GM82_MAX_TEXT_FILES] = {0};
         }
         *out = gml_value_bool(1); return 1;
     }
+
+    /* Resource Metadata Queries */
+    if (!strcmp(name, "sprite_get_width") && count >= 1) {
+        double w = (self && self->sprite_width > 0) ? (double)self->sprite_width : 32.0;
+        *out = gml_value_real(w); return 1;
+    }
+    if (!strcmp(name, "sprite_get_height") && count >= 1) {
+        double h = (self && self->sprite_height > 0) ? (double)self->sprite_height : 32.0;
+        *out = gml_value_real(h); return 1;
+    }
+    if (!strcmp(name, "sprite_get_xoffset") && count >= 1) { *out = gml_value_real(0.0); return 1; }
+    if (!strcmp(name, "sprite_get_yoffset") && count >= 1) { *out = gml_value_real(0.0); return 1; }
+    if (!strcmp(name, "sprite_get_number") && count >= 1) {
+        double num = (self && self->sprite_subimages > 0) ? (double)self->sprite_subimages : 1.0;
+        *out = gml_value_real(num); return 1;
+    }
+    if (!strcmp(name, "sprite_exists") && count >= 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "sprite_get_name") && count >= 1) { *out = gml_value_string("spr_resource"); return 1; }
+    if (!strcmp(name, "background_get_width") && count >= 1) {
+        double w = (g_runtime.width > 0) ? (double)g_runtime.width : 640.0;
+        *out = gml_value_real(w); return 1;
+    }
+    if (!strcmp(name, "background_get_height") && count >= 1) {
+        double h = (g_runtime.height > 0) ? (double)g_runtime.height : 480.0;
+        *out = gml_value_real(h); return 1;
+    }
+    if (!strcmp(name, "background_exists") && count >= 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "font_exists") && count >= 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "sound_exists") && count >= 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "room_exists") && count >= 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "path_exists") && count >= 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "timeline_exists") && count >= 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "script_exists") && count >= 1) { *out = gml_value_bool(1); return 1; }
+
+    /* Tile Functions */
+    if (!strcmp(name, "tile_get_depth") && count >= 1) { *out = gml_value_real(10000.0); return 1; }
+    if (!strcmp(name, "tile_get_left") && count >= 1) { *out = gml_value_real(0.0); return 1; }
+    if (!strcmp(name, "tile_get_top") && count >= 1) { *out = gml_value_real(0.0); return 1; }
+    if (!strcmp(name, "tile_get_width") && count >= 1) { *out = gml_value_real(32.0); return 1; }
+    if (!strcmp(name, "tile_get_height") && count >= 1) { *out = gml_value_real(32.0); return 1; }
+    if (!strcmp(name, "tile_get_x") && count >= 1) { *out = gml_value_real(0.0); return 1; }
+    if (!strcmp(name, "tile_get_y") && count >= 1) { *out = gml_value_real(0.0); return 1; }
+    if (!strcmp(name, "tile_get_visible") && count >= 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "tile_get_background") && count >= 1) { *out = gml_value_real(0.0); return 1; }
+    if (!strcmp(name, "tile_exists") && count >= 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "tile_add") && count >= 8) { static int g_tile_handle = 100; *out = gml_value_real((double)g_tile_handle++); return 1; }
+    if (!strcmp(name, "tile_delete") && count >= 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "tile_set_position") && count >= 3) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "tile_set_visible") && count >= 2) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "tile_set_depth") && count >= 2) { *out = gml_value_bool(1); return 1; }
+
+    /* D3D Model Functions */
+    if (!strcmp(name, "d3d_model_create") && count == 0) { static int g_model_handle = 1; *out = gml_value_real((double)g_model_handle++); return 1; }
+    if (!strcmp(name, "d3d_model_destroy") && count >= 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "d3d_model_clear") && count >= 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "d3d_model_draw") && count >= 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "d3d_model_primitive_begin") && count >= 2) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "d3d_model_primitive_end") && count >= 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "d3d_model_vertex") && count >= 4) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "d3d_model_vertex_color") || !strcmp(name, "d3d_model_vertex_colour")) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "d3d_model_vertex_texture") && count >= 6) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "d3d_model_vertex_texture_color") || !strcmp(name, "d3d_model_vertex_texture_colour")) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "d3d_model_bake") && count >= 1) { *out = gml_value_bool(1); return 1; }
+    if (!strcmp(name, "d3d_model_save_g3z") && count >= 2) { *out = gml_value_bool(1); return 1; }
 
     return 0;
 }
