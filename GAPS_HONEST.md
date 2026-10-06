@@ -17,8 +17,11 @@ This report provides an unvarnished, technical audit of the current Android / Na
    - Binary File IO: `file_bin_open`, `file_bin_close`, `file_bin_write_byte`, `file_bin_read_byte`, `file_bin_seek`, `file_bin_size`, `file_bin_position`.
    - Array Utilities: `array_create`, `array_height_2d`, `array_length_2d`, `array_equals`, `array_copy`.
    - Variable Reflector Helpers: `variable_global_exists`, `variable_local_exists`, `variable_global_get`, `variable_global_set`, `variable_local_get`, `variable_local_set`.
+   - Resource Queries: `sprite_get_width`, `sprite_get_height`, `sprite_get_xoffset`, `sprite_get_yoffset`, `sprite_get_number`, `sprite_exists`, `sprite_get_name`, `background_get_width`, `background_get_height`, `background_exists`, `font_exists`, `sound_exists`, `room_exists`, `path_exists`, `timeline_exists`, `script_exists`.
+   - Tile Functions: `tile_get_depth`, `tile_get_left`, `tile_get_top`, `tile_get_width`, `tile_get_height`, `tile_get_x`, `tile_get_y`, `tile_get_visible`, `tile_get_background`, `tile_exists`, `tile_add`, `tile_delete`, `tile_set_position`, `tile_set_visible`, `tile_set_depth`.
+   - D3D Model Functions & Primitive Constants: `d3d_model_create`, `d3d_model_destroy`, `d3d_model_clear`, `d3d_model_draw`, `d3d_model_primitive_begin`, `d3d_model_primitive_end`, `d3d_model_vertex`, `d3d_model_vertex_color`, `d3d_model_vertex_texture`, `d3d_model_vertex_texture_color`, `d3d_model_bake`, `d3d_model_save_g3z`, `pr_pointlist`, `pr_linelist`, `pr_linestrip`, `pr_trianglelist`, `pr_trianglestrip`, `pr_trianglefan`.
    - Type Queries: `is_nan`, `is_infinity`, `is_ptr`, `is_int32`, `is_int64`, `is_vec3`, `is_matrix`.
-   - Window & Motion Action Helpers: `window_set_caption`, `window_get_caption`, `window_set_fullscreen`, `window_get_fullscreen`, `action_linear_step`, `action_potential_step`, `action_move_point`, `action_move_to`, `action_move_start`, `action_move_random`.
+   - Window & Motion Action Helpers: `window_set_caption`, `window_get_caption`, `window_set_fullscreen`, `window_get_fullscreen`, `window_set_size`, `window_center`, `action_linear_step`, `action_potential_step`, `action_move_point`, `action_move_to`, `action_move_start`, `action_move_random`.
 
 2. **Instance & Object Lifecycle:**
    - Object parent hierarchy resolution (`object_get_parent`, `object_set_parent`, `object_is_ancestor`).
@@ -33,7 +36,7 @@ This report provides an unvarnished, technical audit of the current Android / Na
    - Decompression streams using `zlib`.
    - Legacy GM4/GM5 uncompressed DIB bitmap decoder (`gm82_decode_dib_bitmap`).
    - Image RGBA decoding for sprites and tilesets.
-   - Project Simulation Engine: Verified against all bundled GM82 project archives (`gm82test.gm82`, `gm82path.gm82`, `gm82upx.gm82`, `gm82ui_test.gm82`, `test.gm82`).
+   - Project Simulation Engine: Verified against ALL 12 bundled real GM82 project archives (`gm82test.gm82`, `gm82path.gm82`, `gm82upx.gm82`, `gm82ui_test.gm82`, `n_menu/test.gm82`, `gm82room source`, `model_viewer.gm82`, `gm82hub.gm82`, `gm82angle/anvil`, `gm82vp`, `gm82venc`, `DragonScript2`).
 
 ### Verified Capabilities (PASS)
 1. **GML Virtual Machine Engine:**
