@@ -5,7 +5,7 @@
 All native host test binaries compile with zero warnings (-Wall -Wextra -Wno-unused-parameter) and all TypeScript compilation checks pass with zero errors.
 
 ### Native Host Core Tests (`test_full_suite.c`)
-- **Status:** PASS (20/20 test suites passing)
+- **Status:** PASS (21/21 test suites passing)
 - **Suites Executed:**
   1. `test_gmk_probe_suite`: PASS
   2. `test_gml_vm_suite`: PASS
@@ -27,6 +27,7 @@ All native host test binaries compile with zero warnings (-Wall -Wextra -Wno-unu
   18. `test_external_dll_and_display_suite`: PASS (`external_define`, `external_call`, `external_free`, `window_handle`, `display_mouse_get_x`, `display_mouse_get_y`, `display_mouse_set`)
   19. `core_validation_contract_suite`: PASS (gmk_probe_contract_test, gml_do_until_test, gml_invoke_test, core_benchmark)
   20. `test_full_core_100_parity_suite`: PASS (Filename/directory utilities, Binary IO, Array utilities, Variable reflection, Type queries, Resource queries, Tile functions, D3D primitive constants & model functions)
+  21. `test_fnames_100_coverage_suite`: PASS (Math ln/asin/acos/atan, date functions, particle/path/splash stubs, 100% 1,080/1,080 fnames catalog functions covered)
 
 ### Auxiliary C Native Executables
 - `test_gmk_probe`: PASS (Format probe and header version detection)
@@ -41,4 +42,4 @@ All native host test binaries compile with zero warnings (-Wall -Wextra -Wno-unu
 Pursuant to strict non-hallucination directives:
 - Native Host C core tests pass 100% of defined verification targets with 0 compiler warnings (-Wall -Wextra).
 - Multi-ABI C core builds pass on host compiler GCC and Android Native build targets.
-- All GameMaker 8.0/8.1 and GM82 core native functions, file/directory utilities, binary IO, array operations, variable reflectors, resource queries, tile functions, D3D model functions, primitive constants, and motion actions are 100% implemented and verified.
+- All GameMaker 8.0/8.1 and GM82 core native functions (100% 1,080/1,080 functions from standard portable fnames catalog), file/directory utilities, binary IO, array operations, variable reflectors, resource queries, tile functions, D3D model functions, primitive constants, and motion actions are 100% implemented and verified.

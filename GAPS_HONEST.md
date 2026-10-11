@@ -11,7 +11,9 @@ This report provides an unvarnished, technical audit of the current Android / Na
    - Dynamic variable scoping: Local instance variables, global variables (`global.var`), and member property getters/setters.
    - Flow control constructs: `if/else`, `while`, `for`, `do ... until`, `switch/case`, `repeat`, `break`, `continue`, `return`.
    - Data structures: `ds_list`, `ds_map`, `ds_grid`, `ds_stack`, `ds_queue`, `ds_priority`.
-   - Math & Geometry builtins: Trigonometry, 2D/3D dot products (`dot_product`, `dot_product_3d`), normal products, `point_distance_3d`, `angle_difference`, `math_set_epsilon`, `math_get_epsilon`.
+   - Math & Geometry builtins: Trigonometry, natural logarithms (`ln`), inverse trig (`arcsin`, `arccos`, `arctan`), `random_get_seed`, 2D/3D dot products (`dot_product`, `dot_product_3d`), normal products, `point_distance_3d`, `angle_difference`, `math_set_epsilon`, `math_get_epsilon`.
+   - Date Builtins: `date_current_datetime`, `date_current_date`, `date_current_time`, `date_get_year`, `date_get_month`, `date_get_day`, `date_get_hour`, `date_get_minute`, `date_get_second`.
+   - Catalog Dispatcher Safety: All 1,080 functions listed in standard GameMaker / GM82 portable `fnames` catalog are dispatched natively or via safe fallback return handlers in `gm82_native_call` to prevent script execution failures on unhandled functions.
    - GM82 Extension helpers: `modwrap`, `smoothstep`, `approach`, `lerproach`, `point_in_circle`, `circle_in_circle`, `point_in_rectangle`, `rectangle_in_rectangle`, `point_in_triangle`, `pack_bools`, `unpack_bool`.
    - Filename & Directory Utilities: `filename_name`, `filename_path`, `filename_dir`, `filename_drive`, `filename_ext`, `filename_change_ext`, `file_rename`, `file_copy`, `directory_exists`, `directory_create`.
    - Binary File IO: `file_bin_open`, `file_bin_close`, `file_bin_write_byte`, `file_bin_read_byte`, `file_bin_seek`, `file_bin_size`, `file_bin_position`.
@@ -57,5 +59,6 @@ This report provides an unvarnished, technical audit of the current Android / Na
    - `Nor-maker-7-main` TypeScript web studio typechecks with 0 errors.
 
 ### Remaining Gaps (Honest Tracking)
-1. **Commercial Extension DLLs:** Windows-specific x86 32-bit `.dll` extensions (e.g. DirectX9 native wrappers, Windows dialogs) are stubbed or bridged via portable equivalents on Android/Linux host.
-2. **Device Hardware Testing:** Continuous device instrumentation tests across physical ARM64/ARMv7 devices require manual physical device testing for real-time framerate optimization.
+1. **Commercial Extension DLLs & Win32 Stubs:** Windows-specific x86 32-bit `.dll` extensions and Win32 dialog/splash calls are stubbed via safe default return values (0.0/1.0) on Android/Linux host.
+2. **Fallback Stubs vs Full Features:** While all 1,080 `fnames` catalog functions are recognized by `gm82_native_call`, complex legacy platform routines (e.g., legacy MDI splash windows, legacy CD-ROM controls) return safe default values rather than full native platform implementations.
+3. **Device Hardware Testing:** Continuous device instrumentation tests across physical ARM64/ARMv7 devices require manual physical device testing for real-time framerate optimization.
