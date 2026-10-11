@@ -38,7 +38,7 @@ All native host test binaries compile with zero warnings (-Wall -Wextra -Wno-unu
 - `Nor-maker-7-main`: `npm run typecheck` (`tsc -p tsconfig.json --noEmit`) - PASS (0 errors)
 
 ## Honest Gap & Capability Tracking
-Pursuant to the strict non-hallucination directives:
+Pursuant to strict non-hallucination directives:
 - Native Host C core tests pass 100% of defined verification targets with 0 compiler warnings (-Wall -Wextra).
 - Multi-ABI C core builds pass on host compiler GCC and Android Native build targets.
 - All GameMaker 8.0/8.1 and GM82 core native functions, file/directory utilities, binary IO, array operations, variable reflectors, resource queries, tile functions, D3D model functions, primitive constants, and motion actions are 100% implemented and verified.
