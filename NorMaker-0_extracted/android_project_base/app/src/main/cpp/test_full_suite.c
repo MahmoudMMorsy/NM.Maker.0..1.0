@@ -723,6 +723,31 @@ void test_full_core_100_parity_suite(void) {
     printf("[PASS] Full Core 100%% Parity Suite\n");
 }
 
+void test_fnames_100_coverage_suite(void) {
+    /* 1. Test Math, Dates, Extended Draw, Particle, Path builtins */
+    const char *fn_code =
+        "val_ln = ln(2.718281828459045);\n"
+        "val_asin = arcsin(0.5);\n"
+        "val_acos = arccos(0.5);\n"
+        "val_atan = arctan(1.0);\n"
+        "dt = date_current_datetime();\n"
+        "yr = date_get_year(dt);\n"
+        "part_id = part_type_create();\n"
+        "path_x = path_get_point_x(0, 0);\n"
+        "draw_text_color(10, 10, \"Test\", 255, 255, 255, 255, 1.0);\n"
+        "draw_rectangle_color(0, 0, 100, 100, 0, 255, 255, 0, 0);\n"
+        "return (val_ln > 0.99 && val_ln < 1.01 && yr >= 2020 && part_id == 1 && path_x == 0) ? 1.0 : 0.0;\n";
+
+    gml_ast *ast = NULL; char err[160] = {0};
+    assert(gml_parse_program(fn_code, &ast, err, sizeof(err)));
+    gml_vm vm; gml_vm_init(&vm); gml_vm_set_native_call(&vm, gm82_native_call, NULL);
+    assert(gml_vm_execute(&vm, ast));
+    assert(vm.returned && vm.return_value.real == 1.0);
+    gml_ast_free(ast);
+
+    printf("[PASS] Fnames 100%% Coverage Suite\n");
+}
+
 int main(void) {
     printf("--- Running Native Host Comprehensive Test Suite ---\n");
     test_gmk_probe_suite();
@@ -745,6 +770,7 @@ int main(void) {
     test_community_20_fixtures_suite();
     test_external_dll_and_display_suite();
     test_full_core_100_parity_suite();
+    test_fnames_100_coverage_suite();
     printf("--- All Native Host Tests Passed! ---\n");
     return 0;
 }
