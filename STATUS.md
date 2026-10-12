@@ -7,7 +7,7 @@
 
 ## Current Test Verification Results
 
-All native host test binaries compile with zero warnings (-Wall -Wextra -Wno-unused-parameter) and all TypeScript compilation checks pass with zero errors.
+All native host test binaries compile with zero warnings (`-Wall -Wextra -Wno-unused-parameter`) and all TypeScript compilation checks pass with zero errors.
 
 ### Native Host Core Tests (`test_full_suite.c`)
 - **Status:** PASS (21/21 test suites passing)
