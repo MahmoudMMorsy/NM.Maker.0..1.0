@@ -32,7 +32,7 @@ All native host test binaries compile with zero warnings (`-Wall -Wextra -Wno-un
   18. `test_external_dll_and_display_suite`: PASS (`external_define`, `external_call`, `external_free`, `window_handle`, `display_mouse_get_x`, `display_mouse_get_y`, `display_mouse_set`)
   19. `core_validation_contract_suite`: PASS (gmk_probe_contract_test, gml_do_until_test, gml_invoke_test, core_benchmark)
   20. `test_full_core_100_parity_suite`: PASS (Filename/directory utilities, Binary IO, Array utilities, Variable reflection, Type queries, Resource queries, Tile functions, D3D primitive constants & model functions)
-  21. `test_fnames_100_coverage_suite`: PASS (Math ln/asin/acos/atan, date functions, particle/path/splash stubs, 100% 1,080/1,080 fnames catalog functions covered)
+  21. `test_fnames_100_coverage_suite`: PASS (Math ln/asin/acos/atan, date functions, particle/path/splash stubs, effect_create_above/below, 100% 1,080/1,080 fnames catalog functions covered)
 
 ### Auxiliary C Native Executables
 - `test_gmk_probe`: PASS (Format probe and header version detection)

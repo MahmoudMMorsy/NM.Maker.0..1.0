@@ -2812,6 +2812,20 @@ int gm82_native_call(void *userdata, const char *name, const gml_value *args, si
     if (!strcmp(name, "draw_circle") && (count == 3 || count == 4)) {
         *out = gml_value_bool(1); return 1;
     }
+    if ((!strcmp(name, "effect_create_above") || !strcmp(name, "effect_create_below")) && count >= 5) {
+        if (g_draw_command_count < GM82_MAX_DRAW_COMMANDS) {
+            Gm82DrawCommand *cmd = &g_draw_commands[g_draw_command_count++];
+            memset(cmd, 0, sizeof(*cmd));
+            cmd->kind = 5; /* Effect / Particle marker */
+            cmd->sprite_id = (int)(args[0].kind == GML_V_REAL ? args[0].real : 0); /* Effect kind */
+            cmd->x = (float)(args[1].kind == GML_V_REAL ? args[1].real : 0.0);
+            cmd->y = (float)(args[2].kind == GML_V_REAL ? args[2].real : 0.0);
+            cmd->xscale = count >= 4 ? (float)(args[3].kind == GML_V_REAL ? args[3].real : 1.0) : 1.0f; /* Size */
+            cmd->color = count >= 5 ? (int)(args[4].kind == GML_V_REAL ? args[4].real : 16777215.0) : 16777215;
+            cmd->alpha = g_draw_alpha;
+        }
+        *out = gml_value_bool(1); return 1;
+    }
     if (!strcmp(name, "draw_set_alpha") && count == 1) { float a = (float)(args[0].kind == GML_V_REAL ? args[0].real : 1.0); if (a < 0.0f) a = 0.0f; if (a > 1.0f) a = 1.0f; g_draw_alpha = a; *out = gml_value_bool(1); return 1; }
     if (!strcmp(name, "draw_sprite") && count == 4) { if (g_draw_command_count < GM82_MAX_DRAW_COMMANDS) { Gm82DrawCommand *cmd = &g_draw_commands[g_draw_command_count++]; cmd->sprite_id = (int)(args[0].kind == GML_V_REAL ? args[0].real : -1); cmd->frame = (int)(args[1].kind == GML_V_REAL ? args[1].real : 0); cmd->x = (float)(args[2].kind == GML_V_REAL ? args[2].real : 0); cmd->y = (float)(args[3].kind == GML_V_REAL ? args[3].real : 0); cmd->alpha = g_draw_alpha; } *out = gml_value_bool(1); return 1; }
     if (!strcmp(name, "ds_list_sort") && count >= 1) {

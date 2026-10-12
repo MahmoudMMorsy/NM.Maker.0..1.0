@@ -58,7 +58,14 @@ This report provides an unvarnished, technical audit of the current Android / Na
 2. **Frontend & Studio Integration:**
    - `Nor-maker-7-main` TypeScript web studio typechecks with 0 errors.
 
-### Remaining Gaps (Honest Tracking)
-1. **Commercial Extension DLLs & Win32 Stubs:** Windows-specific x86 32-bit `.dll` extensions and Win32 dialog/splash calls are stubbed via safe default return values (0.0/1.0) on Android/Linux host.
-2. **Fallback Stubs vs Full Features:** While all 1,080 `fnames` catalog functions are recognized by `gm82_native_call`, complex legacy platform routines (e.g., legacy MDI splash windows, legacy CD-ROM controls) return safe default values rather than full native platform implementations.
-3. **Device Hardware Testing:** Continuous device instrumentation tests across physical ARM64/ARMv7 devices require manual physical device testing for real-time framerate optimization.
+### Strategic REA Reverse-Engineering Roadmap & Gap Tracking
+
+1. **REA Methodology & Reverse-Engineering Plan:**
+   - **Binary Inspection with REA:** Utilize `morluto/rea` workflows (Hopper/Ghidra/IDA providers via MCP or static JavaScript/ELF analysis) to decompile and inspect legacy GameMaker 8.2 runtime executables and x86 Win32 DLL extensions (`game maker/portable/`).
+   - **Win32 & Extension Bridging:** Reconstruct complex Win32 extension entry points and DLL calls into cross-platform C / Android JNI polyfills in `gm82_android_core.c`.
+   - **Graphics & Particle Pipelines:** Decompile legacy GameMaker D3D model, particle emitter, and effect creation pipelines (`effect_create_above`, `effect_create_below`, `d3d_draw_*`) and mirror behavior in OpenGLES/Native C drawing queues.
+
+2. **Remaining Gaps (Honest Parity Tracking):**
+   - **Commercial Extension DLLs & Win32 Stubs:** Windows-specific x86 32-bit `.dll` extensions and Win32 dialog/splash calls are stubbed via safe default return values (0.0/1.0) on Android/Linux host pending REA decompilation.
+   - **Fallback Stubs vs Full Features:** While all 1,080 `fnames` catalog functions are recognized by `gm82_native_call`, complex legacy platform routines (e.g., legacy MDI splash windows, legacy CD-ROM controls) return safe default values rather than full native platform implementations.
+   - **Device Hardware Testing:** Continuous device instrumentation tests across physical ARM64/ARMv7 devices require manual physical device testing for real-time framerate optimization.
