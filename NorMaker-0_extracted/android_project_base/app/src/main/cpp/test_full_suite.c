@@ -199,6 +199,7 @@ void test_drawing_display_audio_suite(void) {
         "h = window_get_height();\n"
         "draw_sprite_ext(1, 0, 10, 20, 2, 2, 45, 16777215, 1.0);\n"
         "draw_text_transformed(10, 50, \"Hello\", 1.5, 1.5, 0);\n"
+        "effect_create_above(0, 100, 100, 1, 16711680);\n"
         "audio_play_sound(1, 0, false);\n"
         "p1 = audio_is_playing(1);\n"
         "audio_stop_sound(1);\n"
