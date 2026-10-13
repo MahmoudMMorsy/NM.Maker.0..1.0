@@ -6376,7 +6376,33 @@ JNIEXPORT jboolean JNICALL Java_com_normaker_nativefull_MainActivity_nativeRunti
         }
     }
     for (int ci = 0; ci < g_draw_command_count; ++ci) {
-        Gm82DrawCommand *cmd = &g_draw_commands[ci]; Gm82SpriteBitmap *sprite = gm82_find_bitmap(cmd->sprite_id, cmd->frame);
+        Gm82DrawCommand *cmd = &g_draw_commands[ci];
+        if (cmd->kind == 5) {
+            /* Software rasterization for simple particle/effect rendering (kind 5) */
+            int cx = (int)floorf(cmd->x), cy = (int)floorf(cmd->y);
+            int radius = (int)(4.0f * (cmd->xscale > 0.1f ? cmd->xscale : 1.0f));
+            uint8_t r = (uint8_t)(cmd->color & 0xFF), g = (uint8_t)((cmd->color >> 8) & 0xFF), b = (uint8_t)((cmd->color >> 16) & 0xFF);
+            for (int dy = cy - radius; dy <= cy + radius; ++dy) {
+                if (dy < 0 || dy >= (int)info.height) continue;
+                for (int dx = cx - radius; dx <= cx + radius; ++dx) {
+                    if (dx < 0 || dx >= (int)info.width) continue;
+                    if ((dx - cx)*(dx - cx) + (dy - cy)*(dy - cy) <= radius * radius) {
+                        uint8_t *dst = (uint8_t *)pixels + (size_t)dy * info.stride + (size_t)dx * 4u;
+                        unsigned alpha = (unsigned)(255.0f * cmd->alpha);
+                        if (alpha == 255u) { dst[0] = r; dst[1] = g; dst[2] = b; dst[3] = 255; }
+                        else if (alpha != 0u) {
+                            unsigned inv = 255u - alpha;
+                            dst[0] = (uint8_t)((r * alpha + dst[0] * inv) / 255u);
+                            dst[1] = (uint8_t)((g * alpha + dst[1] * inv) / 255u);
+                            dst[2] = (uint8_t)((b * alpha + dst[2] * inv) / 255u);
+                            dst[3] = (uint8_t)(alpha + (dst[3] * inv) / 255u);
+                        }
+                    }
+                }
+            }
+            continue;
+        }
+        Gm82SpriteBitmap *sprite = gm82_find_bitmap(cmd->sprite_id, cmd->frame);
         if (!sprite || !sprite->rgba || sprite->width <= 0 || sprite->height <= 0) continue;
         int dst_x = (int)floorf(cmd->x), dst_y = (int)floorf(cmd->y);
         for (int sy = 0; sy < sprite->height; ++sy) { int dy = dst_y + sy; if (dy < 0 || dy >= (int)info.height) continue;
