@@ -8,6 +8,7 @@ This report provides an unvarnished, technical audit of the current Android / Na
 
 1. **GML Language & VM Capabilities:**
    - Full AST parsing and execution (`gml_frontend.c`, `gml_vm.c`).
+     - Hex numbers (`$HEX`, `0xHEX`), multi-line block comments (`/* ... */`), bitwise operators (`&`, `|`, `^`, `~`, `<<`, `>>`), optional condition parentheses (`if`, `while`, `repeat`, `with`, `do-until`, `switch`), multi-variable declarations (`var a, b, c;`), 2D array indexing (`array[row, col]`), and trailing argument commas (`func(a, b,)`).
    - Dynamic variable scoping: Local instance variables, global variables (`global.var`), and member property getters/setters.
    - Flow control constructs: `if/else`, `while`, `for`, `do ... until`, `switch/case`, `repeat`, `break`, `continue`, `return`.
    - Data structures: `ds_list`, `ds_map`, `ds_grid`, `ds_stack`, `ds_queue`, `ds_priority`.

@@ -22,7 +22,7 @@
 The Native Host C Engine test suite (`test_full_suite.c`) and core validation contract executables pass 100% cleanly with 0 GCC warnings (`-Wall -Wextra -Wno-unused-parameter`). All 21 native test suites in `test_full_suite.c` (including simulation of ALL 12 real GM82 projects, 20+ community fixtures, DIB bitmap decoder, resource queries, tile functions, D3D model functions, primitive constants, Win32 extension stubs, and 100% coverage of all 1,080 functions from standard portable fnames catalog), as well as `test_gmk_probe.c`, `test_gml_exec.c`, `test_gmx_export.c`, `gmk_probe_contract_test.c`, `gml_do_until_test.c`, `gml_invoke_test.c`, and `core_benchmark.c`, execute with 100% PASS on the native host. TypeScript compilation in `Nor-maker-7-main` passes with 0 errors.
 
 ## Verified Test Metrics
-1. `/tmp/nor_core_tests/test_suite` -> PASS (21/21 test suites including simulation of ALL 12 bundled GM82 projects, 20+ community fixtures, DIB bitmap decoder, resource query builtins, tile functions, D3D model functions, Win32 extension stubs, and 100% 1,080/1,080 fnames catalog functions)
+1. `/tmp/nor_core_tests/test_suite` -> PASS (22/22 test suites including simulation of ALL 12 bundled GM82 projects, 606 GML files sweep across all 28 source packages, hex numbers, block comments, bitwise operators, 20+ community fixtures, DIB bitmap decoder, resource query builtins, tile functions, D3D model functions, Win32 extension stubs, and 100% 1,080/1,080 fnames catalog functions)
 2. `/tmp/nor_core_tests/test_gmk_probe` -> PASS
 3. `/tmp/nor_core_tests/test_gml_exec` -> PASS
 4. `/tmp/nor_core_tests/test_gmx_export` -> PASS
