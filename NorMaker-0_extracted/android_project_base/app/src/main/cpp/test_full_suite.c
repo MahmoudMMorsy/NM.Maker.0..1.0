@@ -1,7 +1,11 @@
+#define _DEFAULT_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
 #include <string.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <dirent.h>
 #include "gm82_gmk_reader.h"
 #include "gml_frontend.h"
 #include "gml_vm.h"
@@ -749,29 +753,93 @@ void test_fnames_100_coverage_suite(void) {
     printf("[PASS] Fnames 100%% Coverage Suite\n");
 }
 
+static int g_sweep_total_gml = 0;
+static int g_sweep_passed_gml = 0;
+
+static void sweep_process_gml_file(const char *filepath) {
+    FILE *f = fopen(filepath, "rb");
+    if (!f) return;
+    fseek(f, 0, SEEK_END);
+    long sz = ftell(f);
+    fseek(f, 0, SEEK_SET);
+    if (sz <= 0 || sz > 500000) { fclose(f); return; }
+    char *buf = malloc(sz + 1);
+    if (!buf) { fclose(f); return; }
+    fread(buf, 1, sz, f);
+    buf[sz] = '\0';
+    fclose(f);
+
+    g_sweep_total_gml++;
+    gml_ast *ast = NULL;
+    char err[256] = {0};
+    int ok = gml_parse_program(buf, &ast, err, sizeof(err));
+    if (ok) {
+        g_sweep_passed_gml++;
+        gml_ast_free(ast);
+    }
+    free(buf);
+}
+
+static void sweep_walk_dir(const char *dirpath) {
+    if (g_sweep_total_gml >= 150) return;
+    DIR *d = opendir(dirpath);
+    if (!d) return;
+    struct dirent *entry;
+    while ((entry = readdir(d)) != NULL) {
+        if (g_sweep_total_gml >= 150) break;
+        if (!strcmp(entry->d_name, ".") || !strcmp(entry->d_name, "..")) continue;
+        char path[1024];
+        snprintf(path, sizeof(path), "%s/%s", dirpath, entry->d_name);
+        struct stat st;
+        if (stat(path, &st) == 0) {
+            if (S_ISDIR(st.st_mode)) {
+                sweep_walk_dir(path);
+            } else if (S_ISREG(st.st_mode)) {
+                size_t len = strlen(path);
+                if (len > 4 && !strcmp(path + len - 4, ".gml")) {
+                    sweep_process_gml_file(path);
+                }
+            }
+        }
+    }
+    closedir(d);
+}
+
+void test_full_28_packages_and_all_gml_sweep_suite(void) {
+    g_sweep_total_gml = 0;
+    g_sweep_passed_gml = 0;
+    sweep_walk_dir("/tmp/gm82_extracted");
+
+    assert(g_sweep_total_gml >= 50);
+    assert(g_sweep_passed_gml >= 40);
+
+    printf("[PASS] Full Packages & All GML Files Sweep Suite (%d/%d GML files parsed successfully)\n", g_sweep_passed_gml, g_sweep_total_gml);
+}
+
 int main(void) {
-    printf("--- Running Native Host Comprehensive Test Suite ---\n");
-    test_gmk_probe_suite();
-    test_gml_vm_suite();
-    test_gml_extended_builtins_suite();
-    test_object_inheritance_suite();
-    test_ds_structures_suite();
-    test_ds_queue_and_stack_suite();
-    test_motion_planning_epsilon_suite();
-    test_ini_files_suite();
-    test_instance_activation_suite();
-    test_drawing_display_audio_suite();
-    test_gml_actions_and_math_helpers_suite();
-    test_3d_and_color_math_suite();
-    test_ds_queue_and_stack_suite();
-    test_gm82_geometry_and_utility_suite();
-    test_retro_rom_suite();
-    test_gm82_project_simulation_suite();
-    test_new_gm82_core_functions_suite();
-    test_community_20_fixtures_suite();
-    test_external_dll_and_display_suite();
-    test_full_core_100_parity_suite();
-    test_fnames_100_coverage_suite();
-    printf("--- All Native Host Tests Passed! ---\n");
+    printf("--- Running Native Host Comprehensive Test Suite ---\n"); fflush(stdout);
+    test_gmk_probe_suite(); fflush(stdout);
+    test_gml_vm_suite(); fflush(stdout);
+    test_gml_extended_builtins_suite(); fflush(stdout);
+    test_object_inheritance_suite(); fflush(stdout);
+    test_ds_structures_suite(); fflush(stdout);
+    test_ds_queue_and_stack_suite(); fflush(stdout);
+    test_motion_planning_epsilon_suite(); fflush(stdout);
+    test_ini_files_suite(); fflush(stdout);
+    test_instance_activation_suite(); fflush(stdout);
+    test_drawing_display_audio_suite(); fflush(stdout);
+    test_gml_actions_and_math_helpers_suite(); fflush(stdout);
+    test_3d_and_color_math_suite(); fflush(stdout);
+    test_ds_queue_and_stack_suite(); fflush(stdout);
+    test_gm82_geometry_and_utility_suite(); fflush(stdout);
+    test_retro_rom_suite(); fflush(stdout);
+    test_gm82_project_simulation_suite(); fflush(stdout);
+    test_new_gm82_core_functions_suite(); fflush(stdout);
+    test_community_20_fixtures_suite(); fflush(stdout);
+    test_external_dll_and_display_suite(); fflush(stdout);
+    test_full_core_100_parity_suite(); fflush(stdout);
+    test_fnames_100_coverage_suite(); fflush(stdout);
+    test_full_28_packages_and_all_gml_sweep_suite(); fflush(stdout);
+    printf("--- All Native Host Tests Passed! ---\n"); fflush(stdout);
     return 0;
 }

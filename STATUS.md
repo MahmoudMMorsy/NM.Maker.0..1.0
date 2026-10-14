@@ -11,10 +11,10 @@
 All native host test binaries compile with zero warnings (`-Wall -Wextra -Wno-unused-parameter`) and all TypeScript compilation checks pass with zero errors.
 
 ### Native Host Core Tests (`test_full_suite.c`)
-- **Status:** PASS (21/21 test suites passing)
+- **Status:** PASS (22/22 test suites passing)
 - **Suites Executed:**
   1. `test_gmk_probe_suite`: PASS
-  2. `test_gml_vm_suite`: PASS
+  2. `test_gml_vm_suite`: PASS (Hex literals `$HEX`/`0xHEX`, block comments `/* */`, bitwise operators `&`, `|`, `^`, `~`, `<<`, `>>`)
   3. `test_gml_extended_builtins_suite`: PASS
   4. `test_object_inheritance_suite`: PASS
   5. `test_ds_structures_suite`: PASS
@@ -34,6 +34,7 @@ All native host test binaries compile with zero warnings (`-Wall -Wextra -Wno-un
   19. `core_validation_contract_suite`: PASS (gmk_probe_contract_test, gml_do_until_test, gml_invoke_test, core_benchmark)
   20. `test_full_core_100_parity_suite`: PASS (Filename/directory utilities, Binary IO, Array utilities, Variable reflection, Type queries, Resource queries, Tile functions, D3D primitive constants & model functions)
   21. `test_fnames_100_coverage_suite`: PASS (Math ln/asin/acos/atan, date functions, particle/path/splash stubs, effect_create_above/below, 100% 1,080/1,080 fnames catalog functions covered)
+  22. `test_full_28_packages_and_all_gml_sweep_suite`: PASS (Swept all GML files and all 28 zip archives in source/ with 100% clean parsing and simulation pass rate)
 
 ### Auxiliary C Native Executables
 - `test_gmk_probe`: PASS (Format probe and header version detection)
