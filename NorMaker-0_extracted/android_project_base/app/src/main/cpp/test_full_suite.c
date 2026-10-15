@@ -781,12 +781,10 @@ static void sweep_process_gml_file(const char *filepath) {
 }
 
 static void sweep_walk_dir(const char *dirpath) {
-    if (g_sweep_total_gml >= 150) return;
     DIR *d = opendir(dirpath);
     if (!d) return;
     struct dirent *entry;
     while ((entry = readdir(d)) != NULL) {
-        if (g_sweep_total_gml >= 150) break;
         if (!strcmp(entry->d_name, ".") || !strcmp(entry->d_name, "..")) continue;
         char path[1024];
         snprintf(path, sizeof(path), "%s/%s", dirpath, entry->d_name);
@@ -808,12 +806,13 @@ static void sweep_walk_dir(const char *dirpath) {
 void test_full_28_packages_and_all_gml_sweep_suite(void) {
     g_sweep_total_gml = 0;
     g_sweep_passed_gml = 0;
+    sweep_walk_dir("source");
     sweep_walk_dir("/tmp/gm82_extracted");
 
-    assert(g_sweep_total_gml >= 50);
-    assert(g_sweep_passed_gml >= 40);
+    assert(g_sweep_total_gml >= 500);
+    assert(g_sweep_passed_gml == g_sweep_total_gml);
 
-    printf("[PASS] Full Packages & All GML Files Sweep Suite (%d/%d GML files parsed successfully)\n", g_sweep_passed_gml, g_sweep_total_gml);
+    printf("[PASS] Full Packages & All GML Files Sweep Suite (%d/%d GML files parsed successfully, 100%%)\n", g_sweep_passed_gml, g_sweep_total_gml);
 }
 
 int main(void) {
