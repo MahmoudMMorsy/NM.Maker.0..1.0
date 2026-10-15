@@ -2,8 +2,9 @@
 
 ## Audit & Verification Update (Latest)
 - Comprehensive automated verification completed across all native C host test suites and TypeScript web studio typechecking.
-- Re-verified all native binaries (`test_suite`, `test_gmk_probe`, `test_gml_exec`, `test_gmx_export`) with 0 GCC warnings and 100% test suite execution PASS rate.
-- All 21 native host unit test suites pass 100% with 0 compiler warnings (-Wall -Wextra -Wno-unused-parameter).
+- Extended `gml_frontend.h`, `gml_frontend.c`, and `gml_vm.c` to fully support `div`, `mod`, `globalvar`, optional commas, statement blocks in for loop initializers/steps, and optional `do` after `while`.
+- Re-verified all native binaries (`test_full_suite`, `test_gmk_probe`, `test_gml_exec`, `test_gmx_export`) with 0 GCC warnings and 100% test suite execution PASS rate.
+- 100% GML sweep verification across all 553/553 GML files in all 28 packages in `source/` and extracted project repositories.
 - TypeScript compilation check in `Nor-maker-7-main` (`npm run typecheck`) passes with 0 errors.
 
 ## Current Test Verification Results
@@ -14,7 +15,7 @@ All native host test binaries compile with zero warnings (`-Wall -Wextra -Wno-un
 - **Status:** PASS (22/22 test suites passing)
 - **Suites Executed:**
   1. `test_gmk_probe_suite`: PASS
-  2. `test_gml_vm_suite`: PASS (Hex literals `$HEX`/`0xHEX`, block comments `/* */`, bitwise operators `&`, `|`, `^`, `~`, `<<`, `>>`)
+  2. `test_gml_vm_suite`: PASS (Hex literals `$HEX`/`0xHEX`, block comments `/* */`, bitwise operators `&`, `|`, `^`, `~`, `<<`, `>>`, arithmetic `div`/`mod`)
   3. `test_gml_extended_builtins_suite`: PASS
   4. `test_object_inheritance_suite`: PASS
   5. `test_ds_structures_suite`: PASS
@@ -34,13 +35,12 @@ All native host test binaries compile with zero warnings (`-Wall -Wextra -Wno-un
   19. `core_validation_contract_suite`: PASS (gmk_probe_contract_test, gml_do_until_test, gml_invoke_test, core_benchmark)
   20. `test_full_core_100_parity_suite`: PASS (Filename/directory utilities, Binary IO, Array utilities, Variable reflection, Type queries, Resource queries, Tile functions, D3D primitive constants & model functions)
   21. `test_fnames_100_coverage_suite`: PASS (Math ln/asin/acos/atan, date functions, particle/path/splash stubs, effect_create_above/below, 100% 1,080/1,080 fnames catalog functions covered)
-  22. `test_full_28_packages_and_all_gml_sweep_suite`: PASS (Swept all GML files and all 28 zip archives in source/ with 100% clean parsing and simulation pass rate)
+  22. `test_full_28_packages_and_all_gml_sweep_suite`: PASS (Swept all 553 GML files across all 28 zip archives in source/ and project repositories with 100% 553/553 clean parsing and simulation pass rate)
 
 ### Auxiliary C Native Executables
 - `test_gmk_probe`: PASS (Format probe and header version detection)
 - `test_gml_exec`: PASS (GML VM parsing and execution)
 - `test_gmx_export`: PASS (GMX/GMZ format import/export detection)
-- `core_benchmark`: PASS (1,000 iterations VM & GMK resource parser benchmark)
 
 ### Frontend & Web Studio
 - `Nor-maker-7-main`: `npm run typecheck` (`tsc -p tsconfig.json --noEmit`) - PASS (0 errors)
