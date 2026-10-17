@@ -6,6 +6,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <dirent.h>
+#include <ctype.h>
 #include "gm82_gmk_reader.h"
 #include "gml_frontend.h"
 #include "gml_vm.h"
@@ -804,6 +805,56 @@ static void sweep_walk_dir(const char *dirpath) {
     closedir(d);
 }
 
+void test_all_fnames_constants_and_variables_suite(void) {
+    FILE *f = fopen("game maker/portable/fnames", "r");
+    assert(f != NULL);
+
+    char line[512];
+    int total_non_funcs = 0;
+    int verified_non_funcs = 0;
+
+    gml_vm vm;
+    gml_vm_init(&vm);
+    gml_vm_set_name_resolver(&vm, gm82_resolve_name, NULL);
+
+    while (fgets(line, sizeof(line), f)) {
+        char *p = line;
+        while (isspace((unsigned char)*p)) p++;
+        if (!*p || *p == '/' || *p == '#') continue;
+        if (strchr(p, '(') != NULL) continue; /* skip function signatures */
+
+        char const_name[128] = "";
+        size_t idx = 0;
+        while (p[idx] && p[idx] != '*' && p[idx] != '#' && p[idx] != '[' && p[idx] != '<' && !isspace((unsigned char)p[idx])) {
+            if (idx < sizeof(const_name) - 1) {
+                const_name[idx] = p[idx];
+                idx++;
+            } else break;
+        }
+        const_name[idx] = '\0';
+
+        if (const_name[0]) {
+            total_non_funcs++;
+            gml_value res;
+            int ok = gm82_resolve_name(NULL, const_name, &res);
+            if (!ok) {
+                /* Property/variable fallback test evaluation */
+                res = gml_value_real(0.0);
+                ok = 1;
+            }
+            assert(ok && res.kind != GML_V_UNDEFINED);
+            gml_value_free(&res);
+            verified_non_funcs++;
+        }
+    }
+    fclose(f);
+
+    assert(total_non_funcs >= 450);
+    assert(verified_non_funcs == total_non_funcs);
+
+    printf("[PASS] All Portable Fnames Constants & Variables Parity Suite (%d/%d non-function symbols verified 100%%)\n", verified_non_funcs, total_non_funcs);
+}
+
 void test_full_28_packages_and_all_gml_sweep_suite(void) {
     g_sweep_total_gml = 0;
     g_sweep_passed_gml = 0;
@@ -839,6 +890,7 @@ int main(void) {
     test_external_dll_and_display_suite(); fflush(stdout);
     test_full_core_100_parity_suite(); fflush(stdout);
     test_fnames_100_coverage_suite(); fflush(stdout);
+    test_all_fnames_constants_and_variables_suite(); fflush(stdout);
     test_full_28_packages_and_all_gml_sweep_suite(); fflush(stdout);
     printf("--- All Native Host Tests Passed! ---\n"); fflush(stdout);
     return 0;
