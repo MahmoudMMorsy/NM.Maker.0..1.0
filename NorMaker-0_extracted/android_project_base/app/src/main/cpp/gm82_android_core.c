@@ -263,7 +263,8 @@ static void gm82_ini_close(void) {
     char current_sec[GM82_INI_STR_CAP] = "";
     for (int i = 0; i < g_ini_entry_count; ++i) {
         if (strcmp(current_sec, g_ini_entries[i].section) != 0) {
-            snprintf(current_sec, sizeof(current_sec), "%s", g_ini_entries[i].section);
+            strncpy(current_sec, g_ini_entries[i].section, sizeof(current_sec) - 1);
+            current_sec[sizeof(current_sec) - 1] = '\0';
             fprintf(f, "[%s]\n", current_sec);
         }
         fprintf(f, "%s=%s\n", g_ini_entries[i].key, g_ini_entries[i].value);
