@@ -765,7 +765,8 @@ static void sweep_process_gml_file(const char *filepath) {
     if (sz <= 0 || sz > 500000) { fclose(f); return; }
     char *buf = malloc(sz + 1);
     if (!buf) { fclose(f); return; }
-    fread(buf, 1, sz, f);
+    size_t read_bytes = fread(buf, 1, sz, f);
+    (void)read_bytes;
     buf[sz] = '\0';
     fclose(f);
 

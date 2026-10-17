@@ -3,7 +3,7 @@
 ## Audit & Verification Update (Latest)
 - Comprehensive automated verification completed across all native C host test suites and TypeScript web studio typechecking.
 - Extended `gml_frontend.h`, `gml_frontend.c`, and `gml_vm.c` to fully support `div`, `mod`, `globalvar`, optional commas, statement blocks in for loop initializers/steps, and optional `do` after `while`.
-- Re-verified all native binaries (`test_full_suite`, `test_gmk_probe`, `test_gml_exec`, `test_gmx_export`) with 0 GCC warnings and 100% test suite execution PASS rate.
+- Re-verified all native binaries (`test_full_suite`, `test_gmk_probe`, `test_gml_exec`, `test_gmx_export`) with 0 GCC warnings (`-Wall -Wextra`) and 100% test suite execution PASS rate.
 - 100% GML sweep verification across all 553/553 GML files in all 28 packages in `source/` and extracted project repositories.
 - TypeScript compilation check in `Nor-maker-7-main` (`npm run typecheck`) passes with 0 errors.
 
