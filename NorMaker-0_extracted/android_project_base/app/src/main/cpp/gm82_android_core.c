@@ -671,12 +671,17 @@ static Gm82Runtime g_runtime;
 int gm82_resolve_name(void *userdata, const char *name, gml_value *out) {
     (void)userdata;
     if (!name || !out) return 0;
+
+    /* Boolean & Core Identifiers */
     if (!strcmp(name, "true")) { *out = gml_value_bool(1); return 1; }
     if (!strcmp(name, "false")) { *out = gml_value_bool(0); return 1; }
     if (!strcmp(name, "noone")) { *out = gml_value_real(-4.0); return 1; }
     if (!strcmp(name, "all")) { *out = gml_value_real(-3.0); return 1; }
     if (!strcmp(name, "other")) { *out = gml_value_real(-2.0); return 1; }
     if (!strcmp(name, "self")) { *out = gml_value_real(-1.0); return 1; }
+    if (!strcmp(name, "pi")) { *out = gml_value_real(3.14159265358979323846); return 1; }
+
+    /* Game state & Instance Metrics */
     if (!strcmp(name, "score")) { *out = gml_value_real(g_runtime.score); return 1; }
     if (!strcmp(name, "lives")) { *out = gml_value_real(g_runtime.lives); return 1; }
     if (!strcmp(name, "health")) { *out = gml_value_real(g_runtime.health); return 1; }
@@ -684,22 +689,209 @@ int gm82_resolve_name(void *userdata, const char *name, gml_value *out) {
     if (!strcmp(name, "mouse_y")) { *out = gml_value_real(g_runtime.mouse_y); return 1; }
     if (!strcmp(name, "room_width")) { *out = gml_value_real(g_runtime.width > 0 ? g_runtime.width : 640); return 1; }
     if (!strcmp(name, "room_height")) { *out = gml_value_real(g_runtime.height > 0 ? g_runtime.height : 480); return 1; }
+    if (!strcmp(name, "room_first")) { *out = gml_value_real(0.0); return 1; }
+    if (!strcmp(name, "room_last")) { *out = gml_value_real(0.0); return 1; }
+
+    int active_inst_count = 0;
+    for (int i = 0; i < GM82_MAX_INSTANCES; ++i) {
+        if (g_runtime.instances[i].active && !g_runtime.instances[i].deactivated) active_inst_count++;
+    }
+    if (!strcmp(name, "instance_count")) { *out = gml_value_real((double)active_inst_count); return 1; }
+
+    /* System & Environment Info */
+    if (!strcmp(name, "working_directory") || !strcmp(name, "program_directory") || !strcmp(name, "temp_directory")) {
+        *out = gml_value_string("."); return 1;
+    }
+    if (!strcmp(name, "game_id")) { *out = gml_value_real(100000.0); return 1; }
+    if (!strcmp(name, "fps")) { *out = gml_value_real(60.0); return 1; }
+    if (!strcmp(name, "debug_mode")) { *out = gml_value_real(0.0); return 1; }
+    if (!strcmp(name, "gamemaker_pro") || !strcmp(name, "gamemaker_registered")) { *out = gml_value_real(1.0); return 1; }
+    if (!strcmp(name, "gamemaker_version")) { *out = gml_value_real(810.0); return 1; }
+
+    /* Time builtins */
+    time_t rawtime = time(NULL);
+    struct tm *timeinfo = localtime(&rawtime);
+    if (!strcmp(name, "current_year")) { *out = gml_value_real(timeinfo ? timeinfo->tm_year + 1900 : 2026); return 1; }
+    if (!strcmp(name, "current_month")) { *out = gml_value_real(timeinfo ? timeinfo->tm_mon + 1 : 1); return 1; }
+    if (!strcmp(name, "current_day")) { *out = gml_value_real(timeinfo ? timeinfo->tm_mday : 1); return 1; }
+    if (!strcmp(name, "current_weekday")) { *out = gml_value_real(timeinfo ? timeinfo->tm_wday : 0); return 1; }
+    if (!strcmp(name, "current_hour")) { *out = gml_value_real(timeinfo ? timeinfo->tm_hour : 0); return 1; }
+    if (!strcmp(name, "current_minute")) { *out = gml_value_real(timeinfo ? timeinfo->tm_min : 0); return 1; }
+    if (!strcmp(name, "current_second")) { *out = gml_value_real(timeinfo ? timeinfo->tm_sec : 0); return 1; }
+    if (!strcmp(name, "current_time")) { *out = gml_value_real((double)(clock() * 1000 / CLOCKS_PER_SEC)); return 1; }
+
+    /* Primitive drawing type constants */
     if (!strcmp(name, "pr_pointlist")) { *out = gml_value_real(1.0); return 1; }
     if (!strcmp(name, "pr_linelist")) { *out = gml_value_real(2.0); return 1; }
     if (!strcmp(name, "pr_linestrip")) { *out = gml_value_real(3.0); return 1; }
     if (!strcmp(name, "pr_trianglelist")) { *out = gml_value_real(4.0); return 1; }
     if (!strcmp(name, "pr_trianglestrip")) { *out = gml_value_real(5.0); return 1; }
     if (!strcmp(name, "pr_trianglefan")) { *out = gml_value_real(6.0); return 1; }
-    if (!strcmp(name, "working_directory") || !strcmp(name, "program_directory") || !strcmp(name, "temp_directory")) {
-        *out = gml_value_string("."); return 1;
+
+    /* Color Constants */
+    if (!strcmp(name, "c_aqua")) { *out = gml_value_real(16776960.0); return 1; }
+    if (!strcmp(name, "c_black")) { *out = gml_value_real(0.0); return 1; }
+    if (!strcmp(name, "c_blue")) { *out = gml_value_real(16711680.0); return 1; }
+    if (!strcmp(name, "c_dkgray")) { *out = gml_value_real(4210752.0); return 1; }
+    if (!strcmp(name, "c_fuchsia")) { *out = gml_value_real(16711935.0); return 1; }
+    if (!strcmp(name, "c_gray")) { *out = gml_value_real(8421504.0); return 1; }
+    if (!strcmp(name, "c_green")) { *out = gml_value_real(32768.0); return 1; }
+    if (!strcmp(name, "c_lime")) { *out = gml_value_real(65280.0); return 1; }
+    if (!strcmp(name, "c_ltgray")) { *out = gml_value_real(12632256.0); return 1; }
+    if (!strcmp(name, "c_maroon")) { *out = gml_value_real(128.0); return 1; }
+    if (!strcmp(name, "c_navy")) { *out = gml_value_real(8388608.0); return 1; }
+    if (!strcmp(name, "c_olive")) { *out = gml_value_real(32896.0); return 1; }
+    if (!strcmp(name, "c_purple")) { *out = gml_value_real(8388736.0); return 1; }
+    if (!strcmp(name, "c_red")) { *out = gml_value_real(255.0); return 1; }
+    if (!strcmp(name, "c_silver")) { *out = gml_value_real(12632256.0); return 1; }
+    if (!strcmp(name, "c_white")) { *out = gml_value_real(16777215.0); return 1; }
+    if (!strcmp(name, "c_yellow")) { *out = gml_value_real(65535.0); return 1; }
+    if (!strcmp(name, "c_orange")) { *out = gml_value_real(4235519.0); return 1; }
+
+    /* Mouse Button Constants */
+    if (!strcmp(name, "mb_any")) { *out = gml_value_real(-1.0); return 1; }
+    if (!strcmp(name, "mb_none")) { *out = gml_value_real(0.0); return 1; }
+    if (!strcmp(name, "mb_left")) { *out = gml_value_real(1.0); return 1; }
+    if (!strcmp(name, "mb_right")) { *out = gml_value_real(2.0); return 1; }
+    if (!strcmp(name, "mb_middle")) { *out = gml_value_real(3.0); return 1; }
+
+    /* Virtual Key Codes */
+    if (!strncmp(name, "vk_", 3)) {
+        if (!strcmp(name, "vk_nokey")) { *out = gml_value_real(0.0); return 1; }
+        if (!strcmp(name, "vk_anykey")) { *out = gml_value_real(1.0); return 1; }
+        if (!strcmp(name, "vk_enter") || !strcmp(name, "vk_return")) { *out = gml_value_real(13.0); return 1; }
+        if (!strcmp(name, "vk_shift")) { *out = gml_value_real(16.0); return 1; }
+        if (!strcmp(name, "vk_control")) { *out = gml_value_real(17.0); return 1; }
+        if (!strcmp(name, "vk_alt")) { *out = gml_value_real(18.0); return 1; }
+        if (!strcmp(name, "vk_escape")) { *out = gml_value_real(27.0); return 1; }
+        if (!strcmp(name, "vk_space")) { *out = gml_value_real(32.0); return 1; }
+        if (!strcmp(name, "vk_backspace")) { *out = gml_value_real(8.0); return 1; }
+        if (!strcmp(name, "vk_tab")) { *out = gml_value_real(9.0); return 1; }
+        if (!strcmp(name, "vk_pause")) { *out = gml_value_real(19.0); return 1; }
+        if (!strcmp(name, "vk_printscreen")) { *out = gml_value_real(44.0); return 1; }
+        if (!strcmp(name, "vk_left")) { *out = gml_value_real(37.0); return 1; }
+        if (!strcmp(name, "vk_up")) { *out = gml_value_real(38.0); return 1; }
+        if (!strcmp(name, "vk_right")) { *out = gml_value_real(39.0); return 1; }
+        if (!strcmp(name, "vk_down")) { *out = gml_value_real(40.0); return 1; }
+        if (!strcmp(name, "vk_insert")) { *out = gml_value_real(45.0); return 1; }
+        if (!strcmp(name, "vk_delete")) { *out = gml_value_real(46.0); return 1; }
+        if (!strcmp(name, "vk_home")) { *out = gml_value_real(36.0); return 1; }
+        if (!strcmp(name, "vk_end")) { *out = gml_value_real(35.0); return 1; }
+        if (!strcmp(name, "vk_pageup")) { *out = gml_value_real(33.0); return 1; }
+        if (!strcmp(name, "vk_pagedown")) { *out = gml_value_real(34.0); return 1; }
+        if (!strcmp(name, "vk_f1")) { *out = gml_value_real(112.0); return 1; }
+        if (!strcmp(name, "vk_f2")) { *out = gml_value_real(113.0); return 1; }
+        if (!strcmp(name, "vk_f3")) { *out = gml_value_real(114.0); return 1; }
+        if (!strcmp(name, "vk_f4")) { *out = gml_value_real(115.0); return 1; }
+        if (!strcmp(name, "vk_f5")) { *out = gml_value_real(116.0); return 1; }
+        if (!strcmp(name, "vk_f6")) { *out = gml_value_real(117.0); return 1; }
+        if (!strcmp(name, "vk_f7")) { *out = gml_value_real(118.0); return 1; }
+        if (!strcmp(name, "vk_f8")) { *out = gml_value_real(119.0); return 1; }
+        if (!strcmp(name, "vk_f9")) { *out = gml_value_real(120.0); return 1; }
+        if (!strcmp(name, "vk_f10")) { *out = gml_value_real(121.0); return 1; }
+        if (!strcmp(name, "vk_f11")) { *out = gml_value_real(122.0); return 1; }
+        if (!strcmp(name, "vk_f12")) { *out = gml_value_real(123.0); return 1; }
+        if (!strcmp(name, "vk_numpad0")) { *out = gml_value_real(96.0); return 1; }
+        if (!strcmp(name, "vk_numpad1")) { *out = gml_value_real(97.0); return 1; }
+        if (!strcmp(name, "vk_numpad2")) { *out = gml_value_real(98.0); return 1; }
+        if (!strcmp(name, "vk_numpad3")) { *out = gml_value_real(99.0); return 1; }
+        if (!strcmp(name, "vk_numpad4")) { *out = gml_value_real(100.0); return 1; }
+        if (!strcmp(name, "vk_numpad5")) { *out = gml_value_real(101.0); return 1; }
+        if (!strcmp(name, "vk_numpad6")) { *out = gml_value_real(102.0); return 1; }
+        if (!strcmp(name, "vk_numpad7")) { *out = gml_value_real(103.0); return 1; }
+        if (!strcmp(name, "vk_numpad8")) { *out = gml_value_real(104.0); return 1; }
+        if (!strcmp(name, "vk_numpad9")) { *out = gml_value_real(105.0); return 1; }
+        if (!strcmp(name, "vk_multiply")) { *out = gml_value_real(106.0); return 1; }
+        if (!strcmp(name, "vk_add")) { *out = gml_value_real(107.0); return 1; }
+        if (!strcmp(name, "vk_subtract")) { *out = gml_value_real(109.0); return 1; }
+        if (!strcmp(name, "vk_decimal")) { *out = gml_value_real(110.0); return 1; }
+        if (!strcmp(name, "vk_divide")) { *out = gml_value_real(111.0); return 1; }
     }
-    if (!strcmp(name, "game_id")) { *out = gml_value_real(100000.0); return 1; }
+
+    /* Event Constants */
+    if (!strncmp(name, "ev_", 3)) {
+        if (!strcmp(name, "ev_create")) { *out = gml_value_real(0.0); return 1; }
+        if (!strcmp(name, "ev_destroy")) { *out = gml_value_real(1.0); return 1; }
+        if (!strcmp(name, "ev_step")) { *out = gml_value_real(3.0); return 1; }
+        if (!strcmp(name, "ev_alarm")) { *out = gml_value_real(2.0); return 1; }
+        if (!strcmp(name, "ev_keyboard")) { *out = gml_value_real(5.0); return 1; }
+        if (!strcmp(name, "ev_mouse")) { *out = gml_value_real(6.0); return 1; }
+        if (!strcmp(name, "ev_collision")) { *out = gml_value_real(4.0); return 1; }
+        if (!strcmp(name, "ev_other")) { *out = gml_value_real(7.0); return 1; }
+        if (!strcmp(name, "ev_draw")) { *out = gml_value_real(8.0); return 1; }
+        if (!strcmp(name, "ev_keypress")) { *out = gml_value_real(9.0); return 1; }
+        if (!strcmp(name, "ev_keyrelease")) { *out = gml_value_real(10.0); return 1; }
+        if (!strcmp(name, "ev_trigger")) { *out = gml_value_real(11.0); return 1; }
+        if (!strcmp(name, "ev_left_button")) { *out = gml_value_real(0.0); return 1; }
+        if (!strcmp(name, "ev_right_button")) { *out = gml_value_real(1.0); return 1; }
+        if (!strcmp(name, "ev_middle_button")) { *out = gml_value_real(2.0); return 1; }
+        if (!strcmp(name, "ev_no_button")) { *out = gml_value_real(3.0); return 1; }
+        if (!strcmp(name, "ev_left_press")) { *out = gml_value_real(4.0); return 1; }
+        if (!strcmp(name, "ev_right_press")) { *out = gml_value_real(5.0); return 1; }
+        if (!strcmp(name, "ev_middle_press")) { *out = gml_value_real(6.0); return 1; }
+        if (!strcmp(name, "ev_left_release")) { *out = gml_value_real(7.0); return 1; }
+        if (!strcmp(name, "ev_right_release")) { *out = gml_value_real(8.0); return 1; }
+        if (!strcmp(name, "ev_middle_release")) { *out = gml_value_real(9.0); return 1; }
+        if (!strcmp(name, "ev_mouse_enter")) { *out = gml_value_real(10.0); return 1; }
+        if (!strcmp(name, "ev_mouse_leave")) { *out = gml_value_real(11.0); return 1; }
+        if (!strcmp(name, "ev_mouse_wheel_up")) { *out = gml_value_real(60.0); return 1; }
+        if (!strcmp(name, "ev_mouse_wheel_down")) { *out = gml_value_real(61.0); return 1; }
+        if (!strcmp(name, "ev_global_left_button")) { *out = gml_value_real(50.0); return 1; }
+        if (!strcmp(name, "ev_global_right_button")) { *out = gml_value_real(51.0); return 1; }
+        if (!strcmp(name, "ev_global_middle_button")) { *out = gml_value_real(52.0); return 1; }
+        if (!strcmp(name, "ev_global_left_press")) { *out = gml_value_real(53.0); return 1; }
+        if (!strcmp(name, "ev_global_right_press")) { *out = gml_value_real(54.0); return 1; }
+        if (!strcmp(name, "ev_global_middle_press")) { *out = gml_value_real(55.0); return 1; }
+        if (!strcmp(name, "ev_global_left_release")) { *out = gml_value_real(56.0); return 1; }
+        if (!strcmp(name, "ev_global_right_release")) { *out = gml_value_real(57.0); return 1; }
+        if (!strcmp(name, "ev_global_middle_release")) { *out = gml_value_real(58.0); return 1; }
+        if (!strcmp(name, "ev_outside")) { *out = gml_value_real(0.0); return 1; }
+        if (!strcmp(name, "ev_boundary")) { *out = gml_value_real(1.0); return 1; }
+        if (!strcmp(name, "ev_game_start")) { *out = gml_value_real(2.0); return 1; }
+        if (!strcmp(name, "ev_game_end")) { *out = gml_value_real(3.0); return 1; }
+        if (!strcmp(name, "ev_room_start")) { *out = gml_value_real(4.0); return 1; }
+        if (!strcmp(name, "ev_room_end")) { *out = gml_value_real(5.0); return 1; }
+        if (!strcmp(name, "ev_no_more_lives")) { *out = gml_value_real(6.0); return 1; }
+        if (!strcmp(name, "ev_animation_end")) { *out = gml_value_real(7.0); return 1; }
+        if (!strcmp(name, "ev_end_of_path")) { *out = gml_value_real(8.0); return 1; }
+        if (!strcmp(name, "ev_no_more_health")) { *out = gml_value_real(9.0); return 1; }
+        if (!strcmp(name, "ev_user0")) { *out = gml_value_real(60.0); return 1; }
+        if (!strcmp(name, "ev_user1")) { *out = gml_value_real(61.0); return 1; }
+        if (!strcmp(name, "ev_user2")) { *out = gml_value_real(62.0); return 1; }
+        if (!strcmp(name, "ev_step_normal")) { *out = gml_value_real(0.0); return 1; }
+        if (!strcmp(name, "ev_step_begin")) { *out = gml_value_real(1.0); return 1; }
+        if (!strcmp(name, "ev_step_end")) { *out = gml_value_real(2.0); return 1; }
+    }
+
+    /* Cursor Constants */
+    if (!strncmp(name, "cr_", 3)) {
+        if (!strcmp(name, "cr_default")) { *out = gml_value_real(0.0); return 1; }
+        if (!strcmp(name, "cr_none")) { *out = gml_value_real(-1.0); return 1; }
+        if (!strcmp(name, "cr_arrow")) { *out = gml_value_real(-2.0); return 1; }
+        if (!strcmp(name, "cr_cross")) { *out = gml_value_real(-3.0); return 1; }
+        if (!strcmp(name, "cr_hand")) { *out = gml_value_real(-4.0); return 1; }
+        if (!strcmp(name, "cr_size_all")) { *out = gml_value_real(-22.0); return 1; }
+        if (!strcmp(name, "cr_size_nesw")) { *out = gml_value_real(-6.0); return 1; }
+        if (!strcmp(name, "cr_size_ns")) { *out = gml_value_real(-7.0); return 1; }
+        if (!strcmp(name, "cr_size_nwse")) { *out = gml_value_real(-8.0); return 1; }
+        if (!strcmp(name, "cr_size_we")) { *out = gml_value_real(-9.0); return 1; }
+        if (!strcmp(name, "cr_up_arrow")) { *out = gml_value_real(-10.0); return 1; }
+        if (!strcmp(name, "cr_hourglass")) { *out = gml_value_real(-11.0); return 1; }
+        if (!strcmp(name, "cr_drag")) { *out = gml_value_real(-12.0); return 1; }
+        if (!strcmp(name, "cr_nodrop")) { *out = gml_value_real(-13.0); return 1; }
+        if (!strcmp(name, "cr_sqlb")) { *out = gml_value_real(-14.0); return 1; }
+        if (!strcmp(name, "cr_beam")) { *out = gml_value_real(-15.0); return 1; }
+        if (!strcmp(name, "cr_appstart")) { *out = gml_value_real(-19.0); return 1; }
+    }
+
+    /* Object Resource Name Resolution */
     for (int i = 0; i < g_object_name_count; ++i) {
         if (g_object_names[i].active && !strcmp(g_object_names[i].name, name)) {
             *out = gml_value_real((double)g_object_names[i].object_id);
             return 1;
         }
     }
+
     return 0;
 }
 static int gm82_execute_subset(Gm82Instance *it, const char *code);
@@ -1134,9 +1326,18 @@ int gm82_member_get(void *userdata, const char *member, gml_value *out) {
     if (!strcmp(member, "image_yscale")) { *out = gml_value_real(it->image_yscale); return 1; }
     if (!strcmp(member, "image_alpha")) { *out = gml_value_real(it->image_alpha); return 1; }
     if (!strcmp(member, "sprite_index")) { *out = gml_value_real(it->sprite_id); return 1; }
-    if (!strcmp(member, "sprite_width")) { *out = gml_value_real(it->sprite_width); return 1; }
-    if (!strcmp(member, "sprite_height")) { *out = gml_value_real(it->sprite_height); return 1; }
-    if (!strcmp(member, "sprite_number") || !strcmp(member, "image_number")) { *out = gml_value_real(it->sprite_subimages); return 1; }
+    if (!strcmp(member, "sprite_width")) { *out = gml_value_real(it->sprite_width > 0 ? it->sprite_width : 32); return 1; }
+    if (!strcmp(member, "sprite_height")) { *out = gml_value_real(it->sprite_height > 0 ? it->sprite_height : 32); return 1; }
+    if (!strcmp(member, "sprite_number") || !strcmp(member, "image_number")) { *out = gml_value_real(it->sprite_subimages > 0 ? it->sprite_subimages : 1); return 1; }
+    if (!strcmp(member, "bbox_left")) { *out = gml_value_real(it->x); return 1; }
+    if (!strcmp(member, "bbox_right")) { *out = gml_value_real(it->x + (it->sprite_width > 0 ? it->sprite_width : 32)); return 1; }
+    if (!strcmp(member, "bbox_top")) { *out = gml_value_real(it->y); return 1; }
+    if (!strcmp(member, "bbox_bottom")) { *out = gml_value_real(it->y + (it->sprite_height > 0 ? it->sprite_height : 32)); return 1; }
+    if (!strcmp(member, "path_index")) { *out = gml_value_real(-1.0); return 1; }
+    if (!strcmp(member, "path_position") || !strcmp(member, "path_positionprevious")) { *out = gml_value_real(0.0); return 1; }
+    if (!strcmp(member, "path_speed") || !strcmp(member, "path_orientation")) { *out = gml_value_real(0.0); return 1; }
+    if (!strcmp(member, "path_scale")) { *out = gml_value_real(1.0); return 1; }
+    if (!strcmp(member, "path_endaction")) { *out = gml_value_real(0.0); return 1; }
     if (!strcmp(member, "id")) { *out = gml_value_real(it->id); return 1; }
     if (!strcmp(member, "object_index")) { *out = gml_value_real(it->object_id); return 1; }
     if (!strcmp(member, "depth")) { *out = gml_value_real(it->depth); return 1; }
@@ -1218,6 +1419,9 @@ int gm82_member_set(void *userdata, const char *member, const gml_value *value) 
     if (!strcmp(member, "persistent")) { it->persistent = (int)v; return 1; }
     if (!strcmp(member, "mask_index")) { it->mask_index = (int)v; return 1; }
     if (!strcmp(member, "solid")) { it->solid = value->kind == GML_V_BOOL ? value->boolean : (v != 0.0f); return 1; }
+    if (!strcmp(member, "path_index") || !strcmp(member, "path_position") || !strcmp(member, "path_positionprevious") ||
+        !strcmp(member, "path_speed") || !strcmp(member, "path_scale") || !strcmp(member, "path_orientation") ||
+        !strcmp(member, "path_endaction")) { return 1; }
     if (!strcmp(member, "mouse_x")) { g_runtime.mouse_x = v; return 1; }
     if (!strcmp(member, "mouse_y")) { g_runtime.mouse_y = v; return 1; }
     if (!strcmp(member, "view_enabled")) { g_runtime.view_enabled = value->kind == GML_V_BOOL ? value->boolean : (v != 0.0f); return 1; }
