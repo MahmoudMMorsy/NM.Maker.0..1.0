@@ -456,16 +456,16 @@ void test_gm82_project_simulation_suite(void) {
     int sim_ok = gm82_simulate_yyd_project(proj_dir, 10);
     assert(sim_ok == 1);
 
-    int unz = system("unzip -q -o source/gm82test-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
-                     "unzip -q -o source/gm82path-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
-                     "unzip -q -o source/gm82upx-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
-                     "unzip -q -o source/gm82ui-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
-                     "unzip -q -o source/gm82room-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
-                     "unzip -q -o source/gm82mv-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
-                     "unzip -q -o source/gm82hub-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
-                     "unzip -q -o source/gm82angle-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
-                     "unzip -q -o source/gm82video-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
-                     "unzip -q -o source/DragonScript2-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;");
+    int unz = system("unzip -q -o source/gm82test-main.zip -d /tmp/gm82_extracted 2>/dev/null || unzip -q -o ../../../../../../source/gm82test-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
+                     "unzip -q -o source/gm82path-main.zip -d /tmp/gm82_extracted 2>/dev/null || unzip -q -o ../../../../../../source/gm82path-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
+                     "unzip -q -o source/gm82upx-main.zip -d /tmp/gm82_extracted 2>/dev/null || unzip -q -o ../../../../../../source/gm82upx-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
+                     "unzip -q -o source/gm82ui-main.zip -d /tmp/gm82_extracted 2>/dev/null || unzip -q -o ../../../../../../source/gm82ui-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
+                     "unzip -q -o source/gm82room-main.zip -d /tmp/gm82_extracted 2>/dev/null || unzip -q -o ../../../../../../source/gm82room-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
+                     "unzip -q -o source/gm82mv-main.zip -d /tmp/gm82_extracted 2>/dev/null || unzip -q -o ../../../../../../source/gm82mv-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
+                     "unzip -q -o source/gm82hub-main.zip -d /tmp/gm82_extracted 2>/dev/null || unzip -q -o ../../../../../../source/gm82hub-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
+                     "unzip -q -o source/gm82angle-main.zip -d /tmp/gm82_extracted 2>/dev/null || unzip -q -o ../../../../../../source/gm82angle-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
+                     "unzip -q -o source/gm82video-main.zip -d /tmp/gm82_extracted 2>/dev/null || unzip -q -o ../../../../../../source/gm82video-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;"
+                     "unzip -q -o source/DragonScript2-main.zip -d /tmp/gm82_extracted 2>/dev/null || unzip -q -o ../../../../../../source/DragonScript2-main.zip -d /tmp/gm82_extracted 2>/dev/null || true;");
     (void)unz;
 
     const char *real_projs[] = {
@@ -807,6 +807,9 @@ static void sweep_walk_dir(const char *dirpath) {
 
 void test_all_fnames_constants_and_variables_suite(void) {
     FILE *f = fopen("game maker/portable/fnames", "r");
+    if (!f) f = fopen("../../../../../../game maker/portable/fnames", "r");
+    if (!f) f = fopen("../../../../../game maker/portable/fnames", "r");
+    if (!f) f = fopen("../../../game maker/portable/fnames", "r");
     assert(f != NULL);
 
     char line[512];
@@ -859,6 +862,9 @@ void test_full_28_packages_and_all_gml_sweep_suite(void) {
     g_sweep_total_gml = 0;
     g_sweep_passed_gml = 0;
     sweep_walk_dir("source");
+    sweep_walk_dir("../../../../../../source");
+    sweep_walk_dir("../../../../../source");
+    sweep_walk_dir("../../../source");
     sweep_walk_dir("/tmp/gm82_extracted");
 
     assert(g_sweep_total_gml >= 500);
