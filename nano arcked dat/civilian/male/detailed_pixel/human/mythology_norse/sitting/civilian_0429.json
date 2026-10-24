@@ -1,0 +1,29 @@
+{
+  "file": "civilian_0429.png",
+  "type": "civilian",
+  "gender": "male",
+  "race": "human",
+  "style": "detailed_pixel",
+  "source": "mythology_norse",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "simple_clothes",
+    "basket",
+    "townsperson",
+    "friendly",
+    "apron",
+    "male",
+    "human",
+    "detailed_pixel",
+    "sitting",
+    "orange",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural detailed_pixel sprite of civilian (human male)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "rock_0368.png",
+  "type": "rock",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "realistic_pixel",
+  "source": "mythology_other",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "boulder",
+    "mossy",
+    "jagged",
+    "mineral",
+    "stone",
+    "genderless",
+    "elemental",
+    "realistic_pixel",
+    "idle",
+    "black",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural realistic_pixel sprite of rock (elemental genderless)"
+}

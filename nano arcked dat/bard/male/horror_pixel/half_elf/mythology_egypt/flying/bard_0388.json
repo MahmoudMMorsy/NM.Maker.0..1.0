@@ -1,0 +1,27 @@
+{
+  "file": "bard_0388.png",
+  "type": "bard",
+  "gender": "male",
+  "race": "half_elf",
+  "style": "horror_pixel",
+  "source": "mythology_egypt",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "lute",
+    "feather_hat",
+    "colorful",
+    "charming",
+    "song",
+    "male",
+    "half_elf",
+    "horror_pixel",
+    "flying",
+    "pink"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural horror_pixel sprite of bard (half_elf male)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "door_0278.png",
+  "type": "door",
+  "gender": "genderless",
+  "race": "human",
+  "style": "anime_pixel",
+  "source": "cyberpunk",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "heavy_oak",
+    "hinges",
+    "handle",
+    "archway",
+    "entrance",
+    "genderless",
+    "human",
+    "anime_pixel",
+    "side_view",
+    "multicolor",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural anime_pixel sprite of door (human genderless)"
+}

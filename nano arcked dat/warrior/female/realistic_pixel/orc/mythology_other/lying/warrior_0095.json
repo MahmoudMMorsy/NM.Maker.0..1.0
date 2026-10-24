@@ -1,0 +1,27 @@
+{
+  "file": "warrior_0095.png",
+  "type": "warrior",
+  "gender": "female",
+  "race": "orc",
+  "style": "realistic_pixel",
+  "source": "mythology_other",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "armor",
+    "sword",
+    "shield",
+    "helmet",
+    "muscular",
+    "female",
+    "orc",
+    "realistic_pixel",
+    "lying",
+    "brown"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural realistic_pixel sprite of warrior (orc female)"
+}

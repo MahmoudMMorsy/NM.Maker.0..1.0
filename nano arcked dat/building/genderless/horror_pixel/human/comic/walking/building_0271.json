@@ -1,0 +1,28 @@
+{
+  "file": "building_0271.png",
+  "type": "building",
+  "gender": "genderless",
+  "race": "human",
+  "style": "horror_pixel",
+  "source": "comic",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "roof_tiles",
+    "timber_frame",
+    "windows",
+    "doorway",
+    "house",
+    "genderless",
+    "human",
+    "horror_pixel",
+    "walking",
+    "white",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural horror_pixel sprite of building (human genderless)"
+}

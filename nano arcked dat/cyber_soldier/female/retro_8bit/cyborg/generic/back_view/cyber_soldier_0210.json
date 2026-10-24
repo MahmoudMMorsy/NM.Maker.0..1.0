@@ -1,0 +1,28 @@
+{
+  "file": "cyber_soldier_0210.png",
+  "type": "cyber_soldier",
+  "gender": "female",
+  "race": "cyborg",
+  "style": "retro_8bit",
+  "source": "generic",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "plasma_rifle",
+    "visor",
+    "exosuit",
+    "cyberware",
+    "neon",
+    "female",
+    "cyborg",
+    "retro_8bit",
+    "back_view",
+    "bright",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_8bit sprite of cyber_soldier (cyborg female)"
+}

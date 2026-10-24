@@ -1,0 +1,28 @@
+{
+  "file": "viking_0206.png",
+  "type": "viking",
+  "gender": "male",
+  "race": "human",
+  "style": "horror_pixel",
+  "source": "cartoon_western",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "horned_helm",
+    "bearded",
+    "battle_axe",
+    "round_shield",
+    "fur",
+    "male",
+    "human",
+    "horror_pixel",
+    "flying",
+    "pink",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural horror_pixel sprite of viking (human male)"
+}

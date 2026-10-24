@@ -1,0 +1,27 @@
+{
+  "file": "gun_0173.png",
+  "type": "gun",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "realistic_pixel",
+  "source": "cyberpunk",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "barrel",
+    "trigger",
+    "firearm",
+    "bullet",
+    "tech",
+    "genderless",
+    "elemental",
+    "realistic_pixel",
+    "walking",
+    "white"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural realistic_pixel sprite of gun (elemental genderless)"
+}

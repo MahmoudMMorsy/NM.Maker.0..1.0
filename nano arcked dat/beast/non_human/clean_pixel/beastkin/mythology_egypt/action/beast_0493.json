@@ -1,0 +1,28 @@
+{
+  "file": "beast_0493.png",
+  "type": "beast",
+  "gender": "non_human",
+  "race": "beastkin",
+  "style": "clean_pixel",
+  "source": "mythology_egypt",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "claws",
+    "fur",
+    "fangs",
+    "wild",
+    "quadruped",
+    "non_human",
+    "beastkin",
+    "clean_pixel",
+    "action",
+    "green",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural clean_pixel sprite of beast (beastkin non_human)"
+}

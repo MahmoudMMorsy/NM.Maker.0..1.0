@@ -1,0 +1,28 @@
+{
+  "file": "guard_0259.png",
+  "type": "guard",
+  "gender": "male",
+  "race": "human",
+  "style": "clean_pixel",
+  "source": "horror",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "spear",
+    "chainmail",
+    "surcoat",
+    "kettle_helm",
+    "vigilant",
+    "male",
+    "human",
+    "clean_pixel",
+    "attacking",
+    "silver",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural clean_pixel sprite of guard (human male)"
+}

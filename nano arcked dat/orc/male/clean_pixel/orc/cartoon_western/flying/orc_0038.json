@@ -1,0 +1,27 @@
+{
+  "file": "orc_0038.png",
+  "type": "orc",
+  "gender": "male",
+  "race": "orc",
+  "style": "clean_pixel",
+  "source": "cartoon_western",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "tusks",
+    "green_skin",
+    "spiked_shoulder",
+    "cleaver",
+    "muscular",
+    "male",
+    "orc",
+    "clean_pixel",
+    "flying",
+    "pink"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural clean_pixel sprite of orc (orc male)"
+}

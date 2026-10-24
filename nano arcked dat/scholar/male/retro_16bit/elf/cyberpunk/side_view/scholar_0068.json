@@ -1,0 +1,27 @@
+{
+  "file": "scholar_0068.png",
+  "type": "scholar",
+  "gender": "male",
+  "race": "elf",
+  "style": "retro_16bit",
+  "source": "cyberpunk",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "spectacles",
+    "thick_book",
+    "scrolls",
+    "ink_quill",
+    "robe",
+    "male",
+    "elf",
+    "retro_16bit",
+    "side_view",
+    "multicolor"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural retro_16bit sprite of scholar (elf male)"
+}

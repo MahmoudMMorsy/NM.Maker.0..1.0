@@ -1,0 +1,28 @@
+{
+  "file": "cyber_soldier_0492.png",
+  "type": "cyber_soldier",
+  "gender": "female",
+  "race": "robot",
+  "style": "horror_pixel",
+  "source": "mythology_norse",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "plasma_rifle",
+    "visor",
+    "exosuit",
+    "cyberware",
+    "neon",
+    "female",
+    "robot",
+    "horror_pixel",
+    "portrait",
+    "blue",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural horror_pixel sprite of cyber_soldier (robot female)"
+}

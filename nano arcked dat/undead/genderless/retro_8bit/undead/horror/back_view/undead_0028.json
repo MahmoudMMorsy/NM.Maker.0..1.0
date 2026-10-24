@@ -1,0 +1,28 @@
+{
+  "file": "undead_0028.png",
+  "type": "undead",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "retro_8bit",
+  "source": "horror",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "decayed",
+    "glowing_eyes",
+    "tattered",
+    "dark_aura",
+    "cursed",
+    "genderless",
+    "undead",
+    "retro_8bit",
+    "back_view",
+    "bright",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural retro_8bit sprite of undead (undead genderless)"
+}

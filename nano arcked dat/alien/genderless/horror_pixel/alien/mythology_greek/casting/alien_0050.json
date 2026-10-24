@@ -1,0 +1,28 @@
+{
+  "file": "alien_0050.png",
+  "type": "alien",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "horror_pixel",
+  "source": "mythology_greek",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "tentacles",
+    "multiple_eyes",
+    "bioluminescence",
+    "exoskeleton",
+    "space",
+    "genderless",
+    "alien",
+    "horror_pixel",
+    "casting",
+    "purple",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural horror_pixel sprite of alien (alien genderless)"
+}

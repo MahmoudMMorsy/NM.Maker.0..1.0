@@ -1,0 +1,28 @@
+{
+  "file": "sword_0077.png",
+  "type": "sword",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "clean_pixel",
+  "source": "modern",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "double_edged",
+    "crossguard",
+    "hilt",
+    "pommel",
+    "steel",
+    "genderless",
+    "elemental",
+    "clean_pixel",
+    "attacking",
+    "silver",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural clean_pixel sprite of sword (elemental genderless)"
+}

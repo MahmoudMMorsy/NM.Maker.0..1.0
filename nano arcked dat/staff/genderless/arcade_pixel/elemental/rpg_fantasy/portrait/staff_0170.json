@@ -1,0 +1,27 @@
+{
+  "file": "staff_0170.png",
+  "type": "staff",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "arcade_pixel",
+  "source": "rpg_fantasy",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "carved_wood",
+    "gemstone_tip",
+    "magical",
+    "focus",
+    "conduit",
+    "genderless",
+    "elemental",
+    "arcade_pixel",
+    "portrait",
+    "blue"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural arcade_pixel sprite of staff (elemental genderless)"
+}

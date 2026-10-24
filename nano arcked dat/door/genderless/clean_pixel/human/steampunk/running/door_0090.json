@@ -1,0 +1,29 @@
+{
+  "file": "door_0090.png",
+  "type": "door",
+  "gender": "genderless",
+  "race": "human",
+  "style": "clean_pixel",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "heavy_oak",
+    "hinges",
+    "handle",
+    "archway",
+    "entrance",
+    "genderless",
+    "human",
+    "clean_pixel",
+    "running",
+    "gold",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural clean_pixel sprite of door (human genderless)"
+}

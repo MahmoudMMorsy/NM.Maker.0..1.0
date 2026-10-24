@@ -1,0 +1,27 @@
+{
+  "file": "robot_0046.png",
+  "type": "robot",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "cartoon",
+  "source": "sci_fi",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "metallic",
+    "circuits",
+    "led_eyes",
+    "laser",
+    "mechanical",
+    "genderless",
+    "robot",
+    "cartoon",
+    "idle",
+    "black"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural cartoon sprite of robot (robot genderless)"
+}

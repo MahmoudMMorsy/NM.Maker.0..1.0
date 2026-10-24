@@ -1,0 +1,27 @@
+{
+  "file": "creature_0428.png",
+  "type": "creature",
+  "gender": "non_human",
+  "race": "animal_like",
+  "style": "clean_pixel",
+  "source": "mythology_greek",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "mysterious",
+    "exotic",
+    "chitin",
+    "wings",
+    "unique",
+    "non_human",
+    "animal_like",
+    "clean_pixel",
+    "casting",
+    "purple"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural clean_pixel sprite of creature (animal_like non_human)"
+}

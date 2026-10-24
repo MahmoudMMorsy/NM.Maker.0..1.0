@@ -1,0 +1,29 @@
+{
+  "file": "summoner_0387.png",
+  "type": "summoner",
+  "gender": "female",
+  "race": "elf",
+  "style": "sci_fi_pixel",
+  "source": "mythology_norse",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "grimoire",
+    "runes",
+    "summoning_circle",
+    "familiar",
+    "robes",
+    "female",
+    "elf",
+    "sci_fi_pixel",
+    "sitting",
+    "orange",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural sci_fi_pixel sprite of summoner (elf female)"
+}

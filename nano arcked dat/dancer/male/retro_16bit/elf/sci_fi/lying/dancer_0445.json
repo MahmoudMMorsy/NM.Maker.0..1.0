@@ -1,0 +1,28 @@
+{
+  "file": "dancer_0445.png",
+  "type": "dancer",
+  "gender": "male",
+  "race": "elf",
+  "style": "retro_16bit",
+  "source": "sci_fi",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "flowing_veils",
+    "cymbals",
+    "agile",
+    "ribbons",
+    "costume",
+    "male",
+    "elf",
+    "retro_16bit",
+    "lying",
+    "brown",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural retro_16bit sprite of dancer (elf male)"
+}

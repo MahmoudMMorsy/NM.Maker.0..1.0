@@ -1,0 +1,27 @@
+{
+  "file": "skeleton_0218.png",
+  "type": "skeleton",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "sci_fi_pixel",
+  "source": "mythology_greek",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "bare_bones",
+    "scythe",
+    "empty_sockets",
+    "cracked",
+    "warrior",
+    "genderless",
+    "undead",
+    "sci_fi_pixel",
+    "casting",
+    "purple"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural sci_fi_pixel sprite of skeleton (undead genderless)"
+}

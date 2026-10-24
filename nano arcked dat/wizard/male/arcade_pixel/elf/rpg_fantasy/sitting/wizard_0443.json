@@ -1,0 +1,28 @@
+{
+  "file": "wizard_0443.png",
+  "type": "wizard",
+  "gender": "male",
+  "race": "elf",
+  "style": "arcade_pixel",
+  "source": "rpg_fantasy",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "pointed_hat",
+    "long_white_beard",
+    "orb_staff",
+    "star_robe",
+    "spells",
+    "male",
+    "elf",
+    "arcade_pixel",
+    "sitting",
+    "orange",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural arcade_pixel sprite of wizard (elf male)"
+}

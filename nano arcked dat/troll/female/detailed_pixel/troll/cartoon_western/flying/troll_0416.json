@@ -1,0 +1,28 @@
+{
+  "file": "troll_0416.png",
+  "type": "troll",
+  "gender": "female",
+  "race": "troll",
+  "style": "detailed_pixel",
+  "source": "cartoon_western",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "regenerating",
+    "club",
+    "warty",
+    "tall",
+    "lanky",
+    "female",
+    "troll",
+    "detailed_pixel",
+    "flying",
+    "pink",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural detailed_pixel sprite of troll (troll female)"
+}

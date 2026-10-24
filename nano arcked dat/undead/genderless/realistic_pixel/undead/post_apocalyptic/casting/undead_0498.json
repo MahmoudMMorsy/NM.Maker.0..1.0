@@ -1,0 +1,29 @@
+{
+  "file": "undead_0498.png",
+  "type": "undead",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "realistic_pixel",
+  "source": "post_apocalyptic",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "decayed",
+    "glowing_eyes",
+    "tattered",
+    "dark_aura",
+    "cursed",
+    "genderless",
+    "undead",
+    "realistic_pixel",
+    "casting",
+    "purple",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural realistic_pixel sprite of undead (undead genderless)"
+}

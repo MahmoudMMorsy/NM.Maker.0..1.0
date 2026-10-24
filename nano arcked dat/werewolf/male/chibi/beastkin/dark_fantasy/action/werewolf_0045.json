@@ -1,0 +1,28 @@
+{
+  "file": "werewolf_0045.png",
+  "type": "werewolf",
+  "gender": "male",
+  "race": "beastkin",
+  "style": "chibi",
+  "source": "dark_fantasy",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "wolf_form",
+    "claws",
+    "full_moon",
+    "howling",
+    "furry",
+    "male",
+    "beastkin",
+    "chibi",
+    "action",
+    "green",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural chibi sprite of werewolf (beastkin male)"
+}

@@ -1,0 +1,27 @@
+{
+  "file": "helmet_0263.png",
+  "type": "helmet",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "retro_16bit",
+  "source": "mythology_other",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "visor",
+    "plume",
+    "headgear",
+    "steel",
+    "guard",
+    "genderless",
+    "elemental",
+    "retro_16bit",
+    "lying",
+    "brown"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural retro_16bit sprite of helmet (elemental genderless)"
+}

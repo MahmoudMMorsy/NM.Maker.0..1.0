@@ -1,0 +1,29 @@
+{
+  "file": "king_0056.png",
+  "type": "king",
+  "gender": "male",
+  "race": "human",
+  "style": "realistic_pixel",
+  "source": "modern",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "golden_crown",
+    "scepter",
+    "royal_mantle",
+    "throne",
+    "bearded",
+    "male",
+    "human",
+    "realistic_pixel",
+    "back_view",
+    "bright",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural realistic_pixel sprite of king (human male)"
+}

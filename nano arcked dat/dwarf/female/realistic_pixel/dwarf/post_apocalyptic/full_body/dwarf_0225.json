@@ -1,0 +1,27 @@
+{
+  "file": "dwarf_0225.png",
+  "type": "dwarf",
+  "gender": "female",
+  "race": "dwarf",
+  "style": "realistic_pixel",
+  "source": "post_apocalyptic",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "braided_beard",
+    "war_hammer",
+    "heavy_shield",
+    "stout",
+    "sturdy",
+    "female",
+    "dwarf",
+    "realistic_pixel",
+    "full_body",
+    "red"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural realistic_pixel sprite of dwarf (dwarf female)"
+}

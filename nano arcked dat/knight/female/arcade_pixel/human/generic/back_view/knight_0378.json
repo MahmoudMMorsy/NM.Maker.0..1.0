@@ -1,0 +1,27 @@
+{
+  "file": "knight_0378.png",
+  "type": "knight",
+  "gender": "female",
+  "race": "human",
+  "style": "arcade_pixel",
+  "source": "generic",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "plate_armor",
+    "sword",
+    "shield",
+    "cape",
+    "heroic",
+    "female",
+    "human",
+    "arcade_pixel",
+    "back_view",
+    "bright"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural arcade_pixel sprite of knight (human female)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "golem_0503.png",
+  "type": "golem",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "fantasy_pixel",
+  "source": "oc_original",
+  "pose": "front_view",
+  "colors": [
+    "dark",
+    "blue"
+  ],
+  "tags": [
+    "stone_body",
+    "runic_core",
+    "massive",
+    "rocky",
+    "construct",
+    "genderless",
+    "elemental",
+    "fantasy_pixel",
+    "front_view",
+    "dark",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural fantasy_pixel sprite of golem (elemental genderless)"
+}

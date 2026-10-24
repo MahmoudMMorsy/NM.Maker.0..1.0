@@ -1,0 +1,28 @@
+{
+  "file": "dancer_0257.png",
+  "type": "dancer",
+  "gender": "female",
+  "race": "elf",
+  "style": "sci_fi_pixel",
+  "source": "cyberpunk",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "flowing_veils",
+    "cymbals",
+    "agile",
+    "ribbons",
+    "costume",
+    "female",
+    "elf",
+    "sci_fi_pixel",
+    "walking",
+    "white",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural sci_fi_pixel sprite of dancer (elf female)"
+}

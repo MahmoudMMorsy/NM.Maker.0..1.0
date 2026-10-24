@@ -1,0 +1,28 @@
+{
+  "file": "angel_0027.png",
+  "type": "angel",
+  "gender": "androgynous",
+  "race": "angel",
+  "style": "arcade_pixel",
+  "source": "steampunk",
+  "pose": "front_view",
+  "colors": [
+    "dark",
+    "blue"
+  ],
+  "tags": [
+    "feathered_wings",
+    "halo",
+    "golden_light",
+    "white_robe",
+    "divine",
+    "androgynous",
+    "angel",
+    "arcade_pixel",
+    "front_view",
+    "dark",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural arcade_pixel sprite of angel (angel androgynous)"
+}

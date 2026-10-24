@@ -1,0 +1,28 @@
+{
+  "file": "demon_0402.png",
+  "type": "demon",
+  "gender": "non_human",
+  "race": "demon",
+  "style": "clean_pixel",
+  "source": "dark_fantasy",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "horns",
+    "leathery_wings",
+    "red_skin",
+    "pitchfork",
+    "tail",
+    "non_human",
+    "demon",
+    "clean_pixel",
+    "flying",
+    "pink",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural clean_pixel sprite of demon (demon non_human)"
+}

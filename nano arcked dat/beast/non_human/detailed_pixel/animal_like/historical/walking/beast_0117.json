@@ -1,0 +1,28 @@
+{
+  "file": "beast_0117.png",
+  "type": "beast",
+  "gender": "non_human",
+  "race": "animal_like",
+  "style": "detailed_pixel",
+  "source": "historical",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "claws",
+    "fur",
+    "fangs",
+    "wild",
+    "quadruped",
+    "non_human",
+    "animal_like",
+    "detailed_pixel",
+    "walking",
+    "white",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural detailed_pixel sprite of beast (animal_like non_human)"
+}

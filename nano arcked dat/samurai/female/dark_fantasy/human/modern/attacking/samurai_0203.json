@@ -1,0 +1,28 @@
+{
+  "file": "samurai_0203.png",
+  "type": "samurai",
+  "gender": "female",
+  "race": "human",
+  "style": "dark_fantasy",
+  "source": "modern",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "katana",
+    "samurai_armor",
+    "kabuto_helmet",
+    "honorable",
+    "sash",
+    "female",
+    "human",
+    "dark_fantasy",
+    "attacking",
+    "silver",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural dark_fantasy sprite of samurai (human female)"
+}

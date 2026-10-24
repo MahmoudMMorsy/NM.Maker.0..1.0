@@ -1,0 +1,28 @@
+{
+  "file": "elder_0061.png",
+  "type": "elder",
+  "gender": "male",
+  "race": "human",
+  "style": "fantasy_pixel",
+  "source": "comic",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "walking_stick",
+    "wrinkled",
+    "grey_hair",
+    "long_beard",
+    "wise",
+    "male",
+    "human",
+    "fantasy_pixel",
+    "walking",
+    "white",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural fantasy_pixel sprite of elder (human male)"
+}

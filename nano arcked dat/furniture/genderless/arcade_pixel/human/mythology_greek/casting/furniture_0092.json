@@ -1,0 +1,29 @@
+{
+  "file": "furniture_0092.png",
+  "type": "furniture",
+  "gender": "genderless",
+  "race": "human",
+  "style": "arcade_pixel",
+  "source": "mythology_greek",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "carved_wood",
+    "cushion",
+    "table_chair",
+    "decor",
+    "interior",
+    "genderless",
+    "human",
+    "arcade_pixel",
+    "casting",
+    "purple",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural arcade_pixel sprite of furniture (human genderless)"
+}

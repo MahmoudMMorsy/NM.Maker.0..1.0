@@ -1,0 +1,29 @@
+{
+  "file": "cyborg_0518.png",
+  "type": "cyborg",
+  "gender": "female",
+  "race": "cyborg",
+  "style": "horror_pixel",
+  "source": "modern",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "cybernetic_arm",
+    "ocular_implants",
+    "wires",
+    "plating",
+    "tech",
+    "female",
+    "cyborg",
+    "horror_pixel",
+    "back_view",
+    "bright",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural horror_pixel sprite of cyborg (cyborg female)"
+}

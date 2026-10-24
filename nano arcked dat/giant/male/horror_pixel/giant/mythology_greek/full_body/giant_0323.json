@@ -1,0 +1,27 @@
+{
+  "file": "giant_0323.png",
+  "type": "giant",
+  "gender": "male",
+  "race": "giant",
+  "style": "horror_pixel",
+  "source": "mythology_greek",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "colossal",
+    "boulder",
+    "pelt",
+    "crushing",
+    "imposing",
+    "male",
+    "giant",
+    "horror_pixel",
+    "full_body",
+    "red"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural horror_pixel sprite of giant (giant male)"
+}

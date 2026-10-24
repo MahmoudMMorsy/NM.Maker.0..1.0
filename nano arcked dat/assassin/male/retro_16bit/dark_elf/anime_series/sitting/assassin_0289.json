@@ -1,0 +1,28 @@
+{
+  "file": "assassin_0289.png",
+  "type": "assassin",
+  "gender": "male",
+  "race": "dark_elf",
+  "style": "retro_16bit",
+  "source": "anime_series",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "dual_wield",
+    "blades",
+    "shadow",
+    "poison_vial",
+    "hooded",
+    "male",
+    "dark_elf",
+    "retro_16bit",
+    "sitting",
+    "orange",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural retro_16bit sprite of assassin (dark_elf male)"
+}

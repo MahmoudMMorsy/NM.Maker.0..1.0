@@ -1,0 +1,28 @@
+{
+  "file": "blacksmith_0439.png",
+  "type": "blacksmith",
+  "gender": "male",
+  "race": "human",
+  "style": "sci_fi_pixel",
+  "source": "comic",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "leather_apron",
+    "heavy_hammer",
+    "anvil",
+    "soot",
+    "muscular",
+    "male",
+    "human",
+    "sci_fi_pixel",
+    "walking",
+    "white",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural sci_fi_pixel sprite of blacksmith (human male)"
+}

@@ -1,0 +1,29 @@
+{
+  "file": "monk_0382.png",
+  "type": "monk",
+  "gender": "male",
+  "race": "beastkin",
+  "style": "anime_pixel",
+  "source": "sci_fi",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "wraps",
+    "martial_arts",
+    "beads",
+    "tattooed",
+    "focused",
+    "male",
+    "beastkin",
+    "anime_pixel",
+    "idle",
+    "black",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural anime_pixel sprite of monk (beastkin male)"
+}

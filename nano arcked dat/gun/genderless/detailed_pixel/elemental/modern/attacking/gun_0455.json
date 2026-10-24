@@ -1,0 +1,28 @@
+{
+  "file": "gun_0455.png",
+  "type": "gun",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "detailed_pixel",
+  "source": "modern",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "barrel",
+    "trigger",
+    "firearm",
+    "bullet",
+    "tech",
+    "genderless",
+    "elemental",
+    "detailed_pixel",
+    "attacking",
+    "silver",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural detailed_pixel sprite of gun (elemental genderless)"
+}

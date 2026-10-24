@@ -1,0 +1,27 @@
+{
+  "file": "armor_0449.png",
+  "type": "armor",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "cartoon",
+  "source": "mythology_greek",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "steel",
+    "defensive",
+    "cuirass",
+    "engraved",
+    "protection",
+    "genderless",
+    "elemental",
+    "cartoon",
+    "full_body",
+    "red"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural cartoon sprite of armor (elemental genderless)"
+}

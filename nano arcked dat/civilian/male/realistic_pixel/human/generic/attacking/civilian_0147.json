@@ -1,0 +1,28 @@
+{
+  "file": "civilian_0147.png",
+  "type": "civilian",
+  "gender": "male",
+  "race": "human",
+  "style": "realistic_pixel",
+  "source": "generic",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "simple_clothes",
+    "basket",
+    "townsperson",
+    "friendly",
+    "apron",
+    "male",
+    "human",
+    "realistic_pixel",
+    "attacking",
+    "silver",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural realistic_pixel sprite of civilian (human male)"
+}

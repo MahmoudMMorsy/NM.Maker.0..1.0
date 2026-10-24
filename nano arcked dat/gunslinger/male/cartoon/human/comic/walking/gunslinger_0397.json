@@ -1,0 +1,27 @@
+{
+  "file": "gunslinger_0397.png",
+  "type": "gunslinger",
+  "gender": "male",
+  "race": "human",
+  "style": "cartoon",
+  "source": "comic",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "dual_revolvers",
+    "poncho",
+    "cowboy_hat",
+    "spurs",
+    "holster",
+    "male",
+    "human",
+    "cartoon",
+    "walking",
+    "white"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural cartoon sprite of gunslinger (human male)"
+}

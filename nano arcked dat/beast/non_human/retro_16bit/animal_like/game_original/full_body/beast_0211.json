@@ -1,0 +1,28 @@
+{
+  "file": "beast_0211.png",
+  "type": "beast",
+  "gender": "non_human",
+  "race": "animal_like",
+  "style": "retro_16bit",
+  "source": "game_original",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "claws",
+    "fur",
+    "fangs",
+    "wild",
+    "quadruped",
+    "non_human",
+    "animal_like",
+    "retro_16bit",
+    "full_body",
+    "red",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural retro_16bit sprite of beast (animal_like non_human)"
+}

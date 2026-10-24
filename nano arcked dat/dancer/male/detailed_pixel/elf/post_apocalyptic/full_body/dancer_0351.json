@@ -1,0 +1,27 @@
+{
+  "file": "dancer_0351.png",
+  "type": "dancer",
+  "gender": "male",
+  "race": "elf",
+  "style": "detailed_pixel",
+  "source": "post_apocalyptic",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "flowing_veils",
+    "cymbals",
+    "agile",
+    "ribbons",
+    "costume",
+    "male",
+    "elf",
+    "detailed_pixel",
+    "full_body",
+    "red"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural detailed_pixel sprite of dancer (elf male)"
+}

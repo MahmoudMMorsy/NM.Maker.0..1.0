@@ -1,0 +1,28 @@
+{
+  "file": "centaur_0043.png",
+  "type": "centaur",
+  "gender": "male",
+  "race": "hybrid",
+  "style": "realistic_pixel",
+  "source": "game_original",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "horse_body",
+    "spear",
+    "hooves",
+    "wild",
+    "archer",
+    "male",
+    "hybrid",
+    "realistic_pixel",
+    "full_body",
+    "red",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural realistic_pixel sprite of centaur (hybrid male)"
+}

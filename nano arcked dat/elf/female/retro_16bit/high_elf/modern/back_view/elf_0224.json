@@ -1,0 +1,27 @@
+{
+  "file": "elf_0224.png",
+  "type": "elf",
+  "gender": "female",
+  "race": "high_elf",
+  "style": "retro_16bit",
+  "source": "modern",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "pointed_ears",
+    "graceful",
+    "bow",
+    "silver_hair",
+    "nature",
+    "female",
+    "high_elf",
+    "retro_16bit",
+    "back_view",
+    "bright"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural retro_16bit sprite of elf (high_elf female)"
+}

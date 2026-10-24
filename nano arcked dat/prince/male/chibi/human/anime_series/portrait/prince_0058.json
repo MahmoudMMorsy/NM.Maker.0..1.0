@@ -1,0 +1,27 @@
+{
+  "file": "prince_0058.png",
+  "type": "prince",
+  "gender": "male",
+  "race": "human",
+  "style": "chibi",
+  "source": "anime_series",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "ornate_sword",
+    "circlet",
+    "cape",
+    "young",
+    "noble",
+    "male",
+    "human",
+    "chibi",
+    "portrait",
+    "blue"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural chibi sprite of prince (human male)"
+}

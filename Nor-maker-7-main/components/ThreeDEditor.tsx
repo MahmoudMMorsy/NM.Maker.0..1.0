@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback, useMemo } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { TransformControls } from 'three/examples/jsm/controls/TransformControls.js';
@@ -871,10 +871,14 @@ export const ThreeDEditor: React.FC<ThreeDEditorProps> = ({
         else { cameraRef.current = perspectiveCameraRef.current; }
     };
 
+    // ⚡ Bolt: Pre-build O(1) Map indices for lights and cameras to avoid O(N) linear array searches on every panel re-render.
+    const lightMap = useMemo(() => new Map(lights.map(l => [l.id, l])), [lights]);
+    const cameraMap = useMemo(() => new Map(cameras.map(c => [c.id, c])), [cameras]);
+
     /* ─── Right Panel ────────────────────────────────────────────────────── */
     const renderRightPanel = () => {
-        const light = lights.find(l => l.id === selectedLightId);
-        const cam = cameras.find(c => c.id === selectedCameraId);
+        const light = selectedLightId ? lightMap.get(selectedLightId) : undefined;
+        const cam = selectedCameraId ? cameraMap.get(selectedCameraId) : undefined;
 
         return (
             <div className="w-64 h-full bg-[#1e1e1e] border-l border-[#333] flex flex-col z-10 shadow-2xl shrink-0">

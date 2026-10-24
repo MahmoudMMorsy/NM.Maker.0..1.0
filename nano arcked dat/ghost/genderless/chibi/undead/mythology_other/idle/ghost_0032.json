@@ -1,0 +1,27 @@
+{
+  "file": "ghost_0032.png",
+  "type": "ghost",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "chibi",
+  "source": "mythology_other",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "translucent",
+    "floating",
+    "spectral",
+    "haunting",
+    "glowing",
+    "genderless",
+    "undead",
+    "chibi",
+    "idle",
+    "black"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural chibi sprite of ghost (undead genderless)"
+}

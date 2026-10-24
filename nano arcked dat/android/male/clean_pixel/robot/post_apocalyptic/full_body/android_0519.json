@@ -1,0 +1,29 @@
+{
+  "file": "android_0519.png",
+  "type": "android",
+  "gender": "male",
+  "race": "robot",
+  "style": "clean_pixel",
+  "source": "post_apocalyptic",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "synthetic_skin",
+    "glowing_joints",
+    "futuristic",
+    "sleek",
+    "ai",
+    "male",
+    "robot",
+    "clean_pixel",
+    "full_body",
+    "red",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural clean_pixel sprite of android (robot male)"
+}

@@ -1,0 +1,29 @@
+{
+  "file": "goblin_0321.png",
+  "type": "goblin",
+  "gender": "female",
+  "race": "goblin",
+  "style": "fantasy_pixel",
+  "source": "steampunk",
+  "pose": "front_view",
+  "colors": [
+    "dark",
+    "blue"
+  ],
+  "tags": [
+    "big_ears",
+    "pointed_nose",
+    "dagger",
+    "cunning",
+    "short",
+    "female",
+    "goblin",
+    "fantasy_pixel",
+    "front_view",
+    "dark",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural fantasy_pixel sprite of goblin (goblin female)"
+}

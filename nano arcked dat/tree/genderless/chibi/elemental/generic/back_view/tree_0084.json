@@ -1,0 +1,28 @@
+{
+  "file": "tree_0084.png",
+  "type": "tree",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "chibi",
+  "source": "generic",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "leaves",
+    "trunk",
+    "roots",
+    "bark",
+    "foliage",
+    "genderless",
+    "elemental",
+    "chibi",
+    "back_view",
+    "bright",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural chibi sprite of tree (elemental genderless)"
+}

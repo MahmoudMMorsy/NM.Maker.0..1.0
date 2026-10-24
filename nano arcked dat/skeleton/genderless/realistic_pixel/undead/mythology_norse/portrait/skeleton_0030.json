@@ -1,0 +1,28 @@
+{
+  "file": "skeleton_0030.png",
+  "type": "skeleton",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "realistic_pixel",
+  "source": "mythology_norse",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "bare_bones",
+    "scythe",
+    "empty_sockets",
+    "cracked",
+    "warrior",
+    "genderless",
+    "undead",
+    "realistic_pixel",
+    "portrait",
+    "blue",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural realistic_pixel sprite of skeleton (undead genderless)"
+}

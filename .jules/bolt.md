@@ -19,3 +19,27 @@
 ## 2026-08-15 - Unmemoized Status Bar Aggregations on High-Frequency Interaction Re-renders
 **Learning:** In canvas editors like `LevelEditor.tsx`, high-frequency state updates (such as updating canvas mouse coordinate state `hoverPos` at 60 FPS) trigger React re-renders on every frame. Unmemoized array operations in status bar labels (such as `levelData.filter(t => t !== 0).length` on room tile arrays up to 250,000 items) re-evaluate on every frame and allocate millions of temporary numbers per second.
 **Action:** Always memoize status bar and summary aggregations using `React.useMemo` and imperative loops, decoupling tile array scans from high-frequency interaction state updates like mouse movements and view hovering.
+
+## 2026-08-16 - Garbage Collection Churn in Base64 Data URL Audio Decoding
+**Learning:** Converting base64 audio data URLs into `ArrayBuffer` instances using `new Uint8Array(len).map((_, i) => binary.charCodeAt(i))` invokes a JS closure per byte and creates temporary typed array allocations. For a 1MB base64 sound asset (~1.3M bytes), this triggers 1.3 million function calls and creates heavy GC pressure when loading project audio or playing sounds in the runtime iframe.
+**Action:** Always use an in-place imperative `for` loop over a single pre-allocated `Uint8Array` when converting decoded base64 binary strings to `ArrayBuffer`s for Web Audio or binary processing.
+
+## 2026-08-17 - Per-Pixel Array Allocations in BFS Image Flood Fill
+**Learning:** Performing image/canvas flood fill or BFS pixel grouping (such as auto-extracting sprite sheet bounds) using 2D coordinate tuples `[x, y]` and temporary neighbor arrays `[nx, ny]` allocates 5+ JS objects/arrays per pixel. For a 1024x1024 sprite sheet (~1M pixels), this generates 5,000,000+ short-lived allocations, causing severe CPU overhead and GC pauses.
+**Action:** Replace 2D coordinate tuple stacks `[number, number][]` with a 1D scalar index stack `number[]` (`idx`) and bitwise/integer coordinate math (`idx % width`, `(idx / width) | 0`) with inline neighbor bounds checks to achieve zero per-pixel allocations.
+
+## 2026-09-05 - O(N log N) Runtime Instance Sorting and GC Allocation Elimination
+**Learning:** Hot game loop functions (such as `instance_nearest` and `instance_furthest`) implemented using `.filter().sort()` allocate temporary arrays and perform $O(N \log N)$ sorting operations every frame (e.g. 60 times/sec per instance). Replaces `.filter().sort()` with single-pass $O(N)$ linear loops tracking min/max distance completely eliminates GC array allocation thrashing and reduces time complexity to $O(N)$.
+**Action:** Always replace `.filter().sort()[0]` with a single-pass loop tracking min/max variables when retrieving extrema from dynamic runtime collections.
+
+## 2026-09-23 - Eliminating Function Closures and Redundant Invariant Math in Frame Collision Checks
+**Learning:** Higher-order array methods (like `.find()`) inside hot frame-by-frame engine routines (like `collision_rectangle`, `collision_circle`, `collision_point`) allocate short-lived predicate closures every call (e.g. hundreds of times per frame). Furthermore, placing invariant expressions like `Math.min(x1, x2)` inside the loop body re-evaluates min/max calculations on every iteration.
+**Action:** Replace `.find()` inside high-frequency collision or game loop checks with single-pass imperative `for` loops, hoisting invariant bounds calculations (`minX`, `maxX`, `minY`, `maxY`) outside the loop to eliminate closure allocations and GC thrashing.
+
+## 2026-10-12 - Hoisting Static Configurations and JSX Trees Out of Component Render Bodies
+**Learning:** Defining static config arrays containing complex objects or JSX trees (like template lists with icons) inside component render bodies re-allocates all items on every keystroke or state change. Hoisting static configuration arrays to module scope and memoizing set lookups for array membership checks avoids GC allocation churn and reduces array searches to $O(1)$.
+**Action:** Always place static configuration lists and immutable JSX element templates at module scope outside component functions, and wrap item selection collections in `React.useMemo` for $O(1)$ set checks.
+
+## 2026-10-18 - Action Code Generation O(N) Array Search Elimination via Map and WeakMap Caching
+**Learning:** Functions like `generateActionCode` that map action definitions during code generation/compilation often receive arrays (e.g. `EXTERNAL_ACTIONS`) as parameter fallbacks. Performing `externalActions.find(...)` inside loops generates $O(N)$ linear scans per action across every event and object. Short-circuiting reference equality to static `EXTERNAL_ACTION_MAP` and caching custom arrays in a `WeakMap` converts code generation action resolution to $O(1)$ constant time without leaking memory.
+**Action:** When helper functions take array parameters for lookups, check for static pre-indexed Map constants or use a `WeakMap` to lazily index and cache the array parameter to $O(1)$ Map lookups.

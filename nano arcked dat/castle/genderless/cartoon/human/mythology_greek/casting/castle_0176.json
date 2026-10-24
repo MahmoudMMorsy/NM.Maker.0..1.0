@@ -1,0 +1,27 @@
+{
+  "file": "castle_0176.png",
+  "type": "castle",
+  "gender": "genderless",
+  "race": "human",
+  "style": "cartoon",
+  "source": "mythology_greek",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "battlements",
+    "towers",
+    "drawbridge",
+    "stone_walls",
+    "fortress",
+    "genderless",
+    "human",
+    "cartoon",
+    "casting",
+    "purple"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural cartoon sprite of castle (human genderless)"
+}

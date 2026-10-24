@@ -1,0 +1,28 @@
+{
+  "file": "bow_0454.png",
+  "type": "bow",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "clean_pixel",
+  "source": "medieval",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "yew_wood",
+    "bowstring",
+    "recurve",
+    "hunting",
+    "ranged",
+    "genderless",
+    "elemental",
+    "clean_pixel",
+    "running",
+    "gold",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural clean_pixel sprite of bow (elemental genderless)"
+}

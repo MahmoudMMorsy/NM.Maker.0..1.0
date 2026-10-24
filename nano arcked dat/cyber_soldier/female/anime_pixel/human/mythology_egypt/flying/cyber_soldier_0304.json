@@ -1,0 +1,27 @@
+{
+  "file": "cyber_soldier_0304.png",
+  "type": "cyber_soldier",
+  "gender": "female",
+  "race": "human",
+  "style": "anime_pixel",
+  "source": "mythology_egypt",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "plasma_rifle",
+    "visor",
+    "exosuit",
+    "cyberware",
+    "neon",
+    "female",
+    "human",
+    "anime_pixel",
+    "flying",
+    "pink"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural anime_pixel sprite of cyber_soldier (human female)"
+}

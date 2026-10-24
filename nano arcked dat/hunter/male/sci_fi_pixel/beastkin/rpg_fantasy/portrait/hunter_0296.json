@@ -1,0 +1,27 @@
+{
+  "file": "hunter_0296.png",
+  "type": "hunter",
+  "gender": "male",
+  "race": "beastkin",
+  "style": "sci_fi_pixel",
+  "source": "rpg_fantasy",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "crossbow",
+    "trap",
+    "fur_coat",
+    "tracking",
+    "pet_wolf",
+    "male",
+    "beastkin",
+    "sci_fi_pixel",
+    "portrait",
+    "blue"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural sci_fi_pixel sprite of hunter (beastkin male)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "necromancer_0480.png",
+  "type": "necromancer",
+  "gender": "male",
+  "race": "human",
+  "style": "clean_pixel",
+  "source": "movie",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "skull_staff",
+    "dark_magic",
+    "tattered_robe",
+    "glowing_eyes",
+    "bones",
+    "male",
+    "human",
+    "clean_pixel",
+    "idle",
+    "black",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural clean_pixel sprite of necromancer (human male)"
+}

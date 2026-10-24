@@ -1,0 +1,29 @@
+{
+  "file": "blacksmith_0063.png",
+  "type": "blacksmith",
+  "gender": "male",
+  "race": "human",
+  "style": "horror_pixel",
+  "source": "generic",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "leather_apron",
+    "heavy_hammer",
+    "anvil",
+    "soot",
+    "muscular",
+    "male",
+    "human",
+    "horror_pixel",
+    "attacking",
+    "silver",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural horror_pixel sprite of blacksmith (human male)"
+}

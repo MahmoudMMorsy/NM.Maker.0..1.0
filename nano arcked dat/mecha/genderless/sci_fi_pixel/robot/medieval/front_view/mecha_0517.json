@@ -1,0 +1,27 @@
+{
+  "file": "mecha_0517.png",
+  "type": "mecha",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "sci_fi_pixel",
+  "source": "medieval",
+  "pose": "front_view",
+  "colors": [
+    "dark",
+    "blue"
+  ],
+  "tags": [
+    "giant_robot",
+    "cockpit",
+    "missile_pods",
+    "thrusters",
+    "armor_plating",
+    "genderless",
+    "robot",
+    "sci_fi_pixel",
+    "front_view",
+    "dark"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural sci_fi_pixel sprite of mecha (robot genderless)"
+}

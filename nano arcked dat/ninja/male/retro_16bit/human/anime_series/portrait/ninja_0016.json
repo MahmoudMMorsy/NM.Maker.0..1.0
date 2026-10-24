@@ -1,0 +1,28 @@
+{
+  "file": "ninja_0016.png",
+  "type": "ninja",
+  "gender": "male",
+  "race": "human",
+  "style": "retro_16bit",
+  "source": "anime_series",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "shuriken",
+    "ninjato",
+    "black_garb",
+    "smokebomb",
+    "mask",
+    "male",
+    "human",
+    "retro_16bit",
+    "portrait",
+    "blue",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural retro_16bit sprite of ninja (human male)"
+}

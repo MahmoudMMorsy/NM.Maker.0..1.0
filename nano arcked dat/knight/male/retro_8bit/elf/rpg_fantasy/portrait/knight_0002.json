@@ -1,0 +1,29 @@
+{
+  "file": "knight_0002.png",
+  "type": "knight",
+  "gender": "male",
+  "race": "elf",
+  "style": "retro_8bit",
+  "source": "rpg_fantasy",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "plate_armor",
+    "sword",
+    "shield",
+    "cape",
+    "heroic",
+    "male",
+    "elf",
+    "retro_8bit",
+    "portrait",
+    "blue",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural retro_8bit sprite of knight (elf male)"
+}

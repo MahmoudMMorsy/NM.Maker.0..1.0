@@ -1,0 +1,29 @@
+{
+  "file": "pirate_0205.png",
+  "type": "pirate",
+  "gender": "male",
+  "race": "orc",
+  "style": "sci_fi_pixel",
+  "source": "anime_series",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "cutlass",
+    "eyepatch",
+    "tricorne_hat",
+    "flintlock",
+    "boots",
+    "male",
+    "orc",
+    "sci_fi_pixel",
+    "sitting",
+    "orange",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural sci_fi_pixel sprite of pirate (orc male)"
+}

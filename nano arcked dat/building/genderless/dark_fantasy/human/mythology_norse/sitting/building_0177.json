@@ -1,0 +1,28 @@
+{
+  "file": "building_0177.png",
+  "type": "building",
+  "gender": "genderless",
+  "race": "human",
+  "style": "dark_fantasy",
+  "source": "mythology_norse",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "roof_tiles",
+    "timber_frame",
+    "windows",
+    "doorway",
+    "house",
+    "genderless",
+    "human",
+    "dark_fantasy",
+    "sitting",
+    "orange",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural dark_fantasy sprite of building (human genderless)"
+}

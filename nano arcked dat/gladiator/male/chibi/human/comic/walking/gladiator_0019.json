@@ -1,0 +1,29 @@
+{
+  "file": "gladiator_0019.png",
+  "type": "gladiator",
+  "gender": "male",
+  "race": "human",
+  "style": "chibi",
+  "source": "comic",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "trident",
+    "net",
+    "arena_armor",
+    "scars",
+    "muscular",
+    "male",
+    "human",
+    "chibi",
+    "walking",
+    "white",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural chibi sprite of gladiator (human male)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "elemental_0034.png",
+  "type": "elemental",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "dark_fantasy",
+  "source": "medieval",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "flames",
+    "water_whorl",
+    "lightning_sparks",
+    "earthen",
+    "pure_energy",
+    "genderless",
+    "elemental",
+    "dark_fantasy",
+    "running",
+    "gold",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural dark_fantasy sprite of elemental (elemental genderless)"
+}

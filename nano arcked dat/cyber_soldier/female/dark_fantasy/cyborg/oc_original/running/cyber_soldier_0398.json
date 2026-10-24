@@ -1,0 +1,29 @@
+{
+  "file": "cyber_soldier_0398.png",
+  "type": "cyber_soldier",
+  "gender": "female",
+  "race": "cyborg",
+  "style": "dark_fantasy",
+  "source": "oc_original",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "plasma_rifle",
+    "visor",
+    "exosuit",
+    "cyberware",
+    "neon",
+    "female",
+    "cyborg",
+    "dark_fantasy",
+    "running",
+    "gold",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural dark_fantasy sprite of cyber_soldier (cyborg female)"
+}

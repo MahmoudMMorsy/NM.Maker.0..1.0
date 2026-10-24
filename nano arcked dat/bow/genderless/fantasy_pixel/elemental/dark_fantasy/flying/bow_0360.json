@@ -1,0 +1,27 @@
+{
+  "file": "bow_0360.png",
+  "type": "bow",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "fantasy_pixel",
+  "source": "dark_fantasy",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "yew_wood",
+    "bowstring",
+    "recurve",
+    "hunting",
+    "ranged",
+    "genderless",
+    "elemental",
+    "fantasy_pixel",
+    "flying",
+    "pink"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural fantasy_pixel sprite of bow (elemental genderless)"
+}

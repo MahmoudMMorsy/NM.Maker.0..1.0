@@ -1,0 +1,29 @@
+{
+  "file": "shield_0450.png",
+  "type": "shield",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "dark_fantasy",
+  "source": "mythology_norse",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "crested",
+    "wood_iron",
+    "sturdy",
+    "blocker",
+    "defense",
+    "genderless",
+    "elemental",
+    "dark_fantasy",
+    "portrait",
+    "blue",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural dark_fantasy sprite of shield (elemental genderless)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "prince_0152.png",
+  "type": "prince",
+  "gender": "male",
+  "race": "elf",
+  "style": "fantasy_pixel",
+  "source": "cyberpunk",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "ornate_sword",
+    "circlet",
+    "cape",
+    "young",
+    "noble",
+    "male",
+    "elf",
+    "fantasy_pixel",
+    "side_view",
+    "multicolor",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural fantasy_pixel sprite of prince (elf male)"
+}

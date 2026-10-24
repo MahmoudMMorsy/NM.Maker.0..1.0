@@ -1,0 +1,28 @@
+{
+  "file": "dragon_0401.png",
+  "type": "dragon",
+  "gender": "non_human",
+  "race": "dragonkin",
+  "style": "horror_pixel",
+  "source": "rpg_fantasy",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "wings",
+    "scales",
+    "fire_breath",
+    "horns",
+    "tail",
+    "giant",
+    "non_human",
+    "dragonkin",
+    "horror_pixel",
+    "sitting",
+    "orange"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural horror_pixel sprite of dragon (dragonkin non_human)"
+}

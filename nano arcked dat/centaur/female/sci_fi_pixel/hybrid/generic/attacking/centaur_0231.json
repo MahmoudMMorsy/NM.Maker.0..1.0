@@ -1,0 +1,29 @@
+{
+  "file": "centaur_0231.png",
+  "type": "centaur",
+  "gender": "female",
+  "race": "hybrid",
+  "style": "sci_fi_pixel",
+  "source": "generic",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "horse_body",
+    "spear",
+    "hooves",
+    "wild",
+    "archer",
+    "female",
+    "hybrid",
+    "sci_fi_pixel",
+    "attacking",
+    "silver",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural sci_fi_pixel sprite of centaur (hybrid female)"
+}

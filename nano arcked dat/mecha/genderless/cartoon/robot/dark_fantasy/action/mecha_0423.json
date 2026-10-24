@@ -1,0 +1,29 @@
+{
+  "file": "mecha_0423.png",
+  "type": "mecha",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "cartoon",
+  "source": "dark_fantasy",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "giant_robot",
+    "cockpit",
+    "missile_pods",
+    "thrusters",
+    "armor_plating",
+    "genderless",
+    "robot",
+    "cartoon",
+    "action",
+    "green",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural cartoon sprite of mecha (robot genderless)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "cyber_soldier_0116.png",
+  "type": "cyber_soldier",
+  "gender": "female",
+  "race": "cyborg",
+  "style": "clean_pixel",
+  "source": "mythology_other",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "plasma_rifle",
+    "visor",
+    "exosuit",
+    "cyberware",
+    "neon",
+    "female",
+    "cyborg",
+    "clean_pixel",
+    "idle",
+    "black",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural clean_pixel sprite of cyber_soldier (cyborg female)"
+}

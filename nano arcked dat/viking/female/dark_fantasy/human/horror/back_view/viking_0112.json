@@ -1,0 +1,28 @@
+{
+  "file": "viking_0112.png",
+  "type": "viking",
+  "gender": "female",
+  "race": "human",
+  "style": "dark_fantasy",
+  "source": "horror",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "horned_helm",
+    "bearded",
+    "battle_axe",
+    "round_shield",
+    "fur",
+    "female",
+    "human",
+    "dark_fantasy",
+    "back_view",
+    "bright",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural dark_fantasy sprite of viking (human female)"
+}

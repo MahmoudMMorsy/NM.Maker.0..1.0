@@ -1,0 +1,28 @@
+{
+  "file": "fairy_0317.png",
+  "type": "fairy",
+  "gender": "androgynous",
+  "race": "fairy",
+  "style": "anime_pixel",
+  "source": "rpg_fantasy",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "insect_wings",
+    "sparkles",
+    "tiny",
+    "wand",
+    "nature",
+    "androgynous",
+    "fairy",
+    "anime_pixel",
+    "sitting",
+    "orange",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural anime_pixel sprite of fairy (fairy androgynous)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "ninja_0486.png",
+  "type": "ninja",
+  "gender": "male",
+  "race": "human",
+  "style": "anime_pixel",
+  "source": "dark_fantasy",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "shuriken",
+    "ninjato",
+    "black_garb",
+    "smokebomb",
+    "mask",
+    "male",
+    "human",
+    "anime_pixel",
+    "flying",
+    "pink",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural anime_pixel sprite of ninja (human male)"
+}

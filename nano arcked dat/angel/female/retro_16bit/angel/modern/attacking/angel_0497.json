@@ -1,0 +1,28 @@
+{
+  "file": "angel_0497.png",
+  "type": "angel",
+  "gender": "female",
+  "race": "angel",
+  "style": "retro_16bit",
+  "source": "modern",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "feathered_wings",
+    "halo",
+    "golden_light",
+    "white_robe",
+    "divine",
+    "female",
+    "angel",
+    "retro_16bit",
+    "attacking",
+    "silver",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural retro_16bit sprite of angel (angel female)"
+}

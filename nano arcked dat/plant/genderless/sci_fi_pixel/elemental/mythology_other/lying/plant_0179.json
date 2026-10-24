@@ -1,0 +1,28 @@
+{
+  "file": "plant_0179.png",
+  "type": "plant",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "sci_fi_pixel",
+  "source": "mythology_other",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "vines",
+    "petals",
+    "stems",
+    "blooms",
+    "flora",
+    "genderless",
+    "elemental",
+    "sci_fi_pixel",
+    "lying",
+    "brown",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural sci_fi_pixel sprite of plant (elemental genderless)"
+}

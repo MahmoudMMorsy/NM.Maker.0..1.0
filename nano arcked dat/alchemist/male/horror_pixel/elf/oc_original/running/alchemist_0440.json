@@ -1,0 +1,28 @@
+{
+  "file": "alchemist_0440.png",
+  "type": "alchemist",
+  "gender": "male",
+  "race": "elf",
+  "style": "horror_pixel",
+  "source": "oc_original",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "goggles",
+    "bubbling_vial",
+    "herbs",
+    "apron",
+    "satchel",
+    "male",
+    "elf",
+    "horror_pixel",
+    "running",
+    "gold",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural horror_pixel sprite of alchemist (elf male)"
+}

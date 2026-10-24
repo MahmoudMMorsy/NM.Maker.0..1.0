@@ -1,0 +1,27 @@
+{
+  "file": "monk_0288.png",
+  "type": "monk",
+  "gender": "female",
+  "race": "human",
+  "style": "retro_8bit",
+  "source": "post_apocalyptic",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "wraps",
+    "martial_arts",
+    "beads",
+    "tattooed",
+    "focused",
+    "female",
+    "human",
+    "retro_8bit",
+    "casting",
+    "purple"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_8bit sprite of monk (human female)"
+}

@@ -1,0 +1,27 @@
+{
+  "file": "castle_0270.png",
+  "type": "castle",
+  "gender": "genderless",
+  "race": "human",
+  "style": "sci_fi_pixel",
+  "source": "movie",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "battlements",
+    "towers",
+    "drawbridge",
+    "stone_walls",
+    "fortress",
+    "genderless",
+    "human",
+    "sci_fi_pixel",
+    "idle",
+    "black"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural sci_fi_pixel sprite of castle (human genderless)"
+}

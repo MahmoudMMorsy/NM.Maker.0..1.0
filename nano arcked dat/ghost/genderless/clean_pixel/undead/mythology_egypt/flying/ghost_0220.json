@@ -1,0 +1,28 @@
+{
+  "file": "ghost_0220.png",
+  "type": "ghost",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "clean_pixel",
+  "source": "mythology_egypt",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "translucent",
+    "floating",
+    "spectral",
+    "haunting",
+    "glowing",
+    "genderless",
+    "undead",
+    "clean_pixel",
+    "flying",
+    "pink",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural clean_pixel sprite of ghost (undead genderless)"
+}

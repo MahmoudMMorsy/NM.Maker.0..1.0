@@ -1,0 +1,28 @@
+{
+  "file": "shield_0074.png",
+  "type": "shield",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "fantasy_pixel",
+  "source": "mythology_other",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "crested",
+    "wood_iron",
+    "sturdy",
+    "blocker",
+    "defense",
+    "genderless",
+    "elemental",
+    "fantasy_pixel",
+    "idle",
+    "black",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural fantasy_pixel sprite of shield (elemental genderless)"
+}

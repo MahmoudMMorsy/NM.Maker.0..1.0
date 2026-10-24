@@ -1,0 +1,27 @@
+{
+  "file": "werewolf_0327.png",
+  "type": "werewolf",
+  "gender": "male",
+  "race": "beastkin",
+  "style": "retro_8bit",
+  "source": "historical",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "wolf_form",
+    "claws",
+    "full_moon",
+    "howling",
+    "furry",
+    "male",
+    "beastkin",
+    "retro_8bit",
+    "walking",
+    "white"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_8bit sprite of werewolf (beastkin male)"
+}

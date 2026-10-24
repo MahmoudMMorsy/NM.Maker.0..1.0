@@ -1,0 +1,28 @@
+{
+  "file": "ghost_0126.png",
+  "type": "ghost",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "fantasy_pixel",
+  "source": "generic",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "translucent",
+    "floating",
+    "spectral",
+    "haunting",
+    "glowing",
+    "genderless",
+    "undead",
+    "fantasy_pixel",
+    "back_view",
+    "bright",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural fantasy_pixel sprite of ghost (undead genderless)"
+}

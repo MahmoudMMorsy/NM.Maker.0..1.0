@@ -1,0 +1,29 @@
+{
+  "file": "minotaur_0326.png",
+  "type": "minotaur",
+  "gender": "male",
+  "race": "hybrid",
+  "style": "arcade_pixel",
+  "source": "mythology_other",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "bull_head",
+    "labrys_axe",
+    "hooves",
+    "ring_nose",
+    "muscular",
+    "male",
+    "hybrid",
+    "arcade_pixel",
+    "idle",
+    "black",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural arcade_pixel sprite of minotaur (hybrid male)"
+}

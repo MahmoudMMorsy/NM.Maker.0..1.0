@@ -1,0 +1,28 @@
+{
+  "file": "king_0338.png",
+  "type": "king",
+  "gender": "male",
+  "race": "human",
+  "style": "detailed_pixel",
+  "source": "rpg_fantasy",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "golden_crown",
+    "scepter",
+    "royal_mantle",
+    "throne",
+    "bearded",
+    "male",
+    "human",
+    "detailed_pixel",
+    "portrait",
+    "blue",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural detailed_pixel sprite of king (human male)"
+}

@@ -1,0 +1,27 @@
+{
+  "file": "bard_0482.png",
+  "type": "bard",
+  "gender": "male",
+  "race": "half_elf",
+  "style": "arcade_pixel",
+  "source": "oc_original",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "lute",
+    "feather_hat",
+    "colorful",
+    "charming",
+    "song",
+    "male",
+    "half_elf",
+    "arcade_pixel",
+    "running",
+    "gold"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural arcade_pixel sprite of bard (half_elf male)"
+}

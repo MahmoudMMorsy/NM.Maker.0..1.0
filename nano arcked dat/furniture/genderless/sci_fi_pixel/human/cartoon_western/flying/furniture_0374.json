@@ -1,0 +1,29 @@
+{
+  "file": "furniture_0374.png",
+  "type": "furniture",
+  "gender": "genderless",
+  "race": "human",
+  "style": "sci_fi_pixel",
+  "source": "cartoon_western",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "carved_wood",
+    "cushion",
+    "table_chair",
+    "decor",
+    "interior",
+    "genderless",
+    "human",
+    "sci_fi_pixel",
+    "flying",
+    "pink",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural sci_fi_pixel sprite of furniture (human genderless)"
+}

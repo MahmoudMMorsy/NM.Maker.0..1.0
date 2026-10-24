@@ -1,0 +1,28 @@
+{
+  "file": "food_0375.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "human",
+  "style": "horror_pixel",
+  "source": "movie",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "roasted_meat",
+    "bread_loaf",
+    "cheese_wheel",
+    "feast",
+    "delicious",
+    "genderless",
+    "human",
+    "horror_pixel",
+    "lying",
+    "brown",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural horror_pixel sprite of food (human genderless)"
+}

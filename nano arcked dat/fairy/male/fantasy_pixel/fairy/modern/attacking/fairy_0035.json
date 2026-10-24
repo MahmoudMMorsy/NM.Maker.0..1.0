@@ -1,0 +1,29 @@
+{
+  "file": "fairy_0035.png",
+  "type": "fairy",
+  "gender": "male",
+  "race": "fairy",
+  "style": "fantasy_pixel",
+  "source": "modern",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "insect_wings",
+    "sparkles",
+    "tiny",
+    "wand",
+    "nature",
+    "male",
+    "fairy",
+    "fantasy_pixel",
+    "attacking",
+    "silver",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural fantasy_pixel sprite of fairy (fairy male)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "crystal_0463.png",
+  "type": "crystal",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "dark_fantasy",
+  "source": "game_original",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "glowing",
+    "shard",
+    "faceted",
+    "magical_gem",
+    "prismatic",
+    "genderless",
+    "elemental",
+    "dark_fantasy",
+    "full_body",
+    "red",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural dark_fantasy sprite of crystal (elemental genderless)"
+}

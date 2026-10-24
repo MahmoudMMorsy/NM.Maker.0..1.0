@@ -126,6 +126,17 @@ static int valid_gmk_header_native(const unsigned char *head, size_t n) {
 }
 
 double nor_import_format_native(const char *path) {
+    if (!path) return 0.0;
+    struct stat st;
+    if (stat(path, &st) == 0 && S_ISDIR(st.st_mode)) {
+        char check_path[4096];
+        snprintf(check_path, sizeof(check_path), "%s/objects", path);
+        if (stat(check_path, &st) == 0 && S_ISDIR(st.st_mode)) return 7.0;
+        snprintf(check_path, sizeof(check_path), "%s/rooms", path);
+        if (stat(check_path, &st) == 0 && S_ISDIR(st.st_mode)) return 7.0;
+        snprintf(check_path, sizeof(check_path), "%s/index.yyd", path);
+        if (stat(check_path, &st) == 0) return 7.0;
+    }
     FILE *f = fopen(path, "rb");
     if (!f) return 0.0;
     unsigned char head[64] = {0}; size_t n = fread(head, 1, sizeof(head), f); fclose(f);
@@ -224,6 +235,7 @@ static const char *gmx_resource_type_native(const char *name) {
     return "file";
 }
 
+static int gmx_manifest_walk_native(FILE *f, const char *root, const char *path, int *count) __attribute__((unused));
 static int gmx_manifest_walk_native(FILE *f, const char *root, const char *path, int *count) {
     DIR *d;
     struct dirent *ent;

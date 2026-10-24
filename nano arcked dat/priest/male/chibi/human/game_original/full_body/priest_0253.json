@@ -1,0 +1,28 @@
+{
+  "file": "priest_0253.png",
+  "type": "priest",
+  "gender": "male",
+  "race": "human",
+  "style": "chibi",
+  "source": "game_original",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "holy_symbol",
+    "white_robes",
+    "scroll",
+    "blessing",
+    "pious",
+    "male",
+    "human",
+    "chibi",
+    "full_body",
+    "red",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural chibi sprite of priest (human male)"
+}

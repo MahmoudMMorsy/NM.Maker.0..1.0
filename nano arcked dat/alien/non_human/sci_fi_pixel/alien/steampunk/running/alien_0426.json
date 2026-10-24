@@ -1,0 +1,27 @@
+{
+  "file": "alien_0426.png",
+  "type": "alien",
+  "gender": "non_human",
+  "race": "alien",
+  "style": "sci_fi_pixel",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "tentacles",
+    "multiple_eyes",
+    "bioluminescence",
+    "exoskeleton",
+    "space",
+    "non_human",
+    "alien",
+    "sci_fi_pixel",
+    "running",
+    "gold"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural sci_fi_pixel sprite of alien (alien non_human)"
+}

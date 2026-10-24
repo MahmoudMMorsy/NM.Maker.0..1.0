@@ -1,0 +1,29 @@
+{
+  "file": "plant_0367.png",
+  "type": "plant",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "retro_16bit",
+  "source": "mythology_egypt",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "vines",
+    "petals",
+    "stems",
+    "blooms",
+    "flora",
+    "genderless",
+    "elemental",
+    "retro_16bit",
+    "action",
+    "green",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural retro_16bit sprite of plant (elemental genderless)"
+}

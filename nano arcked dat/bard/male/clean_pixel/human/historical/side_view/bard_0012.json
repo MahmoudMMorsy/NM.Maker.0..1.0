@@ -1,0 +1,29 @@
+{
+  "file": "bard_0012.png",
+  "type": "bard",
+  "gender": "male",
+  "race": "human",
+  "style": "clean_pixel",
+  "source": "historical",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "lute",
+    "feather_hat",
+    "colorful",
+    "charming",
+    "song",
+    "male",
+    "human",
+    "clean_pixel",
+    "side_view",
+    "multicolor",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural clean_pixel sprite of bard (human male)"
+}

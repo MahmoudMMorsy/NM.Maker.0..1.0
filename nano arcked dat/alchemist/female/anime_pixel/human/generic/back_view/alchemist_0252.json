@@ -1,0 +1,28 @@
+{
+  "file": "alchemist_0252.png",
+  "type": "alchemist",
+  "gender": "female",
+  "race": "human",
+  "style": "anime_pixel",
+  "source": "generic",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "goggles",
+    "bubbling_vial",
+    "herbs",
+    "apron",
+    "satchel",
+    "female",
+    "human",
+    "anime_pixel",
+    "back_view",
+    "bright",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural anime_pixel sprite of alchemist (human female)"
+}

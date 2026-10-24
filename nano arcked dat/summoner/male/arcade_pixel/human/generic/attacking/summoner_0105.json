@@ -1,0 +1,28 @@
+{
+  "file": "summoner_0105.png",
+  "type": "summoner",
+  "gender": "male",
+  "race": "human",
+  "style": "arcade_pixel",
+  "source": "generic",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "grimoire",
+    "runes",
+    "summoning_circle",
+    "familiar",
+    "robes",
+    "male",
+    "human",
+    "arcade_pixel",
+    "attacking",
+    "silver",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural arcade_pixel sprite of summoner (human male)"
+}

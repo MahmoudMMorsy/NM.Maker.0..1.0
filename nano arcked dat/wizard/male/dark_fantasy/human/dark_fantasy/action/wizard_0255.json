@@ -1,0 +1,28 @@
+{
+  "file": "wizard_0255.png",
+  "type": "wizard",
+  "gender": "male",
+  "race": "human",
+  "style": "dark_fantasy",
+  "source": "dark_fantasy",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "pointed_hat",
+    "long_white_beard",
+    "orb_staff",
+    "star_robe",
+    "spells",
+    "male",
+    "human",
+    "dark_fantasy",
+    "action",
+    "green",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural dark_fantasy sprite of wizard (human male)"
+}

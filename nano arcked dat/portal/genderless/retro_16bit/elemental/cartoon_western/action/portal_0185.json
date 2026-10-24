@@ -1,0 +1,28 @@
+{
+  "file": "portal_0185.png",
+  "type": "portal",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "retro_16bit",
+  "source": "cartoon_western",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "swirling_vortex",
+    "runic_frame",
+    "dimension",
+    "glowing_energy",
+    "teleport",
+    "genderless",
+    "elemental",
+    "retro_16bit",
+    "action",
+    "green",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural retro_16bit sprite of portal (elemental genderless)"
+}

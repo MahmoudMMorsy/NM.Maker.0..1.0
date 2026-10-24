@@ -1,0 +1,28 @@
+{
+  "file": "creature_0052.png",
+  "type": "creature",
+  "gender": "non_human",
+  "race": "animal_like",
+  "style": "detailed_pixel",
+  "source": "mythology_egypt",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "mysterious",
+    "exotic",
+    "chitin",
+    "wings",
+    "unique",
+    "non_human",
+    "animal_like",
+    "detailed_pixel",
+    "flying",
+    "pink",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural detailed_pixel sprite of creature (animal_like non_human)"
+}

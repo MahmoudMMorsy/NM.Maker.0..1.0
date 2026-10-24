@@ -1,0 +1,28 @@
+{
+  "file": "werewolf_0233.png",
+  "type": "werewolf",
+  "gender": "male",
+  "race": "beastkin",
+  "style": "clean_pixel",
+  "source": "rpg_fantasy",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "wolf_form",
+    "claws",
+    "full_moon",
+    "howling",
+    "furry",
+    "male",
+    "beastkin",
+    "clean_pixel",
+    "sitting",
+    "orange",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural clean_pixel sprite of werewolf (beastkin male)"
+}

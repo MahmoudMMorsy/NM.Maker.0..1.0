@@ -1,0 +1,27 @@
+{
+  "file": "knight_0284.png",
+  "type": "knight",
+  "gender": "male",
+  "race": "human",
+  "style": "horror_pixel",
+  "source": "mythology_other",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "plate_armor",
+    "sword",
+    "shield",
+    "cape",
+    "heroic",
+    "male",
+    "human",
+    "horror_pixel",
+    "idle",
+    "black"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural horror_pixel sprite of knight (human male)"
+}

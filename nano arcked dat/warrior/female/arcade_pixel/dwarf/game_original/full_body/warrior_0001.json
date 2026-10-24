@@ -1,0 +1,28 @@
+{
+  "file": "warrior_0001.png",
+  "type": "warrior",
+  "gender": "female",
+  "race": "dwarf",
+  "style": "arcade_pixel",
+  "source": "game_original",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "armor",
+    "sword",
+    "shield",
+    "helmet",
+    "muscular",
+    "female",
+    "dwarf",
+    "arcade_pixel",
+    "full_body",
+    "red",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural arcade_pixel sprite of warrior (dwarf female)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "spaceship_0175.png",
+  "type": "spaceship",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "chibi",
+  "source": "horror",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "thrusters",
+    "hull",
+    "cockpit_glass",
+    "futuristic",
+    "starship",
+    "genderless",
+    "robot",
+    "chibi",
+    "attacking",
+    "silver",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural chibi sprite of spaceship (robot genderless)"
+}

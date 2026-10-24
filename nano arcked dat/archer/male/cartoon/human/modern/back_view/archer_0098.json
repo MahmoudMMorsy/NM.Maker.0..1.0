@@ -1,0 +1,29 @@
+{
+  "file": "archer_0098.png",
+  "type": "archer",
+  "gender": "male",
+  "race": "human",
+  "style": "cartoon",
+  "source": "modern",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "bow",
+    "quiver",
+    "leather_armor",
+    "agile",
+    "hood",
+    "male",
+    "human",
+    "cartoon",
+    "back_view",
+    "bright",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural cartoon sprite of archer (human male)"
+}

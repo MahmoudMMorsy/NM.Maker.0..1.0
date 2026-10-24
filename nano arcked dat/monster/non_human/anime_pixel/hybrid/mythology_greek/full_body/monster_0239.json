@@ -1,0 +1,29 @@
+{
+  "file": "monster_0239.png",
+  "type": "monster",
+  "gender": "non_human",
+  "race": "hybrid",
+  "style": "anime_pixel",
+  "source": "mythology_greek",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "frightening",
+    "spikes",
+    "acid",
+    "grotesque",
+    "wild",
+    "non_human",
+    "hybrid",
+    "anime_pixel",
+    "full_body",
+    "red",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural anime_pixel sprite of monster (hybrid non_human)"
+}

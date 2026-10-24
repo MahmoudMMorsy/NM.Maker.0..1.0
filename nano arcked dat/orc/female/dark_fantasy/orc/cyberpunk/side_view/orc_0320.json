@@ -1,0 +1,28 @@
+{
+  "file": "orc_0320.png",
+  "type": "orc",
+  "gender": "female",
+  "race": "orc",
+  "style": "dark_fantasy",
+  "source": "cyberpunk",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "tusks",
+    "green_skin",
+    "spiked_shoulder",
+    "cleaver",
+    "muscular",
+    "female",
+    "orc",
+    "dark_fantasy",
+    "side_view",
+    "multicolor",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural dark_fantasy sprite of orc (orc female)"
+}

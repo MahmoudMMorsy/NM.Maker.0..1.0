@@ -1,0 +1,28 @@
+{
+  "file": "soldier_0490.png",
+  "type": "soldier",
+  "gender": "female",
+  "race": "human",
+  "style": "fantasy_pixel",
+  "source": "horror",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "rifle",
+    "tactical_vest",
+    "camo",
+    "combat_boots",
+    "helmet",
+    "female",
+    "human",
+    "fantasy_pixel",
+    "back_view",
+    "bright",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural fantasy_pixel sprite of soldier (human female)"
+}

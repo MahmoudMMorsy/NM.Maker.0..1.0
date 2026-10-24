@@ -1,0 +1,28 @@
+{
+  "file": "rogue_0287.png",
+  "type": "rogue",
+  "gender": "female",
+  "race": "human",
+  "style": "arcade_pixel",
+  "source": "modern",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "dagger",
+    "stealth",
+    "cloak",
+    "scars",
+    "mask",
+    "female",
+    "human",
+    "arcade_pixel",
+    "attacking",
+    "silver",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural arcade_pixel sprite of rogue (human female)"
+}

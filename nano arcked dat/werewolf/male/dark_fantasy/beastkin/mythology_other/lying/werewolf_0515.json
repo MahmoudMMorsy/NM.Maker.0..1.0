@@ -1,0 +1,27 @@
+{
+  "file": "werewolf_0515.png",
+  "type": "werewolf",
+  "gender": "male",
+  "race": "beastkin",
+  "style": "dark_fantasy",
+  "source": "mythology_other",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "wolf_form",
+    "claws",
+    "full_moon",
+    "howling",
+    "furry",
+    "male",
+    "beastkin",
+    "dark_fantasy",
+    "lying",
+    "brown"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural dark_fantasy sprite of werewolf (beastkin male)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "rock_0462.png",
+  "type": "rock",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "cartoon",
+  "source": "generic",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "boulder",
+    "mossy",
+    "jagged",
+    "mineral",
+    "stone",
+    "genderless",
+    "elemental",
+    "cartoon",
+    "back_view",
+    "bright",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural cartoon sprite of rock (elemental genderless)"
+}

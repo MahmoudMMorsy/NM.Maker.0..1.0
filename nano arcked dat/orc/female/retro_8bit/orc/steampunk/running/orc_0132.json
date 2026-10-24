@@ -1,0 +1,28 @@
+{
+  "file": "orc_0132.png",
+  "type": "orc",
+  "gender": "female",
+  "race": "orc",
+  "style": "retro_8bit",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "tusks",
+    "green_skin",
+    "spiked_shoulder",
+    "cleaver",
+    "muscular",
+    "female",
+    "orc",
+    "retro_8bit",
+    "running",
+    "gold",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_8bit sprite of orc (orc female)"
+}

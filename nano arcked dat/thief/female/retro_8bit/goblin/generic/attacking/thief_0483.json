@@ -1,0 +1,29 @@
+{
+  "file": "thief_0483.png",
+  "type": "thief",
+  "gender": "female",
+  "race": "goblin",
+  "style": "retro_8bit",
+  "source": "generic",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "pouch",
+    "lockpick",
+    "light_boots",
+    "shadows",
+    "sneaky",
+    "female",
+    "goblin",
+    "retro_8bit",
+    "attacking",
+    "silver",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_8bit sprite of thief (goblin female)"
+}

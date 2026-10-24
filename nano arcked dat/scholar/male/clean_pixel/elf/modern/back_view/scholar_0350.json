@@ -1,0 +1,28 @@
+{
+  "file": "scholar_0350.png",
+  "type": "scholar",
+  "gender": "male",
+  "race": "elf",
+  "style": "clean_pixel",
+  "source": "modern",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "spectacles",
+    "thick_book",
+    "scrolls",
+    "ink_quill",
+    "robe",
+    "male",
+    "elf",
+    "clean_pixel",
+    "back_view",
+    "bright",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural clean_pixel sprite of scholar (elf male)"
+}

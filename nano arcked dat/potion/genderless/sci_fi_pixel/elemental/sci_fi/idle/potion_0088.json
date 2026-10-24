@@ -1,0 +1,28 @@
+{
+  "file": "potion_0088.png",
+  "type": "potion",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "sci_fi_pixel",
+  "source": "sci_fi",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "glass_flask",
+    "cork_stopper",
+    "glowing_liquid",
+    "elixir",
+    "consumable",
+    "genderless",
+    "elemental",
+    "sci_fi_pixel",
+    "idle",
+    "black",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural sci_fi_pixel sprite of potion (elemental genderless)"
+}

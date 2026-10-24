@@ -1,0 +1,28 @@
+{
+  "file": "child_0248.png",
+  "type": "child",
+  "gender": "female",
+  "race": "human",
+  "style": "arcade_pixel",
+  "source": "cartoon_western",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "small_stature",
+    "toy",
+    "casual_clothing",
+    "playful",
+    "young",
+    "female",
+    "human",
+    "arcade_pixel",
+    "flying",
+    "pink",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural arcade_pixel sprite of child (human female)"
+}

@@ -1,0 +1,29 @@
+{
+  "file": "bow_0172.png",
+  "type": "bow",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "retro_16bit",
+  "source": "sci_fi",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "yew_wood",
+    "bowstring",
+    "recurve",
+    "hunting",
+    "ranged",
+    "genderless",
+    "elemental",
+    "retro_16bit",
+    "idle",
+    "black",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural retro_16bit sprite of bow (elemental genderless)"
+}

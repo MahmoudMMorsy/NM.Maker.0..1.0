@@ -1,0 +1,28 @@
+{
+  "file": "elf_0412.png",
+  "type": "elf",
+  "gender": "male",
+  "race": "high_elf",
+  "style": "fantasy_pixel",
+  "source": "medieval",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "pointed_ears",
+    "graceful",
+    "bow",
+    "silver_hair",
+    "nature",
+    "male",
+    "high_elf",
+    "fantasy_pixel",
+    "running",
+    "gold",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural fantasy_pixel sprite of elf (high_elf male)"
+}

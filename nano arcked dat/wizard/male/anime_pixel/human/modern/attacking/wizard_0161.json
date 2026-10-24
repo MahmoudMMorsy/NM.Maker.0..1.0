@@ -1,0 +1,27 @@
+{
+  "file": "wizard_0161.png",
+  "type": "wizard",
+  "gender": "male",
+  "race": "human",
+  "style": "anime_pixel",
+  "source": "modern",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "pointed_hat",
+    "long_white_beard",
+    "orb_staff",
+    "star_robe",
+    "spells",
+    "male",
+    "human",
+    "anime_pixel",
+    "attacking",
+    "silver"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural anime_pixel sprite of wizard (human male)"
+}

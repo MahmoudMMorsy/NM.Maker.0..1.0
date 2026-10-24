@@ -1,0 +1,29 @@
+{
+  "file": "hunter_0390.png",
+  "type": "hunter",
+  "gender": "male",
+  "race": "human",
+  "style": "detailed_pixel",
+  "source": "historical",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "crossbow",
+    "trap",
+    "fur_coat",
+    "tracking",
+    "pet_wolf",
+    "male",
+    "human",
+    "detailed_pixel",
+    "side_view",
+    "multicolor",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural detailed_pixel sprite of hunter (human male)"
+}

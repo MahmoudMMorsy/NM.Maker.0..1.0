@@ -1,0 +1,29 @@
+{
+  "file": "helmet_0357.png",
+  "type": "helmet",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "chibi",
+  "source": "generic",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "visor",
+    "plume",
+    "headgear",
+    "steel",
+    "guard",
+    "genderless",
+    "elemental",
+    "chibi",
+    "attacking",
+    "silver",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural chibi sprite of helmet (elemental genderless)"
+}

@@ -1,0 +1,27 @@
+{
+  "file": "viking_0018.png",
+  "type": "viking",
+  "gender": "female",
+  "race": "human",
+  "style": "anime_pixel",
+  "source": "movie",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "horned_helm",
+    "bearded",
+    "battle_axe",
+    "round_shield",
+    "fur",
+    "female",
+    "human",
+    "anime_pixel",
+    "idle",
+    "black"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural anime_pixel sprite of viking (human female)"
+}

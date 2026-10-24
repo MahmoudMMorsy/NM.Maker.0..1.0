@@ -1,0 +1,28 @@
+{
+  "file": "king_0150.png",
+  "type": "king",
+  "gender": "male",
+  "race": "human",
+  "style": "cartoon",
+  "source": "dark_fantasy",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "golden_crown",
+    "scepter",
+    "royal_mantle",
+    "throne",
+    "bearded",
+    "male",
+    "human",
+    "cartoon",
+    "flying",
+    "pink",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural cartoon sprite of king (human male)"
+}

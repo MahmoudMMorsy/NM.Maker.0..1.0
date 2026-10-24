@@ -1,0 +1,29 @@
+{
+  "file": "undead_0310.png",
+  "type": "undead",
+  "gender": "non_human",
+  "race": "undead",
+  "style": "horror_pixel",
+  "source": "anime_series",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "decayed",
+    "glowing_eyes",
+    "tattered",
+    "dark_aura",
+    "cursed",
+    "non_human",
+    "undead",
+    "horror_pixel",
+    "portrait",
+    "blue",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural horror_pixel sprite of undead (undead non_human)"
+}

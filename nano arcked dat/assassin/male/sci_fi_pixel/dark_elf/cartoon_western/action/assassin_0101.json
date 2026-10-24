@@ -1,0 +1,28 @@
+{
+  "file": "assassin_0101.png",
+  "type": "assassin",
+  "gender": "male",
+  "race": "dark_elf",
+  "style": "sci_fi_pixel",
+  "source": "cartoon_western",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "dual_wield",
+    "blades",
+    "shadow",
+    "poison_vial",
+    "hooded",
+    "male",
+    "dark_elf",
+    "sci_fi_pixel",
+    "action",
+    "green",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural sci_fi_pixel sprite of assassin (dark_elf male)"
+}

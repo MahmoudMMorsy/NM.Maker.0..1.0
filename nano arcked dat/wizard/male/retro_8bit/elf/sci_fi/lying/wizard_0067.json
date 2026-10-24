@@ -1,0 +1,28 @@
+{
+  "file": "wizard_0067.png",
+  "type": "wizard",
+  "gender": "male",
+  "race": "elf",
+  "style": "retro_8bit",
+  "source": "sci_fi",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "pointed_hat",
+    "long_white_beard",
+    "orb_staff",
+    "star_robe",
+    "spells",
+    "male",
+    "elf",
+    "retro_8bit",
+    "lying",
+    "brown",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural retro_8bit sprite of wizard (elf male)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "ninja_0110.png",
+  "type": "ninja",
+  "gender": "female",
+  "race": "human",
+  "style": "chibi",
+  "source": "cyberpunk",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "shuriken",
+    "ninjato",
+    "black_garb",
+    "smokebomb",
+    "mask",
+    "female",
+    "human",
+    "chibi",
+    "side_view",
+    "multicolor",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural chibi sprite of ninja (human female)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "troll_0322.png",
+  "type": "troll",
+  "gender": "female",
+  "race": "troll",
+  "style": "sci_fi_pixel",
+  "source": "horror",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "regenerating",
+    "club",
+    "warty",
+    "tall",
+    "lanky",
+    "female",
+    "troll",
+    "sci_fi_pixel",
+    "back_view",
+    "bright",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural sci_fi_pixel sprite of troll (troll female)"
+}

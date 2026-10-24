@@ -1,0 +1,28 @@
+{
+  "file": "food_0093.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "human",
+  "style": "retro_8bit",
+  "source": "mythology_norse",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "roasted_meat",
+    "bread_loaf",
+    "cheese_wheel",
+    "feast",
+    "delicious",
+    "genderless",
+    "human",
+    "retro_8bit",
+    "sitting",
+    "orange",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_8bit sprite of food (human genderless)"
+}

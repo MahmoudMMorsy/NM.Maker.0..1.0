@@ -1,0 +1,28 @@
+{
+  "file": "monster_0145.png",
+  "type": "monster",
+  "gender": "non_human",
+  "race": "hybrid",
+  "style": "retro_8bit",
+  "source": "comic",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "frightening",
+    "spikes",
+    "acid",
+    "grotesque",
+    "wild",
+    "non_human",
+    "hybrid",
+    "retro_8bit",
+    "walking",
+    "white",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural retro_8bit sprite of monster (hybrid non_human)"
+}

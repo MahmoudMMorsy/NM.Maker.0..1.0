@@ -1,0 +1,29 @@
+{
+  "file": "alien_0520.png",
+  "type": "alien",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "detailed_pixel",
+  "source": "anime_series",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "tentacles",
+    "multiple_eyes",
+    "bioluminescence",
+    "exoskeleton",
+    "space",
+    "genderless",
+    "alien",
+    "detailed_pixel",
+    "portrait",
+    "blue",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural detailed_pixel sprite of alien (alien genderless)"
+}

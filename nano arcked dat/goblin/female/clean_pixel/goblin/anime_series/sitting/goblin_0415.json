@@ -1,0 +1,27 @@
+{
+  "file": "goblin_0415.png",
+  "type": "goblin",
+  "gender": "female",
+  "race": "goblin",
+  "style": "clean_pixel",
+  "source": "anime_series",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "big_ears",
+    "pointed_nose",
+    "dagger",
+    "cunning",
+    "short",
+    "female",
+    "goblin",
+    "clean_pixel",
+    "sitting",
+    "orange"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural clean_pixel sprite of goblin (goblin female)"
+}

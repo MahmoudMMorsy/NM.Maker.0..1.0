@@ -1,0 +1,28 @@
+{
+  "file": "animal_0400.png",
+  "type": "animal",
+  "gender": "non_human",
+  "race": "animal_like",
+  "style": "sci_fi_pixel",
+  "source": "game_original",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "natural",
+    "tail",
+    "whiskers",
+    "paws",
+    "wildlife",
+    "non_human",
+    "animal_like",
+    "sci_fi_pixel",
+    "casting",
+    "purple",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural sci_fi_pixel sprite of animal (animal_like non_human)"
+}

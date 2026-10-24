@@ -1,0 +1,27 @@
+{
+  "file": "paladin_0291.png",
+  "type": "paladin",
+  "gender": "female",
+  "race": "high_elf",
+  "style": "anime_pixel",
+  "source": "movie",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "golden_armor",
+    "hammer",
+    "holy_aura",
+    "banner",
+    "shield",
+    "female",
+    "high_elf",
+    "anime_pixel",
+    "lying",
+    "brown"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural anime_pixel sprite of paladin (high_elf female)"
+}

@@ -1,0 +1,27 @@
+{
+  "file": "warrior_0283.png",
+  "type": "warrior",
+  "gender": "female",
+  "race": "dwarf",
+  "style": "sci_fi_pixel",
+  "source": "mythology_egypt",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "armor",
+    "sword",
+    "shield",
+    "helmet",
+    "muscular",
+    "female",
+    "dwarf",
+    "sci_fi_pixel",
+    "action",
+    "green"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural sci_fi_pixel sprite of warrior (dwarf female)"
+}

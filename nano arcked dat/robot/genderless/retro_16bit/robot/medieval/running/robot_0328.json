@@ -1,0 +1,28 @@
+{
+  "file": "robot_0328.png",
+  "type": "robot",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "retro_16bit",
+  "source": "medieval",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "metallic",
+    "circuits",
+    "led_eyes",
+    "laser",
+    "mechanical",
+    "genderless",
+    "robot",
+    "retro_16bit",
+    "running",
+    "gold",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural retro_16bit sprite of robot (robot genderless)"
+}

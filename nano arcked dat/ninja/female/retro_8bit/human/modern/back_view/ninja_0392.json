@@ -1,0 +1,28 @@
+{
+  "file": "ninja_0392.png",
+  "type": "ninja",
+  "gender": "female",
+  "race": "human",
+  "style": "retro_8bit",
+  "source": "modern",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "shuriken",
+    "ninjato",
+    "black_garb",
+    "smokebomb",
+    "mask",
+    "female",
+    "human",
+    "retro_8bit",
+    "back_view",
+    "bright",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural retro_8bit sprite of ninja (human female)"
+}

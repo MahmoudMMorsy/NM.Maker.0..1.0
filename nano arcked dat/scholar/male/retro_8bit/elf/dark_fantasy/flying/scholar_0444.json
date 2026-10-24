@@ -1,0 +1,27 @@
+{
+  "file": "scholar_0444.png",
+  "type": "scholar",
+  "gender": "male",
+  "race": "elf",
+  "style": "retro_8bit",
+  "source": "dark_fantasy",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "spectacles",
+    "thick_book",
+    "scrolls",
+    "ink_quill",
+    "robe",
+    "male",
+    "elf",
+    "retro_8bit",
+    "flying",
+    "pink"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_8bit sprite of scholar (elf male)"
+}

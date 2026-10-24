@@ -1,0 +1,27 @@
+{
+  "file": "mage_0003.png",
+  "type": "mage",
+  "gender": "male",
+  "race": "dark_elf",
+  "style": "retro_16bit",
+  "source": "dark_fantasy",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "robe",
+    "staff",
+    "magic_circle",
+    "glowing_eyes",
+    "spells",
+    "male",
+    "dark_elf",
+    "retro_16bit",
+    "action",
+    "green"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural retro_16bit sprite of mage (dark_elf male)"
+}

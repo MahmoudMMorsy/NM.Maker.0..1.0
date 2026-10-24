@@ -1,0 +1,28 @@
+{
+  "file": "child_0436.png",
+  "type": "child",
+  "gender": "male",
+  "race": "elf",
+  "style": "cartoon",
+  "source": "anime_series",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "small_stature",
+    "toy",
+    "casual_clothing",
+    "playful",
+    "young",
+    "male",
+    "elf",
+    "cartoon",
+    "portrait",
+    "blue",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural cartoon sprite of child (elf male)"
+}

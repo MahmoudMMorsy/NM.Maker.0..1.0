@@ -1,0 +1,28 @@
+{
+  "file": "chest_0277.png",
+  "type": "chest",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "realistic_pixel",
+  "source": "sci_fi",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "wooden_planks",
+    "iron_bands",
+    "padlock",
+    "treasure",
+    "container",
+    "genderless",
+    "elemental",
+    "realistic_pixel",
+    "lying",
+    "brown",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural realistic_pixel sprite of chest (elemental genderless)"
+}

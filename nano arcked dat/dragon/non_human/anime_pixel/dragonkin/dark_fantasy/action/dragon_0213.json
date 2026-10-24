@@ -1,0 +1,28 @@
+{
+  "file": "dragon_0213.png",
+  "type": "dragon",
+  "gender": "non_human",
+  "race": "dragonkin",
+  "style": "anime_pixel",
+  "source": "dark_fantasy",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "wings",
+    "scales",
+    "fire_breath",
+    "horns",
+    "tail",
+    "giant",
+    "non_human",
+    "dragonkin",
+    "anime_pixel",
+    "action",
+    "green"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural anime_pixel sprite of dragon (dragonkin non_human)"
+}

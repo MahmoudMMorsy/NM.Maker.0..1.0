@@ -1,0 +1,28 @@
+{
+  "file": "civilian_0241.png",
+  "type": "civilian",
+  "gender": "female",
+  "race": "human",
+  "style": "cartoon",
+  "source": "mythology_egypt",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "simple_clothes",
+    "basket",
+    "townsperson",
+    "friendly",
+    "apron",
+    "female",
+    "human",
+    "cartoon",
+    "action",
+    "green",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural cartoon sprite of civilian (human female)"
+}

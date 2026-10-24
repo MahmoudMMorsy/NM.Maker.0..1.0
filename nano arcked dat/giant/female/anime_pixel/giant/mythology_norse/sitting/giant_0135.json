@@ -1,0 +1,29 @@
+{
+  "file": "giant_0135.png",
+  "type": "giant",
+  "gender": "female",
+  "race": "giant",
+  "style": "anime_pixel",
+  "source": "mythology_norse",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "colossal",
+    "boulder",
+    "pelt",
+    "crushing",
+    "imposing",
+    "female",
+    "giant",
+    "anime_pixel",
+    "sitting",
+    "orange",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural anime_pixel sprite of giant (giant female)"
+}

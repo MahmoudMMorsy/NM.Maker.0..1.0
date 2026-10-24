@@ -1,0 +1,27 @@
+{
+  "file": "animal_0024.png",
+  "type": "animal",
+  "gender": "non_human",
+  "race": "animal_like",
+  "style": "horror_pixel",
+  "source": "dark_fantasy",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "natural",
+    "tail",
+    "whiskers",
+    "paws",
+    "wildlife",
+    "non_human",
+    "animal_like",
+    "horror_pixel",
+    "flying",
+    "pink"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural horror_pixel sprite of animal (animal_like non_human)"
+}

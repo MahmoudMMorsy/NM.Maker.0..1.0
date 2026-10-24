@@ -1,0 +1,29 @@
+{
+  "file": "vehicle_0174.png",
+  "type": "vehicle",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "anime_pixel",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "wheels",
+    "chassis",
+    "engine",
+    "transport",
+    "metal",
+    "genderless",
+    "robot",
+    "anime_pixel",
+    "running",
+    "gold",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural anime_pixel sprite of vehicle (robot genderless)"
+}

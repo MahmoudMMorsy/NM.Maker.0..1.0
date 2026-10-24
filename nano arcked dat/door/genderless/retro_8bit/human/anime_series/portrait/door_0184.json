@@ -1,0 +1,29 @@
+{
+  "file": "door_0184.png",
+  "type": "door",
+  "gender": "genderless",
+  "race": "human",
+  "style": "retro_8bit",
+  "source": "anime_series",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "heavy_oak",
+    "hinges",
+    "handle",
+    "archway",
+    "entrance",
+    "genderless",
+    "human",
+    "retro_8bit",
+    "portrait",
+    "blue",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural retro_8bit sprite of door (human genderless)"
+}

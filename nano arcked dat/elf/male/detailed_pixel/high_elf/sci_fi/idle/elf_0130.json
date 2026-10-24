@@ -1,0 +1,29 @@
+{
+  "file": "elf_0130.png",
+  "type": "elf",
+  "gender": "male",
+  "race": "high_elf",
+  "style": "detailed_pixel",
+  "source": "sci_fi",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "pointed_ears",
+    "graceful",
+    "bow",
+    "silver_hair",
+    "nature",
+    "male",
+    "high_elf",
+    "detailed_pixel",
+    "idle",
+    "black",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural detailed_pixel sprite of elf (high_elf male)"
+}

@@ -1,0 +1,29 @@
+{
+  "file": "thief_0295.png",
+  "type": "thief",
+  "gender": "female",
+  "race": "human",
+  "style": "fantasy_pixel",
+  "source": "game_original",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "pouch",
+    "lockpick",
+    "light_boots",
+    "shadows",
+    "sneaky",
+    "female",
+    "human",
+    "fantasy_pixel",
+    "full_body",
+    "red",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural fantasy_pixel sprite of thief (human female)"
+}

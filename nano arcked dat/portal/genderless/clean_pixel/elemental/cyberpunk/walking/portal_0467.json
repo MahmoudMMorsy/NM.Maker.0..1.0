@@ -1,0 +1,29 @@
+{
+  "file": "portal_0467.png",
+  "type": "portal",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "clean_pixel",
+  "source": "cyberpunk",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "swirling_vortex",
+    "runic_frame",
+    "dimension",
+    "glowing_energy",
+    "teleport",
+    "genderless",
+    "elemental",
+    "clean_pixel",
+    "walking",
+    "white",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural clean_pixel sprite of portal (elemental genderless)"
+}

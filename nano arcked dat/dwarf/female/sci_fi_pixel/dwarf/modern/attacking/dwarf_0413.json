@@ -1,0 +1,27 @@
+{
+  "file": "dwarf_0413.png",
+  "type": "dwarf",
+  "gender": "female",
+  "race": "dwarf",
+  "style": "sci_fi_pixel",
+  "source": "modern",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "braided_beard",
+    "war_hammer",
+    "heavy_shield",
+    "stout",
+    "sturdy",
+    "female",
+    "dwarf",
+    "sci_fi_pixel",
+    "attacking",
+    "silver"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural sci_fi_pixel sprite of dwarf (dwarf female)"
+}

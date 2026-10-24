@@ -1,0 +1,29 @@
+{
+  "file": "rogue_0381.png",
+  "type": "rogue",
+  "gender": "female",
+  "race": "goblin",
+  "style": "realistic_pixel",
+  "source": "dark_fantasy",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "dagger",
+    "stealth",
+    "cloak",
+    "scars",
+    "mask",
+    "female",
+    "goblin",
+    "realistic_pixel",
+    "action",
+    "green",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural realistic_pixel sprite of rogue (goblin female)"
+}

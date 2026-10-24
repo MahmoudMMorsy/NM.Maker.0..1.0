@@ -5,4 +5,5 @@
 #include "gm82_gmk_format.h"
 char *gm82_gmk_resource_manifest_json(const uint8_t *data, size_t size);
 gm82_gmk_probe_result gm82_gmk_probe(const uint8_t *data, size_t size);
+int gm82_decode_dib_bitmap(const uint8_t *data, size_t size, int *width, int *height, uint8_t **rgba_out);
 #endif

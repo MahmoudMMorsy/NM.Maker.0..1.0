@@ -1,0 +1,29 @@
+{
+  "file": "mecha_0329.png",
+  "type": "mecha",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "realistic_pixel",
+  "source": "modern",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "giant_robot",
+    "cockpit",
+    "missile_pods",
+    "thrusters",
+    "armor_plating",
+    "genderless",
+    "robot",
+    "realistic_pixel",
+    "attacking",
+    "silver",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural realistic_pixel sprite of mecha (robot genderless)"
+}

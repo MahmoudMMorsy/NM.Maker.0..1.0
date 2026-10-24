@@ -1,0 +1,29 @@
+{
+  "file": "merchant_0148.png",
+  "type": "merchant",
+  "gender": "male",
+  "race": "human",
+  "style": "anime_pixel",
+  "source": "game_original",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "coin_pouch",
+    "backpack",
+    "trade_goods",
+    "tunic",
+    "hat",
+    "male",
+    "human",
+    "anime_pixel",
+    "casting",
+    "purple",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural anime_pixel sprite of merchant (human male)"
+}

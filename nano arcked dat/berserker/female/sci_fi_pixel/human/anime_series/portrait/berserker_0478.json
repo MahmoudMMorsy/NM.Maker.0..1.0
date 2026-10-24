@@ -1,0 +1,28 @@
+{
+  "file": "berserker_0478.png",
+  "type": "berserker",
+  "gender": "female",
+  "race": "human",
+  "style": "sci_fi_pixel",
+  "source": "anime_series",
+  "pose": "portrait",
+  "colors": [
+    "blue",
+    "white"
+  ],
+  "tags": [
+    "great_axe",
+    "warpaint",
+    "fur_trim",
+    "muscular",
+    "rage",
+    "female",
+    "human",
+    "sci_fi_pixel",
+    "portrait",
+    "blue",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural sci_fi_pixel sprite of berserker (human female)"
+}

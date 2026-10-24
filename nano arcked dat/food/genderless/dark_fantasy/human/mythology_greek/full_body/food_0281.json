@@ -1,0 +1,28 @@
+{
+  "file": "food_0281.png",
+  "type": "food",
+  "gender": "genderless",
+  "race": "human",
+  "style": "dark_fantasy",
+  "source": "mythology_greek",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "roasted_meat",
+    "bread_loaf",
+    "cheese_wheel",
+    "feast",
+    "delicious",
+    "genderless",
+    "human",
+    "dark_fantasy",
+    "full_body",
+    "red",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural dark_fantasy sprite of food (human genderless)"
+}

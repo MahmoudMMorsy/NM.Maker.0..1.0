@@ -1,0 +1,29 @@
+{
+  "file": "angel_0309.png",
+  "type": "angel",
+  "gender": "female",
+  "race": "angel",
+  "style": "sci_fi_pixel",
+  "source": "post_apocalyptic",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "feathered_wings",
+    "halo",
+    "golden_light",
+    "white_robe",
+    "divine",
+    "female",
+    "angel",
+    "sci_fi_pixel",
+    "full_body",
+    "red",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural sci_fi_pixel sprite of angel (angel female)"
+}

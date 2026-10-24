@@ -1,0 +1,27 @@
+{
+  "file": "monk_0006.png",
+  "type": "monk",
+  "gender": "female",
+  "race": "beastkin",
+  "style": "chibi",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "wraps",
+    "martial_arts",
+    "beads",
+    "tattooed",
+    "focused",
+    "female",
+    "beastkin",
+    "chibi",
+    "running",
+    "gold"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural chibi sprite of monk (beastkin female)"
+}

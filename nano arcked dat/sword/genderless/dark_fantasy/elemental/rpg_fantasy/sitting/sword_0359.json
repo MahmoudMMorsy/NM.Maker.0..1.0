@@ -1,0 +1,28 @@
+{
+  "file": "sword_0359.png",
+  "type": "sword",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "dark_fantasy",
+  "source": "rpg_fantasy",
+  "pose": "sitting",
+  "colors": [
+    "orange",
+    "multicolor"
+  ],
+  "tags": [
+    "double_edged",
+    "crossguard",
+    "hilt",
+    "pommel",
+    "steel",
+    "genderless",
+    "elemental",
+    "dark_fantasy",
+    "sitting",
+    "orange",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural dark_fantasy sprite of sword (elemental genderless)"
+}

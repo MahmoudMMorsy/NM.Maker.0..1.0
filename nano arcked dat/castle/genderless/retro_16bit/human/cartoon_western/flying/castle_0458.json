@@ -1,0 +1,28 @@
+{
+  "file": "castle_0458.png",
+  "type": "castle",
+  "gender": "genderless",
+  "race": "human",
+  "style": "retro_16bit",
+  "source": "cartoon_western",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "battlements",
+    "towers",
+    "drawbridge",
+    "stone_walls",
+    "fortress",
+    "genderless",
+    "human",
+    "retro_16bit",
+    "flying",
+    "pink",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural retro_16bit sprite of castle (human genderless)"
+}

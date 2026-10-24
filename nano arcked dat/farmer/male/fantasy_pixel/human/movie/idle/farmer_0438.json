@@ -1,0 +1,28 @@
+{
+  "file": "farmer_0438.png",
+  "type": "farmer",
+  "gender": "male",
+  "race": "human",
+  "style": "fantasy_pixel",
+  "source": "movie",
+  "pose": "idle",
+  "colors": [
+    "black",
+    "silver"
+  ],
+  "tags": [
+    "pitchfork",
+    "straw_hat",
+    "overalls",
+    "wheat",
+    "rugged",
+    "male",
+    "human",
+    "fantasy_pixel",
+    "idle",
+    "black",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural fantasy_pixel sprite of farmer (human male)"
+}

@@ -1,0 +1,27 @@
+{
+  "file": "alien_0238.png",
+  "type": "alien",
+  "gender": "genderless",
+  "race": "alien",
+  "style": "realistic_pixel",
+  "source": "horror",
+  "pose": "back_view",
+  "colors": [
+    "bright",
+    "green"
+  ],
+  "tags": [
+    "tentacles",
+    "multiple_eyes",
+    "bioluminescence",
+    "exoskeleton",
+    "space",
+    "genderless",
+    "alien",
+    "realistic_pixel",
+    "back_view",
+    "bright"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural realistic_pixel sprite of alien (alien genderless)"
+}

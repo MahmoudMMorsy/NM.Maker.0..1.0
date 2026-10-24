@@ -1,0 +1,28 @@
+{
+  "file": "gladiator_0395.png",
+  "type": "gladiator",
+  "gender": "male",
+  "race": "minotaur",
+  "style": "anime_pixel",
+  "source": "cartoon_western",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "trident",
+    "net",
+    "arena_armor",
+    "scars",
+    "muscular",
+    "male",
+    "minotaur",
+    "anime_pixel",
+    "action",
+    "green",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural anime_pixel sprite of gladiator (minotaur male)"
+}

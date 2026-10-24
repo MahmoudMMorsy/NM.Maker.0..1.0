@@ -1,0 +1,29 @@
+{
+  "file": "pirate_0299.png",
+  "type": "pirate",
+  "gender": "female",
+  "race": "orc",
+  "style": "detailed_pixel",
+  "source": "cyberpunk",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "cutlass",
+    "eyepatch",
+    "tricorne_hat",
+    "flintlock",
+    "boots",
+    "female",
+    "orc",
+    "detailed_pixel",
+    "walking",
+    "white",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural detailed_pixel sprite of pirate (orc female)"
+}

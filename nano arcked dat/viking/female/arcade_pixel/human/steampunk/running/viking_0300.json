@@ -1,0 +1,27 @@
+{
+  "file": "viking_0300.png",
+  "type": "viking",
+  "gender": "female",
+  "race": "human",
+  "style": "arcade_pixel",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "horned_helm",
+    "bearded",
+    "battle_axe",
+    "round_shield",
+    "fur",
+    "female",
+    "human",
+    "arcade_pixel",
+    "running",
+    "gold"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural arcade_pixel sprite of viking (human female)"
+}

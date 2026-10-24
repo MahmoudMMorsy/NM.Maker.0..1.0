@@ -1,0 +1,28 @@
+{
+  "file": "cyborg_0048.png",
+  "type": "cyborg",
+  "gender": "female",
+  "race": "cyborg",
+  "style": "fantasy_pixel",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "cybernetic_arm",
+    "ocular_implants",
+    "wires",
+    "plating",
+    "tech",
+    "female",
+    "cyborg",
+    "fantasy_pixel",
+    "running",
+    "gold",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural fantasy_pixel sprite of cyborg (cyborg female)"
+}

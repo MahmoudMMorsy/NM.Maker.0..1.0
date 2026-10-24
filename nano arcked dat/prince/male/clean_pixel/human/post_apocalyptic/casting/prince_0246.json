@@ -1,0 +1,28 @@
+{
+  "file": "prince_0246.png",
+  "type": "prince",
+  "gender": "male",
+  "race": "human",
+  "style": "clean_pixel",
+  "source": "post_apocalyptic",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "ornate_sword",
+    "circlet",
+    "cape",
+    "young",
+    "noble",
+    "male",
+    "human",
+    "clean_pixel",
+    "casting",
+    "purple",
+    "glowing_effects"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural clean_pixel sprite of prince (human male)"
+}

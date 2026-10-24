@@ -1,0 +1,28 @@
+{
+  "file": "rogue_0005.png",
+  "type": "rogue",
+  "gender": "male",
+  "race": "dark_elf",
+  "style": "anime_pixel",
+  "source": "cyberpunk",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "dagger",
+    "stealth",
+    "cloak",
+    "scars",
+    "mask",
+    "male",
+    "dark_elf",
+    "anime_pixel",
+    "walking",
+    "white",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural anime_pixel sprite of rogue (dark_elf male)"
+}

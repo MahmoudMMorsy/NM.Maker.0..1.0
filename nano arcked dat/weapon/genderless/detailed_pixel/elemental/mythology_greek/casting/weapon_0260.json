@@ -1,0 +1,28 @@
+{
+  "file": "weapon_0260.png",
+  "type": "weapon",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "detailed_pixel",
+  "source": "mythology_greek",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "blade",
+    "sharp",
+    "forged",
+    "deadly",
+    "equipment",
+    "genderless",
+    "elemental",
+    "detailed_pixel",
+    "casting",
+    "purple",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural detailed_pixel sprite of weapon (elemental genderless)"
+}

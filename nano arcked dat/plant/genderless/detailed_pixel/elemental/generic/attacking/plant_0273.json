@@ -1,0 +1,28 @@
+{
+  "file": "plant_0273.png",
+  "type": "plant",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "detailed_pixel",
+  "source": "generic",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "vines",
+    "petals",
+    "stems",
+    "blooms",
+    "flora",
+    "genderless",
+    "elemental",
+    "detailed_pixel",
+    "attacking",
+    "silver",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural detailed_pixel sprite of plant (elemental genderless)"
+}

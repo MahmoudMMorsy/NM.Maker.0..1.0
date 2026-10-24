@@ -1,0 +1,28 @@
+{
+  "file": "plant_0461.png",
+  "type": "plant",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "chibi",
+  "source": "oc_original",
+  "pose": "front_view",
+  "colors": [
+    "dark",
+    "blue"
+  ],
+  "tags": [
+    "vines",
+    "petals",
+    "stems",
+    "blooms",
+    "flora",
+    "genderless",
+    "elemental",
+    "chibi",
+    "front_view",
+    "dark",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural chibi sprite of plant (elemental genderless)"
+}

@@ -9,6 +9,9 @@ interface ExtensionsEditorProps {
 }
 
 const ExtensionsEditor: React.FC<ExtensionsEditorProps> = ({ enabledExtensions, onToggle }) => {
+    // ⚡ Bolt: Pre-build memoized O(1) Set lookup for enabled extensions to avoid linear array scans inside GM82_EXTENSIONS map loop on re-renders.
+    const enabledSet = React.useMemo(() => new Set(enabledExtensions), [enabledExtensions]);
+
     return (
         <div className="h-full bg-gray-950 p-4 text-white overflow-auto">
             <div className="mb-6 border-b border-gray-800 pb-4">
@@ -23,7 +26,7 @@ const ExtensionsEditor: React.FC<ExtensionsEditorProps> = ({ enabledExtensions, 
 
             <div className="grid grid-cols-1 gap-4">
                 {GM82_EXTENSIONS.map((ext) => {
-                    const isEnabled = enabledExtensions.includes(ext.id);
+                    const isEnabled = enabledSet.has(ext.id);
                     return (
                         <div
                             key={ext.id}

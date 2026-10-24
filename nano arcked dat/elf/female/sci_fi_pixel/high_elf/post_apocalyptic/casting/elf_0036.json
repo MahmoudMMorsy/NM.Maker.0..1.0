@@ -1,0 +1,29 @@
+{
+  "file": "elf_0036.png",
+  "type": "elf",
+  "gender": "female",
+  "race": "high_elf",
+  "style": "sci_fi_pixel",
+  "source": "post_apocalyptic",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "pointed_ears",
+    "graceful",
+    "bow",
+    "silver_hair",
+    "nature",
+    "female",
+    "high_elf",
+    "sci_fi_pixel",
+    "casting",
+    "purple",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural sci_fi_pixel sprite of elf (high_elf female)"
+}

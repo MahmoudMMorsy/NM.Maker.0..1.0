@@ -1,0 +1,29 @@
+{
+  "file": "pirate_0017.png",
+  "type": "pirate",
+  "gender": "male",
+  "race": "human",
+  "style": "realistic_pixel",
+  "source": "cartoon_western",
+  "pose": "action",
+  "colors": [
+    "green",
+    "gold"
+  ],
+  "tags": [
+    "cutlass",
+    "eyepatch",
+    "tricorne_hat",
+    "flintlock",
+    "boots",
+    "male",
+    "human",
+    "realistic_pixel",
+    "action",
+    "green",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural realistic_pixel sprite of pirate (human male)"
+}

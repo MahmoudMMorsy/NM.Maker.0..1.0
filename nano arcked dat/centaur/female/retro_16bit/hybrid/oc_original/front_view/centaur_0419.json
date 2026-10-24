@@ -1,0 +1,29 @@
+{
+  "file": "centaur_0419.png",
+  "type": "centaur",
+  "gender": "female",
+  "race": "hybrid",
+  "style": "retro_16bit",
+  "source": "oc_original",
+  "pose": "front_view",
+  "colors": [
+    "dark",
+    "blue"
+  ],
+  "tags": [
+    "horse_body",
+    "spear",
+    "hooves",
+    "wild",
+    "archer",
+    "female",
+    "hybrid",
+    "retro_16bit",
+    "front_view",
+    "dark",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural retro_16bit sprite of centaur (hybrid female)"
+}

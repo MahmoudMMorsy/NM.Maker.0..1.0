@@ -1,0 +1,28 @@
+{
+  "file": "item_0094.png",
+  "type": "item",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "retro_16bit",
+  "source": "mythology_egypt",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "artifact",
+    "quest_object",
+    "mysterious",
+    "valuable",
+    "relic",
+    "genderless",
+    "elemental",
+    "retro_16bit",
+    "flying",
+    "pink",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural retro_16bit sprite of item (elemental genderless)"
+}

@@ -1,0 +1,27 @@
+{
+  "file": "orc_0414.png",
+  "type": "orc",
+  "gender": "female",
+  "race": "orc",
+  "style": "horror_pixel",
+  "source": "post_apocalyptic",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "tusks",
+    "green_skin",
+    "spiked_shoulder",
+    "cleaver",
+    "muscular",
+    "female",
+    "orc",
+    "horror_pixel",
+    "casting",
+    "purple"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural horror_pixel sprite of orc (orc female)"
+}

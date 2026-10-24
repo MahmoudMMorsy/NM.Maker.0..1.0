@@ -1,0 +1,29 @@
+{
+  "file": "hunter_0202.png",
+  "type": "hunter",
+  "gender": "male",
+  "race": "human",
+  "style": "cartoon",
+  "source": "medieval",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "crossbow",
+    "trap",
+    "fur_coat",
+    "tracking",
+    "pet_wolf",
+    "male",
+    "human",
+    "cartoon",
+    "running",
+    "gold",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural cartoon sprite of hunter (human male)"
+}

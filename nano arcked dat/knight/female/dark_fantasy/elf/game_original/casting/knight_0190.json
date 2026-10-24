@@ -1,0 +1,29 @@
+{
+  "file": "knight_0190.png",
+  "type": "knight",
+  "gender": "female",
+  "race": "elf",
+  "style": "dark_fantasy",
+  "source": "game_original",
+  "pose": "casting",
+  "colors": [
+    "purple",
+    "brown"
+  ],
+  "tags": [
+    "plate_armor",
+    "sword",
+    "shield",
+    "cape",
+    "heroic",
+    "female",
+    "elf",
+    "dark_fantasy",
+    "casting",
+    "purple",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural dark_fantasy sprite of knight (elf female)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "armor_0355.png",
+  "type": "armor",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "realistic_pixel",
+  "source": "comic",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "steel",
+    "defensive",
+    "cuirass",
+    "engraved",
+    "protection",
+    "genderless",
+    "elemental",
+    "realistic_pixel",
+    "walking",
+    "white",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural realistic_pixel sprite of armor (elemental genderless)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "gunslinger_0491.png",
+  "type": "gunslinger",
+  "gender": "female",
+  "race": "cyborg",
+  "style": "sci_fi_pixel",
+  "source": "mythology_greek",
+  "pose": "full_body",
+  "colors": [
+    "red",
+    "black"
+  ],
+  "tags": [
+    "dual_revolvers",
+    "poncho",
+    "cowboy_hat",
+    "spurs",
+    "holster",
+    "female",
+    "cyborg",
+    "sci_fi_pixel",
+    "full_body",
+    "red",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural sci_fi_pixel sprite of gunslinger (cyborg female)"
+}

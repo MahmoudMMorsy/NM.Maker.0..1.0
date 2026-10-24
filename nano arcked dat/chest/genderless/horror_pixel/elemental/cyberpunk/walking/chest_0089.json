@@ -1,0 +1,27 @@
+{
+  "file": "chest_0089.png",
+  "type": "chest",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "horror_pixel",
+  "source": "cyberpunk",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "wooden_planks",
+    "iron_bands",
+    "padlock",
+    "treasure",
+    "container",
+    "genderless",
+    "elemental",
+    "horror_pixel",
+    "walking",
+    "white"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural horror_pixel sprite of chest (elemental genderless)"
+}

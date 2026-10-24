@@ -1,0 +1,28 @@
+{
+  "file": "building_0083.png",
+  "type": "building",
+  "gender": "genderless",
+  "race": "human",
+  "style": "anime_pixel",
+  "source": "oc_original",
+  "pose": "front_view",
+  "colors": [
+    "dark",
+    "blue"
+  ],
+  "tags": [
+    "roof_tiles",
+    "timber_frame",
+    "windows",
+    "doorway",
+    "house",
+    "genderless",
+    "human",
+    "anime_pixel",
+    "front_view",
+    "dark",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural anime_pixel sprite of building (human genderless)"
+}

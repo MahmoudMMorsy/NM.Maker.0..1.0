@@ -1,0 +1,29 @@
+{
+  "file": "creature_0334.png",
+  "type": "creature",
+  "gender": "non_human",
+  "race": "animal_like",
+  "style": "fantasy_pixel",
+  "source": "comic",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "mysterious",
+    "exotic",
+    "chitin",
+    "wings",
+    "unique",
+    "non_human",
+    "animal_like",
+    "fantasy_pixel",
+    "side_view",
+    "multicolor",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural fantasy_pixel sprite of creature (animal_like non_human)"
+}

@@ -1,0 +1,28 @@
+{
+  "file": "vehicle_0362.png",
+  "type": "vehicle",
+  "gender": "genderless",
+  "race": "robot",
+  "style": "horror_pixel",
+  "source": "cyberpunk",
+  "pose": "side_view",
+  "colors": [
+    "multicolor",
+    "red"
+  ],
+  "tags": [
+    "wheels",
+    "chassis",
+    "engine",
+    "transport",
+    "metal",
+    "genderless",
+    "robot",
+    "horror_pixel",
+    "side_view",
+    "multicolor",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural horror_pixel sprite of vehicle (robot genderless)"
+}

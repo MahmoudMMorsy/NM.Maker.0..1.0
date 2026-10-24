@@ -1,0 +1,27 @@
+{
+  "file": "monster_0333.png",
+  "type": "monster",
+  "gender": "non_human",
+  "race": "hybrid",
+  "style": "dark_fantasy",
+  "source": "movie",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "frightening",
+    "spikes",
+    "acid",
+    "grotesque",
+    "wild",
+    "non_human",
+    "hybrid",
+    "dark_fantasy",
+    "lying",
+    "brown"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural dark_fantasy sprite of monster (hybrid non_human)"
+}

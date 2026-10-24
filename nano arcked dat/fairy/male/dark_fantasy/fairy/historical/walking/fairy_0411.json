@@ -1,0 +1,29 @@
+{
+  "file": "fairy_0411.png",
+  "type": "fairy",
+  "gender": "male",
+  "race": "fairy",
+  "style": "dark_fantasy",
+  "source": "historical",
+  "pose": "walking",
+  "colors": [
+    "white",
+    "purple"
+  ],
+  "tags": [
+    "insect_wings",
+    "sparkles",
+    "tiny",
+    "wand",
+    "nature",
+    "male",
+    "fairy",
+    "dark_fantasy",
+    "walking",
+    "white",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural dark_fantasy sprite of fairy (fairy male)"
+}

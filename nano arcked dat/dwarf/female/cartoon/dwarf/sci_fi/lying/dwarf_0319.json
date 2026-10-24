@@ -1,0 +1,28 @@
+{
+  "file": "dwarf_0319.png",
+  "type": "dwarf",
+  "gender": "female",
+  "race": "dwarf",
+  "style": "cartoon",
+  "source": "sci_fi",
+  "pose": "lying",
+  "colors": [
+    "brown",
+    "bright"
+  ],
+  "tags": [
+    "braided_beard",
+    "war_hammer",
+    "heavy_shield",
+    "stout",
+    "sturdy",
+    "female",
+    "dwarf",
+    "cartoon",
+    "lying",
+    "brown",
+    "glowing_effects"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural cartoon sprite of dwarf (dwarf female)"
+}

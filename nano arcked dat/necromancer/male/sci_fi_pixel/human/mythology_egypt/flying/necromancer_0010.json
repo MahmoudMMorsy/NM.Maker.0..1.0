@@ -1,0 +1,28 @@
+{
+  "file": "necromancer_0010.png",
+  "type": "necromancer",
+  "gender": "male",
+  "race": "human",
+  "style": "sci_fi_pixel",
+  "source": "mythology_egypt",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "skull_staff",
+    "dark_magic",
+    "tattered_robe",
+    "glowing_eyes",
+    "bones",
+    "male",
+    "human",
+    "sci_fi_pixel",
+    "flying",
+    "pink",
+    "high_contrast"
+  ],
+  "resolution": "32x32",
+  "notes": "High quality procedural sci_fi_pixel sprite of necromancer (human male)"
+}

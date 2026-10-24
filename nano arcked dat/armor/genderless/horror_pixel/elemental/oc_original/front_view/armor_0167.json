@@ -1,0 +1,28 @@
+{
+  "file": "armor_0167.png",
+  "type": "armor",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "horror_pixel",
+  "source": "oc_original",
+  "pose": "front_view",
+  "colors": [
+    "dark",
+    "blue"
+  ],
+  "tags": [
+    "steel",
+    "defensive",
+    "cuirass",
+    "engraved",
+    "protection",
+    "genderless",
+    "elemental",
+    "horror_pixel",
+    "front_view",
+    "dark",
+    "glowing_effects"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural horror_pixel sprite of armor (elemental genderless)"
+}

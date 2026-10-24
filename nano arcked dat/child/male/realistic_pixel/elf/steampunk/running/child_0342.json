@@ -1,0 +1,29 @@
+{
+  "file": "child_0342.png",
+  "type": "child",
+  "gender": "male",
+  "race": "elf",
+  "style": "realistic_pixel",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "small_stature",
+    "toy",
+    "casual_clothing",
+    "playful",
+    "young",
+    "male",
+    "elf",
+    "realistic_pixel",
+    "running",
+    "gold",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural realistic_pixel sprite of child (elf male)"
+}

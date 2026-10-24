@@ -1,0 +1,29 @@
+{
+  "file": "chest_0371.png",
+  "type": "chest",
+  "gender": "genderless",
+  "race": "elemental",
+  "style": "cartoon",
+  "source": "modern",
+  "pose": "attacking",
+  "colors": [
+    "silver",
+    "pink"
+  ],
+  "tags": [
+    "wooden_planks",
+    "iron_bands",
+    "padlock",
+    "treasure",
+    "container",
+    "genderless",
+    "elemental",
+    "cartoon",
+    "attacking",
+    "silver",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural cartoon sprite of chest (elemental genderless)"
+}

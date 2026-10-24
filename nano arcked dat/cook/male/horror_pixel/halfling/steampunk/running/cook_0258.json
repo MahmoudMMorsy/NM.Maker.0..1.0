@@ -1,0 +1,29 @@
+{
+  "file": "cook_0258.png",
+  "type": "cook",
+  "gender": "male",
+  "race": "halfling",
+  "style": "horror_pixel",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "chef_hat",
+    "ladle",
+    "frying_pan",
+    "apron",
+    "plump",
+    "male",
+    "halfling",
+    "horror_pixel",
+    "running",
+    "gold",
+    "glowing_effects",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural horror_pixel sprite of cook (halfling male)"
+}

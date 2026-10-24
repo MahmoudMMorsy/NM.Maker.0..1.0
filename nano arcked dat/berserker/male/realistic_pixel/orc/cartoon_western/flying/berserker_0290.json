@@ -1,0 +1,27 @@
+{
+  "file": "berserker_0290.png",
+  "type": "berserker",
+  "gender": "male",
+  "race": "orc",
+  "style": "realistic_pixel",
+  "source": "cartoon_western",
+  "pose": "flying",
+  "colors": [
+    "pink",
+    "dark"
+  ],
+  "tags": [
+    "great_axe",
+    "warpaint",
+    "fur_trim",
+    "muscular",
+    "rage",
+    "male",
+    "orc",
+    "realistic_pixel",
+    "flying",
+    "pink"
+  ],
+  "resolution": "64x64",
+  "notes": "High quality procedural realistic_pixel sprite of berserker (orc male)"
+}

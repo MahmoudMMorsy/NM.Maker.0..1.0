@@ -1,0 +1,27 @@
+{
+  "file": "gladiator_0489.png",
+  "type": "gladiator",
+  "gender": "female",
+  "race": "orc",
+  "style": "dark_fantasy",
+  "source": "steampunk",
+  "pose": "front_view",
+  "colors": [
+    "dark",
+    "blue"
+  ],
+  "tags": [
+    "trident",
+    "net",
+    "arena_armor",
+    "scars",
+    "muscular",
+    "female",
+    "orc",
+    "dark_fantasy",
+    "front_view",
+    "dark"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural dark_fantasy sprite of gladiator (orc female)"
+}

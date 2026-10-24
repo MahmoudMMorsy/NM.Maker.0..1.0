@@ -1,0 +1,28 @@
+{
+  "file": "undead_0216.png",
+  "type": "undead",
+  "gender": "genderless",
+  "race": "undead",
+  "style": "dark_fantasy",
+  "source": "steampunk",
+  "pose": "running",
+  "colors": [
+    "gold",
+    "orange"
+  ],
+  "tags": [
+    "decayed",
+    "glowing_eyes",
+    "tattered",
+    "dark_aura",
+    "cursed",
+    "genderless",
+    "undead",
+    "dark_fantasy",
+    "running",
+    "gold",
+    "high_contrast"
+  ],
+  "resolution": "128x128",
+  "notes": "High quality procedural dark_fantasy sprite of undead (undead genderless)"
+}
