@@ -28,6 +28,11 @@ void test_gmk_probe_suite(void) {
     assert(res.format_kind == GM82_GMK_FORMAT_GM7_GM8);
     assert(res.magic == 1234321);
     assert(res.version == 800);
+
+    /* Test invalid probing boundary */
+    gm82_gmk_probe_result inv = gm82_gmk_probe(dummy, 4);
+    assert(inv.status == GM82_GMK_PARSE_INVALID);
+
     printf("[PASS] GMK Probe Suite\n");
 }
 
@@ -807,6 +812,11 @@ static void sweep_walk_dir(const char *dirpath) {
 
 void test_all_fnames_constants_and_variables_suite(void) {
     FILE *f = fopen("game maker/portable/fnames", "r");
+    if (!f) f = fopen("../../../../../../game maker/portable/fnames", "r");
+    if (!f) f = fopen("../../../../../game maker/portable/fnames", "r");
+    if (!f) f = fopen("../../../../game maker/portable/fnames", "r");
+    if (!f) f = fopen("../../../game maker/portable/fnames", "r");
+    if (!f) f = fopen("../../game maker/portable/fnames", "r");
     assert(f != NULL);
 
     char line[512];
@@ -859,6 +869,11 @@ void test_full_28_packages_and_all_gml_sweep_suite(void) {
     g_sweep_total_gml = 0;
     g_sweep_passed_gml = 0;
     sweep_walk_dir("source");
+    sweep_walk_dir("../../../../../../source");
+    sweep_walk_dir("../../../../../source");
+    sweep_walk_dir("../../../../source");
+    sweep_walk_dir("../../../source");
+    sweep_walk_dir("../../source");
     sweep_walk_dir("/tmp/gm82_extracted");
 
     assert(g_sweep_total_gml >= 500);
