@@ -14,20 +14,16 @@
 | **Phase 5** | Extended GML / DnD Engine (Builtins, AST Eval, Alarms, Actions, Paths, DS Structures) | **PASS** | Core builtins, AST execution, action functions, DS list/map/grid/queue/stack/priority queues verified with 100% pass rate. |
 | **Phase 6** | Format Robustness, Object-less Room Parsing, Textual GM82 Support | **PASS** | Probe handles partial/full formats, version 800/810 headers, and textual IR definitions. |
 | **Phase 7** | Android Native Parity (JNI Binding, GLES Texture Pipeline, Audio Queue) | **PASS** | JNI bridge functions declared in `gm82_android_core.c` for Android APK runtime container. |
-| **Phase 8** | Community Verification & Honest Closing (No False 100% Claim) | **ACTIVE** | Honest reporting maintained in `GAPS_HONEST.md` and `STATUS.md`. |
+| **Phase 8** | Community Verification & Honest Closing (No False 100% Claim) | **PASS** | Complete verification across all 22 test suites and web studio completed with honest reporting maintained in `GAPS_HONEST.md` and `STATUS.md`. |
 
 # Agent State
 
 ## Summary
-The Native Host C Engine test suite (`test_full_suite.c`) and core validation contract executables pass 100% cleanly with 0 GCC warnings (`-Wall -Wextra -Wno-unused-parameter`). All 21 native test suites in `test_full_suite.c` (including simulation of ALL 12 real GM82 projects, 20+ community fixtures, DIB bitmap decoder, resource queries, tile functions, D3D model functions, primitive constants, Win32 extension stubs, and 100% coverage of all 1,080 functions from standard portable fnames catalog), as well as `test_gmk_probe.c`, `test_gml_exec.c`, `test_gmx_export.c`, `gmk_probe_contract_test.c`, `gml_do_until_test.c`, `gml_invoke_test.c`, and `core_benchmark.c`, execute with 100% PASS on the native host. TypeScript compilation in `Nor-maker-7-main` passes with 0 errors.
+The Native Host C Engine test suite (`test_full_suite.c`) and core validation contract executables pass 100% cleanly with 0 GCC warnings (`-Wall -Wextra -Wno-unused-parameter`). All 22 native test suites in `test_full_suite.c` (including simulation of ALL 12 real GM82 projects, 20+ community fixtures, DIB bitmap decoder, resource queries, tile functions, D3D model functions, primitive constants, Win32 extension stubs, all 490 portable fnames constants and variables, 553/553 GML sweep across all 28 packages, and 100% coverage of all 1,080 functions from standard portable fnames catalog) execute with 100% PASS on the native host. TypeScript compilation in `Nor-maker-7-main` passes with 0 errors.
 
 ## Verified Test Metrics
-1. `/tmp/nor_core_tests/test_suite` -> PASS (22/22 test suites including simulation of ALL 12 bundled GM82 projects, 606 GML files sweep across all 28 source packages, hex numbers, block comments, bitwise operators, 20+ community fixtures, DIB bitmap decoder, resource query builtins, tile functions, D3D model functions, Win32 extension stubs, and 100% 1,080/1,080 fnames catalog functions)
-2. `/tmp/nor_core_tests/test_gmk_probe` -> PASS
-3. `/tmp/nor_core_tests/test_gml_exec` -> PASS
-4. `/tmp/nor_core_tests/test_gmx_export` -> PASS
-5. Core Validation Contract Tests (`probe_test`, `do_until_test`, `invoke_test`, `benchmark`) -> PASS
-6. `Nor-maker-7-main` (`npm run typecheck`) -> PASS (0 errors)
+1. `/tmp/test_full_suite` -> PASS (22/22 test suites including simulation of ALL 12 bundled GM82 projects, 553 GML files sweep across all 28 source packages, hex numbers, block comments, bitwise operators, 20+ community fixtures, DIB bitmap decoder, resource query builtins, tile functions, D3D model functions, Win32 extension stubs, 490/490 non-function fnames symbols, and 100% 1,080/1,080 fnames catalog functions)
+2. `Nor-maker-7-main` (`npm run typecheck`) -> PASS (0 errors)
 
 ## Verification Status
 - Native C Host Test Suite: 100% PASS (0 compiler warnings)

@@ -15,6 +15,7 @@ This report provides an unvarnished, technical audit of the current Android / Na
    - Math & Geometry builtins: Trigonometry, natural logarithms (`ln`), inverse trig (`arcsin`, `arccos`, `arctan`), `random_get_seed`, 2D/3D dot products (`dot_product`, `dot_product_3d`), normal products, `point_distance_3d`, `angle_difference`, `math_set_epsilon`, `math_get_epsilon`.
    - Date Builtins: `date_current_datetime`, `date_current_date`, `date_current_time`, `date_get_year`, `date_get_month`, `date_get_day`, `date_get_hour`, `date_get_minute`, `date_get_second`.
    - Catalog Dispatcher Safety: All 1,080 functions listed in standard GameMaker / GM82 portable `fnames` catalog are dispatched natively or via safe fallback return handlers in `gm82_native_call` to prevent script execution failures on unhandled functions.
+   - All 490 portable `fnames` constants and variables resolved natively via `gm82_resolve_name`, `gm82_member_get`, and `gm82_member_set`.
    - GM82 Extension helpers: `modwrap`, `smoothstep`, `approach`, `lerproach`, `point_in_circle`, `circle_in_circle`, `point_in_rectangle`, `rectangle_in_rectangle`, `point_in_triangle`, `pack_bools`, `unpack_bool`.
    - Filename & Directory Utilities: `filename_name`, `filename_path`, `filename_dir`, `filename_drive`, `filename_ext`, `filename_change_ext`, `file_rename`, `file_copy`, `directory_exists`, `directory_create`.
    - Binary File IO: `file_bin_open`, `file_bin_close`, `file_bin_write_byte`, `file_bin_read_byte`, `file_bin_seek`, `file_bin_size`, `file_bin_position`.
