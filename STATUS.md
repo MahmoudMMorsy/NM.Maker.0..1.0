@@ -2,8 +2,8 @@
 
 ## Audit & Verification Update (Latest)
 - Comprehensive automated verification completed across all native C host test suites and TypeScript web studio typechecking.
-- Extended `gml_frontend.h`, `gml_frontend.c`, and `gml_vm.c` to fully support `div`, `mod`, `globalvar`, optional commas, statement blocks in for loop initializers/steps, and optional `do` after `while`.
-- Re-verified all native binaries (`test_full_suite`, `test_gmk_probe`, `test_gml_exec`, `test_gmx_export`) with 0 GCC warnings (`-Wall -Wextra`) and 100% test suite execution PASS rate.
+- Extended `gml_frontend.h`, `gml_frontend.c`, and `gml_vm.c` to fully support `div`, `mod`, `globalvar`, optional commas, statement blocks in for loop initializers/steps, optional `do` after `while`, and standard GML script invocation parameters (`argument0`..`argument15`, `argument_count`).
+- Re-verified all native binaries (`test_full_suite`, `test_gmk_probe`, `test_gml_exec`, `test_gmx_export`, `gmk_probe_contract_test`, `gml_do_until_test`, `gml_invoke_test`, `core_benchmark`) with 0 GCC warnings (`-Wall -Wextra`) and 100% test suite execution PASS rate.
 - 100% GML sweep verification across all 553/553 GML files in all 28 packages in `source/` and extracted project repositories.
 - TypeScript compilation check in `Nor-maker-7-main` (`npm run typecheck`) passes with 0 errors.
 
@@ -12,10 +12,10 @@
 All native host test binaries compile with zero warnings (`-Wall -Wextra -Wno-unused-parameter`) and all TypeScript compilation checks pass with zero errors.
 
 ### Native Host Core Tests (`test_full_suite.c`)
-- **Status:** PASS (22/22 test suites passing)
+- **Status:** PASS (23/23 test suites passing)
 - **Suites Executed:**
   1. `test_gmk_probe_suite`: PASS
-  2. `test_gml_vm_suite`: PASS (Hex literals `$HEX`/`0xHEX`, block comments `/* */`, bitwise operators `&`, `|`, `^`, `~`, `<<`, `>>`, arithmetic `div`/`mod`)
+  2. `test_gml_vm_suite`: PASS (Hex literals `$HEX`/`0xHEX`, block comments `/* */`, bitwise operators `&`, `|`, `^`, `~`, `<<`, `>>`, arithmetic `div`/`mod`, script arguments `argument0`..`argument15`, `argument_count`)
   3. `test_gml_extended_builtins_suite`: PASS
   4. `test_object_inheritance_suite`: PASS
   5. `test_ds_structures_suite`: PASS

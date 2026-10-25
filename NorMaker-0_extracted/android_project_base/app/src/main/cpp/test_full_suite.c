@@ -49,8 +49,19 @@ void test_gml_vm_suite(void) {
     assert(exec_ok);
     assert(vm.returned);
     assert(vm.return_value.real == 20.0);
-
     gml_ast_free(ast);
+
+    /* Test gml_vm_invoke with standard GML script arguments: argument0, argument1, argument_count */
+    const char *script_code = "return argument0 * argument1 + argument_count;\n";
+    gml_ast *script_ast = NULL;
+    assert(gml_parse_program(script_code, &script_ast, err, sizeof(err)));
+    gml_value args[2] = { gml_value_real(6.0), gml_value_real(7.0) };
+    gml_value script_out = gml_value_real(0.0);
+    assert(gml_vm_invoke(&vm, script_ast, args, 2, &script_out));
+    assert(script_out.kind == GML_V_REAL && script_out.real == 44.0); /* 6*7 + 2 = 44 */
+    gml_value_free(&script_out);
+    gml_ast_free(script_ast);
+
     printf("[PASS] GML VM Suite\n");
 }
 
