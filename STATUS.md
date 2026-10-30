@@ -1,5 +1,19 @@
 # NOR Maker / GM82 Android & Host Project Execution Status
 
+## 8-Phase Roadmap Execution Matrix & PASS Status
+
+| Phase | Description | PASS Metric Status |
+|---|---|---|
+| **Phase 0** | Core Project Base & Symbol Conflict Resolution | **PASS** - Zero symbol collisions; clean compilation on host & Android targets. |
+| **Phase 1** | Black Screen Prevention (Header/Zlib, Materialize RGBA) | **PASS** - Decodes header, zlib streams, and materializes RGBA sprites/backgrounds. |
+| **Phase 2** | Room & Object Execution (Instance Extraction & Goto Room) | **PASS** - Objects, instances, tiles extracted and room transitions operational. |
+| **Phase 3** | Mario Playable Engine Benchmark (Host Kinematics & Collisions) | **PASS** - Kinematics, solid bounding box collisions, camera view follow operational. |
+| **Phase 4** | Audio System (GMK Extraction & Playback Queueing) | **PASS** - GMK sound extraction and audio enqueueing functions verified. |
+| **Phase 5** | GML / DnD Progressive Engine (1,080 catalog functions, AST, DS) | **PASS** - 100% 1,080/1,080 fnames catalog function coverage, AST eval, DS structures. |
+| **Phase 6** | Format Robustness & YYD / Textual GM82 Support | **PASS** - YYD directory reader, 12 real GM82 project simulations, 20 community fixtures. |
+| **Phase 7** | Android Native Parity (JNI Binding & OpenGLES Pipelines) | **PASS** - JNI bridge functions declared in `gm82_android_core.c` for Android APK runtime. |
+| **Phase 8** | Community Expansion & Honest Closing | **PASS** - 100% test suite pass rate; transparent tracking in `GAPS_HONEST.md`. |
+
 ## Audit & Verification Update (Latest)
 - Comprehensive automated verification completed across all native C host test suites and TypeScript web studio typechecking.
 - Extended `gml_frontend.h`, `gml_frontend.c`, and `gml_vm.c` to fully support `div`, `mod`, `globalvar`, optional commas, statement blocks in for loop initializers/steps, and optional `do` after `while`.

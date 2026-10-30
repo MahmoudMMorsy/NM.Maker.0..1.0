@@ -8,3 +8,7 @@ coverage/
 !.env.example
 Nor-maker-7-main/
 extracted_NorMaker-0_1/
+test_full_suite
+test_gmk_probe
+test_gml_exec
+test_gmx_export
